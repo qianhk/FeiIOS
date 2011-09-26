@@ -97,7 +97,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    cell.textLabel.text = @"abc";
+    cell.textLabel.text = @"abcdefg";
     
     return cell;
 }
