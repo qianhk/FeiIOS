@@ -290,27 +290,27 @@
     c =     (
                 {
             l = DetailViewController;
-            r = "{4016, 24}";
+            r = "{4019, 24}";
             s = 1;
         },
                 {
             l = DetailViewController;
-            r = "{4067, 24}";
+            r = "{4070, 24}";
             s = 1;
         },
                 {
             l = "Nib name";
-            r = "{4117, 12}";
+            r = "{4120, 12}";
             s = 1;
         }
     );
-    r = "{0, 4357}";
+    r = "{0, 4360}";
     s = 0;
 }</string>
 		</dict>
-		<real>338745655.515149</real>
-		<string>{1834, 1961}</string>
-		<string>{2279, 0}</string>
+		<real>338745820.265095</real>
+		<string>{1420, 1939}</string>
+		<string>{2438, 0}</string>
 		<dict>
 			<key>$classes</key>
 			<array>
@@ -1723,27 +1723,27 @@
     c =     (
                 {
             l = DetailViewController;
-            r = "{4016, 24}";
+            r = "{4019, 24}";
             s = 1;
         },
                 {
             l = DetailViewController;
-            r = "{4067, 24}";
+            r = "{4070, 24}";
             s = 1;
         },
                 {
             l = "Nib name";
-            r = "{4117, 12}";
+            r = "{4120, 12}";
             s = 1;
         }
     );
-    r = "{0, 4357}";
+    r = "{0, 4360}";
     s = 0;
 }</string>
 		</dict>
-		<real>338745655.51612902</real>
-		<string>{1834, 1961}</string>
-		<string>{2279, 0}</string>
+		<real>338745820.26637602</real>
+		<string>{1420, 1939}</string>
+		<string>{2438, 0}</string>
 		<string>-tableView:cellForRowAtIndexPath:</string>
 		<dict>
 			<key>$class</key>
