@@ -79,6 +79,7 @@
 	[self.view addSubview:tasksInfo.view];
 	
 	tabBar.selectedItem = tabBarItem0;
+	[self.view bringSubviewToFront:generalInfo.view];
 }
 
 - (void)dealloc
