@@ -97,10 +97,15 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+		UILabel* noLabel = [[UILabel alloc] init];
+		noLabel.tag = 6666;
+		[cell addSubview:noLabel];
     }
-    
-    cell.textLabel.text = @"abcdef";
+    UILabel *label = (UILabel *)[cell viewWithTag:6666];
+	label.text = 
+    cell.textLabel.text = [NSString stringWithFormat:@"%d text", [indexPath row]];
+	cell.detailTextLabel.text = @"detailTextLabel";
     
     return cell;
 }
