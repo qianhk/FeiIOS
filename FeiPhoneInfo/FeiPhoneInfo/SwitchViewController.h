@@ -21,6 +21,7 @@
 	UITabBarItem* tabBarItem2;
 	UITabBarItem* tabBarItem3;
 	UITabBarItem* tabBarItem4;
+	UITabBarItem* tabBarItem5;
 	
 	GeneralInfoController* generalInfo;
 	TasksController*	tasksInfo;

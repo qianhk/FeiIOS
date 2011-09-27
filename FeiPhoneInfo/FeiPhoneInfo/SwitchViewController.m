@@ -62,12 +62,13 @@
 
 	CGRect rectbottom = CGRectMake(0, 416, 320, 44);
 	tabBar = [[UITabBar alloc] initWithFrame:rectbottom];
-	tabBarItem0 = [[UITabBarItem alloc] initWithTitle:@"000" image:nil tag:100];
-	tabBarItem1 = [[UITabBarItem alloc] initWithTitle:@"001" image:nil tag:101];
-	tabBarItem2 = [[UITabBarItem alloc] initWithTitle:@"002" image:nil tag:102];
-	tabBarItem3 = [[UITabBarItem alloc] initWithTitle:@"003" image:nil tag:103];
-	tabBarItem4 = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:104];
-	NSArray* array = [NSArray arrayWithObjects:tabBarItem0,tabBarItem1,tabBarItem2,tabBarItem3,tabBarItem4, nil];
+	tabBarItem0 = [[UITabBarItem alloc] initWithTitle:@"General" image:[UIImage imageNamed:@"generalinfo.png"] tag:100];
+	tabBarItem1 = [[UITabBarItem alloc] initWithTitle:@"Tasks" image:[UIImage imageNamed:@"tasks.png"] tag:101];
+	tabBarItem2 = [[UITabBarItem alloc] initWithTitle:@"Profiles" image:[UIImage imageNamed:@"profiles.png"] tag:102];
+	tabBarItem3 = [[UITabBarItem alloc] initWithTitle:@"Network" image:[UIImage imageNamed:@"network.png"] tag:103];
+	tabBarItem4 = [[UITabBarItem alloc] initWithTitle:@"Camera" image:[UIImage imageNamed:@"camera.png"] tag:104];
+	tabBarItem5 = [[UITabBarItem alloc] initWithTitle:@"Hardware" image:[UIImage imageNamed:@"hardware.png"] tag:105];
+	NSArray* array = [NSArray arrayWithObjects:tabBarItem0,tabBarItem1,tabBarItem2,tabBarItem3,tabBarItem4, tabBarItem5, nil];
 	[tabBar setItems:array animated:YES];
 	[tabBar setDelegate:self];
 	[self.view addSubview:tabBar];
@@ -92,6 +93,7 @@
 	[tabBarItem2 release];
 	[tabBarItem3 release];
 	[tabBarItem4 release];
+	[tabBarItem5 release];
 	[tabBar release];
 	[imgView release];
 	[bkgView release];
@@ -123,8 +125,11 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
+//	[UIView beginAnimations:@"Test" context:nil];
+//	[UIView setAnimationDuration:0.5];
 	if (item.tag == 100)
 	{
+//		[UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:generalInfo.view cache:YES];
 		[self.view bringSubviewToFront:generalInfo.view];
 	}
 	else if (item.tag == 101)
@@ -135,6 +140,7 @@
 	{
 //		[self.view sendSubviewToBack:generalInfo.view];
 	}
+//	[UIView commitAnimations];
 }
 
 @end
