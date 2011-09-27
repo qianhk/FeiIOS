@@ -97,7 +97,9 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    cell.textLabel.text = @"sakd";
+	NSLocale* locale = [NSLocale currentLocale];
+	NSString* disS = [locale displayNameForKey:NSLocaleIdentifier value:[locale localeIdentifier]];
+    cell.textLabel.text = disS;
     
     return cell;
 }

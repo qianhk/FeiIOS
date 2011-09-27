@@ -62,13 +62,13 @@
 
 	CGRect rectbottom = CGRectMake(0, 416, 320, 44);
 	tabBar = [[UITabBar alloc] initWithFrame:rectbottom];
-	tabBarItem0 = [[UITabBarItem alloc] initWithTitle:@"General" image:[UIImage imageNamed:@"generalinfo.png"] tag:100];
-	tabBarItem1 = [[UITabBarItem alloc] initWithTitle:@"Tasks" image:[UIImage imageNamed:@"tasks.png"] tag:101];
-	tabBarItem2 = [[UITabBarItem alloc] initWithTitle:@"Profiles" image:[UIImage imageNamed:@"profiles.png"] tag:102];
-	tabBarItem3 = [[UITabBarItem alloc] initWithTitle:@"Network" image:[UIImage imageNamed:@"network.png"] tag:103];
-	tabBarItem4 = [[UITabBarItem alloc] initWithTitle:@"Camera" image:[UIImage imageNamed:@"camera.png"] tag:104];
-	tabBarItem5 = [[UITabBarItem alloc] initWithTitle:@"Hardware" image:[UIImage imageNamed:@"hardware.png"] tag:105];
-	tabBarItem6 = [[UITabBarItem alloc] initWithTitle:@"About" image:[UIImage imageNamed:@"about.png"] tag:106];
+	tabBarItem0 = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"General", @"for general info") image:[UIImage imageNamed:@"generalinfo.png"] tag:100];
+	tabBarItem1 = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Tasks", @"for phone tasks") image:[UIImage imageNamed:@"tasks.png"] tag:101];
+	tabBarItem2 = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Profiles", @"for phone profiles") image:[UIImage imageNamed:@"profiles.png"] tag:102];
+	tabBarItem3 = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Network", @"for phone network") image:[UIImage imageNamed:@"network.png"] tag:103];
+	tabBarItem4 = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Camera", @"for camera") image:[UIImage imageNamed:@"camera.png"] tag:104];
+	tabBarItem5 = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Hardware", @"for hardware text") image:[UIImage imageNamed:@"hardware.png"] tag:105];
+	tabBarItem6 = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"About", @"for about prompt") image:[UIImage imageNamed:@"about.png"] tag:106];
 	NSArray* array = [NSArray arrayWithObjects:tabBarItem0,tabBarItem1,tabBarItem2,tabBarItem3,tabBarItem4, tabBarItem5,tabBarItem6, nil];
 	[tabBar setItems:array animated:YES];
 	[tabBar setDelegate:self];

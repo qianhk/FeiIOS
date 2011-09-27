@@ -24,7 +24,6 @@
 		D94E0DAC143054DB00552FBE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D94E0DAA143054DB00552FBE /* InfoPlist.strings */; };
 		D94E0DAE143054DB00552FBE /* FeiPhoneInfoTests.h in Resources */ = {isa = PBXBuildFile; fileRef = D94E0DAD143054DB00552FBE /* FeiPhoneInfoTests.h */; };
 		D94E0DB0143054DB00552FBE /* FeiPhoneInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D94E0DAF143054DB00552FBE /* FeiPhoneInfoTests.m */; };
-		D9AE8E1814307121007D9447 /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AE8E1714307121007D9447 /* SwitchViewController.m */; };
 		D9AE8E3514308585007D9447 /* GeneralInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AE8E3414308585007D9447 /* GeneralInfoController.m */; };
 		D9C8DD801430894500856CA1 /* TasksController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C8DD7F1430894500856CA1 /* TasksController.m */; };
 		D9F31BB414316AC600C019BE /* iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BB314316AC600C019BE /* iPhone.png */; };
@@ -36,6 +35,8 @@
 		D9F31BC9143172A400C019BE /* profiles.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BC1143172A400C019BE /* profiles.png */; };
 		D9F31BCA143172A400C019BE /* tasks.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BC2143172A400C019BE /* tasks.png */; };
 		D9F31BCC14317A6400C019BE /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BCB14317A6400C019BE /* about.png */; };
+		D9F31BD71431878D00C019BE /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F31BD81431878D00C019BE /* SwitchViewController.m */; };
+		D9F31BDB1431A76200C019BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BDD1431A76200C019BE /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +73,6 @@
 		D94E0DAD143054DB00552FBE /* FeiPhoneInfoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeiPhoneInfoTests.h; sourceTree = "<group>"; };
 		D94E0DAF143054DB00552FBE /* FeiPhoneInfoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeiPhoneInfoTests.m; sourceTree = "<group>"; };
 		D9AE8E1614307120007D9447 /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
-		D9AE8E1714307121007D9447 /* SwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
 		D9AE8E3314308585007D9447 /* GeneralInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralInfoController.h; sourceTree = "<group>"; };
 		D9AE8E3414308585007D9447 /* GeneralInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralInfoController.m; sourceTree = "<group>"; };
 		D9C8DD7E1430894500856CA1 /* TasksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksController.h; sourceTree = "<group>"; };
@@ -86,6 +86,14 @@
 		D9F31BC1143172A400C019BE /* profiles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profiles.png; sourceTree = "<group>"; };
 		D9F31BC2143172A400C019BE /* tasks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tasks.png; sourceTree = "<group>"; };
 		D9F31BCB14317A6400C019BE /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about.png; sourceTree = "<group>"; };
+		D9F31BCD14317FE900C019BE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MainWindow_iPhone.xib"; sourceTree = "<group>"; };
+		D9F31BCE1431803400C019BE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/MainWindow_iPhone.xib"; sourceTree = "<group>"; };
+		D9F31BD3143184B900C019BE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hans"; path = "zh-Hans.lproj/MainWindow_iPad.xib"; sourceTree = "<group>"; };
+		D9F31BD4143184BB00C019BE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/MainWindow_iPad.xib"; sourceTree = "<group>"; };
+		D9F31BD81431878D00C019BE /* SwitchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
+		D9F31BDC1431A76200C019BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D9F31BDE1431A76B00C019BE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D9F31BDF1431A76E00C019BE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +158,7 @@
 				D94E0D89143054DB00552FBE /* FeiPhoneInfoAppDelegate.h */,
 				D94E0D8A143054DB00552FBE /* FeiPhoneInfoAppDelegate.m */,
 				D9AE8E1614307120007D9447 /* SwitchViewController.h */,
-				D9AE8E1714307121007D9447 /* SwitchViewController.m */,
+				D9F31BD81431878D00C019BE /* SwitchViewController.m */,
 				D9AE8E3314308585007D9447 /* GeneralInfoController.h */,
 				D9AE8E3414308585007D9447 /* GeneralInfoController.m */,
 				D9C8DD7E1430894500856CA1 /* TasksController.h */,
@@ -215,6 +223,7 @@
 		D9F31BB214316AC600C019BE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D9F31BDD1431A76200C019BE /* Localizable.strings */,
 				D9F31BCB14317A6400C019BE /* about.png */,
 				D9F31BBB143172A400C019BE /* Camera.png */,
 				D9F31BBD143172A400C019BE /* generalinfo.png */,
@@ -281,6 +290,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = D94E0D6B143054DB00552FBE;
 			productRefGroup = D94E0D77143054DB00552FBE /* Products */;
@@ -310,6 +321,7 @@
 				D9F31BC9143172A400C019BE /* profiles.png in Resources */,
 				D9F31BCA143172A400C019BE /* tasks.png in Resources */,
 				D9F31BCC14317A6400C019BE /* about.png in Resources */,
+				D9F31BDB1431A76200C019BE /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +361,7 @@
 				D94E0D8B143054DB00552FBE /* FeiPhoneInfoAppDelegate.m in Sources */,
 				D94E0D8F143054DB00552FBE /* FeiPhoneInfoAppDelegate_iPhone.m in Sources */,
 				D94E0D96143054DB00552FBE /* FeiPhoneInfoAppDelegate_iPad.m in Sources */,
-				D9AE8E1814307121007D9447 /* SwitchViewController.m in Sources */,
+				D9F31BD71431878D00C019BE /* SwitchViewController.m in Sources */,
 				D9AE8E3514308585007D9447 /* GeneralInfoController.m in Sources */,
 				D9C8DD801430894500856CA1 /* TasksController.m in Sources */,
 			);
@@ -386,6 +398,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				D94E0D91143054DB00552FBE /* en */,
+				D9F31BCD14317FE900C019BE /* zh-Hans */,
+				D9F31BCE1431803400C019BE /* zh-Hant */,
 			);
 			name = MainWindow_iPhone.xib;
 			sourceTree = "<group>";
@@ -394,6 +408,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				D94E0D98143054DB00552FBE /* en */,
+				D9F31BD3143184B900C019BE /* zh-Hans */,
+				D9F31BD4143184BB00C019BE /* zh-Hant */,
 			);
 			name = MainWindow_iPad.xib;
 			sourceTree = "<group>";
@@ -404,6 +420,16 @@
 				D94E0DAB143054DB00552FBE /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D9F31BDD1431A76200C019BE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9F31BDC1431A76200C019BE /* en */,
+				D9F31BDE1431A76B00C019BE /* zh-Hans */,
+				D9F31BDF1431A76E00C019BE /* zh-Hant */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
