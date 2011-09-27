@@ -68,7 +68,8 @@
 	tabBarItem3 = [[UITabBarItem alloc] initWithTitle:@"Network" image:[UIImage imageNamed:@"network.png"] tag:103];
 	tabBarItem4 = [[UITabBarItem alloc] initWithTitle:@"Camera" image:[UIImage imageNamed:@"camera.png"] tag:104];
 	tabBarItem5 = [[UITabBarItem alloc] initWithTitle:@"Hardware" image:[UIImage imageNamed:@"hardware.png"] tag:105];
-	NSArray* array = [NSArray arrayWithObjects:tabBarItem0,tabBarItem1,tabBarItem2,tabBarItem3,tabBarItem4, tabBarItem5, nil];
+	tabBarItem6 = [[UITabBarItem alloc] initWithTitle:@"About" image:[UIImage imageNamed:@"about.png"] tag:106];
+	NSArray* array = [NSArray arrayWithObjects:tabBarItem0,tabBarItem1,tabBarItem2,tabBarItem3,tabBarItem4, tabBarItem5,tabBarItem6, nil];
 	[tabBar setItems:array animated:YES];
 	[tabBar setDelegate:self];
 	[self.view addSubview:tabBar];
@@ -94,6 +95,7 @@
 	[tabBarItem3 release];
 	[tabBarItem4 release];
 	[tabBarItem5 release];
+	[tabBarItem6 release];
 	[tabBar release];
 	[imgView release];
 	[bkgView release];
