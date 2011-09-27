@@ -48,19 +48,9 @@
 {
 	[super loadView];
 	
-//	CGRect rect = [[UIScreen mainScreen] bounds];
+	CGRect rect = [[UIScreen mainScreen] bounds];
+	CGRect rectbottom = CGRectMake(0, rect.size.height - 20 - 44, rect.size.width, 44);
 	
-//	bkgView = [[UIView alloc] initWithFrame:rect];
-////	self.view = bkgView;
-//	[self.view addSubview:bkgView];
-//	bkgView.backgroundColor = [UIColor clearColor];
-	
-//	UIImage *image = [UIImage imageNamed:@"splash.jpg"];
-//    imgView = [[UIImageView alloc] initWithFrame:rect];
-//    imgView.image = image;
-//	self.view = imgView;
-
-	CGRect rectbottom = CGRectMake(0, 416, 320, 44);
 	tabBar = [[UITabBar alloc] initWithFrame:rectbottom];
 	tabBarItem0 = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"General", @"for general info") image:[UIImage imageNamed:@"generalinfo.png"] tag:100];
 	tabBarItem1 = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Tasks", @"for phone tasks") image:[UIImage imageNamed:@"tasks.png"] tag:101];

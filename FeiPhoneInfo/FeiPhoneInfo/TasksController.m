@@ -14,8 +14,11 @@
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
-    if (self) {
-        self.view.frame = CGRectMake(0, 0, 320, 416);
+    if (self)
+	{
+		CGRect rect = [[UIScreen mainScreen] bounds];
+		CGRect rectView = CGRectMake(0, 0, rect.size.width, rect.size.height - 20 - 44);
+        self.view.frame = rectView;
     }
     return self;
 }

@@ -24,10 +24,17 @@
 		D94E0DAC143054DB00552FBE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D94E0DAA143054DB00552FBE /* InfoPlist.strings */; };
 		D94E0DAE143054DB00552FBE /* FeiPhoneInfoTests.h in Resources */ = {isa = PBXBuildFile; fileRef = D94E0DAD143054DB00552FBE /* FeiPhoneInfoTests.h */; };
 		D94E0DB0143054DB00552FBE /* FeiPhoneInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D94E0DAF143054DB00552FBE /* FeiPhoneInfoTests.m */; };
+		D965E7BD1431BE7500457246 /* about@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D965E7BC1431BE7500457246 /* about@2x.png */; };
+		D965E7C01431BFA600457246 /* network@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D965E7BF1431BFA600457246 /* network@2x.png */; };
+		D965E7C21431C08200457246 /* generalinfo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D965E7C11431C08200457246 /* generalinfo@2x.png */; };
+		D965E7C41431C1C500457246 /* tasks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D965E7C31431C1C500457246 /* tasks@2x.png */; };
+		D965E7C61431C22800457246 /* profiles@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D965E7C51431C22800457246 /* profiles@2x.png */; };
+		D965E7C91431C2EC00457246 /* Camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D965E7C71431C2EC00457246 /* Camera@2x.png */; };
+		D965E7CA1431C2EC00457246 /* hardware@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D965E7C81431C2EC00457246 /* hardware@2x.png */; };
+		D965E7DF1431CF1500457246 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D965E7E01431CF1500457246 /* icon.png */; };
 		D9AE8E3514308585007D9447 /* GeneralInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AE8E3414308585007D9447 /* GeneralInfoController.m */; };
 		D9C8DD801430894500856CA1 /* TasksController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C8DD7F1430894500856CA1 /* TasksController.m */; };
 		D9F31BB414316AC600C019BE /* iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BB314316AC600C019BE /* iPhone.png */; };
-		D9F31BB614316CC400C019BE /* fox.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BB514316CC400C019BE /* fox.png */; };
 		D9F31BC3143172A400C019BE /* Camera.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BBB143172A400C019BE /* Camera.png */; };
 		D9F31BC5143172A400C019BE /* generalinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BBD143172A400C019BE /* generalinfo.png */; };
 		D9F31BC6143172A400C019BE /* hardware.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BBE143172A400C019BE /* hardware.png */; };
@@ -54,7 +61,6 @@
 		D94E0D7A143054DB00552FBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D94E0D7C143054DB00552FBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D94E0D7E143054DB00552FBE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		D94E0D82143054DB00552FBE /* FeiPhoneInfo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FeiPhoneInfo-Info.plist"; sourceTree = "<group>"; };
 		D94E0D84143054DB00552FBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D94E0D86143054DB00552FBE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D94E0D88143054DB00552FBE /* FeiPhoneInfo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeiPhoneInfo-Prefix.pch"; sourceTree = "<group>"; };
@@ -72,13 +78,23 @@
 		D94E0DAB143054DB00552FBE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D94E0DAD143054DB00552FBE /* FeiPhoneInfoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeiPhoneInfoTests.h; sourceTree = "<group>"; };
 		D94E0DAF143054DB00552FBE /* FeiPhoneInfoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeiPhoneInfoTests.m; sourceTree = "<group>"; };
+		D965E7BC1431BE7500457246 /* about@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "about@2x.png"; sourceTree = "<group>"; };
+		D965E7BF1431BFA600457246 /* network@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "network@2x.png"; sourceTree = "<group>"; };
+		D965E7C11431C08200457246 /* generalinfo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "generalinfo@2x.png"; sourceTree = "<group>"; };
+		D965E7C31431C1C500457246 /* tasks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tasks@2x.png"; sourceTree = "<group>"; };
+		D965E7C51431C22800457246 /* profiles@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profiles@2x.png"; sourceTree = "<group>"; };
+		D965E7C71431C2EC00457246 /* Camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Camera@2x.png"; sourceTree = "<group>"; };
+		D965E7C81431C2EC00457246 /* hardware@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hardware@2x.png"; sourceTree = "<group>"; };
+		D965E7D21431C55E00457246 /* FeiPhoneInfo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FeiPhoneInfo-Info.plist"; sourceTree = "<group>"; };
+		D965E7D71431C64200457246 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D965E7D81431C65000457246 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D965E7E01431CF1500457246 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		D9AE8E1614307120007D9447 /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
 		D9AE8E3314308585007D9447 /* GeneralInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralInfoController.h; sourceTree = "<group>"; };
 		D9AE8E3414308585007D9447 /* GeneralInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralInfoController.m; sourceTree = "<group>"; };
 		D9C8DD7E1430894500856CA1 /* TasksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksController.h; sourceTree = "<group>"; };
 		D9C8DD7F1430894500856CA1 /* TasksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksController.m; sourceTree = "<group>"; };
 		D9F31BB314316AC600C019BE /* iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone.png; sourceTree = "<group>"; };
-		D9F31BB514316CC400C019BE /* fox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fox.png; sourceTree = "<group>"; };
 		D9F31BBB143172A400C019BE /* Camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camera.png; sourceTree = "<group>"; };
 		D9F31BBD143172A400C019BE /* generalinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = generalinfo.png; sourceTree = "<group>"; };
 		D9F31BBE143172A400C019BE /* hardware.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hardware.png; sourceTree = "<group>"; };
@@ -173,7 +189,7 @@
 		D94E0D81143054DB00552FBE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D94E0D82143054DB00552FBE /* FeiPhoneInfo-Info.plist */,
+				D965E7D21431C55E00457246 /* FeiPhoneInfo-Info.plist */,
 				D94E0D83143054DB00552FBE /* InfoPlist.strings */,
 				D94E0D86143054DB00552FBE /* main.m */,
 				D94E0D88143054DB00552FBE /* FeiPhoneInfo-Prefix.pch */,
@@ -223,6 +239,14 @@
 		D9F31BB214316AC600C019BE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D965E7E01431CF1500457246 /* icon.png */,
+				D965E7C71431C2EC00457246 /* Camera@2x.png */,
+				D965E7C81431C2EC00457246 /* hardware@2x.png */,
+				D965E7C51431C22800457246 /* profiles@2x.png */,
+				D965E7C31431C1C500457246 /* tasks@2x.png */,
+				D965E7C11431C08200457246 /* generalinfo@2x.png */,
+				D965E7BF1431BFA600457246 /* network@2x.png */,
+				D965E7BC1431BE7500457246 /* about@2x.png */,
 				D9F31BDD1431A76200C019BE /* Localizable.strings */,
 				D9F31BCB14317A6400C019BE /* about.png */,
 				D9F31BBB143172A400C019BE /* Camera.png */,
@@ -231,7 +255,6 @@
 				D9F31BC0143172A400C019BE /* network.png */,
 				D9F31BC1143172A400C019BE /* profiles.png */,
 				D9F31BC2143172A400C019BE /* tasks.png */,
-				D9F31BB514316CC400C019BE /* fox.png */,
 				D9F31BB314316AC600C019BE /* iPhone.png */,
 			);
 			path = Resource;
@@ -313,7 +336,6 @@
 				D94E0D92143054DB00552FBE /* MainWindow_iPhone.xib in Resources */,
 				D94E0D99143054DB00552FBE /* MainWindow_iPad.xib in Resources */,
 				D9F31BB414316AC600C019BE /* iPhone.png in Resources */,
-				D9F31BB614316CC400C019BE /* fox.png in Resources */,
 				D9F31BC3143172A400C019BE /* Camera.png in Resources */,
 				D9F31BC5143172A400C019BE /* generalinfo.png in Resources */,
 				D9F31BC6143172A400C019BE /* hardware.png in Resources */,
@@ -322,6 +344,14 @@
 				D9F31BCA143172A400C019BE /* tasks.png in Resources */,
 				D9F31BCC14317A6400C019BE /* about.png in Resources */,
 				D9F31BDB1431A76200C019BE /* Localizable.strings in Resources */,
+				D965E7BD1431BE7500457246 /* about@2x.png in Resources */,
+				D965E7C01431BFA600457246 /* network@2x.png in Resources */,
+				D965E7C21431C08200457246 /* generalinfo@2x.png in Resources */,
+				D965E7C41431C1C500457246 /* tasks@2x.png in Resources */,
+				D965E7C61431C22800457246 /* profiles@2x.png in Resources */,
+				D965E7C91431C2EC00457246 /* Camera@2x.png in Resources */,
+				D965E7CA1431C2EC00457246 /* hardware@2x.png in Resources */,
+				D965E7DF1431CF1500457246 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +420,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				D94E0D84143054DB00552FBE /* en */,
+				D965E7D71431C64200457246 /* zh-Hans */,
+				D965E7D81431C65000457246 /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

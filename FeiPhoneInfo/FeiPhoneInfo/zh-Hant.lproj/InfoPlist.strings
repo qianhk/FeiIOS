@@ -1,5 +1,5 @@
 /* Localized versions of Info.plist keys */
 
 /* Bundle display name*/
-"CFBundleDisplayName" = "FeiPhonetInfo";
-"CFBundleName"="MySoftName";
+"CFBundleDisplayName" = "設備信息";
+"CFBundleName"="软件名称";
