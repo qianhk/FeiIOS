@@ -1,21 +1,24 @@
 //
-//  TasksController.m
+//  BaseViewController.m
 //  FeiPhoneInfo
 //
-//  Created by hongkai.qian on 11-9-26.
+//  Created by hongkai.qian on 11-9-28.
 //  Copyright 2011年 TTPod. All rights reserved.
 //
 
-#import "TasksController.h"
+#import "BaseViewController.h"
 
 
-@implementation TasksController
+@implementation BaseViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self)
 	{
+		CGRect rect = [[UIScreen mainScreen] bounds];
+		CGRect rectView = CGRectMake(0, 0, rect.size.width, rect.size.height - 20 - 44);
+        self.view.frame = rectView;
     }
     return self;
 }
@@ -78,14 +81,32 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return 2;
+    return 0;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	return 2;
+}
+
+- (void)configCell:(UITableViewCell *)cell
+{
+	if (cell != nil)
+	{
+		UILabel* numberLabel = [[UILabel alloc] initWithFrame:CGRectMake(2, 2, 20, 20)];
+		numberLabel.tag = 6666;
+		numberLabel.textAlignment = UITextAlignmentRight;
+		numberLabel.font = [UIFont systemFontOfSize:10];
+		[cell.contentView addSubview:numberLabel];
+		cell.textLabel.font = [UIFont systemFontOfSize:16];
+		cell.detailTextLabel.font = [UIFont systemFontOfSize:14];
+		cell.detailTextLabel.textColor = [UIColor blackColor];
+	}
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -93,20 +114,10 @@
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil)
-	{
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-		[self configCell:cell];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	NSLocale* locale = [NSLocale currentLocale];
-	NSString* disS = [locale displayNameForKey:NSLocaleIdentifier value:[locale localeIdentifier]];
-    cell.textLabel.text = disS;
-	cell.detailTextLabel.text = @"这是详细文本chinese";
-	
-	UILabel *label = (UILabel *)[cell viewWithTag:6666];
-	label.text = [NSString stringWithFormat:@"%d", [indexPath row]];
-	
     return cell;
 }
 

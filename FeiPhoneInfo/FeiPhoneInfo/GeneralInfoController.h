@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface GeneralInfoController : UITableViewController
+@interface GeneralInfoController : BaseViewController
 
 @end

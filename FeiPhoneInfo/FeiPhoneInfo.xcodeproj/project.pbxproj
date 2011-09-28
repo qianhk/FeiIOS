@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D91B8E2E1432C71800E62AE5 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B8E2D1432C71800E62AE5 /* BaseViewController.m */; };
 		D94E0D7B143054DB00552FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94E0D7A143054DB00552FBE /* UIKit.framework */; };
 		D94E0D7D143054DB00552FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94E0D7C143054DB00552FBE /* Foundation.framework */; };
 		D94E0D7F143054DB00552FBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94E0D7E143054DB00552FBE /* CoreGraphics.framework */; };
@@ -57,6 +58,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D91B8E2C1432C71800E62AE5 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		D91B8E2D1432C71800E62AE5 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		D94E0D76143054DB00552FBE /* FeiPhoneInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeiPhoneInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D94E0D7A143054DB00552FBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D94E0D7C143054DB00552FBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -182,6 +185,8 @@
 				D94E0D8C143054DB00552FBE /* iPhone */,
 				D94E0D93143054DB00552FBE /* iPad */,
 				D94E0D81143054DB00552FBE /* Supporting Files */,
+				D91B8E2C1432C71800E62AE5 /* BaseViewController.h */,
+				D91B8E2D1432C71800E62AE5 /* BaseViewController.m */,
 			);
 			path = FeiPhoneInfo;
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 				D9F31BD71431878D00C019BE /* SwitchViewController.m in Sources */,
 				D9AE8E3514308585007D9447 /* GeneralInfoController.m in Sources */,
 				D9C8DD801430894500856CA1 /* TasksController.m in Sources */,
+				D91B8E2E1432C71800E62AE5 /* BaseViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

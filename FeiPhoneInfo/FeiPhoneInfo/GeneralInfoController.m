@@ -16,9 +16,6 @@
     self = [super initWithStyle:style];
     if (self)
 	{
-		CGRect rect = [[UIScreen mainScreen] bounds];
-		CGRect rectView = CGRectMake(0, 0, rect.size.width, rect.size.height - 20 - 44);
-        self.view.frame = rectView;
     }
     return self;
 }
@@ -88,7 +85,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 2;
+    return 12;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,17 +95,16 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-		UILabel* noLabel = [[UILabel alloc] init];
-		noLabel.tag = 6666;
-		[cell addSubview:noLabel];
+		[super configCell:cell];
     }
     UILabel *label = (UILabel *)[cell viewWithTag:6666];
-	label.text = 
-    cell.textLabel.text = [NSString stringWithFormat:@"%d text", [indexPath row]];
+	label.text = [NSString stringWithFormat:@"%d", [indexPath row]];
+    cell.textLabel.text = @"text";
 	cell.detailTextLabel.text = @"detailTextLabel";
     
     return cell;
 }
+
 
 /*
 // Override to support conditional editing of the table view.
