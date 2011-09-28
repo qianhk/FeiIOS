@@ -8,8 +8,10 @@
 
 #import "GeneralViewController.h"
 
-
 @implementation GeneralViewController
+
+const NSString* KUDID = @"UDID";
+const NSString* KModel = @"Model";
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,11 +36,10 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	UIDevice* device = [UIDevice currentDevice];
+    NSString* udid = [device uniqueIdentifier];
+	[_dic setObject:udid forKey:KUDID];
+	[_dic setObject:[device model] forKey:KModel];
 }
 
 - (void)viewDidUnload
@@ -85,7 +86,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 12;
+    return [_dic count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -98,9 +99,11 @@
 		[super configCell:cell];
     }
     UILabel *label = (UILabel *)[cell viewWithTag:6666];
-	label.text = [NSString stringWithFormat:@"%d", [indexPath row] + 1];
-    cell.textLabel.text = @"text";
-	cell.detailTextLabel.text = @"detailTextLabel";
+	NSInteger row = [indexPath row];
+	label.text = [NSString stringWithFormat:@"%d", row + 1];
+    NSString* text = [[_dic allKeys] objectAtIndex:row];
+	cell.textLabel.text = text;
+	cell.detailTextLabel.text = [_dic objectForKey:text];
     
     return cell;
 }

@@ -16,9 +16,7 @@
     self = [super initWithStyle:style];
     if (self)
 	{
-		CGRect rect = [[UIScreen mainScreen] bounds];
-		CGRect rectView = CGRectMake(0, 0, rect.size.width, rect.size.height - 20 - 44);
-        self.view.frame = rectView;
+		_dic = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
@@ -31,17 +29,22 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)dealloc
+{
+	[_dic release];
+	
+	[super dealloc];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+	CGRect rect = [[UIScreen mainScreen] bounds];
+	CGRect rectView = CGRectMake(0, 0, rect.size.width, rect.size.height - 20 - 44);
+	self.view.frame = rectView;
 }
 
 - (void)viewDidUnload

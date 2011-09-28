@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface BaseViewController : UITableViewController
+{
+	NSMutableDictionary* _dic;
+}
 
 - (void)configCell:(UITableViewCell *)cell;
 
