@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D91B8E2E1432C71800E62AE5 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B8E2D1432C71800E62AE5 /* BaseViewController.m */; };
+		D91B8E3A1432CC7100E62AE5 /* ProfilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B8E391432CC7000E62AE5 /* ProfilesViewController.m */; };
+		D91B8E3D1432CE0700E62AE5 /* NetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B8E3C1432CE0700E62AE5 /* NetworkViewController.m */; };
+		D91B8E401432CE2100E62AE5 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B8E3F1432CE2100E62AE5 /* CameraViewController.m */; };
+		D91B8E431432CE3500E62AE5 /* HardwareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B8E421432CE3500E62AE5 /* HardwareViewController.m */; };
+		D91B8E461432CE4800E62AE5 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B8E451432CE4800E62AE5 /* AboutViewController.m */; };
+		D91B8E4F14331DF400E62AE5 /* logo_about.png in Resources */ = {isa = PBXBuildFile; fileRef = D91B8E4E14331DF400E62AE5 /* logo_about.png */; };
 		D94E0D7B143054DB00552FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94E0D7A143054DB00552FBE /* UIKit.framework */; };
 		D94E0D7D143054DB00552FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94E0D7C143054DB00552FBE /* Foundation.framework */; };
 		D94E0D7F143054DB00552FBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94E0D7E143054DB00552FBE /* CoreGraphics.framework */; };
@@ -33,8 +39,8 @@
 		D965E7C91431C2EC00457246 /* Camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D965E7C71431C2EC00457246 /* Camera@2x.png */; };
 		D965E7CA1431C2EC00457246 /* hardware@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D965E7C81431C2EC00457246 /* hardware@2x.png */; };
 		D965E7DF1431CF1500457246 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D965E7E01431CF1500457246 /* icon.png */; };
-		D9AE8E3514308585007D9447 /* GeneralInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AE8E3414308585007D9447 /* GeneralInfoController.m */; };
-		D9C8DD801430894500856CA1 /* TasksController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C8DD7F1430894500856CA1 /* TasksController.m */; };
+		D9AE8E3514308585007D9447 /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AE8E3414308585007D9447 /* GeneralViewController.m */; };
+		D9C8DD801430894500856CA1 /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C8DD7F1430894500856CA1 /* TaskViewController.m */; };
 		D9F31BB414316AC600C019BE /* iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BB314316AC600C019BE /* iPhone.png */; };
 		D9F31BC3143172A400C019BE /* Camera.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BBB143172A400C019BE /* Camera.png */; };
 		D9F31BC5143172A400C019BE /* generalinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BBD143172A400C019BE /* generalinfo.png */; };
@@ -60,6 +66,17 @@
 /* Begin PBXFileReference section */
 		D91B8E2C1432C71800E62AE5 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		D91B8E2D1432C71800E62AE5 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		D91B8E381432CC7000E62AE5 /* ProfilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilesViewController.h; sourceTree = "<group>"; };
+		D91B8E391432CC7000E62AE5 /* ProfilesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfilesViewController.m; sourceTree = "<group>"; };
+		D91B8E3B1432CE0700E62AE5 /* NetworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkViewController.h; sourceTree = "<group>"; };
+		D91B8E3C1432CE0700E62AE5 /* NetworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkViewController.m; sourceTree = "<group>"; };
+		D91B8E3E1432CE2100E62AE5 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		D91B8E3F1432CE2100E62AE5 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		D91B8E411432CE3500E62AE5 /* HardwareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HardwareViewController.h; sourceTree = "<group>"; };
+		D91B8E421432CE3500E62AE5 /* HardwareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HardwareViewController.m; sourceTree = "<group>"; };
+		D91B8E441432CE4800E62AE5 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		D91B8E451432CE4800E62AE5 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		D91B8E4E14331DF400E62AE5 /* logo_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_about.png; sourceTree = "<group>"; };
 		D94E0D76143054DB00552FBE /* FeiPhoneInfo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeiPhoneInfo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D94E0D7A143054DB00552FBE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D94E0D7C143054DB00552FBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -93,10 +110,10 @@
 		D965E7D81431C65000457246 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		D965E7E01431CF1500457246 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		D9AE8E1614307120007D9447 /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
-		D9AE8E3314308585007D9447 /* GeneralInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralInfoController.h; sourceTree = "<group>"; };
-		D9AE8E3414308585007D9447 /* GeneralInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralInfoController.m; sourceTree = "<group>"; };
-		D9C8DD7E1430894500856CA1 /* TasksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TasksController.h; sourceTree = "<group>"; };
-		D9C8DD7F1430894500856CA1 /* TasksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TasksController.m; sourceTree = "<group>"; };
+		D9AE8E3314308585007D9447 /* GeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralViewController.h; sourceTree = "<group>"; };
+		D9AE8E3414308585007D9447 /* GeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralViewController.m; sourceTree = "<group>"; };
+		D9C8DD7E1430894500856CA1 /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
+		D9C8DD7F1430894500856CA1 /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
 		D9F31BB314316AC600C019BE /* iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone.png; sourceTree = "<group>"; };
 		D9F31BBB143172A400C019BE /* Camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camera.png; sourceTree = "<group>"; };
 		D9F31BBD143172A400C019BE /* generalinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = generalinfo.png; sourceTree = "<group>"; };
@@ -111,8 +128,8 @@
 		D9F31BD4143184BB00C019BE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "zh-Hant"; path = "zh-Hant.lproj/MainWindow_iPad.xib"; sourceTree = "<group>"; };
 		D9F31BD81431878D00C019BE /* SwitchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
 		D9F31BDC1431A76200C019BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		D9F31BDE1431A76B00C019BE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		D9F31BDF1431A76E00C019BE /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D9F31BDE1431A76B00C019BE /* zh-Hans */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D9F31BDF1431A76E00C019BE /* zh-Hant */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,10 +195,20 @@
 				D94E0D8A143054DB00552FBE /* FeiPhoneInfoAppDelegate.m */,
 				D9AE8E1614307120007D9447 /* SwitchViewController.h */,
 				D9F31BD81431878D00C019BE /* SwitchViewController.m */,
-				D9AE8E3314308585007D9447 /* GeneralInfoController.h */,
-				D9AE8E3414308585007D9447 /* GeneralInfoController.m */,
-				D9C8DD7E1430894500856CA1 /* TasksController.h */,
-				D9C8DD7F1430894500856CA1 /* TasksController.m */,
+				D9AE8E3314308585007D9447 /* GeneralViewController.h */,
+				D9AE8E3414308585007D9447 /* GeneralViewController.m */,
+				D9C8DD7E1430894500856CA1 /* TaskViewController.h */,
+				D9C8DD7F1430894500856CA1 /* TaskViewController.m */,
+				D91B8E381432CC7000E62AE5 /* ProfilesViewController.h */,
+				D91B8E391432CC7000E62AE5 /* ProfilesViewController.m */,
+				D91B8E3B1432CE0700E62AE5 /* NetworkViewController.h */,
+				D91B8E3C1432CE0700E62AE5 /* NetworkViewController.m */,
+				D91B8E3E1432CE2100E62AE5 /* CameraViewController.h */,
+				D91B8E3F1432CE2100E62AE5 /* CameraViewController.m */,
+				D91B8E411432CE3500E62AE5 /* HardwareViewController.h */,
+				D91B8E421432CE3500E62AE5 /* HardwareViewController.m */,
+				D91B8E441432CE4800E62AE5 /* AboutViewController.h */,
+				D91B8E451432CE4800E62AE5 /* AboutViewController.m */,
 				D94E0D8C143054DB00552FBE /* iPhone */,
 				D94E0D93143054DB00552FBE /* iPad */,
 				D94E0D81143054DB00552FBE /* Supporting Files */,
@@ -244,6 +271,7 @@
 		D9F31BB214316AC600C019BE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D91B8E4E14331DF400E62AE5 /* logo_about.png */,
 				D965E7E01431CF1500457246 /* icon.png */,
 				D965E7C71431C2EC00457246 /* Camera@2x.png */,
 				D965E7C81431C2EC00457246 /* hardware@2x.png */,
@@ -357,6 +385,7 @@
 				D965E7C91431C2EC00457246 /* Camera@2x.png in Resources */,
 				D965E7CA1431C2EC00457246 /* hardware@2x.png in Resources */,
 				D965E7DF1431CF1500457246 /* icon.png in Resources */,
+				D91B8E4F14331DF400E62AE5 /* logo_about.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,9 +426,14 @@
 				D94E0D8F143054DB00552FBE /* FeiPhoneInfoAppDelegate_iPhone.m in Sources */,
 				D94E0D96143054DB00552FBE /* FeiPhoneInfoAppDelegate_iPad.m in Sources */,
 				D9F31BD71431878D00C019BE /* SwitchViewController.m in Sources */,
-				D9AE8E3514308585007D9447 /* GeneralInfoController.m in Sources */,
-				D9C8DD801430894500856CA1 /* TasksController.m in Sources */,
+				D9AE8E3514308585007D9447 /* GeneralViewController.m in Sources */,
+				D9C8DD801430894500856CA1 /* TaskViewController.m in Sources */,
 				D91B8E2E1432C71800E62AE5 /* BaseViewController.m in Sources */,
+				D91B8E3A1432CC7100E62AE5 /* ProfilesViewController.m in Sources */,
+				D91B8E3D1432CE0700E62AE5 /* NetworkViewController.m in Sources */,
+				D91B8E401432CE2100E62AE5 /* CameraViewController.m in Sources */,
+				D91B8E431432CE3500E62AE5 /* HardwareViewController.m in Sources */,
+				D91B8E461432CE4800E62AE5 /* AboutViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

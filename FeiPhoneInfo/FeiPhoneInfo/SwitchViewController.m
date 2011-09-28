@@ -7,8 +7,13 @@
 //
 
 #import "SwitchViewController.h"
-#import "GeneralInfoController.h"
-#import "TasksController.h"
+#import "GeneralViewController.h"
+#import "TaskViewController.h"
+#import "ProfilesViewController.h"
+#import "NetworkViewController.h"
+#import "CameraViewController.h"
+#import "HardwareViewController.h"
+#import "AboutViewController.h"
 
 @implementation SwitchViewController
 
@@ -64,20 +69,35 @@
 	[tabBar setDelegate:self];
 	[self.view addSubview:tabBar];
 	
-	generalInfo = [[GeneralInfoController alloc] initWithStyle:UITableViewStylePlain];
-	tasksInfo = [[TasksController alloc] initWithStyle:UITableViewStylePlain];
+	generalController = [[GeneralViewController alloc] initWithStyle:UITableViewStylePlain];
+	taskController = [[TaskViewController alloc] initWithStyle:UITableViewStylePlain];
+	profilesController = [[ProfilesViewController alloc] initWithStyle:UITableViewStylePlain];
+	networkController = [[NetworkViewController alloc] initWithStyle:UITableViewStylePlain];
+	cameraController = [[CameraViewController alloc] initWithStyle:UITableViewStylePlain];
+	hardwareController = [[HardwareViewController alloc] initWithStyle:UITableViewStylePlain];
+	aboutController = [[AboutViewController alloc] initWithStyle:UITableViewStyleGrouped];
 
-	[self.view addSubview:generalInfo.view];
-	[self.view addSubview:tasksInfo.view];
+	[self.view addSubview:generalController.view];
+	[self.view addSubview:taskController.view];
+	[self.view addSubview:profilesController.view];
+	[self.view addSubview:networkController.view];
+	[self.view addSubview:cameraController.view];
+	[self.view addSubview:hardwareController.view];
+	[self.view addSubview:aboutController.view];
 	
 	tabBar.selectedItem = tabBarItem0;
-	[self.view bringSubviewToFront:generalInfo.view];
+	[self.view bringSubviewToFront:generalController.view];
 }
 
 - (void)dealloc
 {
-	[generalInfo release];
-	[tasksInfo release];
+	[generalController release];
+	[taskController release];
+	[profilesController release];
+	[networkController release];
+	[cameraController release];
+	[hardwareController release];
+	[aboutController release];
 	
 	[tabBarItem0 release];
 	[tabBarItem1 release];
@@ -117,22 +137,39 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-//	[UIView beginAnimations:@"Test" context:nil];
-//	[UIView setAnimationDuration:0.5];
-	if (item.tag == 100)
+	switch (item.tag)
 	{
-//		[UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:generalInfo.view cache:YES];
-		[self.view bringSubviewToFront:generalInfo.view];
+		case 100:
+			[self.view bringSubviewToFront:generalController.view];
+			break;
+			
+		case 101:
+			[self.view bringSubviewToFront:taskController.view];
+			break;
+			
+		case 102:
+			[self.view bringSubviewToFront:profilesController.view];
+			break;
+			
+		case 103:
+			[self.view bringSubviewToFront:networkController.view];
+			break;
+			
+		case 104:
+			[self.view bringSubviewToFront:cameraController.view];
+			break;
+			
+		case 105:
+			[self.view bringSubviewToFront:hardwareController.view];
+			break;
+			
+		case 106:
+			[self.view bringSubviewToFront:aboutController.view];
+			break;
+			
+		default:
+			break;
 	}
-	else if (item.tag == 101)
-	{
-		[self.view bringSubviewToFront:tasksInfo.view];
-	}
-	else
-	{
-//		[self.view sendSubviewToBack:generalInfo.view];
-	}
-//	[UIView commitAnimations];
 }
 
 @end

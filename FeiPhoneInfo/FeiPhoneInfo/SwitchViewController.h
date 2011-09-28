@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class GeneralInfoController;
-@class TasksController;
+@class GeneralViewController;
+@class TaskViewController;
+@class ProfilesViewController;
+@class NetworkViewController;
+@class CameraViewController;
+@class HardwareViewController;
+@class AboutViewController;
 
 @interface SwitchViewController : UIViewController<UITabBarDelegate>
 {
@@ -24,8 +29,13 @@
 	UITabBarItem* tabBarItem5;
 	UITabBarItem* tabBarItem6;
 	
-	GeneralInfoController* generalInfo;
-	TasksController*	tasksInfo;
+	GeneralViewController* generalController;
+	TaskViewController*	taskController;
+	ProfilesViewController* profilesController;
+	NetworkViewController* networkController;
+	CameraViewController* cameraController;
+	HardwareViewController* hardwareController;
+	AboutViewController* aboutController;
 }
 
 @end
