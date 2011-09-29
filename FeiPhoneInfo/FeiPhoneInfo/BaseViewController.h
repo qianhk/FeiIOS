@@ -11,6 +11,7 @@
 @interface BaseViewController : UITableViewController
 {
 	NSMutableDictionary* _dic;
+	NSMutableArray* _arrKey;
 }
 
 - (void)configCell:(UITableViewCell *)cell;

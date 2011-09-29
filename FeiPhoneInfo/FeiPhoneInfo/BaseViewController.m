@@ -17,6 +17,7 @@
     if (self)
 	{
 		_dic = [[NSMutableDictionary alloc] init];
+		_arrKey = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -32,6 +33,7 @@
 - (void)dealloc
 {
 	[_dic release];
+	[_arrKey release];
 	
 	[super dealloc];
 }

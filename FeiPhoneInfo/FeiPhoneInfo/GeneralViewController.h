@@ -10,5 +10,9 @@
 #import "BaseViewController.h"
 
 @interface GeneralViewController : BaseViewController
+{
+	NSArray* arrBatteryState;
+	NSArray* arrOrientation;
+}
 
 @end

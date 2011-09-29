@@ -6,18 +6,31 @@
 //  Copyright 2011年 TTPod. All rights reserved.
 //
 
+#import <sys/sysctl.h>
+
 #import "GeneralViewController.h"
 
 @implementation GeneralViewController
 
-const NSString* KUDID = @"UDID";
-const NSString* KModel = @"Model";
+const NSString* KTTUDID = @"UDID";
+const NSString* KTTModel = @"Model";
+const NSString* KTTName = @"Name";
+const NSString* KTTLocalizedModel = @"Localized Model";
+const NSString* KTTSystemName = @"System Name";
+const NSString* KTTSystemVersion = @"System Version";
+const NSString* KTTDevicePlatform = @"Device Platform";
+const NSString* KTTBatteryState = @"Battery State";
+const NSString* KTTBatteryLevel = @"Battery Level";
+const NSString* KTTUserInterfaceIdiom = @"UserInterfaceIdiom";
+const NSString* KTTOrientation = @"Orientation";
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self)
 	{
+		arrBatteryState = [[NSArray alloc] initWithObjects: @"Unknow", @"Unplugged", @"Charging", @"Full", nil];
+		arrOrientation = [[NSArray alloc] initWithObjects: @"Unknow", @"Portrait", @"PortraitUpsideDown", @"LandscapeLeft", @"LandscapeRight", @"FaceUp", @"FaceDown", nil];
     }
     return self;
 }
@@ -30,6 +43,14 @@ const NSString* KModel = @"Model";
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)dealloc
+{
+	[arrBatteryState release];
+	[arrOrientation release];
+	
+	[super dealloc];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -38,8 +59,66 @@ const NSString* KModel = @"Model";
 
 	UIDevice* device = [UIDevice currentDevice];
     NSString* udid = [device uniqueIdentifier];
-	[_dic setObject:udid forKey:KUDID];
-	[_dic setObject:[device model] forKey:KModel];
+	[_arrKey addObject:KTTUDID];
+	[_dic setObject:udid forKey:KTTUDID];
+	
+	[_arrKey addObject:KTTModel];
+	[_dic setObject:[device model] forKey:KTTModel];
+	
+	[_arrKey addObject:KTTName];
+	[_dic setObject:[device name] forKey:KTTName];
+	
+	[_arrKey addObject:KTTLocalizedModel];
+	[_dic setObject:[device localizedModel] forKey:KTTLocalizedModel];
+	
+	[_arrKey addObject:KTTSystemName];
+	[_dic setObject:[device systemName] forKey:KTTSystemName];
+	
+	[_arrKey addObject:KTTSystemVersion];
+	[_dic setObject:[device systemVersion] forKey:KTTSystemVersion];
+	
+	NSString* devicePlatform = [self performSelector:@selector(doDevicePlatform) withObject:nil];
+	[_arrKey addObject:KTTDevicePlatform];
+	[_dic setObject:devicePlatform forKey:KTTDevicePlatform];
+
+	[_arrKey addObject:KTTBatteryState];
+	[_dic setObject:[arrBatteryState objectAtIndex:[device batteryState]] forKey:KTTBatteryState];
+	
+	[_arrKey addObject:KTTBatteryLevel];
+	float batteryLevel = [device batteryLevel];
+	if (batteryLevel < 0.0)
+	{
+		[_dic setObject:@"Unknow" forKey:KTTBatteryLevel];
+	}
+	else
+	{
+		[_dic setObject:[NSString stringWithFormat:@"%.2f", batteryLevel] forKey:KTTBatteryLevel];
+	}
+
+	
+	[_arrKey addObject:KTTUserInterfaceIdiom];
+	if ([device userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+	{
+		[_dic setObject:@"iPhone and iPod touch style" forKey:KTTUserInterfaceIdiom];
+	}
+	else
+	{
+		[_dic setObject:@"iPad style UI" forKey:KTTUserInterfaceIdiom];
+	}
+	
+	[_arrKey addObject:KTTOrientation];
+	[_dic setObject:[arrOrientation objectAtIndex:[device orientation]] forKey:KTTOrientation];
+}
+
+- (NSString*) doDevicePlatform
+{
+    size_t size;
+    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    char *machine = (char *)malloc(size);
+    sysctlbyname("hw.machine", machine, &size, NULL, 0);
+    NSString *platform = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
+    free(machine);
+    return platform;
 }
 
 - (void)viewDidUnload
@@ -86,7 +165,7 @@ const NSString* KModel = @"Model";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_dic count];
+    return [_arrKey count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,7 +180,7 @@ const NSString* KModel = @"Model";
     UILabel *label = (UILabel *)[cell viewWithTag:6666];
 	NSInteger row = [indexPath row];
 	label.text = [NSString stringWithFormat:@"%d", row + 1];
-    NSString* text = [[_dic allKeys] objectAtIndex:row];
+    NSString* text = [_arrKey objectAtIndex:row];
 	cell.textLabel.text = text;
 	cell.detailTextLabel.text = [_dic objectForKey:text];
     
