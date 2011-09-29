@@ -1,0 +1,6 @@
+
+@interface Game : NSObject {
+
+}
+
+@end
