@@ -56,8 +56,18 @@ const NSString* KTTOrientation = @"Orientation";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(batteryLevelDidChange:)
+												 name:UIDeviceBatteryLevelDidChangeNotification object:nil];
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(batteryStateDidChange:)
+												 name:UIDeviceBatteryStateDidChangeNotification object:nil];
 
 	UIDevice* device = [UIDevice currentDevice];
+	device.batteryMonitoringEnabled = YES;
+	
     NSString* udid = [device uniqueIdentifier];
 	[_arrKey addObject:KTTUDID];
 	[_dic setObject:udid forKey:KTTUDID];
@@ -110,6 +120,29 @@ const NSString* KTTOrientation = @"Orientation";
 	[_dic setObject:[arrOrientation objectAtIndex:[device orientation]] forKey:KTTOrientation];
 }
 
+- (void)batteryLevelDidChange:(NSNotification *)notification
+{
+	UIDevice* device = [UIDevice currentDevice];
+	float batteryLevel = [device batteryLevel];
+	if (batteryLevel < 0.0)
+	{
+		[_dic setObject:@"Unknow" forKey:KTTBatteryLevel];
+	}
+	else
+	{
+		[_dic setObject:[NSString stringWithFormat:@"%.2f", batteryLevel] forKey:KTTBatteryLevel];
+	}
+	[self.tableView reloadData];
+}
+
+
+- (void)batteryStateDidChange:(NSNotification *)notification
+{
+	UIDevice* device = [UIDevice currentDevice];
+	[_dic setObject:[arrBatteryState objectAtIndex:[device batteryState]] forKey:KTTBatteryState];
+	[self.tableView reloadData];
+}
+
 - (NSString*) doDevicePlatform
 {
     size_t size;
@@ -124,8 +157,11 @@ const NSString* KTTOrientation = @"Orientation";
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+	
+	[UIDevice currentDevice].batteryMonitoringEnabled = NO;
+    
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceBatteryLevelDidChangeNotification object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceBatteryStateDidChangeNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
