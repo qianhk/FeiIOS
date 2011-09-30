@@ -1,0 +1,450 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D90B10C6143590C200185CC7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D90B10C5143590C200185CC7 /* Cocoa.framework */; };
+		D90B10D0143590C200185CC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D90B10CE143590C200185CC7 /* InfoPlist.strings */; };
+		D90B10D2143590C200185CC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D90B10D1143590C200185CC7 /* main.m */; };
+		D90B10D6143590C200185CC7 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D90B10D4143590C200185CC7 /* Credits.rtf */; };
+		D90B10D9143590C200185CC7 /* EncodingConvertAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D90B10D8143590C200185CC7 /* EncodingConvertAppDelegate.m */; };
+		D90B10DC143590C300185CC7 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D90B10DA143590C300185CC7 /* MainMenu.xib */; };
+		D90B10E4143590C300185CC7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D90B10E3143590C300185CC7 /* SenTestingKit.framework */; };
+		D90B10E5143590C300185CC7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D90B10C5143590C200185CC7 /* Cocoa.framework */; };
+		D90B10ED143590C300185CC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D90B10EB143590C300185CC7 /* InfoPlist.strings */; };
+		D90B10EF143590C300185CC7 /* EncodingConvertTests.h in Resources */ = {isa = PBXBuildFile; fileRef = D90B10EE143590C300185CC7 /* EncodingConvertTests.h */; };
+		D90B10F1143590C300185CC7 /* EncodingConvertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D90B10F0143590C300185CC7 /* EncodingConvertTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D90B10E6143590C300185CC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D90B10B8143590C200185CC7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D90B10C0143590C200185CC7;
+			remoteInfo = EncodingConvert;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D90B10C1143590C200185CC7 /* EncodingConvert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncodingConvert.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D90B10C5143590C200185CC7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D90B10C8143590C200185CC7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D90B10C9143590C200185CC7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D90B10CA143590C200185CC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D90B10CD143590C200185CC7 /* EncodingConvert-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EncodingConvert-Info.plist"; sourceTree = "<group>"; };
+		D90B10CF143590C200185CC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D90B10D1143590C200185CC7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D90B10D3143590C200185CC7 /* EncodingConvert-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EncodingConvert-Prefix.pch"; sourceTree = "<group>"; };
+		D90B10D5143590C200185CC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D90B10D7143590C200185CC7 /* EncodingConvertAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncodingConvertAppDelegate.h; sourceTree = "<group>"; };
+		D90B10D8143590C200185CC7 /* EncodingConvertAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncodingConvertAppDelegate.m; sourceTree = "<group>"; };
+		D90B10DB143590C300185CC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D90B10E2143590C300185CC7 /* EncodingConvertTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EncodingConvertTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D90B10E3143590C300185CC7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D90B10EA143590C300185CC7 /* EncodingConvertTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EncodingConvertTests-Info.plist"; sourceTree = "<group>"; };
+		D90B10EC143590C300185CC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D90B10EE143590C300185CC7 /* EncodingConvertTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncodingConvertTests.h; sourceTree = "<group>"; };
+		D90B10F0143590C300185CC7 /* EncodingConvertTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncodingConvertTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D90B10BE143590C200185CC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D90B10C6143590C200185CC7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D90B10DE143590C300185CC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D90B10E4143590C300185CC7 /* SenTestingKit.framework in Frameworks */,
+				D90B10E5143590C300185CC7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D90B10B6143590C200185CC7 = {
+			isa = PBXGroup;
+			children = (
+				D90B10CB143590C200185CC7 /* EncodingConvert */,
+				D90B10E8143590C300185CC7 /* EncodingConvertTests */,
+				D90B10C4143590C200185CC7 /* Frameworks */,
+				D90B10C2143590C200185CC7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D90B10C2143590C200185CC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D90B10C1143590C200185CC7 /* EncodingConvert.app */,
+				D90B10E2143590C300185CC7 /* EncodingConvertTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D90B10C4143590C200185CC7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D90B10C5143590C200185CC7 /* Cocoa.framework */,
+				D90B10E3143590C300185CC7 /* SenTestingKit.framework */,
+				D90B10C7143590C200185CC7 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D90B10C7143590C200185CC7 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D90B10C8143590C200185CC7 /* AppKit.framework */,
+				D90B10C9143590C200185CC7 /* CoreData.framework */,
+				D90B10CA143590C200185CC7 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D90B10CB143590C200185CC7 /* EncodingConvert */ = {
+			isa = PBXGroup;
+			children = (
+				D90B10D7143590C200185CC7 /* EncodingConvertAppDelegate.h */,
+				D90B10D8143590C200185CC7 /* EncodingConvertAppDelegate.m */,
+				D90B10DA143590C300185CC7 /* MainMenu.xib */,
+				D90B10CC143590C200185CC7 /* Supporting Files */,
+			);
+			path = EncodingConvert;
+			sourceTree = "<group>";
+		};
+		D90B10CC143590C200185CC7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D90B10CD143590C200185CC7 /* EncodingConvert-Info.plist */,
+				D90B10CE143590C200185CC7 /* InfoPlist.strings */,
+				D90B10D1143590C200185CC7 /* main.m */,
+				D90B10D3143590C200185CC7 /* EncodingConvert-Prefix.pch */,
+				D90B10D4143590C200185CC7 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D90B10E8143590C300185CC7 /* EncodingConvertTests */ = {
+			isa = PBXGroup;
+			children = (
+				D90B10EE143590C300185CC7 /* EncodingConvertTests.h */,
+				D90B10F0143590C300185CC7 /* EncodingConvertTests.m */,
+				D90B10E9143590C300185CC7 /* Supporting Files */,
+			);
+			path = EncodingConvertTests;
+			sourceTree = "<group>";
+		};
+		D90B10E9143590C300185CC7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D90B10EA143590C300185CC7 /* EncodingConvertTests-Info.plist */,
+				D90B10EB143590C300185CC7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D90B10C0143590C200185CC7 /* EncodingConvert */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D90B10F4143590C300185CC7 /* Build configuration list for PBXNativeTarget "EncodingConvert" */;
+			buildPhases = (
+				D90B10BD143590C200185CC7 /* Sources */,
+				D90B10BE143590C200185CC7 /* Frameworks */,
+				D90B10BF143590C200185CC7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EncodingConvert;
+			productName = EncodingConvert;
+			productReference = D90B10C1143590C200185CC7 /* EncodingConvert.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D90B10E1143590C300185CC7 /* EncodingConvertTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D90B10F7143590C300185CC7 /* Build configuration list for PBXNativeTarget "EncodingConvertTests" */;
+			buildPhases = (
+				D90B10DD143590C300185CC7 /* Sources */,
+				D90B10DE143590C300185CC7 /* Frameworks */,
+				D90B10DF143590C300185CC7 /* Resources */,
+				D90B10E0143590C300185CC7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D90B10E7143590C300185CC7 /* PBXTargetDependency */,
+			);
+			name = EncodingConvertTests;
+			productName = EncodingConvertTests;
+			productReference = D90B10E2143590C300185CC7 /* EncodingConvertTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D90B10B8143590C200185CC7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = TTPod;
+			};
+			buildConfigurationList = D90B10BB143590C200185CC7 /* Build configuration list for PBXProject "EncodingConvert" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D90B10B6143590C200185CC7;
+			productRefGroup = D90B10C2143590C200185CC7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D90B10C0143590C200185CC7 /* EncodingConvert */,
+				D90B10E1143590C300185CC7 /* EncodingConvertTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D90B10BF143590C200185CC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D90B10D0143590C200185CC7 /* InfoPlist.strings in Resources */,
+				D90B10D6143590C200185CC7 /* Credits.rtf in Resources */,
+				D90B10DC143590C300185CC7 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D90B10DF143590C300185CC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D90B10ED143590C300185CC7 /* InfoPlist.strings in Resources */,
+				D90B10EF143590C300185CC7 /* EncodingConvertTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D90B10E0143590C300185CC7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D90B10BD143590C200185CC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D90B10D2143590C200185CC7 /* main.m in Sources */,
+				D90B10D9143590C200185CC7 /* EncodingConvertAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D90B10DD143590C300185CC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D90B10F1143590C300185CC7 /* EncodingConvertTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D90B10E7143590C300185CC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D90B10C0143590C200185CC7 /* EncodingConvert */;
+			targetProxy = D90B10E6143590C300185CC7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D90B10CE143590C200185CC7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D90B10CF143590C200185CC7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D90B10D4143590C200185CC7 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D90B10D5143590C200185CC7 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		D90B10DA143590C300185CC7 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D90B10DB143590C300185CC7 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		D90B10EB143590C300185CC7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D90B10EC143590C300185CC7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D90B10F2143590C300185CC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D90B10F3143590C300185CC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D90B10F5143590C300185CC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EncodingConvert/EncodingConvert-Prefix.pch";
+				INFOPLIST_FILE = "EncodingConvert/EncodingConvert-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D90B10F6143590C300185CC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EncodingConvert/EncodingConvert-Prefix.pch";
+				INFOPLIST_FILE = "EncodingConvert/EncodingConvert-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D90B10F8143590C300185CC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EncodingConvert.app/Contents/MacOS/EncodingConvert";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EncodingConvert/EncodingConvert-Prefix.pch";
+				INFOPLIST_FILE = "EncodingConvertTests/EncodingConvertTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D90B10F9143590C300185CC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/EncodingConvert.app/Contents/MacOS/EncodingConvert";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "EncodingConvert/EncodingConvert-Prefix.pch";
+				INFOPLIST_FILE = "EncodingConvertTests/EncodingConvertTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D90B10BB143590C200185CC7 /* Build configuration list for PBXProject "EncodingConvert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D90B10F2143590C300185CC7 /* Debug */,
+				D90B10F3143590C300185CC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D90B10F4143590C300185CC7 /* Build configuration list for PBXNativeTarget "EncodingConvert" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D90B10F5143590C300185CC7 /* Debug */,
+				D90B10F6143590C300185CC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D90B10F7143590C300185CC7 /* Build configuration list for PBXNativeTarget "EncodingConvertTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D90B10F8143590C300185CC7 /* Debug */,
+				D90B10F9143590C300185CC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D90B10B8143590C200185CC7 /* Project object */;
+}

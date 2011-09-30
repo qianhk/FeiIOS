@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'EncodingConvert' target in the 'EncodingConvert' project
+//
+
+#ifdef __OBJC__
+	#import <Cocoa/Cocoa.h>
+#endif
