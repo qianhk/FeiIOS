@@ -75,4 +75,13 @@
 	STAssertTrue([destStr isEqualToString:calcStr], @"ConvertUTF8ToUnicode failed");
 }
 
+- (void)testConvertGBKToUnicode
+{
+	NSString* testStr = @"%BA%C3%C8%CB";
+	NSString* destStr = @"好人";
+	
+	NSString* calcStr = [EncodingConvert convertGBKToUnicode:testStr];
+	STAssertTrue([destStr isEqualToString:calcStr], @"ConvertGBKToUnicode failed");
+}
+
 @end

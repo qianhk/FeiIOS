@@ -192,4 +192,34 @@
 	return unicodeStr;
 }
 
++ (NSString *)convertGBKToUnicode:(NSString *)aGBK
+{
+	if (aGBK == nil)
+	{
+		return nil;
+	}
+	
+	NSArray* arr = [aGBK componentsSeparatedByString:@"%"];
+	NSUInteger count = [arr count];
+	NSUInteger idx = 0;
+	NSUInteger idxCStr = 0;
+	char* cstr = new char[count + 1];
+	for (; idx < count; ++idx)
+	{
+		NSString* arrStr = [arr objectAtIndex:idx];
+		if ([arrStr length] == 0)
+		{
+			continue;
+		}
+		NSInteger nV = [arrStr hexIntegerValue];
+		*(cstr + idxCStr++) = nV;
+	}
+	*(cstr + idxCStr) = 0;
+	NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+	NSString* unicodeStr = [NSString stringWithCString:cstr encoding:gbkEncoding];
+	delete cstr;
+	return unicodeStr;
+
+}
+
 @end
