@@ -19,5 +19,6 @@
 + (NSString *)convertUnicodeToGBK:(NSString *)aUnicode;
 
 + (NSString *)convertUnicodeToChinese:(NSString *)aUnicode;
++ (NSString *)convertUTF8ToUnicode:(NSString *)aUTF8;
 
 @end

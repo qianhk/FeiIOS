@@ -66,4 +66,13 @@
 	STAssertTrue([destStr isEqualToString:calcStr], @"ConvertUnicodeToChinese failed");
 }
 
+- (void)testConvertUTF8ToUnicode
+{
+	NSString* testStr = @"%E5%A5%BD%E4%BA%BA";
+	NSString* destStr = @"好人";
+	
+	NSString* calcStr = [EncodingConvert convertUTF8ToUnicode:testStr];
+	STAssertTrue([destStr isEqualToString:calcStr], @"ConvertUTF8ToUnicode failed");
+}
+
 @end

@@ -19,6 +19,7 @@
 		D90B10EF143590C300185CC7 /* EncodingConvertTests.h in Resources */ = {isa = PBXBuildFile; fileRef = D90B10EE143590C300185CC7 /* EncodingConvertTests.h */; };
 		D90B10F1143590C300185CC7 /* EncodingConvertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D90B10F0143590C300185CC7 /* EncodingConvertTests.m */; };
 		DC08E5951439FE93002935C5 /* EncodingConvert.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC08E5941439FE93002935C5 /* EncodingConvert.mm */; };
+		DC87CD48143B006A00BDB19F /* lvzi.png in Resources */ = {isa = PBXBuildFile; fileRef = DC87CD47143B006A00BDB19F /* lvzi.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D90B10F0143590C300185CC7 /* EncodingConvertTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncodingConvertTests.m; sourceTree = "<group>"; };
 		DC08E5931439FE93002935C5 /* EncodingConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncodingConvert.h; sourceTree = "<group>"; };
 		DC08E5941439FE93002935C5 /* EncodingConvert.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EncodingConvert.mm; sourceTree = "<group>"; };
+		DC87CD47143B006A00BDB19F /* lvzi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lvzi.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 		D90B10CC143590C200185CC7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DC87CD47143B006A00BDB19F /* lvzi.png */,
 				D90B10CD143590C200185CC7 /* EncodingConvert-Info.plist */,
 				D90B10CE143590C200185CC7 /* InfoPlist.strings */,
 				D90B10D1143590C200185CC7 /* main.m */,
@@ -232,6 +235,7 @@
 				D90B10D0143590C200185CC7 /* InfoPlist.strings in Resources */,
 				D90B10D6143590C200185CC7 /* Credits.rtf in Resources */,
 				D90B10DC143590C300185CC7 /* MainMenu.xib in Resources */,
+				DC87CD48143B006A00BDB19F /* lvzi.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

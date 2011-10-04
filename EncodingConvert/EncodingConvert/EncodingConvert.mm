@@ -164,4 +164,32 @@
 	return str;
 }
 
++ (NSString *)convertUTF8ToUnicode:(NSString *)aUTF8
+{
+	if (aUTF8 == nil)
+	{
+		return nil;
+	}
+	
+	NSArray* arr = [aUTF8 componentsSeparatedByString:@"%"];
+	NSUInteger count = [arr count];
+	NSUInteger idx = 0;
+	NSUInteger idxCStr = 0;
+	char* cstr = new char[count + 1];
+	for (; idx < count; ++idx)
+	{
+		NSString* arrStr = [arr objectAtIndex:idx];
+		if ([arrStr length] == 0)
+		{
+			continue;
+		}
+		NSInteger nV = [arrStr hexIntegerValue];
+		*(cstr + idxCStr++) = nV;
+	}
+	*(cstr + idxCStr) = 0;
+	NSString* unicodeStr = [NSString stringWithUTF8String:cstr];
+	delete cstr;
+	return unicodeStr;
+}
+
 @end

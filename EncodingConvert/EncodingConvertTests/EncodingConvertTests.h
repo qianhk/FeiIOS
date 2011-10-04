@@ -15,5 +15,6 @@
 - (void)testConvertUnicodeToGBK;
 
 - (void)testConvertUnicodeToChinese;
+- (void)testConvertUTF8ToUnicode;
 
 @end

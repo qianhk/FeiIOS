@@ -65,6 +65,12 @@
 				break;
 				
 			case 662:
+				{
+					unicodeValue = [EncodingConvert convertUTF8ToUnicode:textValue];
+					[txtChinese setStringValue:unicodeValue];
+					[txtUnicode setStringValue:[EncodingConvert convertChineseToUnicode:unicodeValue]];
+					[txtGBK setStringValue:[EncodingConvert convertUnicodeToGBK:unicodeValue]];
+				}
 				break;
 				
 			case 663:
