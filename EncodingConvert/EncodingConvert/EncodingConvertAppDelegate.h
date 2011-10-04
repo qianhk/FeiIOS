@@ -8,8 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class EncodingConvert;
-
 @interface EncodingConvertAppDelegate : NSObject
 <NSApplicationDelegate, NSTextFieldDelegate>
 {
@@ -25,7 +23,6 @@
 	IBOutlet NSTextField *txtCRC;
 	IBOutlet NSTextField *txtSHA1;
 	
-	EncodingConvert* _encodingConvert;
 }
 
 @property (assign) IBOutlet NSWindow *window;

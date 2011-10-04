@@ -21,8 +21,6 @@
 	[txtUTF8 setDelegate:self];
 	[txtGBK setDelegate:self];
 	[txtBase64 setDelegate:self];
-	
-	_encodingConvert = [[EncodingConvert alloc] init];
 }
 
 - (void)applicationDidHide:(NSNotification *)notification
@@ -31,9 +29,7 @@
 }
 
 - (void)dealloc
-{
-	[_encodingConvert release];
-	
+{	
 	[super dealloc];
 }
 
@@ -63,6 +59,8 @@
 				{
 					unicodeValue = [EncodingConvert convertUnicodeToChinese:textValue];
 					[txtChinese setStringValue:unicodeValue];
+					[txtUTF8 setStringValue:[EncodingConvert convertUnicodeToUTF8:unicodeValue]];
+					[txtGBK setStringValue:[EncodingConvert convertUnicodeToGBK:unicodeValue]];
 				}
 				break;
 				
