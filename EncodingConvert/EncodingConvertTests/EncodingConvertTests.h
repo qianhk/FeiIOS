@@ -10,4 +10,10 @@
 
 @interface EncodingConvertTests : SenTestCase
 
+- (void)testConvertChineseToUnicode;
+- (void)testConvertUnicodeToUTF8;
+- (void)testConvertUnicodeToGBK;
+
+- (void)testConvertUnicodeToChinese;
+
 @end

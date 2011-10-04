@@ -18,6 +18,7 @@
 		D90B10ED143590C300185CC7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D90B10EB143590C300185CC7 /* InfoPlist.strings */; };
 		D90B10EF143590C300185CC7 /* EncodingConvertTests.h in Resources */ = {isa = PBXBuildFile; fileRef = D90B10EE143590C300185CC7 /* EncodingConvertTests.h */; };
 		D90B10F1143590C300185CC7 /* EncodingConvertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D90B10F0143590C300185CC7 /* EncodingConvertTests.m */; };
+		DC08E5951439FE93002935C5 /* EncodingConvert.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC08E5941439FE93002935C5 /* EncodingConvert.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		D90B10EC143590C300185CC7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D90B10EE143590C300185CC7 /* EncodingConvertTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EncodingConvertTests.h; sourceTree = "<group>"; };
 		D90B10F0143590C300185CC7 /* EncodingConvertTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncodingConvertTests.m; sourceTree = "<group>"; };
+		DC08E5931439FE93002935C5 /* EncodingConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncodingConvert.h; sourceTree = "<group>"; };
+		DC08E5941439FE93002935C5 /* EncodingConvert.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EncodingConvert.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 			children = (
 				D90B10D7143590C200185CC7 /* EncodingConvertAppDelegate.h */,
 				D90B10D8143590C200185CC7 /* EncodingConvertAppDelegate.m */,
+				DC08E5931439FE93002935C5 /* EncodingConvert.h */,
+				DC08E5941439FE93002935C5 /* EncodingConvert.mm */,
 				D90B10DA143590C300185CC7 /* MainMenu.xib */,
 				D90B10CC143590C200185CC7 /* Supporting Files */,
 			);
@@ -264,6 +269,7 @@
 			files = (
 				D90B10D2143590C200185CC7 /* main.m in Sources */,
 				D90B10D9143590C200185CC7 /* EncodingConvertAppDelegate.m in Sources */,
+				DC08E5951439FE93002935C5 /* EncodingConvert.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +441,7 @@
 				D90B10F6143590C300185CC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D90B10F7143590C300185CC7 /* Build configuration list for PBXNativeTarget "EncodingConvertTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +450,7 @@
 				D90B10F9143590C300185CC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

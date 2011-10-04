@@ -7,6 +7,7 @@
 //
 
 #import "EncodingConvertTests.h"
+#import "EncodingConvert.h"
 
 @implementation EncodingConvertTests
 
@@ -26,7 +27,43 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in EncodingConvertTests");
+//    STFail(@"Unit tests are not implemented yet in EncodingConvertTests");
+}
+
+- (void)testConvertChineseToUnicode
+{
+	NSString* testStr = @"好人";
+	NSString* destStr = @"\\u597d\\u4eba";
+	
+	NSString* calcStr = [EncodingConvert convertChineseToUnicode:testStr];
+	STAssertTrue([destStr isEqualToString:calcStr], @"ConvertChineseToUnicode failed");
+}
+
+- (void)testConvertUnicodeToUTF8
+{
+	NSString* testStr = @"好人";
+	NSString* destStr = @"%E5%A5%BD%E4%BA%BA";
+	
+	NSString* calcStr = [EncodingConvert convertUnicodeToUTF8:testStr];
+	STAssertTrue([destStr isEqualToString:calcStr], @"convertUnicodeToUTF8 failed");
+}
+
+- (void)testConvertUnicodeToGBK
+{
+	NSString* testStr = @"好人";
+	NSString* destStr = @"%BA%C3%C8%CB";
+	
+	NSString* calcStr = [EncodingConvert convertUnicodeToGBK:testStr];
+	STAssertTrue([destStr isEqualToString:calcStr], @"convertUnicodeToGBK failed");
+}
+
+- (void)testConvertUnicodeToChinese
+{
+	NSString* testStr = @"\\u597d\\u4eba";
+	NSString* destStr = @"好人";
+	
+	NSString* calcStr = [EncodingConvert convertUnicodeToChinese:testStr];
+	STAssertTrue([destStr isEqualToString:calcStr], @"ConvertUnicodeToChinese failed");
 }
 
 @end
