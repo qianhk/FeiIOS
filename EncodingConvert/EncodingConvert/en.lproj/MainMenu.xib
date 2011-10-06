@@ -300,7 +300,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
-								<object class="NSMenuItem" id="342105628">
+								<object class="NSMenuItem" id="1052423185">
 									<reference key="NSMenu" ref="992780483"/>
 									<bool key="NSIsDisabled">YES</bool>
 									<bool key="NSIsSeparator">YES</bool>
@@ -310,7 +310,7 @@
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
 								</object>
-								<object class="NSMenuItem" id="208042228">
+								<object class="NSMenuItem" id="240662028">
 									<reference key="NSMenu" ref="992780483"/>
 									<string key="NSTitle">Enter Full Screen</string>
 									<string key="NSKeyEquiv">f</string>
@@ -364,7 +364,7 @@
 									<int key="NSColorSpace">6</int>
 									<string key="NSCatalogName">System</string>
 									<string key="NSColorName">controlColor</string>
-									<object class="NSColor" key="NSColor" id="49818598">
+									<object class="NSColor" key="NSColor" id="1041343917">
 										<int key="NSColorSpace">3</int>
 										<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 									</object>
@@ -437,7 +437,7 @@
 								<string key="NSCellIdentifier">_NS:3936</string>
 								<reference key="NSControlView" ref="999363845"/>
 								<reference key="NSBackgroundColor" ref="833607374"/>
-								<reference key="NSTextColor" ref="49818598"/>
+								<reference key="NSTextColor" ref="1041343917"/>
 							</object>
 						</object>
 						<object class="NSTextField" id="327756409">
@@ -457,7 +457,7 @@
 								<string key="NSCellIdentifier">_NS:3936</string>
 								<reference key="NSControlView" ref="327756409"/>
 								<reference key="NSBackgroundColor" ref="833607374"/>
-								<reference key="NSTextColor" ref="49818598"/>
+								<reference key="NSTextColor" ref="1041343917"/>
 							</object>
 						</object>
 						<object class="NSTextField" id="979384005">
@@ -477,7 +477,7 @@
 								<string key="NSCellIdentifier">_NS:3936</string>
 								<reference key="NSControlView" ref="979384005"/>
 								<reference key="NSBackgroundColor" ref="833607374"/>
-								<reference key="NSTextColor" ref="49818598"/>
+								<reference key="NSTextColor" ref="1041343917"/>
 							</object>
 						</object>
 						<object class="NSTextField" id="611484020">
@@ -497,7 +497,7 @@
 								<string key="NSCellIdentifier">_NS:3936</string>
 								<reference key="NSControlView" ref="611484020"/>
 								<reference key="NSBackgroundColor" ref="833607374"/>
-								<reference key="NSTextColor" ref="49818598"/>
+								<reference key="NSTextColor" ref="1041343917"/>
 							</object>
 						</object>
 						<object class="NSTextField" id="594539004">
@@ -679,7 +679,7 @@
 							<object class="NSTextFieldCell" key="NSCell" id="491323757">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">中文</string>
+								<string key="NSContents">文字</string>
 								<object class="NSFont" key="NSSupport">
 									<string key="NSName">STHeitiSC-Light</string>
 									<double key="NSSize">13</double>
@@ -938,7 +938,7 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">toggleFullScreen:</string>
 						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="208042228"/>
+						<reference key="destination" ref="240662028"/>
 					</object>
 					<int key="connectionID">735</int>
 				</object>
@@ -1126,8 +1126,8 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="105068016"/>
-							<reference ref="208042228"/>
-							<reference ref="342105628"/>
+							<reference ref="240662028"/>
+							<reference ref="1052423185"/>
 						</object>
 						<reference key="parent" ref="448692316"/>
 					</object>
@@ -1438,12 +1438,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">734</int>
-						<reference key="object" ref="208042228"/>
+						<reference key="object" ref="240662028"/>
 						<reference key="parent" ref="992780483"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">737</int>
-						<reference key="object" ref="342105628"/>
+						<reference key="object" ref="1052423185"/>
 						<reference key="parent" ref="992780483"/>
 					</object>
 				</object>
