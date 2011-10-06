@@ -29,6 +29,15 @@
 	[txtBase64 setDelegate:self];
 }
 
+- (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
+{	
+	if (!flag)
+	{
+		[window makeKeyAndOrderFront:self];
+	}
+	return YES;
+}
+
 - (void)applicationDidHide:(NSNotification *)notification
 {
 	NSLog(@"applicationDidHide:%@", notification);
