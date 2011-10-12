@@ -65,6 +65,7 @@
 			[txtUnicode setStringValue:[EncodingConvert convertChineseToUnicode:textValue]];
 			[txtUTF8 setStringValue:[EncodingConvert convertUnicodeToUTF8:unicodeValue]];
 			[txtGBK setStringValue:[EncodingConvert convertUnicodeToGBK:unicodeValue]];
+			[txtBase64 setStringValue:[EncodingConvert base64EncodeString:unicodeValue]];
 			break;
 			
 		case 661:

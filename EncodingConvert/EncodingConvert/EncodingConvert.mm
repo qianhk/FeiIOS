@@ -6,6 +6,9 @@
 //  Copyright 2011年 TTPod. All rights reserved.
 //
 
+#import <CommonCrypto/CommonDigest.h>
+#import <CommonCrypto/CommonHMAC.h>
+
 #import "EncodingConvert.h"
 
 @interface NSString()
@@ -223,9 +226,12 @@
 }
 
 // Calculate MD5
-NSString *NSUtil::MD5(NSString *str)
++ (NSString *)md5:(NSString *)str
 {
-	if (str == nil) return nil;
+	if (str == nil)
+	{
+		return nil;
+	}
 	unsigned char result[CC_MD5_DIGEST_LENGTH];
 	const char *cstr = [str UTF8String];
 	CC_MD5(cstr, strlen(cstr), result);
@@ -234,19 +240,44 @@ NSString *NSUtil::MD5(NSString *str)
 			result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]];
 }
 
+//- (NSString *)MD5String;
+//{
+//    CC_MD5_CTX digestCtx;
+//    unsigned char digestBytes[CC_MD5_DIGEST_LENGTH];
+//    char digestChars[CC_MD5_DIGEST_LENGTH * 2 + 1];
+//    NSRange stringRange = NSMakeRange(0, [self length]);
+//    unsigned char buffer[128];
+//    NSUInteger usedBufferCount;
+//    CC_MD5_Init(&digestCtx);
+//    while ([self getBytes:buffer
+//                maxLength:sizeof(buffer)
+//               usedLength:&usedBufferCount
+//                 encoding:NSUnicodeStringEncoding
+//                  options:NSStringEncodingConversionAllowLossy
+//                    range:stringRange
+//           remainingRange:&stringRange])
+//        CC_MD5_Update(&digestCtx, buffer, usedBufferCount);
+//    CC_MD5_Final(digestBytes, &digestCtx);
+//    for (int i = 0;
+//         i < CC_MD5_DIGEST_LENGTH;
+//         i++)
+//        sprintf(&digestChars[2 * i], "%02x", digestBytes[i]);
+//    return [NSString stringWithUTF8String:digestChars];
+//}
+
 // Calculate SHA1
-NSString *NSUtil::HmacSHA1(NSString *text, NSString *secret)
++ (NSString *)HmacSHA1:(NSString *)text secret:(NSString *)secret
 {
 	NSData *secretData = [secret dataUsingEncoding:NSUTF8StringEncoding];
 	NSData *clearTextData = [text dataUsingEncoding:NSUTF8StringEncoding];
 	
 	unsigned char result[20];
 	CCHmac(kCCHmacAlgSHA1, [secretData bytes], [secretData length], [clearTextData bytes], [clearTextData length], result);
-	return BASE64Encode(result, 20);
+	return [self base64Encode:result length:20];
 }
 
 // BASE64 encode
-NSString *NSUtil::BASE64Encode(const unsigned char *data, NSUInteger length, NSUInteger lineLength)
++ (NSString *)base64Encode:(const unsigned char *)data length:(NSUInteger)length
 {
 	// BASE64 table
 	const static char c_baseTable[64] =
@@ -263,7 +294,7 @@ NSString *NSUtil::BASE64Encode(const unsigned char *data, NSUInteger length, NSU
 	long ctremaining = 0;
 	unsigned char inbuf[3], outbuf[4];
 	short i = 0;
-	short charsonline = 0, ctcopy = 0;
+	short ctcopy = 0;
 	unsigned long ix = 0;
 	
 	while (YES)
@@ -311,23 +342,14 @@ NSString *NSUtil::BASE64Encode(const unsigned char *data, NSUInteger length, NSU
 		}
 		
 		ixtext += 3;
-		charsonline += 4;
 		
-		if (lineLength > 0)
-		{
-			if (charsonline >= lineLength)
-			{
-				charsonline = 0;
-				[result appendString:@"\n"];
-			}
-		}
 	}
 	
 	return result;
 }
 
 // BASE64 decode
-NSData *NSUtil::BASE64Decode(NSString *string)
++ (NSData *)base64Decode:(NSString *)string
 {
 	NSMutableData *mutableData = nil;
 	
@@ -404,6 +426,24 @@ NSData *NSUtil::BASE64Decode(NSString *string)
 	}
 	
 	return mutableData;
+}
+
++ (NSString *)base64EncodeData:(NSData *)data
+{
+	return [self base64Encode:(const unsigned char *)data.bytes length:data.length];
+}
+
+// BASE64 encode string
++ (NSString *)base64EncodeString:(NSString *)string lineLength:(NSUInteger)lineLength
+{
+	return [self base64EncodeData:[string dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
+// BASE64 decode string
++ (NSString *)base64DecodeString:(NSString *)string
+{
+	NSData *data = [self base64Decode:string];
+	return [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
 }
 
 @end
