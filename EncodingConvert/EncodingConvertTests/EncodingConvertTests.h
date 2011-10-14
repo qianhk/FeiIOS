@@ -18,4 +18,11 @@
 - (void)testConvertUTF8ToUnicode;
 - (void)testConvertGBKToUnicode;
 
+- (void)testBase64Encode;
+- (void)testBase64Decode;
+
+- (void)testMD5;
+- (void)testSHA1;
+- (void)testHMacSHA1;
+
 @end

@@ -26,8 +26,9 @@
 + (NSString *)md5:(NSString *)str;
 
 // Calculate HMAC SHA1
-+ (NSString *)HmacSHA1:(NSString *)text secret:(NSString *)secret;
++ (NSString *)hmacSHA1:(NSString *)text secret:(NSString *)secret;
 
++ (NSString *)sha1:(NSString *)text;
 
 // BASE64 encode
 + (NSString *)base64Encode:(const unsigned char *)data length:(NSUInteger)length;

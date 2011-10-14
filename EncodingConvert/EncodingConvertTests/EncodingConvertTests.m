@@ -64,6 +64,12 @@
 	
 	NSString* calcStr = [EncodingConvert convertUnicodeToChinese:testStr];
 	STAssertTrue([destStr isEqualToString:calcStr], @"ConvertUnicodeToChinese failed");
+	
+	testStr = @"\\x597d\\x4eba";
+	destStr = @"好人";
+	
+	calcStr = [EncodingConvert convertUnicodeToChinese:testStr];
+	STAssertTrue([destStr isEqualToString:calcStr], @"ConvertUnicodeToChinese failed");
 }
 
 - (void)testConvertUTF8ToUnicode
@@ -82,6 +88,109 @@
 	
 	NSString* calcStr = [EncodingConvert convertGBKToUnicode:testStr];
 	STAssertTrue([destStr isEqualToString:calcStr], @"ConvertGBKToUnicode failed");
+}
+
+- (void)testBase64Encode
+{
+	NSString* testStr = @"abcd";
+	NSString* expectStr = @"YWJjZA==";
+	NSString* resultStr = [EncodingConvert base64EncodeString:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+	
+	testStr = @"abc";
+	expectStr = @"YWJj";
+	resultStr = [EncodingConvert base64EncodeString:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");	
+	
+	testStr = @"乔布斯";
+	expectStr = @"5LmU5biD5pav";
+	resultStr = [EncodingConvert base64EncodeString:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+}
+
+- (void)testBase64Decode
+{
+	NSString* testStr = @"YWJjZA==";
+	NSString* expectStr = @"abcd";
+	NSString* resultStr = [EncodingConvert base64DecodeString:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+	
+	testStr = @"YWJj";
+	expectStr = @"abc";
+	resultStr = [EncodingConvert base64DecodeString:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");	
+	
+	testStr = @"5LmU5biD5pav";
+	expectStr = @"乔布斯";
+	resultStr = [EncodingConvert base64DecodeString:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+	
+	testStr = @"YWJjZA=";
+	expectStr = @"abcd";
+	resultStr = [EncodingConvert base64DecodeString:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+	
+	
+	testStr = @"YWJjZA";
+	expectStr = @"abcd";
+	resultStr = [EncodingConvert base64DecodeString:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+}
+
+- (void)testMD5
+{
+	NSString* testStr = @"abc";
+	NSString* expectStr = @"900150983CD24FB0D6963F7D28E17F72";
+	NSString* resultStr = [EncodingConvert md5:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+	
+	testStr = @"乔布斯";
+	expectStr = @"2B3D41DD4B7911DC0FE683D1A0D977EF";
+	resultStr = [EncodingConvert md5:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+}
+
+- (void)testSHA1
+{
+	NSString* testStr = @"abc";
+	NSString* expectStr = @"A9993E364706816ABA3E25717850C26C9CD0D89D";
+	NSString* resultStr = [EncodingConvert sha1:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+	
+	NSString* expectStr2 = @"900150983CD24FB0D6963F7D28E17F72";
+	STAssertTrue([resultStr isEqualToString:expectStr2], @"");
+	
+	testStr = @"dog";
+	expectStr = @"E49512524F47B4138D850C9D9D85972927281DA0";
+	resultStr = [EncodingConvert sha1:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+	
+	testStr = @"乔布斯";
+	expectStr = @"7B7250B3389A3FB240D8B9FDEE95F53207A6F269";
+	resultStr = [EncodingConvert sha1:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+}
+
+
+- (void)testHMacSHA1
+{
+//	NSString* testStr = @"abc";
+//	NSString* expectStr = @"a9993e364706816aba3e25717850c26c9cd0d89d";
+//	NSString* resultStr = [EncodingConvert hmacSHA1:testStr secret:testStr];
+//	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+//	
+//	NSString* expectStr2 = @"900150983cd24fb0d6963f7d28e17f72";
+//	STAssertTrue([resultStr isEqualToString:expectStr2], @"");
+//	
+//	testStr = @"dog";
+//	expectStr = @"e49512524f47b4138d850c9d9d85972927281da0";
+//	resultStr = [EncodingConvert hmacSHA1:testStr secret:@""];
+//	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+//	
+//	testStr = @"乔布斯";
+//	expectStr = @"7b7250b3389a3fb240d8b9fdee95f53207a6f269";
+//	resultStr = [EncodingConvert hmacSHA1:testStr secret:@""];
+//	STAssertTrue([resultStr isEqualToString:expectStr], @"");
 }
 
 @end

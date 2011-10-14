@@ -64,17 +64,6 @@
 
 @implementation EncodingConvert
 
-- (id)init
-{
-    self = [super init];
-    if (self)
-	{
-        // Initialization code here.
-    }
-    
-    return self;
-}
-
 + (NSString *)convertChineseToUnicode:(NSString *)aChinese
 {
 	if (aChinese == nil)
@@ -234,7 +223,7 @@
 	}
 	unsigned char result[CC_MD5_DIGEST_LENGTH];
 	const char *cstr = [str UTF8String];
-	CC_MD5(cstr, strlen(cstr), result);
+	CC_MD5(cstr, (CC_LONG)strlen(cstr), result);
 	return [NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
 			result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7],
 			result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]];
@@ -266,14 +255,28 @@
 //}
 
 // Calculate SHA1
-+ (NSString *)HmacSHA1:(NSString *)text secret:(NSString *)secret
++ (NSString *)hmacSHA1:(NSString *)text secret:(NSString *)secret
 {
 	NSData *secretData = [secret dataUsingEncoding:NSUTF8StringEncoding];
 	NSData *clearTextData = [text dataUsingEncoding:NSUTF8StringEncoding];
 	
-	unsigned char result[20];
+	unsigned char result[CC_SHA1_DIGEST_LENGTH];
 	CCHmac(kCCHmacAlgSHA1, [secretData bytes], [secretData length], [clearTextData bytes], [clearTextData length], result);
-	return [self base64Encode:result length:20];
+	return [self base64Encode:result length:CC_SHA1_DIGEST_LENGTH];
+}
+
++ (NSString *)sha1:(NSString *)text
+{
+	NSData *data = [text dataUsingEncoding:NSUTF8StringEncoding];
+	unsigned char result[CC_SHA1_DIGEST_LENGTH];
+	CC_SHA1([data bytes], (CC_LONG)[data length], result);
+	NSMutableString* str = [[[NSMutableString alloc] init] autorelease];
+	for (int i = 0; i < CC_SHA1_DIGEST_LENGTH; ++i)
+	{
+		
+	}
+	
+	return str;
 }
 
 // BASE64 encode
@@ -358,10 +361,12 @@
 		unsigned long ixtext = 0;
 		unsigned long lentext = 0;
 		unsigned char ch = 0;
-		unsigned char inbuf[3], outbuf[4];
+		unsigned char inbuf[4], outbuf[3];
+		memset(inbuf, 0, 4);
 		short i = 0, ixinbuf = 0;
 		BOOL flignore = NO;
 		BOOL flendtext = NO;
+		BOOL newData = NO;
 		NSData *base64Data = nil;
 		const unsigned char *base64data = nil;
 		
@@ -375,6 +380,21 @@
 		{
 			if( ixtext >= lentext )
 			{
+				if (newData)
+				{
+					outbuf [0] = (inbuf[0] << 2) | ((inbuf[1] & 0x30) >> 4);
+					outbuf [1] = ((inbuf[1] & 0x0F) << 4) | ((inbuf[2] & 0x3C) >> 2);
+					outbuf [2] = ((inbuf[2] & 0x03) << 6) | (inbuf[3] & 0x3F);
+					
+					for (i = 0; i < 3; i++)
+					{
+						unsigned char tmpc = outbuf[i];
+						if (tmpc != 0)
+						{
+							[mutableData appendBytes:&outbuf[i] length:1];
+						}
+					}
+				}
 				break;
 			}
 			ch = base64data[ixtext++];
@@ -390,6 +410,7 @@
 			
 			if (!flignore)
 			{
+				newData = YES;
 				short ctcharsinbuf = 3;
 				BOOL flbreak = NO;
 				
@@ -415,7 +436,10 @@
 					{
 						[mutableData appendBytes:&outbuf[i] length:1];
 					}
+					memset(inbuf, 0, 4);
+					newData = NO;
 				}
+				
 				
 				if (flbreak)
 				{
@@ -434,7 +458,7 @@
 }
 
 // BASE64 encode string
-+ (NSString *)base64EncodeString:(NSString *)string lineLength:(NSUInteger)lineLength
++ (NSString *)base64EncodeString:(NSString *)string
 {
 	return [self base64EncodeData:[string dataUsingEncoding:NSUTF8StringEncoding]];
 }
