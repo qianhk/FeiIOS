@@ -273,7 +273,7 @@
 	NSMutableString* str = [[[NSMutableString alloc] init] autorelease];
 	for (int i = 0; i < CC_SHA1_DIGEST_LENGTH; ++i)
 	{
-		
+		[str appendFormat:@"%02X", result[i]];
 	}
 	
 	return str;

@@ -156,17 +156,14 @@
 	NSString* expectStr = @"A9993E364706816ABA3E25717850C26C9CD0D89D";
 	NSString* resultStr = [EncodingConvert sha1:testStr];
 	STAssertTrue([resultStr isEqualToString:expectStr], @"");
-	
-	NSString* expectStr2 = @"900150983CD24FB0D6963F7D28E17F72";
-	STAssertTrue([resultStr isEqualToString:expectStr2], @"");
-	
+		
 	testStr = @"dog";
 	expectStr = @"E49512524F47B4138D850C9D9D85972927281DA0";
 	resultStr = [EncodingConvert sha1:testStr];
 	STAssertTrue([resultStr isEqualToString:expectStr], @"");
 	
 	testStr = @"乔布斯";
-	expectStr = @"7B7250B3389A3FB240D8B9FDEE95F53207A6F269";
+	expectStr = @"87EAC549E692A8AAB11DB6BDF1259D264D29033E";
 	resultStr = [EncodingConvert sha1:testStr];
 	STAssertTrue([resultStr isEqualToString:expectStr], @"");
 }

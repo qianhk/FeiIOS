@@ -67,6 +67,7 @@
 			[txtGBK setStringValue:[EncodingConvert convertUnicodeToGBK:unicodeValue]];
 			[txtBase64 setStringValue:[EncodingConvert base64EncodeString:unicodeValue]];
 			[txtMD5 setStringValue:[EncodingConvert md5:unicodeValue]];
+			[txtSHA1 setStringValue:[EncodingConvert sha1:unicodeValue]];
 			break;
 			
 		case 661:
@@ -77,6 +78,7 @@
 			[txtGBK setStringValue:[EncodingConvert convertUnicodeToGBK:unicodeValue]];
 			[txtBase64 setStringValue:[EncodingConvert base64EncodeString:unicodeValue]];
 			[txtMD5 setStringValue:[EncodingConvert md5:unicodeValue]];
+			[txtSHA1 setStringValue:[EncodingConvert sha1:unicodeValue]];
 		}
 			break;
 			
@@ -88,6 +90,7 @@
 			[txtGBK setStringValue:[EncodingConvert convertUnicodeToGBK:unicodeValue]];
 			[txtBase64 setStringValue:[EncodingConvert base64EncodeString:unicodeValue]];
 			[txtMD5 setStringValue:[EncodingConvert md5:unicodeValue]];
+			[txtSHA1 setStringValue:[EncodingConvert sha1:unicodeValue]];
 		}
 			break;
 			
@@ -99,6 +102,7 @@
 			[txtUTF8 setStringValue:[EncodingConvert convertUnicodeToUTF8:unicodeValue]];
 			[txtBase64 setStringValue:[EncodingConvert base64EncodeString:unicodeValue]];
 			[txtMD5 setStringValue:[EncodingConvert md5:unicodeValue]];
+			[txtSHA1 setStringValue:[EncodingConvert sha1:unicodeValue]];
 		}
 			break;
 			
@@ -110,6 +114,7 @@
 			[txtUTF8 setStringValue:[EncodingConvert convertUnicodeToUTF8:unicodeValue]];
 			[txtGBK setStringValue:[EncodingConvert convertUnicodeToGBK:unicodeValue]];
 			[txtMD5 setStringValue:[EncodingConvert md5:unicodeValue]];
+			[txtSHA1 setStringValue:[EncodingConvert sha1:unicodeValue]];
 		}
 			break;
 			
