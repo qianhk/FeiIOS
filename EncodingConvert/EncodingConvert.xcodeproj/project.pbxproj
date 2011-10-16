@@ -19,6 +19,7 @@
 		D90B10EF143590C300185CC7 /* EncodingConvertTests.h in Resources */ = {isa = PBXBuildFile; fileRef = D90B10EE143590C300185CC7 /* EncodingConvertTests.h */; };
 		D90B10F1143590C300185CC7 /* EncodingConvertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D90B10F0143590C300185CC7 /* EncodingConvertTests.m */; };
 		DC08E5951439FE93002935C5 /* EncodingConvert.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC08E5941439FE93002935C5 /* EncodingConvert.mm */; };
+		DC2B9556144AB6F000295C4E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2B9555144AB6F000295C4E /* libz.dylib */; };
 		DCE86BCA143DA36100C4AE10 /* convert.icns in Resources */ = {isa = PBXBuildFile; fileRef = DCE86BC9143DA36100C4AE10 /* convert.icns */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		D90B10F0143590C300185CC7 /* EncodingConvertTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EncodingConvertTests.m; sourceTree = "<group>"; };
 		DC08E5931439FE93002935C5 /* EncodingConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncodingConvert.h; sourceTree = "<group>"; };
 		DC08E5941439FE93002935C5 /* EncodingConvert.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EncodingConvert.mm; sourceTree = "<group>"; };
+		DC2B9555144AB6F000295C4E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		DCE86BC9143DA36100C4AE10 /* convert.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = convert.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC2B9556144AB6F000295C4E /* libz.dylib in Frameworks */,
 				D90B10C6143590C200185CC7 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,6 +84,7 @@
 		D90B10B6143590C200185CC7 = {
 			isa = PBXGroup;
 			children = (
+				DC2B9555144AB6F000295C4E /* libz.dylib */,
 				D90B10CB143590C200185CC7 /* EncodingConvert */,
 				D90B10E8143590C300185CC7 /* EncodingConvertTests */,
 				D90B10C4143590C200185CC7 /* Frameworks */,

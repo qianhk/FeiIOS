@@ -8,6 +8,7 @@
 
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonHMAC.h>
+#import <zlib.h>
 
 #import "EncodingConvert.h"
 
@@ -468,6 +469,14 @@
 {
 	NSData *data = [self base64Decode:string];
 	return [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+}
+
++ (NSString *)crc32:(NSString *)string
+{
+	uLong nCrc32 = 0;
+	const char * pStr = [string UTF8String];
+	nCrc32 = crc32(0, (const Bytef *)pStr, strlen(pStr));
+	return [NSString stringWithFormat:@"%u", nCrc32];
 }
 
 @end

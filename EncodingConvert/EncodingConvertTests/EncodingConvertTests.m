@@ -190,4 +190,22 @@
 //	STAssertTrue([resultStr isEqualToString:expectStr], @"");
 }
 
+- (void)testCRC32
+{
+	NSString* testStr = @"abc";
+	NSString* expectStr = @"891568578";
+	NSString* resultStr = [EncodingConvert crc32:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+	
+	testStr = @"qhk";
+	expectStr = @"3711336970";
+	resultStr = [EncodingConvert crc32:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+	
+	testStr = @"乔布斯";
+	expectStr = @"102937644";
+	resultStr = [EncodingConvert crc32:testStr];
+	STAssertTrue([resultStr isEqualToString:expectStr], @"");
+}
+
 @end

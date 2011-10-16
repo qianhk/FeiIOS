@@ -46,5 +46,6 @@
 // BASE64 decode string
 + (NSString *)base64DecodeString:(NSString *)string;
 
++ (NSString *)crc32:(NSString *)string;
 
 @end

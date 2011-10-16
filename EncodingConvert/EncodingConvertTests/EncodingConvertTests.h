@@ -24,5 +24,6 @@
 - (void)testMD5;
 - (void)testSHA1;
 - (void)testHMacSHA1;
+- (void)testCRC32;
 
 @end
