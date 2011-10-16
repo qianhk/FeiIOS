@@ -6,6 +6,8 @@
 //  Copyright 2011年 TTPod. All rights reserved.
 //
 
+#import <Carbon/Carbon.h>
+
 #import "EncodingConvertAppDelegate.h"
 #import "EncodingConvert.h"
 
@@ -15,9 +17,50 @@
 
 @end
 
+OSStatus GlobalHotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *userData);
+
+EventHotKeyRef	gMyHotKeyRef;
+
+OSStatus GlobalHotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *userData)
+{
+	/*
+	 EventHotKeyID hkCom;
+	 GetEventParameter(theEvent,kEventParamDirectObject,typeEventHotKeyID,NULL,
+	 sizeof(hkCom),NULL,&hkCom);
+	 int l = hkCom.id;
+	 
+	 switch (l) {
+	 case 1: //do something
+	 break;
+	 case 2: //do something
+	 break;
+	 }*/
+	
+    EncodingConvertAppDelegate *appController = (EncodingConvertAppDelegate *)userData;
+	BOOL hidden = [appController.labelPrompt isHidden];
+	[appController.labelPrompt setHidden:!hidden];
+	return noErr;
+}
+
+static OSStatus RegisterLockUIElementHotKey(void *userInfo)
+{
+    EventTypeSpec eventType = { kEventClassKeyboard, kEventHotKeyReleased};
+    InstallApplicationEventHandler(NewEventHandlerUPP(GlobalHotKeyHandler), 1, &eventType,(void *)userInfo, NULL);
+	
+//	EncodingConvertAppDelegate *appController = (EncodingConvertAppDelegate *)userInfo;
+//	InstallWindowEventHandler((WindowRef)appController.window, NewEventHandlerUPP(GlobalHotKeyHandler), 1, &eventType,(void *)userInfo, NULL);
+//	InstallEventHandler(GetEventDispatcherTarget(), NewEventHandlerUPP(GlobalHotKeyHandler), 1, &eventType,(void *)userInfo, NULL);
+    
+    EventHotKeyID hotKeyID = { 'lUIk', 1 }; // we make up the ID
+	return RegisterEventHotKey(kVK_ANSI_A, shiftKey | controlKey | optionKey, hotKeyID, GetApplicationEventTarget(), 0, &gMyHotKeyRef);
+//    return RegisterEventHotKey(kVK_F7, cmdKey, hotKeyID, GetApplicationEventTarget(), 0, &gMyHotKeyRef); // Cmd-F7 will be the key to hit
+}
+
+
 @implementation EncodingConvertAppDelegate
 
 @synthesize window;
+@synthesize labelPrompt;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
@@ -27,6 +70,10 @@
 	[txtUTF8 setDelegate:self];
 	[txtGBK setDelegate:self];
 	[txtBase64 setDelegate:self];
+	
+	RegisterLockUIElementHotKey((void *)self);
+	
+//	[labelPrompt setHidden:NO];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
@@ -45,6 +92,13 @@
 
 - (void)dealloc
 {	
+	[txtChinese release];
+	[txtUnicode release];
+	[txtUTF8 release];
+	[txtGBK release];
+	[txtBase64 release];
+	[labelPrompt release];
+	
 	[super dealloc];
 }
 

@@ -20,6 +20,9 @@
 		D90B10F1143590C300185CC7 /* EncodingConvertTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D90B10F0143590C300185CC7 /* EncodingConvertTests.m */; };
 		DC08E5951439FE93002935C5 /* EncodingConvert.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC08E5941439FE93002935C5 /* EncodingConvert.mm */; };
 		DC2B9556144AB6F000295C4E /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2B9555144AB6F000295C4E /* libz.dylib */; };
+		DC2B956D144B03C200295C4E /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC2B956C144B03C200295C4E /* MyView.m */; };
+		DC2B9570144B110C00295C4E /* MyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = DC2B956F144B110C00295C4E /* MyWindow.m */; };
+		DC2B9581144B22CA00295C4E /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2B9580144B22CA00295C4E /* Carbon.framework */; };
 		DCE86BCA143DA36100C4AE10 /* convert.icns in Resources */ = {isa = PBXBuildFile; fileRef = DCE86BC9143DA36100C4AE10 /* convert.icns */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +59,11 @@
 		DC08E5931439FE93002935C5 /* EncodingConvert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncodingConvert.h; sourceTree = "<group>"; };
 		DC08E5941439FE93002935C5 /* EncodingConvert.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = EncodingConvert.mm; sourceTree = "<group>"; };
 		DC2B9555144AB6F000295C4E /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		DC2B956B144B03C200295C4E /* MyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyView.h; sourceTree = "<group>"; };
+		DC2B956C144B03C200295C4E /* MyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyView.m; sourceTree = "<group>"; };
+		DC2B956E144B110C00295C4E /* MyWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWindow.h; sourceTree = "<group>"; };
+		DC2B956F144B110C00295C4E /* MyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWindow.m; sourceTree = "<group>"; };
+		DC2B9580144B22CA00295C4E /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
 		DCE86BC9143DA36100C4AE10 /* convert.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = convert.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC2B9581144B22CA00295C4E /* Carbon.framework in Frameworks */,
 				DC2B9556144AB6F000295C4E /* libz.dylib in Frameworks */,
 				D90B10C6143590C200185CC7 /* Cocoa.framework in Frameworks */,
 			);
@@ -84,7 +93,6 @@
 		D90B10B6143590C200185CC7 = {
 			isa = PBXGroup;
 			children = (
-				DC2B9555144AB6F000295C4E /* libz.dylib */,
 				D90B10CB143590C200185CC7 /* EncodingConvert */,
 				D90B10E8143590C300185CC7 /* EncodingConvertTests */,
 				D90B10C4143590C200185CC7 /* Frameworks */,
@@ -104,6 +112,8 @@
 		D90B10C4143590C200185CC7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC2B9580144B22CA00295C4E /* Carbon.framework */,
+				DC2B9555144AB6F000295C4E /* libz.dylib */,
 				D90B10C5143590C200185CC7 /* Cocoa.framework */,
 				D90B10E3143590C300185CC7 /* SenTestingKit.framework */,
 				D90B10C7143590C200185CC7 /* Other Frameworks */,
@@ -128,6 +138,10 @@
 				D90B10D8143590C200185CC7 /* EncodingConvertAppDelegate.m */,
 				DC08E5931439FE93002935C5 /* EncodingConvert.h */,
 				DC08E5941439FE93002935C5 /* EncodingConvert.mm */,
+				DC2B956B144B03C200295C4E /* MyView.h */,
+				DC2B956C144B03C200295C4E /* MyView.m */,
+				DC2B956E144B110C00295C4E /* MyWindow.h */,
+				DC2B956F144B110C00295C4E /* MyWindow.m */,
 				D90B10DA143590C300185CC7 /* MainMenu.xib */,
 				D90B10CC143590C200185CC7 /* Supporting Files */,
 			);
@@ -279,6 +293,8 @@
 				D90B10D2143590C200185CC7 /* main.m in Sources */,
 				D90B10D9143590C200185CC7 /* EncodingConvertAppDelegate.m in Sources */,
 				DC08E5951439FE93002935C5 /* EncodingConvert.mm in Sources */,
+				DC2B956D144B03C200295C4E /* MyView.m in Sources */,
+				DC2B9570144B110C00295C4E /* MyWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

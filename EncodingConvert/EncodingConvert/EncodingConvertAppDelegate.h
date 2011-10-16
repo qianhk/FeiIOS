@@ -23,7 +23,11 @@
 	IBOutlet NSTextField *txtCRC;
 	IBOutlet NSTextField *txtSHA1;
 	
+	IBOutlet NSTextField *labelPrompt;
+	
 }
+
+@property (nonatomic, retain) NSTextField *labelPrompt;
 
 @property (assign) IBOutlet NSWindow *window;
 

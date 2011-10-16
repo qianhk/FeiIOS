@@ -475,7 +475,7 @@
 {
 	uLong nCrc32 = 0;
 	const char * pStr = [string UTF8String];
-	nCrc32 = crc32(0, (const Bytef *)pStr, strlen(pStr));
+	nCrc32 = crc32(0, (const Bytef *)pStr, (uInt)strlen(pStr));
 	return [NSString stringWithFormat:@"%u", nCrc32];
 }
 
