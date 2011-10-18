@@ -10,26 +10,32 @@
 
 #import "GeneralViewController.h"
 
+@interface GeneralViewController()
+
+- (NSString*)doDeviceNumberString;
+
+@end
+
 @implementation GeneralViewController
 
 const NSString* KTTUDID = @"UDID";
 const NSString* KTTModel = @"Model";
 const NSString* KTTName = @"Name";
-const NSString* KTTLocalizedModel = @"Localized Model";
-const NSString* KTTSystemName = @"System Name";
+//const NSString* KTTLocalizedModel = @"Localized Model";
+//const NSString* KTTSystemName = @"System Name";
 const NSString* KTTSystemVersion = @"System Version";
 const NSString* KTTDevicePlatform = @"Device Platform";
 const NSString* KTTBatteryState = @"Battery State";
 const NSString* KTTBatteryLevel = @"Battery Level";
-const NSString* KTTUserInterfaceIdiom = @"UserInterfaceIdiom";
-const NSString* KTTOrientation = @"Orientation";
+//const NSString* KTTUserInterfaceIdiom = @"UserInterfaceIdiom";
+//const NSString* KTTOrientation = @"Orientation";
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self)
 	{
-		arrBatteryState = [[NSArray alloc] initWithObjects: @"Unknow", @"Unplugged", @"Charging", @"Full", nil];
+		arrBatteryState = [[NSArray alloc] initWithObjects: NSLocalizedString(@"Unknow", @""), NSLocalizedString(@"Unplugged", @""), NSLocalizedString(@"Charging", @""), NSLocalizedString(@"Full", @""), nil];
 		arrOrientation = [[NSArray alloc] initWithObjects: @"Unknow", @"Portrait", @"PortraitUpsideDown", @"LandscapeLeft", @"LandscapeRight", @"FaceUp", @"FaceDown", nil];
     }
     return self;
@@ -73,19 +79,20 @@ const NSString* KTTOrientation = @"Orientation";
 	[_dic setObject:udid forKey:KTTUDID];
 	
 	[_arrKey addObject:KTTModel];
-	[_dic setObject:[device model] forKey:KTTModel];
+	[_dic setObject:[self doDeviceNumberString] forKey:KTTModel];
 	
 	[_arrKey addObject:KTTName];
 	[_dic setObject:[device name] forKey:KTTName];
 	
-	[_arrKey addObject:KTTLocalizedModel];
-	[_dic setObject:[device localizedModel] forKey:KTTLocalizedModel];
-	
-	[_arrKey addObject:KTTSystemName];
-	[_dic setObject:[device systemName] forKey:KTTSystemName];
-	
+//	[_arrKey addObject:KTTLocalizedModel];
+//	[_dic setObject:[device localizedModel] forKey:KTTLocalizedModel];
+//	
+//	[_arrKey addObject:KTTSystemName];
+//	[_dic setObject:[device systemName] forKey:KTTSystemName];
+	NSMutableString* systemNameAndVersion = [NSMutableString stringWithString:[device systemName]];
+	[systemNameAndVersion appendFormat:@" %@", [device systemVersion]];
 	[_arrKey addObject:KTTSystemVersion];
-	[_dic setObject:[device systemVersion] forKey:KTTSystemVersion];
+	[_dic setObject:systemNameAndVersion forKey:KTTSystemVersion];
 	
 	NSString* devicePlatform = [self performSelector:@selector(doDevicePlatform) withObject:nil];
 	[_arrKey addObject:KTTDevicePlatform];
@@ -98,26 +105,26 @@ const NSString* KTTOrientation = @"Orientation";
 	float batteryLevel = [device batteryLevel];
 	if (batteryLevel < 0.0)
 	{
-		[_dic setObject:@"Unknow" forKey:KTTBatteryLevel];
+		[_dic setObject:NSLocalizedString(@"Unknow", @"") forKey:KTTBatteryLevel];
 	}
 	else
 	{
-		[_dic setObject:[NSString stringWithFormat:@"%.2f", batteryLevel] forKey:KTTBatteryLevel];
+		[_dic setObject:[NSString stringWithFormat:@"%d%%", (int)batteryLevel * 100] forKey:KTTBatteryLevel];
 	}
 
 	
-	[_arrKey addObject:KTTUserInterfaceIdiom];
-	if ([device userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-	{
-		[_dic setObject:@"iPhone and iPod touch style" forKey:KTTUserInterfaceIdiom];
-	}
-	else
-	{
-		[_dic setObject:@"iPad style UI" forKey:KTTUserInterfaceIdiom];
-	}
-	
-	[_arrKey addObject:KTTOrientation];
-	[_dic setObject:[arrOrientation objectAtIndex:[device orientation]] forKey:KTTOrientation];
+//	[_arrKey addObject:KTTUserInterfaceIdiom];
+//	if ([device userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+//	{
+//		[_dic setObject:@"iPhone and iPod touch style" forKey:KTTUserInterfaceIdiom];
+//	}
+//	else
+//	{
+//		[_dic setObject:@"iPad style UI" forKey:KTTUserInterfaceIdiom];
+//	}
+//	
+//	[_arrKey addObject:KTTOrientation];
+//	[_dic setObject:[arrOrientation objectAtIndex:[device orientation]] forKey:KTTOrientation];
 	
 	[self.tableView reloadData];
 }
@@ -128,11 +135,11 @@ const NSString* KTTOrientation = @"Orientation";
 	float batteryLevel = [device batteryLevel];
 	if (batteryLevel < 0.0)
 	{
-		[_dic setObject:@"Unknow" forKey:KTTBatteryLevel];
+		[_dic setObject:NSLocalizedString(@"Unknow", @"") forKey:KTTBatteryLevel];
 	}
 	else
 	{
-		[_dic setObject:[NSString stringWithFormat:@"%.2f", batteryLevel] forKey:KTTBatteryLevel];
+		[_dic setObject:[NSString stringWithFormat:@"%d%%", (int)batteryLevel * 100] forKey:KTTBatteryLevel];
 	}
 	[self.tableView reloadData];
 }
@@ -218,9 +225,9 @@ const NSString* KTTOrientation = @"Orientation";
     UILabel *label = (UILabel *)[cell viewWithTag:6666];
 	NSInteger row = [indexPath row];
 	label.text = [NSString stringWithFormat:@"%d", row + 1];
-    NSString* text = [_arrKey objectAtIndex:row];
-	cell.textLabel.text = text;
-	cell.detailTextLabel.text = [_dic objectForKey:text];
+    NSString* key = [_arrKey objectAtIndex:row];
+	cell.textLabel.text = NSLocalizedString(key, @"");
+	cell.detailTextLabel.text = [_dic objectForKey:key];
     
     return cell;
 }
@@ -278,5 +285,61 @@ const NSString* KTTOrientation = @"Orientation";
      [detailViewController release];
      */
 }
+
+- (NSString*) doDeviceNumberString
+{
+    NSString *platform = [self doDevicePlatform];
+    if ([platform isEqualToString:@"iPhone1,1"])
+    {
+        return @"iPhone";
+    }
+    if ([platform isEqualToString:@"iPhone1,2"])
+    {
+        return @"iPhone3G";
+    }
+    if ([platform isEqualToString:@"iPhone2,1"])
+    {
+        return @"iPhone3GS";
+    }
+    if ([platform isEqualToString:@"iPhone3,1"])
+    {
+        return @"iPhone4";
+    } 
+	if ([platform isEqualToString:@"iPhone3,2"])
+    {
+        return @"iPhone4S";
+    }
+    if ([platform isEqualToString:@"iPod1,1"])
+    {
+        return @"iTouch";
+    }
+    if ([platform isEqualToString:@"iPod2,1"])
+    {
+        return @"iTouch2";
+    }
+    if ([platform isEqualToString:@"iPod3,1"])
+    {
+        return @"iTouch3";
+    }
+    if ([platform isEqualToString:@"iPod4,1"])
+    {
+        return @"iTouch4";
+    }
+    if ([platform isEqualToString:@"iPad1,1"])
+    {
+        return @"iPad";
+    }
+    if ([platform isEqualToString:@"iPad2,1"])
+    {
+        return @"iPad2";
+    }
+    if ([platform isEqualToString:@"i386"] || [platform isEqualToString:@"x86_64"])         
+    {
+        return @"iPhone Simulator";
+    }
+    
+    return platform;
+}
+
 
 @end

@@ -36,6 +36,8 @@
 	CameraViewController* cameraController;
 	HardwareViewController* hardwareController;
 	AboutViewController* aboutController;
+	
+//	CGRect _rectbottom;
 }
 
 @end

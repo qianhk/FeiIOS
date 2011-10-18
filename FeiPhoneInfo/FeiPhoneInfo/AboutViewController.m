@@ -75,8 +75,27 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	return YES;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+	CGRect rectHeadImage;
+    if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown)
+	{
+		rectHeadImage = CGRectMake(0, 20, 320, 80);
+	}
+	else
+	{
+		rectHeadImage = CGRectMake(0, 20, 480, 80);
+	}
+	
+	UIView* view = self.tableView.tableHeaderView;
+	if (view.subviews > 0)
+	{
+		UIView* imageView = (UIView *)[view.subviews objectAtIndex:0];
+		[imageView setFrame:rectHeadImage];
+	}
 }
 
 - (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,7 +136,7 @@
 		case 1:
 		{
 			cell.textLabel.text = NSLocalizedString(@"Version", @"software version");
-			cell.detailTextLabel.text = @"1.0.20111001";
+			cell.detailTextLabel.text = @"1.1.20111019";
 			break;
 		}
 		case 2:
