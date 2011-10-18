@@ -118,6 +118,8 @@ const NSString* KTTOrientation = @"Orientation";
 	
 	[_arrKey addObject:KTTOrientation];
 	[_dic setObject:[arrOrientation objectAtIndex:[device orientation]] forKey:KTTOrientation];
+	
+	[self.tableView reloadData];
 }
 
 - (void)batteryLevelDidChange:(NSNotification *)notification
