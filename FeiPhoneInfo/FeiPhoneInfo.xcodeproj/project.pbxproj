@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9016893144EA0A0002C65EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94E0D7C143054DB00552FBE /* Foundation.framework */; };
+		D9016897144EA4D1002C65EF /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9016896144EA4D1002C65EF /* IOKit.framework */; };
 		D91B8E2E1432C71800E62AE5 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B8E2D1432C71800E62AE5 /* BaseViewController.m */; };
 		D91B8E3A1432CC7100E62AE5 /* ProfilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B8E391432CC7000E62AE5 /* ProfilesViewController.m */; };
 		D91B8E3D1432CE0700E62AE5 /* NetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B8E3C1432CE0700E62AE5 /* NetworkViewController.m */; };
@@ -15,7 +17,6 @@
 		D91B8E461432CE4800E62AE5 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B8E451432CE4800E62AE5 /* AboutViewController.m */; };
 		D91B8E4F14331DF400E62AE5 /* logo_about.png in Resources */ = {isa = PBXBuildFile; fileRef = D91B8E4E14331DF400E62AE5 /* logo_about.png */; };
 		D94E0D7B143054DB00552FBE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94E0D7A143054DB00552FBE /* UIKit.framework */; };
-		D94E0D7D143054DB00552FBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94E0D7C143054DB00552FBE /* Foundation.framework */; };
 		D94E0D7F143054DB00552FBE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94E0D7E143054DB00552FBE /* CoreGraphics.framework */; };
 		D94E0D85143054DB00552FBE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D94E0D83143054DB00552FBE /* InfoPlist.strings */; };
 		D94E0D87143054DB00552FBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D94E0D86143054DB00552FBE /* main.m */; };
@@ -64,6 +65,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D9016896144EA4D1002C65EF /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		D901689C144EA9E2002C65EF /* IOPowerSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOPowerSources.h; sourceTree = "<group>"; };
+		D901689D144EA9E2002C65EF /* IOPSKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOPSKeys.h; sourceTree = "<group>"; };
 		D91B8E2C1432C71800E62AE5 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		D91B8E2D1432C71800E62AE5 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		D91B8E381432CC7000E62AE5 /* ProfilesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfilesViewController.h; sourceTree = "<group>"; };
@@ -137,8 +141,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9016897144EA4D1002C65EF /* IOKit.framework in Frameworks */,
+				D9016893144EA0A0002C65EF /* Foundation.framework in Frameworks */,
 				D94E0D7B143054DB00552FBE /* UIKit.framework in Frameworks */,
-				D94E0D7D143054DB00552FBE /* Foundation.framework in Frameworks */,
 				D94E0D7F143054DB00552FBE /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,6 +185,7 @@
 		D94E0D79143054DB00552FBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9016896144EA4D1002C65EF /* IOKit.framework */,
 				D94E0D7A143054DB00552FBE /* UIKit.framework */,
 				D94E0D7C143054DB00552FBE /* Foundation.framework */,
 				D94E0D7E143054DB00552FBE /* CoreGraphics.framework */,
@@ -221,6 +227,8 @@
 		D94E0D81143054DB00552FBE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D901689C144EA9E2002C65EF /* IOPowerSources.h */,
+				D901689D144EA9E2002C65EF /* IOPSKeys.h */,
 				D965E7D21431C55E00457246 /* FeiPhoneInfo-Info.plist */,
 				D94E0D83143054DB00552FBE /* InfoPlist.strings */,
 				D94E0D86143054DB00552FBE /* main.m */,
@@ -338,6 +346,7 @@
 		D94E0D6D143054DB00552FBE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = TTPod;
 			};
 			buildConfigurationList = D94E0D70143054DB00552FBE /* Build configuration list for PBXProject "FeiPhoneInfo" */;
@@ -560,10 +569,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "FeiPhoneInfo/FeiPhoneInfo-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "FeiPhoneInfo/FeiPhoneInfo-Info.plist";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
@@ -574,10 +586,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "FeiPhoneInfo/FeiPhoneInfo-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "FeiPhoneInfo/FeiPhoneInfo-Info.plist";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;

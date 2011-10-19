@@ -8,11 +8,28 @@
 
 #import <sys/sysctl.h>
 
+#include "IOPowerSources.h"
+#include "IOPSKeys.h"
+
+//#include <IOKit/ps/IOPowerSources.h>
+//#include <IOKit/ps/IOPSKeys.h>
+
 #import "GeneralViewController.h"
+
+//#if TARGET_IPHONE_SIMULATOR
+//
+//#elif TARGET_OS_IPHONE
+
+//#pragma comment(lib, "libIOKit.A.dylib")
+//#pragma comment(lib, "libIOKit.dylib")
+
+
+//#endif
 
 @interface GeneralViewController()
 
 - (NSString*)doDeviceNumberString;
+- (double)batteryLevel;
 
 @end
 
@@ -50,7 +67,7 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 }
 
 - (void)dealloc
-{
+{	
 	[arrBatteryState release];
 	[arrOrientation release];
 	
@@ -63,9 +80,9 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 {
     [super viewDidLoad];
 	
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(batteryLevelDidChange:)
-												 name:UIDeviceBatteryLevelDidChangeNotification object:nil];
+//	[[NSNotificationCenter defaultCenter] addObserver:self
+//											 selector:@selector(batteryLevelDidChange:)
+//												 name:UIDeviceBatteryLevelDidChangeNotification object:nil];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(batteryStateDidChange:)
@@ -102,14 +119,15 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 	[_dic setObject:[arrBatteryState objectAtIndex:[device batteryState]] forKey:KTTBatteryState];
 	
 	[_arrKey addObject:KTTBatteryLevel];
-	float batteryLevel = [device batteryLevel];
-	if (batteryLevel < 0.0)
+//	float batteryLevel = [device batteryLevel];
+	_lastBatteryLevel = (NSInteger)[self batteryLevel];
+	if (_lastBatteryLevel < 0.0)
 	{
 		[_dic setObject:NSLocalizedString(@"Unknow", @"") forKey:KTTBatteryLevel];
 	}
 	else
 	{
-		[_dic setObject:[NSString stringWithFormat:@"%d%%", (int)batteryLevel * 100] forKey:KTTBatteryLevel];
+		[_dic setObject:[NSString stringWithFormat:@"%d%%", _lastBatteryLevel] forKey:KTTBatteryLevel];
 	}
 
 	
@@ -127,8 +145,35 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 //	[_dic setObject:[arrOrientation objectAtIndex:[device orientation]] forKey:KTTOrientation];
 	
 	[self.tableView reloadData];
+	
+	_timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerCome) userInfo:nil repeats:YES];
+	
+#if TARGET_IPHONE_SIMULATOR
+	NSLog(@"TARGET_IPHONE_SIMULATOR");
+#elif TARGET_OS_IPHONE
+	NSLog(@"TARGET_OS_IPHONE");
+#endif
 }
 
+- (void)timerCome
+{
+	NSInteger batteryLevel = (NSInteger)[self batteryLevel];
+	if (batteryLevel != _lastBatteryLevel)
+	{
+		_lastBatteryLevel = batteryLevel;
+		if (batteryLevel < 0)
+		{
+			[_dic setObject:NSLocalizedString(@"Unknow", @"") forKey:KTTBatteryLevel];
+		}
+		else
+		{
+			[_dic setObject:[NSString stringWithFormat:@"%d%%", _lastBatteryLevel] forKey:KTTBatteryLevel];
+		}
+		
+		[self.tableView reloadData];
+	}
+}
+			  
 - (void)batteryLevelDidChange:(NSNotification *)notification
 {
 	UIDevice* device = [UIDevice currentDevice];
@@ -139,7 +184,8 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 	}
 	else
 	{
-		[_dic setObject:[NSString stringWithFormat:@"%d%%", (int)batteryLevel * 100] forKey:KTTBatteryLevel];
+		double jqBatteryLevel = [self batteryLevel];
+		[_dic setObject:[NSString stringWithFormat:@"%d%% <%.4f> <%.4f>", (int)(batteryLevel * 100), batteryLevel, jqBatteryLevel] forKey:KTTBatteryLevel];
 	}
 	[self.tableView reloadData];
 }
@@ -165,12 +211,14 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 
 - (void)viewDidUnload
 {
-    [super viewDidUnload];
+	[_timer invalidate];
 	
 	[UIDevice currentDevice].batteryMonitoringEnabled = NO;
     
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceBatteryLevelDidChangeNotification object:nil];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceBatteryStateDidChangeNotification object:nil];
+	
+	[super viewDidUnload];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -341,5 +389,54 @@ const NSString* KTTBatteryLevel = @"Battery Level";
     return platform;
 }
 
+- (double)batteryLevel
+{
+//#if TARGET_IPHONE_SIMULATOR
+//
+//#elif TARGET_OS_IPHONE
+	
+	CFTypeRef blob = IOPSCopyPowerSourcesInfo();
+	CFArrayRef sources = IOPSCopyPowerSourcesList(blob);
+	
+	CFDictionaryRef pSource = NULL;
+	const void *psValue;
+	
+	int numOfSources = CFArrayGetCount(sources);
+	if (numOfSources == 0)
+	{
+		NSLog(@"qhk: Error in CFArrayGetCount");
+		return -1;
+	}
+	
+	for (int i = 0 ; i < numOfSources ; i++)
+	{
+		pSource = IOPSGetPowerSourceDescription(blob, CFArrayGetValueAtIndex(sources, i));
+		if (!pSource)
+		{
+			NSLog(@"qhk: Error in IOPSGetPowerSourceDescription");
+			return -1;
+		}
+		
+		psValue = (CFStringRef)CFDictionaryGetValue(pSource, CFSTR(kIOPSNameKey));
+		
+		int curCapacity = 0;
+		int maxCapacity = 0;
+		double percent;
+		
+		psValue = CFDictionaryGetValue(pSource, CFSTR(kIOPSCurrentCapacityKey));
+		CFNumberGetValue((CFNumberRef)psValue, kCFNumberSInt32Type, &curCapacity);
+		
+		psValue = CFDictionaryGetValue(pSource, CFSTR(kIOPSMaxCapacityKey));
+		CFNumberGetValue((CFNumberRef)psValue, kCFNumberSInt32Type, &maxCapacity);
+		
+		percent = ((double)curCapacity/(double)maxCapacity * 100.0f);
+		
+		return percent;
+//		return (NSInteger)(percent + 0.5f);
+	}
+//#endif
+	
+	return -1;
+}
 
 @end

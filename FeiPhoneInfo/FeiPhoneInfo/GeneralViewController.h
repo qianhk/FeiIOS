@@ -13,6 +13,10 @@
 {
 	NSArray* arrBatteryState;
 	NSArray* arrOrientation;
+	
+	NSTimer* _timer;
+	
+	NSInteger _lastBatteryLevel;
 }
 
 @end
