@@ -10,5 +10,8 @@
 #import "BaseViewController.h"
 
 @interface HardwareViewController : BaseViewController
+{
+
+}
 
 @end

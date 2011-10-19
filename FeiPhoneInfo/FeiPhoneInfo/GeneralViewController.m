@@ -226,9 +226,9 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 - (NSString*) doDevicePlatform
 {
     size_t size;
-    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    int nR = sysctlbyname("hw.machine", NULL, &size, NULL, 0);
     char *machine = (char *)malloc(size);
-    sysctlbyname("hw.machine", machine, &size, NULL, 0);
+    nR = sysctlbyname("hw.machine", machine, &size, NULL, 0);
     NSString *platform = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
     free(machine);
     return platform;
