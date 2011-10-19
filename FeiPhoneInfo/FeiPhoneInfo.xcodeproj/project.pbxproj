@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D9016893144EA0A0002C65EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94E0D7C143054DB00552FBE /* Foundation.framework */; };
-		D9016897144EA4D1002C65EF /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9016896144EA4D1002C65EF /* IOKit.framework */; };
+		D90168D0144EDB4B002C65EF /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9016896144EA4D1002C65EF /* IOKit.framework */; };
 		D91B8E2E1432C71800E62AE5 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B8E2D1432C71800E62AE5 /* BaseViewController.m */; };
 		D91B8E3A1432CC7100E62AE5 /* ProfilesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B8E391432CC7000E62AE5 /* ProfilesViewController.m */; };
 		D91B8E3D1432CE0700E62AE5 /* NetworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B8E3C1432CE0700E62AE5 /* NetworkViewController.m */; };
@@ -141,8 +141,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9016897144EA4D1002C65EF /* IOKit.framework in Frameworks */,
 				D9016893144EA0A0002C65EF /* Foundation.framework in Frameworks */,
+				D90168D0144EDB4B002C65EF /* IOKit.framework in Frameworks */,
 				D94E0D7B143054DB00552FBE /* UIKit.framework in Frameworks */,
 				D94E0D7F143054DB00552FBE /* CoreGraphics.framework in Frameworks */,
 			);
@@ -569,7 +569,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)//System/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "FeiPhoneInfo/FeiPhoneInfo-Prefix.pch";
 				GCC_VERSION = "";
@@ -586,7 +589,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)//System/Library/Frameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "FeiPhoneInfo/FeiPhoneInfo-Prefix.pch";
 				GCC_VERSION = "";

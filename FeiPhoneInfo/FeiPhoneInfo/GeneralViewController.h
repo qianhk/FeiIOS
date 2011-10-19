@@ -16,7 +16,7 @@
 	
 	NSTimer* _timer;
 	
-	NSInteger _lastBatteryLevel;
+	double _lastBatteryLevel;
 }
 
 @end

@@ -29,7 +29,7 @@
 @interface GeneralViewController()
 
 - (NSString*)doDeviceNumberString;
-- (double)batteryLevel;
+- (NSDictionary*)batteryLevel;
 
 @end
 
@@ -120,14 +120,19 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 	
 	[_arrKey addObject:KTTBatteryLevel];
 //	float batteryLevel = [device batteryLevel];
-	_lastBatteryLevel = (NSInteger)[self batteryLevel];
-	if (_lastBatteryLevel < 0.0)
+//	_lastBatteryLevel = (NSInteger)[self batteryLevel];
+
+	NSDictionary *dic = [self batteryLevel];
+	int no1 = [[dic objectForKey:@"no1"] intValue];
+	int no2 = [[dic objectForKey:@"no2"] intValue];
+	_lastBatteryLevel = no1;
+	if (no1 < 0)
 	{
 		[_dic setObject:NSLocalizedString(@"Unknow", @"") forKey:KTTBatteryLevel];
 	}
 	else
 	{
-		[_dic setObject:[NSString stringWithFormat:@"%d%%", _lastBatteryLevel] forKey:KTTBatteryLevel];
+		[_dic setObject:[NSString stringWithFormat:@"%d%% [min=%d, max=%d]", no1 * 100 / no2, no1, no2] forKey:KTTBatteryLevel];
 	}
 
 	
@@ -157,37 +162,57 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 
 - (void)timerCome
 {
-	NSInteger batteryLevel = (NSInteger)[self batteryLevel];
-	if (batteryLevel != _lastBatteryLevel)
+//	double batteryLevel = (NSInteger)[self batteryLevel];
+//	if (batteryLevel != _lastBatteryLevel)
+//	{
+//		_lastBatteryLevel = batteryLevel;
+//		if (batteryLevel < 0)
+//		{
+//			[_dic setObject:NSLocalizedString(@"Unknow", @"") forKey:KTTBatteryLevel];
+//		}
+//		else
+//		{
+//			[_dic setObject:[NSString stringWithFormat:@"%.4f%%", _lastBatteryLevel] forKey:KTTBatteryLevel];
+//		}
+//		
+//		[self.tableView reloadData];
+//	}
+	
+	NSDictionary *dic = [self batteryLevel];
+	int no1 = [[dic objectForKey:@"no1"] intValue];
+	int no2 = [[dic objectForKey:@"no2"] intValue];
+	if (no1 == _lastBatteryLevel)
 	{
-		_lastBatteryLevel = batteryLevel;
-		if (batteryLevel < 0)
-		{
-			[_dic setObject:NSLocalizedString(@"Unknow", @"") forKey:KTTBatteryLevel];
-		}
-		else
-		{
-			[_dic setObject:[NSString stringWithFormat:@"%d%%", _lastBatteryLevel] forKey:KTTBatteryLevel];
-		}
-		
-		[self.tableView reloadData];
+		return;
 	}
-}
-			  
-- (void)batteryLevelDidChange:(NSNotification *)notification
-{
-	UIDevice* device = [UIDevice currentDevice];
-	float batteryLevel = [device batteryLevel];
-	if (batteryLevel < 0.0)
+	
+	_lastBatteryLevel = no1;
+	if (no1 < 0)
 	{
 		[_dic setObject:NSLocalizedString(@"Unknow", @"") forKey:KTTBatteryLevel];
 	}
 	else
 	{
-		double jqBatteryLevel = [self batteryLevel];
-		[_dic setObject:[NSString stringWithFormat:@"%d%% <%.4f> <%.4f>", (int)(batteryLevel * 100), batteryLevel, jqBatteryLevel] forKey:KTTBatteryLevel];
+		[_dic setObject:[NSString stringWithFormat:@"%d%% [min=%d, max=%d]", no1 * 100 / no2, no1, no2] forKey:KTTBatteryLevel];
 	}
+	
 	[self.tableView reloadData];
+}
+			  
+- (void)batteryLevelDidChange:(NSNotification *)notification
+{
+//	UIDevice* device = [UIDevice currentDevice];
+//	float batteryLevel = [device batteryLevel];
+//	if (batteryLevel < 0.0)
+//	{
+//		[_dic setObject:NSLocalizedString(@"Unknow", @"") forKey:KTTBatteryLevel];
+//	}
+//	else
+//	{
+//		double jqBatteryLevel = [self batteryLevel];
+//		[_dic setObject:[NSString stringWithFormat:@"%d%% <%.4f> <%.4f>", (int)(batteryLevel * 100), batteryLevel, jqBatteryLevel] forKey:KTTBatteryLevel];
+//	}
+//	[self.tableView reloadData];
 }
 
 
@@ -389,7 +414,7 @@ const NSString* KTTBatteryLevel = @"Battery Level";
     return platform;
 }
 
-- (double)batteryLevel
+- (NSDictionary*)batteryLevel
 {
 //#if TARGET_IPHONE_SIMULATOR
 //
@@ -405,7 +430,7 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 	if (numOfSources == 0)
 	{
 		NSLog(@"qhk: Error in CFArrayGetCount");
-		return -1;
+		return nil;
 	}
 	
 	for (int i = 0 ; i < numOfSources ; i++)
@@ -414,14 +439,14 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 		if (!pSource)
 		{
 			NSLog(@"qhk: Error in IOPSGetPowerSourceDescription");
-			return -1;
+			return nil;
 		}
 		
 		psValue = (CFStringRef)CFDictionaryGetValue(pSource, CFSTR(kIOPSNameKey));
 		
 		int curCapacity = 0;
 		int maxCapacity = 0;
-		double percent;
+//		double percent;
 		
 		psValue = CFDictionaryGetValue(pSource, CFSTR(kIOPSCurrentCapacityKey));
 		CFNumberGetValue((CFNumberRef)psValue, kCFNumberSInt32Type, &curCapacity);
@@ -429,14 +454,19 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 		psValue = CFDictionaryGetValue(pSource, CFSTR(kIOPSMaxCapacityKey));
 		CFNumberGetValue((CFNumberRef)psValue, kCFNumberSInt32Type, &maxCapacity);
 		
-		percent = ((double)curCapacity/(double)maxCapacity * 100.0f);
+//		percent = ((double)curCapacity/(double)maxCapacity * 100.0f);
 		
-		return percent;
+		NSNumber* no1 = [NSNumber numberWithInt:curCapacity];
+		NSNumber* no2= [NSNumber numberWithInt:maxCapacity];
+		
+		return [NSDictionary dictionaryWithObjectsAndKeys:no1, @"no1", no2, @"no2", nil];
+		
+//		return percent;
 //		return (NSInteger)(percent + 0.5f);
 	}
 //#endif
 	
-	return -1;
+	return nil;
 }
 
 @end
