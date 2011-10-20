@@ -53,13 +53,12 @@
 	[view addSubview:headerView];
 	self.tableView.tableHeaderView = view;
 	
-	UILabel* footerView = [[[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, self.tableView.frame.size.width, 48.0f)] autorelease];
+	UILabel* footerView = [[[UILabel alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 0.0f, 48.0f)] autorelease];
     footerView.textAlignment = UITextAlignmentCenter;
     footerView.backgroundColor = [UIColor clearColor];
     footerView.lineBreakMode = UILineBreakModeWordWrap;
     footerView.font = [UIFont systemFontOfSize:14.0f];
     footerView.numberOfLines = 2;
-    footerView.textAlignment = UITextAlignmentCenter;
     [footerView setText:NSLocalizedString(@"Copyright", @"the Copyright")];
     
     self.tableView.tableFooterView = footerView;

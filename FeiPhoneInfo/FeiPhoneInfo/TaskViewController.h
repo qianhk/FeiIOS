@@ -10,5 +10,8 @@
 #import "BaseViewController.h"
 
 @interface TaskViewController : BaseViewController
+{
+	NSTimer* _timer;
+}
 
 @end

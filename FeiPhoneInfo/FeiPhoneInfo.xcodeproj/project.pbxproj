@@ -41,7 +41,7 @@
 		D965E7CA1431C2EC00457246 /* hardware@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D965E7C81431C2EC00457246 /* hardware@2x.png */; };
 		D965E7DF1431CF1500457246 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D965E7E01431CF1500457246 /* icon.png */; };
 		D9AE8E3514308585007D9447 /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9AE8E3414308585007D9447 /* GeneralViewController.m */; };
-		D9C8DD801430894500856CA1 /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9C8DD7F1430894500856CA1 /* TaskViewController.m */; };
+		D9C8DD801430894500856CA1 /* TaskViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9C8DD7F1430894500856CA1 /* TaskViewController.mm */; };
 		D9F31BB414316AC600C019BE /* iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BB314316AC600C019BE /* iPhone.png */; };
 		D9F31BC3143172A400C019BE /* Camera.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BBB143172A400C019BE /* Camera.png */; };
 		D9F31BC5143172A400C019BE /* generalinfo.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BBD143172A400C019BE /* generalinfo.png */; };
@@ -52,6 +52,8 @@
 		D9F31BCC14317A6400C019BE /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BCB14317A6400C019BE /* about.png */; };
 		D9F31BD71431878D00C019BE /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F31BD81431878D00C019BE /* SwitchViewController.m */; };
 		D9F31BDB1431A76200C019BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BDD1431A76200C019BE /* Localizable.strings */; };
+		DC7C9EEE14507FF200D80269 /* process.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7C9EED14507FF200D80269 /* process.png */; };
+		DC7C9EF0145080AA00D80269 /* process@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7C9EEF145080AA00D80269 /* process@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,7 +119,7 @@
 		D9AE8E3314308585007D9447 /* GeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralViewController.h; sourceTree = "<group>"; };
 		D9AE8E3414308585007D9447 /* GeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralViewController.m; sourceTree = "<group>"; };
 		D9C8DD7E1430894500856CA1 /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
-		D9C8DD7F1430894500856CA1 /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
+		D9C8DD7F1430894500856CA1 /* TaskViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TaskViewController.mm; sourceTree = "<group>"; };
 		D9F31BB314316AC600C019BE /* iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone.png; sourceTree = "<group>"; };
 		D9F31BBB143172A400C019BE /* Camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camera.png; sourceTree = "<group>"; };
 		D9F31BBD143172A400C019BE /* generalinfo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = generalinfo.png; sourceTree = "<group>"; };
@@ -134,6 +136,8 @@
 		D9F31BDC1431A76200C019BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D9F31BDE1431A76B00C019BE /* zh-Hans */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D9F31BDF1431A76E00C019BE /* zh-Hant */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DC7C9EED14507FF200D80269 /* process.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = process.png; sourceTree = "<group>"; };
+		DC7C9EEF145080AA00D80269 /* process@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "process@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,7 +208,7 @@
 				D9AE8E3314308585007D9447 /* GeneralViewController.h */,
 				D9AE8E3414308585007D9447 /* GeneralViewController.m */,
 				D9C8DD7E1430894500856CA1 /* TaskViewController.h */,
-				D9C8DD7F1430894500856CA1 /* TaskViewController.m */,
+				D9C8DD7F1430894500856CA1 /* TaskViewController.mm */,
 				D91B8E381432CC7000E62AE5 /* ProfilesViewController.h */,
 				D91B8E391432CC7000E62AE5 /* ProfilesViewController.m */,
 				D91B8E3B1432CE0700E62AE5 /* NetworkViewController.h */,
@@ -279,6 +283,8 @@
 		D9F31BB214316AC600C019BE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				DC7C9EED14507FF200D80269 /* process.png */,
+				DC7C9EEF145080AA00D80269 /* process@2x.png */,
 				D91B8E4E14331DF400E62AE5 /* logo_about.png */,
 				D965E7E01431CF1500457246 /* icon.png */,
 				D965E7C71431C2EC00457246 /* Camera@2x.png */,
@@ -395,6 +401,8 @@
 				D965E7CA1431C2EC00457246 /* hardware@2x.png in Resources */,
 				D965E7DF1431CF1500457246 /* icon.png in Resources */,
 				D91B8E4F14331DF400E62AE5 /* logo_about.png in Resources */,
+				DC7C9EEE14507FF200D80269 /* process.png in Resources */,
+				DC7C9EF0145080AA00D80269 /* process@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,7 +444,7 @@
 				D94E0D96143054DB00552FBE /* FeiPhoneInfoAppDelegate_iPad.m in Sources */,
 				D9F31BD71431878D00C019BE /* SwitchViewController.m in Sources */,
 				D9AE8E3514308585007D9447 /* GeneralViewController.m in Sources */,
-				D9C8DD801430894500856CA1 /* TaskViewController.m in Sources */,
+				D9C8DD801430894500856CA1 /* TaskViewController.mm in Sources */,
 				D91B8E2E1432C71800E62AE5 /* BaseViewController.m in Sources */,
 				D91B8E3A1432CC7100E62AE5 /* ProfilesViewController.m in Sources */,
 				D91B8E3D1432CE0700E62AE5 /* NetworkViewController.m in Sources */,
