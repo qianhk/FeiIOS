@@ -54,6 +54,14 @@
 		D9F31BDB1431A76200C019BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BDD1431A76200C019BE /* Localizable.strings */; };
 		DC7C9EEE14507FF200D80269 /* process.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7C9EED14507FF200D80269 /* process.png */; };
 		DC7C9EF0145080AA00D80269 /* process@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7C9EEF145080AA00D80269 /* process@2x.png */; };
+		DC92E5781452F163002F20D4 /* UIDevice-Capabilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DC92E56F1452F163002F20D4 /* UIDevice-Capabilities.m */; };
+		DC92E5791452F163002F20D4 /* UIDevice-Hardware.m in Sources */ = {isa = PBXBuildFile; fileRef = DC92E5711452F163002F20D4 /* UIDevice-Hardware.m */; };
+		DC92E57A1452F163002F20D4 /* UIDevice-IOKitExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = DC92E5731452F163002F20D4 /* UIDevice-IOKitExtensions.m */; };
+		DC92E57B1452F163002F20D4 /* UIDevice-Orientation.m in Sources */ = {isa = PBXBuildFile; fileRef = DC92E5751452F163002F20D4 /* UIDevice-Orientation.m */; };
+		DC92E57C1452F163002F20D4 /* UIDevice-Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DC92E5771452F163002F20D4 /* UIDevice-Reachability.m */; };
+		DC92E5801452F2BF002F20D4 /* wwanconnect.c in Sources */ = {isa = PBXBuildFile; fileRef = DC92E57E1452F2BF002F20D4 /* wwanconnect.c */; };
+		DC92E5821452F2ED002F20D4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC92E5811452F2ED002F20D4 /* SystemConfiguration.framework */; };
+		DC92E58914531D1F002F20D4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DC92E58814531D1E002F20D4 /* Reachability.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +146,21 @@
 		D9F31BDF1431A76E00C019BE /* zh-Hant */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DC7C9EED14507FF200D80269 /* process.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = process.png; sourceTree = "<group>"; };
 		DC7C9EEF145080AA00D80269 /* process@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "process@2x.png"; sourceTree = "<group>"; };
+		DC92E56E1452F163002F20D4 /* UIDevice-Capabilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Capabilities.h"; sourceTree = "<group>"; };
+		DC92E56F1452F163002F20D4 /* UIDevice-Capabilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Capabilities.m"; sourceTree = "<group>"; };
+		DC92E5701452F163002F20D4 /* UIDevice-Hardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Hardware.h"; sourceTree = "<group>"; };
+		DC92E5711452F163002F20D4 /* UIDevice-Hardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Hardware.m"; sourceTree = "<group>"; };
+		DC92E5721452F163002F20D4 /* UIDevice-IOKitExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-IOKitExtensions.h"; sourceTree = "<group>"; };
+		DC92E5731452F163002F20D4 /* UIDevice-IOKitExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-IOKitExtensions.m"; sourceTree = "<group>"; };
+		DC92E5741452F163002F20D4 /* UIDevice-Orientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Orientation.h"; sourceTree = "<group>"; };
+		DC92E5751452F163002F20D4 /* UIDevice-Orientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Orientation.m"; sourceTree = "<group>"; };
+		DC92E5761452F163002F20D4 /* UIDevice-Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Reachability.h"; sourceTree = "<group>"; };
+		DC92E5771452F163002F20D4 /* UIDevice-Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice-Reachability.m"; sourceTree = "<group>"; };
+		DC92E57E1452F2BF002F20D4 /* wwanconnect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = wwanconnect.c; sourceTree = "<group>"; };
+		DC92E57F1452F2BF002F20D4 /* wwanconnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wwanconnect.h; sourceTree = "<group>"; };
+		DC92E5811452F2ED002F20D4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		DC92E58714531D1E002F20D4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		DC92E58814531D1E002F20D4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC92E5821452F2ED002F20D4 /* SystemConfiguration.framework in Frameworks */,
 				D9016893144EA0A0002C65EF /* Foundation.framework in Frameworks */,
 				D90168D0144EDB4B002C65EF /* IOKit.framework in Frameworks */,
 				D94E0D7B143054DB00552FBE /* UIKit.framework in Frameworks */,
@@ -169,6 +193,7 @@
 		D94E0D6B143054DB00552FBE = {
 			isa = PBXGroup;
 			children = (
+				DC92E56D1452F162002F20D4 /* UIDevice+ */,
 				D9F31BB214316AC600C019BE /* Resource */,
 				D94E0D80143054DB00552FBE /* FeiPhoneInfo */,
 				D94E0DA7143054DB00552FBE /* FeiPhoneInfoTests */,
@@ -189,6 +214,7 @@
 		D94E0D79143054DB00552FBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC92E5811452F2ED002F20D4 /* SystemConfiguration.framework */,
 				D9016896144EA4D1002C65EF /* IOKit.framework */,
 				D94E0D7A143054DB00552FBE /* UIKit.framework */,
 				D94E0D7C143054DB00552FBE /* Foundation.framework */,
@@ -224,6 +250,7 @@
 				D94E0D81143054DB00552FBE /* Supporting Files */,
 				D91B8E2C1432C71800E62AE5 /* BaseViewController.h */,
 				D91B8E2D1432C71800E62AE5 /* BaseViewController.m */,
+				D9F31BDD1431A76200C019BE /* Localizable.strings */,
 			);
 			path = FeiPhoneInfo;
 			sourceTree = "<group>";
@@ -294,7 +321,6 @@
 				D965E7C11431C08200457246 /* generalinfo@2x.png */,
 				D965E7BF1431BFA600457246 /* network@2x.png */,
 				D965E7BC1431BE7500457246 /* about@2x.png */,
-				D9F31BDD1431A76200C019BE /* Localizable.strings */,
 				D9F31BCB14317A6400C019BE /* about.png */,
 				D9F31BBB143172A400C019BE /* Camera.png */,
 				D9F31BBD143172A400C019BE /* generalinfo.png */,
@@ -306,6 +332,27 @@
 			);
 			path = Resource;
 			sourceTree = "<group>";
+		};
+		DC92E56D1452F162002F20D4 /* UIDevice+ */ = {
+			isa = PBXGroup;
+			children = (
+				DC92E57E1452F2BF002F20D4 /* wwanconnect.c */,
+				DC92E57F1452F2BF002F20D4 /* wwanconnect.h */,
+				DC92E58714531D1E002F20D4 /* Reachability.h */,
+				DC92E58814531D1E002F20D4 /* Reachability.m */,
+				DC92E56E1452F163002F20D4 /* UIDevice-Capabilities.h */,
+				DC92E56F1452F163002F20D4 /* UIDevice-Capabilities.m */,
+				DC92E5701452F163002F20D4 /* UIDevice-Hardware.h */,
+				DC92E5711452F163002F20D4 /* UIDevice-Hardware.m */,
+				DC92E5721452F163002F20D4 /* UIDevice-IOKitExtensions.h */,
+				DC92E5731452F163002F20D4 /* UIDevice-IOKitExtensions.m */,
+				DC92E5741452F163002F20D4 /* UIDevice-Orientation.h */,
+				DC92E5751452F163002F20D4 /* UIDevice-Orientation.m */,
+				DC92E5761452F163002F20D4 /* UIDevice-Reachability.h */,
+				DC92E5771452F163002F20D4 /* UIDevice-Reachability.m */,
+			);
+			path = "UIDevice+";
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -451,6 +498,13 @@
 				D91B8E401432CE2100E62AE5 /* CameraViewController.m in Sources */,
 				D91B8E431432CE3500E62AE5 /* HardwareViewController.m in Sources */,
 				D91B8E461432CE4800E62AE5 /* AboutViewController.m in Sources */,
+				DC92E5781452F163002F20D4 /* UIDevice-Capabilities.m in Sources */,
+				DC92E5791452F163002F20D4 /* UIDevice-Hardware.m in Sources */,
+				DC92E57A1452F163002F20D4 /* UIDevice-IOKitExtensions.m in Sources */,
+				DC92E57B1452F163002F20D4 /* UIDevice-Orientation.m in Sources */,
+				DC92E57C1452F163002F20D4 /* UIDevice-Reachability.m in Sources */,
+				DC92E5801452F2BF002F20D4 /* wwanconnect.c in Sources */,
+				DC92E58914531D1F002F20D4 /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +573,7 @@
 				D9F31BDF1431A76E00C019BE /* zh-Hant */,
 			);
 			name = Localizable.strings;
+			path = ../Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

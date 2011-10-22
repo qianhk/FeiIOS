@@ -16,6 +16,9 @@
 
 #import "GeneralViewController.h"
 
+#import "UIDevice-IOKitExtensions.h"
+#import "UIDevice-Hardware.h"
+
 //#if TARGET_IPHONE_SIMULATOR
 //
 //#elif TARGET_OS_IPHONE
@@ -44,6 +47,10 @@ const NSString* KTTSystemVersion = @"System Version";
 const NSString* KTTDevicePlatform = @"Device Platform";
 const NSString* KTTBatteryState = @"Battery State";
 const NSString* KTTBatteryLevel = @"Battery Level";
+const NSString* KTTIMEI = @"IMEI";
+const NSString* KTTSerialNo = @"Serial Number";
+const NSString* KTTBacklightLevel = @"Backlight level";
+
 //const NSString* KTTUserInterfaceIdiom = @"UserInterfaceIdiom";
 //const NSString* KTTOrientation = @"Orientation";
 
@@ -96,7 +103,7 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 	[_dic setObject:udid forKey:KTTUDID];
 	
 	[_arrKey addObject:KTTModel];
-	[_dic setObject:[self doDeviceNumberString] forKey:KTTModel];
+	[_dic setObject:[device platformString] forKey:KTTModel];
 	
 	[_arrKey addObject:KTTName];
 	[_dic setObject:[device name] forKey:KTTName];
@@ -149,6 +156,18 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 //	[_arrKey addObject:KTTOrientation];
 //	[_dic setObject:[arrOrientation objectAtIndex:[device orientation]] forKey:KTTOrientation];
 	
+	[_arrKey addObject:KTTIMEI];
+	NSString* imei = [device imei];
+	[_dic setObject:(imei == nil) ? @"no sim card" : imei forKey:KTTIMEI];
+	
+	[_arrKey addObject:KTTSerialNo];
+	[_dic setObject:[device serialnumber] forKey:KTTSerialNo];
+	
+	[_arrKey addObject:KTTBacklightLevel];
+	NSString* backlightLevel = [device backlightlevel];
+	[_dic setObject:(backlightLevel == nil) ? [arrBatteryState objectAtIndex:0] : backlightLevel forKey:KTTBacklightLevel];
+	
+	
 	[self.tableView reloadData];
 	
 	_timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerCome) userInfo:nil repeats:YES];
@@ -195,6 +214,8 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 	{
 		[_dic setObject:[NSString stringWithFormat:@"%d%% [min=%d, max=%d]", no1 * 100 / no2, no1, no2] forKey:KTTBatteryLevel];
 	}
+	
+	
 	
 	[self.tableView reloadData];
 }
