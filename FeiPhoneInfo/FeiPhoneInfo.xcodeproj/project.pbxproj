@@ -52,6 +52,7 @@
 		D9F31BCC14317A6400C019BE /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BCB14317A6400C019BE /* about.png */; };
 		D9F31BD71431878D00C019BE /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F31BD81431878D00C019BE /* SwitchViewController.m */; };
 		D9F31BDB1431A76200C019BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BDD1431A76200C019BE /* Localizable.strings */; };
+		DC2D35B114546A7000A57107 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2D35B014546A7000A57107 /* CoreTelephony.framework */; };
 		DC7C9EEE14507FF200D80269 /* process.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7C9EED14507FF200D80269 /* process.png */; };
 		DC7C9EF0145080AA00D80269 /* process@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7C9EEF145080AA00D80269 /* process@2x.png */; };
 		DC92E5781452F163002F20D4 /* UIDevice-Capabilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DC92E56F1452F163002F20D4 /* UIDevice-Capabilities.m */; };
@@ -144,6 +145,7 @@
 		D9F31BDC1431A76200C019BE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D9F31BDE1431A76B00C019BE /* zh-Hans */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D9F31BDF1431A76E00C019BE /* zh-Hant */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		DC2D35B014546A7000A57107 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		DC7C9EED14507FF200D80269 /* process.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = process.png; sourceTree = "<group>"; };
 		DC7C9EEF145080AA00D80269 /* process@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "process@2x.png"; sourceTree = "<group>"; };
 		DC92E56E1452F163002F20D4 /* UIDevice-Capabilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Capabilities.h"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC2D35B114546A7000A57107 /* CoreTelephony.framework in Frameworks */,
 				DC92E5821452F2ED002F20D4 /* SystemConfiguration.framework in Frameworks */,
 				D9016893144EA0A0002C65EF /* Foundation.framework in Frameworks */,
 				D90168D0144EDB4B002C65EF /* IOKit.framework in Frameworks */,
@@ -214,6 +217,7 @@
 		D94E0D79143054DB00552FBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC2D35B014546A7000A57107 /* CoreTelephony.framework */,
 				DC92E5811452F2ED002F20D4 /* SystemConfiguration.framework */,
 				D9016896144EA4D1002C65EF /* IOKit.framework */,
 				D94E0D7A143054DB00552FBE /* UIKit.framework */,

@@ -29,6 +29,8 @@
 
 //#endif
 
+extern NSString *CTSettingCopyMyPhoneNumber();
+
 @interface GeneralViewController()
 
 - (NSString*)doDeviceNumberString;
@@ -50,6 +52,7 @@ const NSString* KTTBatteryLevel = @"Battery Level";
 const NSString* KTTIMEI = @"IMEI";
 const NSString* KTTSerialNo = @"Serial Number";
 const NSString* KTTBacklightLevel = @"Backlight level";
+const NSString* KTTPhoneNumber = @"Phone Number";
 
 //const NSString* KTTUserInterfaceIdiom = @"UserInterfaceIdiom";
 //const NSString* KTTOrientation = @"Orientation";
@@ -161,6 +164,10 @@ const NSString* KTTBacklightLevel = @"Backlight level";
 	NSString* imei = [device imei];
 	[_dic setObject:(imei == nil) ? NSLocalizedString(@"No Sim Card", @"") : imei forKey:KTTIMEI];
 	
+	[_arrKey addObject:KTTPhoneNumber];
+	NSString* phoneNumber = CTSettingCopyMyPhoneNumber();
+	[_dic setObject:(phoneNumber == nil) ? NSLocalizedString(@"Unknow", @"") : phoneNumber forKey:KTTPhoneNumber];
+	
 	[_arrKey addObject:KTTSerialNo];
 	[_dic setObject:[device serialnumber] forKey:KTTSerialNo];
 	
@@ -168,7 +175,7 @@ const NSString* KTTBacklightLevel = @"Backlight level";
 	[lastBacklightLevel release];
 	lastBacklightLevel = [[device backlightlevel] copy];
 	[_dic setObject:(lastBacklightLevel == nil) ? NSLocalizedString(@"Unknow", @"") : lastBacklightLevel forKey:KTTBacklightLevel];
-	
+
 	
 	[self.tableView reloadData];
 	
