@@ -135,7 +135,7 @@
 		case 1:
 		{
 			cell.textLabel.text = NSLocalizedString(@"Version", @"software version");
-			cell.detailTextLabel.text = @"1.1.20111019";
+			cell.detailTextLabel.text = @"1.2.20111023";
 			break;
 		}
 		case 2:

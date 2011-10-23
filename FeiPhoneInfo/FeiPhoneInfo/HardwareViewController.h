@@ -9,9 +9,23 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
+@class Reachability;
+
 @interface HardwareViewController : BaseViewController
 {
-
+	NSTimer* _timer;
+	Reachability *reachable;
+	
+	NSNumber* _lastFreeDiskSpace;
+	
+	NSString* _lastFreeDiskSpaceStr;
+	NSString* _lastUserMemoryStr;
+	NSString* _lastMemoryWire;
+	NSString* _lastMemoryActive;
+	NSString* _lastMemoryInactive;
+	NSString* _lastMemoryFree;
+	
+	int pageSize;
 }
 
 @end

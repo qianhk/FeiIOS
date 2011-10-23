@@ -17,6 +17,7 @@
 	NSTimer* _timer;
 	
 	double _lastBatteryLevel;
+	NSString* lastBacklightLevel;
 }
 
 @end

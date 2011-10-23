@@ -77,6 +77,7 @@ const NSString* KTTBacklightLevel = @"Backlight level";
 {	
 	[arrBatteryState release];
 	[arrOrientation release];
+	[lastBacklightLevel release];
 	
 	[super dealloc];
 }
@@ -158,14 +159,15 @@ const NSString* KTTBacklightLevel = @"Backlight level";
 	
 	[_arrKey addObject:KTTIMEI];
 	NSString* imei = [device imei];
-	[_dic setObject:(imei == nil) ? @"no sim card" : imei forKey:KTTIMEI];
+	[_dic setObject:(imei == nil) ? NSLocalizedString(@"No Sim Card", @"") : imei forKey:KTTIMEI];
 	
 	[_arrKey addObject:KTTSerialNo];
 	[_dic setObject:[device serialnumber] forKey:KTTSerialNo];
 	
 	[_arrKey addObject:KTTBacklightLevel];
-	NSString* backlightLevel = [device backlightlevel];
-	[_dic setObject:(backlightLevel == nil) ? [arrBatteryState objectAtIndex:0] : backlightLevel forKey:KTTBacklightLevel];
+	[lastBacklightLevel release];
+	lastBacklightLevel = [[device backlightlevel] copy];
+	[_dic setObject:(lastBacklightLevel == nil) ? NSLocalizedString(@"Unknow", @"") : lastBacklightLevel forKey:KTTBacklightLevel];
 	
 	
 	[self.tableView reloadData];
@@ -197,27 +199,41 @@ const NSString* KTTBacklightLevel = @"Backlight level";
 //		[self.tableView reloadData];
 //	}
 	
+	BOOL needRedraw = NO;
+	
 	NSDictionary *dic = [self batteryLevel];
 	int no1 = [[dic objectForKey:@"no1"] intValue];
 	int no2 = [[dic objectForKey:@"no2"] intValue];
-	if (no1 == _lastBatteryLevel)
+	if (no1 != _lastBatteryLevel)
 	{
-		return;
+		needRedraw = YES;
+		_lastBatteryLevel = no1;
+		if (no1 < 0)
+		{
+			[_dic setObject:NSLocalizedString(@"Unknow", @"") forKey:KTTBatteryLevel];
+		}
+		else
+		{
+			[_dic setObject:[NSString stringWithFormat:@"%d%% [min=%d, max=%d]", no1 * 100 / no2, no1, no2] forKey:KTTBatteryLevel];
+		}
 	}
 	
-	_lastBatteryLevel = no1;
-	if (no1 < 0)
+	NSString* backlightLevel = [[UIDevice currentDevice] backlightlevel];
+	if ((lastBacklightLevel == nil && backlightLevel == nil) || [backlightLevel isEqualToString:lastBacklightLevel])
 	{
-		[_dic setObject:NSLocalizedString(@"Unknow", @"") forKey:KTTBatteryLevel];
 	}
 	else
 	{
-		[_dic setObject:[NSString stringWithFormat:@"%d%% [min=%d, max=%d]", no1 * 100 / no2, no1, no2] forKey:KTTBatteryLevel];
+		needRedraw = YES;
+		[lastBacklightLevel release];
+		lastBacklightLevel = [backlightLevel copy];
+		[_dic setObject:(lastBacklightLevel == nil) ? NSLocalizedString(@"Unknow", @"") : lastBacklightLevel forKey:KTTBacklightLevel];
 	}
 	
-	
-	
-	[self.tableView reloadData];
+	if (needRedraw)
+	{
+		[self.tableView reloadData];
+	}
 }
 			  
 - (void)batteryLevelDidChange:(NSNotification *)notification
