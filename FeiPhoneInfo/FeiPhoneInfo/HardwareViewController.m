@@ -66,6 +66,7 @@ const NSString* KTTNetIP = @"Net IP";
 	[_lastMemoryInactive release];
 	[_lastMemoryFree release];
 	[_lastUserMemoryStr release];
+	[reachable release];
 	
 	[super dealloc];
 }
@@ -208,7 +209,7 @@ const NSString* KTTNetIP = @"Net IP";
 	[_dic setObject:[device macaddress] forKey:KTTMacAddress];
 	
 	
-	reachable = [Reachability reachabilityWithHostName:@"www.baidu.com"];
+	reachable = [[Reachability reachabilityWithHostName:@"www.baidu.com"] retain];
 	NSString* reachableStatus = nil;
 	NetworkStatus netstatus = [reachable currentReachabilityStatus];
     switch (netstatus)
@@ -219,7 +220,7 @@ const NSString* KTTNetIP = @"Net IP";
 			break;
 		case ReachableViaWWAN:
 			// 使用3G网络
-			reachableStatus = @"GPRS\3G";
+			reachableStatus = @"GPRS/3G";
 			break;
 		case ReachableViaWiFi:
 			// 使用WiFi网络
@@ -356,6 +357,8 @@ const NSString* KTTNetIP = @"Net IP";
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged) name:kReachabilityChangedNotification object:nil];
 	
 	[reachable startNotifier];
+	
+//	[device scheduleReachabilityWatcher:self];
 }
 
 - (void)reachabilityChanged
@@ -370,7 +373,7 @@ const NSString* KTTNetIP = @"Net IP";
 			break;
 		case ReachableViaWWAN:
 			// 使用3G网络
-			reachableStatus = @"GPRS\3G";
+			reachableStatus = @"GPRS/3G";
 			break;
 		case ReachableViaWiFi:
 			// 使用WiFi网络
@@ -518,6 +521,7 @@ const NSString* KTTNetIP = @"Net IP";
     // e.g. self.myOutlet = nil;
 	[_timer invalidate];
 	[reachable stopNotifier];
+//	[[UIDevice currentDevice] unscheduleReachabilityWatcher];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
 }
 

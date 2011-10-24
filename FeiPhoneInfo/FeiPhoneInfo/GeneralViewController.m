@@ -137,7 +137,7 @@ const NSString* KTTPhoneNumber = @"Phone Number";
 	int no1 = [[dic objectForKey:@"no1"] intValue];
 	int no2 = [[dic objectForKey:@"no2"] intValue];
 	_lastBatteryLevel = no1;
-	if (no1 < 0)
+	if (no1 < 0 || no2 <= 0)
 	{
 		[_dic setObject:NSLocalizedString(@"Unknow", @"") forKey:KTTBatteryLevel];
 	}

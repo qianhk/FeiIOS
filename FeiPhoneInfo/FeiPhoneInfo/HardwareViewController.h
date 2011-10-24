@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
+#import "UIDevice-Reachability.h"
 
 @class Reachability;
 
-@interface HardwareViewController : BaseViewController
+@interface HardwareViewController : BaseViewController <ReachabilityWatcher>
 {
 	NSTimer* _timer;
 	Reachability *reachable;
