@@ -179,7 +179,7 @@ const NSString* KTTPhoneNumber = @"Phone Number";
 	
 	[self.tableView reloadData];
 	
-	_timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerCome) userInfo:nil repeats:YES];
+	_timer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(timerCome) userInfo:nil repeats:YES];
 	
 #if TARGET_IPHONE_SIMULATOR
 	NSLog(@"TARGET_IPHONE_SIMULATOR");
@@ -473,6 +473,8 @@ const NSString* KTTPhoneNumber = @"Phone Number";
 	int numOfSources = CFArrayGetCount(sources);
 	if (numOfSources == 0)
 	{
+		CFRelease(blob);
+		CFRelease(sources);
 		NSLog(@"qhk: Error in CFArrayGetCount");
 		return nil;
 	}
@@ -482,6 +484,8 @@ const NSString* KTTPhoneNumber = @"Phone Number";
 		pSource = IOPSGetPowerSourceDescription(blob, CFArrayGetValueAtIndex(sources, i));
 		if (!pSource)
 		{
+			CFRelease(blob);
+			CFRelease(sources);
 			NSLog(@"qhk: Error in IOPSGetPowerSourceDescription");
 			return nil;
 		}
@@ -503,12 +507,18 @@ const NSString* KTTPhoneNumber = @"Phone Number";
 		NSNumber* no1 = [NSNumber numberWithInt:curCapacity];
 		NSNumber* no2= [NSNumber numberWithInt:maxCapacity];
 		
+		CFRelease(blob);
+		CFRelease(sources);
+		
 		return [NSDictionary dictionaryWithObjectsAndKeys:no1, @"no1", no2, @"no2", nil];
 		
 //		return percent;
 //		return (NSInteger)(percent + 0.5f);
 	}
 //#endif
+	
+	CFRelease(blob);
+	CFRelease(sources);
 	
 	return nil;
 }

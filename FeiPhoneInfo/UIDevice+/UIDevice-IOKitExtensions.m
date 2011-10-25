@@ -82,17 +82,27 @@ NSArray *getValue(NSString *iosearch)
     if (!(propID == CFDataGetTypeID())) 
 	{
 		mach_port_deallocate(mach_task_self(), masterPort);
+		CFRelease(prop);
 		return nil;
 	}
 	
     CFDataRef propData = (CFDataRef) prop;
-    if (!propData) return nil;
+    if (!propData)
+	{
+		CFRelease(prop);
+		return nil;
+	}
 	
     bufSize = CFDataGetLength(propData);
-    if (!bufSize) return nil;
+    if (!bufSize)
+	{
+		CFRelease(prop);
+		return nil;
+	}
 	
     NSString *p1 = [[[NSString alloc] initWithBytes:CFDataGetBytePtr(propData) length:bufSize encoding:1] autorelease];
     mach_port_deallocate(mach_task_self(), masterPort);
+	CFRelease(prop);
     return [p1 componentsSeparatedByString:@"\0"];
 }
 
