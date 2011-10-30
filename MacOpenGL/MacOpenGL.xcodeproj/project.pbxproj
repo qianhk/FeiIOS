@@ -16,6 +16,7 @@
 		DC707530145D2AD500364383 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC70752F145D2AD500364383 /* OpenGL.framework */; };
 		DC707532145D2AE000364383 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC707531145D2AE000364383 /* GLUT.framework */; };
 		DC70753D145D55FE00364383 /* MyOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC70753C145D55FE00364383 /* MyOpenGLView.m */; };
+		DC707544145D722B00364383 /* CustomOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC707543145D722B00364383 /* CustomOpenGLView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,8 @@
 		DC707531145D2AE000364383 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 		DC70753B145D55FE00364383 /* MyOpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOpenGLView.h; sourceTree = "<group>"; };
 		DC70753C145D55FE00364383 /* MyOpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOpenGLView.m; sourceTree = "<group>"; };
+		DC707542145D722B00364383 /* CustomOpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomOpenGLView.h; sourceTree = "<group>"; };
+		DC707543145D722B00364383 /* CustomOpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomOpenGLView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 				DC707525145D249200364383 /* AppDelegate.m */,
 				DC70753B145D55FE00364383 /* MyOpenGLView.h */,
 				DC70753C145D55FE00364383 /* MyOpenGLView.m */,
+				DC707542145D722B00364383 /* CustomOpenGLView.h */,
+				DC707543145D722B00364383 /* CustomOpenGLView.m */,
 				DC707527145D249200364383 /* MainMenu.xib */,
 				DC707519145D249200364383 /* Supporting Files */,
 			);
@@ -181,6 +186,7 @@
 				DC70751F145D249200364383 /* main.m in Sources */,
 				DC707526145D249200364383 /* AppDelegate.m in Sources */,
 				DC70753D145D55FE00364383 /* MyOpenGLView.m in Sources */,
+				DC707544145D722B00364383 /* CustomOpenGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

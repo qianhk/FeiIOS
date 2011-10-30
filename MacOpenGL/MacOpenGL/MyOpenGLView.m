@@ -7,6 +7,7 @@
 //
 
 #import <OpenGL/gl.h>
+#import <GLUT/glut.h>
 
 #import "MyOpenGLView.h"
 
@@ -33,11 +34,12 @@
 	glColor3f(1.0f, 0.85f, 0.35f);
 	glBegin(GL_TRIANGLES);
 	{
-		glVertex3f(0, 0.6, 0);
-		glVertex3f(-0.2, -0.3, 0);
-		glVertex3f(0.2, -0.3, 0);
+		glVertex3f(0, 0.8, 0);
+		glVertex3f(-0.5, -0.5, 0);
+		glVertex3f(0.5, -0.5, 0);
 	}
 	glEnd();
+	wglUseFontBitmaps();
 }
 
 - (void)drawRect:(NSRect)dirtyRect
