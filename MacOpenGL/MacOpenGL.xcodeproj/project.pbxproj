@@ -1,0 +1,308 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC707513145D249200364383 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC707512145D249200364383 /* Cocoa.framework */; };
+		DC70751D145D249200364383 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC70751B145D249200364383 /* InfoPlist.strings */; };
+		DC70751F145D249200364383 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC70751E145D249200364383 /* main.m */; };
+		DC707523145D249200364383 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = DC707521145D249200364383 /* Credits.rtf */; };
+		DC707526145D249200364383 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC707525145D249200364383 /* AppDelegate.m */; };
+		DC707529145D249200364383 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC707527145D249200364383 /* MainMenu.xib */; };
+		DC707530145D2AD500364383 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC70752F145D2AD500364383 /* OpenGL.framework */; };
+		DC707532145D2AE000364383 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC707531145D2AE000364383 /* GLUT.framework */; };
+		DC70753D145D55FE00364383 /* MyOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC70753C145D55FE00364383 /* MyOpenGLView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DC70750E145D249200364383 /* MacOpenGL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacOpenGL.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC707512145D249200364383 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		DC707515145D249200364383 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		DC707516145D249200364383 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		DC707517145D249200364383 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DC70751A145D249200364383 /* MacOpenGL-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MacOpenGL-Info.plist"; sourceTree = "<group>"; };
+		DC70751C145D249200364383 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DC70751E145D249200364383 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DC707520145D249200364383 /* MacOpenGL-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MacOpenGL-Prefix.pch"; sourceTree = "<group>"; };
+		DC707522145D249200364383 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		DC707524145D249200364383 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DC707525145D249200364383 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DC707528145D249200364383 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		DC70752F145D2AD500364383 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		DC707531145D2AE000364383 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		DC70753B145D55FE00364383 /* MyOpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOpenGLView.h; sourceTree = "<group>"; };
+		DC70753C145D55FE00364383 /* MyOpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyOpenGLView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC70750B145D249200364383 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC707532145D2AE000364383 /* GLUT.framework in Frameworks */,
+				DC707530145D2AD500364383 /* OpenGL.framework in Frameworks */,
+				DC707513145D249200364383 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC707503145D249200364383 = {
+			isa = PBXGroup;
+			children = (
+				DC707518145D249200364383 /* MacOpenGL */,
+				DC707511145D249200364383 /* Frameworks */,
+				DC70750F145D249200364383 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC70750F145D249200364383 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC70750E145D249200364383 /* MacOpenGL.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC707511145D249200364383 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC707531145D2AE000364383 /* GLUT.framework */,
+				DC70752F145D2AD500364383 /* OpenGL.framework */,
+				DC707512145D249200364383 /* Cocoa.framework */,
+				DC707514145D249200364383 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC707514145D249200364383 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC707515145D249200364383 /* AppKit.framework */,
+				DC707516145D249200364383 /* CoreData.framework */,
+				DC707517145D249200364383 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		DC707518145D249200364383 /* MacOpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				DC707524145D249200364383 /* AppDelegate.h */,
+				DC707525145D249200364383 /* AppDelegate.m */,
+				DC70753B145D55FE00364383 /* MyOpenGLView.h */,
+				DC70753C145D55FE00364383 /* MyOpenGLView.m */,
+				DC707527145D249200364383 /* MainMenu.xib */,
+				DC707519145D249200364383 /* Supporting Files */,
+			);
+			path = MacOpenGL;
+			sourceTree = "<group>";
+		};
+		DC707519145D249200364383 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC70751A145D249200364383 /* MacOpenGL-Info.plist */,
+				DC70751B145D249200364383 /* InfoPlist.strings */,
+				DC70751E145D249200364383 /* main.m */,
+				DC707520145D249200364383 /* MacOpenGL-Prefix.pch */,
+				DC707521145D249200364383 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC70750D145D249200364383 /* MacOpenGL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC70752C145D249200364383 /* Build configuration list for PBXNativeTarget "MacOpenGL" */;
+			buildPhases = (
+				DC70750A145D249200364383 /* Sources */,
+				DC70750B145D249200364383 /* Frameworks */,
+				DC70750C145D249200364383 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacOpenGL;
+			productName = MacOpenGL;
+			productReference = DC70750E145D249200364383 /* MacOpenGL.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC707505145D249200364383 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = DC707508145D249200364383 /* Build configuration list for PBXProject "MacOpenGL" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DC707503145D249200364383;
+			productRefGroup = DC70750F145D249200364383 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC70750D145D249200364383 /* MacOpenGL */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC70750C145D249200364383 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC70751D145D249200364383 /* InfoPlist.strings in Resources */,
+				DC707523145D249200364383 /* Credits.rtf in Resources */,
+				DC707529145D249200364383 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC70750A145D249200364383 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC70751F145D249200364383 /* main.m in Sources */,
+				DC707526145D249200364383 /* AppDelegate.m in Sources */,
+				DC70753D145D55FE00364383 /* MyOpenGLView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DC70751B145D249200364383 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC70751C145D249200364383 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DC707521145D249200364383 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC707522145D249200364383 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		DC707527145D249200364383 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC707528145D249200364383 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC70752A145D249200364383 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		DC70752B145D249200364383 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DC70752D145D249200364383 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MacOpenGL/MacOpenGL-Prefix.pch";
+				INFOPLIST_FILE = "MacOpenGL/MacOpenGL-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DC70752E145D249200364383 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MacOpenGL/MacOpenGL-Prefix.pch";
+				INFOPLIST_FILE = "MacOpenGL/MacOpenGL-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC707508145D249200364383 /* Build configuration list for PBXProject "MacOpenGL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC70752A145D249200364383 /* Debug */,
+				DC70752B145D249200364383 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC70752C145D249200364383 /* Build configuration list for PBXNativeTarget "MacOpenGL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC70752D145D249200364383 /* Debug */,
+				DC70752E145D249200364383 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC707505145D249200364383 /* Project object */;
+}
