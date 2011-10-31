@@ -16,6 +16,8 @@
 		DC8D331D145DA55D009EA3A8 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8D331C145DA55D009EA3A8 /* OpenGLView.m */; };
 		DC8D331F145DA578009EA3A8 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8D331E145DA578009EA3A8 /* OpenGLES.framework */; };
 		DC8D3321145DA581009EA3A8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8D3320145DA581009EA3A8 /* QuartzCore.framework */; };
+		DCC4C1D6145EE7C2008E0BA1 /* SimpleVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DCC4C1D5145EE7C2008E0BA1 /* SimpleVertex.glsl */; };
+		DCC4C1D9145EE96E008E0BA1 /* SimpleFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DCC4C1D8145EE96E008E0BA1 /* SimpleFragment.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		DC8D331C145DA55D009EA3A8 /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
 		DC8D331E145DA578009EA3A8 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		DC8D3320145DA581009EA3A8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DCC4C1D5145EE7C2008E0BA1 /* SimpleVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SimpleVertex.glsl; sourceTree = "<group>"; };
+		DCC4C1D8145EE96E008E0BA1 /* SimpleFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SimpleFragment.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 				DC8D3314145DA50B009EA3A8 /* AppDelegate.m */,
 				DC8D331B145DA55D009EA3A8 /* OpenGLView.h */,
 				DC8D331C145DA55D009EA3A8 /* OpenGLView.m */,
+				DCC4C1D5145EE7C2008E0BA1 /* SimpleVertex.glsl */,
+				DCC4C1D8145EE96E008E0BA1 /* SimpleFragment.glsl */,
 				DC8D330B145DA50B009EA3A8 /* Supporting Files */,
 			);
 			path = HelloOpenGL;
@@ -154,6 +160,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC8D330F145DA50B009EA3A8 /* InfoPlist.strings in Resources */,
+				DCC4C1D6145EE7C2008E0BA1 /* SimpleVertex.glsl in Resources */,
+				DCC4C1D9145EE96E008E0BA1 /* SimpleFragment.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +276,7 @@
 				DC8D331A145DA50B009EA3A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

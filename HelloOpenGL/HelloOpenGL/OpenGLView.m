@@ -20,6 +20,68 @@
 
 @implementation OpenGLView
 
+- (GLuint)compileShader:(NSString *)shaderName withType:(GLenum)shaderType
+{
+	NSString* shaderPath = [[NSBundle mainBundle] pathForResource:shaderName ofType:@"glsl"];
+	NSError* error;
+	NSString* shaderString = [NSString stringWithContentsOfFile:shaderPath encoding:NSUTF8StringEncoding error:&error];
+	if (!shaderString)
+	{
+		NSLog(@"Error loading shader: %@", error.localizedDescription);
+		exit(3);
+	}
+	
+	GLuint shaderHandle = glCreateShader(shaderType);
+	
+	const char * shaderStringUTF8 = [shaderString UTF8String];
+	int shaderStringLength = [shaderString length];
+	glShaderSource(shaderHandle, 1, &shaderStringUTF8, &shaderStringLength);
+	
+	glCompileShader(shaderHandle);
+	
+	GLint compileSucess;
+	glGetShaderiv(shaderHandle, GL_COMPILE_STATUS, &compileSucess);
+	if (compileSucess == GL_FALSE)
+	{
+		GLchar message[256];
+		glGetShaderInfoLog(shaderHandle, sizeof(message), 0, &message[0]);
+		NSString *messageString = [NSString stringWithUTF8String:message];
+		NSLog(@"%@", messageString);
+		exit(4);
+	}
+	
+	return shaderHandle;
+}
+
+- (void)compileShaders
+{
+	GLuint vertexShader = [self compileShader:@"SimpleVertex" withType:GL_VERTEX_SHADER];
+	GLuint fragmentShader = [self compileShader:@"SimpleFragment" withType:GL_FRAGMENT_SHADER];
+	
+	GLuint programHandle = glCreateProgram();
+	glAttachShader(programHandle, vertexShader);
+	glAttachShader(programHandle, fragmentShader);
+	glLinkProgram(programHandle);
+	
+	GLint linkSucess;
+	glGetProgramiv(programHandle, GL_LINK_STATUS, &linkSucess);
+	if (linkSucess == GL_FALSE)
+	{
+		GLchar messages[256];
+		glGetProgramInfoLog(programHandle, sizeof(messages), 0, &messages[0]);
+		NSString* messageString = [NSString stringWithUTF8String:messages];
+		NSLog(@"%@", messageString);
+		exit(5);
+	}
+	
+	glUseProgram(programHandle);
+	
+	_positionSlot = glGetAttribLocation(programHandle, "Position");
+	_colorSlot = glGetAttribLocation(programHandle, "SourceColor");
+	glEnableVertexAttribArray(_positionSlot);
+	glEnableVertexAttribArray(_colorSlot);
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -29,6 +91,9 @@
 		[self setupContext];
 		[self setupRenderBuffer];
 		[self setupFrameBuffer];
+		
+		[self compileShaders];
+		
 		[self render];
     }
     return self;
