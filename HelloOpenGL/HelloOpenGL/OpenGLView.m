@@ -7,6 +7,7 @@
 //
 
 #import "OpenGLView.h"
+#import "CC3GLMatrix.h"
 
 @interface OpenGLView()
 
@@ -14,8 +15,10 @@
 - (void)setupContext;
 - (void)setupRenderBuffer;
 - (void)setupFrameBuffer;
-- (void)render;
+- (void)render:(CADisplayLink *)displayLink;
 - (void)setupVBOs;
+- (void)setupDisplayLink;
+- (void)setupDepthBuffer;
 
 @end
 
@@ -28,18 +31,50 @@ typedef struct
 }
 Vertex;
 
-const Vertex Vertices[] = 
-{
-	{{1, -1, 0}, {1, 0, 0, 1}},
-	{{1, 1, 0}, {0, 1, 0, 1}},
-	{{-1, 1, 0}, {0, 0, 1, 1}},
-	{{-1, -1, 0}, {0, 0, 0, 1}}
+//const Vertex Vertices[] = 
+//{
+//	{{1, -1, 0}, {1, 0, 0, 1}},
+//	{{1, 1, 0}, {0, 1, 0, 1}},
+//	{{-1, 1, 0}, {0, 0, 1, 1}},
+//	{{-1, -1, 0}, {0, 0, 0, 1}}
+//};
+//
+//const GLubyte Indices[] = 
+//{
+//	0, 1, 2,
+//	2, 3, 0
+//};
+
+const Vertex Vertices[] = {
+    {{1, -1, 0}, {1, 0, 0, 1}},
+    {{1, 1, 0}, {1, 0, 0, 1}},
+    {{-1, 1, 0}, {0, 1, 0, 1}},
+    {{-1, -1, 0}, {0, 1, 0, 1}},
+    {{1, -1, -1}, {1, 0, 0, 1}},
+    {{1, 1, -1}, {1, 0, 0, 1}},
+    {{-1, 1, -1}, {0, 1, 0, 1}},
+    {{-1, -1, -1}, {0, 1, 0, 1}}
 };
 
-const GLubyte Indices[] = 
-{
-	0, 1, 2,
-	2, 3, 0
+const GLubyte Indices[] = {
+    // Front
+    0, 1, 2,
+    2, 3, 0,
+    // Back
+    4, 6, 5,
+    4, 7, 6,
+    // Left
+    2, 7, 3,
+    7, 6, 2,
+    // Right
+    0, 4, 1,
+    4, 1, 5,
+    // Top
+    6, 2, 1, 
+    1, 6, 5,
+    // Bottom
+    0, 3, 7,
+    0, 7, 4    
 };
 
 - (GLuint)compileShader:(NSString *)shaderName withType:(GLenum)shaderType
@@ -102,6 +137,9 @@ const GLubyte Indices[] =
 	_colorSlot = glGetAttribLocation(programHandle, "SourceColor");
 	glEnableVertexAttribArray(_positionSlot);
 	glEnableVertexAttribArray(_colorSlot);
+	
+	_projectionUniform = glGetUniformLocation(programHandle, "Projection");
+	_modelViewUniform = glGetUniformLocation(programHandle, "Modelview");
 }
 
 - (void)setupVBOs
@@ -117,6 +155,12 @@ const GLubyte Indices[] =
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
 }
 
+- (void)setupDisplayLink
+{
+	CADisplayLink* displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(render:)];
+	[displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -124,13 +168,14 @@ const GLubyte Indices[] =
 	{
         [self setupLayer];
 		[self setupContext];
+		[self setupDepthBuffer];
 		[self setupRenderBuffer];
 		[self setupFrameBuffer];
 		
 		[self compileShaders];
 		[self setupVBOs];
 		
-		[self render];
+		[self setupDisplayLink];
     }
     return self;
 }
@@ -180,6 +225,13 @@ const GLubyte Indices[] =
 	}
 }
 
+- (void)setupDepthBuffer
+{
+	glGenRenderbuffers(1, &_depthRenderBuffer);
+	glBindRenderbuffer(GL_RENDERBUFFER, _depthRenderBuffer);
+	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16, self.frame.size.width, self.frame.size.height);
+}
+
 - (void)setupRenderBuffer
 {
 	glGenRenderbuffers(1, &_colorRenderBuffer);
@@ -193,12 +245,26 @@ const GLubyte Indices[] =
 	glGenFramebuffers(1, &frameBuffer);
 	glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
 	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, _colorRenderBuffer);
+	
+	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, _depthRenderBuffer);
 }
 
-- (void)render
+- (void)render:(CADisplayLink *)displayLink
 {
 	glClearColor(0, 104.0/255.0, 55.0/255.0, 0.5);
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glEnable(GL_DEPTH_TEST);
+	
+	CC3GLMatrix* projection = [CC3GLMatrix matrix];
+	float h = 4.0f * self.frame.size.height / self.frame.size.width;
+	[projection populateFromFrustumLeft:-2 andRight:2 andBottom:-h/2 andTop:h/2 andNear:4 andFar:10];
+	glUniformMatrix4fv(_projectionUniform, 1, 0, projection.glMatrix);
+	
+	CC3GLMatrix* modelView = [CC3GLMatrix matrix];
+	[modelView populateFromTranslation:CC3VectorMake(sin(CACurrentMediaTime()), 0, -7)];
+	_currentRotation += displayLink.duration * 90;
+	[modelView rotateBy:CC3VectorMake(_currentRotation, _currentRotation, 0)];
+	glUniformMatrix4fv(_modelViewUniform, 1, 0, modelView.glMatrix);
 	
 	glViewport(0, 0, self.frame.size.width, self.frame.size.height);
 	
