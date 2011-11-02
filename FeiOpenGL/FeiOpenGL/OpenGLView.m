@@ -130,7 +130,7 @@
 - (void)setupLayer
 {
 	_eaglLayer = (CAEAGLLayer *)self.layer;
-	_eaglLayer.opaque = NO;
+	_eaglLayer.opaque = YES;
 }
 
 - (void)setupContext
@@ -177,7 +177,7 @@
 //- (void)render:(CADisplayLink *)displayLink
 - (void)render
 {
-	glClearColor(0, 104.0/255.0, 155.0/255.0, 0.5);
+	glClearColor(0, 104.0/255.0, 55.0/255.0, 0.5);
 	glClear(GL_COLOR_BUFFER_BIT);
 	
 	

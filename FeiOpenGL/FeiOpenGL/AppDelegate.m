@@ -19,15 +19,21 @@
 {
 	[_window release];
 	[_viewController release];
+	[_glView release];
     [super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+	CGRect screenBounds = [[UIScreen mainScreen] bounds];
+    self.window = [[[UIWindow alloc] initWithFrame:screenBounds] autorelease];
     // Override point for customization after application launch.
-	self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
-	self.window.rootViewController = self.viewController;
+//	self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
+//	self.window.rootViewController = self.viewController;
+	
+	_glView = [[OpenGLView alloc] initWithFrame:screenBounds];
+	[self.window addSubview:_glView];
+	
     [self.window makeKeyAndVisible];
     return YES;
 }
