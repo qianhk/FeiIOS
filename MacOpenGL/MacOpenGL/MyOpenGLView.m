@@ -39,7 +39,7 @@
 		glVertex3f(0.5, -0.5, 0);
 	}
 	glEnd();
-	wglUseFontBitmaps();
+//	wglUseFontBitmaps();
 }
 
 - (void)drawRect:(NSRect)dirtyRect

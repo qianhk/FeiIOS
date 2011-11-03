@@ -294,6 +294,7 @@
 				DC03B10B1461974C00118C33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

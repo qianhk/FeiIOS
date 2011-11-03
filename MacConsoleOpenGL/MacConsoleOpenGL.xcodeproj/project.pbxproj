@@ -1,0 +1,242 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DCB67A861462F2C100C14C03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB67A851462F2C100C14C03 /* Foundation.framework */; };
+		DCB67A891462F2C100C14C03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB67A881462F2C100C14C03 /* main.m */; };
+		DCB67A8D1462F2C100C14C03 /* MacConsoleOpenGL.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCB67A8C1462F2C100C14C03 /* MacConsoleOpenGL.1 */; };
+		DCB67A941462F2D600C14C03 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB67A931462F2D600C14C03 /* GLUT.framework */; };
+		DCB67A961462F2DE00C14C03 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB67A951462F2DD00C14C03 /* OpenGL.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DCB67A7F1462F2C100C14C03 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				DCB67A8D1462F2C100C14C03 /* MacConsoleOpenGL.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		DCB67A811462F2C100C14C03 /* MacConsoleOpenGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MacConsoleOpenGL; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCB67A851462F2C100C14C03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DCB67A881462F2C100C14C03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DCB67A8B1462F2C100C14C03 /* MacConsoleOpenGL-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MacConsoleOpenGL-Prefix.pch"; sourceTree = "<group>"; };
+		DCB67A8C1462F2C100C14C03 /* MacConsoleOpenGL.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MacConsoleOpenGL.1; sourceTree = "<group>"; };
+		DCB67A931462F2D600C14C03 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		DCB67A951462F2DD00C14C03 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DCB67A7E1462F2C100C14C03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCB67A961462F2DE00C14C03 /* OpenGL.framework in Frameworks */,
+				DCB67A941462F2D600C14C03 /* GLUT.framework in Frameworks */,
+				DCB67A861462F2C100C14C03 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DCB67A761462F2C000C14C03 = {
+			isa = PBXGroup;
+			children = (
+				DCB67A871462F2C100C14C03 /* MacConsoleOpenGL */,
+				DCB67A841462F2C100C14C03 /* Frameworks */,
+				DCB67A821462F2C100C14C03 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCB67A821462F2C100C14C03 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DCB67A811462F2C100C14C03 /* MacConsoleOpenGL */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DCB67A841462F2C100C14C03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCB67A951462F2DD00C14C03 /* OpenGL.framework */,
+				DCB67A931462F2D600C14C03 /* GLUT.framework */,
+				DCB67A851462F2C100C14C03 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCB67A871462F2C100C14C03 /* MacConsoleOpenGL */ = {
+			isa = PBXGroup;
+			children = (
+				DCB67A881462F2C100C14C03 /* main.m */,
+				DCB67A8C1462F2C100C14C03 /* MacConsoleOpenGL.1 */,
+				DCB67A8A1462F2C100C14C03 /* Supporting Files */,
+			);
+			path = MacConsoleOpenGL;
+			sourceTree = "<group>";
+		};
+		DCB67A8A1462F2C100C14C03 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DCB67A8B1462F2C100C14C03 /* MacConsoleOpenGL-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCB67A801462F2C100C14C03 /* MacConsoleOpenGL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCB67A901462F2C100C14C03 /* Build configuration list for PBXNativeTarget "MacConsoleOpenGL" */;
+			buildPhases = (
+				DCB67A7D1462F2C100C14C03 /* Sources */,
+				DCB67A7E1462F2C100C14C03 /* Frameworks */,
+				DCB67A7F1462F2C100C14C03 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacConsoleOpenGL;
+			productName = MacConsoleOpenGL;
+			productReference = DCB67A811462F2C100C14C03 /* MacConsoleOpenGL */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCB67A781462F2C000C14C03 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = DCB67A7B1462F2C000C14C03 /* Build configuration list for PBXProject "MacConsoleOpenGL" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DCB67A761462F2C000C14C03;
+			productRefGroup = DCB67A821462F2C100C14C03 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCB67A801462F2C100C14C03 /* MacConsoleOpenGL */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DCB67A7D1462F2C100C14C03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCB67A891462F2C100C14C03 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DCB67A8E1462F2C100C14C03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		DCB67A8F1462F2C100C14C03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DCB67A911462F2C100C14C03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MacConsoleOpenGL/MacConsoleOpenGL-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DCB67A921462F2C100C14C03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MacConsoleOpenGL/MacConsoleOpenGL-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DCB67A7B1462F2C000C14C03 /* Build configuration list for PBXProject "MacConsoleOpenGL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCB67A8E1462F2C100C14C03 /* Debug */,
+				DCB67A8F1462F2C100C14C03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCB67A901462F2C100C14C03 /* Build configuration list for PBXNativeTarget "MacConsoleOpenGL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCB67A911462F2C100C14C03 /* Debug */,
+				DCB67A921462F2C100C14C03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCB67A781462F2C000C14C03 /* Project object */;
+}
