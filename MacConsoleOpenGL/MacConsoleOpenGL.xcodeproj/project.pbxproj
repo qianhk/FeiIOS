@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC69AA4814663ED1007FB065 /* primrestart.m in Sources */ = {isa = PBXBuildFile; fileRef = DC69AA4714663ED1007FB065 /* primrestart.m */; };
+		DC69AA4C14663FD6007FB065 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC69AA4B14663FD6007FB065 /* main.m */; };
+		DC69AA521466CAA5007FB065 /* cube.m in Sources */ = {isa = PBXBuildFile; fileRef = DC69AA511466CAA5007FB065 /* cube.m */; };
 		DCB67A861462F2C100C14C03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB67A851462F2C100C14C03 /* Foundation.framework */; };
-		DCB67A891462F2C100C14C03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB67A881462F2C100C14C03 /* main.m */; };
+		DCB67A891462F2C100C14C03 /* firsttest.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB67A881462F2C100C14C03 /* firsttest.m */; };
 		DCB67A8D1462F2C100C14C03 /* MacConsoleOpenGL.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCB67A8C1462F2C100C14C03 /* MacConsoleOpenGL.1 */; };
 		DCB67A941462F2D600C14C03 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB67A931462F2D600C14C03 /* GLUT.framework */; };
 		DCB67A961462F2DE00C14C03 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB67A951462F2DD00C14C03 /* OpenGL.framework */; };
@@ -28,9 +31,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DC69AA4714663ED1007FB065 /* primrestart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = primrestart.m; sourceTree = "<group>"; };
+		DC69AA4A14663F4F007FB065 /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
+		DC69AA4B14663FD6007FB065 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DC69AA511466CAA5007FB065 /* cube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cube.m; sourceTree = "<group>"; };
 		DCB67A811462F2C100C14C03 /* MacConsoleOpenGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MacConsoleOpenGL; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB67A851462F2C100C14C03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		DCB67A881462F2C100C14C03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DCB67A881462F2C100C14C03 /* firsttest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = firsttest.m; sourceTree = "<group>"; };
 		DCB67A8B1462F2C100C14C03 /* MacConsoleOpenGL-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MacConsoleOpenGL-Prefix.pch"; sourceTree = "<group>"; };
 		DCB67A8C1462F2C100C14C03 /* MacConsoleOpenGL.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = MacConsoleOpenGL.1; sourceTree = "<group>"; };
 		DCB67A931462F2D600C14C03 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
@@ -81,7 +88,11 @@
 		DCB67A871462F2C100C14C03 /* MacConsoleOpenGL */ = {
 			isa = PBXGroup;
 			children = (
-				DCB67A881462F2C100C14C03 /* main.m */,
+				DC69AA4A14663F4F007FB065 /* main.h */,
+				DC69AA4B14663FD6007FB065 /* main.m */,
+				DCB67A881462F2C100C14C03 /* firsttest.m */,
+				DC69AA4714663ED1007FB065 /* primrestart.m */,
+				DC69AA511466CAA5007FB065 /* cube.m */,
 				DCB67A8C1462F2C100C14C03 /* MacConsoleOpenGL.1 */,
 				DCB67A8A1462F2C100C14C03 /* Supporting Files */,
 			);
@@ -146,7 +157,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCB67A891462F2C100C14C03 /* main.m in Sources */,
+				DCB67A891462F2C100C14C03 /* firsttest.m in Sources */,
+				DC69AA4814663ED1007FB065 /* primrestart.m in Sources */,
+				DC69AA4C14663FD6007FB065 /* main.m in Sources */,
+				DC69AA521466CAA5007FB065 /* cube.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,7 +184,7 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
@@ -190,7 +204,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
@@ -235,6 +249,7 @@
 				DCB67A921462F2C100C14C03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
