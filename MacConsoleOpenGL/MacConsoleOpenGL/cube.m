@@ -14,13 +14,7 @@ void init3()
 {
 	glClearColor(0.8, 0.8, 0.8, 0);
 	glShadeModel(GL_FLAT);
-	
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	
-	glFrustum(-1.0, 1.0, -1.0, 1.0, 1.5, 20);
-	glMatrixMode(GL_MODELVIEW);
-
+//	glOrtho(-2.0, 2.0, -2.0, 2.0, -1.0, 1.0);
 }
 
 void display3()
@@ -30,9 +24,9 @@ void display3()
 	glColor3f(1, 1, 1);
 	glLoadIdentity();
 	
-	gluLookAt(0, 0, 1.9, 0.0, 0.0, 0, 0.0, 1, 0);
-//	glTranslatef(0, 0, -5.0);
-//	glScalef(1, 2, 1);
+	gluLookAt(0, 0, 2.2, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+//	glTranslatef(0.1, 0.4, 0.0);
+//	glScalef(1.4, 1.0, 1);
 	glutWireCube(1.0);
 	
 	glFlush();
@@ -41,6 +35,14 @@ void display3()
 void reshape3(int w, int h)
 {
 	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	
+//	glFrustum(-1.0, 1.0, -1.0, 1.0, 1.5, 20);
+	gluPerspective(60.0, 1.0, 1.5, 20.0);
+	glMatrixMode(GL_MODELVIEW);
+	
+//	glOrtho(-2.0, 2.0, -2.0, 2.0, -1.0, 1.0);
 }
 
 int mainCube(int argc, const char* argv[])
