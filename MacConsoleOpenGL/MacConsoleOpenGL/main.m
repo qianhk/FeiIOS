@@ -15,7 +15,8 @@ int main (int argc, const char * argv[])
 //	r = mainFirstTest(argc, argv);
 //	r = mainPrimRestart(argc, argv);
 //	r = mainCube(argc, argv);
-	r = mainPlanet(argc, argv);
+//	r = mainPlanet(argc, argv);
+	r = mainRobot(argc, argv);
 	
 	return r;
 }
