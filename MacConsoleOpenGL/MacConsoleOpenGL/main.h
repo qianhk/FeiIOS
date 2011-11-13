@@ -14,5 +14,8 @@ int mainPrimRestart (int argc, const char * argv[]);
 int mainCube(int argc, const char* argv[]);
 int mainPlanet(int argc, const char* argv[]);
 int mainRobot(int argc, const char* argv[]);
+int mainSmooth(int argc, const char* argv[]);
+int mainStroke(int argc, const char* argv[]);
+
 
 #endif
