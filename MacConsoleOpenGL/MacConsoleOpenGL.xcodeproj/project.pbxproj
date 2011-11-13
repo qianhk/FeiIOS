@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DC1919C0146EA9A8007087AB /* smooth.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1919BF146EA9A8007087AB /* smooth.m */; };
+		DC50B499147001BC00C6A6A4 /* stroke.m in Sources */ = {isa = PBXBuildFile; fileRef = DC50B498147001BC00C6A6A4 /* stroke.m */; };
 		DC69AA4814663ED1007FB065 /* primrestart.m in Sources */ = {isa = PBXBuildFile; fileRef = DC69AA4714663ED1007FB065 /* primrestart.m */; };
 		DC69AA4C14663FD6007FB065 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC69AA4B14663FD6007FB065 /* main.m */; };
 		DC69AA521466CAA5007FB065 /* cube.m in Sources */ = {isa = PBXBuildFile; fileRef = DC69AA511466CAA5007FB065 /* cube.m */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		DC1919BF146EA9A8007087AB /* smooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = smooth.m; sourceTree = "<group>"; };
+		DC50B498147001BC00C6A6A4 /* stroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stroke.m; sourceTree = "<group>"; };
 		DC69AA4714663ED1007FB065 /* primrestart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = primrestart.m; sourceTree = "<group>"; };
 		DC69AA4A14663F4F007FB065 /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 		DC69AA4B14663FD6007FB065 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				DCF7BBA0146ACB6900FD54A9 /* planet.m */,
 				DCA8315E146C154F00508284 /* robot.m */,
 				DC1919BF146EA9A8007087AB /* smooth.m */,
+				DC50B498147001BC00C6A6A4 /* stroke.m */,
 				DCB67A8C1462F2C100C14C03 /* MacConsoleOpenGL.1 */,
 				DCB67A8A1462F2C100C14C03 /* Supporting Files */,
 			);
@@ -173,6 +176,7 @@
 				DCF7BBA1146ACB6900FD54A9 /* planet.m in Sources */,
 				DCA8315F146C154F00508284 /* robot.m in Sources */,
 				DC1919C0146EA9A8007087AB /* smooth.m in Sources */,
+				DC50B499147001BC00C6A6A4 /* stroke.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
