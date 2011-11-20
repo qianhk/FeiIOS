@@ -40,6 +40,12 @@
 	}
 	glEnd();
 //	wglUseFontBitmaps();
+	
+//	GLint param = 0;
+//	glGetIntegerv(GL_MAX_LIGHTS, &param);
+//	
+//	param = 0;
+//	glGetIntegerv(GL_MAX_MODELVIEW_STACK_DEPTH, &param);
 }
 
 - (void)drawRect:(NSRect)dirtyRect

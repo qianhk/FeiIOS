@@ -148,11 +148,25 @@ void keyboardStroke(unsigned char key, int x, int y)
 int mainStroke(int argc, const char* argv[])
 {
 	glutInit(&argc, (char **)argv);
+
+
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+	
+//	GLint param = 0;
+//	glGetIntegerv(GL_MAX_LIGHTS, &param);
+//	param = 0;
+//	glGetIntegerv(GL_MAX_MODELVIEW_STACK_DEPTH, &param);
+	
 	glutInitWindowSize(800, 600);
 	glutInitWindowPosition(300, 200);
 	glutCreateWindow(argv[0]);
 	initStroke();
+	
+	GLint param = 0;
+	glGetIntegerv(GL_MAX_LIGHTS, &param);
+	param = 0;
+	glGetIntegerv(GL_MAX_MODELVIEW_STACK_DEPTH, &param);
+	
 	glutDisplayFunc(displayStroke);
 	glutReshapeFunc(reshapeStroke);
 	glutKeyboardFunc(keyboardStroke);

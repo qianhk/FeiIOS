@@ -6,6 +6,7 @@
 //  Copyright (c) 2011年 __MyCompanyName__. All rights reserved.
 //
 
+#import <OpenGLES/es1/gl.h>
 #import "OpenGLView.h"
 #import "CC3GLMatrix.h"
 
@@ -176,6 +177,11 @@ const GLubyte Indices[] = {
 		[self setupVBOs];
 		
 		[self setupDisplayLink];
+		
+		GLint param = 0;
+		glGetIntegerv(GL_GREEN_BITS, &param);
+		
+		param = -1;
     }
     return self;
 }
@@ -223,6 +229,9 @@ const GLubyte Indices[] = {
 		NSLog(@"Failed to set current OpenGL context");
 		exit(2);
 	}
+	
+	GLint param = 0;
+	glGetIntegerv(GL_MAX_MODELVIEW_STACK_DEPTH, &param);
 }
 
 - (void)setupDepthBuffer
@@ -254,6 +263,9 @@ const GLubyte Indices[] = {
 	glClearColor(0, 104.0/255.0, 55.0/255.0, 0.5);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glEnable(GL_DEPTH_TEST);
+	
+	GLint param = 0;
+	glGetIntegerv(GL_GREEN_BITS, &param);
 	
 	CC3GLMatrix* projection = [CC3GLMatrix matrix];
 	float h = 4.0f * self.frame.size.height / self.frame.size.width;
