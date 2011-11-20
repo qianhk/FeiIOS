@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 #import "UIDevice-Reachability.h"
+#import "EGORefreshTableHeaderView.h"
 
 @class Reachability;
 
-@interface HardwareViewController : BaseViewController <ReachabilityWatcher>
+@interface HardwareViewController : BaseViewController <EGORefreshTableHeaderDelegate, ReachabilityWatcher>
 {
 	NSTimer* _timer;
 	Reachability *reachable;
@@ -27,6 +28,14 @@
 	NSString* _lastMemoryFree;
 	
 	int pageSize;
+	
+	EGORefreshTableHeaderView* _refreshHeaderView;
+	BOOL _reloading;
+	NSDate* _lastUpdateDate;
 }
+	
+- (void)reloadTableViewDataSource;
+	
+- (void)doneLoadingTableViewData;
 
 @end

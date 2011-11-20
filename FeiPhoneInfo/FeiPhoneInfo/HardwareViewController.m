@@ -67,6 +67,8 @@ const NSString* KTTNetIP = @"Net IP";
 	[_lastMemoryFree release];
 	[_lastUserMemoryStr release];
 	[reachable release];
+	_refreshHeaderView = nil;
+	[_lastUpdateDate release];
 	
 	[super dealloc];
 }
@@ -161,12 +163,61 @@ const NSString* KTTNetIP = @"Net IP";
 //	}
 //}
 
+- (void)reloadTableViewDataSource
+{
+	_reloading = YES;
+	[self performSelector:@selector(reachabilityChanged) withObject:nil afterDelay:0];
+}
+
+- (void)doneLoadingTableViewData
+{
+	_reloading = NO;
+	[_lastUpdateDate release];
+	_lastUpdateDate = [[NSDate date] retain];
+	[_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tableView];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+	[_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+	[_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
+}
+
+- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView *)view
+{
+	[self reloadTableViewDataSource];
+//	[self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0f];
+}
+
+- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView *)view
+{
+	return _reloading;
+}
+
+- (NSDate *)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView *)view
+{
+	return _lastUpdateDate;
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	
+	if (_refreshHeaderView == nil) {
+		
+		EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tableView.bounds.size.height, self.view.frame.size.width, self.tableView.bounds.size.height)];
+		view.delegate = self;
+		[self.tableView addSubview:view];
+		_refreshHeaderView = view;
+		[view release];
+		
+	}
+	_lastUpdateDate = [[NSDate date] retain];
 	UIDevice* device = [UIDevice currentDevice];
 	
 	[_arrKey addObject:KTTMemorySize];
@@ -512,6 +563,10 @@ const NSString* KTTNetIP = @"Net IP";
 - (void)getNetIPFinish
 {
 	[self.tableView reloadData];
+	if (_reloading)
+	{
+		[self doneLoadingTableViewData];
+	}
 }
 
 - (void)viewDidUnload
@@ -523,6 +578,10 @@ const NSString* KTTNetIP = @"Net IP";
 	[reachable stopNotifier];
 //	[[UIDevice currentDevice] unscheduleReachabilityWatcher];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
+	
+	[_lastUpdateDate release];
+	_lastUpdateDate = nil;
+	_refreshHeaderView = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

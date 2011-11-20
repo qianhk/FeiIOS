@@ -53,6 +53,7 @@
 		D9F31BD71431878D00C019BE /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F31BD81431878D00C019BE /* SwitchViewController.m */; };
 		D9F31BDB1431A76200C019BE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9F31BDD1431A76200C019BE /* Localizable.strings */; };
 		DC2D35B114546A7000A57107 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2D35B014546A7000A57107 /* CoreTelephony.framework */; };
+		DC2FC40A147930CA00259FAD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC2FC409147930CA00259FAD /* QuartzCore.framework */; };
 		DC7C9EEE14507FF200D80269 /* process.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7C9EED14507FF200D80269 /* process.png */; };
 		DC7C9EF0145080AA00D80269 /* process@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC7C9EEF145080AA00D80269 /* process@2x.png */; };
 		DC92E5781452F163002F20D4 /* UIDevice-Capabilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DC92E56F1452F163002F20D4 /* UIDevice-Capabilities.m */; };
@@ -63,6 +64,9 @@
 		DC92E5801452F2BF002F20D4 /* wwanconnect.c in Sources */ = {isa = PBXBuildFile; fileRef = DC92E57E1452F2BF002F20D4 /* wwanconnect.c */; };
 		DC92E5821452F2ED002F20D4 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC92E5811452F2ED002F20D4 /* SystemConfiguration.framework */; };
 		DC92E58914531D1F002F20D4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DC92E58814531D1E002F20D4 /* Reachability.m */; };
+		DCC45E1D14792B580035B763 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = DCC45E1B14792B580035B763 /* blueArrow.png */; };
+		DCC45E1E14792B580035B763 /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DCC45E1C14792B580035B763 /* blueArrow@2x.png */; };
+		DCC45E2214792B850035B763 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC45E2114792B850035B763 /* EGORefreshTableHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +150,7 @@
 		D9F31BDE1431A76B00C019BE /* zh-Hans */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D9F31BDF1431A76E00C019BE /* zh-Hant */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		DC2D35B014546A7000A57107 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		DC2FC409147930CA00259FAD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DC7C9EED14507FF200D80269 /* process.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = process.png; sourceTree = "<group>"; };
 		DC7C9EEF145080AA00D80269 /* process@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "process@2x.png"; sourceTree = "<group>"; };
 		DC92E56E1452F163002F20D4 /* UIDevice-Capabilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice-Capabilities.h"; sourceTree = "<group>"; };
@@ -163,6 +168,10 @@
 		DC92E5811452F2ED002F20D4 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DC92E58714531D1E002F20D4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		DC92E58814531D1E002F20D4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		DCC45E1B14792B580035B763 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueArrow.png; path = Resource/blueArrow.png; sourceTree = SOURCE_ROOT; };
+		DCC45E1C14792B580035B763 /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blueArrow@2x.png"; path = "Resource/blueArrow@2x.png"; sourceTree = SOURCE_ROOT; };
+		DCC45E2014792B850035B763 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		DCC45E2114792B850035B763 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC2FC40A147930CA00259FAD /* QuartzCore.framework in Frameworks */,
 				DC2D35B114546A7000A57107 /* CoreTelephony.framework in Frameworks */,
 				DC92E5821452F2ED002F20D4 /* SystemConfiguration.framework in Frameworks */,
 				D9016893144EA0A0002C65EF /* Foundation.framework in Frameworks */,
@@ -217,6 +227,7 @@
 		D94E0D79143054DB00552FBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC2FC409147930CA00259FAD /* QuartzCore.framework */,
 				DC2D35B014546A7000A57107 /* CoreTelephony.framework */,
 				DC92E5811452F2ED002F20D4 /* SystemConfiguration.framework */,
 				D9016896144EA4D1002C65EF /* IOKit.framework */,
@@ -231,6 +242,8 @@
 		D94E0D80143054DB00552FBE /* FeiPhoneInfo */ = {
 			isa = PBXGroup;
 			children = (
+				DCC45E2014792B850035B763 /* EGORefreshTableHeaderView.h */,
+				DCC45E2114792B850035B763 /* EGORefreshTableHeaderView.m */,
 				D94E0D89143054DB00552FBE /* FeiPhoneInfoAppDelegate.h */,
 				D94E0D8A143054DB00552FBE /* FeiPhoneInfoAppDelegate.m */,
 				D9AE8E1614307120007D9447 /* SwitchViewController.h */,
@@ -314,6 +327,8 @@
 		D9F31BB214316AC600C019BE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				DCC45E1B14792B580035B763 /* blueArrow.png */,
+				DCC45E1C14792B580035B763 /* blueArrow@2x.png */,
 				DC7C9EED14507FF200D80269 /* process.png */,
 				DC7C9EEF145080AA00D80269 /* process@2x.png */,
 				D91B8E4E14331DF400E62AE5 /* logo_about.png */,
@@ -454,6 +469,8 @@
 				D91B8E4F14331DF400E62AE5 /* logo_about.png in Resources */,
 				DC7C9EEE14507FF200D80269 /* process.png in Resources */,
 				DC7C9EF0145080AA00D80269 /* process@2x.png in Resources */,
+				DCC45E1D14792B580035B763 /* blueArrow.png in Resources */,
+				DCC45E1E14792B580035B763 /* blueArrow@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +526,7 @@
 				DC92E57C1452F163002F20D4 /* UIDevice-Reachability.m in Sources */,
 				DC92E5801452F2BF002F20D4 /* wwanconnect.c in Sources */,
 				DC92E58914531D1F002F20D4 /* Reachability.m in Sources */,
+				DCC45E2214792B850035B763 /* EGORefreshTableHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
