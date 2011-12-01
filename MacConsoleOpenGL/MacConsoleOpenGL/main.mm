@@ -18,7 +18,8 @@ int main (int argc, const char * argv[])
 //	r = mainPlanet(argc, argv);
 //	r = mainRobot(argc, argv);
 //	r = mainSmooth(argc, argv);
-	r = mainStroke(argc, argv);
+//	r = mainStroke(argc, argv);
+	r = mainjet(argc, argv);
 	
 	return r;
 }
