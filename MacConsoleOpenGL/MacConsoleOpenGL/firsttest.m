@@ -103,7 +103,7 @@ void reSizeWindow1(int w, int h)
 
 void keyPressed1(unsigned char key, int x, int y)
 {
-//	NSLog(@"Key pressed: %c %d %d", key, x, y);
+	NSLog(@"Key pressed: %c %d %d", key, x, y);
 }
 
 void mousePressed1(int button, int state, int x, int y)

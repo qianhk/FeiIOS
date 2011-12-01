@@ -16,6 +16,6 @@ int mainPlanet(int argc, const char* argv[]);
 int mainRobot(int argc, const char* argv[]);
 int mainSmooth(int argc, const char* argv[]);
 int mainStroke(int argc, const char* argv[]);
-
+int mainjet(int argc, const char* argv[]);
 
 #endif

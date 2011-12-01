@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC0E6F141481FF980015B0B8 /* jet.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC0E6F131481FF970015B0B8 /* jet.mm */; };
+		DC0E6F2014821DC60015B0B8 /* math3d.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC0E6F1E14821DC60015B0B8 /* math3d.mm */; };
 		DC1919C0146EA9A8007087AB /* smooth.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1919BF146EA9A8007087AB /* smooth.m */; };
 		DC50B499147001BC00C6A6A4 /* stroke.m in Sources */ = {isa = PBXBuildFile; fileRef = DC50B498147001BC00C6A6A4 /* stroke.m */; };
 		DC69AA4814663ED1007FB065 /* primrestart.m in Sources */ = {isa = PBXBuildFile; fileRef = DC69AA4714663ED1007FB065 /* primrestart.m */; };
-		DC69AA4C14663FD6007FB065 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC69AA4B14663FD6007FB065 /* main.m */; };
+		DC69AA4C14663FD6007FB065 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC69AA4B14663FD6007FB065 /* main.mm */; };
 		DC69AA521466CAA5007FB065 /* cube.m in Sources */ = {isa = PBXBuildFile; fileRef = DC69AA511466CAA5007FB065 /* cube.m */; };
 		DCA8315F146C154F00508284 /* robot.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA8315E146C154F00508284 /* robot.m */; };
 		DCB67A861462F2C100C14C03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCB67A851462F2C100C14C03 /* Foundation.framework */; };
@@ -35,11 +37,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DC0E6F131481FF970015B0B8 /* jet.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = jet.mm; sourceTree = "<group>"; };
+		DC0E6F1E14821DC60015B0B8 /* math3d.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = math3d.mm; sourceTree = "<group>"; };
+		DC0E6F1F14821DC60015B0B8 /* math3d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math3d.h; sourceTree = "<group>"; };
 		DC1919BF146EA9A8007087AB /* smooth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = smooth.m; sourceTree = "<group>"; };
 		DC50B498147001BC00C6A6A4 /* stroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = stroke.m; sourceTree = "<group>"; };
 		DC69AA4714663ED1007FB065 /* primrestart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = primrestart.m; sourceTree = "<group>"; };
 		DC69AA4A14663F4F007FB065 /* main.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
-		DC69AA4B14663FD6007FB065 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DC69AA4B14663FD6007FB065 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		DC69AA511466CAA5007FB065 /* cube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cube.m; sourceTree = "<group>"; };
 		DCA8315E146C154F00508284 /* robot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = robot.m; sourceTree = "<group>"; };
 		DCB67A811462F2C100C14C03 /* MacConsoleOpenGL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MacConsoleOpenGL; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,8 +101,10 @@
 		DCB67A871462F2C100C14C03 /* MacConsoleOpenGL */ = {
 			isa = PBXGroup;
 			children = (
+				DC0E6F1E14821DC60015B0B8 /* math3d.mm */,
+				DC0E6F1F14821DC60015B0B8 /* math3d.h */,
 				DC69AA4A14663F4F007FB065 /* main.h */,
-				DC69AA4B14663FD6007FB065 /* main.m */,
+				DC69AA4B14663FD6007FB065 /* main.mm */,
 				DCB67A881462F2C100C14C03 /* firsttest.m */,
 				DC69AA4714663ED1007FB065 /* primrestart.m */,
 				DC69AA511466CAA5007FB065 /* cube.m */,
@@ -105,6 +112,7 @@
 				DCA8315E146C154F00508284 /* robot.m */,
 				DC1919BF146EA9A8007087AB /* smooth.m */,
 				DC50B498147001BC00C6A6A4 /* stroke.m */,
+				DC0E6F131481FF970015B0B8 /* jet.mm */,
 				DCB67A8C1462F2C100C14C03 /* MacConsoleOpenGL.1 */,
 				DCB67A8A1462F2C100C14C03 /* Supporting Files */,
 			);
@@ -171,12 +179,14 @@
 			files = (
 				DCB67A891462F2C100C14C03 /* firsttest.m in Sources */,
 				DC69AA4814663ED1007FB065 /* primrestart.m in Sources */,
-				DC69AA4C14663FD6007FB065 /* main.m in Sources */,
+				DC69AA4C14663FD6007FB065 /* main.mm in Sources */,
 				DC69AA521466CAA5007FB065 /* cube.m in Sources */,
 				DCF7BBA1146ACB6900FD54A9 /* planet.m in Sources */,
 				DCA8315F146C154F00508284 /* robot.m in Sources */,
 				DC1919C0146EA9A8007087AB /* smooth.m in Sources */,
 				DC50B499147001BC00C6A6A4 /* stroke.m in Sources */,
+				DC0E6F141481FF980015B0B8 /* jet.mm in Sources */,
+				DC0E6F2014821DC60015B0B8 /* math3d.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
