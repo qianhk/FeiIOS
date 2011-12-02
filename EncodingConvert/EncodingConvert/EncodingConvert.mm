@@ -210,6 +210,9 @@
 	*(cstr + idxCStr) = 0;
 	NSStringEncoding gbkEncoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
 	NSString* unicodeStr = [NSString stringWithCString:cstr encoding:gbkEncoding];
+	
+	
+	
 	delete cstr;
 	return unicodeStr;
 
