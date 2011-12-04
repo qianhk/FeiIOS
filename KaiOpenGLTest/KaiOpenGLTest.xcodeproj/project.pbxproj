@@ -1,0 +1,290 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DCF33D78148B716900D90498 /* 017.JPG in Resources */ = {isa = PBXBuildFile; fileRef = DCF33D77148B716900D90498 /* 017.JPG */; };
+		DCF870731487CC3200F4013D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF870721487CC3200F4013D /* UIKit.framework */; };
+		DCF870751487CC3200F4013D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF870741487CC3200F4013D /* Foundation.framework */; };
+		DCF870771487CC3200F4013D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF870761487CC3200F4013D /* CoreGraphics.framework */; };
+		DCF8707D1487CC3200F4013D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCF8707B1487CC3200F4013D /* InfoPlist.strings */; };
+		DCF8707F1487CC3200F4013D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF8707E1487CC3200F4013D /* main.m */; };
+		DCF870831487CC3200F4013D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF870821487CC3200F4013D /* AppDelegate.m */; };
+		DCF8708F1487CC9200F4013D /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DCF8708D1487CC9200F4013D /* vertex.glsl */; };
+		DCF870901487CC9200F4013D /* fragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = DCF8708E1487CC9200F4013D /* fragment.glsl */; };
+		DCF870931487CCBD00F4013D /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF870921487CCBD00F4013D /* OpenGLView.m */; };
+		DCF870951487D03000F4013D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF870941487D03000F4013D /* OpenGLES.framework */; };
+		DCF870971487D04400F4013D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF870961487D04400F4013D /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DCF33D77148B716900D90498 /* 017.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 017.JPG; sourceTree = "<group>"; };
+		DCF8706E1487CC3200F4013D /* KaiOpenGLTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KaiOpenGLTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCF870721487CC3200F4013D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DCF870741487CC3200F4013D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DCF870761487CC3200F4013D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DCF8707A1487CC3200F4013D /* KaiOpenGLTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "KaiOpenGLTest-Info.plist"; sourceTree = "<group>"; };
+		DCF8707C1487CC3200F4013D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DCF8707E1487CC3200F4013D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DCF870801487CC3200F4013D /* KaiOpenGLTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KaiOpenGLTest-Prefix.pch"; sourceTree = "<group>"; };
+		DCF870811487CC3200F4013D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DCF870821487CC3200F4013D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DCF8708D1487CC9200F4013D /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertex.glsl; sourceTree = "<group>"; };
+		DCF8708E1487CC9200F4013D /* fragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fragment.glsl; sourceTree = "<group>"; };
+		DCF870911487CCBD00F4013D /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		DCF870921487CCBD00F4013D /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenGLView.m; sourceTree = "<group>"; };
+		DCF870941487D03000F4013D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		DCF870961487D04400F4013D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DCF8706B1487CC3200F4013D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCF870971487D04400F4013D /* QuartzCore.framework in Frameworks */,
+				DCF870951487D03000F4013D /* OpenGLES.framework in Frameworks */,
+				DCF870731487CC3200F4013D /* UIKit.framework in Frameworks */,
+				DCF870751487CC3200F4013D /* Foundation.framework in Frameworks */,
+				DCF870771487CC3200F4013D /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DCF870631487CC3200F4013D = {
+			isa = PBXGroup;
+			children = (
+				DCF870781487CC3200F4013D /* KaiOpenGLTest */,
+				DCF870711487CC3200F4013D /* Frameworks */,
+				DCF8706F1487CC3200F4013D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCF8706F1487CC3200F4013D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DCF8706E1487CC3200F4013D /* KaiOpenGLTest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DCF870711487CC3200F4013D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCF870961487D04400F4013D /* QuartzCore.framework */,
+				DCF870941487D03000F4013D /* OpenGLES.framework */,
+				DCF870721487CC3200F4013D /* UIKit.framework */,
+				DCF870741487CC3200F4013D /* Foundation.framework */,
+				DCF870761487CC3200F4013D /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCF870781487CC3200F4013D /* KaiOpenGLTest */ = {
+			isa = PBXGroup;
+			children = (
+				DCF870811487CC3200F4013D /* AppDelegate.h */,
+				DCF870821487CC3200F4013D /* AppDelegate.m */,
+				DCF870911487CCBD00F4013D /* OpenGLView.h */,
+				DCF870921487CCBD00F4013D /* OpenGLView.m */,
+				DCF870791487CC3200F4013D /* Supporting Files */,
+			);
+			path = KaiOpenGLTest;
+			sourceTree = "<group>";
+		};
+		DCF870791487CC3200F4013D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DCF33D77148B716900D90498 /* 017.JPG */,
+				DCF8708D1487CC9200F4013D /* vertex.glsl */,
+				DCF8708E1487CC9200F4013D /* fragment.glsl */,
+				DCF8707A1487CC3200F4013D /* KaiOpenGLTest-Info.plist */,
+				DCF8707B1487CC3200F4013D /* InfoPlist.strings */,
+				DCF8707E1487CC3200F4013D /* main.m */,
+				DCF870801487CC3200F4013D /* KaiOpenGLTest-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCF8706D1487CC3200F4013D /* KaiOpenGLTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCF870861487CC3200F4013D /* Build configuration list for PBXNativeTarget "KaiOpenGLTest" */;
+			buildPhases = (
+				DCF8706A1487CC3200F4013D /* Sources */,
+				DCF8706B1487CC3200F4013D /* Frameworks */,
+				DCF8706C1487CC3200F4013D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KaiOpenGLTest;
+			productName = MyOpenGLStencil;
+			productReference = DCF8706E1487CC3200F4013D /* KaiOpenGLTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCF870651487CC3200F4013D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = DCF870681487CC3200F4013D /* Build configuration list for PBXProject "KaiOpenGLTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DCF870631487CC3200F4013D;
+			productRefGroup = DCF8706F1487CC3200F4013D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCF8706D1487CC3200F4013D /* KaiOpenGLTest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DCF8706C1487CC3200F4013D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCF8707D1487CC3200F4013D /* InfoPlist.strings in Resources */,
+				DCF8708F1487CC9200F4013D /* vertex.glsl in Resources */,
+				DCF870901487CC9200F4013D /* fragment.glsl in Resources */,
+				DCF33D78148B716900D90498 /* 017.JPG in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DCF8706A1487CC3200F4013D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCF8707F1487CC3200F4013D /* main.m in Sources */,
+				DCF870831487CC3200F4013D /* AppDelegate.m in Sources */,
+				DCF870931487CCBD00F4013D /* OpenGLView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DCF8707B1487CC3200F4013D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCF8707C1487CC3200F4013D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DCF870841487CC3200F4013D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DCF870851487CC3200F4013D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DCF870871487CC3200F4013D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KaiOpenGLTest/KaiOpenGLTest-Prefix.pch";
+				INFOPLIST_FILE = "KaiOpenGLTest/KaiOpenGLTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = KaiOpenGLTest;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DCF870881487CC3200F4013D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KaiOpenGLTest/KaiOpenGLTest-Prefix.pch";
+				INFOPLIST_FILE = "KaiOpenGLTest/KaiOpenGLTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = KaiOpenGLTest;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DCF870681487CC3200F4013D /* Build configuration list for PBXProject "KaiOpenGLTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCF870841487CC3200F4013D /* Debug */,
+				DCF870851487CC3200F4013D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCF870861487CC3200F4013D /* Build configuration list for PBXNativeTarget "KaiOpenGLTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCF870871487CC3200F4013D /* Debug */,
+				DCF870881487CC3200F4013D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCF870651487CC3200F4013D /* Project object */;
+}
