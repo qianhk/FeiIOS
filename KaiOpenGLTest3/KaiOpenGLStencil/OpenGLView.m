@@ -473,10 +473,10 @@ const GLfloat pyramidVertices[] = {
 
 const GLfloat blendRectangle[]=
 {
-	3.0, 3.0, 0.0,
-	-3.0,3.0,0.0,
-	-3.0,-3.0,0.0,
-	3.0,-3.0,0.0
+	2.5, 2.0, 0.0,
+	-2.5,2.0,0.0,
+	-2.5,-2.5,0.0,
+	2.5,-2.5,0.0
 };
 
 - (void)render:(CADisplayLink *)displayLink
@@ -552,7 +552,7 @@ const GLfloat blendRectangle[]=
 	
 	glPushMatrix();
 	{
-		glTranslatef(0, 1, 0);
+//		glTranslatef(0, 1, 0);
 		glVertexPointer(3, GL_FLOAT, 0, blendRectangle);
 //		glEnableClientState(<#GLenum array#>)
 		glColor4f(0, 0, 1, 0.2);
