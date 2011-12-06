@@ -130,7 +130,7 @@
 //		glGetIntegerv(GL_GREEN_BITS, &param);
 //		param = -1;
 		
-		glClearColor(0, 104.0/255.0, 55.0/255.0, 0.5);
+		glClearColor(0, 104.0/255.0, 55.0/255.0, 1);
 		
 		CGRect rect = self.bounds;
 		rect.size.height -= 20;
@@ -145,7 +145,6 @@
 		glLoadIdentity();
 		
 		glEnable(GL_DEPTH_TEST);
-
     }
     return self;
 }
@@ -472,6 +471,14 @@ const GLfloat pyramidVertices[] = {
 	// top centre
 };
 
+const GLfloat blendRectangle[]=
+{
+	3.0, 3.0, 0.0,
+	-3.0,3.0,0.0,
+	-3.0,-3.0,0.0,
+	3.0,-3.0,0.0
+};
+
 - (void)render:(CADisplayLink *)displayLink
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -539,6 +546,27 @@ const GLfloat pyramidVertices[] = {
 	glPopMatrix();
 	
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+	
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	
+	glPushMatrix();
+	{
+		glTranslatef(0, 1, 0);
+		glVertexPointer(3, GL_FLOAT, 0, blendRectangle);
+//		glEnableClientState(<#GLenum array#>)
+		glColor4f(0, 0, 1, 0.2);
+		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+	}
+	glPopMatrix();
+	
+	glPushMatrix();
+	{
+		
+	}
+	glPopMatrix();
+	
+	glDisable(GL_BLEND);
 	
 	[_context presentRenderbuffer:GL_RENDERBUFFER];
 }
