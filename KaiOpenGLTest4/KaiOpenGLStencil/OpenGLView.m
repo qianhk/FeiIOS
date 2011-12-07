@@ -19,7 +19,7 @@
 - (void)setupVBOs;
 - (void)setupDisplayLink;
 - (void)setupDepthBuffer;
-- (void)loadTexture;
+- (void)loadTexture:(NSString *)name intoLocation:(GLuint)location;
 @end
 
 @implementation OpenGLView
@@ -119,7 +119,13 @@
 		[self setupRenderBuffer];
 		[self setupFrameBuffer];
 		
-		[self loadTexture];
+		glGenTextures(6, &textures[0]);
+		[self loadTexture:@"bamboo.png" intoLocation:textures[0]];
+		[self loadTexture:@"flowers.png" intoLocation:textures[1]];
+		[self loadTexture:@"grass.png" intoLocation:textures[2]];
+		[self loadTexture:@"lino.png" intoLocation:textures[3]];
+		[self loadTexture:@"metal.png" intoLocation:textures[4]];
+		[self loadTexture:@"schematic.png" intoLocation:textures[5]];
 		
 //		[self compileShaders];
 //		[self setupVBOs];
@@ -137,7 +143,7 @@
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		CGFloat radio = rect.size.height / rect.size.width;
-		glOrthof(-3, 3, -3 * radio, 3 * radio, -20, 20);
+		glOrthof(-2, 2, -2 * radio, 2 * radio, -20, 20);
 //		glTranslatef(0, 0, 0.5);
 		glViewport(0, 0, rect.size.width, rect.size.height);
 		
@@ -335,19 +341,19 @@ const GLfloat cubeVertices[] =
 	
 };   
 
-const GLshort squareTextureCoords[]=
+const GLfloat squareTextureCoords[]=
 {
 	// Front face
-	0, 0
+	0, 1.5
 	,       
 	// top left
-	0, 1
+	0, 0
 	,       
 	// bottom left
-	1,1
+	2, 0
 	,       
 	// bottom right
-	1,0
+	2, 1.5
 	,       
 	// top right
 	
@@ -422,55 +428,6 @@ const GLshort squareTextureCoords[]=
 	// top right
 };
 
-const GLfloat pyramidVertices[] = {
-	// Our pyramid consists of 4 triangles and a square base.
-	// We'll start with the square base
-	-1.0, -1.0, 1.0,            // front left of base
-	1.0, -1.0, 1.0,             // front right of base
-	1.0, -1.0, -1.0,            // rear left of base
-	-1.0, -1.0, -1.0,           // rear right of base
-	
-	//＊＊＊＊＊＊Front face
-	-1.0 ,-1.0 ,1.0,            
-	// bottom left of triangle
-	
-	1.0 ,-1.0 ,1.0,            
-	// bottom right
-	
-	0.0 ,1.0 ,0.0,              
-	// top centre -- all triangle vertices will meet here
-	
-	//＊＊＊＊＊Rear face
-	1.0 ,-1.0 ,-1.0,   
-	// bottom right (when viewed through front face)
-	
-	-1.0 ,-1.0 ,-1.0,           
-	// bottom left
-	
-	0.0 ,1.0 ,0.0,            
-	// top centre
-	
-	//＊＊＊＊＊＊＊ left face
-	-1.0 ,-1.0 ,-1.0,           
-	// bottom rear
-	
-	-1.0 ,-1.0 ,1.0,            
-	// bottom front
-	
-	0.0 ,1.0 ,0.0,            
-	// top centre
-	
-	//＊＊＊＊＊＊ right face
-	1.0 ,-1.0 ,1.0,             
-	// bottom front
-	
-	1.0 ,-1.0 ,-1.0,            
-	// bottom rear
-	
-	0.0 ,1.0 ,0.0
-	// top centre
-};
-
 const GLfloat blendRectangle[]=
 {
 	2.5, 2.0, 0.0,
@@ -483,97 +440,65 @@ const GLfloat blendRectangle[]=
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
-	rota += 0.5;
+	rota += 0.2;
 	if (rota >= 360)
 	{
 		rota -= 360;
 	}
 
-	glTexCoordPointer(2, GL_SHORT, 0, squareTextureCoords);
+	glTexCoordPointer(2, GL_FLOAT, 0, squareTextureCoords);
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-	
-	glPushMatrix();
-	{
-		glTranslatef(0, -2.0, -6.0);
-		glRotatef(rota, 1, 0, 0);
-		glVertexPointer(3, GL_FLOAT, 0, pyramidVertices);
-		glEnableClientState(GL_VERTEX_ARRAY);
-		
-		glColor4f(0.7, 0.7, 0.3, 1);
-		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-		
-		glColor4f(0, 1, 0, 1);
-		glDrawArrays(GL_TRIANGLES, 4, 3);
-		
-		glColor4f(0, 0, 1, 1);
-		glDrawArrays(GL_TRIANGLES, 7, 3);
-		
-		glColor4f(1, 1, 0, 1);
-		glDrawArrays(GL_TRIANGLES, 10, 3);
-		
-		glColor4f(1, 0, 1, 1);
-		glDrawArrays(GL_TRIANGLES, 13, 3);
-	}
-	glPopMatrix();
-	
 	
 	glPushMatrix();
 	{
 		glVertexPointer(3, GL_FLOAT, 0, cubeVertices);
 		glEnableClientState(GL_VERTEX_ARRAY);
 		
-		glTranslatef(0, 2.0, -6.0);
+//		glTranslatef(0, 2.0, -6.0);
 		glRotatef(rota, 1, 1, 1);
 
-		glColor4f(1, 0, 0, 1);
+//		glColor4f(1, 0, 0, 1);
+		glBindTexture(GL_TEXTURE_2D, textures[0]);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 		
-		glColor4f(0.0, 1.0, 0.0, 1);
+//		glColor4f(0.0, 1.0, 0.0, 1);
+		glBindTexture(GL_TEXTURE_2D, textures[1]);
 		glDrawArrays(GL_TRIANGLE_FAN, 4, 4);
 		
-		glColor4f(0, 0, 1, 1);
+//		glColor4f(0, 0, 1, 1);
+		glBindTexture(GL_TEXTURE_2D, textures[2]);
 		glDrawArrays(GL_TRIANGLE_FAN, 8, 4);
 		
-		glColor4f(1, 1, 0, 1);
+//		glColor4f(1, 1, 0, 1);
+		glBindTexture(GL_TEXTURE_2D, textures[3]);
 		glDrawArrays(GL_TRIANGLE_FAN, 12, 4);
 		
-		glColor4f(0, 1, 1, 1);
+//		glColor4f(0, 1, 1, 1);
+		glBindTexture(GL_TEXTURE_2D, textures[4]);
 		glDrawArrays(GL_TRIANGLE_FAN, 16, 4);
 		
-		glColor4f(1, 0, 1, 1);
+//		glColor4f(1, 0, 1, 1);
+		glBindTexture(GL_TEXTURE_2D, textures[5]);
 		glDrawArrays(GL_TRIANGLE_FAN, 20, 4);
 	}
 	glPopMatrix();
 	
 	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	
-	glPushMatrix();
-	{
-//		glTranslatef(0, 1, 0);
-		glVertexPointer(3, GL_FLOAT, 0, blendRectangle);
-//		glEnableClientState(<#GLenum array#>)
-		glColor4f(0, 0, 1, 0.2);
-		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
-	}
-	glPopMatrix();
-	
-	glPushMatrix();
-	{
-		
-	}
-	glPopMatrix();
-	
-	glDisable(GL_BLEND);
+//	glEnable(GL_BLEND);
+//	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+//	
+//	
+//	glDisable(GL_BLEND);
 	
 	[_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
-- (void)loadTexture
+- (void)loadTexture:(NSString *)name intoLocation:(GLuint)location
 {
-	UIImage* image = [UIImage imageNamed:@"017.JPG"];
+	UIImage* image = [UIImage imageNamed:name];
 	CGImageRef textureImage = image.CGImage;
 	if (textureImage == nil)
 	{
@@ -588,8 +513,7 @@ const GLfloat blendRectangle[]=
 	CGContextDrawImage(textureContext, CGRectMake(0, 0, texWidth, texHeight), textureImage);
 	CGContextRelease(textureContext);
 	
-	glGenTextures(1, &textures[0]);
-	glBindTexture(GL_TEXTURE_2D, textures[0]);
+	glBindTexture(GL_TEXTURE_2D, location);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, texWidth, texHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
 	free(textureData);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);

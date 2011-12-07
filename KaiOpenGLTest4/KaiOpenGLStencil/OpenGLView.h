@@ -26,7 +26,7 @@
 	
 	float rota;
 	
-	GLuint textures[1];
+	GLuint textures[6];
 }
 
 @end
