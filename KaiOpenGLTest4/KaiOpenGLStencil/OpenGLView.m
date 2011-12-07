@@ -120,12 +120,12 @@
 		[self setupFrameBuffer];
 		
 		glGenTextures(6, &textures[0]);
-		[self loadTexture:@"bamboo.png" intoLocation:textures[0]];
-		[self loadTexture:@"flowers.png" intoLocation:textures[1]];
-		[self loadTexture:@"grass.png" intoLocation:textures[2]];
-		[self loadTexture:@"lino.png" intoLocation:textures[3]];
-		[self loadTexture:@"metal.png" intoLocation:textures[4]];
-		[self loadTexture:@"schematic.png" intoLocation:textures[5]];
+		[self loadTexture:@"1.jpg" intoLocation:textures[0]];
+		[self loadTexture:@"2.jpg" intoLocation:textures[1]];
+		[self loadTexture:@"3.jpg" intoLocation:textures[2]];
+		[self loadTexture:@"4.jpg" intoLocation:textures[3]];
+		[self loadTexture:@"5.jpg" intoLocation:textures[4]];
+		[self loadTexture:@"6.jpg" intoLocation:textures[5]];
 		
 //		[self compileShaders];
 //		[self setupVBOs];
@@ -143,7 +143,8 @@
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		CGFloat radio = rect.size.height / rect.size.width;
-		glOrthof(-2, 2, -2 * radio, 2 * radio, -20, 20);
+		const float danwei = 1.5;
+		glOrthof(-danwei, danwei, -danwei * radio, danwei * radio, -20, 20);
 //		glTranslatef(0, 0, 0.5);
 		glViewport(0, 0, rect.size.width, rect.size.height);
 		
@@ -344,86 +345,86 @@ const GLfloat cubeVertices[] =
 const GLfloat squareTextureCoords[]=
 {
 	// Front face
-	0, 1.5
-	,       
-	// top left
 	0, 0
 	,       
+	// top left
+	0, 1
+	,       
 	// bottom left
-	2, 0
+	1, 1
 	,       
 	// bottom right
-	2, 1.5
+	1, 0
 	,       
 	// top right
 	
 	// Top face
-	0,1
-	,       
-	// top left
 	0,0
 	,       
+	// top left
+	0,1.9
+	,       
 	// bottom left
-	1,0
+	2,1.9
 	,       
 	// bottom right
-	1,1
+	2,0
 	,       
 	// top right
 	
 	// Rear face
-	0,0
-	,       
-	// top left
-	0,1
-	,       
-	// bottom left
 	1,1
 	,       
-	// bottom right
+	// top left
 	1,0
+	,       
+	// bottom left
+	0,0
+	,       
+	// bottom right
+	0,1
 	,       
 	// top right
 	
 	// Bottom face
-	0,1
-	,       
-	// top left
 	0,0
 	,       
+	// top left
+	0,1
+	,       
 	// bottom left
-	1,0
+	1,1
 	,       
 	// bottom right
-	1,1
+	1,0
 	,       
 	// top right
 	
 	// Left face
-	0,1
-	,       
-	// top left
 	0,0
 	,       
+	// top left
+	0,1
+	,       
 	// bottom left
-	1,0
+	1,1
 	,       
 	// bottom right
-	1,1
+	1,0
 	,       
 	// top right
 	
 	// Right face
-	0,1
-	,       
-	// top left
-	0,0
-	,       
-	// bottom left
 	1,0
 	,       
-	// bottom right
+	// top left
 	1,1
+	,       
+	// bottom left
+	0,1
+	,       
+	// bottom right
+	0,0
 	,       
 	// top right
 };
@@ -459,12 +460,13 @@ const GLfloat blendRectangle[]=
 
 //		glColor4f(1, 0, 0, 1);
 		glBindTexture(GL_TEXTURE_2D, textures[0]);
-		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 		
 //		glColor4f(0.0, 1.0, 0.0, 1);
 		glBindTexture(GL_TEXTURE_2D, textures[1]);
+//		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 		glDrawArrays(GL_TRIANGLE_FAN, 4, 4);
 		
 //		glColor4f(0, 0, 1, 1);
