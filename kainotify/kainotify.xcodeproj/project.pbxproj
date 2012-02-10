@@ -1,0 +1,366 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D96B4F5B14E3C9D400580C3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96B4F5A14E3C9D400580C3B /* Foundation.framework */; };
+		D96B4F5D14E3C9D400580C3B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96B4F5C14E3C9D400580C3B /* UIKit.framework */; };
+		D96B4F6C14E3C9D400580C3B /* kainotifyController.m in Sources */ = {isa = PBXBuildFile; fileRef = D96B4F6B14E3C9D400580C3B /* kainotifyController.m */; };
+		D96B4FA314E3D13700580C3B /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D96B4F7A14E3CA7900580C3B /* Icon.png */; };
+		D96B4FA414E3D13C00580C3B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D96B4F7B14E3CA7900580C3B /* Icon@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D96B4F5714E3C9D400580C3B /* kainotify */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = kainotify; sourceTree = BUILT_PRODUCTS_DIR; };
+		D96B4F5A14E3C9D400580C3B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D96B4F5C14E3C9D400580C3B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D96B4F6114E3C9D400580C3B /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
+		D96B4F6214E3C9D400580C3B /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		D96B4F6314E3C9D400580C3B /* preinst */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = preinst; path = Package/DEBIAN/preinst; sourceTree = "<group>"; };
+		D96B4F6414E3C9D400580C3B /* postinst */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = postinst; path = Package/DEBIAN/postinst; sourceTree = "<group>"; };
+		D96B4F6514E3C9D400580C3B /* prerm */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = prerm; path = Package/DEBIAN/prerm; sourceTree = "<group>"; };
+		D96B4F6614E3C9D400580C3B /* postrm */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = postrm; path = Package/DEBIAN/postrm; sourceTree = "<group>"; };
+		D96B4F6814E3C9D400580C3B /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		D96B4F6914E3C9D400580C3B /* kainotify-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kainotify-Prefix.pch"; sourceTree = "<group>"; };
+		D96B4F6A14E3C9D400580C3B /* kainotifyController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kainotifyController.h; sourceTree = "<group>"; };
+		D96B4F6B14E3C9D400580C3B /* kainotifyController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kainotifyController.m; sourceTree = "<group>"; };
+		D96B4F7114E3C9D400580C3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Package/System/Library/WeeAppPlugins/kainotify.bundle/Info.plist; sourceTree = "<group>"; };
+		D96B4F7214E3C9D400580C3B /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = Package/System/Library/WeeAppPlugins/kainotify.bundle/InfoPlist.strings; sourceTree = "<group>"; };
+		D96B4F7314E3C9D400580C3B /* WeeAppBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "WeeAppBackground@2x.png"; path = "Package/System/Library/WeeAppPlugins/kainotify.bundle/WeeAppBackground@2x.png"; sourceTree = "<group>"; };
+		D96B4F7414E3C9D400580C3B /* WeeAppBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WeeAppBackground.png; path = Package/System/Library/WeeAppPlugins/kainotify.bundle/WeeAppBackground.png; sourceTree = "<group>"; };
+		D96B4F7A14E3CA7900580C3B /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		D96B4F7B14E3CA7900580C3B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D96B4F5314E3C9D400580C3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96B4F5B14E3C9D400580C3B /* Foundation.framework in Frameworks */,
+				D96B4F5D14E3C9D400580C3B /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D96B4F4B14E3C9D400580C3B = {
+			isa = PBXGroup;
+			children = (
+				D96B4F5E14E3C9D400580C3B /* kainotify */,
+				D96B4F5914E3C9D400580C3B /* Frameworks */,
+				D96B4F5814E3C9D400580C3B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D96B4F5814E3C9D400580C3B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D96B4F5714E3C9D400580C3B /* kainotify */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D96B4F5914E3C9D400580C3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D96B4F5A14E3C9D400580C3B /* Foundation.framework */,
+				D96B4F5C14E3C9D400580C3B /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D96B4F5E14E3C9D400580C3B /* kainotify */ = {
+			isa = PBXGroup;
+			children = (
+				D96B4F6A14E3C9D400580C3B /* kainotifyController.h */,
+				D96B4F6B14E3C9D400580C3B /* kainotifyController.m */,
+				D96B4F5F14E3C9D400580C3B /* Package */,
+				D96B4F6714E3C9D400580C3B /* Supporting Files */,
+			);
+			path = kainotify;
+			sourceTree = "<group>";
+		};
+		D96B4F5F14E3C9D400580C3B /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				D96B4F6014E3C9D400580C3B /* DEBIAN */,
+				D96B4F6D14E3C9D400580C3B /* System */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		D96B4F6014E3C9D400580C3B /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				D96B4F6114E3C9D400580C3B /* control.txt */,
+				D96B4F6214E3C9D400580C3B /* control */,
+				D96B4F6314E3C9D400580C3B /* preinst */,
+				D96B4F6414E3C9D400580C3B /* postinst */,
+				D96B4F6514E3C9D400580C3B /* prerm */,
+				D96B4F6614E3C9D400580C3B /* postrm */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		D96B4F6714E3C9D400580C3B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D96B4F6814E3C9D400580C3B /* PackageVersion.plist */,
+				D96B4F6914E3C9D400580C3B /* kainotify-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D96B4F6D14E3C9D400580C3B /* System */ = {
+			isa = PBXGroup;
+			children = (
+				D96B4F6E14E3C9D400580C3B /* Library */,
+			);
+			name = System;
+			sourceTree = "<group>";
+		};
+		D96B4F6E14E3C9D400580C3B /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D96B4F6F14E3C9D400580C3B /* WeeAppPlugins */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		D96B4F6F14E3C9D400580C3B /* WeeAppPlugins */ = {
+			isa = PBXGroup;
+			children = (
+				D96B4F7014E3C9D400580C3B /* ___PACKAGENAME___ */,
+			);
+			name = WeeAppPlugins;
+			sourceTree = "<group>";
+		};
+		D96B4F7014E3C9D400580C3B /* ___PACKAGENAME___ */ = {
+			isa = PBXGroup;
+			children = (
+				D96B4F7A14E3CA7900580C3B /* Icon.png */,
+				D96B4F7B14E3CA7900580C3B /* Icon@2x.png */,
+				D96B4F7114E3C9D400580C3B /* Info.plist */,
+				D96B4F7214E3C9D400580C3B /* InfoPlist.strings */,
+				D96B4F7314E3C9D400580C3B /* WeeAppBackground@2x.png */,
+				D96B4F7414E3C9D400580C3B /* WeeAppBackground.png */,
+			);
+			name = "___PACKAGENAME___";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D96B4F5414E3C9D400580C3B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D96B4F5614E3C9D400580C3B /* kainotify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D96B4F7714E3C9D400580C3B /* Build configuration list for PBXNativeTarget "kainotify" */;
+			buildPhases = (
+				D96B4F5214E3C9D400580C3B /* Sources */,
+				D96B4F5314E3C9D400580C3B /* Frameworks */,
+				D96B4FA214E3D12600580C3B /* Resources */,
+				D96B4F5414E3C9D400580C3B /* Headers */,
+				D96B4F5514E3C9D400580C3B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = kainotify;
+			productName = kainotify;
+			productReference = D96B4F5714E3C9D400580C3B /* kainotify */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D96B4F4D14E3C9D400580C3B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = TTPod;
+			};
+			buildConfigurationList = D96B4F5014E3C9D400580C3B /* Build configuration list for PBXProject "kainotify" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D96B4F4B14E3C9D400580C3B;
+			productRefGroup = D96B4F5814E3C9D400580C3B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D96B4F5614E3C9D400580C3B /* kainotify */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D96B4FA214E3D12600580C3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96B4FA414E3D13C00580C3B /* Icon@2x.png in Resources */,
+				D96B4FA314E3D13700580C3B /* Icon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D96B4F5514E3C9D400580C3B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D96B4F5214E3C9D400580C3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96B4F6C14E3C9D400580C3B /* kainotifyController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D96B4F7514E3C9D400580C3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		D96B4F7614E3C9D400580C3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		D96B4F7814E3C9D400580C3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = "";
+				EXECUTABLE_NAME = kainotify;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kainotify/kainotify-Prefix.pch";
+				INSTALL_PATH = /System/Library/WeeAppPlugins/kainotify.bundle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = 192.168.6.160;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		D96B4F7914E3C9D400580C3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = "";
+				EXECUTABLE_NAME = kainotify;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kainotify/kainotify-Prefix.pch";
+				INSTALL_PATH = /System/Library/WeeAppPlugins/kainotify.bundle;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = 192.168.6.160;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D96B4F5014E3C9D400580C3B /* Build configuration list for PBXProject "kainotify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D96B4F7514E3C9D400580C3B /* Release */,
+				D96B4F7614E3C9D400580C3B /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D96B4F7714E3C9D400580C3B /* Build configuration list for PBXNativeTarget "kainotify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D96B4F7814E3C9D400580C3B /* Release */,
+				D96B4F7914E3C9D400580C3B /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D96B4F4D14E3C9D400580C3B /* Project object */;
+}

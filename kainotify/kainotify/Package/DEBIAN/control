@@ -1,0 +1,17 @@
+Package: com.ttpod.kainotify
+Name: 凯凯 Widget
+Version: 1.2-6
+Description: 凯凯通知<br>哈哈<br>try it
+Section: Addons (NotificationCenter)
+Depends: firmware (>= 5.0)
+Conflicts: 
+Replaces: 
+Priority: optional
+Architecture: iphoneos-arm
+Author: hongkai.qian <kk@sds.com>
+dev: 
+Homepage: 
+Depiction: 
+Maintainer: kaikai
+Icon: file:///System/Library/WeeAppPlugins/kainotify.bundle/Icon.png
+
