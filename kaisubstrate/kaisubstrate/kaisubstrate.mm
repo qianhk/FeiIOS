@@ -42,23 +42,24 @@
 @end
 
 
-@class ClassToHook;
+@class NSNumber;
 
-CHDeclareClass(ClassToHook); // declare class
+CHDeclareClass(NSNumber); // declare class
 
-CHOptimizedMethod(0, self, void, ClassToHook, messageName) // hook method (with no arguments and no return value)
+CHOptimizedMethod(0, self, long long, NSNumber, longLongValue) // hook method (with no arguments and no return value)
 {
-	// write code here ...
+	long long xx = CHSuper(0, NSNumber, longLongValue);
+	NSLog(@"kaisubstrate method NSNumber longlongValue: %lld", xx);
 	
-	CHSuper(0, ClassToHook, messageName); // call old (original) method
+	return  xx;// call old (original) method
 }
 
-CHOptimizedMethod(2, self, BOOL, ClassToHook, arg1, NSString*, value1, arg2, BOOL, value2) // hook method (with 2 arguments and a return value)
-{
-	// write code here ...
-
-	return CHSuper(2, ClassToHook, arg1, value1, arg2, value2); // call old (original) method and return its return value
-}
+//CHOptimizedMethod(2, self, BOOL, ClassToHook, arg1, NSString*, value1, arg2, BOOL, value2) // hook method (with 2 arguments and a return value)
+//{
+//	// write code here ...
+//
+//	return CHSuper(2, ClassToHook, arg1, value1, arg2, value2); // call old (original) method and return its return value
+//}
 
 static void WillEnterForeground(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
@@ -82,6 +83,11 @@ static void ExternallyPostedNotification(CFNotificationCenterRef center, void *o
 	}
 }
 
+static void NotificationListNotify(CFNotificationCenterRef center, void *observer, CFStringRef name, const void * object, CFDictionaryRef userInfo)
+{
+	CHLog(@"kaisubstrate3: NotificationListNotify name=%@ object=0x%08X, userinfo=%@", (NSString *)name, object, (NSDictionary *)userInfo);
+}
+
 CHConstructor // code block that runs immediately upon load
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -91,6 +97,7 @@ CHConstructor // code block that runs immediately upon load
 	// listen for local notification (not required; for example only)
 	CFNotificationCenterRef center = CFNotificationCenterGetLocalCenter();
 	CFNotificationCenterAddObserver(center, NULL, WillEnterForeground, CFSTR("UIApplicationWillEnterForegroundNotification"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+	CFNotificationCenterAddObserver(center, NULL, NotificationListNotify, CFSTR("KNotificationListNotify"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 	
 	// listen for system-side notification (not required; for example only)
 	// this would be posted using: notify_post("com.ttpod.kaisubstrate.eventname");
@@ -101,10 +108,10 @@ CHConstructor // code block that runs immediately upon load
 	
 	CFNotificationCenterAddObserver(darwin, NULL, ExternallyPostedNotification, CFSTR("com.ttpod.kaisubstrate.wifi_on"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 	
-	// CHLoadClass(ClassToHook); // load class (that is "available now")
+	 CHLoadClass(NSNumber); // load class (that is "available now")
 	// CHLoadLateClass(ClassToHook);  // load class (that will be "available later")
 	
-//	CHHook(0, ClassToHook, messageName); // register hook
+	CHHook(0, NSNumber, longLongValue); // register hook
 //	CHHook(2, ClassToHook, arg1, arg2); // register hook
 	
 	[pool drain];
