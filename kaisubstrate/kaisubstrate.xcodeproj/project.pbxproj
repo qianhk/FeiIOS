@@ -1,0 +1,317 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D98CA00514E4B7A200B797BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D98CA00414E4B7A200B797BD /* Foundation.framework */; };
+		D98CA01214E4B7A200B797BD /* kaisubstrate.mm in Sources */ = {isa = PBXBuildFile; fileRef = D98CA01114E4B7A200B797BD /* kaisubstrate.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D98CA00114E4B7A200B797BD /* kaisubstrate.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = kaisubstrate.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		D98CA00414E4B7A200B797BD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D98CA00914E4B7A200B797BD /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
+		D98CA00A14E4B7A200B797BD /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		D98CA00B14E4B7A200B797BD /* preinst */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = preinst; path = Package/DEBIAN/preinst; sourceTree = "<group>"; };
+		D98CA00C14E4B7A200B797BD /* postinst */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = postinst; path = Package/DEBIAN/postinst; sourceTree = "<group>"; };
+		D98CA00D14E4B7A200B797BD /* prerm */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = prerm; path = Package/DEBIAN/prerm; sourceTree = "<group>"; };
+		D98CA00E14E4B7A200B797BD /* postrm */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = postrm; path = Package/DEBIAN/postrm; sourceTree = "<group>"; };
+		D98CA01014E4B7A200B797BD /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		D98CA01114E4B7A200B797BD /* kaisubstrate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = kaisubstrate.mm; sourceTree = "<group>"; };
+		D98CA01614E4B7A200B797BD /* kaisubstrate.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = kaisubstrate.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/kaisubstrate.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D98C9FFD14E4B7A200B797BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D98CA00514E4B7A200B797BD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D98C9FF514E4B7A200B797BD = {
+			isa = PBXGroup;
+			children = (
+				D98CA00614E4B7A200B797BD /* kaisubstrate */,
+				D98CA00314E4B7A200B797BD /* Frameworks */,
+				D98CA00214E4B7A200B797BD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D98CA00214E4B7A200B797BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D98CA00114E4B7A200B797BD /* kaisubstrate.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D98CA00314E4B7A200B797BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D98CA00414E4B7A200B797BD /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D98CA00614E4B7A200B797BD /* kaisubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				D98CA01114E4B7A200B797BD /* kaisubstrate.mm */,
+				D98CA00714E4B7A200B797BD /* Package */,
+				D98CA00F14E4B7A200B797BD /* Supporting Files */,
+			);
+			path = kaisubstrate;
+			sourceTree = "<group>";
+		};
+		D98CA00714E4B7A200B797BD /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				D98CA00814E4B7A200B797BD /* DEBIAN */,
+				D98CA01314E4B7A200B797BD /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		D98CA00814E4B7A200B797BD /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				D98CA00914E4B7A200B797BD /* control.txt */,
+				D98CA00A14E4B7A200B797BD /* control */,
+				D98CA00B14E4B7A200B797BD /* preinst */,
+				D98CA00C14E4B7A200B797BD /* postinst */,
+				D98CA00D14E4B7A200B797BD /* prerm */,
+				D98CA00E14E4B7A200B797BD /* postrm */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		D98CA00F14E4B7A200B797BD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D98CA01014E4B7A200B797BD /* PackageVersion.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D98CA01314E4B7A200B797BD /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D98CA01414E4B7A200B797BD /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		D98CA01414E4B7A200B797BD /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				D98CA01514E4B7A200B797BD /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		D98CA01514E4B7A200B797BD /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				D98CA01614E4B7A200B797BD /* kaisubstrate.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D98C9FFE14E4B7A200B797BD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D98CA00014E4B7A200B797BD /* kaisubstrate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D98CA01914E4B7A200B797BD /* Build configuration list for PBXNativeTarget "kaisubstrate" */;
+			buildPhases = (
+				D98C9FFC14E4B7A200B797BD /* Sources */,
+				D98C9FFD14E4B7A200B797BD /* Frameworks */,
+				D98C9FFE14E4B7A200B797BD /* Headers */,
+				D98C9FFF14E4B7A200B797BD /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = kaisubstrate;
+			productName = kaisubstrate;
+			productReference = D98CA00114E4B7A200B797BD /* kaisubstrate.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D98C9FF714E4B7A200B797BD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = TTPod;
+			};
+			buildConfigurationList = D98C9FFA14E4B7A200B797BD /* Build configuration list for PBXProject "kaisubstrate" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D98C9FF514E4B7A200B797BD;
+			productRefGroup = D98CA00214E4B7A200B797BD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D98CA00014E4B7A200B797BD /* kaisubstrate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D98C9FFF14E4B7A200B797BD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D98C9FFC14E4B7A200B797BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D98CA01214E4B7A200B797BD /* kaisubstrate.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D98CA01714E4B7A200B797BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		D98CA01814E4B7A200B797BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		D98CA01A14E4B7A200B797BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = 192.168.6.160;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		D98CA01B14E4B7A200B797BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = 192.168.6.160;
+				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevRespringOnInstall = YES;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D98C9FFA14E4B7A200B797BD /* Build configuration list for PBXProject "kaisubstrate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D98CA01714E4B7A200B797BD /* Release */,
+				D98CA01814E4B7A200B797BD /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D98CA01914E4B7A200B797BD /* Build configuration list for PBXNativeTarget "kaisubstrate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D98CA01A14E4B7A200B797BD /* Release */,
+				D98CA01B14E4B7A200B797BD /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D98C9FF714E4B7A200B797BD /* Project object */;
+}

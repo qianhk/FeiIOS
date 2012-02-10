@@ -1,0 +1,17 @@
+Package: com.ttpod.kaisubstrate
+Name: kaisubstrate
+Version: 1.0-1
+Description: 
+Section: Tweaks
+Depends: firmware (>= 5.0), mobilesubstrate
+Conflicts: 
+Replaces: 
+Priority: optional
+Architecture: iphoneos-arm
+Author: hongkai.qian
+dev: 
+Homepage: 
+Depiction: 
+Maintainer: 
+Icon: 
+
