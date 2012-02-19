@@ -27,7 +27,7 @@
 {
 	if (lbl != nil)
 	{
-		lbl.text = [NSString stringWithFormat:@"Hell0, world,凯凯says: %d", ++_js];
+		lbl.text = [NSString stringWithFormat:@"Hell0, world,凯凯say: %d", ++_js];
 	}
 }
 

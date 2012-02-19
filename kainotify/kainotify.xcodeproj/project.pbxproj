@@ -313,7 +313,7 @@
 				INSTALL_PATH = /System/Library/WeeAppPlugins/kainotify.bundle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.6.160;
+				iOSOpenDevDevice = 192.168.18.102;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = YES;
@@ -332,7 +332,7 @@
 				INSTALL_PATH = /System/Library/WeeAppPlugins/kainotify.bundle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				iOSOpenDevCopyOnBuild = NO;
-				iOSOpenDevDevice = 192.168.6.160;
+				iOSOpenDevDevice = 192.168.18.102;
 				iOSOpenDevInstallOnProfiling = YES;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = YES;
