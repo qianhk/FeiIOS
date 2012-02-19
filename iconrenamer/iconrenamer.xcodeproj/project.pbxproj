@@ -1,0 +1,326 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DCC9E7E414F13D4100807ACA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCC9E7E314F13D4100807ACA /* Foundation.framework */; };
+		DCC9E7ED14F13D4100807ACA /* iconrenamer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC9E7EC14F13D4100807ACA /* iconrenamer.m */; };
+		DCC9E7F814F13E2F00807ACA /* IconRenamer-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = DCC9E7F714F13E2F00807ACA /* IconRenamer-Prefix.pch */; };
+		DCC9E7FA14F13E8200807ACA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCC9E7F914F13E8200807ACA /* UIKit.framework */; };
+		DCC9E7FF14F1407300807ACA /* iconrenamer2.mm in Sources */ = {isa = PBXBuildFile; fileRef = DCC9E7FE14F1407300807ACA /* iconrenamer2.mm */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DCC9E7E014F13D4100807ACA /* iconrenamer.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = iconrenamer.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCC9E7E314F13D4100807ACA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DCC9E7E814F13D4100807ACA /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
+		DCC9E7E914F13D4100807ACA /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		DCC9E7EB14F13D4100807ACA /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		DCC9E7EC14F13D4100807ACA /* iconrenamer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iconrenamer.m; sourceTree = "<group>"; };
+		DCC9E7F114F13D4100807ACA /* iconrenamer.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = iconrenamer.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/iconrenamer.plist; sourceTree = "<group>"; };
+		DCC9E7F714F13E2F00807ACA /* IconRenamer-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IconRenamer-Prefix.pch"; sourceTree = "<group>"; };
+		DCC9E7F914F13E8200807ACA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DCC9E7FE14F1407300807ACA /* iconrenamer2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iconrenamer2.mm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DCC9E7DC14F13D4100807ACA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCC9E7FA14F13E8200807ACA /* UIKit.framework in Frameworks */,
+				DCC9E7E414F13D4100807ACA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DCC9E7D414F13D4100807ACA = {
+			isa = PBXGroup;
+			children = (
+				DCC9E7E514F13D4100807ACA /* iconrenamer */,
+				DCC9E7E214F13D4100807ACA /* Frameworks */,
+				DCC9E7E114F13D4100807ACA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCC9E7E114F13D4100807ACA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DCC9E7E014F13D4100807ACA /* iconrenamer.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DCC9E7E214F13D4100807ACA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCC9E7F914F13E8200807ACA /* UIKit.framework */,
+				DCC9E7E314F13D4100807ACA /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCC9E7E514F13D4100807ACA /* iconrenamer */ = {
+			isa = PBXGroup;
+			children = (
+				DCC9E7F714F13E2F00807ACA /* IconRenamer-Prefix.pch */,
+				DCC9E7EC14F13D4100807ACA /* iconrenamer.m */,
+				DCC9E7FE14F1407300807ACA /* iconrenamer2.mm */,
+				DCC9E7E614F13D4100807ACA /* Package */,
+				DCC9E7EA14F13D4100807ACA /* Supporting Files */,
+			);
+			path = iconrenamer;
+			sourceTree = "<group>";
+		};
+		DCC9E7E614F13D4100807ACA /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				DCC9E7E714F13D4100807ACA /* DEBIAN */,
+				DCC9E7EE14F13D4100807ACA /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		DCC9E7E714F13D4100807ACA /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				DCC9E7E814F13D4100807ACA /* control.txt */,
+				DCC9E7E914F13D4100807ACA /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		DCC9E7EA14F13D4100807ACA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DCC9E7EB14F13D4100807ACA /* PackageVersion.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DCC9E7EE14F13D4100807ACA /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				DCC9E7EF14F13D4100807ACA /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		DCC9E7EF14F13D4100807ACA /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				DCC9E7F014F13D4100807ACA /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		DCC9E7F014F13D4100807ACA /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				DCC9E7F114F13D4100807ACA /* iconrenamer.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DCC9E7DD14F13D4100807ACA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCC9E7F814F13E2F00807ACA /* IconRenamer-Prefix.pch in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		DCC9E7DF14F13D4100807ACA /* iconrenamer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCC9E7F414F13D4100807ACA /* Build configuration list for PBXNativeTarget "iconrenamer" */;
+			buildPhases = (
+				DCC9E7DB14F13D4100807ACA /* Sources */,
+				DCC9E7DC14F13D4100807ACA /* Frameworks */,
+				DCC9E7DD14F13D4100807ACA /* Headers */,
+				DCC9E7DE14F13D4100807ACA /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iconrenamer;
+			productName = iconrenamer;
+			productReference = DCC9E7E014F13D4100807ACA /* iconrenamer.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCC9E7D614F13D4100807ACA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = SDS;
+			};
+			buildConfigurationList = DCC9E7D914F13D4100807ACA /* Build configuration list for PBXProject "iconrenamer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DCC9E7D414F13D4100807ACA;
+			productRefGroup = DCC9E7E114F13D4100807ACA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCC9E7DF14F13D4100807ACA /* iconrenamer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DCC9E7DE14F13D4100807ACA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DCC9E7DB14F13D4100807ACA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCC9E7ED14F13D4100807ACA /* iconrenamer.m in Sources */,
+				DCC9E7FF14F1407300807ACA /* iconrenamer2.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DCC9E7F214F13D4100807ACA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREFIX_HEADER = "iconrenamer/IconRenamer-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		DCC9E7F314F13D4100807ACA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = "iconrenamer/IconRenamer-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		DCC9E7F514F13D4100807ACA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		DCC9E7F614F13D4100807ACA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DCC9E7D914F13D4100807ACA /* Build configuration list for PBXProject "iconrenamer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCC9E7F214F13D4100807ACA /* Release */,
+				DCC9E7F314F13D4100807ACA /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCC9E7F414F13D4100807ACA /* Build configuration list for PBXNativeTarget "iconrenamer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCC9E7F514F13D4100807ACA /* Release */,
+				DCC9E7F614F13D4100807ACA /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCC9E7D614F13D4100807ACA /* Project object */;
+}

@@ -1,0 +1,17 @@
+Package: cn.njnu.kai.iconrenamer
+Name: IconRenamer
+Version: 1.0-1
+Description: 可更改桌面图标名字
+Section: Tweaks
+Depends: firmware (>= 4.0), mobilesubstrate
+Conflicts: 
+Replaces: 
+Priority: optional
+Architecture: iphoneos-arm
+Author: kai <a@b.cn>
+dev: 
+Homepage: 
+Depiction: 
+Maintainer: 
+Icon: 
+

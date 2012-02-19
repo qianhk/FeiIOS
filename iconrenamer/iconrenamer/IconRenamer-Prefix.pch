@@ -1,0 +1,16 @@
+//
+// Prefix header for all source files of the 'singleview' target in the 'singleview' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#error "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+	#import <UIKit/UIKit.h>
+	#import <Foundation/Foundation.h>
+#else
+#error "kai no define __OBJC__"
+#endif
