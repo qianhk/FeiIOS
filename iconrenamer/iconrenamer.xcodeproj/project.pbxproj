@@ -12,12 +12,13 @@
 		DCC9E7F814F13E2F00807ACA /* IconRenamer-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = DCC9E7F714F13E2F00807ACA /* IconRenamer-Prefix.pch */; };
 		DCC9E7FA14F13E8200807ACA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCC9E7F914F13E8200807ACA /* UIKit.framework */; };
 		DCC9E7FF14F1407300807ACA /* iconrenamer2.mm in Sources */ = {isa = PBXBuildFile; fileRef = DCC9E7FE14F1407300807ACA /* iconrenamer2.mm */; };
+		DCC9E80814F1475A00807ACA /* KaiStatusBar.h in Headers */ = {isa = PBXBuildFile; fileRef = DCC9E80614F1475A00807ACA /* KaiStatusBar.h */; };
+		DCC9E80914F1475A00807ACA /* KaiStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DCC9E80714F1475A00807ACA /* KaiStatusBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DCC9E7E014F13D4100807ACA /* iconrenamer.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = iconrenamer.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC9E7E314F13D4100807ACA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		DCC9E7E814F13D4100807ACA /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
 		DCC9E7E914F13D4100807ACA /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		DCC9E7EB14F13D4100807ACA /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
 		DCC9E7EC14F13D4100807ACA /* iconrenamer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iconrenamer.m; sourceTree = "<group>"; };
@@ -25,6 +26,8 @@
 		DCC9E7F714F13E2F00807ACA /* IconRenamer-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IconRenamer-Prefix.pch"; sourceTree = "<group>"; };
 		DCC9E7F914F13E8200807ACA /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DCC9E7FE14F1407300807ACA /* iconrenamer2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = iconrenamer2.mm; sourceTree = "<group>"; };
+		DCC9E80614F1475A00807ACA /* KaiStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaiStatusBar.h; sourceTree = "<group>"; };
+		DCC9E80714F1475A00807ACA /* KaiStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaiStatusBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,8 @@
 			children = (
 				DCC9E7F714F13E2F00807ACA /* IconRenamer-Prefix.pch */,
 				DCC9E7EC14F13D4100807ACA /* iconrenamer.m */,
+				DCC9E80614F1475A00807ACA /* KaiStatusBar.h */,
+				DCC9E80714F1475A00807ACA /* KaiStatusBar.m */,
 				DCC9E7FE14F1407300807ACA /* iconrenamer2.mm */,
 				DCC9E7E614F13D4100807ACA /* Package */,
 				DCC9E7EA14F13D4100807ACA /* Supporting Files */,
@@ -90,7 +95,6 @@
 		DCC9E7E714F13D4100807ACA /* DEBIAN */ = {
 			isa = PBXGroup;
 			children = (
-				DCC9E7E814F13D4100807ACA /* control.txt */,
 				DCC9E7E914F13D4100807ACA /* control */,
 			);
 			name = DEBIAN;
@@ -136,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCC9E7F814F13E2F00807ACA /* IconRenamer-Prefix.pch in Headers */,
+				DCC9E80814F1475A00807ACA /* KaiStatusBar.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +214,7 @@
 			files = (
 				DCC9E7ED14F13D4100807ACA /* iconrenamer.m in Sources */,
 				DCC9E7FF14F1407300807ACA /* iconrenamer2.mm in Sources */,
+				DCC9E80914F1475A00807ACA /* KaiStatusBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

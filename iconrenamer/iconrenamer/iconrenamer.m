@@ -3,6 +3,7 @@
 #import <CaptainHook/CaptainHook.h>
 
 #import "SBIconView.h"
+#import "KaiStatusBar.h"
 
 @interface SBIcon (OS40)
 - (NSString *)leafIdentifier;
@@ -31,6 +32,7 @@ static NSInteger originalName;
 
 static IconRenamer *currentRenamer;
 
+
 + (id)renamerWithIcon:(SBIcon *)icon iconView:(SBIconView *)iconView
 {
 	return [[[self alloc] initWithIcon:icon iconView:iconView] autorelease];
@@ -58,21 +60,35 @@ static IconRenamer *currentRenamer;
 
 - (void)show
 {
+	static KaiStatusBar* _statusBar = nil;
+	
 	if (!_av) {
 		_av = [[UIAlertView alloc] init];
 		_av.delegate = self;
 		originalName++;
 		NSString *title = [_icon displayName];
 		originalName--;
-		_av.title = [@"Rename " stringByAppendingString:title];
+		_av.title = [@"重命名 " stringByAppendingString:title];
 		UITextField *textField = [_av addTextFieldWithValue:[_icon displayName] label:nil];
 		textField.delegate = self;
 		textField.returnKeyType = UIReturnKeyDone;
 		textField.clearButtonMode = UITextFieldViewModeAlways;
-		_av.cancelButtonIndex = [_av addButtonWithTitle:@"Cancel"];
-		[_av addButtonWithTitle:@"Apply"];
+		_av.cancelButtonIndex = [_av addButtonWithTitle:@"取消"];
+		[_av addButtonWithTitle:@"应用"];
 		[_av show];
 		[self retain];
+		
+		if (_statusBar == nil)
+		{
+			_statusBar = [[KaiStatusBar alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+			[_statusBar showWithStatusMessage:@"哈哈，音乐天天 动听无限"];
+		}
+		else
+		{
+			[_statusBar hide];
+			[_statusBar release];
+			_statusBar = nil;
+		}
 	}
 }
 
@@ -104,8 +120,15 @@ static IconRenamer *currentRenamer;
 
 - (void)alertView:(UIAlertView *)av clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+//	[_statusBar hide];
+//	[_statusBar release];
+//	_statusBar = nil;
+	
 	if (buttonIndex != _av.cancelButtonIndex)
+	{
 		[self save];
+		
+	}
 	[[_av textFieldAtIndex:0] setDelegate:nil];
 	_av.delegate = nil;
 	[_av release];
@@ -226,6 +249,7 @@ CHConstructor {
 	CHHook(2, SBIconView, touchesEnded, withEvent);
 	CHLoadLateClass(SBIconController);
 	CHAutoreleasePoolForScope();
-	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (void *)LoadSettings, CFSTR("ch.rpetri.iconrenamer/settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (void *)LoadSettings, CFSTR("com.njnu.kai.iconrenamer/settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 	LoadSettings();
+	
 }
