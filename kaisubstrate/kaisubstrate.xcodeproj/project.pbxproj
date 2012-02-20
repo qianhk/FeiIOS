@@ -269,7 +269,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.6.160;
-				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = YES;
 			};
@@ -284,7 +284,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = 192.168.6.160;
-				iOSOpenDevInstallOnProfiling = YES;
+				iOSOpenDevInstallOnProfiling = NO;
 				iOSOpenDevRespringOnInstall = YES;
 				iOSOpenDevUsePackageVersionPList = YES;
 			};

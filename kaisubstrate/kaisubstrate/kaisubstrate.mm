@@ -10,6 +10,7 @@
 // see https://github.com/rpetrich/CaptainHook/
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <CaptainHook/CaptainHook.h>
 #include <notify.h> // not required; for examples only
 //#import <SpringBoard/SpringBoard_iOSOpenDev_ClassDump.h>
@@ -43,7 +44,7 @@
 
 CHDeclareClass(NSNumber); // declare class
 
-CHOptimizedMethod(0, self, long long, NSNumber, longLongValue) // hook method (with no arguments and no return value)
+CHOptimizedMethod(0, super, long long, NSNumber, longLongValue) // hook method (with no arguments and no return value)
 {
 	long long xx = CHSuper(0, NSNumber, longLongValue);
 	NSLog(@"kaisubstrate method NSNumber longlongValue: %lld", xx);
@@ -110,6 +111,9 @@ CHConstructor // code block that runs immediately upon load
 	
 	CHHook(0, NSNumber, longLongValue); // register hook
 //	CHHook(2, ClassToHook, arg1, arg2); // register hook
+	
+	NSNumber* number = [NSNumber numberWithLongLong:12345];
+	[number longLongValue];
 	
 	[pool drain];
 }
