@@ -133,6 +133,7 @@
 - (IBAction)nsnumberused:(id)sender
 {
 	NSNumber* number = [NSNumber numberWithLongLong:6789];
-	[number longLongValue];
+	long long value = [number longLongValue];
+	NSLog(@"singleview: long long value is %lld", value);
 }
 @end

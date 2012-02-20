@@ -13,7 +13,7 @@
 #import <CaptainHook/CaptainHook.h>
 #include <notify.h> // not required; for examples only
 //#import <SpringBoard/SpringBoard_iOSOpenDev_ClassDump.h>
-#import <SpringBoard/SBWiFiManager_iOSOpenDev_ClassDump.h>
+#import <SpringBoard/SBWiFiManager.h>
 
 
 // Objective-C runtime hooking using CaptainHook:
@@ -40,9 +40,6 @@
 }
 
 @end
-
-
-@class NSNumber;
 
 CHDeclareClass(NSNumber); // declare class
 
@@ -108,7 +105,7 @@ CHConstructor // code block that runs immediately upon load
 	
 	CFNotificationCenterAddObserver(darwin, NULL, ExternallyPostedNotification, CFSTR("com.ttpod.kaisubstrate.wifi_on"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 	
-	 CHLoadClass(NSNumber); // load class (that is "available now")
+	 CHLoadLateClass(NSNumber); // load class (that is "available now")
 	// CHLoadLateClass(ClassToHook);  // load class (that will be "available later")
 	
 	CHHook(0, NSNumber, longLongValue); // register hook

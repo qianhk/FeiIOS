@@ -10,6 +10,12 @@
 - (void)updateLabel;
 @end
 
+@interface UIAlertView (XXX)
+
+- (UITextField *)addTextFieldWithValue:(NSString *)value label:(NSString *)label;
+
+@end
+
 static NSMutableDictionary *iconMappings;
 
 #define kSettingsFilePath "/var/mobile/Library/Preferences/com.njnu.kai.iconrenamer.plist"
@@ -40,7 +46,8 @@ static IconRenamer *currentRenamer;
 
 - (id)initWithIcon:(SBIcon *)icon iconView:(SBIconView *)iconView
 {
-	if ((self = [super init])) {
+	if ((self = [super init]))
+	{
 		currentRenamer = self;
 		_icon = [icon retain];
 		_iconView = [iconView retain];
@@ -50,10 +57,13 @@ static IconRenamer *currentRenamer;
 
 - (void)receiveTouch
 {
-	if (!_hasTouch) {
+	if (!_hasTouch)
+	{
 		_hasTouch = YES;
 		[self performSelector:@selector(show) withObject:nil afterDelay:0.25];
-	} else {
+	}
+	else
+	{
 		[NSObject cancelPreviousPerformRequestsWithTarget:self];
 	}
 }
@@ -62,7 +72,8 @@ static IconRenamer *currentRenamer;
 {
 	static KaiStatusBar* _statusBar = nil;
 	
-	if (!_av) {
+	if (_av == nil)
+	{
 		_av = [[UIAlertView alloc] init];
 		_av.delegate = self;
 		originalName++;
@@ -96,7 +107,8 @@ static IconRenamer *currentRenamer;
 {
 	NSString *identifier = [_icon leafIdentifier];
 	NSString *newDisplayName = [[_av textFieldAtIndex:0] text];
-	if (![[_icon displayName] isEqualToString:newDisplayName]) {
+	if (![[_icon displayName] isEqualToString:newDisplayName])
+	{
 		[iconMappings setObject:newDisplayName forKey:identifier];
 		[iconMappings writeToFile:@kSettingsFilePath atomically:YES];
 		if (_iconView)
@@ -152,9 +164,10 @@ CHDeclareClass(SBIconController);
 
 CHOptimizedMethod(0, self, NSString *, SBApplicationIcon, displayName)
 {
-	if (originalName == 0) {
+	if (originalName == 0)
+	{
 		NSString *title = [iconMappings objectForKey:[self leafIdentifier]];
-		if (title)
+		if (title != nil)
 			return title;
 	}
 	return CHSuper(0, SBApplicationIcon, displayName);
@@ -178,8 +191,11 @@ CHOptimizedMethod(2, super, void, SBApplicationIcon, touchesMoved, NSSet *, touc
 
 CHOptimizedMethod(2, super, void, SBApplicationIcon, touchesEnded, NSSet *, touches, withEvent, UIEvent *, event)
 {
-	if (inTap) {
-		if ([[iconMappings objectForKey:@"IRRequiresDoubleTap"] boolValue]) {
+	NSLog(@"Kai: IconRenamer SBApplicationIcon touchesEnded");
+	if (inTap)
+	{
+		if ([[iconMappings objectForKey:@"IRRequiresDoubleTap"] boolValue])
+		{
 			UITouch *touch = [touches anyObject];
 			NSTimeInterval currentTapTime = touch.timestamp;
 			if ((currentTapTime - lastTapTime < 0.5) && (lastTapIcon == self))
@@ -187,7 +203,9 @@ CHOptimizedMethod(2, super, void, SBApplicationIcon, touchesEnded, NSSet *, touc
 			[lastTapIcon autorelease];
 			lastTapIcon = [self retain];
 			lastTapTime = currentTapTime;
-		} else {
+		}
+		else
+		{
 			[currentRenamer ?: [IconRenamer renamerWithIcon:self iconView:nil] receiveTouch];
 		}
 	}
@@ -212,10 +230,14 @@ CHOptimizedMethod(2, super, void, SBIconView, touchesMoved, NSSet *, touches, wi
 
 CHOptimizedMethod(2, super, void, SBIconView, touchesEnded, NSSet *, touches, withEvent, UIEvent *, event)
 {
-	if (inTap) {
+	NSLog(@"Kai: IconRenamer SBIconView touchesEnded");
+	if (inTap)
+	{
 		SBIcon *icon = self.icon;
-		if ([icon isKindOfClass:CHClass(SBApplicationIcon)]) {
-			if ([[iconMappings objectForKey:@"IRRequiresDoubleTap"] boolValue]) {
+		if ([icon isKindOfClass:CHClass(SBApplicationIcon)])
+		{
+			if ([[iconMappings objectForKey:@"IRRequiresDoubleTap"] boolValue])
+			{
 				UITouch *touch = [touches anyObject];
 				NSTimeInterval currentTapTime = touch.timestamp;
 				if ((currentTapTime - lastTapTime < 0.5) && (lastTapIconView == self))
@@ -223,12 +245,26 @@ CHOptimizedMethod(2, super, void, SBIconView, touchesEnded, NSSet *, touches, wi
 				[lastTapIconView autorelease];
 				lastTapIconView = [self retain];
 				lastTapTime = currentTapTime;
-			} else {
+			}
+			else
+			{
 				[currentRenamer ?: [IconRenamer renamerWithIcon:self.icon iconView:self] receiveTouch];
 			}
 		}
 	}
 	CHSuper(2, SBIconView, touchesEnded, touches, withEvent, event);
+}
+
+CHDeclareClass(SpringBoard)
+
+CHOptimizedMethod(1, self, void, SpringBoard, applicationDidFinishLaunching, id, application)
+{
+	NSLog(@"Kai: SpringBoard applicationDidFinishLaunching: %@ 0x%08X", NSStringFromClass([application class]), (int)application);
+	CHSuper(1, SpringBoard, applicationDidFinishLaunching, application);
+	
+//	UIAlertView* _view = [[UIAlertView alloc] initWithTitle:@"Title" message:@"Message" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+//	[_view show];
+	
 }
 
 static void LoadSettings()
@@ -247,6 +283,8 @@ CHConstructor {
 	CHHook(2, SBIconView, touchesBegan, withEvent);
 	CHHook(2, SBIconView, touchesMoved, withEvent);
 	CHHook(2, SBIconView, touchesEnded, withEvent);
+	CHLoadLateClass(SpringBoard);
+	CHHook(1, SpringBoard, applicationDidFinishLaunching);
 	CHLoadLateClass(SBIconController);
 	CHAutoreleasePoolForScope();
 	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (void *)LoadSettings, CFSTR("com.njnu.kai.iconrenamer/settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
