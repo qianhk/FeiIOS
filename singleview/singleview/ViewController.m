@@ -61,9 +61,20 @@
 
 - (void)btn1Clicked:(id)sender
 {
-	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"BtnClicked" message:@"you clicked button" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
-	[alert show];
-	[alert release];
+//	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"BtnClicked" message:@"you clicked button" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+//	[alert show];
+//	[alert release];
+	if (_statusBar == nil)
+	{
+		_statusBar = [[KaiStatusBar alloc] initWithFrame:CGRectZero];
+		[_statusBar showWithStatusMessage:@"测试这，测试那……"];
+	}
+	else
+	{
+		[_statusBar hide];
+		[_statusBar release];
+		_statusBar = nil;
+	}
 }
 
 - (void)viewWillDisappear:(BOOL)animated

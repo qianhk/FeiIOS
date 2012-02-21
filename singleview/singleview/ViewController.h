@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KaiStatusBar.h"
 
 @interface ViewController : UIViewController
+{
+	KaiStatusBar* _statusBar;
+}
+
 - (IBAction)tttClicked:(id)sender;
 - (IBAction)wifi_off:(id)sender;
 - (IBAction)wifi_on:(id)sender;
