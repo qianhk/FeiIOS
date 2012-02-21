@@ -1,0 +1,17 @@
+Package: cn.njnu.kai.liveclock
+Name: LiveClock
+Version: 1.0-1
+Description: 
+Section: Tweaks
+Depends: firmware (>= 4.0), mobilesubstrate
+Conflicts: 
+Replaces: 
+Priority: optional
+Architecture: iphoneos-arm
+Author: 红凯 钱
+dev: 
+Homepage: 
+Depiction: 
+Maintainer: 
+Icon: 
+

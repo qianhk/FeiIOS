@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC1D628E14F3DE960034E925 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1D628D14F3DE960034E925 /* Foundation.framework */; };
+		DC1D62A814F3DF2D0034E925 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1D62A714F3DF2D0034E925 /* CoreFoundation.framework */; };
+		DC1D62AA14F3DF320034E925 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1D62A914F3DF320034E925 /* UIKit.framework */; };
+		DC1D62AC14F3DF4C0034E925 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1D62AB14F3DF4C0034E925 /* CoreGraphics.framework */; };
+		DC1D62AE14F3DF520034E925 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC1D62AD14F3DF520034E925 /* QuartzCore.framework */; };
+		DC1D62B414F3E1E60034E925 /* LiveClock.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D62B114F3E1E60034E925 /* LiveClock.m */; };
+		DC1D62B514F3E1E60034E925 /* TimeView.h in Headers */ = {isa = PBXBuildFile; fileRef = DC1D62B214F3E1E60034E925 /* TimeView.h */; };
+		DC1D62B614F3E1E60034E925 /* TimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1D62B314F3E1E60034E925 /* TimeView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DC1D628A14F3DE950034E925 /* LiveClock.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = LiveClock.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC1D628D14F3DE960034E925 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DC1D629314F3DE960034E925 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		DC1D629514F3DE960034E925 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		DC1D629914F3DE960034E925 /* LiveClock.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = LiveClock.plist; path = Package/Library/PreferenceLoader/Preferences/LiveClock.plist; sourceTree = "<group>"; };
+		DC1D629A14F3DE960034E925 /* LiveClockIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LiveClockIcon.png; path = Package/Library/PreferenceLoader/Preferences/LiveClockIcon.png; sourceTree = "<group>"; };
+		DC1D629B14F3DE960034E925 /* LiveClockIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LiveClockIcon@2x.png"; path = "Package/Library/PreferenceLoader/Preferences/LiveClockIcon@2x.png"; sourceTree = "<group>"; };
+		DC1D629C14F3DE960034E925 /* LiveClock-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LiveClock-Prefix.pch"; sourceTree = "<group>"; };
+		DC1D62A114F3DE960034E925 /* LiveClock.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = LiveClock.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/LiveClock.plist; sourceTree = "<group>"; };
+		DC1D62A714F3DF2D0034E925 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		DC1D62A914F3DF320034E925 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DC1D62AB14F3DF4C0034E925 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DC1D62AD14F3DF520034E925 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DC1D62AF14F3E1E60034E925 /* Icon@2x.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Icon@2x.psd"; sourceTree = "<group>"; };
+		DC1D62B014F3E1E60034E925 /* IconDark@2x.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IconDark@2x.psd"; sourceTree = "<group>"; };
+		DC1D62B114F3E1E60034E925 /* LiveClock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveClock.m; sourceTree = "<group>"; };
+		DC1D62B214F3E1E60034E925 /* TimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeView.h; sourceTree = "<group>"; };
+		DC1D62B314F3E1E60034E925 /* TimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeView.m; sourceTree = "<group>"; };
+		DC1D62C314F3FBE00034E925 /* SpringBoard.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = SpringBoard.app; sourceTree = "<group>"; };
+		DC1D62C414F3FC8F0034E925 /* preinst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = preinst; path = Package/DEBIAN/preinst; sourceTree = "<group>"; };
+		DC1D62C514F3FC8F0034E925 /* prerm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = prerm; path = Package/DEBIAN/prerm; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC1D628614F3DE950034E925 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC1D62AE14F3DF520034E925 /* QuartzCore.framework in Frameworks */,
+				DC1D62AC14F3DF4C0034E925 /* CoreGraphics.framework in Frameworks */,
+				DC1D62AA14F3DF320034E925 /* UIKit.framework in Frameworks */,
+				DC1D62A814F3DF2D0034E925 /* CoreFoundation.framework in Frameworks */,
+				DC1D628E14F3DE960034E925 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC1D627E14F3DE950034E925 = {
+			isa = PBXGroup;
+			children = (
+				DC1D628F14F3DE960034E925 /* LiveClock */,
+				DC1D628C14F3DE950034E925 /* Frameworks */,
+				DC1D628B14F3DE950034E925 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC1D628B14F3DE950034E925 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC1D628A14F3DE950034E925 /* LiveClock.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC1D628C14F3DE950034E925 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC1D62AD14F3DF520034E925 /* QuartzCore.framework */,
+				DC1D62AB14F3DF4C0034E925 /* CoreGraphics.framework */,
+				DC1D62A914F3DF320034E925 /* UIKit.framework */,
+				DC1D62A714F3DF2D0034E925 /* CoreFoundation.framework */,
+				DC1D628D14F3DE960034E925 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC1D628F14F3DE960034E925 /* LiveClock */ = {
+			isa = PBXGroup;
+			children = (
+				DC1D62AF14F3E1E60034E925 /* Icon@2x.psd */,
+				DC1D62B014F3E1E60034E925 /* IconDark@2x.psd */,
+				DC1D62B114F3E1E60034E925 /* LiveClock.m */,
+				DC1D62B214F3E1E60034E925 /* TimeView.h */,
+				DC1D62B314F3E1E60034E925 /* TimeView.m */,
+				DC1D629014F3DE960034E925 /* Package */,
+				DC1D629414F3DE960034E925 /* Supporting Files */,
+			);
+			path = LiveClock;
+			sourceTree = "<group>";
+		};
+		DC1D629014F3DE960034E925 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				DC1D629114F3DE960034E925 /* DEBIAN */,
+				DC1D629614F3DE960034E925 /* Library */,
+				DC1D62C014F3FBE00034E925 /* System */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		DC1D629114F3DE960034E925 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				DC1D62C414F3FC8F0034E925 /* preinst */,
+				DC1D62C514F3FC8F0034E925 /* prerm */,
+				DC1D629314F3DE960034E925 /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		DC1D629414F3DE960034E925 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC1D629514F3DE960034E925 /* PackageVersion.plist */,
+				DC1D629C14F3DE960034E925 /* LiveClock-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC1D629614F3DE960034E925 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				DC1D629714F3DE960034E925 /* PreferenceLoader */,
+				DC1D629F14F3DE960034E925 /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		DC1D629714F3DE960034E925 /* PreferenceLoader */ = {
+			isa = PBXGroup;
+			children = (
+				DC1D629814F3DE960034E925 /* Preferences */,
+			);
+			name = PreferenceLoader;
+			sourceTree = "<group>";
+		};
+		DC1D629814F3DE960034E925 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				DC1D629914F3DE960034E925 /* LiveClock.plist */,
+				DC1D629A14F3DE960034E925 /* LiveClockIcon.png */,
+				DC1D629B14F3DE960034E925 /* LiveClockIcon@2x.png */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
+		DC1D629F14F3DE960034E925 /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				DC1D62A014F3DE960034E925 /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		DC1D62A014F3DE960034E925 /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				DC1D62A114F3DE960034E925 /* LiveClock.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+		DC1D62C014F3FBE00034E925 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				DC1D62C114F3FBE00034E925 /* Library */,
+			);
+			name = System;
+			path = Package/System;
+			sourceTree = "<group>";
+		};
+		DC1D62C114F3FBE00034E925 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				DC1D62C214F3FBE00034E925 /* CoreServices */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		DC1D62C214F3FBE00034E925 /* CoreServices */ = {
+			isa = PBXGroup;
+			children = (
+				DC1D62C314F3FBE00034E925 /* SpringBoard.app */,
+			);
+			path = CoreServices;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DC1D628714F3DE950034E925 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC1D62B514F3E1E60034E925 /* TimeView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		DC1D628914F3DE950034E925 /* LiveClock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC1D62A414F3DE960034E925 /* Build configuration list for PBXNativeTarget "LiveClock" */;
+			buildPhases = (
+				DC1D628514F3DE950034E925 /* Sources */,
+				DC1D628614F3DE950034E925 /* Frameworks */,
+				DC1D628714F3DE950034E925 /* Headers */,
+				DC1D628814F3DE950034E925 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LiveClock;
+			productName = LiveClock;
+			productReference = DC1D628A14F3DE950034E925 /* LiveClock.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC1D628014F3DE950034E925 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = SDS;
+			};
+			buildConfigurationList = DC1D628314F3DE950034E925 /* Build configuration list for PBXProject "LiveClock" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DC1D627E14F3DE950034E925;
+			productRefGroup = DC1D628B14F3DE950034E925 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC1D628914F3DE950034E925 /* LiveClock */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DC1D628814F3DE950034E925 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC1D628514F3DE950034E925 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC1D62B414F3E1E60034E925 /* LiveClock.m in Sources */,
+				DC1D62B614F3E1E60034E925 /* TimeView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DC1D62A214F3DE960034E925 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		DC1D62A314F3DE960034E925 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		DC1D62A514F3DE960034E925 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LiveClock/LiveClock-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		DC1D62A614F3DE960034E925 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "LiveClock/LiveClock-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC1D628314F3DE950034E925 /* Build configuration list for PBXProject "LiveClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC1D62A214F3DE960034E925 /* Release */,
+				DC1D62A314F3DE960034E925 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC1D62A414F3DE960034E925 /* Build configuration list for PBXNativeTarget "LiveClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC1D62A514F3DE960034E925 /* Release */,
+				DC1D62A614F3DE960034E925 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC1D628014F3DE950034E925 /* Project object */;
+}
