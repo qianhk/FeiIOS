@@ -1,0 +1,354 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D97CE13D14F4F0AE00FB167D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97CE13C14F4F0AE00FB167D /* Foundation.framework */; };
+		D97CE14814F4F0AF00FB167D /* IconRotator.mm in Sources */ = {isa = PBXBuildFile; fileRef = D97CE14714F4F0AF00FB167D /* IconRotator.mm */; };
+		D97CE15314F4F18D00FB167D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97CE15214F4F18D00FB167D /* UIKit.framework */; };
+		D97CE15514F4F19300FB167D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D97CE15414F4F19300FB167D /* QuartzCore.framework */; };
+		D97CE15714F4F1C800FB167D /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D97CE15614F4F1C800FB167D /* libsubstrate.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D97CE13914F4F0AE00FB167D /* IconRotator.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = IconRotator.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		D97CE13C14F4F0AE00FB167D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D97CE14114F4F0AF00FB167D /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
+		D97CE14214F4F0AF00FB167D /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		D97CE14414F4F0AF00FB167D /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		D97CE14514F4F0AF00FB167D /* IconRotator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IconRotator-Prefix.pch"; sourceTree = "<group>"; };
+		D97CE14614F4F0AF00FB167D /* IconRotator.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IconRotator.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		D97CE14714F4F0AF00FB167D /* IconRotator.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IconRotator.mm; sourceTree = "<group>"; };
+		D97CE14C14F4F0AF00FB167D /* IconRotator.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = IconRotator.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/IconRotator.plist; sourceTree = "<group>"; };
+		D97CE15214F4F18D00FB167D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D97CE15414F4F19300FB167D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D97CE15614F4F1C800FB167D /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D97CE13514F4F0AE00FB167D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97CE15714F4F1C800FB167D /* libsubstrate.dylib in Frameworks */,
+				D97CE15514F4F19300FB167D /* QuartzCore.framework in Frameworks */,
+				D97CE15314F4F18D00FB167D /* UIKit.framework in Frameworks */,
+				D97CE13D14F4F0AE00FB167D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D97CE12C14F4F0AE00FB167D = {
+			isa = PBXGroup;
+			children = (
+				D97CE13E14F4F0AE00FB167D /* IconRotator */,
+				D97CE13B14F4F0AE00FB167D /* Frameworks */,
+				D97CE13A14F4F0AE00FB167D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D97CE13A14F4F0AE00FB167D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D97CE13914F4F0AE00FB167D /* IconRotator.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D97CE13B14F4F0AE00FB167D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D97CE15614F4F1C800FB167D /* libsubstrate.dylib */,
+				D97CE15414F4F19300FB167D /* QuartzCore.framework */,
+				D97CE15214F4F18D00FB167D /* UIKit.framework */,
+				D97CE13C14F4F0AE00FB167D /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D97CE13E14F4F0AE00FB167D /* IconRotator */ = {
+			isa = PBXGroup;
+			children = (
+				D97CE14614F4F0AF00FB167D /* IconRotator.xm */,
+				D97CE14714F4F0AF00FB167D /* IconRotator.mm */,
+				D97CE13F14F4F0AF00FB167D /* Package */,
+				D97CE14314F4F0AF00FB167D /* Supporting Files */,
+			);
+			path = IconRotator;
+			sourceTree = "<group>";
+		};
+		D97CE13F14F4F0AF00FB167D /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				D97CE14014F4F0AF00FB167D /* DEBIAN */,
+				D97CE14914F4F0AF00FB167D /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		D97CE14014F4F0AF00FB167D /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				D97CE14114F4F0AF00FB167D /* control.txt */,
+				D97CE14214F4F0AF00FB167D /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		D97CE14314F4F0AF00FB167D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D97CE14414F4F0AF00FB167D /* PackageVersion.plist */,
+				D97CE14514F4F0AF00FB167D /* IconRotator-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D97CE14914F4F0AF00FB167D /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D97CE14A14F4F0AF00FB167D /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		D97CE14A14F4F0AF00FB167D /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				D97CE14B14F4F0AF00FB167D /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		D97CE14B14F4F0AF00FB167D /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				D97CE14C14F4F0AF00FB167D /* IconRotator.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D97CE13614F4F0AE00FB167D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D97CE13814F4F0AE00FB167D /* IconRotator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D97CE14F14F4F0AF00FB167D /* Build configuration list for PBXNativeTarget "IconRotator" */;
+			buildPhases = (
+				D97CE13314F4F0AE00FB167D /* ShellScript */,
+				D97CE13414F4F0AE00FB167D /* Sources */,
+				D97CE13514F4F0AE00FB167D /* Frameworks */,
+				D97CE13614F4F0AE00FB167D /* Headers */,
+				D97CE13714F4F0AE00FB167D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IconRotator;
+			productName = IconRotator;
+			productReference = D97CE13914F4F0AE00FB167D /* IconRotator.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D97CE12E14F4F0AE00FB167D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = TTPod;
+			};
+			buildConfigurationList = D97CE13114F4F0AE00FB167D /* Build configuration list for PBXProject "IconRotator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D97CE12C14F4F0AE00FB167D;
+			productRefGroup = D97CE13A14F4F0AE00FB167D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D97CE13814F4F0AE00FB167D /* IconRotator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D97CE13314F4F0AE00FB167D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+		};
+		D97CE13714F4F0AE00FB167D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D97CE13414F4F0AE00FB167D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97CE14814F4F0AF00FB167D /* IconRotator.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D97CE14D14F4F0AF00FB167D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		D97CE14E14F4F0AF00FB167D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		D97CE15014F4F0AF00FB167D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IconRotator/IconRotator-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		D97CE15114F4F0AF00FB167D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IconRotator/IconRotator-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D97CE13114F4F0AE00FB167D /* Build configuration list for PBXProject "IconRotator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D97CE14D14F4F0AF00FB167D /* Release */,
+				D97CE14E14F4F0AF00FB167D /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D97CE14F14F4F0AF00FB167D /* Build configuration list for PBXNativeTarget "IconRotator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D97CE15014F4F0AF00FB167D /* Release */,
+				D97CE15114F4F0AF00FB167D /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D97CE12E14F4F0AE00FB167D /* Project object */;
+}
