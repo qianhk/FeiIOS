@@ -38,6 +38,8 @@ static uint64_t lastOrientation;
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {
+	NSLog(@"qhk:IconRotator applicationDidFinishLaunching begin.");
+	%log;
 	%orig;
 	// This code is quite evil
 	SBAccelerometerInterface *accelerometer = [%c(SBAccelerometerInterface) sharedInstance];
@@ -45,16 +47,17 @@ static uint64_t lastOrientation;
 	if (_clients)
 	{
 		NSMutableArray *clients = *_clients;
-		if (!clients)
+		if (clients == nil)
 			*_clients = clients = [[NSMutableArray alloc] init];
 		SBAccelerometerClient *client = [[%c(SBAccelerometerClient) alloc] init];
-		if (client)
+		if (client != nil)
 		{
-			[client setUpdateInterval:0.1];
+			[client setUpdateInterval:0.3];
 			[clients addObject:client];
 		}
 		[client release];
 	}
+	NSLog(@"qhk:IconRotator applicationDidFinishLaunching end.");
 }
 
 %end
@@ -65,6 +68,7 @@ static void OrientationChangedCallback(CFNotificationCenterRef center, void *obs
 	notify_get_state(notify_token, &orientation);
 	if (orientation == lastOrientation)
 		return;
+//	NSLog(@"qhk:IconRotator OrientationChangedCallback begin.");
 	switch (orientation)
 	{
 		case UIDeviceOrientationPortrait:
@@ -95,13 +99,16 @@ static void OrientationChangedCallback(CFNotificationCenterRef center, void *obs
 		layer.sublayerTransform = currentTransform;
 		[layer addAnimation:animation forKey:@"IconRotator"];
 	}
+//	NSLog(@"qhk:IconRotator OrientationChangedCallback end.");
 }
 
 %ctor
 {
+	NSLog(@"qhk: IconRotator init begin.");
 	%init;
 	currentTransform = CATransform3DIdentity;
 	icons = CFSetCreateMutable(kCFAllocatorDefault, 0, NULL);
 	notify_register_check("com.apple.springboard.rawOrientation", &notify_token);
 	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, OrientationChangedCallback, CFSTR("com.apple.springboard.rawOrientation"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+	NSLog(@"qhk: IconRotator init end.");
 }

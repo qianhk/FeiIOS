@@ -1,4 +1,4 @@
-#line 1 "/OnGit/FeiIOS/IconRotator/IconRotator/IconRotator.xm"
+#line 1 "/OnGitHub/FeiIOS/IconRotator/IconRotator/IconRotator.xm"
 
 #import <QuartzCore/QuartzCore.h>
 #import <SpringBoard/SpringBoard.h>
@@ -15,7 +15,7 @@ static uint64_t lastOrientation;
 @class SBIconView; @class SBAccelerometerClient; @class SBAccelerometerInterface; @class SpringBoard; 
 static void (*_logos_orig$_ungrouped$SBIconView$didMoveToWindow)(SBIconView*, SEL); static void _logos_method$_ungrouped$SBIconView$didMoveToWindow(SBIconView*, SEL); static void (*_logos_orig$_ungrouped$SBIconView$dealloc)(SBIconView*, SEL); static void _logos_method$_ungrouped$SBIconView$dealloc(SBIconView*, SEL); static void (*_logos_orig$_ungrouped$SpringBoard$applicationDidFinishLaunching$)(SpringBoard*, SEL, UIApplication *); static void _logos_method$_ungrouped$SpringBoard$applicationDidFinishLaunching$(SpringBoard*, SEL, UIApplication *); 
 static Class _logos_static_class$SBAccelerometerClient; static Class _logos_static_class$SBAccelerometerInterface; 
-#line 13 "/OnGit/FeiIOS/IconRotator/IconRotator/IconRotator.xm"
+#line 13 "/OnGitHub/FeiIOS/IconRotator/IconRotator/IconRotator.xm"
 
 
 
@@ -44,6 +44,8 @@ static void _logos_method$_ungrouped$SBIconView$dealloc(SBIconView* self, SEL _c
 
 
 static void _logos_method$_ungrouped$SpringBoard$applicationDidFinishLaunching$(SpringBoard* self, SEL _cmd, UIApplication * application) {
+	NSLog(@"qhk:IconRotator applicationDidFinishLaunching begin.");
+	NSLog(@"-[<SpringBoard: %p> applicationDidFinishLaunching:%@]", self, application);
 	_logos_orig$_ungrouped$SpringBoard$applicationDidFinishLaunching$(self, _cmd, application);
 	
 	SBAccelerometerInterface *accelerometer = [_logos_static_class$SBAccelerometerInterface sharedInstance];
@@ -51,16 +53,17 @@ static void _logos_method$_ungrouped$SpringBoard$applicationDidFinishLaunching$(
 	if (_clients)
 	{
 		NSMutableArray *clients = *_clients;
-		if (!clients)
+		if (clients == nil)
 			*_clients = clients = [[NSMutableArray alloc] init];
 		SBAccelerometerClient *client = [[_logos_static_class$SBAccelerometerClient alloc] init];
-		if (client)
+		if (client != nil)
 		{
-			[client setUpdateInterval:0.1];
+			[client setUpdateInterval:0.3];
 			[clients addObject:client];
 		}
 		[client release];
 	}
+	NSLog(@"qhk:IconRotator applicationDidFinishLaunching end.");
 }
 
 
@@ -71,6 +74,7 @@ static void OrientationChangedCallback(CFNotificationCenterRef center, void *obs
 	notify_get_state(notify_token, &orientation);
 	if (orientation == lastOrientation)
 		return;
+
 	switch (orientation)
 	{
 		case UIDeviceOrientationPortrait:
@@ -101,13 +105,16 @@ static void OrientationChangedCallback(CFNotificationCenterRef center, void *obs
 		layer.sublayerTransform = currentTransform;
 		[layer addAnimation:animation forKey:@"IconRotator"];
 	}
+
 }
 
-static __attribute__((constructor)) void _logosLocalCtor_ac627ab1()
+static __attribute__((constructor)) void _logosLocalCtor_c9e1074f()
 {
+	NSLog(@"qhk: IconRotator init begin.");
 	{{Class _logos_class$_ungrouped$SBIconView = objc_getClass("SBIconView"); MSHookMessageEx(_logos_class$_ungrouped$SBIconView, @selector(didMoveToWindow), (IMP)&_logos_method$_ungrouped$SBIconView$didMoveToWindow, (IMP*)&_logos_orig$_ungrouped$SBIconView$didMoveToWindow);MSHookMessageEx(_logos_class$_ungrouped$SBIconView, @selector(dealloc), (IMP)&_logos_method$_ungrouped$SBIconView$dealloc, (IMP*)&_logos_orig$_ungrouped$SBIconView$dealloc);Class _logos_class$_ungrouped$SpringBoard = objc_getClass("SpringBoard"); MSHookMessageEx(_logos_class$_ungrouped$SpringBoard, @selector(applicationDidFinishLaunching:), (IMP)&_logos_method$_ungrouped$SpringBoard$applicationDidFinishLaunching$, (IMP*)&_logos_orig$_ungrouped$SpringBoard$applicationDidFinishLaunching$);}{_logos_static_class$SBAccelerometerClient = objc_getClass("SBAccelerometerClient"); _logos_static_class$SBAccelerometerInterface = objc_getClass("SBAccelerometerInterface"); }}
 	currentTransform = CATransform3DIdentity;
 	icons = CFSetCreateMutable(kCFAllocatorDefault, 0, NULL);
 	notify_register_check("com.apple.springboard.rawOrientation", &notify_token);
 	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, OrientationChangedCallback, CFSTR("com.apple.springboard.rawOrientation"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+	NSLog(@"qhk: IconRotator init end.");
 }

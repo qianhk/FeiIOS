@@ -1,6 +1,6 @@
 Package: com.njnu.kai.iconrotator
 Name: IconRotator
-Version: 0.1-1
+Version: 1.0-1
 Description: 旋转主屏上的图标
 Section: System
 Depends: firmware (>= 4.0), mobilesubstrate
