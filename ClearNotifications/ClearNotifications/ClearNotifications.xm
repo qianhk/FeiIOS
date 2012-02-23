@@ -1,6 +1,9 @@
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #import <CaptainHook/CaptainHook.h>
+#import <BulletinBoard/BulletinBoard.h>
 #import "SpringBoard.h"
+
 
 %config(generator=internal)
 

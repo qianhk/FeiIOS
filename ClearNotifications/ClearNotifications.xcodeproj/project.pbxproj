@@ -12,21 +12,23 @@
 		D9AFEA3214F6343C00728250 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AFEA3114F6343C00728250 /* UIKit.framework */; };
 		D9AFEA3414F6345C00728250 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AFEA3314F6345C00728250 /* CoreGraphics.framework */; };
 		D9AFEA3614F6346800728250 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AFEA3514F6346800728250 /* libsubstrate.dylib */; };
+		D9AFEA9614F63E2B00728250 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9AFEA9514F63E2B00728250 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D9AFEA1814F6340400728250 /* ClearNotifications.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = ClearNotifications.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9AFEA1B14F6340400728250 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D9AFEA2014F6340400728250 /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
 		D9AFEA2114F6340400728250 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		D9AFEA2314F6340400728250 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
 		D9AFEA2414F6340400728250 /* ClearNotifications-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClearNotifications-Prefix.pch"; sourceTree = "<group>"; };
-		D9AFEA2514F6340400728250 /* ClearNotifications.xm */ = {isa = PBXFileReference; lastKnownFileType = text; path = ClearNotifications.xm; sourceTree = "<group>"; };
+		D9AFEA2514F6340400728250 /* ClearNotifications.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ClearNotifications.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		D9AFEA2614F6340400728250 /* ClearNotifications.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ClearNotifications.mm; sourceTree = "<group>"; };
 		D9AFEA2B14F6340400728250 /* ClearNotifications.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = ClearNotifications.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/ClearNotifications.plist; sourceTree = "<group>"; };
 		D9AFEA3114F6343C00728250 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D9AFEA3314F6345C00728250 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D9AFEA3514F6346800728250 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
+		D9AFEA3D14F637C900728250 /* copykill */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = copykill; path = ../../IconRotator/IconRotator/copykill; sourceTree = "<group>"; };
+		D9AFEA9514F63E2B00728250 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9AFEA9614F63E2B00728250 /* QuartzCore.framework in Frameworks */,
 				D9AFEA3414F6345C00728250 /* CoreGraphics.framework in Frameworks */,
 				D9AFEA3214F6343C00728250 /* UIKit.framework in Frameworks */,
 				D9AFEA3614F6346800728250 /* libsubstrate.dylib in Frameworks */,
@@ -65,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				D9AFEA3514F6346800728250 /* libsubstrate.dylib */,
+				D9AFEA9514F63E2B00728250 /* QuartzCore.framework */,
 				D9AFEA3314F6345C00728250 /* CoreGraphics.framework */,
 				D9AFEA3114F6343C00728250 /* UIKit.framework */,
 				D9AFEA1B14F6340400728250 /* Foundation.framework */,
@@ -95,7 +99,6 @@
 		D9AFEA1F14F6340400728250 /* DEBIAN */ = {
 			isa = PBXGroup;
 			children = (
-				D9AFEA2014F6340400728250 /* control.txt */,
 				D9AFEA2114F6340400728250 /* control */,
 			);
 			name = DEBIAN;
@@ -104,6 +107,7 @@
 		D9AFEA2214F6340400728250 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D9AFEA3D14F637C900728250 /* copykill */,
 				D9AFEA2314F6340400728250 /* PackageVersion.plist */,
 				D9AFEA2414F6340400728250 /* ClearNotifications-Prefix.pch */,
 			);
@@ -347,6 +351,7 @@
 				D9AFEA3014F6340400728250 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
