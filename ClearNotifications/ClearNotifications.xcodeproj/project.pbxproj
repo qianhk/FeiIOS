@@ -27,7 +27,7 @@
 		D9AFEA3114F6343C00728250 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D9AFEA3314F6345C00728250 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D9AFEA3514F6346800728250 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
-		D9AFEA3D14F637C900728250 /* copykill */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = copykill; path = ../../IconRotator/IconRotator/copykill; sourceTree = "<group>"; };
+		D9AFEA3D14F637C900728250 /* copykill */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = copykill; sourceTree = "<group>"; };
 		D9AFEA9514F63E2B00728250 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 

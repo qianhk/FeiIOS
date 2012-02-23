@@ -1,0 +1,17 @@
+Package: cn.njnu.kai.musicbanners
+Name: MusicBanners
+Version: 0.1-1
+Description: 
+Section: System
+Depends: firmware (>= 4.0), mobilesubstrate
+Conflicts: 
+Replaces: 
+Priority: optional
+Architecture: iphoneos-arm
+Author: qhk
+dev: 
+Homepage: 
+Depiction: 
+Maintainer: 
+Icon: 
+

@@ -1,0 +1,385 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC3E96E814F682B800441B6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3E96E714F682B800441B6D /* Foundation.framework */; };
+		DC3E96F314F682B800441B6D /* MusicBanners.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC3E96F214F682B800441B6D /* MusicBanners.mm */; };
+		DC3E970114F6838F00441B6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3E970014F6838E00441B6D /* UIKit.framework */; };
+		DC3E970414F6839C00441B6D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3E970314F6839C00441B6D /* QuartzCore.framework */; };
+		DC3E970614F683A300441B6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3E970514F683A300441B6D /* CoreGraphics.framework */; };
+		DC3E970814F683B200441B6D /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3E970714F683B200441B6D /* libsubstrate.dylib */; };
+		DC3E971C14F687B500441B6D /* BulletinBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3E971B14F687B500441B6D /* BulletinBoard.framework */; };
+		DC3E971F14F6881D00441B6D /* BulletinBoard.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3E971E14F6881D00441B6D /* BulletinBoard.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DC3E96E414F682B800441B6D /* MusicBanners.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MusicBanners.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC3E96E714F682B800441B6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DC3E96ED14F682B800441B6D /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		DC3E96EF14F682B800441B6D /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		DC3E96F014F682B800441B6D /* MusicBanners-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MusicBanners-Prefix.pch"; sourceTree = "<group>"; };
+		DC3E96F114F682B800441B6D /* MusicBanners.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MusicBanners.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		DC3E96F214F682B800441B6D /* MusicBanners.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MusicBanners.mm; sourceTree = "<group>"; };
+		DC3E96F714F682B800441B6D /* MusicBanners.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MusicBanners.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/MusicBanners.plist; sourceTree = "<group>"; };
+		DC3E970014F6838E00441B6D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DC3E970314F6839C00441B6D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DC3E970514F683A300441B6D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DC3E970714F683B200441B6D /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
+		DC3E971B14F687B500441B6D /* BulletinBoard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BulletinBoard.framework; path = System/Library/PrivateFrameworks/BulletinBoard.framework; sourceTree = SDKROOT; };
+		DC3E971E14F6881D00441B6D /* BulletinBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinBoard.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC3E96E014F682B800441B6D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC3E970614F683A300441B6D /* CoreGraphics.framework in Frameworks */,
+				DC3E970414F6839C00441B6D /* QuartzCore.framework in Frameworks */,
+				DC3E970114F6838F00441B6D /* UIKit.framework in Frameworks */,
+				DC3E970814F683B200441B6D /* libsubstrate.dylib in Frameworks */,
+				DC3E96E814F682B800441B6D /* Foundation.framework in Frameworks */,
+				DC3E971C14F687B500441B6D /* BulletinBoard.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC3E96D714F682B800441B6D = {
+			isa = PBXGroup;
+			children = (
+				DC3E96E914F682B800441B6D /* MusicBanners */,
+				DC3E96E614F682B800441B6D /* Frameworks */,
+				DC3E96E514F682B800441B6D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC3E96E514F682B800441B6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC3E96E414F682B800441B6D /* MusicBanners.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC3E96E614F682B800441B6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC3E971B14F687B500441B6D /* BulletinBoard.framework */,
+				DC3E970714F683B200441B6D /* libsubstrate.dylib */,
+				DC3E970514F683A300441B6D /* CoreGraphics.framework */,
+				DC3E970314F6839C00441B6D /* QuartzCore.framework */,
+				DC3E970014F6838E00441B6D /* UIKit.framework */,
+				DC3E96E714F682B800441B6D /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC3E96E914F682B800441B6D /* MusicBanners */ = {
+			isa = PBXGroup;
+			children = (
+				DC3E971D14F6881D00441B6D /* BulletinBoard */,
+				DC3E96F114F682B800441B6D /* MusicBanners.xm */,
+				DC3E96F214F682B800441B6D /* MusicBanners.mm */,
+				DC3E96EA14F682B800441B6D /* Package */,
+				DC3E96EE14F682B800441B6D /* Supporting Files */,
+			);
+			path = MusicBanners;
+			sourceTree = "<group>";
+		};
+		DC3E96EA14F682B800441B6D /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				DC3E96EB14F682B800441B6D /* DEBIAN */,
+				DC3E96F414F682B800441B6D /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		DC3E96EB14F682B800441B6D /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				DC3E96ED14F682B800441B6D /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		DC3E96EE14F682B800441B6D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC3E96EF14F682B800441B6D /* PackageVersion.plist */,
+				DC3E96F014F682B800441B6D /* MusicBanners-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC3E96F414F682B800441B6D /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				DC3E96F514F682B800441B6D /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		DC3E96F514F682B800441B6D /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				DC3E96F614F682B800441B6D /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		DC3E96F614F682B800441B6D /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				DC3E96F714F682B800441B6D /* MusicBanners.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+		DC3E971D14F6881D00441B6D /* BulletinBoard */ = {
+			isa = PBXGroup;
+			children = (
+				DC3E971E14F6881D00441B6D /* BulletinBoard.h */,
+			);
+			path = BulletinBoard;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DC3E96E114F682B800441B6D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC3E971F14F6881D00441B6D /* BulletinBoard.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		DC3E96E314F682B800441B6D /* MusicBanners */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC3E96FA14F682B800441B6D /* Build configuration list for PBXNativeTarget "MusicBanners" */;
+			buildPhases = (
+				DC3E96DE14F682B800441B6D /* ShellScript */,
+				DC3E96DF14F682B800441B6D /* Sources */,
+				DC3E96E014F682B800441B6D /* Frameworks */,
+				DC3E96E114F682B800441B6D /* Headers */,
+				DC3E96E214F682B800441B6D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MusicBanners;
+			productName = MusicBanners;
+			productReference = DC3E96E414F682B800441B6D /* MusicBanners.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC3E96D914F682B800441B6D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = SDS;
+			};
+			buildConfigurationList = DC3E96DC14F682B800441B6D /* Build configuration list for PBXProject "MusicBanners" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DC3E96D714F682B800441B6D;
+			productRefGroup = DC3E96E514F682B800441B6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC3E96E314F682B800441B6D /* MusicBanners */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DC3E96DE14F682B800441B6D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+		};
+		DC3E96E214F682B800441B6D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC3E96DF14F682B800441B6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC3E96F314F682B800441B6D /* MusicBanners.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DC3E96F814F682B800441B6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		DC3E96F914F682B800441B6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		DC3E96FB14F682B800441B6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MusicBanners/MusicBanners-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		DC3E96FC14F682B800441B6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MusicBanners/MusicBanners-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+					"\"$(SDKROOT)/usr/lib/system\"",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC3E96DC14F682B800441B6D /* Build configuration list for PBXProject "MusicBanners" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC3E96F814F682B800441B6D /* Release */,
+				DC3E96F914F682B800441B6D /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC3E96FA14F682B800441B6D /* Build configuration list for PBXNativeTarget "MusicBanners" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC3E96FB14F682B800441B6D /* Release */,
+				DC3E96FC14F682B800441B6D /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC3E96D914F682B800441B6D /* Project object */;
+}

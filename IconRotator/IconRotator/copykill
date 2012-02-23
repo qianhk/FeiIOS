@@ -15,7 +15,7 @@ fi
 #echo $projname
 #exit 1
 
-projectName=ClearNotifications
+projectName=IconRotator
 
 #echo current dir is: $c_dir
 localDylibPath=$c_dir/Package/Library/MobileSubstrate/DynamicLibraries/$projectName.dylib

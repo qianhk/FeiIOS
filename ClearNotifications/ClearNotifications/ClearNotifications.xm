@@ -16,8 +16,10 @@ static BBBulletinRequest *bulletin;
 {
 	%orig;
 	NSMutableArray *_listItems = CHIvar(self, _listItems, NSMutableArray *);
-	if ([_listItems count] == 1) {
-		if (!bulletin) {
+	if ([_listItems count] == 1)
+	{
+		if (!bulletin)
+		{
 			bulletin = [[%c(BBBulletinRequest) alloc] init];
 			bulletin.title = @"Clear Notifications";
 			//bulletin.message = @"message";
@@ -36,12 +38,15 @@ static BBBulletinRequest *bulletin;
 - (void)_sortListItems
 {
 	%orig;
-	if (bulletin) {
+	if (bulletin)
+	{
 		SBAwayBulletinListItem *listItem = [self _listItemContainingBulletinID:bulletin.bulletinID];
-		if (listItem) {
+		if (listItem)
+		{
 			NSMutableArray *_listItems = CHIvar(self, _listItems, NSMutableArray *);
 			NSUInteger index = [_listItems indexOfObjectIdenticalTo:listItem];
-			if ((index != NSNotFound) && (index != 0)) {
+			if ((index != NSNotFound) && (index != 0))
+			{
 				listItem = [listItem retain];
 				[_listItems removeObjectAtIndex:index];
 				[_listItems insertObject:listItem atIndex:0];
@@ -55,9 +60,11 @@ static BBBulletinRequest *bulletin;
 - (void)_updateModelAndTableViewForRemoval:(id)removal originalHeight:(CGFloat)originalHeight
 {
 	%orig;
-	if (bulletin) {
+	if (bulletin)
+	{
 		NSMutableArray *_listItems = CHIvar(self, _listItems, NSMutableArray *);
-		if ([_listItems count] == 1) {
+		if ([_listItems count] == 1)
+		{
 			[self observer:CHIvar(self, _observer, BBObserver *) removeBulletin:bulletin];
 		}
 	}
@@ -66,10 +73,13 @@ static BBBulletinRequest *bulletin;
 // Force the date label to be empty
 - (UITableViewCell *)tableView:(UITableView *)view cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	if ((indexPath.row == 0) && (indexPath.section == 0)) {
+	if ((indexPath.row == 0) && (indexPath.section == 0))
+	{
 		UITableViewCell *cell = %orig;
-		for (UIView *view in cell.contentView.subviews) {
-			if ([view isKindOfClass:%c(SBBulletinCellContentViewBase)]) {
+		for (UIView *view in cell.contentView.subviews)
+		{
+			if ([view isKindOfClass:%c(SBBulletinCellContentViewBase)])
+			{
 				[(SBBulletinCellContentViewBase *)view dateLabel].text = @"";
 			}
 		}
@@ -81,11 +91,15 @@ static BBBulletinRequest *bulletin;
 // Don't allow our custom bulletin to be the unlock context
 - (void)setUnlockActionContext:(SBAwayListUnlockActionContext *)context
 {
-	if (bulletin && [context.bulletinID isEqualToString:bulletin.bulletinID]) {
-		for (SBAwayBulletinListItem *listItem in CHIvar(self, _listItems, NSMutableArray *)) {
-			if ([listItem respondsToSelector:@selector(activeBulletin)]) {
+	if (bulletin && [context.bulletinID isEqualToString:bulletin.bulletinID])
+	{
+		for (SBAwayBulletinListItem *listItem in CHIvar(self, _listItems, NSMutableArray *))
+		{
+			if ([listItem respondsToSelector:@selector(activeBulletin)])
+			{
 				BBBulletin *b = [listItem activeBulletin];
-				if (b != bulletin) {
+				if (b != bulletin)
+				{
 					context = [%c(SBAwayListUnlockActionContext) unlockActionContextForBulletin:b];
 					break;
 				}
@@ -102,17 +116,21 @@ static BBBulletinRequest *bulletin;
 // Force our custom image
 - (UIImage *)iconImage
 {
-	if (bulletin && ([self activeBulletin] == bulletin)) {
+	if (bulletin && ([self activeBulletin] == bulletin))
+	{
 		static UIImage *image;
-		if (!image) {
+		if (!image)
+		{
 			if ([UIScreen mainScreen].scale != 1.0f)
 				image = [[UIImage alloc] initWithContentsOfFile:@"/Applications/Preferences.app/notifications_icon@2x.png"];
 			else
 				image = [[UIImage alloc] initWithContentsOfFile:@"/Applications/Preferences.app/notifications_icon.png"];
 		}
-		if (image) {
+		if (image)
+		{
 			UIImage **_listItemImage = CHIvarRef(self, _listItemImage, UIImage *);
-			if (*_listItemImage != image) {
+			if (*_listItemImage != image)
+			{
 				[*_listItemImage release];
 				*_listItemImage = [image retain];
 			}
@@ -131,12 +149,15 @@ static NSInteger slideBackStatus;
 - (void)lockBarUnlocked:(id)lockBar
 {
 	SBAwayListUnlockActionContext *actionContext = self.actionContext;
-	if (bulletin && [actionContext.bulletinID isEqualToString:bulletin.bulletinID]) {
+	if (bulletin && [actionContext.bulletinID isEqualToString:bulletin.bulletinID])
+	{
 		SBAwayBulletinListController *controller = [[[%c(SBAwayController) sharedAwayController] awayView] bulletinController];
-		if (controller) {
+		if (controller)
+		{
 			BBObserver *observer = CHIvar(controller, _observer, BBObserver *);
 			NSArray *listItems = [CHIvar(controller, _listItems, NSMutableArray *) copy];
-			for (SBAwayBulletinListItem *listItem in listItems) {
+			for (SBAwayBulletinListItem *listItem in listItems)
+			{
 				NSArray *bulletins = [[listItem bulletins] copy];
 				for (BBBulletin *b in bulletins)
 					if (b != bulletin)
@@ -145,7 +166,9 @@ static NSInteger slideBackStatus;
 			}
 			[listItems release];
 		}
-	} else {
+	}
+	else
+	{
 		%orig;
 	}
 }
@@ -158,13 +181,17 @@ static NSInteger slideBackStatus;
 
 - (void)lockBarSlidBackToOrigin:(id)lockBar
 {
-	if (slideBackStatus == 2) {
+	if (slideBackStatus == 2)
+	{
 		NSString *bulletinID = self.actionContext.bulletinID;
 		SBAwayBulletinListController *controller = [[[%c(SBAwayController) sharedAwayController] awayView] bulletinController];
-		if (controller) {
-			for (SBAwayBulletinListItem *listItem in CHIvar(controller, _listItems, NSMutableArray *)) {
+		if (controller)
+		{
+			for (SBAwayBulletinListItem *listItem in CHIvar(controller, _listItems, NSMutableArray *))
+			{
 				for (BBBulletin *b in [listItem bulletins]) {
-					if ([b.bulletinID isEqualToString:bulletinID] && (b != bulletin)) {
+					if ([b.bulletinID isEqualToString:bulletinID] && (b != bulletin))
+					{
 						[controller observer:CHIvar(controller, _observer, BBObserver *) removeBulletin:b];
 						%orig;
 						return;
@@ -182,7 +209,8 @@ static NSInteger slideBackStatus;
 
 - (void)knobDragged:(CGFloat)dragged
 {
-	switch (slideBackStatus) {
+	switch (slideBackStatus)
+	{
 		case 0:
 			if (dragged == 1.0f)
 				slideBackStatus = 1;

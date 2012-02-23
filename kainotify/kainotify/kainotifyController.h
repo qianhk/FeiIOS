@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import <BBWeeAppController-Protocol.h>
+//#import <BBWeeAppController-Protocol.h>
+#import <SpringBoard/SpringBoard.h>
 
 @interface kainotifyController : NSObject <BBWeeAppController>
 {

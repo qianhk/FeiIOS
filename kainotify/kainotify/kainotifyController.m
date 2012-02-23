@@ -6,8 +6,10 @@
 //  Copyright (c) 2012年 TTPod. All rights reserved.
 //
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import <objc/runtime.h>
-#import <SpringBoard/SBWiFiManager_iOSOpenDev_ClassDump.h>
+#import <SpringBoard/SBWiFiManager.h>
+#import <QuartzCore/QuartzCore.h>
 
 #import "kainotifyController.h"
 

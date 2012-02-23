@@ -1,4 +1,4 @@
-#line 1 "/OnGit/FeiIOS/ClearNotifications/ClearNotifications/ClearNotifications.xm"
+#line 1 "/OnGitHub/FeiIOS/ClearNotifications/ClearNotifications/ClearNotifications.xm"
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <CaptainHook/CaptainHook.h>
@@ -12,7 +12,7 @@
 @class SBBulletinLockBar; @class SBAwayController; @class SBAwayBulletinListItem; @class SBAwayBulletinCell; @class SBBulletinCellContentViewBase; @class SBAwayListUnlockActionContext; @class BBBulletinRequest; @class SBAwayBulletinListController; @class BBAction; 
 static Class _logos_superclass$_ungrouped$SBAwayBulletinListController; static void (*_logos_orig$_ungrouped$SBAwayBulletinListController$_updateModelAndTableViewForAddition$)(SBAwayBulletinListController*, SEL, SBAwayBulletinListItem *);static void (*_logos_orig$_ungrouped$SBAwayBulletinListController$_sortListItems)(SBAwayBulletinListController*, SEL);static void (*_logos_orig$_ungrouped$SBAwayBulletinListController$_updateModelAndTableViewForRemoval$originalHeight$)(SBAwayBulletinListController*, SEL, id, CGFloat);static UITableViewCell * (*_logos_orig$_ungrouped$SBAwayBulletinListController$tableView$cellForRowAtIndexPath$)(SBAwayBulletinListController*, SEL, UITableView *, NSIndexPath *);static void (*_logos_orig$_ungrouped$SBAwayBulletinListController$setUnlockActionContext$)(SBAwayBulletinListController*, SEL, SBAwayListUnlockActionContext *);static Class _logos_superclass$_ungrouped$SBAwayBulletinListItem; static UIImage * (*_logos_orig$_ungrouped$SBAwayBulletinListItem$iconImage)(SBAwayBulletinListItem*, SEL);static Class _logos_superclass$_ungrouped$SBAwayBulletinCell; static void (*_logos_orig$_ungrouped$SBAwayBulletinCell$lockBarUnlocked$)(SBAwayBulletinCell*, SEL, id);static void (*_logos_orig$_ungrouped$SBAwayBulletinCell$lockBarStartedTracking$)(SBAwayBulletinCell*, SEL, id);static void (*_logos_orig$_ungrouped$SBAwayBulletinCell$lockBarSlidBackToOrigin$)(SBAwayBulletinCell*, SEL, id);static Class _logos_superclass$_ungrouped$SBBulletinLockBar; static void (*_logos_orig$_ungrouped$SBBulletinLockBar$knobDragged$)(SBBulletinLockBar*, SEL, CGFloat);
 static Class _logos_static_class$SBAwayListUnlockActionContext; static Class _logos_static_class$SBAwayController; static Class _logos_static_class$BBBulletinRequest; static Class _logos_static_class$BBAction; static Class _logos_static_class$SBBulletinCellContentViewBase; 
-#line 10 "/OnGit/FeiIOS/ClearNotifications/ClearNotifications/ClearNotifications.xm"
+#line 10 "/OnGitHub/FeiIOS/ClearNotifications/ClearNotifications/ClearNotifications.xm"
 
 
 static BBBulletinRequest *bulletin;
@@ -223,4 +223,4 @@ NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 [pool drain];
 #endif
 }
-#line 199 "/OnGit/FeiIOS/ClearNotifications/ClearNotifications/ClearNotifications.xm"
+#line 199 "/OnGitHub/FeiIOS/ClearNotifications/ClearNotifications/ClearNotifications.xm"
