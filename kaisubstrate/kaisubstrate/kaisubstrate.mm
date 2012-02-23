@@ -112,8 +112,10 @@ CHConstructor // code block that runs immediately upon load
 	CHHook(0, NSNumber, longLongValue); // register hook
 //	CHHook(2, ClassToHook, arg1, arg2); // register hook
 	
-	NSNumber* number = [NSNumber numberWithLongLong:12345];
+//	NSNumber* number = [NSNumber numberWithLongLong:12345];
+	NSNumber* number = [[NSNumber alloc] initWithInteger:1234567];
 	[number longLongValue];
+	[number release];
 	
 	[pool drain];
 }

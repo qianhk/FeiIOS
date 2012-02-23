@@ -14,7 +14,6 @@
 /* Begin PBXFileReference section */
 		D98CA00114E4B7A200B797BD /* kaisubstrate.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = kaisubstrate.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98CA00414E4B7A200B797BD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D98CA00914E4B7A200B797BD /* control.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = control.txt; path = Package/DEBIAN/control.txt; sourceTree = "<group>"; };
 		D98CA00A14E4B7A200B797BD /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		D98CA00B14E4B7A200B797BD /* preinst */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = preinst; path = Package/DEBIAN/preinst; sourceTree = "<group>"; };
 		D98CA00C14E4B7A200B797BD /* postinst */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = postinst; path = Package/DEBIAN/postinst; sourceTree = "<group>"; };
@@ -84,7 +83,6 @@
 		D98CA00814E4B7A200B797BD /* DEBIAN */ = {
 			isa = PBXGroup;
 			children = (
-				D98CA00914E4B7A200B797BD /* control.txt */,
 				D98CA00A14E4B7A200B797BD /* control */,
 				D98CA00B14E4B7A200B797BD /* preinst */,
 				D98CA00C14E4B7A200B797BD /* postinst */,
