@@ -10,6 +10,11 @@ if [ $# != 2 ]; then
 fi
 
 [ ${0:0:1} = / ] && c_dir=${0%/*} || c_dir=$PWD/${0%/*}
+#echo $c_dir
+#projname= basename $c_dir
+#echo $projname
+#exit 1
+
 #echo current dir is: $c_dir
 localDylibPath=$c_dir/Package/Library/MobileSubstrate/DynamicLibraries/$1.dylib
 localPListPath=$c_dir/Package/Library/MobileSubstrate/DynamicLibraries/$1.plist
@@ -20,9 +25,19 @@ serverDylibPath=root@$2:/Library/MobileSubstrate/DynamicLibraries/$1.dylib
 serverPListPath=root@$2:/Library/MobileSubstrate/DynamicLibraries/$1.plist
 
 scp $localDylibPath $serverDylibPath
+if [ $? != 0 ]; then
+	exit 2;
+fi
+
 scp $localPListPath $serverPListPath
+if [ $? != 0 ]; then
+	exit 3 ;
+fi
 
 ssh root@$2 chmod +x /Library/MobileSubstrate/DynamicLibraries/$1.dylib
+if [ $? != 0 ]; then
+	exit 4;
+fi
 
 ssh root@$2 killall SpringBoard
 
