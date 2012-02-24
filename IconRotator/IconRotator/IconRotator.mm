@@ -1,4 +1,4 @@
-#line 1 "/OnGitHub/FeiIOS/IconRotator/IconRotator/IconRotator.xm"
+#line 1 "/OnGit/FeiIOS/IconRotator/IconRotator/IconRotator.xm"
 
 #import <QuartzCore/QuartzCore.h>
 #import <SpringBoard/SpringBoard.h>
@@ -15,7 +15,7 @@ static uint64_t lastOrientation;
 @class SBIconView; @class SBAccelerometerClient; @class SBAccelerometerInterface; @class SpringBoard; 
 static void (*_logos_orig$_ungrouped$SBIconView$didMoveToWindow)(SBIconView*, SEL); static void _logos_method$_ungrouped$SBIconView$didMoveToWindow(SBIconView*, SEL); static void (*_logos_orig$_ungrouped$SBIconView$dealloc)(SBIconView*, SEL); static void _logos_method$_ungrouped$SBIconView$dealloc(SBIconView*, SEL); static void (*_logos_orig$_ungrouped$SpringBoard$applicationDidFinishLaunching$)(SpringBoard*, SEL, UIApplication *); static void _logos_method$_ungrouped$SpringBoard$applicationDidFinishLaunching$(SpringBoard*, SEL, UIApplication *); 
 static Class _logos_static_class$SBAccelerometerClient; static Class _logos_static_class$SBAccelerometerInterface; 
-#line 13 "/OnGitHub/FeiIOS/IconRotator/IconRotator/IconRotator.xm"
+#line 13 "/OnGit/FeiIOS/IconRotator/IconRotator/IconRotator.xm"
 
 
 

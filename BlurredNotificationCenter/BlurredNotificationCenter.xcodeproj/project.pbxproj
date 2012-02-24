@@ -1,0 +1,358 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D9E72FCA14F77C4E00185086 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E72FC914F77C4E00185086 /* Foundation.framework */; };
+		D9E72FCC14F77C4E00185086 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E72FCB14F77C4E00185086 /* CoreGraphics.framework */; };
+		D9E72FCE14F77C4E00185086 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E72FCD14F77C4E00185086 /* UIKit.framework */; };
+		D9E72FD914F77C4E00185086 /* BlurredNotificationCenter.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9E72FD814F77C4E00185086 /* BlurredNotificationCenter.mm */; };
+		D9E72FE414F77CAE00185086 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E72FE314F77CAE00185086 /* QuartzCore.framework */; };
+		D9E72FE614F77CC000185086 /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E72FE514F77CC000185086 /* libsubstrate.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D9E72FC614F77C4E00185086 /* BlurredNotificationCenter.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = BlurredNotificationCenter.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9E72FC914F77C4E00185086 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D9E72FCB14F77C4E00185086 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D9E72FCD14F77C4E00185086 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D9E72FD214F77C4E00185086 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		D9E72FD414F77C4E00185086 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		D9E72FD514F77C4E00185086 /* copykill */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = copykill; sourceTree = "<group>"; };
+		D9E72FD614F77C4E00185086 /* BlurredNotificationCenter-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlurredNotificationCenter-Prefix.pch"; sourceTree = "<group>"; };
+		D9E72FD714F77C4E00185086 /* BlurredNotificationCenter.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BlurredNotificationCenter.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		D9E72FD814F77C4E00185086 /* BlurredNotificationCenter.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = BlurredNotificationCenter.mm; sourceTree = "<group>"; };
+		D9E72FDD14F77C4E00185086 /* BlurredNotificationCenter.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = BlurredNotificationCenter.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/BlurredNotificationCenter.plist; sourceTree = "<group>"; };
+		D9E72FE314F77CAE00185086 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D9E72FE514F77CC000185086 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9E72FC214F77C4E00185086 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9E72FE414F77CAE00185086 /* QuartzCore.framework in Frameworks */,
+				D9E72FE614F77CC000185086 /* libsubstrate.dylib in Frameworks */,
+				D9E72FCA14F77C4E00185086 /* Foundation.framework in Frameworks */,
+				D9E72FCC14F77C4E00185086 /* CoreGraphics.framework in Frameworks */,
+				D9E72FCE14F77C4E00185086 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D9E72FB914F77C4E00185086 = {
+			isa = PBXGroup;
+			children = (
+				D9E72FCF14F77C4E00185086 /* BlurredNotificationCenter */,
+				D9E72FC814F77C4E00185086 /* Frameworks */,
+				D9E72FC714F77C4E00185086 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D9E72FC714F77C4E00185086 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9E72FC614F77C4E00185086 /* BlurredNotificationCenter.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9E72FC814F77C4E00185086 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9E72FE514F77CC000185086 /* libsubstrate.dylib */,
+				D9E72FE314F77CAE00185086 /* QuartzCore.framework */,
+				D9E72FC914F77C4E00185086 /* Foundation.framework */,
+				D9E72FCB14F77C4E00185086 /* CoreGraphics.framework */,
+				D9E72FCD14F77C4E00185086 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9E72FCF14F77C4E00185086 /* BlurredNotificationCenter */ = {
+			isa = PBXGroup;
+			children = (
+				D9E72FD714F77C4E00185086 /* BlurredNotificationCenter.xm */,
+				D9E72FD814F77C4E00185086 /* BlurredNotificationCenter.mm */,
+				D9E72FD014F77C4E00185086 /* Package */,
+				D9E72FD314F77C4E00185086 /* Supporting Files */,
+			);
+			path = BlurredNotificationCenter;
+			sourceTree = "<group>";
+		};
+		D9E72FD014F77C4E00185086 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				D9E72FD114F77C4E00185086 /* DEBIAN */,
+				D9E72FDA14F77C4E00185086 /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		D9E72FD114F77C4E00185086 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				D9E72FD214F77C4E00185086 /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		D9E72FD314F77C4E00185086 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9E72FD414F77C4E00185086 /* PackageVersion.plist */,
+				D9E72FD514F77C4E00185086 /* copykill */,
+				D9E72FD614F77C4E00185086 /* BlurredNotificationCenter-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9E72FDA14F77C4E00185086 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D9E72FDB14F77C4E00185086 /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		D9E72FDB14F77C4E00185086 /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				D9E72FDC14F77C4E00185086 /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		D9E72FDC14F77C4E00185086 /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				D9E72FDD14F77C4E00185086 /* BlurredNotificationCenter.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D9E72FC314F77C4E00185086 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D9E72FC514F77C4E00185086 /* BlurredNotificationCenter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9E72FE014F77C4E00185086 /* Build configuration list for PBXNativeTarget "BlurredNotificationCenter" */;
+			buildPhases = (
+				D9E72FC014F77C4E00185086 /* ShellScript */,
+				D9E72FC114F77C4E00185086 /* Sources */,
+				D9E72FC214F77C4E00185086 /* Frameworks */,
+				D9E72FC314F77C4E00185086 /* Headers */,
+				D9E72FC414F77C4E00185086 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlurredNotificationCenter;
+			productName = BlurredNotificationCenter;
+			productReference = D9E72FC614F77C4E00185086 /* BlurredNotificationCenter.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9E72FBB14F77C4E00185086 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = TTPod;
+			};
+			buildConfigurationList = D9E72FBE14F77C4E00185086 /* Build configuration list for PBXProject "BlurredNotificationCenter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D9E72FB914F77C4E00185086;
+			productRefGroup = D9E72FC714F77C4E00185086 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9E72FC514F77C4E00185086 /* BlurredNotificationCenter */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D9E72FC014F77C4E00185086 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+		};
+		D9E72FC414F77C4E00185086 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9E72FC114F77C4E00185086 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9E72FD914F77C4E00185086 /* BlurredNotificationCenter.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D9E72FDE14F77C4E00185086 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		D9E72FDF14F77C4E00185086 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		D9E72FE114F77C4E00185086 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BlurredNotificationCenter/BlurredNotificationCenter-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		D9E72FE214F77C4E00185086 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BlurredNotificationCenter/BlurredNotificationCenter-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9E72FBE14F77C4E00185086 /* Build configuration list for PBXProject "BlurredNotificationCenter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9E72FDE14F77C4E00185086 /* Release */,
+				D9E72FDF14F77C4E00185086 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9E72FE014F77C4E00185086 /* Build configuration list for PBXNativeTarget "BlurredNotificationCenter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9E72FE114F77C4E00185086 /* Release */,
+				D9E72FE214F77C4E00185086 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D9E72FBB14F77C4E00185086 /* Project object */;
+}
