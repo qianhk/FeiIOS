@@ -29,6 +29,8 @@
 		D9E72FDD14F77C4E00185086 /* BlurredNotificationCenter.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = BlurredNotificationCenter.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/BlurredNotificationCenter.plist; sourceTree = "<group>"; };
 		D9E72FE314F77CAE00185086 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D9E72FE514F77CC000185086 /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
+		DC9B3F4A14FA6C58002D27F5 /* Custom-Lock.xm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Custom-Lock.xm"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		DC9B3F5214FA6CB9002D27F5 /* Custom-Lock.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "Custom-Lock.mm"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,8 @@
 		D9E72FCF14F77C4E00185086 /* BlurredNotificationCenter */ = {
 			isa = PBXGroup;
 			children = (
+				DC9B3F4A14FA6C58002D27F5 /* Custom-Lock.xm */,
+				DC9B3F5214FA6CB9002D27F5 /* Custom-Lock.mm */,
 				D9E72FD714F77C4E00185086 /* BlurredNotificationCenter.xm */,
 				D9E72FD814F77C4E00185086 /* BlurredNotificationCenter.mm */,
 				D9E72FD014F77C4E00185086 /* Package */,
@@ -299,7 +303,10 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					/opt/iOSOpenDev/frameworks,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BlurredNotificationCenter/BlurredNotificationCenter-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
@@ -322,7 +329,10 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/frameworks/**",
+					/opt/iOSOpenDev/frameworks,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BlurredNotificationCenter/BlurredNotificationCenter-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
