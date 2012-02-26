@@ -1,4 +1,4 @@
-#line 1 "/OnGit/FeiIOS/MusicBanners/MusicBanners/MusicBanners.xm"
+#line 1 "/OnGitHub/FeiIOS/MusicBanners/MusicBanners/MusicBanners.xm"
 #import <Foundation/Foundation.h>
 #import <SpringBoard/SpringBoard.h>
 #import "BulletinBoard/BulletinBoard.h"
@@ -84,7 +84,7 @@ static MusicBannersProvider *sharedProvider;
 @class UIImage; @class BBServer; @class SBMediaController; 
 static Class _logos_superclass$_ungrouped$BBServer; static void (*_logos_orig$_ungrouped$BBServer$_loadAllDataProviderPluginBundles)(BBServer*, SEL);static Class _logos_supermetaclass$_ungrouped$UIImage; static UIImage * (*_logos_meta_orig$_ungrouped$UIImage$_applicationIconImageForBundleIdentifier$format$scale$)(Class, SEL, NSString *, int, CGFloat);static Class _logos_superclass$_ungrouped$SBMediaController; static void (*_logos_orig$_ungrouped$SBMediaController$_nowPlayingInfoChanged)(SBMediaController*, SEL);static void (*_logos_orig$_ungrouped$SBMediaController$setNowPlayingInfo$)(SBMediaController*, SEL, id);
 static Class _logos_static_class$SBMediaController; 
-#line 82 "/OnGit/FeiIOS/MusicBanners/MusicBanners/MusicBanners.xm"
+#line 82 "/OnGitHub/FeiIOS/MusicBanners/MusicBanners/MusicBanners.xm"
 - (void)dataProviderDidLoad {
 	BOOL hasChanges = NO;
 	SBMediaController *mc = [_logos_static_class$SBMediaController sharedInstance];
@@ -248,4 +248,4 @@ NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 [pool drain];
 #endif
 }
-#line 224 "/OnGit/FeiIOS/MusicBanners/MusicBanners/MusicBanners.xm"
+#line 224 "/OnGitHub/FeiIOS/MusicBanners/MusicBanners/MusicBanners.xm"

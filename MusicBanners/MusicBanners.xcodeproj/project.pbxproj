@@ -13,7 +13,6 @@
 		DC3E970414F6839C00441B6D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3E970314F6839C00441B6D /* QuartzCore.framework */; };
 		DC3E970614F683A300441B6D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3E970514F683A300441B6D /* CoreGraphics.framework */; };
 		DC3E970814F683B200441B6D /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3E970714F683B200441B6D /* libsubstrate.dylib */; };
-		DC3E971C14F687B500441B6D /* BulletinBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3E971B14F687B500441B6D /* BulletinBoard.framework */; };
 		DC3E971F14F6881D00441B6D /* BulletinBoard.h in Headers */ = {isa = PBXBuildFile; fileRef = DC3E971E14F6881D00441B6D /* BulletinBoard.h */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +29,6 @@
 		DC3E970314F6839C00441B6D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DC3E970514F683A300441B6D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DC3E970714F683B200441B6D /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
-		DC3E971B14F687B500441B6D /* BulletinBoard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BulletinBoard.framework; path = System/Library/PrivateFrameworks/BulletinBoard.framework; sourceTree = SDKROOT; };
 		DC3E971E14F6881D00441B6D /* BulletinBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletinBoard.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,7 +42,6 @@
 				DC3E970114F6838F00441B6D /* UIKit.framework in Frameworks */,
 				DC3E970814F683B200441B6D /* libsubstrate.dylib in Frameworks */,
 				DC3E96E814F682B800441B6D /* Foundation.framework in Frameworks */,
-				DC3E971C14F687B500441B6D /* BulletinBoard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +68,6 @@
 		DC3E96E614F682B800441B6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DC3E971B14F687B500441B6D /* BulletinBoard.framework */,
 				DC3E970714F683B200441B6D /* libsubstrate.dylib */,
 				DC3E970514F683A300441B6D /* CoreGraphics.framework */,
 				DC3E970314F6839C00441B6D /* QuartzCore.framework */,
@@ -257,9 +253,12 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = YES;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
-				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/include/**",
+					"$(iOSOpenDevPath)/frameworks/**",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -279,7 +278,10 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				COPY_PHASE_STRIP = NO;
 				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
-				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(iOSOpenDevPath)/include/**",
+					"$(iOSOpenDevPath)/frameworks/**",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -288,7 +290,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -307,10 +309,7 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MusicBanners/MusicBanners-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
@@ -335,10 +334,7 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MusicBanners/MusicBanners-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
