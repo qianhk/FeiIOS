@@ -1,0 +1,17 @@
+Package: com.ttpod.ttdesktop
+Name: TTDesktop
+Version: 1.0-1
+Description: TT Desktop Lyric
+Section: Tweaks
+Depends: firmware (>= 4.0), mobilesubstrate
+Conflicts: 
+Replaces: 
+Priority: optional
+Architecture: iphoneos-arm
+Author: kai
+dev: 
+Homepage: 
+Depiction: 
+Maintainer: 
+Icon: 
+

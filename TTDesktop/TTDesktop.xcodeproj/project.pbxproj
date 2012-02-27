@@ -1,0 +1,334 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D9CE406714FB4F4800E6FD79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE406614FB4F4800E6FD79 /* Foundation.framework */; };
+		D9CE407014FB4F4800E6FD79 /* TTDesktop.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9CE406F14FB4F4800E6FD79 /* TTDesktop.mm */; };
+		D9CE407B14FB4F8D00E6FD79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE407A14FB4F8D00E6FD79 /* UIKit.framework */; };
+		D9CE407D14FB4F9600E6FD79 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE407C14FB4F9600E6FD79 /* QuartzCore.framework */; };
+		D9CE408114FB505100E6FD79 /* DesktopWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = D9CE407F14FB505100E6FD79 /* DesktopWindow.h */; };
+		D9CE408214FB505100E6FD79 /* DesktopWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE408014FB505100E6FD79 /* DesktopWindow.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D9CE406314FB4F4800E6FD79 /* TTDesktop.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = TTDesktop.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9CE406614FB4F4800E6FD79 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D9CE406B14FB4F4800E6FD79 /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		D9CE406D14FB4F4800E6FD79 /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		D9CE406E14FB4F4800E6FD79 /* TTDesktop-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TTDesktop-Prefix.pch"; sourceTree = "<group>"; };
+		D9CE406F14FB4F4800E6FD79 /* TTDesktop.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TTDesktop.mm; sourceTree = "<group>"; };
+		D9CE407414FB4F4800E6FD79 /* TTDesktop.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = TTDesktop.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/TTDesktop.plist; sourceTree = "<group>"; };
+		D9CE407A14FB4F8D00E6FD79 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D9CE407C14FB4F9600E6FD79 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D9CE407E14FB4FD200E6FD79 /* copykill */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = copykill; sourceTree = "<group>"; };
+		D9CE407F14FB505100E6FD79 /* DesktopWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesktopWindow.h; sourceTree = "<group>"; };
+		D9CE408014FB505100E6FD79 /* DesktopWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesktopWindow.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9CE405F14FB4F4800E6FD79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9CE407D14FB4F9600E6FD79 /* QuartzCore.framework in Frameworks */,
+				D9CE407B14FB4F8D00E6FD79 /* UIKit.framework in Frameworks */,
+				D9CE406714FB4F4800E6FD79 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D9CE405714FB4F4700E6FD79 = {
+			isa = PBXGroup;
+			children = (
+				D9CE406814FB4F4800E6FD79 /* TTDesktop */,
+				D9CE406514FB4F4800E6FD79 /* Frameworks */,
+				D9CE406414FB4F4800E6FD79 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D9CE406414FB4F4800E6FD79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9CE406314FB4F4800E6FD79 /* TTDesktop.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9CE406514FB4F4800E6FD79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9CE407C14FB4F9600E6FD79 /* QuartzCore.framework */,
+				D9CE407A14FB4F8D00E6FD79 /* UIKit.framework */,
+				D9CE406614FB4F4800E6FD79 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9CE406814FB4F4800E6FD79 /* TTDesktop */ = {
+			isa = PBXGroup;
+			children = (
+				D9CE407F14FB505100E6FD79 /* DesktopWindow.h */,
+				D9CE408014FB505100E6FD79 /* DesktopWindow.m */,
+				D9CE406F14FB4F4800E6FD79 /* TTDesktop.mm */,
+				D9CE406914FB4F4800E6FD79 /* Package */,
+				D9CE406C14FB4F4800E6FD79 /* Supporting Files */,
+			);
+			path = TTDesktop;
+			sourceTree = "<group>";
+		};
+		D9CE406914FB4F4800E6FD79 /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				D9CE406A14FB4F4800E6FD79 /* DEBIAN */,
+				D9CE407114FB4F4800E6FD79 /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		D9CE406A14FB4F4800E6FD79 /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				D9CE406B14FB4F4800E6FD79 /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		D9CE406C14FB4F4800E6FD79 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9CE407E14FB4FD200E6FD79 /* copykill */,
+				D9CE406D14FB4F4800E6FD79 /* PackageVersion.plist */,
+				D9CE406E14FB4F4800E6FD79 /* TTDesktop-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9CE407114FB4F4800E6FD79 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D9CE407214FB4F4800E6FD79 /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		D9CE407214FB4F4800E6FD79 /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				D9CE407314FB4F4800E6FD79 /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		D9CE407314FB4F4800E6FD79 /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				D9CE407414FB4F4800E6FD79 /* TTDesktop.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D9CE406014FB4F4800E6FD79 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9CE408114FB505100E6FD79 /* DesktopWindow.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D9CE406214FB4F4800E6FD79 /* TTDesktop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9CE407714FB4F4800E6FD79 /* Build configuration list for PBXNativeTarget "TTDesktop" */;
+			buildPhases = (
+				D9CE405E14FB4F4800E6FD79 /* Sources */,
+				D9CE405F14FB4F4800E6FD79 /* Frameworks */,
+				D9CE406014FB4F4800E6FD79 /* Headers */,
+				D9CE406114FB4F4800E6FD79 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TTDesktop;
+			productName = TTDesktop;
+			productReference = D9CE406314FB4F4800E6FD79 /* TTDesktop.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9CE405914FB4F4700E6FD79 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = TTPod;
+			};
+			buildConfigurationList = D9CE405C14FB4F4700E6FD79 /* Build configuration list for PBXProject "TTDesktop" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D9CE405714FB4F4700E6FD79;
+			productRefGroup = D9CE406414FB4F4800E6FD79 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9CE406214FB4F4800E6FD79 /* TTDesktop */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D9CE406114FB4F4800E6FD79 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9CE405E14FB4F4800E6FD79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9CE407014FB4F4800E6FD79 /* TTDesktop.mm in Sources */,
+				D9CE408214FB505100E6FD79 /* DesktopWindow.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D9CE407514FB4F4800E6FD79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		D9CE407614FB4F4800E6FD79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		D9CE407814FB4F4800E6FD79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TTDesktop/TTDesktop-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		D9CE407914FB4F4800E6FD79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TTDesktop/TTDesktop-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9CE405C14FB4F4700E6FD79 /* Build configuration list for PBXProject "TTDesktop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9CE407514FB4F4800E6FD79 /* Release */,
+				D9CE407614FB4F4800E6FD79 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9CE407714FB4F4800E6FD79 /* Build configuration list for PBXNativeTarget "TTDesktop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9CE407814FB4F4800E6FD79 /* Release */,
+				D9CE407914FB4F4800E6FD79 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D9CE405914FB4F4700E6FD79 /* Project object */;
+}

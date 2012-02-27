@@ -11,6 +11,10 @@
 
 #import "ViewController.h"
 
+#define KTTMessagePort "com.ttpod.ttdesktop.port2"
+
+static CFMessagePortRef messagePort = NULL;
+
 @implementation ViewController
 
 - (void)didReceiveMemoryWarning
@@ -20,6 +24,16 @@
 }
 
 #pragma mark - View lifecycle
+
+- (void)dealloc
+{
+	if (messagePort != NULL)
+	{
+		CFRelease(messagePort);
+	}
+	
+	[super dealloc];
+}
 
 - (void)viewDidLoad
 {
@@ -39,7 +53,13 @@
 	[btn2 addTarget:self action:@selector(btn1Clicked:) forControlEvents:UIControlEventTouchDown];
 	//	btn2
 	[self.view addSubview:btn2];
-
+	
+	messagePort = CFMessagePortCreateRemote(kCFAllocatorDefault, CFSTR(KTTMessagePort));
+	if (messagePort != NULL)
+	{
+		BOOL sucess = CFMessagePortIsValid(messagePort);
+		NSLog(@"CFMessagePortCreateRemote result: 0x%08X %d", (int)messagePort, sucess);
+	}
 }
 
 - (void)viewDidUnload
@@ -47,6 +67,8 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+	CFRelease(messagePort);
+	messagePort = NULL;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -146,5 +168,76 @@
 	NSNumber* number = [NSNumber numberWithLongLong:6789];
 	long long value = [number longLongValue];
 	NSLog(@"singleview: long long value is %lld", value);
+}
+
+- (IBAction)btnPortClicked:(id)sender
+{
+	if (messagePort == NULL) return;
+	
+	UIButton* btn = (UIButton *)sender;
+	CFDataRef data = NULL;
+	SInt32 rPort = 0;
+	switch (btn.tag)
+	{
+		case 1001:
+		{
+			char message[256] = "kai";
+			data = CFDataCreate(NULL, (UInt8 *)message, strlen(message) + 1);
+			if (data != NULL)
+			{
+				rPort = CFMessagePortSendRequest(messagePort, btn.tag, data, 0.0, 0.0, NULL, NULL);
+				CFRelease(data);
+				NSLog(@"qhk: CFMessagePortSendRequest result: %ld", rPort);
+			}
+			else
+			{
+				NSLog(@"qhk: create data error");
+			}
+		}
+			break;
+			
+		case 1002:
+		{
+			rPort = CFMessagePortSendRequest(messagePort, btn.tag, NULL, 0.0, 0.0, NULL, NULL);
+			NSLog(@"qhk: CFMessagePortSendRequest result: %ld", rPort);
+		}
+			break;
+			
+		case 1003:
+		{
+			int count = 100;
+			for (int idx = 0; idx < count; ++idx)
+			{
+				rPort = CFMessagePortSendRequest(messagePort, btn.tag, NULL, 0.0, 0.0, NULL, NULL);
+				if (rPort != 0)
+				{
+					NSLog(@"qhk: CFMessagePortSendRequest result: %ld", rPort);
+					break;
+				}
+				[NSThread sleepForTimeInterval:0.075];
+			}
+		}
+			break;
+			
+		case 1004:
+		{
+			char message[200 * 1024] = "kai 200 * 1024";
+			data = CFDataCreate(NULL, (UInt8 *)message, 200 * 1024);
+			if (data != NULL)
+			{
+				rPort = CFMessagePortSendRequest(messagePort, btn.tag, data, 0.0, 0.0, NULL, NULL);
+				CFRelease(data);
+				NSLog(@"qhk: CFMessagePortSendRequest result: %ld", rPort);
+			}
+			else
+			{
+				NSLog(@"qhk: create data error");
+			}
+		}
+			break;
+			
+		default:
+			break;
+	}
 }
 @end

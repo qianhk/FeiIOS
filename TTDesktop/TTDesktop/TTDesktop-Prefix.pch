@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'TTDesktop' target in the 'TTDesktop' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+	#import <UIKit/UIKit.h>
+#endif

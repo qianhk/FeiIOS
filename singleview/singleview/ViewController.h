@@ -18,5 +18,6 @@
 - (IBAction)wifi_off:(id)sender;
 - (IBAction)wifi_on:(id)sender;
 - (IBAction)nsnumberused:(id)sender;
+- (IBAction)btnPortClicked:(id)sender;
 
 @end

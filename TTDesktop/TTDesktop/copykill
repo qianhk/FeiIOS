@@ -14,7 +14,7 @@ fi
 #echo $projname
 #exit 1
 
-projectName=BlurredNotificationCenter
+projectName=TTDesktop
 
 #echo current dir is: $c_dir
 localDylibPath=$c_dir/Package/Library/MobileSubstrate/DynamicLibraries/$projectName.dylib
@@ -41,6 +41,5 @@ if [ $? != 0 ]; then
 fi
 
 ssh root@$1 killall SpringBoard
-
 
 
