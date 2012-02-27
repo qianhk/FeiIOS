@@ -10,6 +10,8 @@
 #include <notify.h>
 
 #import "ViewController.h"
+#import "LyricItem.h"
+
 
 #define KTTMessagePort "com.ttpod.ttdesktop.port2"
 
@@ -198,6 +200,7 @@ static CFMessagePortRef messagePort = NULL;
 			
 		case 1002:
 		{
+			
 			rPort = CFMessagePortSendRequest(messagePort, btn.tag, NULL, 0.0, 0.0, NULL, NULL);
 			NSLog(@"qhk: CFMessagePortSendRequest result: %ld", rPort);
 		}
@@ -239,5 +242,18 @@ static CFMessagePortRef messagePort = NULL;
 		default:
 			break;
 	}
+}
+
+- (IBAction)btnNSCoderClicked:(id)sender
+{
+	LyricData* oriLyricData = [[LyricData alloc] init];
+	NSLog(@"Ori LyricData: %@", oriLyricData);
+	
+	NSData* oriData = [NSKeyedArchiver archivedDataWithRootObject:oriLyricData];
+	NSLog(@"oriData len=%d %@", [oriData length], oriData);
+	
+	
+	LyricData* afterLyricData = [NSKeyedUnarchiver unarchiveObjectWithData:oriData];
+	NSLog(@"after LyricData: %@", afterLyricData);
 }
 @end

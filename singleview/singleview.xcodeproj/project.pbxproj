@@ -13,9 +13,10 @@
 		D96B4FF514E3D67700580C3B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D96B4FF314E3D67700580C3B /* InfoPlist.strings */; };
 		D96B4FF714E3D67700580C3B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D96B4FF614E3D67700580C3B /* main.m */; };
 		D96B4FFB14E3D67700580C3B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D96B4FFA14E3D67700580C3B /* AppDelegate.m */; };
-		D96B4FFE14E3D67700580C3B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D96B4FFD14E3D67700580C3B /* ViewController.m */; };
+		D96B4FFE14E3D67700580C3B /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = D96B4FFD14E3D67700580C3B /* ViewController.mm */; };
 		D96B500114E3D67700580C3B /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D96B4FFF14E3D67700580C3B /* ViewController.xib */; };
 		D9F6F25714F38C31004016BA /* KaiStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D9F6F25614F38C31004016BA /* KaiStatusBar.m */; };
+		DC3C3CD114FBCE02002EB513 /* LyricItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC3C3CD014FBCE02002EB513 /* LyricItem.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +31,12 @@
 		D96B4FF914E3D67700580C3B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D96B4FFA14E3D67700580C3B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D96B4FFC14E3D67700580C3B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D96B4FFD14E3D67700580C3B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D96B4FFD14E3D67700580C3B /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		D96B500014E3D67700580C3B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		D9F6F25514F38C31004016BA /* KaiStatusBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaiStatusBar.h; sourceTree = "<group>"; };
 		D9F6F25614F38C31004016BA /* KaiStatusBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaiStatusBar.m; sourceTree = "<group>"; };
+		DC3C3CCF14FBCE02002EB513 /* LyricItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LyricItem.h; sourceTree = "<group>"; };
+		DC3C3CD014FBCE02002EB513 /* LyricItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LyricItem.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +88,10 @@
 				D96B4FF914E3D67700580C3B /* AppDelegate.h */,
 				D96B4FFA14E3D67700580C3B /* AppDelegate.m */,
 				D96B4FFC14E3D67700580C3B /* ViewController.h */,
-				D96B4FFD14E3D67700580C3B /* ViewController.m */,
+				D96B4FFD14E3D67700580C3B /* ViewController.mm */,
 				D96B4FFF14E3D67700580C3B /* ViewController.xib */,
+				DC3C3CCF14FBCE02002EB513 /* LyricItem.h */,
+				DC3C3CD014FBCE02002EB513 /* LyricItem.mm */,
 				D96B4FF114E3D67700580C3B /* Supporting Files */,
 			);
 			path = singleview;
@@ -168,8 +173,9 @@
 			files = (
 				D96B4FF714E3D67700580C3B /* main.m in Sources */,
 				D96B4FFB14E3D67700580C3B /* AppDelegate.m in Sources */,
-				D96B4FFE14E3D67700580C3B /* ViewController.m in Sources */,
+				D96B4FFE14E3D67700580C3B /* ViewController.mm in Sources */,
 				D9F6F25714F38C31004016BA /* KaiStatusBar.m in Sources */,
+				DC3C3CD114FBCE02002EB513 /* LyricItem.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
