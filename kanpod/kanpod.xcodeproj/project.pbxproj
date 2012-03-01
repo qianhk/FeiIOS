@@ -1,0 +1,354 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D9B3E95C14FE05450079969C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B3E95B14FE05450079969C /* Foundation.framework */; };
+		D9B3E95E14FE05450079969C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B3E95D14FE05450079969C /* CoreGraphics.framework */; };
+		D9B3E96014FE05450079969C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B3E95F14FE05450079969C /* UIKit.framework */; };
+		D9B3E96B14FE05450079969C /* kanpod.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9B3E96A14FE05450079969C /* kanpod.mm */; };
+		D9B3E97614FE05620079969C /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B3E97514FE05620079969C /* libsubstrate.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D9B3E95814FE05450079969C /* kanpod.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = kanpod.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9B3E95B14FE05450079969C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D9B3E95D14FE05450079969C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D9B3E95F14FE05450079969C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D9B3E96414FE05450079969C /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		D9B3E96614FE05450079969C /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		D9B3E96714FE05450079969C /* copykill */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = copykill; sourceTree = "<group>"; };
+		D9B3E96814FE05450079969C /* kanpod-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kanpod-Prefix.pch"; sourceTree = "<group>"; };
+		D9B3E96914FE05450079969C /* kanpod.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = kanpod.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		D9B3E96A14FE05450079969C /* kanpod.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = kanpod.mm; sourceTree = "<group>"; };
+		D9B3E96F14FE05450079969C /* kanpod.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = kanpod.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/kanpod.plist; sourceTree = "<group>"; };
+		D9B3E97514FE05620079969C /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D9B3E95414FE05450079969C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9B3E95C14FE05450079969C /* Foundation.framework in Frameworks */,
+				D9B3E97614FE05620079969C /* libsubstrate.dylib in Frameworks */,
+				D9B3E95E14FE05450079969C /* CoreGraphics.framework in Frameworks */,
+				D9B3E96014FE05450079969C /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D9B3E94B14FE05450079969C = {
+			isa = PBXGroup;
+			children = (
+				D9B3E96114FE05450079969C /* kanpod */,
+				D9B3E95A14FE05450079969C /* Frameworks */,
+				D9B3E95914FE05450079969C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D9B3E95914FE05450079969C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9B3E95814FE05450079969C /* kanpod.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9B3E95A14FE05450079969C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9B3E97514FE05620079969C /* libsubstrate.dylib */,
+				D9B3E95B14FE05450079969C /* Foundation.framework */,
+				D9B3E95D14FE05450079969C /* CoreGraphics.framework */,
+				D9B3E95F14FE05450079969C /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9B3E96114FE05450079969C /* kanpod */ = {
+			isa = PBXGroup;
+			children = (
+				D9B3E96914FE05450079969C /* kanpod.xm */,
+				D9B3E96A14FE05450079969C /* kanpod.mm */,
+				D9B3E96214FE05450079969C /* Package */,
+				D9B3E96514FE05450079969C /* Supporting Files */,
+			);
+			path = kanpod;
+			sourceTree = "<group>";
+		};
+		D9B3E96214FE05450079969C /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				D9B3E96314FE05450079969C /* DEBIAN */,
+				D9B3E96C14FE05450079969C /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		D9B3E96314FE05450079969C /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				D9B3E96414FE05450079969C /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		D9B3E96514FE05450079969C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D9B3E96614FE05450079969C /* PackageVersion.plist */,
+				D9B3E96714FE05450079969C /* copykill */,
+				D9B3E96814FE05450079969C /* kanpod-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9B3E96C14FE05450079969C /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D9B3E96D14FE05450079969C /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		D9B3E96D14FE05450079969C /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				D9B3E96E14FE05450079969C /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		D9B3E96E14FE05450079969C /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				D9B3E96F14FE05450079969C /* kanpod.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D9B3E95514FE05450079969C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D9B3E95714FE05450079969C /* kanpod */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9B3E97214FE05450079969C /* Build configuration list for PBXNativeTarget "kanpod" */;
+			buildPhases = (
+				D9B3E95214FE05450079969C /* ShellScript */,
+				D9B3E95314FE05450079969C /* Sources */,
+				D9B3E95414FE05450079969C /* Frameworks */,
+				D9B3E95514FE05450079969C /* Headers */,
+				D9B3E95614FE05450079969C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = kanpod;
+			productName = kanpod;
+			productReference = D9B3E95814FE05450079969C /* kanpod.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9B3E94D14FE05450079969C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = TTPod;
+			};
+			buildConfigurationList = D9B3E95014FE05450079969C /* Build configuration list for PBXProject "kanpod" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D9B3E94B14FE05450079969C;
+			productRefGroup = D9B3E95914FE05450079969C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9B3E95714FE05450079969C /* kanpod */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D9B3E95214FE05450079969C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+		};
+		D9B3E95614FE05450079969C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D9B3E95314FE05450079969C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9B3E96B14FE05450079969C /* kanpod.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D9B3E97014FE05450079969C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		D9B3E97114FE05450079969C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		D9B3E97314FE05450079969C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kanpod/kanpod-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		D9B3E97414FE05450079969C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "kanpod/kanpod-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D9B3E95014FE05450079969C /* Build configuration list for PBXProject "kanpod" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9B3E97014FE05450079969C /* Release */,
+				D9B3E97114FE05450079969C /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9B3E97214FE05450079969C /* Build configuration list for PBXNativeTarget "kanpod" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9B3E97314FE05450079969C /* Release */,
+				D9B3E97414FE05450079969C /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D9B3E94D14FE05450079969C /* Project object */;
+}

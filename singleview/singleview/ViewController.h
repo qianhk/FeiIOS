@@ -12,6 +12,7 @@
 @interface ViewController : UIViewController
 {
 	KaiStatusBar* _statusBar;
+	IBOutlet UILabel *lbltext;
 }
 
 - (IBAction)tttClicked:(id)sender;
@@ -20,5 +21,6 @@
 - (IBAction)nsnumberused:(id)sender;
 - (IBAction)btnPortClicked:(id)sender;
 - (IBAction)btnNSCoderClicked:(id)sender;
+- (IBAction)btnDeletePod:(id)sender;
 
 @end
