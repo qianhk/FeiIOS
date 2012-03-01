@@ -22,5 +22,6 @@
 - (IBAction)btnPortClicked:(id)sender;
 - (IBAction)btnNSCoderClicked:(id)sender;
 - (IBAction)btnDeletePod:(id)sender;
+- (IBAction)btnInfoBClicked:(id)sender;
 
 @end

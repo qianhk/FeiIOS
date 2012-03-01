@@ -442,4 +442,22 @@ void print_trace (void)
     }
 	lbltext.text = str;
 }
+
+- (int)addtwodata:(int)a withdata:(int)b
+{
+	return a + b;
+}
+
+int chengtwo(int a)
+{
+	return a * 2;
+}
+
+- (IBAction)btnInfoBClicked:(id)sender
+{
+	print_trace();
+	int c = [self addtwodata:5 withdata:6];
+	int d = chengtwo(c);
+	NSLog(@"result: %d", d);
+}
 @end
