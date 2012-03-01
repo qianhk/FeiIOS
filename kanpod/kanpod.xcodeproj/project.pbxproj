@@ -14,6 +14,7 @@
 		D9B3E97614FE05620079969C /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B3E97514FE05620079969C /* libsubstrate.dylib */; };
 		DC81EF7314FFC2BE004F6FC5 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC81EF7214FFC2BE004F6FC5 /* CoreFoundation.framework */; };
 		DC81EF7614FFC652004F6FC5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC81EF7514FFC652004F6FC5 /* MediaPlayer.framework */; };
+		DC81EFD914FFDE9D004F6FC5 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC81EFD814FFDE9D004F6FC5 /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		D9B3E97514FE05620079969C /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
 		DC81EF7214FFC2BE004F6FC5 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		DC81EF7514FFC652004F6FC5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		DC81EFD814FFDE9D004F6FC5 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC81EFD914FFDE9D004F6FC5 /* libsqlite3.0.dylib in Frameworks */,
 				DC81EF7614FFC652004F6FC5 /* MediaPlayer.framework in Frameworks */,
 				DC81EF7314FFC2BE004F6FC5 /* CoreFoundation.framework in Frameworks */,
 				D9B3E95C14FE05450079969C /* Foundation.framework in Frameworks */,
@@ -70,6 +73,7 @@
 		D9B3E95A14FE05450079969C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC81EFD814FFDE9D004F6FC5 /* libsqlite3.0.dylib */,
 				DC81EF7514FFC652004F6FC5 /* MediaPlayer.framework */,
 				DC81EF7214FFC2BE004F6FC5 /* CoreFoundation.framework */,
 				D9B3E97514FE05620079969C /* libsubstrate.dylib */,
@@ -253,7 +257,10 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				HEADER_SEARCH_PATHS = (
+					/usr/include/,
+					"$(iOSOpenDevPath)/include/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
 				SDKROOT = iphoneos;
@@ -282,7 +289,10 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				HEADER_SEARCH_PATHS = (
+					/usr/include/,
+					"$(iOSOpenDevPath)/include/**",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
 				SDKROOT = iphoneos;

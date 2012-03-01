@@ -10,6 +10,8 @@
 #import <CoreFoundation/CoreFoundation.h>
 #import <CoreFoundation/CFNotificationCenter.h>
 
+#import <sqlite3.h>
+
 
 #import <MediaPlayer/MPMediaQuery.h>
 #import <MediaPlayer/MPMediaLibrary.h>
@@ -142,10 +144,10 @@
 
 
 #include <substrate.h>
-@class IUMediaQueriesDataSource; @class IUMediaListDataSource; @class MPMediaLibrary; 
-static id (*_logos_meta_orig$_ungrouped$MPMediaLibrary$defaultMediaLibrary)(Class, SEL); static id _logos_meta_method$_ungrouped$MPMediaLibrary$defaultMediaLibrary(Class, SEL); static BOOL (*_logos_orig$_ungrouped$MPMediaLibrary$removeItems$)(MPMediaLibrary*, SEL, id); static BOOL _logos_method$_ungrouped$MPMediaLibrary$removeItems$(MPMediaLibrary*, SEL, id); static id (*_logos_meta_orig$_ungrouped$MPMediaLibrary$mediaLibraryWithUniqueIdentifier$)(Class, SEL, id); static id _logos_meta_method$_ungrouped$MPMediaLibrary$mediaLibraryWithUniqueIdentifier$(Class, SEL, id); static BOOL (*_logos_orig$_ungrouped$MPMediaLibrary$writable)(MPMediaLibrary*, SEL); static BOOL _logos_method$_ungrouped$MPMediaLibrary$writable(MPMediaLibrary*, SEL); static BOOL (*_logos_orig$_ungrouped$IUMediaListDataSource$deleteIndex$)(IUMediaListDataSource*, SEL, unsigned); static BOOL _logos_method$_ungrouped$IUMediaListDataSource$deleteIndex$(IUMediaListDataSource*, SEL, unsigned); static BOOL (*_logos_orig$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRange$)(IUMediaQueriesDataSource*, SEL, NSRange); static BOOL _logos_method$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRange$(IUMediaQueriesDataSource*, SEL, NSRange); 
+@class IUMediaQueriesDataSource; @class IUMediaListDataSource; @class NSFileManager; @class MPMediaLibrary; 
+static id (*_logos_meta_orig$_ungrouped$MPMediaLibrary$defaultMediaLibrary)(Class, SEL); static id _logos_meta_method$_ungrouped$MPMediaLibrary$defaultMediaLibrary(Class, SEL); static BOOL (*_logos_orig$_ungrouped$MPMediaLibrary$removeItems$)(MPMediaLibrary*, SEL, id); static BOOL _logos_method$_ungrouped$MPMediaLibrary$removeItems$(MPMediaLibrary*, SEL, id); static id (*_logos_meta_orig$_ungrouped$MPMediaLibrary$mediaLibraryWithUniqueIdentifier$)(Class, SEL, id); static id _logos_meta_method$_ungrouped$MPMediaLibrary$mediaLibraryWithUniqueIdentifier$(Class, SEL, id); static BOOL (*_logos_orig$_ungrouped$MPMediaLibrary$writable)(MPMediaLibrary*, SEL); static BOOL _logos_method$_ungrouped$MPMediaLibrary$writable(MPMediaLibrary*, SEL); static BOOL (*_logos_orig$_ungrouped$IUMediaListDataSource$deleteIndex$)(IUMediaListDataSource*, SEL, unsigned); static BOOL _logos_method$_ungrouped$IUMediaListDataSource$deleteIndex$(IUMediaListDataSource*, SEL, unsigned); static BOOL (*_logos_orig$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRange$)(IUMediaQueriesDataSource*, SEL, NSRange); static BOOL _logos_method$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRange$(IUMediaQueriesDataSource*, SEL, NSRange); static NSFileManager * (*_logos_meta_orig$_ungrouped$NSFileManager$defaultManager)(Class, SEL); static NSFileManager * _logos_meta_method$_ungrouped$NSFileManager$defaultManager(Class, SEL); static NSDictionary * (*_logos_orig$_ungrouped$NSFileManager$attributesOfItemAtPath$error$)(NSFileManager*, SEL, NSString *, NSError **); static NSDictionary * _logos_method$_ungrouped$NSFileManager$attributesOfItemAtPath$error$(NSFileManager*, SEL, NSString *, NSError **); static NSDictionary * (*_logos_orig$_ungrouped$NSFileManager$attributesOfFileSystemForPath$error$)(NSFileManager*, SEL, NSString *, NSError **); static NSDictionary * _logos_method$_ungrouped$NSFileManager$attributesOfFileSystemForPath$error$(NSFileManager*, SEL, NSString *, NSError **); static BOOL (*_logos_orig$_ungrouped$NSFileManager$setAttributes$ofItemAtPath$error$)(NSFileManager*, SEL, NSDictionary *, NSString *, NSError **); static BOOL _logos_method$_ungrouped$NSFileManager$setAttributes$ofItemAtPath$error$(NSFileManager*, SEL, NSDictionary *, NSString *, NSError **); static BOOL (*_logos_orig$_ungrouped$NSFileManager$fileExistsAtPath$)(NSFileManager*, SEL, NSString *); static BOOL _logos_method$_ungrouped$NSFileManager$fileExistsAtPath$(NSFileManager*, SEL, NSString *); static BOOL (*_logos_orig$_ungrouped$NSFileManager$fileExistsAtPath$isDirectory$)(NSFileManager*, SEL, NSString *, BOOL *); static BOOL _logos_method$_ungrouped$NSFileManager$fileExistsAtPath$isDirectory$(NSFileManager*, SEL, NSString *, BOOL *); 
 
-#line 143 "/OnGitHub/FeiIOS/kanpod/kanpod/kanpod.xm"
+#line 145 "/OnGitHub/FeiIOS/kanpod/kanpod/kanpod.xm"
 
 
 
@@ -786,6 +788,56 @@ static BOOL _logos_method$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRan
 
 
 
+
+
+
+static NSFileManager * _logos_meta_method$_ungrouped$NSFileManager$defaultManager(Class self, SEL _cmd) {
+	NSLog(@"+[<NSFileManager: %p> defaultManager]", self);
+	
+	return _logos_meta_orig$_ungrouped$NSFileManager$defaultManager(self, _cmd);
+}
+
+
+static NSDictionary * _logos_method$_ungrouped$NSFileManager$attributesOfItemAtPath$error$(NSFileManager* self, SEL _cmd, NSString * path, NSError ** error) {
+	NSLog(@"-[<NSFileManager: %p> attributesOfItemAtPath:%@ error:%@]", self, path, error);
+	
+	return _logos_orig$_ungrouped$NSFileManager$attributesOfItemAtPath$error$(self, _cmd, path, error);
+}
+
+
+static NSDictionary * _logos_method$_ungrouped$NSFileManager$attributesOfFileSystemForPath$error$(NSFileManager* self, SEL _cmd, NSString * path, NSError ** error) {
+	NSLog(@"-[<NSFileManager: %p> attributesOfFileSystemForPath:%@ error:%@]", self, path, error);
+	
+	return _logos_orig$_ungrouped$NSFileManager$attributesOfFileSystemForPath$error$(self, _cmd, path, error);
+}
+
+
+static BOOL _logos_method$_ungrouped$NSFileManager$setAttributes$ofItemAtPath$error$(NSFileManager* self, SEL _cmd, NSDictionary * attributes, NSString * path, NSError ** error) {
+	NSLog(@"-[<NSFileManager: %p> setAttributes:%@ ofItemAtPath:%@ error:%@]", self, attributes, path, error);
+	
+	return _logos_orig$_ungrouped$NSFileManager$setAttributes$ofItemAtPath$error$(self, _cmd, attributes, path, error);
+}
+
+
+static BOOL _logos_method$_ungrouped$NSFileManager$fileExistsAtPath$(NSFileManager* self, SEL _cmd, NSString * path) {
+	NSLog(@"-[<NSFileManager: %p> fileExistsAtPath:%@]", self, path);
+	NSLog(@"path %@", path);
+	return _logos_orig$_ungrouped$NSFileManager$fileExistsAtPath$(self, _cmd, path);
+}
+
+
+static BOOL _logos_method$_ungrouped$NSFileManager$fileExistsAtPath$isDirectory$(NSFileManager* self, SEL _cmd, NSString * path, BOOL * isDirectory) {
+	NSLog(@"-[<NSFileManager: %p> fileExistsAtPath:%@ isDirectory:%p]", self, path, isDirectory);
+	NSLog(@"path %@", path);
+	return _logos_orig$_ungrouped$NSFileManager$fileExistsAtPath$isDirectory$(self, _cmd, path, isDirectory);
+}
+
+
+
+
+
+
+
 static void removefirstMedia(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
 	MPMediaLibrary* library = [MPMediaLibrary defaultMediaLibrary];
@@ -816,15 +868,32 @@ static void removefirstMedia(CFNotificationCenterRef center, void *observer, CFS
 
 
 
-static __attribute__((constructor)) void _logosLocalCtor_81e74d67()
+static int (*ori_sqlite3_open)(const char *filename, sqlite3 **ppdb) = sqlite3_open;
+int replace_sqlite3_open(const char * filename, sqlite3 **ppdb)
+{
+	NSLog(@"sqlite3_open %s", filename);
+	return ori_sqlite3_open(filename, ppdb);
+}
+
+static int (*ori_sqlite3_open_v2)(const char *filename, sqlite3 **ppdb, int flags, const char *zVfs) = sqlite3_open_v2;
+int replace_sqlite3_open_v2(const char * filename, sqlite3 **ppdb, int flags, const char* zVfs)
+{
+	NSLog(@"sqlite3_open_v2 %s flags=%d, zfs=%s", filename, flags, zVfs);
+	return ori_sqlite3_open_v2(filename, ppdb, flags, zVfs);
+}
+
+static __attribute__((constructor)) void _logosLocalCtor_dd8eb9f2()
 {
 	NSLog(@"qhk kanpod: init begin.");
-	{{Class _logos_class$_ungrouped$MPMediaLibrary = objc_getClass("MPMediaLibrary"); Class _logos_metaclass$_ungrouped$MPMediaLibrary = object_getClass(_logos_class$_ungrouped$MPMediaLibrary); MSHookMessageEx(_logos_metaclass$_ungrouped$MPMediaLibrary, @selector(defaultMediaLibrary), (IMP)&_logos_meta_method$_ungrouped$MPMediaLibrary$defaultMediaLibrary, (IMP*)&_logos_meta_orig$_ungrouped$MPMediaLibrary$defaultMediaLibrary);MSHookMessageEx(_logos_class$_ungrouped$MPMediaLibrary, @selector(removeItems:), (IMP)&_logos_method$_ungrouped$MPMediaLibrary$removeItems$, (IMP*)&_logos_orig$_ungrouped$MPMediaLibrary$removeItems$);MSHookMessageEx(_logos_metaclass$_ungrouped$MPMediaLibrary, @selector(mediaLibraryWithUniqueIdentifier:), (IMP)&_logos_meta_method$_ungrouped$MPMediaLibrary$mediaLibraryWithUniqueIdentifier$, (IMP*)&_logos_meta_orig$_ungrouped$MPMediaLibrary$mediaLibraryWithUniqueIdentifier$);MSHookMessageEx(_logos_class$_ungrouped$MPMediaLibrary, @selector(writable), (IMP)&_logos_method$_ungrouped$MPMediaLibrary$writable, (IMP*)&_logos_orig$_ungrouped$MPMediaLibrary$writable);Class _logos_class$_ungrouped$IUMediaListDataSource = objc_getClass("IUMediaListDataSource"); MSHookMessageEx(_logos_class$_ungrouped$IUMediaListDataSource, @selector(deleteIndex:), (IMP)&_logos_method$_ungrouped$IUMediaListDataSource$deleteIndex$, (IMP*)&_logos_orig$_ungrouped$IUMediaListDataSource$deleteIndex$);Class _logos_class$_ungrouped$IUMediaQueriesDataSource = objc_getClass("IUMediaQueriesDataSource"); MSHookMessageEx(_logos_class$_ungrouped$IUMediaQueriesDataSource, @selector(deleteIndexesInRange:), (IMP)&_logos_method$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRange$, (IMP*)&_logos_orig$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRange$);}}
+	{{Class _logos_class$_ungrouped$MPMediaLibrary = objc_getClass("MPMediaLibrary"); Class _logos_metaclass$_ungrouped$MPMediaLibrary = object_getClass(_logos_class$_ungrouped$MPMediaLibrary); MSHookMessageEx(_logos_metaclass$_ungrouped$MPMediaLibrary, @selector(defaultMediaLibrary), (IMP)&_logos_meta_method$_ungrouped$MPMediaLibrary$defaultMediaLibrary, (IMP*)&_logos_meta_orig$_ungrouped$MPMediaLibrary$defaultMediaLibrary);MSHookMessageEx(_logos_class$_ungrouped$MPMediaLibrary, @selector(removeItems:), (IMP)&_logos_method$_ungrouped$MPMediaLibrary$removeItems$, (IMP*)&_logos_orig$_ungrouped$MPMediaLibrary$removeItems$);MSHookMessageEx(_logos_metaclass$_ungrouped$MPMediaLibrary, @selector(mediaLibraryWithUniqueIdentifier:), (IMP)&_logos_meta_method$_ungrouped$MPMediaLibrary$mediaLibraryWithUniqueIdentifier$, (IMP*)&_logos_meta_orig$_ungrouped$MPMediaLibrary$mediaLibraryWithUniqueIdentifier$);MSHookMessageEx(_logos_class$_ungrouped$MPMediaLibrary, @selector(writable), (IMP)&_logos_method$_ungrouped$MPMediaLibrary$writable, (IMP*)&_logos_orig$_ungrouped$MPMediaLibrary$writable);Class _logos_class$_ungrouped$IUMediaListDataSource = objc_getClass("IUMediaListDataSource"); MSHookMessageEx(_logos_class$_ungrouped$IUMediaListDataSource, @selector(deleteIndex:), (IMP)&_logos_method$_ungrouped$IUMediaListDataSource$deleteIndex$, (IMP*)&_logos_orig$_ungrouped$IUMediaListDataSource$deleteIndex$);Class _logos_class$_ungrouped$IUMediaQueriesDataSource = objc_getClass("IUMediaQueriesDataSource"); MSHookMessageEx(_logos_class$_ungrouped$IUMediaQueriesDataSource, @selector(deleteIndexesInRange:), (IMP)&_logos_method$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRange$, (IMP*)&_logos_orig$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRange$);Class _logos_class$_ungrouped$NSFileManager = objc_getClass("NSFileManager"); Class _logos_metaclass$_ungrouped$NSFileManager = object_getClass(_logos_class$_ungrouped$NSFileManager); MSHookMessageEx(_logos_metaclass$_ungrouped$NSFileManager, @selector(defaultManager), (IMP)&_logos_meta_method$_ungrouped$NSFileManager$defaultManager, (IMP*)&_logos_meta_orig$_ungrouped$NSFileManager$defaultManager);MSHookMessageEx(_logos_class$_ungrouped$NSFileManager, @selector(attributesOfItemAtPath:error:), (IMP)&_logos_method$_ungrouped$NSFileManager$attributesOfItemAtPath$error$, (IMP*)&_logos_orig$_ungrouped$NSFileManager$attributesOfItemAtPath$error$);MSHookMessageEx(_logos_class$_ungrouped$NSFileManager, @selector(attributesOfFileSystemForPath:error:), (IMP)&_logos_method$_ungrouped$NSFileManager$attributesOfFileSystemForPath$error$, (IMP*)&_logos_orig$_ungrouped$NSFileManager$attributesOfFileSystemForPath$error$);MSHookMessageEx(_logos_class$_ungrouped$NSFileManager, @selector(setAttributes:ofItemAtPath:error:), (IMP)&_logos_method$_ungrouped$NSFileManager$setAttributes$ofItemAtPath$error$, (IMP*)&_logos_orig$_ungrouped$NSFileManager$setAttributes$ofItemAtPath$error$);MSHookMessageEx(_logos_class$_ungrouped$NSFileManager, @selector(fileExistsAtPath:), (IMP)&_logos_method$_ungrouped$NSFileManager$fileExistsAtPath$, (IMP*)&_logos_orig$_ungrouped$NSFileManager$fileExistsAtPath$);MSHookMessageEx(_logos_class$_ungrouped$NSFileManager, @selector(fileExistsAtPath:isDirectory:), (IMP)&_logos_method$_ungrouped$NSFileManager$fileExistsAtPath$isDirectory$, (IMP*)&_logos_orig$_ungrouped$NSFileManager$fileExistsAtPath$isDirectory$);}}
 
 
 
 
 
+	
+	MSHookFunction(sqlite3_open, replace_sqlite3_open, &ori_sqlite3_open);
+	MSHookFunction(sqlite3_open_v2, replace_sqlite3_open_v2, &ori_sqlite3_open_v2);
 	
 	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, removefirstMedia, CFSTR("com.njnu.kai.kanpod/removefirst"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 }

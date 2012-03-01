@@ -416,7 +416,7 @@ void print_trace (void)
 	
 	lbltext.text = str2;
 	
-	return;
+//	return;
 	
 	
 	NSDate* date = [library lastModifiedDate];
@@ -435,7 +435,7 @@ void print_trace (void)
 		BOOL removeSucess = NO;
 		if (haveRemove)
 		{
-			removeSucess = [library removeItems:deleteItems];
+//			removeSucess = [library removeItems:deleteItems];
 		}
 		
 		[str appendFormat:@"\n%@ - %@\nhaveRemoveItems:%d %d", [item valueForProperty:MPMediaItemPropertyArtist], [item valueForProperty:MPMediaItemPropertyTitle], haveRemove,removeSucess];
@@ -459,5 +459,14 @@ int chengtwo(int a)
 	int c = [self addtwodata:5 withdata:6];
 	int d = chengtwo(c);
 	NSLog(@"result: %d", d);
+}
+
+- (IBAction)btnFileCanWrite:(id)sender
+{
+	NSString* filePath = @"/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb";
+	NSFileManager* mana = [NSFileManager defaultManager];
+	BOOL canRead = [mana isReadableFileAtPath:filePath];
+	BOOL canWrite = [mana isWritableFileAtPath:filePath];
+	lbltext.text = [NSString stringWithFormat:@"canRead %d, can write %d", canRead, canWrite];
 }
 @end

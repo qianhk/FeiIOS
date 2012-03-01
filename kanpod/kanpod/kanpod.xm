@@ -9,6 +9,8 @@
 #import <CoreFoundation/CoreFoundation.h>
 #import <CoreFoundation/CFNotificationCenter.h>
 
+#import <sqlite3.h>
+
 
 #import <MediaPlayer/MPMediaQuery.h>
 #import <MediaPlayer/MPMediaLibrary.h>
@@ -780,6 +782,56 @@
 
 %end
 
+%hook NSFileManager
+
++ (NSFileManager *)defaultManager
+{
+	%log;
+	
+	return %orig;
+}
+
+- (NSDictionary *)attributesOfItemAtPath:(NSString *)path error:(NSError **)error
+{
+	%log;
+	
+	return %orig;
+}
+
+- (NSDictionary *)attributesOfFileSystemForPath:(NSString *)path error:(NSError **)error
+{
+	%log;
+	
+	return %orig;
+}
+
+- (BOOL)setAttributes:(NSDictionary *)attributes ofItemAtPath:(NSString *)path error:(NSError **)error
+{
+	%log;
+	
+	return %orig;
+}
+
+- (BOOL)fileExistsAtPath:(NSString *)path
+{
+	%log;
+	NSLog(@"path %@", path);
+	return %orig;
+}
+
+- (BOOL)fileExistsAtPath:(NSString *)path isDirectory:(BOOL *)isDirectory
+{
+	%log;
+	NSLog(@"path %@", path);
+	return %orig;
+}
+
+
+
+
+
+%end
+
 static void removefirstMedia(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
 	MPMediaLibrary* library = [MPMediaLibrary defaultMediaLibrary];
@@ -810,6 +862,22 @@ static void removefirstMedia(CFNotificationCenterRef center, void *observer, CFS
 
 //extern void CFNotificationCenterAddObserver(CFNotificationCenterRef center, const void *observer, CFNotificationCallback callBack, CFStringRef name, const void *object, CFNotificationSuspensionBehavior suspensionBehavior);
 
+static int (*ori_sqlite3_open)(const char *filename, sqlite3 **ppdb) = sqlite3_open;
+int replace_sqlite3_open(const char * filename, sqlite3 **ppdb)
+{
+	NSLog(@"sqlite3_open %s", filename);
+	return ori_sqlite3_open(filename, ppdb);
+}
+
+static int (*ori_sqlite3_open_v2)(const char *filename, sqlite3 **ppdb, int flags, const char *zVfs) = sqlite3_open_v2;
+int replace_sqlite3_open_v2(const char * filename, sqlite3 **ppdb, int flags, const char* zVfs)
+{
+	NSLog(@"sqlite3_open_v2 %s flags=0x%X, zfs=%s", filename, flags, zVfs);
+	int r = ori_sqlite3_open_v2(filename, ppdb, flags, zVfs);
+	NSLog(@"sqlite3_open_v2 return %d", r);
+	return r;
+}
+
 %ctor
 {
 	NSLog(@"qhk kanpod: init begin.");
@@ -819,6 +887,9 @@ static void removefirstMedia(CFNotificationCenterRef center, void *observer, CFS
 //	notify_register_check("com.apple.springboard.rawOrientation", &notify_token);
 //	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, OrientationChangedCallback, CFSTR("com.apple.springboard.rawOrientation"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 //	NSLog(@"qhk: IconRotator init end.");
+	
+	MSHookFunction(sqlite3_open, replace_sqlite3_open, &ori_sqlite3_open);
+	MSHookFunction(sqlite3_open_v2, replace_sqlite3_open_v2, &ori_sqlite3_open_v2);
 	
 	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, removefirstMedia, CFSTR("com.njnu.kai.kanpod/removefirst"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 }

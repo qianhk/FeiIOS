@@ -23,5 +23,6 @@
 - (IBAction)btnNSCoderClicked:(id)sender;
 - (IBAction)btnDeletePod:(id)sender;
 - (IBAction)btnInfoBClicked:(id)sender;
+- (IBAction)btnFileCanWrite:(id)sender;
 
 @end
