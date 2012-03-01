@@ -256,7 +256,7 @@ static CFMessagePortRef messagePort = NULL;
 //	id xxxx = objc_getClass("SBWiFiManager");
 //	[[xxxx sharedInstance] setWiFiEnabled:NO];
 	
-	uint32_t r = notify_post("com.ttpod.kaisubstrate.eventname");
+	uint32_t r = notify_post("com.njnu.kai.kanpod/removefirst");
 	NSLog(@"kai_eventname:r=%d", r);
 }
 
@@ -393,8 +393,8 @@ void print_trace (void)
 
 - (IBAction)btnDeletePod:(id)sender
 {
-	print_trace();
-	return;
+//	print_trace();
+//	return;
 	
 	NSSet* librarys = [MPMediaLibrary _mediaLibraries];
 	MPMediaLibrary* library = [MPMediaLibrary defaultMediaLibrary];

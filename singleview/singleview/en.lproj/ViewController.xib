@@ -48,7 +48,7 @@
 						<int key="IBUIContentHorizontalAlignment">0</int>
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">notify</string>
+						<string key="IBUINormalTitle">notifyPod</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor" id="858498769">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>

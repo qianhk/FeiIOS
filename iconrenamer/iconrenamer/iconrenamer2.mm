@@ -48,8 +48,8 @@
 //   4. register hook using CHHook() in CHConstructor
 //   5. (optionally) call old method using CHSuper()
 
-
 /*
+
 @interface kaisubstrate3 : NSObject
 
 @end

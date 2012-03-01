@@ -3,16 +3,153 @@
 // See http://iphonedevwiki.net/index.php/Logos
 
 
+#include <execinfo.h>
+#include <stdio.h>
+#include <stdlib.h>
+#import <CoreFoundation/CoreFoundation.h>
+#import <CoreFoundation/CFNotificationCenter.h>
+
+
+#import <MediaPlayer/MPMediaQuery.h>
+#import <MediaPlayer/MPMediaLibrary.h>
+#import <MediaPlayer/MPMediaPlaylist.h>
+#import <MediaPlayer/MPMediaItemCollection.h>
+
+#import <objc/runtime.h>
+#include <notify.h>
+
+@interface MPMediaLibrary(Test)
++(void)syncGenerationDidChangeForLibraryDataProvider:(id)syncGeneration;
++(void)reloadDisplayValuesForLibraryDataProvider:(id)libraryDataProvider;
++(void)reloadDynamicPropertiesForLibraryDataProvider:(id)libraryDataProvider;
++(void)reloadLibraryDataProvider:(id)provider;
++(void)removeLibraryDataProvider:(id)provider removalReason:(int)reason;
++(void)addLibraryDataProvider:(id)provider;
++(id)libraryDataProviders;
++(id)_libraryDataProviders;
++(id)_libraryForDataProvider:(id)dataProvider;
++(id)mediaLibraryWithUniqueIdentifier:(id)uniqueIdentifier;
++(id)mediaLibraries;
++(id)_mediaLibraries;
++(void)setRunLoopForNotifications:(id)notifications;
++(void)setLibraryServerDisabled:(BOOL)disabled;
++(BOOL)isLibraryServerDisabled;
++(void)endDiscoveringMediaLibraries;
++(void)beginDiscoveringMediaLibraries;
++(id)deviceMediaLibrary;
++(void)setDefaultMediaLibrary:(id)library;
++(id)defaultMediaLibrary;
+-(id)libraryDataProvider;
+-(id)_initWithLibraryDataProvider:(id)libraryDataProvider;
+-(void)_stopConnectionProgressDisplayLink;
+-(void)_removeConnectionAssertion:(id)assertion;
+-(void)_connectionProgressDisplayLinkCallback:(id)callback;
+-(id)_collectionsForQueryCriteria:(id)queryCriteria;
+-(void)_clearPendingDisconnection;
+-(id)_itemsForQueryCriteria:(id)queryCriteria;
+-(BOOL)playlistExistsWithPersistentID:(unsigned long long)persistentID;
+-(BOOL)itemExistsWithPersistentID:(unsigned long long)persistentID;
+-(void)setFilteringDisabled:(BOOL)disabled;
+-(BOOL)isFilteringDisabled;
+-(unsigned long long)_persistentIDForAssetURL:(id)assetURL;
+-(id)pathForAssetURL:(id)assetURL;
+-(BOOL)isValidAssetURL:(id)url;
+-(id)syncValidity;
+-(float)connectionProgress;
+-(BOOL)performTransactionWithBlock:(id)block;
+-(id)connectionAssertionWithIdentifier:(id)identifier;
+-(void)connectWithAuthenticationData:(id)authenticationData completionBlock:(id)block;
+-(BOOL)requiresAuthentication;
+-(id)preferredSubtitleLanguages;
+-(id)preferredAudioLanguages;
+-(BOOL)isGeniusEnabled;
+-(double)timestampForAppliedUbiquitousBookmarkKey:(id)appliedUbiquitousBookmarkKey;
+-(void)updateUbiquitousBookmarksWithKey:(id)key bookmarkMediaValue:(id)value timestamp:(double)timestamp;
+-(void)downloadItem:(id)item completionHandler:(id)handler;
+-(BOOL)isArtworkIdenticalForItem:(id)item otherItem:(id)item2 compareRepresentativeItemArtwork:(BOOL)artwork missingAlwaysComparesEqual:(BOOL)equal;
+-(BOOL)removePlaylist:(id)playlist;
+-(BOOL)removeItems:(id)items;
+-(id)addPlaylistWithName:(id)name activeGeniusPlaylist:(BOOL)playlist;
+-(id)addPlaylistWithName:(id)name;
+-(id)playlistWithPersistentID:(unsigned long long)persistentID;
+-(id)newPlaylistWithPersistentID:(unsigned long long)persistentID;
+-(id)itemWithPersistentID:(unsigned long long)persistentID verifyExistence:(BOOL)existence;
+-(id)itemWithPersistentID:(unsigned long long)persistentID;
+-(BOOL)hasVideoPodcasts;
+-(BOOL)hasTVShows;
+-(BOOL)hasMovieRentals;
+-(BOOL)hasITunesUContent;
+-(BOOL)hasCompilations;
+-(BOOL)hasMovies;
+-(BOOL)hasAudibleAudioBooks;
+-(BOOL)hasMusicVideos;
+-(BOOL)hasVideos;
+-(BOOL)_checkHasContent:(BOOL*)content determined:(BOOL*)determined mediaType:(int)type queryIsEmptyBlock:(id)block;
+-(BOOL)_checkHasContent:(BOOL*)content determined:(BOOL*)determined queryIsEmptyBlock:(id)block;
+-(BOOL)hasAudiobooks;
+-(BOOL)hasComposers;
+-(BOOL)hasGenres;
+-(BOOL)hasPodcasts;
+-(BOOL)hasSongs;
+-(BOOL)hasAlbums;
+-(BOOL)hasArtists;
+-(BOOL)hasPlaylists;
+-(BOOL)hasGeniusMixes;
+-(BOOL)hasMedia;
+-(BOOL)hasMediaOfType:(int)type;
+-(BOOL)libraryHasBeenModifiedWithToken:(id)token;
+-(id)modificationToken;
+-(id)uniqueIdentifier;
+-(id)name;
+-(int)status;
+-(BOOL)writable;
+-(long long)playlistGeneration;
+-(unsigned long long)syncGenerationID;
+-(void)endGeneratingLibraryChangeNotifications;
+-(void)disconnect;
+-(void)connectWithCompletionHandler:(id)completionHandler;
+-(void)beginGeneratingLibraryChangeNotifications;
+-(void)_displayValuesDidChangeNotification:(id)_displayValues;
+-(void)_didReceiveMemoryWarning:(id)warning;
+-(void)_reloadLibraryForDynamicPropertyChangeWithNotificationInfo:(id)notificationInfo;
+-(void)_reloadLibraryForContentsChangeWithNotificationInfo:(id)notificationInfo;
+-(void)_clearCachedContentData;
+-(void)_clearCachedEntities;
+@end
+
+//void print_trace (void)
+//{
+//	void *array[20];
+//	size_t size;
+//	char **strings;
+//	size_t i;
+//	
+//	size = backtrace (array, 20);
+//	strings = backtrace_symbols (array, size);
+//	
+//	NSMutableString* str = [NSMutableString stringWithFormat:@"qhk kanpod: Obtained %zd stack frames.\n", size];
+//	//	printf ("Obtained %zd stack frames.\n", size);
+//	
+//	for (i = 0; i < size; i++)
+//	{
+//		//		printf ("%s\n", strings[i]);
+//		[str appendFormat:@"%s\n", strings[i]];
+//	}
+//	
+//	free (strings);
+//	NSLog(@"%@", str);
+//}
+
 %hook MPMediaLibrary
 
-//+ (id)defaultMediaLibrary
-//{
-//	id gaga = %orig;
-//	NSLog(@"qhk kanpod: defaultMediaLibrary %p", gaga);
-//
-//	return gaga;
-//}
-//
++ (id)defaultMediaLibrary
+{
+	id gaga = %orig;
+	NSLog(@"qhk kanpod: defaultMediaLibrary %p", gaga);
+
+	return gaga;
+}
+
 //+ (id)deviceMediaLibrary
 //{
 //	id gaga = %orig;
@@ -21,45 +158,10 @@
 //	return gaga;
 //}
 
-- (void)messageWithNoReturnAndOneArgument:(id)originalArgument
-{
-	%log;
-
-	%orig(originalArgument);
-	
-	// or, for exmaple, you could use a custom value instead of the original argument: %orig(customValue);
-}
-
-#include <execinfo.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-void print_trace (void)
-{
-	void *array[20];
-	size_t size;
-	char **strings;
-	size_t i;
-	
-	size = backtrace (array, 20);
-	strings = backtrace_symbols (array, size);
-	
-	NSMutableString* str = [NSMutableString stringWithFormat:@"qhk kanpod: Obtained %zd stack frames.\n", size];
-	//	printf ("Obtained %zd stack frames.\n", size);
-	
-	for (i = 0; i < size; i++)
-	{
-		//		printf ("%s\n", strings[i]);
-		[str appendFormat:@"%s\n", strings[i]];
-	}
-	
-	free (strings);
-	NSLog(@"%@", str);
-}
-
 -(BOOL)removeItems:(id)items
 {
-	print_trace();
+//	print_trace();
+	%log;
 	
 	BOOL sucess = %orig;
 	
@@ -85,581 +187,570 @@ void print_trace (void)
 	return sucess;
 }
 
-+(void)syncGenerationDidChangeForLibraryDataProvider:(id)syncGeneration
-{
-	%log;
-	%orig;
-}
-
-+(void)reloadDisplayValuesForLibraryDataProvider:(id)libraryDataProvider
-{
-	%log;
-	%orig;
-}
-
-+(void)reloadDynamicPropertiesForLibraryDataProvider:(id)libraryDataProvider
-{
-	%log;
-	%orig;
-}
-
-+(void)reloadLibraryDataProvider:(id)provider
-{
-	%log;
-	%orig;
-}
-
-+(void)removeLibraryDataProvider:(id)provider removalReason:(int)reason
-{
-	%log;
-	%orig;
-}
-
-+(void)addLibraryDataProvider:(id)provider
-{
-	%log;
-	%orig;
-}
-
-+(id)libraryDataProviders
-{
-	%log;
-	%orig;
-}
-
-+(id)_libraryDataProviders
-{
-	%log;
-	%orig;
-}
-
-+(id)_libraryForDataProvider:(id)dataProvider
-{
-	%log;
-	%orig;
-}
+//+(void)syncGenerationDidChangeForLibraryDataProvider:(id)syncGeneration
+//{
+//	%log;
+//	%orig;
+//}
+//
+//+(void)reloadDisplayValuesForLibraryDataProvider:(id)libraryDataProvider
+//{
+//	%log;
+//	%orig;
+//}
+//
+//+(void)reloadDynamicPropertiesForLibraryDataProvider:(id)libraryDataProvider
+//{
+//	%log;
+//	%orig;
+//}
+//
+//+(void)reloadLibraryDataProvider:(id)provider
+//{
+//	%log;
+//	%orig;
+//}
+//
+//+(void)removeLibraryDataProvider:(id)provider removalReason:(int)reason
+//{
+//	%log;
+//	%orig;
+//}
+//
+//+(void)addLibraryDataProvider:(id)provider
+//{
+//	%log;
+//	%orig;
+//}
+//
+//+(id)libraryDataProviders
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//+(id)_libraryDataProviders
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//+(id)_libraryForDataProvider:(id)dataProvider
+//{
+//	%log;
+//	return %orig;
+//}
 
 +(id)mediaLibraryWithUniqueIdentifier:(id)uniqueIdentifier
 {
-	%log;
-	%orig;
-}
-
-+(id)mediaLibraries
-{
-	%log;
-	%orig;
-}
-
-+(id)_mediaLibraries
-{
-	%log;
-	%orig;
-}
-
-+(void)setRunLoopForNotifications:(id)notifications
-{
-	%log;
-	%orig;
-}
-
-+(void)setLibraryServerDisabled:(BOOL)disabled
-{
-	%log;
-	%orig;
-}
-
-+(BOOL)isLibraryServerDisabled
-{
-	%log;
-	%orig;
-}
-
-+(void)endDiscoveringMediaLibraries
-{
-	%log;
-	%orig;
-}
-
-+(void)beginDiscoveringMediaLibraries
-{
-	%log;
-	%orig;
-}
-
-+(id)deviceMediaLibrary
-{
-	%log;
-	%orig;
-}
-
-+(void)setDefaultMediaLibrary:(id)library
-{
-	%log;
-	%orig;
-}
-
-+(id)defaultMediaLibrary
-{
-	%log;
-	%orig;
-}
-
--(id)libraryDataProvider
-{
-	%log;
-	%orig;
-}
-
--(id)_initWithLibraryDataProvider:(id)libraryDataProvider
-{
-	%log;
-	%orig;
-}
-
--(void)_stopConnectionProgressDisplayLink
-{
-	%log;
-	%orig;
-}
-
--(void)_removeConnectionAssertion:(id)assertion
-{
-	%log;
-	%orig;
-}
-
--(void)_connectionProgressDisplayLinkCallback:(id)callback
-{
-	%log;
-	%orig;
-}
-
--(id)_collectionsForQueryCriteria:(id)queryCriteria
-{
-	%log;
-	%orig;
-}
-
--(void)_clearPendingDisconnection
-{
-	%log;
-	%orig;
-}
-
--(id)_itemsForQueryCriteria:(id)queryCriteria
-{
-	%log;
-	%orig;
-}
-
--(BOOL)playlistExistsWithPersistentID:(unsigned long long)persistentID
-{
-	%log;
-	%orig;
-}
-
--(BOOL)itemExistsWithPersistentID:(unsigned long long)persistentID
-{
-	%log;
-	%orig;
-}
-
--(void)setFilteringDisabled:(BOOL)disabled
-{
-	%log;
-	%orig;
-}
-
--(BOOL)isFilteringDisabled
-{
-	%log;
-	%orig;
-}
-
--(unsigned long long)_persistentIDForAssetURL:(id)assetURL
-{
-	%log;
-	%orig;
-}
-
--(id)pathForAssetURL:(id)assetURL
-{
-	%log;
-	%orig;
-}
-
--(BOOL)isValidAssetURL:(id)url
-{
-	%log;
-	%orig;
-}
-
--(id)syncValidity
-{
-	%log;
-	%orig;
-}
-
--(float)connectionProgress
-{
-	%log;
-	%orig;
-}
-
--(BOOL)performTransactionWithBlock:(id)block
-{
-	%log;
-	%orig;
-}
-
--(id)connectionAssertionWithIdentifier:(id)identifier
-{
-	%log;
-	%orig;
-}
-
--(void)connectWithAuthenticationData:(id)authenticationData completionBlock:(id)block
-{
-	%log;
-	%orig;
-}
-
--(BOOL)requiresAuthentication
-{
-	%log;
-	%orig;
-}
-
--(id)preferredSubtitleLanguages
-{
-	%log;
-	%orig;
-}
-
--(id)preferredAudioLanguages
-{
-	%log;
-	%orig;
-}
-
--(BOOL)isGeniusEnabled
-{
-	%log;
-	%orig;
-}
-
--(double)timestampForAppliedUbiquitousBookmarkKey:(id)appliedUbiquitousBookmarkKey
-{
-	%log;
-	%orig;
-}
-
--(void)updateUbiquitousBookmarksWithKey:(id)key bookmarkMediaValue:(id)value timestamp:(double)timestamp
-{
-	%log;
-	%orig;
-}
-
--(void)downloadItem:(id)item completionHandler:(id)handler
-{
-	%log;
-	%orig;
-}
-
--(BOOL)isArtworkIdenticalForItem:(id)item otherItem:(id)item2 compareRepresentativeItemArtwork:(BOOL)artwork missingAlwaysComparesEqual:(BOOL)equal
-{
-	%log;
-	%orig;
-}
-
--(BOOL)removePlaylist:(id)playlist
-{
-	%log;
-	%orig;
-}
-
--(BOOL)removeItems:(id)items
-{
-	%log;
-	%orig;
-}
-
--(id)addPlaylistWithName:(id)name activeGeniusPlaylist:(BOOL)playlist
-{
-	%log;
-	%orig;
-}
-
--(id)addPlaylistWithName:(id)name
-{
-	%log;
-	%orig;
-}
-
--(id)playlistWithPersistentID:(unsigned long long)persistentID
-{
-	%log;
-	%orig;
-}
-
--(id)newPlaylistWithPersistentID:(unsigned long long)persistentID
-{
-	%log;
-	%orig;
-}
-
--(id)itemWithPersistentID:(unsigned long long)persistentID verifyExistence:(BOOL)existence
-{
-	%log;
-	%orig;
-}
-
--(id)itemWithPersistentID:(unsigned long long)persistentID
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasVideoPodcasts
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasTVShows
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasMovieRentals
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasITunesUContent
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasCompilations
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasMovies
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasAudibleAudioBooks
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasMusicVideos
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasVideos
-{
-	%log;
-	%orig;
-}
-
--(BOOL)_checkHasContent:(BOOL*)content determined:(BOOL*)determined mediaType:(int)type queryIsEmptyBlock:(id)block
-{
-	%log;
-	%orig;
-}
-
--(BOOL)_checkHasContent:(BOOL*)content determined:(BOOL*)determined queryIsEmptyBlock:(id)block
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasAudiobooks
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasComposers
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasGenres
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasPodcasts
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasSongs
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasAlbums
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasArtists
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasPlaylists
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasGeniusMixes
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasMedia
-{
-	%log;
-	%orig;
-}
-
--(BOOL)hasMediaOfType:(int)type
-{
-	%log;
-	%orig;
-}
-
--(BOOL)libraryHasBeenModifiedWithToken:(id)token
-{
-	%log;
-	%orig;
-}
-
--(id)modificationToken
-{
-	%log;
-	%orig;
-}
-
--(id)uniqueIdentifier
-{
-	%log;
-	%orig;
-}
-
--(id)name
-{
-	%log;
-	%orig;
-}
-
--(int)status
-{
-	%log;
-	%orig;
-}
+	id xx = %orig;
+	NSLog(@"qhk kanpod: mediaLibraryWithUniqueIdentifier %@ %p", uniqueIdentifier, xx);
+	return xx;
+}
+
+//+(id)mediaLibraries
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//+(id)_mediaLibraries
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//+(void)setRunLoopForNotifications:(id)notifications
+//{
+//	%log;
+//	%orig;
+//}
+//
+//+(void)setLibraryServerDisabled:(BOOL)disabled
+//{
+//	%log;
+//	%orig;
+//}
+//
+//+(BOOL)isLibraryServerDisabled
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//+(void)endDiscoveringMediaLibraries
+//{
+//	%log;
+//	%orig;
+//}
+//
+//+(void)beginDiscoveringMediaLibraries
+//{
+//	%log;
+//	%orig;
+//}
+//
+//+(void)setDefaultMediaLibrary:(id)library
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(id)libraryDataProvider
+//{
+////	%log;
+//	id xx = %orig;
+//	NSLog(@"qhk kanpod: libraryDataProvider self=%p return=%p %@ %@", self, xx, [xx class], xx);
+//	return xx;
+//}
+//
+//-(id)_initWithLibraryDataProvider:(id)libraryDataProvider
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(void)_stopConnectionProgressDisplayLink
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(void)_removeConnectionAssertion:(id)assertion
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(void)_connectionProgressDisplayLinkCallback:(id)callback
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(id)_collectionsForQueryCriteria:(id)queryCriteria
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(void)_clearPendingDisconnection
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(id)_itemsForQueryCriteria:(id)queryCriteria
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)playlistExistsWithPersistentID:(unsigned long long)persistentID
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)itemExistsWithPersistentID:(unsigned long long)persistentID
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(void)setFilteringDisabled:(BOOL)disabled
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(BOOL)isFilteringDisabled
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(unsigned long long)_persistentIDForAssetURL:(id)assetURL
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(id)pathForAssetURL:(id)assetURL
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)isValidAssetURL:(id)url
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(id)syncValidity
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(float)connectionProgress
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)performTransactionWithBlock:(id)block
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(id)connectionAssertionWithIdentifier:(id)identifier
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(void)connectWithAuthenticationData:(id)authenticationData completionBlock:(id)block
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(BOOL)requiresAuthentication
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(id)preferredSubtitleLanguages
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(id)preferredAudioLanguages
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)isGeniusEnabled
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(double)timestampForAppliedUbiquitousBookmarkKey:(id)appliedUbiquitousBookmarkKey
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(void)updateUbiquitousBookmarksWithKey:(id)key bookmarkMediaValue:(id)value timestamp:(double)timestamp
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(void)downloadItem:(id)item completionHandler:(id)handler
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(BOOL)isArtworkIdenticalForItem:(id)item otherItem:(id)item2 compareRepresentativeItemArtwork:(BOOL)artwork missingAlwaysComparesEqual:(BOOL)equal
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)removePlaylist:(id)playlist
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(id)addPlaylistWithName:(id)name activeGeniusPlaylist:(BOOL)playlist
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(id)addPlaylistWithName:(id)name
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(id)playlistWithPersistentID:(unsigned long long)persistentID
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(id)newPlaylistWithPersistentID:(unsigned long long)persistentID
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(id)itemWithPersistentID:(unsigned long long)persistentID verifyExistence:(BOOL)existence
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(id)itemWithPersistentID:(unsigned long long)persistentID
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasVideoPodcasts
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasTVShows
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasMovieRentals
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasITunesUContent
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasCompilations
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasMovies
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasAudibleAudioBooks
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasMusicVideos
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasVideos
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)_checkHasContent:(BOOL*)content determined:(BOOL*)determined mediaType:(int)type queryIsEmptyBlock:(id)block
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)_checkHasContent:(BOOL*)content determined:(BOOL*)determined queryIsEmptyBlock:(id)block
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasAudiobooks
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasComposers
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasGenres
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasPodcasts
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasSongs
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasAlbums
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasArtists
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasPlaylists
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasGeniusMixes
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasMedia
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)hasMediaOfType:(int)type
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)libraryHasBeenModifiedWithToken:(id)token
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(id)modificationToken
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(id)uniqueIdentifier
+//{
+////	%log;
+//	id xx = %orig;
+////	NSString* ii = (NSString *)xx;
+//	NSLog(@"qhk kanpod: uniqueIdentifier self=%p return=%p %@ value=%@", self, xx, [xx class], xx);
+//	return xx;
+//}
+//
+//-(id)name
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(int)status
+//{
+//	%log;
+//	return %orig;
+//}
 
 -(BOOL)writable
 {
-	%log;
-	%orig;
+	BOOL sucess = %orig;
+	NSLog(@"qhk kanpod: writable self=%p %d", self, sucess);
+	return sucess;
 }
 
--(long long)playlistGeneration
-{
-	%log;
-	%orig;
-}
-
--(unsigned long long)syncGenerationID
-{
-	%log;
-	%orig;
-}
-
--(void)endGeneratingLibraryChangeNotifications
-{
-	%log;
-	%orig;
-}
-
--(void)disconnect
-{
-	%log;
-	%orig;
-}
-
--(void)connectWithCompletionHandler:(id)completionHandler
-{
-	%log;
-	%orig;
-}
-
--(void)beginGeneratingLibraryChangeNotifications
-{
-	%log;
-	%orig;
-}
-
--(void)_displayValuesDidChangeNotification:(id)_displayValues
-{
-	%log;
-	%orig;
-}
-
--(void)_didReceiveMemoryWarning:(id)warning
-{
-	%log;
-	%orig;
-}
-
--(void)_reloadLibraryForDynamicPropertyChangeWithNotificationInfo:(id)notificationInfo
-{
-	%log;
-	%orig;
-}
-
--(void)_reloadLibraryForContentsChangeWithNotificationInfo:(id)notificationInfo
-{
-	%log;
-	%orig;
-}
-
--(void)_clearCachedContentData
-{
-	%log;
-	%orig;
-}
-
--(void)_clearCachedEntities
-{
-	%log;
-	%orig;
-}
+//-(long long)playlistGeneration
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(unsigned long long)syncGenerationID
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(void)endGeneratingLibraryChangeNotifications
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(void)disconnect
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(void)connectWithCompletionHandler:(id)completionHandler
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(void)beginGeneratingLibraryChangeNotifications
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(void)_displayValuesDidChangeNotification:(id)_displayValues
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(void)_didReceiveMemoryWarning:(id)warning
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(void)_reloadLibraryForDynamicPropertyChangeWithNotificationInfo:(id)notificationInfo
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(void)_reloadLibraryForContentsChangeWithNotificationInfo:(id)notificationInfo
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(void)_clearCachedContentData
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(void)_clearCachedEntities
+//{
+//	%log;
+//	%orig;
+//}
 
 
 
@@ -669,8 +760,10 @@ void print_trace (void)
 
 - (BOOL)deleteIndex:(unsigned)index
 {
+	%log;
 	BOOL sucess = %orig;
 	NSLog(@"qhk kanpod: result=%d deleteIndex:%u", sucess, index);
+	return sucess;
 }
 
 %end
@@ -679,12 +772,43 @@ void print_trace (void)
 
 - (BOOL)deleteIndexesInRange:(NSRange)range
 {
+	%log;
 	BOOL sucess = %orig;
 	NSLog(@"qhk kanpod: deleteIndexesInRange %d %d", range.location, range.length);
 	return sucess;
 }
 
 %end
+
+static void removefirstMedia(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+	MPMediaLibrary* library = [MPMediaLibrary defaultMediaLibrary];
+	NSDate* date = [library lastModifiedDate];
+	BOOL writable = [library writable];
+	MPMediaQuery* songsQuery = [MPMediaQuery songsQuery];
+    NSArray* songs = [songsQuery items];
+	NSMutableString* str = [NSMutableString stringWithFormat:@"library=%p %@ writable=%d count=%d", library, date, writable ,[songs count]];
+	if ([songs count] > 0)
+	{
+		MPMediaItem* item = [songs objectAtIndex:0];
+		[str appendFormat:@"\n%@ - %@\n", [item valueForProperty:MPMediaItemPropertyArtist], [item valueForProperty:MPMediaItemPropertyTitle]];
+		NSArray* deleteItems = [NSArray arrayWithObject:item];
+		//		MPMediaItemCollection* coll = [MPMediaItemCollection collectionWithItems:deleteItems];
+		
+		BOOL haveRemove = [library respondsToSelector:@selector(removeItems:)];
+		BOOL removeSucess = NO;
+		if (haveRemove)
+		{
+			removeSucess = [library removeItems:deleteItems];
+		}
+		
+		[str appendFormat:@"haveRemoveItems:haveRemoveMehtod=%d removeResult=%d", haveRemove,removeSucess];
+		NSLog(@"qhk kanpad: static void removefirstMedia()\n%@", str);
+    }
+
+}
+
+//extern void CFNotificationCenterAddObserver(CFNotificationCenterRef center, const void *observer, CFNotificationCallback callBack, CFStringRef name, const void *object, CFNotificationSuspensionBehavior suspensionBehavior);
 
 %ctor
 {
@@ -695,6 +819,8 @@ void print_trace (void)
 //	notify_register_check("com.apple.springboard.rawOrientation", &notify_token);
 //	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, OrientationChangedCallback, CFSTR("com.apple.springboard.rawOrientation"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 //	NSLog(@"qhk: IconRotator init end.");
+	
+	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, removefirstMedia, CFSTR("com.njnu.kai.kanpod/removefirst"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 }
 
 
