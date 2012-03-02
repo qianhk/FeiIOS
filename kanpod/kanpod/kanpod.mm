@@ -1,4 +1,4 @@
-#line 1 "/OnGitHub/FeiIOS/kanpod/kanpod/kanpod.xm"
+#line 1 "/OnGit/FeiIOS/kanpod/kanpod/kanpod.xm"
 
 
 
@@ -120,43 +120,43 @@
 -(void)_clearCachedEntities;
 @end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void print_trace (void)
+{
+	void *array[20];
+	size_t size;
+	char **strings;
+	size_t i;
+	
+	size = backtrace (array, 20);
+	strings = backtrace_symbols (array, size);
+	
+	NSMutableString* str = [NSMutableString stringWithFormat:@"qhk kanpod: Obtained %zd stack frames.\n", size];
+	
+	
+	for (i = 0; i < size; i++)
+	{
+		
+		[str appendFormat:@"%s\n", strings[i]];
+	}
+	
+	free (strings);
+	NSLog(@"%@", str);
+}
 
 #include <substrate.h>
-@class IUMediaQueriesDataSource; @class IUMediaListDataSource; @class NSFileManager; @class MPMediaLibrary; 
-static id (*_logos_meta_orig$_ungrouped$MPMediaLibrary$defaultMediaLibrary)(Class, SEL); static id _logos_meta_method$_ungrouped$MPMediaLibrary$defaultMediaLibrary(Class, SEL); static BOOL (*_logos_orig$_ungrouped$MPMediaLibrary$removeItems$)(MPMediaLibrary*, SEL, id); static BOOL _logos_method$_ungrouped$MPMediaLibrary$removeItems$(MPMediaLibrary*, SEL, id); static id (*_logos_meta_orig$_ungrouped$MPMediaLibrary$mediaLibraryWithUniqueIdentifier$)(Class, SEL, id); static id _logos_meta_method$_ungrouped$MPMediaLibrary$mediaLibraryWithUniqueIdentifier$(Class, SEL, id); static BOOL (*_logos_orig$_ungrouped$MPMediaLibrary$writable)(MPMediaLibrary*, SEL); static BOOL _logos_method$_ungrouped$MPMediaLibrary$writable(MPMediaLibrary*, SEL); static BOOL (*_logos_orig$_ungrouped$IUMediaListDataSource$deleteIndex$)(IUMediaListDataSource*, SEL, unsigned); static BOOL _logos_method$_ungrouped$IUMediaListDataSource$deleteIndex$(IUMediaListDataSource*, SEL, unsigned); static BOOL (*_logos_orig$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRange$)(IUMediaQueriesDataSource*, SEL, NSRange); static BOOL _logos_method$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRange$(IUMediaQueriesDataSource*, SEL, NSRange); static NSFileManager * (*_logos_meta_orig$_ungrouped$NSFileManager$defaultManager)(Class, SEL); static NSFileManager * _logos_meta_method$_ungrouped$NSFileManager$defaultManager(Class, SEL); static NSDictionary * (*_logos_orig$_ungrouped$NSFileManager$attributesOfItemAtPath$error$)(NSFileManager*, SEL, NSString *, NSError **); static NSDictionary * _logos_method$_ungrouped$NSFileManager$attributesOfItemAtPath$error$(NSFileManager*, SEL, NSString *, NSError **); static NSDictionary * (*_logos_orig$_ungrouped$NSFileManager$attributesOfFileSystemForPath$error$)(NSFileManager*, SEL, NSString *, NSError **); static NSDictionary * _logos_method$_ungrouped$NSFileManager$attributesOfFileSystemForPath$error$(NSFileManager*, SEL, NSString *, NSError **); static BOOL (*_logos_orig$_ungrouped$NSFileManager$setAttributes$ofItemAtPath$error$)(NSFileManager*, SEL, NSDictionary *, NSString *, NSError **); static BOOL _logos_method$_ungrouped$NSFileManager$setAttributes$ofItemAtPath$error$(NSFileManager*, SEL, NSDictionary *, NSString *, NSError **); static BOOL (*_logos_orig$_ungrouped$NSFileManager$fileExistsAtPath$)(NSFileManager*, SEL, NSString *); static BOOL _logos_method$_ungrouped$NSFileManager$fileExistsAtPath$(NSFileManager*, SEL, NSString *); static BOOL (*_logos_orig$_ungrouped$NSFileManager$fileExistsAtPath$isDirectory$)(NSFileManager*, SEL, NSString *, BOOL *); static BOOL _logos_method$_ungrouped$NSFileManager$fileExistsAtPath$isDirectory$(NSFileManager*, SEL, NSString *, BOOL *); 
+@class ML3MusicLibrary; @class MPMediaLibrary; 
+static BOOL (*_logos_orig$_ungrouped$MPMediaLibrary$removeItems$)(MPMediaLibrary*, SEL, id); static BOOL _logos_method$_ungrouped$MPMediaLibrary$removeItems$(MPMediaLibrary*, SEL, id); static BOOL (*_logos_orig$_ungrouped$ML3MusicLibrary$writable)(ML3MusicLibrary*, SEL); static BOOL _logos_method$_ungrouped$ML3MusicLibrary$writable(ML3MusicLibrary*, SEL); static sqlite3 * (*_logos_meta_orig$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$)(Class, SEL, id, BOOL, id); static sqlite3 * _logos_meta_method$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$(Class, SEL, id, BOOL, id); static sqlite3 * (*_logos_orig$_ungrouped$ML3MusicLibrary$openedDatabaseHandle)(ML3MusicLibrary*, SEL); static sqlite3 * _logos_method$_ungrouped$ML3MusicLibrary$openedDatabaseHandle(ML3MusicLibrary*, SEL); static void (*_logos_meta_orig$_ungrouped$ML3MusicLibrary$setImportationEnabled$)(Class, SEL, BOOL); static void _logos_meta_method$_ungrouped$ML3MusicLibrary$setImportationEnabled$(Class, SEL, BOOL); static BOOL (*_logos_meta_orig$_ungrouped$ML3MusicLibrary$importationEnabled)(Class, SEL); static BOOL _logos_meta_method$_ungrouped$ML3MusicLibrary$importationEnabled(Class, SEL); 
 
-#line 145 "/OnGitHub/FeiIOS/kanpod/kanpod/kanpod.xm"
+#line 145 "/OnGit/FeiIOS/kanpod/kanpod/kanpod.xm"
 
 
 
-static id _logos_meta_method$_ungrouped$MPMediaLibrary$defaultMediaLibrary(Class self, SEL _cmd) {
-	id gaga = _logos_meta_orig$_ungrouped$MPMediaLibrary$defaultMediaLibrary(self, _cmd);
-	NSLog(@"qhk kanpod: defaultMediaLibrary %p", gaga);
 
-	return gaga;
-}
+
+
+
+
+
 
 
 
@@ -250,11 +250,6 @@ static BOOL _logos_method$_ungrouped$MPMediaLibrary$removeItems$(MPMediaLibrary*
 
 
 
-static id _logos_meta_method$_ungrouped$MPMediaLibrary$mediaLibraryWithUniqueIdentifier$(Class self, SEL _cmd, id uniqueIdentifier) {
-	id xx = _logos_meta_orig$_ungrouped$MPMediaLibrary$mediaLibraryWithUniqueIdentifier$(self, _cmd, uniqueIdentifier);
-	NSLog(@"qhk kanpod: mediaLibraryWithUniqueIdentifier %@ %p", uniqueIdentifier, xx);
-	return xx;
-}
 
 
 
@@ -682,96 +677,128 @@ static id _logos_meta_method$_ungrouped$MPMediaLibrary$mediaLibraryWithUniqueIde
 
 
 
-static BOOL _logos_method$_ungrouped$MPMediaLibrary$writable(MPMediaLibrary* self, SEL _cmd) {
-	BOOL sucess = _logos_orig$_ungrouped$MPMediaLibrary$writable(self, _cmd);
-	NSLog(@"qhk kanpod: writable self=%p %d", self, sucess);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+static BOOL _logos_method$_ungrouped$ML3MusicLibrary$writable(ML3MusicLibrary* self, SEL _cmd) {
+	NSLog(@"-[<ML3MusicLibrary: %p> writable]", self);
+
+	object_setInstanceVariable(self, "_enableWrites", (void *)YES);
+	BOOL sucess = _logos_orig$_ungrouped$ML3MusicLibrary$writable(self, _cmd);
+	NSLog(@"qhk kanpod: ML3MusicLibrary writable self=%p %d", self, sucess);
 	return sucess;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-static BOOL _logos_method$_ungrouped$IUMediaListDataSource$deleteIndex$(IUMediaListDataSource* self, SEL _cmd, unsigned index) {
-	NSLog(@"-[<IUMediaListDataSource: %p> deleteIndex:%u]", self, index);
-	BOOL sucess = _logos_orig$_ungrouped$IUMediaListDataSource$deleteIndex$(self, _cmd, index);
-	NSLog(@"qhk kanpod: result=%d deleteIndex:%u", sucess, index);
-	return sucess;
+static sqlite3 * _logos_meta_method$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$(Class self, SEL _cmd, id path, BOOL writes, id library) {
+	NSLog(@"+[<ML3MusicLibrary: %p> _openedDatabaseHandleForPath:%@ enableWrites:%d forLibrary:%@]", self, path, writes, library);
+	return _logos_meta_orig$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$(self, _cmd, path, writes, library);
 }
 
 
@@ -779,11 +806,26 @@ static BOOL _logos_method$_ungrouped$IUMediaListDataSource$deleteIndex$(IUMediaL
 
 
 
-static BOOL _logos_method$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRange$(IUMediaQueriesDataSource* self, SEL _cmd, NSRange range) {
-	NSLog(@"-[<IUMediaQueriesDataSource: %p> deleteIndexesInRange:(%d:%d)]", self, range.location, range.length);
-	BOOL sucess = _logos_orig$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRange$(self, _cmd, range);
-	NSLog(@"qhk kanpod: deleteIndexesInRange %d %d", range.location, range.length);
-	return sucess;
+
+
+static sqlite3 * _logos_method$_ungrouped$ML3MusicLibrary$openedDatabaseHandle(ML3MusicLibrary* self, SEL _cmd) {
+	NSLog(@"-[<ML3MusicLibrary: %p> openedDatabaseHandle]", self);
+
+	object_setInstanceVariable(self, "_enableWrites", (void *)YES);
+
+	return _logos_orig$_ungrouped$ML3MusicLibrary$openedDatabaseHandle(self, _cmd);
+}
+
+
+static void _logos_meta_method$_ungrouped$ML3MusicLibrary$setImportationEnabled$(Class self, SEL _cmd, BOOL enabled) {
+	NSLog(@"+[<ML3MusicLibrary: %p> setImportationEnabled:%d]", self, enabled);
+	_logos_meta_orig$_ungrouped$ML3MusicLibrary$setImportationEnabled$(self, _cmd, enabled);
+}
+
+
+static BOOL _logos_meta_method$_ungrouped$ML3MusicLibrary$importationEnabled(Class self, SEL _cmd) {
+	NSLog(@"+[<ML3MusicLibrary: %p> importationEnabled]", self);
+	return _logos_meta_orig$_ungrouped$ML3MusicLibrary$importationEnabled(self, _cmd);
 }
 
 
@@ -791,46 +833,70 @@ static BOOL _logos_method$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRan
 
 
 
-static NSFileManager * _logos_meta_method$_ungrouped$NSFileManager$defaultManager(Class self, SEL _cmd) {
-	NSLog(@"+[<NSFileManager: %p> defaultManager]", self);
-	
-	return _logos_meta_orig$_ungrouped$NSFileManager$defaultManager(self, _cmd);
-}
 
 
-static NSDictionary * _logos_method$_ungrouped$NSFileManager$attributesOfItemAtPath$error$(NSFileManager* self, SEL _cmd, NSString * path, NSError ** error) {
-	NSLog(@"-[<NSFileManager: %p> attributesOfItemAtPath:%@ error:%@]", self, path, error);
-	
-	return _logos_orig$_ungrouped$NSFileManager$attributesOfItemAtPath$error$(self, _cmd, path, error);
-}
 
 
-static NSDictionary * _logos_method$_ungrouped$NSFileManager$attributesOfFileSystemForPath$error$(NSFileManager* self, SEL _cmd, NSString * path, NSError ** error) {
-	NSLog(@"-[<NSFileManager: %p> attributesOfFileSystemForPath:%@ error:%@]", self, path, error);
-	
-	return _logos_orig$_ungrouped$NSFileManager$attributesOfFileSystemForPath$error$(self, _cmd, path, error);
-}
 
 
-static BOOL _logos_method$_ungrouped$NSFileManager$setAttributes$ofItemAtPath$error$(NSFileManager* self, SEL _cmd, NSDictionary * attributes, NSString * path, NSError ** error) {
-	NSLog(@"-[<NSFileManager: %p> setAttributes:%@ ofItemAtPath:%@ error:%@]", self, attributes, path, error);
-	
-	return _logos_orig$_ungrouped$NSFileManager$setAttributes$ofItemAtPath$error$(self, _cmd, attributes, path, error);
-}
 
 
-static BOOL _logos_method$_ungrouped$NSFileManager$fileExistsAtPath$(NSFileManager* self, SEL _cmd, NSString * path) {
-	NSLog(@"-[<NSFileManager: %p> fileExistsAtPath:%@]", self, path);
-	NSLog(@"path %@", path);
-	return _logos_orig$_ungrouped$NSFileManager$fileExistsAtPath$(self, _cmd, path);
-}
 
 
-static BOOL _logos_method$_ungrouped$NSFileManager$fileExistsAtPath$isDirectory$(NSFileManager* self, SEL _cmd, NSString * path, BOOL * isDirectory) {
-	NSLog(@"-[<NSFileManager: %p> fileExistsAtPath:%@ isDirectory:%p]", self, path, isDirectory);
-	NSLog(@"path %@", path);
-	return _logos_orig$_ungrouped$NSFileManager$fileExistsAtPath$isDirectory$(self, _cmd, path, isDirectory);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -878,14 +944,323 @@ int replace_sqlite3_open(const char * filename, sqlite3 **ppdb)
 static int (*ori_sqlite3_open_v2)(const char *filename, sqlite3 **ppdb, int flags, const char *zVfs) = sqlite3_open_v2;
 int replace_sqlite3_open_v2(const char * filename, sqlite3 **ppdb, int flags, const char* zVfs)
 {
-	NSLog(@"sqlite3_open_v2 %s flags=%d, zfs=%s", filename, flags, zVfs);
-	return ori_sqlite3_open_v2(filename, ppdb, flags, zVfs);
+	NSLog(@"sqlite3_open_v2 %s flags=0x%X, zfs=%s", filename, flags, zVfs);
+	print_trace();
+	int r = ori_sqlite3_open_v2(filename, ppdb, flags, zVfs);
+	NSLog(@"sqlite3_open_v2 return %d", r);
+	return r;
 }
 
-static __attribute__((constructor)) void _logosLocalCtor_dd8eb9f2()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+static __attribute__((constructor)) void _logosLocalCtor_e6d8545d()
 {
 	NSLog(@"qhk kanpod: init begin.");
-	{{Class _logos_class$_ungrouped$MPMediaLibrary = objc_getClass("MPMediaLibrary"); Class _logos_metaclass$_ungrouped$MPMediaLibrary = object_getClass(_logos_class$_ungrouped$MPMediaLibrary); MSHookMessageEx(_logos_metaclass$_ungrouped$MPMediaLibrary, @selector(defaultMediaLibrary), (IMP)&_logos_meta_method$_ungrouped$MPMediaLibrary$defaultMediaLibrary, (IMP*)&_logos_meta_orig$_ungrouped$MPMediaLibrary$defaultMediaLibrary);MSHookMessageEx(_logos_class$_ungrouped$MPMediaLibrary, @selector(removeItems:), (IMP)&_logos_method$_ungrouped$MPMediaLibrary$removeItems$, (IMP*)&_logos_orig$_ungrouped$MPMediaLibrary$removeItems$);MSHookMessageEx(_logos_metaclass$_ungrouped$MPMediaLibrary, @selector(mediaLibraryWithUniqueIdentifier:), (IMP)&_logos_meta_method$_ungrouped$MPMediaLibrary$mediaLibraryWithUniqueIdentifier$, (IMP*)&_logos_meta_orig$_ungrouped$MPMediaLibrary$mediaLibraryWithUniqueIdentifier$);MSHookMessageEx(_logos_class$_ungrouped$MPMediaLibrary, @selector(writable), (IMP)&_logos_method$_ungrouped$MPMediaLibrary$writable, (IMP*)&_logos_orig$_ungrouped$MPMediaLibrary$writable);Class _logos_class$_ungrouped$IUMediaListDataSource = objc_getClass("IUMediaListDataSource"); MSHookMessageEx(_logos_class$_ungrouped$IUMediaListDataSource, @selector(deleteIndex:), (IMP)&_logos_method$_ungrouped$IUMediaListDataSource$deleteIndex$, (IMP*)&_logos_orig$_ungrouped$IUMediaListDataSource$deleteIndex$);Class _logos_class$_ungrouped$IUMediaQueriesDataSource = objc_getClass("IUMediaQueriesDataSource"); MSHookMessageEx(_logos_class$_ungrouped$IUMediaQueriesDataSource, @selector(deleteIndexesInRange:), (IMP)&_logos_method$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRange$, (IMP*)&_logos_orig$_ungrouped$IUMediaQueriesDataSource$deleteIndexesInRange$);Class _logos_class$_ungrouped$NSFileManager = objc_getClass("NSFileManager"); Class _logos_metaclass$_ungrouped$NSFileManager = object_getClass(_logos_class$_ungrouped$NSFileManager); MSHookMessageEx(_logos_metaclass$_ungrouped$NSFileManager, @selector(defaultManager), (IMP)&_logos_meta_method$_ungrouped$NSFileManager$defaultManager, (IMP*)&_logos_meta_orig$_ungrouped$NSFileManager$defaultManager);MSHookMessageEx(_logos_class$_ungrouped$NSFileManager, @selector(attributesOfItemAtPath:error:), (IMP)&_logos_method$_ungrouped$NSFileManager$attributesOfItemAtPath$error$, (IMP*)&_logos_orig$_ungrouped$NSFileManager$attributesOfItemAtPath$error$);MSHookMessageEx(_logos_class$_ungrouped$NSFileManager, @selector(attributesOfFileSystemForPath:error:), (IMP)&_logos_method$_ungrouped$NSFileManager$attributesOfFileSystemForPath$error$, (IMP*)&_logos_orig$_ungrouped$NSFileManager$attributesOfFileSystemForPath$error$);MSHookMessageEx(_logos_class$_ungrouped$NSFileManager, @selector(setAttributes:ofItemAtPath:error:), (IMP)&_logos_method$_ungrouped$NSFileManager$setAttributes$ofItemAtPath$error$, (IMP*)&_logos_orig$_ungrouped$NSFileManager$setAttributes$ofItemAtPath$error$);MSHookMessageEx(_logos_class$_ungrouped$NSFileManager, @selector(fileExistsAtPath:), (IMP)&_logos_method$_ungrouped$NSFileManager$fileExistsAtPath$, (IMP*)&_logos_orig$_ungrouped$NSFileManager$fileExistsAtPath$);MSHookMessageEx(_logos_class$_ungrouped$NSFileManager, @selector(fileExistsAtPath:isDirectory:), (IMP)&_logos_method$_ungrouped$NSFileManager$fileExistsAtPath$isDirectory$, (IMP*)&_logos_orig$_ungrouped$NSFileManager$fileExistsAtPath$isDirectory$);}}
+	
+	NSBundle* bundle = [NSBundle mainBundle];
+	NSString* biden = [bundle bundleIdentifier];
+	NSString* execPath = [bundle executablePath];
+	NSLog(@"qhk kanpod: bundle %p %@, %@", bundle, biden, execPath);
+	
+	{{Class _logos_class$_ungrouped$MPMediaLibrary = objc_getClass("MPMediaLibrary"); MSHookMessageEx(_logos_class$_ungrouped$MPMediaLibrary, @selector(removeItems:), (IMP)&_logos_method$_ungrouped$MPMediaLibrary$removeItems$, (IMP*)&_logos_orig$_ungrouped$MPMediaLibrary$removeItems$);Class _logos_class$_ungrouped$ML3MusicLibrary = objc_getClass("ML3MusicLibrary"); Class _logos_metaclass$_ungrouped$ML3MusicLibrary = object_getClass(_logos_class$_ungrouped$ML3MusicLibrary); MSHookMessageEx(_logos_class$_ungrouped$ML3MusicLibrary, @selector(writable), (IMP)&_logos_method$_ungrouped$ML3MusicLibrary$writable, (IMP*)&_logos_orig$_ungrouped$ML3MusicLibrary$writable);MSHookMessageEx(_logos_metaclass$_ungrouped$ML3MusicLibrary, @selector(_openedDatabaseHandleForPath:enableWrites:forLibrary:), (IMP)&_logos_meta_method$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$, (IMP*)&_logos_meta_orig$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$);MSHookMessageEx(_logos_class$_ungrouped$ML3MusicLibrary, @selector(openedDatabaseHandle), (IMP)&_logos_method$_ungrouped$ML3MusicLibrary$openedDatabaseHandle, (IMP*)&_logos_orig$_ungrouped$ML3MusicLibrary$openedDatabaseHandle);MSHookMessageEx(_logos_metaclass$_ungrouped$ML3MusicLibrary, @selector(setImportationEnabled:), (IMP)&_logos_meta_method$_ungrouped$ML3MusicLibrary$setImportationEnabled$, (IMP*)&_logos_meta_orig$_ungrouped$ML3MusicLibrary$setImportationEnabled$);MSHookMessageEx(_logos_metaclass$_ungrouped$ML3MusicLibrary, @selector(importationEnabled), (IMP)&_logos_meta_method$_ungrouped$ML3MusicLibrary$importationEnabled, (IMP*)&_logos_meta_orig$_ungrouped$ML3MusicLibrary$importationEnabled);}}
 
 
 

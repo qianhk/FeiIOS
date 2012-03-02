@@ -119,38 +119,38 @@
 -(void)_clearCachedEntities;
 @end
 
-//void print_trace (void)
-//{
-//	void *array[20];
-//	size_t size;
-//	char **strings;
-//	size_t i;
-//	
-//	size = backtrace (array, 20);
-//	strings = backtrace_symbols (array, size);
-//	
-//	NSMutableString* str = [NSMutableString stringWithFormat:@"qhk kanpod: Obtained %zd stack frames.\n", size];
-//	//	printf ("Obtained %zd stack frames.\n", size);
-//	
-//	for (i = 0; i < size; i++)
-//	{
-//		//		printf ("%s\n", strings[i]);
-//		[str appendFormat:@"%s\n", strings[i]];
-//	}
-//	
-//	free (strings);
-//	NSLog(@"%@", str);
-//}
+void print_trace (void)
+{
+	void *array[20];
+	size_t size;
+	char **strings;
+	size_t i;
+	
+	size = backtrace (array, 20);
+	strings = backtrace_symbols (array, size);
+	
+	NSMutableString* str = [NSMutableString stringWithFormat:@"qhk kanpod: Obtained %zd stack frames.\n", size];
+	//	printf ("Obtained %zd stack frames.\n", size);
+	
+	for (i = 0; i < size; i++)
+	{
+		//		printf ("%s\n", strings[i]);
+		[str appendFormat:@"%s\n", strings[i]];
+	}
+	
+	free (strings);
+	NSLog(@"%@", str);
+}
 
 %hook MPMediaLibrary
 
-+ (id)defaultMediaLibrary
-{
-	id gaga = %orig;
-	NSLog(@"qhk kanpod: defaultMediaLibrary %p", gaga);
-
-	return gaga;
-}
+//+ (id)defaultMediaLibrary
+//{
+//	id gaga = %orig;
+//	NSLog(@"qhk kanpod: defaultMediaLibrary %p", gaga);
+//
+//	return gaga;
+//}
 
 //+ (id)deviceMediaLibrary
 //{
@@ -242,14 +242,14 @@
 //	%log;
 //	return %orig;
 //}
-
-+(id)mediaLibraryWithUniqueIdentifier:(id)uniqueIdentifier
-{
-	id xx = %orig;
-	NSLog(@"qhk kanpod: mediaLibraryWithUniqueIdentifier %@ %p", uniqueIdentifier, xx);
-	return xx;
-}
-
+//
+//+(id)mediaLibraryWithUniqueIdentifier:(id)uniqueIdentifier
+//{
+//	id xx = %orig;
+//	NSLog(@"qhk kanpod: mediaLibraryWithUniqueIdentifier %@ %p", uniqueIdentifier, xx);
+//	return xx;
+//}
+//
 //+(id)mediaLibraries
 //{
 //	%log;
@@ -675,12 +675,12 @@
 //	return %orig;
 //}
 
--(BOOL)writable
-{
-	BOOL sucess = %orig;
-	NSLog(@"qhk kanpod: writable self=%p %d", self, sucess);
-	return sucess;
-}
+//-(BOOL)writable
+//{
+//	BOOL sucess = %orig;
+//	NSLog(@"qhk kanpod: MPMediaLibrary writable self=%p %d", self, sucess);
+//	return sucess;
+//}
 
 //-(long long)playlistGeneration
 //{
@@ -758,79 +758,145 @@
 
 %end
 
-%hook IUMediaListDataSource
+//@interface ML3MusicLibrary
+//{
+//	BOOL _enableWrites;
+//}
+//@end
+//
+//@interface ML3MusicLibrary(xxxxxxxx)
+//- (void)setEnableWrite;
+//@end
+//
+//@implementation ML3MusicLibrary(xxxxxxxx)
+//
+//- (void)setEnableWrite
+//{
+//	_enableWrites = YES;
+//}
+//
+//@end
 
-- (BOOL)deleteIndex:(unsigned)index
+%hook ML3MusicLibrary
+
+- (BOOL)writable
 {
 	%log;
+//	print_trace();
+	object_setInstanceVariable(self, "_enableWrites", (void *)YES);
 	BOOL sucess = %orig;
-	NSLog(@"qhk kanpod: result=%d deleteIndex:%u", sucess, index);
+	NSLog(@"qhk kanpod: ML3MusicLibrary writable self=%p %d", self, sucess);
 	return sucess;
 }
 
++ (sqlite3 *)_openedDatabaseHandleForPath:(id)path enableWrites:(BOOL)writes forLibrary:(id)library
+{
+	%log;
+	return %orig;
+}
+
+//+ (sqlite3 *)openedDatabaseHandleForPath:(id)path enableWrites:(BOOL)writes
+//{
+//	%log;
+//	return %orig;
+//}
+
+- (sqlite3 *)openedDatabaseHandle
+{
+	%log;
+//	[self setEnableWrite];
+	object_setInstanceVariable(self, "_enableWrites", (void *)YES);
+//	NSLog(@"qhk kanpod: ML3MusicLibrary openedDatabaseHandle self=%p", self);
+	return %orig;
+}
+
++ (void)setImportationEnabled:(BOOL)enabled
+{
+	%log;
+	%orig;
+}
+
++ (BOOL)importationEnabled
+{
+	%log;
+	return %orig;
+}
+
 %end
 
-%hook IUMediaQueriesDataSource
+//%hook IUMediaListDataSource
+//
+//- (BOOL)deleteIndex:(unsigned)index
+//{
+//	%log;
+//	BOOL sucess = %orig;
+//	NSLog(@"qhk kanpod: result=%d deleteIndex:%u", sucess, index);
+//	return sucess;
+//}
+//
+//%end
+//
+//%hook IUMediaQueriesDataSource
+//
+//- (BOOL)deleteIndexesInRange:(NSRange)range
+//{
+//	%log;
+//	BOOL sucess = %orig;
+//	NSLog(@"qhk kanpod: deleteIndexesInRange %d %d", range.location, range.length);
+//	return sucess;
+//}
+//
+//%end
 
-- (BOOL)deleteIndexesInRange:(NSRange)range
-{
-	%log;
-	BOOL sucess = %orig;
-	NSLog(@"qhk kanpod: deleteIndexesInRange %d %d", range.location, range.length);
-	return sucess;
-}
-
-%end
-
-%hook NSFileManager
-
-+ (NSFileManager *)defaultManager
-{
-	%log;
-	
-	return %orig;
-}
-
-- (NSDictionary *)attributesOfItemAtPath:(NSString *)path error:(NSError **)error
-{
-	%log;
-	
-	return %orig;
-}
-
-- (NSDictionary *)attributesOfFileSystemForPath:(NSString *)path error:(NSError **)error
-{
-	%log;
-	
-	return %orig;
-}
-
-- (BOOL)setAttributes:(NSDictionary *)attributes ofItemAtPath:(NSString *)path error:(NSError **)error
-{
-	%log;
-	
-	return %orig;
-}
-
-- (BOOL)fileExistsAtPath:(NSString *)path
-{
-	%log;
-	NSLog(@"path %@", path);
-	return %orig;
-}
-
-- (BOOL)fileExistsAtPath:(NSString *)path isDirectory:(BOOL *)isDirectory
-{
-	%log;
-	NSLog(@"path %@", path);
-	return %orig;
-}
-
-
-
-
-
-%end
+//%hook NSFileManager
+//
+//+ (NSFileManager *)defaultManager
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSDictionary *)attributesOfItemAtPath:(NSString *)path error:(NSError **)error
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSDictionary *)attributesOfFileSystemForPath:(NSString *)path error:(NSError **)error
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (BOOL)setAttributes:(NSDictionary *)attributes ofItemAtPath:(NSString *)path error:(NSError **)error
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (BOOL)fileExistsAtPath:(NSString *)path
+//{
+//	%log;
+//	NSLog(@"path %@", path);
+//	return %orig;
+//}
+//
+//- (BOOL)fileExistsAtPath:(NSString *)path isDirectory:(BOOL *)isDirectory
+//{
+//	%log;
+//	NSLog(@"path %@", path);
+//	return %orig;
+//}
+//
+//
+//
+//
+//
+//%end
 
 static void removefirstMedia(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
@@ -873,14 +939,321 @@ static int (*ori_sqlite3_open_v2)(const char *filename, sqlite3 **ppdb, int flag
 int replace_sqlite3_open_v2(const char * filename, sqlite3 **ppdb, int flags, const char* zVfs)
 {
 	NSLog(@"sqlite3_open_v2 %s flags=0x%X, zfs=%s", filename, flags, zVfs);
+	print_trace();
 	int r = ori_sqlite3_open_v2(filename, ppdb, flags, zVfs);
 	NSLog(@"sqlite3_open_v2 return %d", r);
 	return r;
 }
 
+//%hook NSBundle
+//
+//- (NSString *)bundleIdentifier
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSString *)executablePath
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSURL *)executableURL
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//+ (NSBundle *)mainBundle
+//{
+//	%log;
+//	id xx = %orig;
+////	NSLog(@"qhk kanpod: mainBundle: return %p", xx);
+//	return xx;
+//}
+//
+//+ (NSBundle *)bundleWithPath:(NSString *)path
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (id)initWithPath:(NSString *)path
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//+ (NSBundle *)bundleWithURL:(NSURL *)url
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (id)initWithURL:(NSURL *)url
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//+ (NSBundle *)bundleForClass:(Class)aClass
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//+ (NSBundle *)bundleWithIdentifier:(NSString *)identifier
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//+ (NSArray *)allBundles
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//+ (NSArray *)allFrameworks
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (BOOL)load
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (BOOL)isLoaded
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (BOOL)unload
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (BOOL)preflightAndReturnError:(NSError **)error
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (BOOL)loadAndReturnError:(NSError **)error
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSURL *)bundleURL
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSURL *)resourceURL
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSURL *)URLForAuxiliaryExecutable:(NSString *)executableName
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSURL *)privateFrameworksURL
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSURL *)sharedFrameworksURL
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSURL *)sharedSupportURL
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSURL *)builtInPlugInsURL
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSURL *)appStoreReceiptURL
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSString *)bundlePath
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSString *)resourcePath
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSString *)pathForAuxiliaryExecutable:(NSString *)executableName
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSString *)privateFrameworksPath
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSString *)sharedFrameworksPath
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSString *)sharedSupportPath
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSString *)builtInPlugInsPath
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSDictionary *)infoDictionary
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSDictionary *)localizedInfoDictionary
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (id)objectForInfoDictionaryKey:(NSString *)key
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (Class)classNamed:(NSString *)className
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (Class)principalClass
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSArray *)localizations
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSArray *)preferredLocalizations
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//- (NSString *)developmentLocalization
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//+ (NSArray *)preferredLocalizationsFromArray:(NSArray *)localizationsArray
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//+ (NSArray *)preferredLocalizationsFromArray:(NSArray *)localizationsArray forPreferences:(NSArray *)preferencesArray
+//{
+//	%log;
+//	
+//	return %orig;
+//}
+//
+//
+//%end
+
 %ctor
 {
 	NSLog(@"qhk kanpod: init begin.");
+	
+	NSBundle* bundle = [NSBundle mainBundle];
+	NSString* biden = [bundle bundleIdentifier];
+	NSString* execPath = [bundle executablePath];
+	NSLog(@"qhk kanpod: bundle %p %@, %@", bundle, biden, execPath);
+	
 	%init;
 //	currentTransform = CATransform3DIdentity;
 //	icons = CFSetCreateMutable(kCFAllocatorDefault, 0, NULL);

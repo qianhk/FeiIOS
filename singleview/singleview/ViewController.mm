@@ -147,19 +147,19 @@ static CFMessagePortRef messagePort = NULL;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
-	UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 72, 37)];
-	[btn1 setTitle:@"上一首" forState:UIControlStateNormal];
-	[btn1 addTarget:self action:@selector(btn1Clicked:) forControlEvents:UIControlEventTouchUpInside];
-//	btn1
-	[self.view addSubview:btn1];
-	[btn1 release];
-	
-	UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-	[btn2 setFrame:CGRectMake(110, 10, 72, 37)];
-	[btn2 setTitle:@"下一首" forState:UIControlStateNormal];
-	[btn2 addTarget:self action:@selector(btn1Clicked:) forControlEvents:UIControlEventTouchDown];
-	//	btn2
-	[self.view addSubview:btn2];
+//	UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(10, 10, 72, 37)];
+//	[btn1 setTitle:@"上一首" forState:UIControlStateNormal];
+//	[btn1 addTarget:self action:@selector(btn1Clicked:) forControlEvents:UIControlEventTouchUpInside];
+////	btn1
+//	[self.view addSubview:btn1];
+//	[btn1 release];
+//	
+//	UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//	[btn2 setFrame:CGRectMake(110, 10, 72, 37)];
+//	[btn2 setTitle:@"下一首" forState:UIControlStateNormal];
+//	[btn2 addTarget:self action:@selector(btn1Clicked:) forControlEvents:UIControlEventTouchDown];
+//	//	btn2
+//	[self.view addSubview:btn2];
 	
 	messagePort = CFMessagePortCreateRemote(kCFAllocatorDefault, CFSTR(KTTMessagePort));
 	if (messagePort != NULL)
@@ -396,51 +396,30 @@ void print_trace (void)
 //	print_trace();
 //	return;
 	
-	NSSet* librarys = [MPMediaLibrary _mediaLibraries];
 	MPMediaLibrary* library = [MPMediaLibrary defaultMediaLibrary];
-	MPMediaLibrary* libDevice = [MPMediaLibrary deviceMediaLibrary];
-	NSMutableString* str2 = [NSMutableString stringWithFormat:@"library count = %d, %@\n", [librarys count], librarys];
-	for(MPMediaLibrary * lib in [librarys allObjects])
-	{
-		[str2 appendFormat:@"%@:%d ", NSStringFromClass([lib class]), [lib writable]];
-	}
-	[str2 appendFormat:@"\ndefalutlib=%p, devicelib=%p", library, libDevice];
-	
-	NSSet* dataProviders = [MPMediaLibrary libraryDataProviders];
-	[str2 appendFormat:@" provider count=%d ", [dataProviders count]];
-	for(id provider in [dataProviders allObjects])
-	{
-		[str2 appendFormat:@"%@: ", NSStringFromClass([provider class])];
-	}
-	
-	
-	lbltext.text = str2;
-	
-//	return;
-	
-	
 	NSDate* date = [library lastModifiedDate];
 	MPMediaQuery* songsQuery = [MPMediaQuery songsQuery];
     NSArray* songs = [songsQuery items];
-	NSMutableString* str = [NSMutableString stringWithFormat:@"%@\ncount=%d", date ,[songs count]];
+	NSMutableString* str2 = [NSMutableString stringWithFormat:@" %@ count=%d", date ,[songs count]];
 	if ([songs count] > 0)
 	{
 		MPMediaItem* item = [songs objectAtIndex:0];
 		NSArray* deleteItems = [NSArray arrayWithObject:item];
-//		MPMediaItemCollection* coll = [MPMediaItemCollection collectionWithItems:deleteItems];
-	
-
 		
 		BOOL haveRemove = [library respondsToSelector:@selector(removeItems:)];
+		BOOL dbCanWrite = [library writable];
+		NSString* filePath = @"/var/mobile/Media/iTunes_Control/iTunes/MediaLibrary.sqlitedb";
+		NSFileManager* mana = [NSFileManager defaultManager];
+		BOOL fileCanWrite = [mana isWritableFileAtPath:filePath];
 		BOOL removeSucess = NO;
-		if (haveRemove)
+		if (haveRemove && dbCanWrite && fileCanWrite)
 		{
-//			removeSucess = [library removeItems:deleteItems];
+			removeSucess = [library removeItems:deleteItems];
 		}
 		
-		[str appendFormat:@"\n%@ - %@\nhaveRemoveItems:%d %d", [item valueForProperty:MPMediaItemPropertyArtist], [item valueForProperty:MPMediaItemPropertyTitle], haveRemove,removeSucess];
+		[str2 appendFormat:@" %@ - %@ haveRemoveItems: haveRemove=%d dbCanWrite=%d fileCanWrite=%d removeResult=%d", [item valueForProperty:MPMediaItemPropertyArtist], [item valueForProperty:MPMediaItemPropertyTitle], haveRemove, dbCanWrite, fileCanWrite, removeSucess];
     }
-	lbltext.text = str;
+	lbltext.text = str2;
 }
 
 - (int)addtwodata:(int)a withdata:(int)b
@@ -448,6 +427,7 @@ void print_trace (void)
 	return a + b;
 }
 
+int chengtwo(int a);
 int chengtwo(int a)
 {
 	return a * 2;
@@ -467,6 +447,18 @@ int chengtwo(int a)
 	NSFileManager* mana = [NSFileManager defaultManager];
 	BOOL canRead = [mana isReadableFileAtPath:filePath];
 	BOOL canWrite = [mana isWritableFileAtPath:filePath];
-	lbltext.text = [NSString stringWithFormat:@"canRead %d, can write %d", canRead, canWrite];
+	MPMediaLibrary* library = [MPMediaLibrary defaultMediaLibrary];
+	BOOL libCanWrite = [library writable];
+	lbltext.text = [NSString stringWithFormat:@"file canRead %d, can write %d\nMPMediaLibrary can write %d", canRead, canWrite, libCanWrite];
+}
+
+- (IBAction)btnBundleClicked:(id)sender
+{
+	NSBundle* bundle = [NSBundle mainBundle];
+	NSString* biden = [bundle bundleIdentifier];
+	NSString* execPath = [bundle executablePath];
+//	NSURL* execUrl = [bundle executableURL];
+	
+	lbltext.text = [NSString stringWithFormat:@"%@ %@", biden, execPath];
 }
 @end

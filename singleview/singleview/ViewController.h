@@ -24,5 +24,6 @@
 - (IBAction)btnDeletePod:(id)sender;
 - (IBAction)btnInfoBClicked:(id)sender;
 - (IBAction)btnFileCanWrite:(id)sender;
+- (IBAction)btnBundleClicked:(id)sender;
 
 @end
