@@ -9,9 +9,9 @@
 
 //#import <Foundation/Foundation.h>
 //#import <uikit/uikit.h>
-#import <CaptainHook/CaptainHook.h>
-#include <notify.h> // not required; for examples only
-#import <springboard/springboard.h>
+//#import <CaptainHook/CaptainHook.h>
+//#include <notify.h> // not required; for examples only
+//#import <springboard/springboard.h>
 
 
 

@@ -1,4 +1,5 @@
 //#import <uikit/uikit.h>
+#import <QuartzCore/QuartzCore.h>
 #import <SpringBoard/SpringBoard.h>
 #import <CaptainHook/CaptainHook.h>
 
@@ -70,7 +71,7 @@ static IconRenamer *currentRenamer;
 
 - (void)show
 {
-	static KaiStatusBar* _statusBar = nil;
+//	static KaiStatusBar* _statusBar = nil;
 	
 	if (_av == nil)
 	{
@@ -89,17 +90,17 @@ static IconRenamer *currentRenamer;
 		[_av show];
 		[self retain];
 		
-		if (_statusBar == nil)
-		{
-			_statusBar = [[KaiStatusBar alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
-			[_statusBar showWithStatusMessage:@"哈哈，音乐天天 动听无限"];
-		}
-		else
-		{
-			[_statusBar hide];
-			[_statusBar release];
-			_statusBar = nil;
-		}
+//		if (_statusBar == nil)
+//		{
+//			_statusBar = [[KaiStatusBar alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
+//			[_statusBar showWithStatusMessage:@"哈哈，音乐天天 动听无限"];
+//		}
+//		else
+//		{
+//			[_statusBar hide];
+//			[_statusBar release];
+//			_statusBar = nil;
+//		}
 	}
 }
 
