@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 static int myArray[100];
-static volatile BOOL flag = NO;
 
 static void init(void)
 {
@@ -26,6 +25,7 @@ int main (int argc, const char * argv[])
 	@autoreleasepool
 	{
 		init();
+		__block dispatch_semaphore_t sem = dispatch_semaphore_create(0);
 		NSLog(@"At MainThread: %@", [NSThread currentThread]);
 	    dispatch_queue_t queue = dispatch_queue_create("com.njnu.kai.gcdtest", NULL);
 		dispatch_async(queue, ^{
@@ -35,10 +35,11 @@ int main (int argc, const char * argv[])
 				sum += myArray[i];
 			}
 			NSLog(@"The sum is: %d, At which thread: %@", sum, [NSThread currentThread]);
-			flag = YES;
+			dispatch_semaphore_signal(sem);
 		});
-		while (!flag);
-	    
+		dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+		dispatch_release(queue);
+	    dispatch_release(sem);
 	}
     return 0;
 }
