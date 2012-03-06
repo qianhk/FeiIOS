@@ -6,6 +6,8 @@
 //  Copyright (c) 2012年 SDS. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
+
 #import "KaiStatusBar.h"
 
 @implementation KaiStatusBar
@@ -20,6 +22,7 @@
 		// 使窗体的框架和状态栏框架一致    
 //		self.frame = [UIApplication sharedApplication].statusBarFrame;  
 		self.frame = frame;
+		self.layer.cornerRadius = 7.5;
 		
 		// 创建一个灰色图片背景，使他视觉上还是一个标准状态栏的感觉    
 //		UIImageView* backgroundImageView = [[UIImageView alloc] initWithFrame:self.frame];    
@@ -53,6 +56,8 @@
 		{
 			referenceView = [[win subviews] objectAtIndex:0];
 		}
+		
+		
 
 	}    
 	return self;    
@@ -84,7 +89,8 @@
 	lastPoint = [[touches anyObject] locationInView:referenceView];
 //	NSLog(@"ttdesktop touchesbegan (%.2f, %.2f)", pointBeginDrag.x, pointBeginDrag.y);
 	needToFrame = self.frame;
-	self.backgroundColor = [UIColor colorWithWhite:1 alpha:0.6]; 
+	self.backgroundColor = [UIColor colorWithWhite:1 alpha:0.6];
+	[NSObject cancelPreviousPerformRequestsWithTarget:self];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
@@ -115,7 +121,14 @@
 		[NSObject cancelPreviousPerformRequestsWithTarget:self];
 		[self performSelector:@selector(setNewFrame) withObject:nil afterDelay:0];
 	}
-	self.backgroundColor = [UIColor colorWithWhite:1 alpha:0.2]; 
+	[self performSelector:@selector(recoverBackgroundColor) withObject:nil afterDelay:2.0f];
+}
+
+- (void)recoverBackgroundColor
+{
+	[UIView animateWithDuration:0.4f animations:^{
+		self.backgroundColor = [UIColor colorWithWhite:1 alpha:0.2]; 
+	}];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
