@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'GCDConsole' target in the 'GCDConsole' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+#endif
