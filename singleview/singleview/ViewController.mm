@@ -167,6 +167,12 @@ static CFMessagePortRef messagePort = NULL;
 		BOOL sucess = CFMessagePortIsValid(messagePort);
 		NSLog(@"CFMessagePortCreateRemote result: 0x%08X %d", (int)messagePort, sucess);
 	}
+	
+#if TARGET_IPHONE_SIMULATOR
+	lbltext.text = @"TARGET_IPHONE_SIMULATOR";
+#elif TARGET_OS_IPHONE
+	lbltext.text = @"TARGET_OS_IPHONE";
+#endif
 }
 
 - (void)viewDidUnload
@@ -190,14 +196,15 @@ static CFMessagePortRef messagePort = NULL;
     [super viewDidAppear:animated];
 }
 
-- (void)btn1Clicked:(id)sender
+- (IBAction)btnStatusBarClicked:(id)sender
 {
 //	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"BtnClicked" message:@"you clicked button" delegate:nil cancelButtonTitle:@"知道了" otherButtonTitles:nil];
 //	[alert show];
 //	[alert release];
 	if (_statusBar == nil)
 	{
-		_statusBar = [[KaiStatusBar alloc] initWithFrame:CGRectZero];
+		_statusBar = [[KaiStatusBar alloc] initWithFrame:CGRectMake(0, 100, 320, 60)];
+//		_statusBar.hidden = NO;
 		[_statusBar showWithStatusMessage:@"测试这，测试那……"];
 	}
 	else
@@ -368,6 +375,7 @@ static CFMessagePortRef messagePort = NULL;
 #include <stdio.h>
 #include <stdlib.h>
 
+void print_trace (void);
 void print_trace (void)
 {
 	void *array[20];
@@ -412,12 +420,14 @@ void print_trace (void)
 		NSFileManager* mana = [NSFileManager defaultManager];
 		BOOL fileCanWrite = [mana isWritableFileAtPath:filePath];
 		BOOL removeSucess = NO;
+		NSString* artist = [item valueForProperty:MPMediaItemPropertyArtist];
+		NSString* title = [item valueForProperty:MPMediaItemPropertyTitle];
 		if (haveRemove && dbCanWrite && fileCanWrite)
 		{
 			removeSucess = [library removeItems:deleteItems];
 		}
 		
-		[str2 appendFormat:@" %@ - %@ haveRemoveItems: haveRemove=%d dbCanWrite=%d fileCanWrite=%d removeResult=%d", [item valueForProperty:MPMediaItemPropertyArtist], [item valueForProperty:MPMediaItemPropertyTitle], haveRemove, dbCanWrite, fileCanWrite, removeSucess];
+		[str2 appendFormat:@" %@ - %@ haveRemoveItems: haveRemove=%d dbCanWrite=%d fileCanWrite=%d removeResult=%d", artist, title, haveRemove, dbCanWrite, fileCanWrite, removeSucess];
     }
 	lbltext.text = str2;
 }

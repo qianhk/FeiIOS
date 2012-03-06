@@ -13,6 +13,12 @@
 	@private    
 	UILabel *lblStatus;    
 	UIActivityIndicatorView *indicator;  
+	
+	CGPoint lastPoint;
+//	CGRect originalFrame;
+	CGRect needToFrame;
+	
+	UIView* referenceView;
 }
 
 

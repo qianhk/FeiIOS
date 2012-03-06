@@ -25,5 +25,6 @@
 - (IBAction)btnInfoBClicked:(id)sender;
 - (IBAction)btnFileCanWrite:(id)sender;
 - (IBAction)btnBundleClicked:(id)sender;
+- (IBAction)btnStatusBarClicked:(id)sender;
 
 @end

@@ -6,6 +6,9 @@
 //  Copyright (c) 2012年 TTPod. All rights reserved.
 //
 
+#import <sqlite3.h>
+#import <objc/runtime.h>
+#import "substrate.h"
 #import "AppDelegate.h"
 
 #import "ViewController.h"
@@ -22,6 +25,29 @@
     [super dealloc];
 }
 
+@class ML3MusicLibrary;
+
+//static IMP original_ML3MusicLibrary_openedDatabaseHandle = 
+static sqlite3 * (*original_ML3MusicLibrary_openedDatabaseHandle)(ML3MusicLibrary*, SEL);
+static sqlite3 * replaced_ML3MusicLibrary_openedDatabaseHandle(ML3MusicLibrary* self, SEL _cmd)
+{
+	NSLog(@"qhk singleView : self=%p openedDatabaseHandle gaga", self);
+	
+	object_setInstanceVariable(self, "_enableWrites", (void *)YES);
+	
+	return original_ML3MusicLibrary_openedDatabaseHandle(self, _cmd);
+}
+
+static BOOL (*original_ML3MusicLibrary_writable)(ML3MusicLibrary*, SEL);
+static BOOL replaced_ML3MusicLibrary_writable(ML3MusicLibrary* self, SEL _cmd)
+{
+	NSLog(@"qhk singleView : self=%p writable haha", self);
+	
+	object_setInstanceVariable(self, "_enableWrites", (void *)YES);
+	
+	return original_ML3MusicLibrary_writable(self, _cmd);
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
@@ -29,6 +55,17 @@
 	self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
 	self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+	
+#if TARGET_IPHONE_SIMULATOR
+
+#elif TARGET_OS_IPHONE
+	Class _ML3MusicLibrary = objc_getClass("ML3MusicLibrary");
+	MSHookMessageEx(_ML3MusicLibrary, @selector(openedDatabaseHandle), (IMP)&replaced_ML3MusicLibrary_openedDatabaseHandle, (IMP*)&original_ML3MusicLibrary_openedDatabaseHandle);
+
+	MSHookMessageEx(_ML3MusicLibrary, @selector(writable), (IMP)&replaced_ML3MusicLibrary_writable, (IMP*)&original_ML3MusicLibrary_writable);
+#endif
+
+	
     return YES;
 }
 
