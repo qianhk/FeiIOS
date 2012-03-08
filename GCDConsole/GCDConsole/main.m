@@ -13,7 +13,6 @@
 #define ELEMENT_COUNT 1024 * 1024
 
 extern long cmpxchg_64(register long cmpData, register long *loadReg, register volatile long *pMem);
-//extern long cmpxchg_64(register long cmpData, register long *loadReg, register volatile long *pMem);
 
 static int array1[ELEMENT_COUNT];
 static int array2[ELEMENT_COUNT];
@@ -46,7 +45,9 @@ static void WriteCounter(dispatch_semaphore_t sem)
 	}
 }
 
-int main (int argc, const char * argv[])
+int main1 (int argc, const char * argv[]);
+
+int main1 (int argc, const char * argv[])
 {
 
 	@autoreleasepool

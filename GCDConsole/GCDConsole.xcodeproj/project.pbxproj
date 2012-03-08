@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DCA306D41507C10900205C4E /* xchg_64.s in Sources */ = {isa = PBXBuildFile; fileRef = DCA306D31507C10900205C4E /* xchg_64.s */; };
+		DCAD13DD1508FA2E0081F8F6 /* main2.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAD13DC1508FA2E0081F8F6 /* main2.m */; };
+		DCAD13E015090A580081F8F6 /* main3.m in Sources */ = {isa = PBXBuildFile; fileRef = DCAD13DF15090A580081F8F6 /* main3.m */; };
 		DCE761C615065E550027153D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE761C515065E550027153D /* Foundation.framework */; };
 		DCE761C915065E550027153D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE761C815065E550027153D /* main.m */; };
 		DCE761CD15065E550027153D /* GCDConsole.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = DCE761CC15065E550027153D /* GCDConsole.1 */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		DCA306D31507C10900205C4E /* xchg_64.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = xchg_64.s; sourceTree = "<group>"; };
+		DCAD13DC1508FA2E0081F8F6 /* main2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main2.m; sourceTree = "<group>"; };
+		DCAD13DF15090A580081F8F6 /* main3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main3.m; sourceTree = "<group>"; };
 		DCE761C115065E550027153D /* GCDConsole */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GCDConsole; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE761C515065E550027153D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DCE761C815065E550027153D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -76,6 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				DCE761C815065E550027153D /* main.m */,
+				DCAD13DF15090A580081F8F6 /* main3.m */,
+				DCAD13DC1508FA2E0081F8F6 /* main2.m */,
 				DCA306D31507C10900205C4E /* xchg_64.s */,
 				DCE761CC15065E550027153D /* GCDConsole.1 */,
 				DCE761CA15065E550027153D /* Supporting Files */,
@@ -144,6 +150,8 @@
 			files = (
 				DCE761C915065E550027153D /* main.m in Sources */,
 				DCA306D41507C10900205C4E /* xchg_64.s in Sources */,
+				DCAD13DD1508FA2E0081F8F6 /* main2.m in Sources */,
+				DCAD13E015090A580081F8F6 /* main3.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
