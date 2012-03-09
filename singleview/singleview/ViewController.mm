@@ -16,6 +16,7 @@
 
 #import "ViewController.h"
 #import "LyricItem.h"
+#import "DesktopSettingWindow.h"
 
 
 #define KTTMessagePort "com.ttpod.ttdesktop.port2"
@@ -213,6 +214,12 @@ static CFMessagePortRef messagePort = NULL;
 		[_statusBar release];
 		_statusBar = nil;
 	}
+}
+
+- (IBAction)btnSettingWindow:(id)sender
+{
+	DesktopSettingWindow* win = [[DesktopSettingWindow alloc] initWithFrame:CGRectMake(0, 150, 320, 100)];
+	win.hidden = NO;
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -471,4 +478,7 @@ int chengtwo(int a)
 	
 	lbltext.text = [NSString stringWithFormat:@"%@ %@", biden, execPath];
 }
+
+
+
 @end

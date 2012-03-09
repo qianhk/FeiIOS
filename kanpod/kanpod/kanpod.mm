@@ -145,7 +145,26 @@ void print_trace (void)
 
 #include <substrate.h>
 @class ML3MusicLibrary; @class MPMediaLibrary; 
-static BOOL (*_logos_orig$_ungrouped$MPMediaLibrary$removeItems$)(MPMediaLibrary*, SEL, id); static BOOL _logos_method$_ungrouped$MPMediaLibrary$removeItems$(MPMediaLibrary*, SEL, id); static BOOL (*_logos_orig$_ungrouped$ML3MusicLibrary$writable)(ML3MusicLibrary*, SEL); static BOOL _logos_method$_ungrouped$ML3MusicLibrary$writable(ML3MusicLibrary*, SEL); static sqlite3 * (*_logos_meta_orig$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$)(Class, SEL, id, BOOL, id); static sqlite3 * _logos_meta_method$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$(Class, SEL, id, BOOL, id); static sqlite3 * (*_logos_orig$_ungrouped$ML3MusicLibrary$openedDatabaseHandle)(ML3MusicLibrary*, SEL); static sqlite3 * _logos_method$_ungrouped$ML3MusicLibrary$openedDatabaseHandle(ML3MusicLibrary*, SEL); static void (*_logos_meta_orig$_ungrouped$ML3MusicLibrary$setImportationEnabled$)(Class, SEL, BOOL); static void _logos_meta_method$_ungrouped$ML3MusicLibrary$setImportationEnabled$(Class, SEL, BOOL); static BOOL (*_logos_meta_orig$_ungrouped$ML3MusicLibrary$importationEnabled)(Class, SEL); static BOOL _logos_meta_method$_ungrouped$ML3MusicLibrary$importationEnabled(Class, SEL); 
+static BOOL (*_logos_orig$_ungrouped$MPMediaLibrary$removeItems$)(MPMediaLibrary*, SEL, id); 
+
+static BOOL _logos_method$_ungrouped$MPMediaLibrary$removeItems$(MPMediaLibrary*, SEL, id); 
+
+static BOOL (*_logos_orig$_ungrouped$ML3MusicLibrary$writable)(ML3MusicLibrary*, SEL); 
+
+static BOOL _logos_method$_ungrouped$ML3MusicLibrary$writable(ML3MusicLibrary*, SEL); 
+
+static sqlite3 * (*_logos_meta_orig$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$)(Class, SEL, id, BOOL, id); 
+
+static sqlite3 * _logos_meta_method$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$(Class, SEL, id, BOOL, id); 
+
+static sqlite3 * (*_logos_orig$_ungrouped$ML3MusicLibrary$openedDatabaseHandle)(ML3MusicLibrary*, SEL); 
+static sqlite3 * _logos_method$_ungrouped$ML3MusicLibrary$openedDatabaseHandle(ML3MusicLibrary*, SEL); 
+
+static void (*_logos_meta_orig$_ungrouped$ML3MusicLibrary$setImportationEnabled$)(Class, SEL, BOOL); 
+static void _logos_meta_method$_ungrouped$ML3MusicLibrary$setImportationEnabled$(Class, SEL, BOOL); 
+
+static BOOL (*_logos_meta_orig$_ungrouped$ML3MusicLibrary$importationEnabled)(Class, SEL); 
+static BOOL _logos_meta_method$_ungrouped$ML3MusicLibrary$importationEnabled(Class, SEL); 
 
 #line 145 "/OnGit/FeiIOS/kanpod/kanpod/kanpod.xm"
 
@@ -1260,7 +1279,21 @@ static __attribute__((constructor)) void _logosLocalCtor_e6d8545d()
 	NSString* execPath = [bundle executablePath];
 	NSLog(@"qhk kanpod: bundle %p %@, %@", bundle, biden, execPath);
 	
-	{{Class _logos_class$_ungrouped$MPMediaLibrary = objc_getClass("MPMediaLibrary"); MSHookMessageEx(_logos_class$_ungrouped$MPMediaLibrary, @selector(removeItems:), (IMP)&_logos_method$_ungrouped$MPMediaLibrary$removeItems$, (IMP*)&_logos_orig$_ungrouped$MPMediaLibrary$removeItems$);Class _logos_class$_ungrouped$ML3MusicLibrary = objc_getClass("ML3MusicLibrary"); Class _logos_metaclass$_ungrouped$ML3MusicLibrary = object_getClass(_logos_class$_ungrouped$ML3MusicLibrary); MSHookMessageEx(_logos_class$_ungrouped$ML3MusicLibrary, @selector(writable), (IMP)&_logos_method$_ungrouped$ML3MusicLibrary$writable, (IMP*)&_logos_orig$_ungrouped$ML3MusicLibrary$writable);MSHookMessageEx(_logos_metaclass$_ungrouped$ML3MusicLibrary, @selector(_openedDatabaseHandleForPath:enableWrites:forLibrary:), (IMP)&_logos_meta_method$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$, (IMP*)&_logos_meta_orig$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$);MSHookMessageEx(_logos_class$_ungrouped$ML3MusicLibrary, @selector(openedDatabaseHandle), (IMP)&_logos_method$_ungrouped$ML3MusicLibrary$openedDatabaseHandle, (IMP*)&_logos_orig$_ungrouped$ML3MusicLibrary$openedDatabaseHandle);MSHookMessageEx(_logos_metaclass$_ungrouped$ML3MusicLibrary, @selector(setImportationEnabled:), (IMP)&_logos_meta_method$_ungrouped$ML3MusicLibrary$setImportationEnabled$, (IMP*)&_logos_meta_orig$_ungrouped$ML3MusicLibrary$setImportationEnabled$);MSHookMessageEx(_logos_metaclass$_ungrouped$ML3MusicLibrary, @selector(importationEnabled), (IMP)&_logos_meta_method$_ungrouped$ML3MusicLibrary$importationEnabled, (IMP*)&_logos_meta_orig$_ungrouped$ML3MusicLibrary$importationEnabled);}}
+	{{
+		Class _logos_class$_ungrouped$MPMediaLibrary = objc_getClass("MPMediaLibrary"); 
+		
+		MSHookMessageEx(_logos_class$_ungrouped$MPMediaLibrary, @selector(removeItems:), (IMP)&_logos_method$_ungrouped$MPMediaLibrary$removeItems$, (IMP*)&_logos_orig$_ungrouped$MPMediaLibrary$removeItems$);Class _logos_class$_ungrouped$ML3MusicLibrary = objc_getClass("ML3MusicLibrary"); Class _logos_metaclass$_ungrouped$ML3MusicLibrary = object_getClass(_logos_class$_ungrouped$ML3MusicLibrary); 
+		MSHookMessageEx(_logos_class$_ungrouped$ML3MusicLibrary, @selector(writable), (IMP)&_logos_method$_ungrouped$ML3MusicLibrary$writable, (IMP*)&_logos_orig$_ungrouped$ML3MusicLibrary$writable);
+		
+		MSHookMessageEx(_logos_metaclass$_ungrouped$ML3MusicLibrary, @selector(_openedDatabaseHandleForPath:enableWrites:forLibrary:), (IMP)&_logos_meta_method$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$, (IMP*)&_logos_meta_orig$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$);
+		
+		
+		MSHookMessageEx(_logos_class$_ungrouped$ML3MusicLibrary, @selector(openedDatabaseHandle), (IMP)&_logos_method$_ungrouped$ML3MusicLibrary$openedDatabaseHandle, (IMP*)&_logos_orig$_ungrouped$ML3MusicLibrary$openedDatabaseHandle);
+		
+		
+		MSHookMessageEx(_logos_metaclass$_ungrouped$ML3MusicLibrary, @selector(setImportationEnabled:), (IMP)&_logos_meta_method$_ungrouped$ML3MusicLibrary$setImportationEnabled$, (IMP*)&_logos_meta_orig$_ungrouped$ML3MusicLibrary$setImportationEnabled$);
+		
+		MSHookMessageEx(_logos_metaclass$_ungrouped$ML3MusicLibrary, @selector(importationEnabled), (IMP)&_logos_meta_method$_ungrouped$ML3MusicLibrary$importationEnabled, (IMP*)&_logos_meta_orig$_ungrouped$ML3MusicLibrary$importationEnabled);}}
 
 
 
