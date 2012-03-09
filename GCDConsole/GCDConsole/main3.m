@@ -11,6 +11,7 @@
 static void CalculateSumOfArray1(int length)
 {
 	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+//	dispatch_queue_t queue = dispatch_queue_create("test", 0);
 	dispatch_group_t group = dispatch_group_create();
 	
 	__block int sum1 = 0;
@@ -23,6 +24,7 @@ static void CalculateSumOfArray1(int length)
 		for (int i = 0; i < halflen; ++i)
 		{
 			++sum1;
+			[NSThread sleepForTimeInterval:0.5f];
 		}
 	};
 	
@@ -31,6 +33,7 @@ static void CalculateSumOfArray1(int length)
 		for (int i = len / 2; i < len; ++i)
 		{
 			++sum2;
+			[NSThread sleepForTimeInterval:0.5f];
 		}
 	};
 	
@@ -57,6 +60,7 @@ static void CalculateSumOfArray2(int length)
 	NSDate* date1 = [NSDate date];
 	dispatch_apply(length, queue, ^(size_t i) {
 		++sum;
+		[NSThread sleepForTimeInterval:0.5f];
 	});
 	
 	NSDate* date2 = [NSDate date];
@@ -72,6 +76,7 @@ static void CalculateSumOfArray0(int length)
 	for (int i = 0; i < length; ++i)
 	{
 		++sum;
+		[NSThread sleepForTimeInterval:0.5f];
 	}
 	NSDate* date2 = [NSDate date];
 	NSLog(@"The sum0 is: %d. times=%.2f \n", sum, [date2 timeIntervalSinceDate:date1]);
@@ -81,7 +86,8 @@ int main(int argc, const char * argv[])
 {
 	NSAutoreleasePool* pool = [[NSAutoreleasePool alloc] init];
 	
-	const int len = 2 * 10000 * 10000;
+//	const int len = 2 * 10000 * 10000;
+	const int len = 32;
 	
 	CalculateSumOfArray0(len);
 	CalculateSumOfArray1(len);
