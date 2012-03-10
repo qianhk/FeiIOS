@@ -6,14 +6,14 @@ static BOOL showCloseButtons;
 
 #include <substrate.h>
 @class SBIconView; @class SBIconViewMap; @class SBApplicationIcon; @class SBIconModel; @class SBIconController; @class SBAppSwitcherController; 
-static void (*_logos_orig$_ungrouped$SBAppSwitcherController$applicationLaunched$)(SBAppSwitcherController*, SEL, SBApplication *); static void _logos_method$_ungrouped$SBAppSwitcherController$applicationLaunched$(SBAppSwitcherController*, SEL, SBApplication *); static void (*_logos_orig$_ungrouped$SBAppSwitcherController$applicationDied$)(SBAppSwitcherController*, SEL, SBApplication *); static void _logos_method$_ungrouped$SBAppSwitcherController$applicationDied$(SBAppSwitcherController*, SEL, SBApplication *); static void (*_logos_orig$_ungrouped$SBApplicationIcon$closeBoxTapped)(SBApplicationIcon*, SEL); static void _logos_method$_ungrouped$SBApplicationIcon$closeBoxTapped(SBApplicationIcon*, SEL); static void (*_logos_orig$_ungrouped$SBApplicationIcon$setShowsCloseBox$)(SBApplicationIcon*, SEL, BOOL); static void _logos_method$_ungrouped$SBApplicationIcon$setShowsCloseBox$(SBApplicationIcon*, SEL, BOOL); static void (*_logos_orig$_ungrouped$SBIconView$closeBoxTapped)(SBIconView*, SEL); static void _logos_method$_ungrouped$SBIconView$closeBoxTapped(SBIconView*, SEL); static void (*_logos_orig$_ungrouped$SBIconView$setShowsCloseBox$animated$)(SBIconView*, SEL, BOOL, BOOL); static void _logos_method$_ungrouped$SBIconView$setShowsCloseBox$animated$(SBIconView*, SEL, BOOL, BOOL); static void (*_logos_orig$_ungrouped$SBIconViewMap$_addIconView$forIcon$)(SBIconViewMap*, SEL, SBIconView *, SBIcon *); static void _logos_method$_ungrouped$SBIconViewMap$_addIconView$forIcon$(SBIconViewMap*, SEL, SBIconView *, SBIcon *); 
+static void (*_logos_orig$_ungrouped$SBAppSwitcherController$applicationLaunched$)(SBAppSwitcherController*, SEL, SBApplication *); static void _logos_method$_ungrouped$SBAppSwitcherController$applicationLaunched$(SBAppSwitcherController*, SEL, SBApplication *); static void (*_logos_orig$_ungrouped$SBAppSwitcherController$applicationDied$)(SBAppSwitcherController*, SEL, SBApplication *); static void _logos_method$_ungrouped$SBAppSwitcherController$applicationDied$(SBAppSwitcherController*, SEL, SBApplication *); static void (*_logos_orig$_ungrouped$SBAppSwitcherController$viewWillAppear)(SBAppSwitcherController*, SEL); static void _logos_method$_ungrouped$SBAppSwitcherController$viewWillAppear(SBAppSwitcherController*, SEL); static void (*_logos_orig$_ungrouped$SBAppSwitcherController$viewDidAppear)(SBAppSwitcherController*, SEL); static void _logos_method$_ungrouped$SBAppSwitcherController$viewDidAppear(SBAppSwitcherController*, SEL); static void (*_logos_orig$_ungrouped$SBAppSwitcherController$viewWillDisappear)(SBAppSwitcherController*, SEL); static void _logos_method$_ungrouped$SBAppSwitcherController$viewWillDisappear(SBAppSwitcherController*, SEL); static void (*_logos_orig$_ungrouped$SBApplicationIcon$closeBoxTapped)(SBApplicationIcon*, SEL); static void _logos_method$_ungrouped$SBApplicationIcon$closeBoxTapped(SBApplicationIcon*, SEL); static void (*_logos_orig$_ungrouped$SBApplicationIcon$setShowsCloseBox$)(SBApplicationIcon*, SEL, BOOL); static void _logos_method$_ungrouped$SBApplicationIcon$setShowsCloseBox$(SBApplicationIcon*, SEL, BOOL); static void (*_logos_orig$_ungrouped$SBIconView$closeBoxTapped)(SBIconView*, SEL); static void _logos_method$_ungrouped$SBIconView$closeBoxTapped(SBIconView*, SEL); static void (*_logos_orig$_ungrouped$SBIconView$setShowsCloseBox$animated$)(SBIconView*, SEL, BOOL, BOOL); static void _logos_method$_ungrouped$SBIconView$setShowsCloseBox$animated$(SBIconView*, SEL, BOOL, BOOL); static void (*_logos_orig$_ungrouped$SBIconViewMap$_addIconView$forIcon$)(SBIconViewMap*, SEL, SBIconView *, SBIcon *); static void _logos_method$_ungrouped$SBIconViewMap$_addIconView$forIcon$(SBIconViewMap*, SEL, SBIconView *, SBIcon *); 
 static Class _logos_static_class$SBIconViewMap; static Class _logos_static_class$SBIconModel; static Class _logos_static_class$SBIconController; 
 #line 6 "/OnGitHub/FeiIOS/RunningIndicator/RunningIndicator/RunningIndicator.xm"
 
 
 
 static void _logos_method$_ungrouped$SBAppSwitcherController$applicationLaunched$(SBAppSwitcherController* self, SEL _cmd, SBApplication * application) {
-	NSLog(@"qhk runningIndicator: applicationLaunched %@", application);
+	NSLog(@"qhk runningIndicator: applicationLaunched self=%p %@", self, application);
 	SBIconModel *iconModel = [_logos_static_class$SBIconModel sharedInstance];
 	SBIcon *icon = [iconModel applicationIconForDisplayIdentifier:[application displayIdentifier]];
 	if (icon)
@@ -39,7 +39,7 @@ static void _logos_method$_ungrouped$SBAppSwitcherController$applicationLaunched
 
 
 static void _logos_method$_ungrouped$SBAppSwitcherController$applicationDied$(SBAppSwitcherController* self, SEL _cmd, SBApplication * application) {
-	NSLog(@"qhk runningIndicator: applicationDied %@", application);
+	NSLog(@"qhk runningIndicator: applicationDied self=%p %@", self, application);
 	SBIconModel *iconModel = [_logos_static_class$SBIconModel sharedInstance];
 	SBIcon *icon = [iconModel applicationIconForDisplayIdentifier:[application displayIdentifier]];
 	if (icon)
@@ -56,6 +56,21 @@ static void _logos_method$_ungrouped$SBAppSwitcherController$applicationDied$(SB
 		}
 	}
 	_logos_orig$_ungrouped$SBAppSwitcherController$applicationDied$(self, _cmd, application);
+}
+
+
+static void _logos_method$_ungrouped$SBAppSwitcherController$viewWillAppear(SBAppSwitcherController* self, SEL _cmd) {
+	NSLog(@"qhk runningIndicator: viewWillAppear self=%p", self);
+}
+
+
+static void _logos_method$_ungrouped$SBAppSwitcherController$viewDidAppear(SBAppSwitcherController* self, SEL _cmd) {
+	NSLog(@"qhk runningIndicator: viewDidAppear self=%p", self);
+}
+
+
+static void _logos_method$_ungrouped$SBAppSwitcherController$viewWillDisappear(SBAppSwitcherController* self, SEL _cmd) {
+	NSLog(@"qhk runningIndicator: viewWillDisappear self=%p", self);
 }
 
 
@@ -153,10 +168,10 @@ static void SettingsChanged(CFNotificationCenterRef center, void *observer, CFSt
 	}
 }
 
-static __attribute__((constructor)) void _logosLocalCtor_f2217062()
+static __attribute__((constructor)) void _logosLocalCtor_fa7cdfad()
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	{{Class _logos_class$_ungrouped$SBAppSwitcherController = objc_getClass("SBAppSwitcherController"); MSHookMessageEx(_logos_class$_ungrouped$SBAppSwitcherController, @selector(applicationLaunched:), (IMP)&_logos_method$_ungrouped$SBAppSwitcherController$applicationLaunched$, (IMP*)&_logos_orig$_ungrouped$SBAppSwitcherController$applicationLaunched$);MSHookMessageEx(_logos_class$_ungrouped$SBAppSwitcherController, @selector(applicationDied:), (IMP)&_logos_method$_ungrouped$SBAppSwitcherController$applicationDied$, (IMP*)&_logos_orig$_ungrouped$SBAppSwitcherController$applicationDied$);Class _logos_class$_ungrouped$SBApplicationIcon = objc_getClass("SBApplicationIcon"); MSHookMessageEx(_logos_class$_ungrouped$SBApplicationIcon, @selector(closeBoxTapped), (IMP)&_logos_method$_ungrouped$SBApplicationIcon$closeBoxTapped, (IMP*)&_logos_orig$_ungrouped$SBApplicationIcon$closeBoxTapped);MSHookMessageEx(_logos_class$_ungrouped$SBApplicationIcon, @selector(setShowsCloseBox:), (IMP)&_logos_method$_ungrouped$SBApplicationIcon$setShowsCloseBox$, (IMP*)&_logos_orig$_ungrouped$SBApplicationIcon$setShowsCloseBox$);Class _logos_class$_ungrouped$SBIconView = objc_getClass("SBIconView"); MSHookMessageEx(_logos_class$_ungrouped$SBIconView, @selector(closeBoxTapped), (IMP)&_logos_method$_ungrouped$SBIconView$closeBoxTapped, (IMP*)&_logos_orig$_ungrouped$SBIconView$closeBoxTapped);MSHookMessageEx(_logos_class$_ungrouped$SBIconView, @selector(setShowsCloseBox:animated:), (IMP)&_logos_method$_ungrouped$SBIconView$setShowsCloseBox$animated$, (IMP*)&_logos_orig$_ungrouped$SBIconView$setShowsCloseBox$animated$);Class _logos_class$_ungrouped$SBIconViewMap = objc_getClass("SBIconViewMap"); MSHookMessageEx(_logos_class$_ungrouped$SBIconViewMap, @selector(_addIconView:forIcon:), (IMP)&_logos_method$_ungrouped$SBIconViewMap$_addIconView$forIcon$, (IMP*)&_logos_orig$_ungrouped$SBIconViewMap$_addIconView$forIcon$);}{_logos_static_class$SBIconViewMap = objc_getClass("SBIconViewMap"); _logos_static_class$SBIconModel = objc_getClass("SBIconModel"); _logos_static_class$SBIconController = objc_getClass("SBIconController"); }}
+	{{Class _logos_class$_ungrouped$SBAppSwitcherController = objc_getClass("SBAppSwitcherController"); MSHookMessageEx(_logos_class$_ungrouped$SBAppSwitcherController, @selector(applicationLaunched:), (IMP)&_logos_method$_ungrouped$SBAppSwitcherController$applicationLaunched$, (IMP*)&_logos_orig$_ungrouped$SBAppSwitcherController$applicationLaunched$);MSHookMessageEx(_logos_class$_ungrouped$SBAppSwitcherController, @selector(applicationDied:), (IMP)&_logos_method$_ungrouped$SBAppSwitcherController$applicationDied$, (IMP*)&_logos_orig$_ungrouped$SBAppSwitcherController$applicationDied$);MSHookMessageEx(_logos_class$_ungrouped$SBAppSwitcherController, @selector(viewWillAppear), (IMP)&_logos_method$_ungrouped$SBAppSwitcherController$viewWillAppear, (IMP*)&_logos_orig$_ungrouped$SBAppSwitcherController$viewWillAppear);MSHookMessageEx(_logos_class$_ungrouped$SBAppSwitcherController, @selector(viewDidAppear), (IMP)&_logos_method$_ungrouped$SBAppSwitcherController$viewDidAppear, (IMP*)&_logos_orig$_ungrouped$SBAppSwitcherController$viewDidAppear);MSHookMessageEx(_logos_class$_ungrouped$SBAppSwitcherController, @selector(viewWillDisappear), (IMP)&_logos_method$_ungrouped$SBAppSwitcherController$viewWillDisappear, (IMP*)&_logos_orig$_ungrouped$SBAppSwitcherController$viewWillDisappear);Class _logos_class$_ungrouped$SBApplicationIcon = objc_getClass("SBApplicationIcon"); MSHookMessageEx(_logos_class$_ungrouped$SBApplicationIcon, @selector(closeBoxTapped), (IMP)&_logos_method$_ungrouped$SBApplicationIcon$closeBoxTapped, (IMP*)&_logos_orig$_ungrouped$SBApplicationIcon$closeBoxTapped);MSHookMessageEx(_logos_class$_ungrouped$SBApplicationIcon, @selector(setShowsCloseBox:), (IMP)&_logos_method$_ungrouped$SBApplicationIcon$setShowsCloseBox$, (IMP*)&_logos_orig$_ungrouped$SBApplicationIcon$setShowsCloseBox$);Class _logos_class$_ungrouped$SBIconView = objc_getClass("SBIconView"); MSHookMessageEx(_logos_class$_ungrouped$SBIconView, @selector(closeBoxTapped), (IMP)&_logos_method$_ungrouped$SBIconView$closeBoxTapped, (IMP*)&_logos_orig$_ungrouped$SBIconView$closeBoxTapped);MSHookMessageEx(_logos_class$_ungrouped$SBIconView, @selector(setShowsCloseBox:animated:), (IMP)&_logos_method$_ungrouped$SBIconView$setShowsCloseBox$animated$, (IMP*)&_logos_orig$_ungrouped$SBIconView$setShowsCloseBox$animated$);Class _logos_class$_ungrouped$SBIconViewMap = objc_getClass("SBIconViewMap"); MSHookMessageEx(_logos_class$_ungrouped$SBIconViewMap, @selector(_addIconView:forIcon:), (IMP)&_logos_method$_ungrouped$SBIconViewMap$_addIconView$forIcon$, (IMP*)&_logos_orig$_ungrouped$SBIconViewMap$_addIconView$forIcon$);}{_logos_static_class$SBIconViewMap = objc_getClass("SBIconViewMap"); _logos_static_class$SBIconModel = objc_getClass("SBIconModel"); _logos_static_class$SBIconController = objc_getClass("SBIconController"); }}
 	LoadSettings();
 	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, SettingsChanged, CFSTR("cn.njnu.kai.runningindicator/settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 	runningIcons = [[NSMutableSet alloc] init];

@@ -7,7 +7,7 @@ static BOOL showCloseButtons;
 
 - (void)applicationLaunched:(SBApplication *)application
 {
-	NSLog(@"qhk runningIndicator: applicationLaunched %@", application);
+	NSLog(@"qhk runningIndicator: applicationLaunched self=%p %@", self, application);
 	SBIconModel *iconModel = [%c(SBIconModel) sharedInstance];
 	SBIcon *icon = [iconModel applicationIconForDisplayIdentifier:[application displayIdentifier]];
 	if (icon)
@@ -33,7 +33,7 @@ static BOOL showCloseButtons;
 
 - (void)applicationDied:(SBApplication *)application
 {
-	NSLog(@"qhk runningIndicator: applicationDied %@", application);
+	NSLog(@"qhk runningIndicator: applicationDied self=%p %@", self, application);
 	SBIconModel *iconModel = [%c(SBIconModel) sharedInstance];
 	SBIcon *icon = [iconModel applicationIconForDisplayIdentifier:[application displayIdentifier]];
 	if (icon)
@@ -49,6 +49,48 @@ static BOOL showCloseButtons;
 			[UIView commitAnimations];
 		}
 	}
+	%orig;
+}
+
+- (void)viewWillAppear
+{
+	NSLog(@"qhk runningIndicator: viewWillAppear self=%p", self);
+	%orig;
+}
+
+- (void)viewDidAppear
+{
+	NSLog(@"qhk runningIndicator: viewDidAppear self=%p", self);
+	%orig;
+}
+
+- (void)viewWillDisappear
+{
+	NSLog(@"qhk runningIndicator: viewWillDisappear self=%p", self);
+	%orig;
+}
+
+- (void)appSwitcherBarRemovedFromSuperview:(id)superview
+{
+	NSLog(@"qhk runningIndicator: appSwitcherBarRemovedFromSuperview self=%p %@", self, superview);
+	%orig;
+}
+
+- (BOOL)appSwitcherBar:(id)bar scrollShouldCancelInContentForView:(id)scroll
+{
+	NSLog(@"qhk runningIndicator: scrollShouldCancelInContentForView self=%p %@ %@", self, bar, scroll);
+	return %orig;;
+}
+
+- (void)appSwitcherBar:(id)bar pageAtIndexDidAppear:(int)pageAtIndex
+{
+	NSLog(@"qhk runningIndicator: pageAtIndexDidAppear self=%p %@ %d", self, bar, pageAtIndex);
+	%orig;
+}
+
+- (void)appSwitcherBar:(id)bar pageAtIndexDidDisappear:(int)pageAtIndex
+{
+	NSLog(@"qhk runningIndicator: pageAtIndexDidDisappear self=%p %@ %d", self, bar, pageAtIndex);
 	%orig;
 }
 
