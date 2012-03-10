@@ -1,0 +1,396 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC156E0C150B84970001501F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156E0B150B84970001501F /* Foundation.framework */; };
+		DC156E0E150B84970001501F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156E0D150B84970001501F /* UIKit.framework */; };
+		DC156E10150B84970001501F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156E0F150B84970001501F /* CoreGraphics.framework */; };
+		DC156E12150B84970001501F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156E11150B84970001501F /* QuartzCore.framework */; };
+		DC156E1D150B84970001501F /* MathAlarm.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC156E1C150B84970001501F /* MathAlarm.mm */; };
+		DC156E47150BA1B80001501F /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156E46150BA1B80001501F /* libsubstrate.dylib */; };
+		DC156E53150BA26B0001501F /* SBRemoteLocalNotificationAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = DC156E52150BA26B0001501F /* SBRemoteLocalNotificationAlert.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DC156E08150B84970001501F /* MathAlarm.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MathAlarm.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC156E0B150B84970001501F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DC156E0D150B84970001501F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DC156E0F150B84970001501F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DC156E11150B84970001501F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DC156E16150B84970001501F /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		DC156E18150B84970001501F /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		DC156E19150B84970001501F /* copykill */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = copykill; sourceTree = "<group>"; };
+		DC156E1A150B84970001501F /* MathAlarm-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MathAlarm-Prefix.pch"; sourceTree = "<group>"; };
+		DC156E1B150B84970001501F /* MathAlarm.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MathAlarm.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		DC156E1C150B84970001501F /* MathAlarm.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MathAlarm.mm; sourceTree = "<group>"; };
+		DC156E21150B84970001501F /* MathAlarm.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MathAlarm.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/MathAlarm.plist; sourceTree = "<group>"; };
+		DC156E46150BA1B80001501F /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
+		DC156E52150BA26B0001501F /* SBRemoteLocalNotificationAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBRemoteLocalNotificationAlert.h; sourceTree = "<group>"; };
+		DC156E57150BA7A40001501F /* MathAlarm.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MathAlarm.plist; sourceTree = "<group>"; };
+		DC156E58150BA7A40001501F /* MathAlarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MathAlarm.png; sourceTree = "<group>"; };
+		DC156E59150BA7A40001501F /* MathAlarm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MathAlarm@2x.png"; sourceTree = "<group>"; };
+		DC156E5A150BA98B0001501F /* postinst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = postinst; path = Package/DEBIAN/postinst; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC156E04150B84970001501F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC156E0C150B84970001501F /* Foundation.framework in Frameworks */,
+				DC156E0E150B84970001501F /* UIKit.framework in Frameworks */,
+				DC156E47150BA1B80001501F /* libsubstrate.dylib in Frameworks */,
+				DC156E10150B84970001501F /* CoreGraphics.framework in Frameworks */,
+				DC156E12150B84970001501F /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC156DFB150B84970001501F = {
+			isa = PBXGroup;
+			children = (
+				DC156E13150B84970001501F /* MathAlarm */,
+				DC156E0A150B84970001501F /* Frameworks */,
+				DC156E09150B84970001501F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC156E09150B84970001501F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E08150B84970001501F /* MathAlarm.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC156E0A150B84970001501F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E46150BA1B80001501F /* libsubstrate.dylib */,
+				DC156E0B150B84970001501F /* Foundation.framework */,
+				DC156E0D150B84970001501F /* UIKit.framework */,
+				DC156E0F150B84970001501F /* CoreGraphics.framework */,
+				DC156E11150B84970001501F /* QuartzCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC156E13150B84970001501F /* MathAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E52150BA26B0001501F /* SBRemoteLocalNotificationAlert.h */,
+				DC156E1B150B84970001501F /* MathAlarm.xm */,
+				DC156E1C150B84970001501F /* MathAlarm.mm */,
+				DC156E14150B84970001501F /* Package */,
+				DC156E17150B84970001501F /* Supporting Files */,
+			);
+			path = MathAlarm;
+			sourceTree = "<group>";
+		};
+		DC156E14150B84970001501F /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E15150B84970001501F /* DEBIAN */,
+				DC156E1E150B84970001501F /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		DC156E15150B84970001501F /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E16150B84970001501F /* control */,
+				DC156E5A150BA98B0001501F /* postinst */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		DC156E17150B84970001501F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E18150B84970001501F /* PackageVersion.plist */,
+				DC156E19150B84970001501F /* copykill */,
+				DC156E1A150B84970001501F /* MathAlarm-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC156E1E150B84970001501F /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E54150BA7A40001501F /* PreferenceLoader */,
+				DC156E1F150B84970001501F /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		DC156E1F150B84970001501F /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E20150B84970001501F /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		DC156E20150B84970001501F /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E21150B84970001501F /* MathAlarm.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+		DC156E54150BA7A40001501F /* PreferenceLoader */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E55150BA7A40001501F /* Preferences */,
+			);
+			name = PreferenceLoader;
+			path = Package/Library/PreferenceLoader;
+			sourceTree = "<group>";
+		};
+		DC156E55150BA7A40001501F /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E56150BA7A40001501F /* MathAlarm */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		DC156E56150BA7A40001501F /* MathAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E57150BA7A40001501F /* MathAlarm.plist */,
+				DC156E58150BA7A40001501F /* MathAlarm.png */,
+				DC156E59150BA7A40001501F /* MathAlarm@2x.png */,
+			);
+			path = MathAlarm;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DC156E05150B84970001501F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC156E53150BA26B0001501F /* SBRemoteLocalNotificationAlert.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		DC156E07150B84970001501F /* MathAlarm */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC156E24150B84970001501F /* Build configuration list for PBXNativeTarget "MathAlarm" */;
+			buildPhases = (
+				DC156E02150B84970001501F /* ShellScript */,
+				DC156E03150B84970001501F /* Sources */,
+				DC156E04150B84970001501F /* Frameworks */,
+				DC156E05150B84970001501F /* Headers */,
+				DC156E06150B84970001501F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MathAlarm;
+			productName = MathAlarm;
+			productReference = DC156E08150B84970001501F /* MathAlarm.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC156DFD150B84970001501F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = SDS;
+			};
+			buildConfigurationList = DC156E00150B84970001501F /* Build configuration list for PBXProject "MathAlarm" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DC156DFB150B84970001501F;
+			productRefGroup = DC156E09150B84970001501F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC156E07150B84970001501F /* MathAlarm */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DC156E02150B84970001501F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+		};
+		DC156E06150B84970001501F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC156E03150B84970001501F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC156E1D150B84970001501F /* MathAlarm.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DC156E22150B84970001501F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		DC156E23150B84970001501F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		DC156E25150B84970001501F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MathAlarm/MathAlarm-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		DC156E26150B84970001501F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MathAlarm/MathAlarm-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC156E00150B84970001501F /* Build configuration list for PBXProject "MathAlarm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC156E22150B84970001501F /* Release */,
+				DC156E23150B84970001501F /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC156E24150B84970001501F /* Build configuration list for PBXNativeTarget "MathAlarm" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC156E25150B84970001501F /* Release */,
+				DC156E26150B84970001501F /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC156DFD150B84970001501F /* Project object */;
+}
