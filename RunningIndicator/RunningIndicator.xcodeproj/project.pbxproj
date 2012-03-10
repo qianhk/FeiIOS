@@ -1,0 +1,409 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC156DDF150B83810001501F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156DDE150B83810001501F /* Foundation.framework */; };
+		DC156DE1150B83810001501F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156DE0150B83810001501F /* UIKit.framework */; };
+		DC156DE3150B83810001501F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156DE2150B83810001501F /* CoreGraphics.framework */; };
+		DC156DE5150B83810001501F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156DE4150B83810001501F /* QuartzCore.framework */; };
+		DC156DF1150B83810001501F /* RunningIndicator.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC156DF0150B83810001501F /* RunningIndicator.mm */; };
+		DC156E2E150B88620001501F /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156E2D150B88620001501F /* libsubstrate.dylib */; };
+		DC156E3F150B89C20001501F /* RunningIndicator.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156E36150B89C20001501F /* RunningIndicator.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DC156DDB150B83810001501F /* RunningIndicator.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = RunningIndicator.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC156DDE150B83810001501F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DC156DE0150B83810001501F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DC156DE2150B83810001501F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DC156DE4150B83810001501F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DC156DEC150B83810001501F /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		DC156DED150B83810001501F /* copykill */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = copykill; sourceTree = "<group>"; };
+		DC156DEE150B83810001501F /* RunningIndicator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RunningIndicator-Prefix.pch"; sourceTree = "<group>"; };
+		DC156DEF150B83810001501F /* RunningIndicator.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RunningIndicator.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		DC156DF0150B83810001501F /* RunningIndicator.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RunningIndicator.mm; sourceTree = "<group>"; };
+		DC156E2D150B88620001501F /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
+		DC156E32150B89C20001501F /* control */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = control; sourceTree = "<group>"; };
+		DC156E36150B89C20001501F /* RunningIndicator.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = RunningIndicator.dylib; sourceTree = "<group>"; };
+		DC156E37150B89C20001501F /* RunningIndicator.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RunningIndicator.plist; sourceTree = "<group>"; };
+		DC156E3A150B89C20001501F /* RunningIndicator.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RunningIndicator.plist; sourceTree = "<group>"; };
+		DC156E3E150B89C20001501F /* SpringBoard.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = SpringBoard.app; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC156DD7150B83810001501F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC156DDF150B83810001501F /* Foundation.framework in Frameworks */,
+				DC156E2E150B88620001501F /* libsubstrate.dylib in Frameworks */,
+				DC156DE1150B83810001501F /* UIKit.framework in Frameworks */,
+				DC156DE3150B83810001501F /* CoreGraphics.framework in Frameworks */,
+				DC156DE5150B83810001501F /* QuartzCore.framework in Frameworks */,
+				DC156E3F150B89C20001501F /* RunningIndicator.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC156DCE150B83810001501F = {
+			isa = PBXGroup;
+			children = (
+				DC156DE6150B83810001501F /* RunningIndicator */,
+				DC156DDD150B83810001501F /* Frameworks */,
+				DC156DDC150B83810001501F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC156DDC150B83810001501F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC156DDB150B83810001501F /* RunningIndicator.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC156DDD150B83810001501F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E2D150B88620001501F /* libsubstrate.dylib */,
+				DC156DDE150B83810001501F /* Foundation.framework */,
+				DC156DE0150B83810001501F /* UIKit.framework */,
+				DC156DE2150B83810001501F /* CoreGraphics.framework */,
+				DC156DE4150B83810001501F /* QuartzCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC156DE6150B83810001501F /* RunningIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E30150B89C20001501F /* Package */,
+				DC156DEF150B83810001501F /* RunningIndicator.xm */,
+				DC156DF0150B83810001501F /* RunningIndicator.mm */,
+				DC156DEB150B83810001501F /* Supporting Files */,
+			);
+			path = RunningIndicator;
+			sourceTree = "<group>";
+		};
+		DC156DEB150B83810001501F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC156DEC150B83810001501F /* PackageVersion.plist */,
+				DC156DED150B83810001501F /* copykill */,
+				DC156DEE150B83810001501F /* RunningIndicator-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC156E30150B89C20001501F /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E31150B89C20001501F /* DEBIAN */,
+				DC156E33150B89C20001501F /* Library */,
+				DC156E3B150B89C20001501F /* System */,
+			);
+			path = Package;
+			sourceTree = "<group>";
+		};
+		DC156E31150B89C20001501F /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E32150B89C20001501F /* control */,
+			);
+			path = DEBIAN;
+			sourceTree = "<group>";
+		};
+		DC156E33150B89C20001501F /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E34150B89C20001501F /* MobileSubstrate */,
+				DC156E38150B89C20001501F /* PreferenceLoader */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		DC156E34150B89C20001501F /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E35150B89C20001501F /* DynamicLibraries */,
+			);
+			path = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		DC156E35150B89C20001501F /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E36150B89C20001501F /* RunningIndicator.dylib */,
+				DC156E37150B89C20001501F /* RunningIndicator.plist */,
+			);
+			path = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+		DC156E38150B89C20001501F /* PreferenceLoader */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E39150B89C20001501F /* Preferences */,
+			);
+			path = PreferenceLoader;
+			sourceTree = "<group>";
+		};
+		DC156E39150B89C20001501F /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E3A150B89C20001501F /* RunningIndicator.plist */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
+		DC156E3B150B89C20001501F /* System */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E3C150B89C20001501F /* Library */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		DC156E3C150B89C20001501F /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E3D150B89C20001501F /* CoreServices */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		DC156E3D150B89C20001501F /* CoreServices */ = {
+			isa = PBXGroup;
+			children = (
+				DC156E3E150B89C20001501F /* SpringBoard.app */,
+			);
+			path = CoreServices;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DC156DD8150B83810001501F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		DC156DDA150B83810001501F /* RunningIndicator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC156DF8150B83810001501F /* Build configuration list for PBXNativeTarget "RunningIndicator" */;
+			buildPhases = (
+				DC156DD5150B83810001501F /* ShellScript */,
+				DC156DD6150B83810001501F /* Sources */,
+				DC156DD7150B83810001501F /* Frameworks */,
+				DC156DD8150B83810001501F /* Headers */,
+				DC156DD9150B83810001501F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RunningIndicator;
+			productName = RunningIndicator;
+			productReference = DC156DDB150B83810001501F /* RunningIndicator.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC156DD0150B83810001501F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = SDS;
+			};
+			buildConfigurationList = DC156DD3150B83810001501F /* Build configuration list for PBXProject "RunningIndicator" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DC156DCE150B83810001501F;
+			productRefGroup = DC156DDC150B83810001501F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC156DDA150B83810001501F /* RunningIndicator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DC156DD5150B83810001501F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+		};
+		DC156DD9150B83810001501F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC156DD6150B83810001501F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC156DF1150B83810001501F /* RunningIndicator.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DC156DF6150B83810001501F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		DC156DF7150B83810001501F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		DC156DF9150B83810001501F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RunningIndicator/RunningIndicator-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+					"\"$(SRCROOT)/RunningIndicator/Package/Library/MobileSubstrate/DynamicLibraries\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		DC156DFA150B83810001501F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RunningIndicator/RunningIndicator-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+					"\"$(SRCROOT)/RunningIndicator/Package/Library/MobileSubstrate/DynamicLibraries\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC156DD3150B83810001501F /* Build configuration list for PBXProject "RunningIndicator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC156DF6150B83810001501F /* Release */,
+				DC156DF7150B83810001501F /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC156DF8150B83810001501F /* Build configuration list for PBXNativeTarget "RunningIndicator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC156DF9150B83810001501F /* Release */,
+				DC156DFA150B83810001501F /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC156DD0150B83810001501F /* Project object */;
+}
