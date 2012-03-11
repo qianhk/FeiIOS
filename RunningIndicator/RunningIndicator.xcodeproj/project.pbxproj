@@ -23,7 +23,6 @@
 		DC156DE2150B83810001501F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DC156DE4150B83810001501F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DC156DEC150B83810001501F /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
-		DC156DED150B83810001501F /* copykill */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = copykill; sourceTree = "<group>"; };
 		DC156DEE150B83810001501F /* RunningIndicator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RunningIndicator-Prefix.pch"; sourceTree = "<group>"; };
 		DC156DEF150B83810001501F /* RunningIndicator.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RunningIndicator.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		DC156DF0150B83810001501F /* RunningIndicator.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = RunningIndicator.mm; sourceTree = "<group>"; };
@@ -35,6 +34,7 @@
 		DC156E3E150B89C20001501F /* SpringBoard.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = SpringBoard.app; sourceTree = "<group>"; };
 		DC19C9F7150C879700B6204B /* RunningIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RunningIndicator.png; sourceTree = "<group>"; };
 		DC19C9F8150C879700B6204B /* RunningIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RunningIndicator@2x.png"; sourceTree = "<group>"; };
+		DC19CA01150CA06200B6204B /* installdeb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = installdeb; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +97,8 @@
 		DC156DEB150B83810001501F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DC19CA01150CA06200B6204B /* installdeb */,
 				DC156DEC150B83810001501F /* PackageVersion.plist */,
-				DC156DED150B83810001501F /* copykill */,
 				DC156DEE150B83810001501F /* RunningIndicator-Prefix.pch */,
 			);
 			name = "Supporting Files";

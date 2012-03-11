@@ -7,7 +7,7 @@ static BOOL showCloseButtons;
 
 - (void)applicationLaunched:(SBApplication *)application
 {
-	NSLog(@"qhk runningIndicator: applicationLaunched self=%p %@", self, application);
+	NSLog(@"qhk runningIndicator: applicationLaunched self=%p bundleIdentifier:%@", self, application.bundleIdentifier);
 	SBIconModel *iconModel = [%c(SBIconModel) sharedInstance];
 	SBIcon *icon = [iconModel applicationIconForDisplayIdentifier:[application displayIdentifier]];
 	if (icon)
@@ -52,55 +52,55 @@ static BOOL showCloseButtons;
 	%orig;
 }
 
-- (void)viewWillAppear
-{
-	NSLog(@"qhk runningIndicator: viewWillAppear self=%p", self);
-	%orig;
-}
-
-- (void)viewDidAppear
-{
-	NSLog(@"qhk runningIndicator: viewDidAppear self=%p", self);
-	%orig;
-}
-
-- (void)viewWillDisappear
-{
-	NSLog(@"qhk runningIndicator: viewWillDisappear self=%p", self);
-	%orig;
-}
-
-- (void)appSwitcherBarRemovedFromSuperview:(id)superview
-{
-	NSLog(@"qhk runningIndicator: appSwitcherBarRemovedFromSuperview self=%p %@", self, superview);
-	%orig;
-}
-
-- (BOOL)appSwitcherBar:(id)bar scrollShouldCancelInContentForView:(id)scroll
-{
-	NSLog(@"qhk runningIndicator: scrollShouldCancelInContentForView self=%p %@ %@", self, bar, scroll);
-	return %orig;;
-}
-
-- (void)appSwitcherBar:(id)bar pageAtIndexDidAppear:(int)pageAtIndex
-{
-	NSLog(@"qhk runningIndicator: pageAtIndexDidAppear self=%p %@ %d", self, bar, pageAtIndex);
-	%orig;
-}
-
-- (void)appSwitcherBar:(id)bar pageAtIndexDidDisappear:(int)pageAtIndex
-{
-	NSLog(@"qhk runningIndicator: pageAtIndexDidDisappear self=%p %@ %d", self, bar, pageAtIndex);
-	%orig;
-}
+//- (void)viewWillAppear
+//{
+////	NSLog(@"qhk runningIndicator: viewWillAppear self=%p", self);
+//	%orig;
+//}
+//
+//- (void)viewDidAppear
+//{
+////	NSLog(@"qhk runningIndicator: viewDidAppear self=%p", self);
+//	%orig;
+//}
+//
+//- (void)viewWillDisappear
+//{
+////	NSLog(@"qhk runningIndicator: viewWillDisappear self=%p", self);
+//	%orig;
+//}
+//
+//- (void)appSwitcherBarRemovedFromSuperview:(id)superview
+//{
+////	NSLog(@"qhk runningIndicator: appSwitcherBarRemovedFromSuperview self=%p %@", self, superview);
+//	%orig;
+//}
+//
+//- (BOOL)appSwitcherBar:(id)bar scrollShouldCancelInContentForView:(id)scroll
+//{
+//	NSLog(@"qhk runningIndicator: scrollShouldCancelInContentForView self=%p %@ %@", self, bar, scroll);
+//	return %orig;;
+//}
+//
+//- (void)appSwitcherBar:(id)bar pageAtIndexDidAppear:(int)pageAtIndex
+//{
+//	NSLog(@"qhk runningIndicator: pageAtIndexDidAppear self=%p %@ %d", self, bar, pageAtIndex);
+//	%orig;
+//}
+//
+//- (void)appSwitcherBar:(id)bar pageAtIndexDidDisappear:(int)pageAtIndex
+//{
+//	NSLog(@"qhk runningIndicator: pageAtIndexDidDisappear self=%p %@ %d", self, bar, pageAtIndex);
+//	%orig;
+//}
 
 %end
 
-%hook SBApplicationIcon
+%hook SBApplicationIcon //未见使用这个，一般都是SBIconView
 
 - (void)closeBoxTapped
 {
-	NSLog(@"qhk runningIndicator: SBApplicationIcon closeBoxTapped");
+//	NSLog(@"qhk runningIndicator: SBApplicationIcon closeBoxTapped");
 	if (showCloseButtons && [runningIcons containsObject:self])
 	{
 		SBIconController *iconController = [%c(SBIconController) sharedInstance];
@@ -115,17 +115,17 @@ static BOOL showCloseButtons;
 
 - (void)setShowsCloseBox:(BOOL)newValue
 {
-	NSLog(@"qhk runningIndicator: SBApplicationIcon setShowsCloseBox:%d", newValue);
+//	NSLog(@"qhk runningIndicator: SBApplicationIcon setShowsCloseBox:%d", newValue);
 	%orig(newValue || ([runningIcons containsObject:self] && showCloseButtons));
 }
 
 %end
 
-%hook SBIconView
+%hook SBIconView //一般用这个，未见SBApplicationIcon的NSLog
 
 - (void)closeBoxTapped
 {
-	NSLog(@"qhk runningIndicator: SBIconView closeBoxTapped");
+//	NSLog(@"qhk runningIndicator: SBIconView closeBoxTapped");
 	SBApplicationIcon *icon = (SBApplicationIcon *)self.icon;
 	if (showCloseButtons && [runningIcons containsObject:icon])
 	{
@@ -141,7 +141,7 @@ static BOOL showCloseButtons;
 
 - (void)setShowsCloseBox:(BOOL)newValue animated:(BOOL)animated
 {
-	NSLog(@"qhk runningIndicator: SBIconView setShowsCloseBox");
+//	NSLog(@"qhk runningIndicator: SBIconView setShowsCloseBox");
 	%orig(newValue || ([runningIcons containsObject:self.icon] && showCloseButtons), animated);
 }
 
