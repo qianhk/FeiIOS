@@ -189,6 +189,159 @@ static void SettingsChanged(CFNotificationCenterRef center, void *observer, CFSt
 	}
 }
 
+%hook SpringBoard
+
+- (void)_lockdownActivationChanged:(id)changed
+{
+	NSLog(@"qhk runningIndicator: _lockdownActivationChanged %@", changed);
+	%orig;
+}
+
+- (void)_powerDownNow
+{
+	%log;
+	%orig;
+}
+
+- (void)_rebootNow
+{
+	%log;
+	%orig;
+}
+
+- (void)reboot
+{
+	%log;
+	%orig;
+}
+
+- (void)powerDown
+{
+	%log;
+	%orig;
+}
+
+- (BOOL)isPoweringDown
+{
+	%log;
+	return %orig;
+}
+
+- (void)powerDownRequested:(id)requested
+{
+	%log;
+	%orig;
+}
+
+- (void)powerDownCanceled:(id)canceled
+{
+	%log;
+	%orig;
+}
+
+- (void)hideSpringBoardStatusBar
+{
+	%log;
+	%orig;
+}
+
+- (void)showSpringBoardStatusBar
+{
+	%log;
+	%orig;
+}
+
+- (void)frontDisplayDidChange
+{
+	%log;
+	%orig;
+}
+
+- (void)didIdle
+{
+	%log;
+	%orig;
+}
+
+- (void)showSimulatedScreenBlank
+{
+	%log;
+	%orig;
+}
+
+- (void)hideSimulatedScreenBlank
+{
+	%log;
+	%orig;
+}
+
+- (id)metaHostView
+{
+	%log;
+	return %orig;
+}
+
+- (id)metaHostWindow
+{
+	%log;
+	return %orig;
+}
+- (void)quitTopApplication:(GSEventRef)application
+{
+	%log;
+	%orig;
+}
+
+- (void)applicationExited:(GSEventRef)exited
+{
+	%log;
+	%orig;
+}
+
+- (void)anotherApplicationFinishedLaunching:(GSEventRef)launching
+{
+	%log;
+	%orig;
+}
+
+- (void)applicationSuspend:(GSEventRef)suspend
+{
+	%log;
+	%orig;
+}
+
+- (void)applicationSuspended:(GSEventRef)suspended
+{
+	%log;
+	%orig;
+}
+
+- (void)applicationSuspendedSettingsUpdated:(GSEventRef)updated
+{
+	%log;
+	%orig;
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+	%log;
+	%orig;
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+	%log;
+	%orig;
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+	%log;
+	%orig;
+}
+
+%end
+
 %ctor
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
