@@ -255,6 +255,10 @@ static void SettingsChanged(CFNotificationCenterRef center, void *observer, CFSt
 {
 	%log;
 	%orig;
+	id id1 = [self _accessibilityFrontMostApplication];
+	id id2 = [self _accessibilityTopDisplay];
+	id id3 = [self _accessibilityRunningApplications];
+	NSLog(@"qhk RunningIndicator: frontdisplayDidChanged: id1=%@ id2=%@ id3=%@", id1, id2, id3);
 }
 
 - (void)didIdle
@@ -342,12 +346,18 @@ static void SettingsChanged(CFNotificationCenterRef center, void *observer, CFSt
 
 %end
 
+static void WillEnterForeground(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
+{
+	NSLog(@"qhk RunningIndicator: WillEnterForeground");
+}
+
 %ctor
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	%init;
 	LoadSettings();
 	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, SettingsChanged, CFSTR("cn.njnu.kai.runningindicator/settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+	CFNotificationCenterAddObserver(CFNotificationCenterGetLocalCenter(), NULL, WillEnterForeground, CFSTR("UIApplicationWillEnterForegroundNotification"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 	runningIcons = [[NSMutableSet alloc] init];
 	[pool drain];
 }
