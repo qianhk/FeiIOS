@@ -140,6 +140,7 @@ static CFMessagePortRef messagePort = NULL;
 	}
 	
 	[lbltext release];
+    [_switch release];
 	[super dealloc];
 }
 
@@ -174,12 +175,16 @@ static CFMessagePortRef messagePort = NULL;
 #elif TARGET_OS_IPHONE
 	lbltext.text = @"TARGET_OS_IPHONE";
 #endif
+//	self.view.backgroundColor = [UIColor clearColor];
+//	_switch.onTintColor = [UIColor clearColor];
 }
 
 - (void)viewDidUnload
 {
 	[lbltext release];
 	lbltext = nil;
+    [_switch release];
+    _switch = nil;
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

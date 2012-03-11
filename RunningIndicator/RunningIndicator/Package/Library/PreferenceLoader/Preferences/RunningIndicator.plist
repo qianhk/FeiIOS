@@ -6,6 +6,8 @@
 	<string>Running Indicator</string>
 	<key>entry</key>
 	<dict>
+		<key>icon</key>
+		<string>RunningIndicator.png</string>
 		<key>cell</key>
 		<string>PSLinkCell</string>
 		<key>label</key>

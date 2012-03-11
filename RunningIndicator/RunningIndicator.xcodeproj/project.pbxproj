@@ -33,6 +33,8 @@
 		DC156E37150B89C20001501F /* RunningIndicator.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RunningIndicator.plist; sourceTree = "<group>"; };
 		DC156E3A150B89C20001501F /* RunningIndicator.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RunningIndicator.plist; sourceTree = "<group>"; };
 		DC156E3E150B89C20001501F /* SpringBoard.app */ = {isa = PBXFileReference; lastKnownFileType = wrapper.application; path = SpringBoard.app; sourceTree = "<group>"; };
+		DC19C9F7150C879700B6204B /* RunningIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RunningIndicator.png; sourceTree = "<group>"; };
+		DC19C9F8150C879700B6204B /* RunningIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RunningIndicator@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,8 @@
 		DC156E39150B89C20001501F /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
+				DC19C9F7150C879700B6204B /* RunningIndicator.png */,
+				DC19C9F8150C879700B6204B /* RunningIndicator@2x.png */,
 				DC156E3A150B89C20001501F /* RunningIndicator.plist */,
 			);
 			path = Preferences;

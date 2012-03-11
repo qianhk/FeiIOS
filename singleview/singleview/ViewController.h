@@ -13,6 +13,7 @@
 {
 	KaiStatusBar* _statusBar;
 	IBOutlet UILabel *lbltext;
+	IBOutlet UISwitch *_switch;
 }
 
 - (IBAction)tttClicked:(id)sender;
