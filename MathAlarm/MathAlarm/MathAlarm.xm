@@ -207,6 +207,7 @@ static void ReactivateAlert()
 
 - (void)mathAlarmTestAlarm
 {
+	NSLog(@"qhk MathAlarm: mathAlarmTestAlarm");
 	notify_post("cn.njnu.kai.mathalarm/testalarm");
 }
 
@@ -214,7 +215,7 @@ static void ReactivateAlert()
 
 - (void)mathAlarmUpgradeToPlus
 {
-	NSLog(@"mathAlarmUpgradeToPlus");
+	NSLog(@"qhk MathAlarm: mathAlarmUpgradeToPlus");
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"cydia://package/com.rpetrich.mathalarmplus"]];
 }
 
@@ -224,6 +225,7 @@ static void ReactivateAlert()
 
 static void SettingsCallback()
 {
+	NSLog(@"qhk MathAlarm: SettingsCallback");
 	NSDictionary *settings = [[NSDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/cn.njnu.kai.mathalarm.plist"];
 	id temp;
 	temp = [settings objectForKey:@"MAEnabled"];

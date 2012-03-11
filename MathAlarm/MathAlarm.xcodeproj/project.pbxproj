@@ -24,7 +24,6 @@
 		DC156E11150B84970001501F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DC156E16150B84970001501F /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		DC156E18150B84970001501F /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
-		DC156E19150B84970001501F /* copykill */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = copykill; sourceTree = "<group>"; };
 		DC156E1A150B84970001501F /* MathAlarm-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MathAlarm-Prefix.pch"; sourceTree = "<group>"; };
 		DC156E1B150B84970001501F /* MathAlarm.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MathAlarm.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		DC156E1C150B84970001501F /* MathAlarm.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MathAlarm.mm; sourceTree = "<group>"; };
@@ -35,6 +34,7 @@
 		DC156E58150BA7A40001501F /* MathAlarm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MathAlarm.png; sourceTree = "<group>"; };
 		DC156E59150BA7A40001501F /* MathAlarm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MathAlarm@2x.png"; sourceTree = "<group>"; };
 		DC156E5A150BA98B0001501F /* postinst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = postinst; path = Package/DEBIAN/postinst; sourceTree = "<group>"; };
+		DC19CB0B150CE49300B6204B /* installdeb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = installdeb; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +115,8 @@
 		DC156E17150B84970001501F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DC19CB0B150CE49300B6204B /* installdeb */,
 				DC156E18150B84970001501F /* PackageVersion.plist */,
-				DC156E19150B84970001501F /* copykill */,
 				DC156E1A150B84970001501F /* MathAlarm-Prefix.pch */,
 			);
 			name = "Supporting Files";

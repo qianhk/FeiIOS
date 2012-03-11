@@ -1,17 +1,18 @@
 Package: cn.njnu.kai.mathalarm
 Name: MathAlarm
-Version: 1.0-1
-Description: 
-Section: System
+Version: 1.0-3
+Description: 数学闹钟 关闭要先算数字<br><p align=left><font color=yellow>要不要试试</font><br><font color="blue">哈哈</font><br /><font color=red>嘎嘎</font></p>
+Section: Multimedia
 Depends: firmware (>= 4.0), mobilesubstrate
 Conflicts: 
 Replaces: 
 Priority: optional
 Architecture: iphoneos-arm
-Author: kai
+Author: kai <a@b.cn>
 dev: 
-Homepage: 
+Homepage: http://wap.ttpod.com
 Depiction: 
-Maintainer: 
-Icon: 
+Maintainer: LianXi <tt@tt.cn>
+Icon: file:///Library/PreferenceLoader/Preferences/MathAlarm/MathAlarm.png
+Sponsor: BaoZheng
 
