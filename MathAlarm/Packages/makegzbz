@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cp Packages Packages2
+rm Packages.bz2
+rm Packages.gz
+gzip Packages
+mv Packages2 Packages
+bzip2 -zk Packages
+

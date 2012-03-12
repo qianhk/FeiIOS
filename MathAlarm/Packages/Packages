@@ -1,0 +1,17 @@
+Package: cn.njnu.kai.mathalarm
+Name: MathAlarm
+Version: 1.0-3
+Description: 数学闹钟 关闭要先算数字<br><p align=left><font color=yellow>要不要试试</font><br><font color="blue">哈哈</font><br /><font color=red>嘎嘎</font></p>
+Section: Multimedia
+Depends: firmware (>= 4.0), mobilesubstrate
+Priority: optional
+Architecture: iphoneos-arm
+Author: kai <a@b.cn>
+Homepage: http://wap.ttpod.com
+Depiction: 
+Maintainer: LianXi <tt@tt.cn>
+Icon: http://192.168.18.102:8000/Icon.png
+Sponsor: BaoZheng
+Filename: cn.njnu.kai.mathalarm_1.0-3_iphoneos-arm.deb
+Size: 14496
+MD5sum: 8009d85f13d8bbf6d76281c5402392e4
