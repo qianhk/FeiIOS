@@ -55,8 +55,25 @@
 			<key>action</key>
 			<string>mathAlarmUpgradeToPlus</string>
 		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>User's Guide</string>
+			<key>action</key>
+			<string>displayRecorderHelpButtonPressed</string>
+			<key>confirmation</key>
+			<dict>
+				<key>title</key>
+				<string>Open in Safari</string>
+				<key>cancelTitle</key>
+				<string>Cancel</string>
+				<key>okTitle</key>
+				<string>Continue</string>
+			</dict>
+		</dict>
 	</array>
 	<key>title</key>
-	<string>MathAlarm</string>
+	<string>MathAlarm Title</string>
 </dict>
 </plist>
