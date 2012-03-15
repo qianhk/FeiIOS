@@ -1,0 +1,358 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC8E161615123BCB00C7BE7A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8E161515123BCB00C7BE7A /* Foundation.framework */; };
+		DC8E161815123BCB00C7BE7A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8E161715123BCB00C7BE7A /* UIKit.framework */; };
+		DC8E161A15123BCB00C7BE7A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8E161915123BCB00C7BE7A /* CoreGraphics.framework */; };
+		DC8E161C15123BCB00C7BE7A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8E161B15123BCB00C7BE7A /* QuartzCore.framework */; };
+		DC8E162715123BCB00C7BE7A /* SelectAllMail.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC8E162615123BCB00C7BE7A /* SelectAllMail.mm */; };
+		DC8E163215123C3C00C7BE7A /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8E163115123C3C00C7BE7A /* libsubstrate.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DC8E161215123BCB00C7BE7A /* SelectAllMail.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = SelectAllMail.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC8E161515123BCB00C7BE7A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DC8E161715123BCB00C7BE7A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DC8E161915123BCB00C7BE7A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DC8E161B15123BCB00C7BE7A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DC8E162015123BCB00C7BE7A /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		DC8E162215123BCB00C7BE7A /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		DC8E162315123BCB00C7BE7A /* installdeb */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = installdeb; path = ../installdeb; sourceTree = "<group>"; };
+		DC8E162415123BCB00C7BE7A /* SelectAllMail-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SelectAllMail-Prefix.pch"; sourceTree = "<group>"; };
+		DC8E162515123BCB00C7BE7A /* SelectAllMail.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SelectAllMail.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		DC8E162615123BCB00C7BE7A /* SelectAllMail.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = SelectAllMail.mm; sourceTree = "<group>"; };
+		DC8E162B15123BCB00C7BE7A /* SelectAllMail.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = SelectAllMail.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/SelectAllMail.plist; sourceTree = "<group>"; };
+		DC8E163115123C3C00C7BE7A /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC8E160E15123BCB00C7BE7A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC8E161615123BCB00C7BE7A /* Foundation.framework in Frameworks */,
+				DC8E161815123BCB00C7BE7A /* UIKit.framework in Frameworks */,
+				DC8E161A15123BCB00C7BE7A /* CoreGraphics.framework in Frameworks */,
+				DC8E163215123C3C00C7BE7A /* libsubstrate.dylib in Frameworks */,
+				DC8E161C15123BCB00C7BE7A /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC8E160515123BCB00C7BE7A = {
+			isa = PBXGroup;
+			children = (
+				DC8E161D15123BCB00C7BE7A /* SelectAllMail */,
+				DC8E161415123BCB00C7BE7A /* Frameworks */,
+				DC8E161315123BCB00C7BE7A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC8E161315123BCB00C7BE7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC8E161215123BCB00C7BE7A /* SelectAllMail.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC8E161415123BCB00C7BE7A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC8E163115123C3C00C7BE7A /* libsubstrate.dylib */,
+				DC8E161515123BCB00C7BE7A /* Foundation.framework */,
+				DC8E161715123BCB00C7BE7A /* UIKit.framework */,
+				DC8E161915123BCB00C7BE7A /* CoreGraphics.framework */,
+				DC8E161B15123BCB00C7BE7A /* QuartzCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC8E161D15123BCB00C7BE7A /* SelectAllMail */ = {
+			isa = PBXGroup;
+			children = (
+				DC8E162515123BCB00C7BE7A /* SelectAllMail.xm */,
+				DC8E162615123BCB00C7BE7A /* SelectAllMail.mm */,
+				DC8E161E15123BCB00C7BE7A /* Package */,
+				DC8E162115123BCB00C7BE7A /* Supporting Files */,
+			);
+			path = SelectAllMail;
+			sourceTree = "<group>";
+		};
+		DC8E161E15123BCB00C7BE7A /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				DC8E161F15123BCB00C7BE7A /* DEBIAN */,
+				DC8E162815123BCB00C7BE7A /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		DC8E161F15123BCB00C7BE7A /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				DC8E162015123BCB00C7BE7A /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		DC8E162115123BCB00C7BE7A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC8E162215123BCB00C7BE7A /* PackageVersion.plist */,
+				DC8E162315123BCB00C7BE7A /* installdeb */,
+				DC8E162415123BCB00C7BE7A /* SelectAllMail-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC8E162815123BCB00C7BE7A /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				DC8E162915123BCB00C7BE7A /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		DC8E162915123BCB00C7BE7A /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				DC8E162A15123BCB00C7BE7A /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		DC8E162A15123BCB00C7BE7A /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				DC8E162B15123BCB00C7BE7A /* SelectAllMail.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DC8E160F15123BCB00C7BE7A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		DC8E161115123BCB00C7BE7A /* SelectAllMail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC8E162E15123BCB00C7BE7A /* Build configuration list for PBXNativeTarget "SelectAllMail" */;
+			buildPhases = (
+				DC8E160C15123BCB00C7BE7A /* ShellScript */,
+				DC8E160D15123BCB00C7BE7A /* Sources */,
+				DC8E160E15123BCB00C7BE7A /* Frameworks */,
+				DC8E160F15123BCB00C7BE7A /* Headers */,
+				DC8E161015123BCB00C7BE7A /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SelectAllMail;
+			productName = SelectAllMail;
+			productReference = DC8E161215123BCB00C7BE7A /* SelectAllMail.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC8E160715123BCB00C7BE7A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = SDS;
+			};
+			buildConfigurationList = DC8E160A15123BCB00C7BE7A /* Build configuration list for PBXProject "SelectAllMail" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DC8E160515123BCB00C7BE7A;
+			productRefGroup = DC8E161315123BCB00C7BE7A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC8E161115123BCB00C7BE7A /* SelectAllMail */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DC8E160C15123BCB00C7BE7A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+		};
+		DC8E161015123BCB00C7BE7A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC8E160D15123BCB00C7BE7A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC8E162715123BCB00C7BE7A /* SelectAllMail.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DC8E162C15123BCB00C7BE7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		DC8E162D15123BCB00C7BE7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		DC8E162F15123BCB00C7BE7A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SelectAllMail/SelectAllMail-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		DC8E163015123BCB00C7BE7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SelectAllMail/SelectAllMail-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC8E160A15123BCB00C7BE7A /* Build configuration list for PBXProject "SelectAllMail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC8E162C15123BCB00C7BE7A /* Release */,
+				DC8E162D15123BCB00C7BE7A /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC8E162E15123BCB00C7BE7A /* Build configuration list for PBXNativeTarget "SelectAllMail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC8E162F15123BCB00C7BE7A /* Release */,
+				DC8E163015123BCB00C7BE7A /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC8E160715123BCB00C7BE7A /* Project object */;
+}

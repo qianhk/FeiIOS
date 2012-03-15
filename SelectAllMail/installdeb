@@ -1,0 +1,37 @@
+#!/bin/bash
+								
+# $1 ssh server's ip
+
+
+if [ $# != 1 ]; then
+	echo first param is ssh server\'s ip.
+	exit 1
+fi
+
+[ ${0:0:1} = / ] && c_dir=${0%/*} || c_dir=$PWD/${0%/*}
+#echo $c_dir
+#projname= basename $c_dir
+#echo $projname
+#exit 1
+
+debFileName=cn.njnu.kai.selectallmail_1.0-1_iphoneos-arm.deb
+
+#echo current dir is: $c_dir
+localDebPath=$c_dir/Packages/$debFileName
+
+serverDebPath=/var/root/$debFileName
+#echo $serverDebPath
+
+scp $localDebPath root@$1:$serverDebPath
+if [ $? != 0 ]; then
+	exit 2;
+fi
+
+ssh root@$1 dpkg -i $serverDebPath
+if [ $? != 0 ]; then
+	exit 3;
+fi
+
+ssh root@$1 killall SpringBoard
+
+
