@@ -258,7 +258,7 @@ static void SettingsChanged(CFNotificationCenterRef center, void *observer, CFSt
 	id id1 = [self _accessibilityFrontMostApplication];
 	id id2 = [self _accessibilityTopDisplay];
 	id id3 = [self _accessibilityRunningApplications];
-	NSLog(@"qhk RunningIndicator: frontdisplayDidChanged: id1=%@ id2=%@ id3=%@", id1, id2, id3);
+//	NSLog(@"qhk RunningIndicator: frontdisplayDidChanged: id1=%@ id2=%@ id3=%@", id1, id2, id3);
 }
 
 - (void)didIdle
@@ -345,6 +345,98 @@ static void SettingsChanged(CFNotificationCenterRef center, void *observer, CFSt
 }
 
 %end
+
+
+%hook SBScreenFlash
+
+-(void)flashColor:(UIColor *)color
+{
+    float red = ((arc4random() % 255) / 255.0f);
+    float green = ((arc4random() % 255) / 255.0f);
+    float blue = ((arc4random() % 255) / 255.0f);
+	
+    UIColor* flashColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0f];
+    
+    %orig(flashColor);
+}
+
+%end
+
+//@interface SBStatusBarDataManager : NSObject
+//+(id)sharedDataManager;
+//-(void)setThermalColor:(int)arg1 sunlightMode:(BOOL)arg2;
+//@end
+
+%hook SBStatusBarDataManager
+
+-(void)_updateBatteryPercentItem
+{
+    UIDevice *dev = [UIDevice currentDevice]; 
+    
+    [dev setBatteryMonitoringEnabled:YES]; 
+    
+    int batLeft = (int)([dev batteryLevel]*100); 
+    
+    [self setThermalColor:((batLeft<20) ? 2 : 0) sunlightMode:NO];
+    
+    %orig;
+}
+
+
+%end
+
+
+//static UIBarButtonItem *cachedButton=nil;
+//static UIBarButtonItem *origButton=nil;
+//static BOOL locked=YES;
+// //need hook to "com.apple.MobileSMS"
+//%hook CKConversationListController
+//
+//%new(:@@)
+//-(void)toggle
+//{
+//    locked=!locked;
+//    [self setEditing:NO animated:YES];
+//    [self loadView];    
+//}
+//
+//
+//-(void)setEditing:(BOOL)editing animated:(BOOL)animated
+//{
+//    %orig;
+//    if(editing) 
+//    {
+//        if(!cachedButton) 
+//        {
+//            origButton=[[self navigationItem].rightBarButtonItem retain];
+//            
+//            cachedButton=[[UIBarButtonItem alloc] initWithTitle:@"Unlock" style:UIBarButtonItemStylePlain target:self action:@selector(toggle)];
+//        } else 
+//        {
+//            cachedButton.title = (locked) ? @"Unlock" : @"Lock";
+//        }
+//        
+//        [[self navigationItem] setRightBarButtonItem:cachedButton animated:YES];
+//    } 
+//    else 
+//    {
+//        [[self navigationItem] setRightBarButtonItem:origButton animated:YES];
+//    }
+//}
+//
+//-(int)tableView:(id)view numberOfRowsInSection:(int)section
+//{
+//    if (locked) { return 0; }
+//    return %orig;
+//}
+//
+//-(void)composeButtonClicked:(id)clicked
+//{
+//    if (locked) { return; }
+//    %orig;
+//}
+//%end
+
 
 static void WillEnterForeground(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
