@@ -253,12 +253,12 @@ static void SettingsChanged(CFNotificationCenterRef center, void *observer, CFSt
 
 - (void)frontDisplayDidChange
 {
-	%log;
+//	%log;
 	%orig;
 	id id1 = [self _accessibilityFrontMostApplication];
 	id id2 = [self _accessibilityTopDisplay];
-	id id3 = [self _accessibilityRunningApplications];
-//	NSLog(@"qhk RunningIndicator: frontdisplayDidChanged: id1=%@ id2=%@ id3=%@", id1, id2, id3);
+//	id id3 = [self _accessibilityRunningApplications];
+	NSLog(@"qhk RunningIndicator: frontdisplayDidChanged: id1=%@ id2=%@", id1, id2);
 }
 
 - (void)didIdle
@@ -437,6 +437,69 @@ static void SettingsChanged(CFNotificationCenterRef center, void *observer, CFSt
 //}
 //%end
 
+%hook SBSearchController
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)clicked
+{
+    %orig;
+    
+    NSString *text = clicked.text;
+	NSLog(@"qhk SBSearchController searchBarSearchButtonClicked searchText=%@", text);
+    NSRange range;
+    
+    range = [text rangeOfString:@"tel://"];
+    
+    if (range.location != NSNotFound)
+    {
+        NSString *tel = [clicked.text stringByReplacingOccurrencesOfString:@"//" withString:@""];
+        [[UIApplication sharedApplication] applicationOpenURL:[NSURL URLWithString:tel]];
+        
+    } else 
+    {
+        range = [text rangeOfString:@"://"];
+        
+        if (range.location != NSNotFound)
+        {
+            [[UIApplication sharedApplication] applicationOpenURL:[NSURL URLWithString:clicked.text]];
+        } 
+        else 
+        {
+            NSArray *keys = [[NSArray alloc] initWithObjects:@"www.",@".com",@".net",@".org",@".us",@".me",@".it",@".uk",@".de",nil];
+            
+            for (NSString *k in keys)
+            {
+                range = [text rangeOfString:k];
+                if (range.location != NSNotFound)
+                {
+                    NSString *str = [NSString stringWithFormat:@"http://%@",text];
+                    [[UIApplication sharedApplication] applicationOpenURL:[NSURL URLWithString:str]];
+                    break;
+                }
+            }
+            [keys release];
+        }
+        
+    }
+    
+}
+
+%end
+
+%hook SBAwayController
+
+- (void)_sendToDeviceLockOwnerDeviceUnlockSucceeded
+{
+	%log;
+	%orig;
+}
+
+- (void)_sendToDeviceLockOwnerDeviceUnlockFailed
+{
+	%log;
+	%orig;
+}
+
+%end
 
 static void WillEnterForeground(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
