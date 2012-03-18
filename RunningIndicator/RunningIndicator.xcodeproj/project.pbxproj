@@ -13,7 +13,6 @@
 		DC156DE5150B83810001501F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156DE4150B83810001501F /* QuartzCore.framework */; };
 		DC156DF1150B83810001501F /* RunningIndicator.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC156DF0150B83810001501F /* RunningIndicator.mm */; };
 		DC156E2E150B88620001501F /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156E2D150B88620001501F /* libsubstrate.dylib */; };
-		DC156E3F150B89C20001501F /* RunningIndicator.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156E36150B89C20001501F /* RunningIndicator.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +34,7 @@
 		DC19C9F7150C879700B6204B /* RunningIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RunningIndicator.png; sourceTree = "<group>"; };
 		DC19C9F8150C879700B6204B /* RunningIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RunningIndicator@2x.png"; sourceTree = "<group>"; };
 		DC19CA01150CA06200B6204B /* installdeb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = installdeb; sourceTree = SOURCE_ROOT; };
+		DC5CCB021515E22D00CDCF5D /* combinedhook.xm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = combinedhook.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +47,6 @@
 				DC156DE1150B83810001501F /* UIKit.framework in Frameworks */,
 				DC156DE3150B83810001501F /* CoreGraphics.framework in Frameworks */,
 				DC156DE5150B83810001501F /* QuartzCore.framework in Frameworks */,
-				DC156E3F150B89C20001501F /* RunningIndicator.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +89,7 @@
 				DC156DEF150B83810001501F /* RunningIndicator.xm */,
 				DC156DF0150B83810001501F /* RunningIndicator.mm */,
 				DC156DEB150B83810001501F /* Supporting Files */,
+				DC5CCB021515E22D00CDCF5D /* combinedhook.xm */,
 			);
 			path = RunningIndicator;
 			sourceTree = "<group>";

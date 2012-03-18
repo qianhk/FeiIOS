@@ -259,12 +259,12 @@ static void _logos_method$_ungrouped$SpringBoard$showSpringBoardStatusBar(Spring
 
 
 static void _logos_method$_ungrouped$SpringBoard$frontDisplayDidChange(SpringBoard* self, SEL _cmd) {
-	NSLog(@"-[<SpringBoard: %p> frontDisplayDidChange]", self);
+
 	_logos_orig$_ungrouped$SpringBoard$frontDisplayDidChange(self, _cmd);
 	id id1 = [self _accessibilityFrontMostApplication];
 	id id2 = [self _accessibilityTopDisplay];
-	id id3 = [self _accessibilityRunningApplications];
 
+	NSLog(@"qhk RunningIndicator: frontdisplayDidChanged: id1=%@ id2=%@", id1, id2);
 }
 
 
