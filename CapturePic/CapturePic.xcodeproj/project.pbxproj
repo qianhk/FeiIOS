@@ -1,0 +1,300 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DCE24A0A15178B0C00A4B9A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE24A0915178B0C00A4B9A1 /* UIKit.framework */; };
+		DCE24A0C15178B0C00A4B9A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE24A0B15178B0C00A4B9A1 /* Foundation.framework */; };
+		DCE24A0E15178B0C00A4B9A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE24A0D15178B0C00A4B9A1 /* CoreGraphics.framework */; };
+		DCE24A1415178B0C00A4B9A1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DCE24A1215178B0C00A4B9A1 /* InfoPlist.strings */; };
+		DCE24A1615178B0C00A4B9A1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE24A1515178B0C00A4B9A1 /* main.m */; };
+		DCE24A1A15178B0C00A4B9A1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE24A1915178B0C00A4B9A1 /* AppDelegate.m */; };
+		DCE24A1D15178B0C00A4B9A1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE24A1C15178B0C00A4B9A1 /* ViewController.m */; };
+		DCE24A2015178B0C00A4B9A1 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCE24A1E15178B0C00A4B9A1 /* ViewController.xib */; };
+		DCE24A2715178C5B00A4B9A1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE24A2615178C5B00A4B9A1 /* AVFoundation.framework */; };
+		DCE24A2915178C6100A4B9A1 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE24A2815178C6100A4B9A1 /* CoreVideo.framework */; };
+		DCE24A2B15178C6900A4B9A1 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE24A2A15178C6900A4B9A1 /* CoreMedia.framework */; };
+		DCE24A2D15178C7000A4B9A1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE24A2C15178C7000A4B9A1 /* QuartzCore.framework */; };
+		DCE24A2F15178C7700A4B9A1 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE24A2E15178C7700A4B9A1 /* AudioToolbox.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DCE24A0515178B0C00A4B9A1 /* CapturePic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapturePic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCE24A0915178B0C00A4B9A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DCE24A0B15178B0C00A4B9A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DCE24A0D15178B0C00A4B9A1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DCE24A1115178B0C00A4B9A1 /* CapturePic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CapturePic-Info.plist"; sourceTree = "<group>"; };
+		DCE24A1315178B0C00A4B9A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DCE24A1515178B0C00A4B9A1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DCE24A1715178B0C00A4B9A1 /* CapturePic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CapturePic-Prefix.pch"; sourceTree = "<group>"; };
+		DCE24A1815178B0C00A4B9A1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DCE24A1915178B0C00A4B9A1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DCE24A1B15178B0C00A4B9A1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DCE24A1C15178B0C00A4B9A1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DCE24A1F15178B0C00A4B9A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		DCE24A2615178C5B00A4B9A1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		DCE24A2815178C6100A4B9A1 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		DCE24A2A15178C6900A4B9A1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		DCE24A2C15178C7000A4B9A1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DCE24A2E15178C7700A4B9A1 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DCE24A0215178B0C00A4B9A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCE24A2F15178C7700A4B9A1 /* AudioToolbox.framework in Frameworks */,
+				DCE24A2D15178C7000A4B9A1 /* QuartzCore.framework in Frameworks */,
+				DCE24A2B15178C6900A4B9A1 /* CoreMedia.framework in Frameworks */,
+				DCE24A2915178C6100A4B9A1 /* CoreVideo.framework in Frameworks */,
+				DCE24A2715178C5B00A4B9A1 /* AVFoundation.framework in Frameworks */,
+				DCE24A0A15178B0C00A4B9A1 /* UIKit.framework in Frameworks */,
+				DCE24A0C15178B0C00A4B9A1 /* Foundation.framework in Frameworks */,
+				DCE24A0E15178B0C00A4B9A1 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DCE249FA15178B0B00A4B9A1 = {
+			isa = PBXGroup;
+			children = (
+				DCE24A0F15178B0C00A4B9A1 /* CapturePic */,
+				DCE24A0815178B0C00A4B9A1 /* Frameworks */,
+				DCE24A0615178B0C00A4B9A1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCE24A0615178B0C00A4B9A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DCE24A0515178B0C00A4B9A1 /* CapturePic.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DCE24A0815178B0C00A4B9A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DCE24A2E15178C7700A4B9A1 /* AudioToolbox.framework */,
+				DCE24A2C15178C7000A4B9A1 /* QuartzCore.framework */,
+				DCE24A2A15178C6900A4B9A1 /* CoreMedia.framework */,
+				DCE24A2815178C6100A4B9A1 /* CoreVideo.framework */,
+				DCE24A2615178C5B00A4B9A1 /* AVFoundation.framework */,
+				DCE24A0915178B0C00A4B9A1 /* UIKit.framework */,
+				DCE24A0B15178B0C00A4B9A1 /* Foundation.framework */,
+				DCE24A0D15178B0C00A4B9A1 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCE24A0F15178B0C00A4B9A1 /* CapturePic */ = {
+			isa = PBXGroup;
+			children = (
+				DCE24A1815178B0C00A4B9A1 /* AppDelegate.h */,
+				DCE24A1915178B0C00A4B9A1 /* AppDelegate.m */,
+				DCE24A1B15178B0C00A4B9A1 /* ViewController.h */,
+				DCE24A1C15178B0C00A4B9A1 /* ViewController.m */,
+				DCE24A1E15178B0C00A4B9A1 /* ViewController.xib */,
+				DCE24A1015178B0C00A4B9A1 /* Supporting Files */,
+			);
+			path = CapturePic;
+			sourceTree = "<group>";
+		};
+		DCE24A1015178B0C00A4B9A1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DCE24A1115178B0C00A4B9A1 /* CapturePic-Info.plist */,
+				DCE24A1215178B0C00A4B9A1 /* InfoPlist.strings */,
+				DCE24A1515178B0C00A4B9A1 /* main.m */,
+				DCE24A1715178B0C00A4B9A1 /* CapturePic-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCE24A0415178B0C00A4B9A1 /* CapturePic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCE24A2315178B0C00A4B9A1 /* Build configuration list for PBXNativeTarget "CapturePic" */;
+			buildPhases = (
+				DCE24A0115178B0C00A4B9A1 /* Sources */,
+				DCE24A0215178B0C00A4B9A1 /* Frameworks */,
+				DCE24A0315178B0C00A4B9A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CapturePic;
+			productName = CapturePic;
+			productReference = DCE24A0515178B0C00A4B9A1 /* CapturePic.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCE249FC15178B0B00A4B9A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = SDS;
+			};
+			buildConfigurationList = DCE249FF15178B0B00A4B9A1 /* Build configuration list for PBXProject "CapturePic" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DCE249FA15178B0B00A4B9A1;
+			productRefGroup = DCE24A0615178B0C00A4B9A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCE24A0415178B0C00A4B9A1 /* CapturePic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DCE24A0315178B0C00A4B9A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCE24A1415178B0C00A4B9A1 /* InfoPlist.strings in Resources */,
+				DCE24A2015178B0C00A4B9A1 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DCE24A0115178B0C00A4B9A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCE24A1615178B0C00A4B9A1 /* main.m in Sources */,
+				DCE24A1A15178B0C00A4B9A1 /* AppDelegate.m in Sources */,
+				DCE24A1D15178B0C00A4B9A1 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DCE24A1215178B0C00A4B9A1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCE24A1315178B0C00A4B9A1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DCE24A1E15178B0C00A4B9A1 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCE24A1F15178B0C00A4B9A1 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DCE24A2115178B0C00A4B9A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DCE24A2215178B0C00A4B9A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DCE24A2415178B0C00A4B9A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CapturePic/CapturePic-Prefix.pch";
+				INFOPLIST_FILE = "CapturePic/CapturePic-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DCE24A2515178B0C00A4B9A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CapturePic/CapturePic-Prefix.pch";
+				INFOPLIST_FILE = "CapturePic/CapturePic-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DCE249FF15178B0B00A4B9A1 /* Build configuration list for PBXProject "CapturePic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCE24A2115178B0C00A4B9A1 /* Debug */,
+				DCE24A2215178B0C00A4B9A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCE24A2315178B0C00A4B9A1 /* Build configuration list for PBXNativeTarget "CapturePic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCE24A2415178B0C00A4B9A1 /* Debug */,
+				DCE24A2515178B0C00A4B9A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCE249FC15178B0B00A4B9A1 /* Project object */;
+}

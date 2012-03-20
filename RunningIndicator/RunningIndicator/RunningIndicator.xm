@@ -279,17 +279,18 @@ static void SettingsChanged(CFNotificationCenterRef center, void *observer, CFSt
 	%orig;
 }
 
-- (id)metaHostView
-{
-	%log;
-	return %orig;
-}
+//- (id)metaHostView
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//- (id)metaHostWindow
+//{
+//	%log;
+//	return %orig;
+//}
 
-- (id)metaHostWindow
-{
-	%log;
-	return %orig;
-}
 - (void)quitTopApplication:(GSEventRef)application
 {
 	%log;
@@ -343,6 +344,43 @@ static void SettingsChanged(CFNotificationCenterRef center, void *observer, CFSt
 	%log;
 	%orig;
 }
+
+- (void)checkPasscodeCompliance
+{
+	%log;
+	%orig;
+}
+
+- (void)lockButtonDown:(GSEventRef)down
+{
+	%log;
+	%orig;
+}
+
+- (void)lockButtonWasHeld
+{
+	%log;
+	%orig;
+}
+
+- (void)systemWillSleep
+{
+	%log;
+	%orig;
+}
+
+- (void)autoLock
+{
+	%log;
+	%orig;
+}
+
+- (void)lockDevice:(GSEventRef)device
+{
+	%log;
+	%orig;
+}
+
 
 %end
 
