@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DCAC7A771518D1DC0050290B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCAC7A761518D1DC0050290B /* CoreLocation.framework */; };
+		DCAC7A7A1518DDC70050290B /* sh_renminguangchang.gpx in Resources */ = {isa = PBXBuildFile; fileRef = DCAC7A791518DDC70050290B /* sh_renminguangchang.gpx */; };
+		DCAC7A7C1518E25E0050290B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCAC7A7B1518E25E0050290B /* MapKit.framework */; };
 		DCE24A0A15178B0C00A4B9A1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE24A0915178B0C00A4B9A1 /* UIKit.framework */; };
 		DCE24A0C15178B0C00A4B9A1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE24A0B15178B0C00A4B9A1 /* Foundation.framework */; };
 		DCE24A0E15178B0C00A4B9A1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCE24A0D15178B0C00A4B9A1 /* CoreGraphics.framework */; };
@@ -23,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DCAC7A761518D1DC0050290B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DCAC7A791518DDC70050290B /* sh_renminguangchang.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = sh_renminguangchang.gpx; sourceTree = "<group>"; };
+		DCAC7A7B1518E25E0050290B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DCE24A0515178B0C00A4B9A1 /* CapturePic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapturePic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCE24A0915178B0C00A4B9A1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DCE24A0B15178B0C00A4B9A1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -48,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCAC7A7C1518E25E0050290B /* MapKit.framework in Frameworks */,
+				DCAC7A771518D1DC0050290B /* CoreLocation.framework in Frameworks */,
 				DCE24A2F15178C7700A4B9A1 /* AudioToolbox.framework in Frameworks */,
 				DCE24A2D15178C7000A4B9A1 /* QuartzCore.framework in Frameworks */,
 				DCE24A2B15178C6900A4B9A1 /* CoreMedia.framework in Frameworks */,
@@ -82,6 +90,8 @@
 		DCE24A0815178B0C00A4B9A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DCAC7A7B1518E25E0050290B /* MapKit.framework */,
+				DCAC7A761518D1DC0050290B /* CoreLocation.framework */,
 				DCE24A2E15178C7700A4B9A1 /* AudioToolbox.framework */,
 				DCE24A2C15178C7000A4B9A1 /* QuartzCore.framework */,
 				DCE24A2A15178C6900A4B9A1 /* CoreMedia.framework */,
@@ -101,6 +111,7 @@
 				DCE24A1915178B0C00A4B9A1 /* AppDelegate.m */,
 				DCE24A1B15178B0C00A4B9A1 /* ViewController.h */,
 				DCE24A1C15178B0C00A4B9A1 /* ViewController.m */,
+				DCAC7A791518DDC70050290B /* sh_renminguangchang.gpx */,
 				DCE24A1E15178B0C00A4B9A1 /* ViewController.xib */,
 				DCE24A1015178B0C00A4B9A1 /* Supporting Files */,
 			);
@@ -171,6 +182,7 @@
 			files = (
 				DCE24A1415178B0C00A4B9A1 /* InfoPlist.strings in Resources */,
 				DCE24A2015178B0C00A4B9A1 /* ViewController.xib in Resources */,
+				DCAC7A7A1518DDC70050290B /* sh_renminguangchang.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +305,7 @@
 				DCE24A2515178B0C00A4B9A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

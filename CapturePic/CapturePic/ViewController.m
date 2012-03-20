@@ -10,6 +10,8 @@
 
 @implementation ViewController
 @synthesize _captureView;
+@synthesize _mapView;
+@synthesize lblStatus = _lblStatus;
 @synthesize _btnStart;
 
 - (void)didReceiveMemoryWarning
@@ -74,12 +76,22 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	[self initCapture];
+	
+//	NSLog(@"BestForNavigation=%.2f Best=%.2f NearestTenMeters=%.2f HundredMeters=%.2f Kilometer=%.2f ThreeKilometers=%.2f FilterNone=%.2f",
+//		  kCLLocationAccuracyBestForNavigation, kCLLocationAccuracyBest, kCLLocationAccuracyNearestTenMeters, kCLLocationAccuracyHundredMeters, kCLLocationAccuracyKilometer, kCLLocationAccuracyThreeKilometers, kCLDistanceFilterNone);
+	
+	_locationManager = [[CLLocationManager alloc] init];
+	_locationManager.delegate = self;
+	_locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+	_locationManager.distanceFilter = kCLDistanceFilterNone;
 }
 
 - (void)viewDidUnload
 {
     [self set_btnStart:nil];
 	[self set_captureView:nil];
+	[self setLblStatus:nil];
+	[self set_mapView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -111,10 +123,15 @@
 	return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
+	[_locationManager stopUpdatingLocation];
+	[_locationManager release];
 	[_prevLayer release];
     [_btnStart release];
 	[_captureView release];
+	[_lblStatus release];
+	[_mapView release];
     [super dealloc];
 }
 - (IBAction)btnCaptureClicked:(id)sender
@@ -143,38 +160,74 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 { 	
 	if (needCapture)
 	{
-		NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-		
-		CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer); 
-		CVPixelBufferLockBaseAddress(imageBuffer,0); 
-		uint8_t *baseAddress = (uint8_t *)CVPixelBufferGetBaseAddress(imageBuffer); 
-		size_t bytesPerRow = CVPixelBufferGetBytesPerRow(imageBuffer); 
-		size_t width = CVPixelBufferGetWidth(imageBuffer); 
-		size_t height = CVPixelBufferGetHeight(imageBuffer);  
-		
-		/*Create a CGImageRef from the CVImageBufferRef*/
-		CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB(); 
-		CGContextRef newContext = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
-		CGImageRef newImage = CGBitmapContextCreateImage(newContext); 
-		
-		CGContextRelease(newContext); 
-		CGColorSpaceRelease(colorSpace);
-		
-	//	[self.customLayer performSelectorOnMainThread:@selector(setContents:) withObject: (id) newImage waitUntilDone:YES];
-		
-		UIImage *image= [UIImage imageWithCGImage:newImage scale:1.0 orientation:UIImageOrientationRight];
-		
-		/*We relase the CGImageRef*/
-		CGImageRelease(newImage);
-		
-		[_captureView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:YES];
-		
-		/*We unlock the  image buffer*/
-		CVPixelBufferUnlockBaseAddress(imageBuffer,0);
-		
-		[pool drain];
-		needCapture = NO;
+		@autoreleasepool
+		{
+			NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+			
+			CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer); 
+			CVPixelBufferLockBaseAddress(imageBuffer,0); 
+			uint8_t *baseAddress = (uint8_t *)CVPixelBufferGetBaseAddress(imageBuffer); 
+			size_t bytesPerRow = CVPixelBufferGetBytesPerRow(imageBuffer); 
+			size_t width = CVPixelBufferGetWidth(imageBuffer); 
+			size_t height = CVPixelBufferGetHeight(imageBuffer);  
+			
+			/*Create a CGImageRef from the CVImageBufferRef*/
+			CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB(); 
+			CGContextRef newContext = CGBitmapContextCreate(baseAddress, width, height, 8, bytesPerRow, colorSpace, kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
+			CGImageRef newImage = CGBitmapContextCreateImage(newContext); 
+			
+			CGContextRelease(newContext); 
+			CGColorSpaceRelease(colorSpace);
+			
+		//	[self.customLayer performSelectorOnMainThread:@selector(setContents:) withObject: (id) newImage waitUntilDone:YES];
+			
+			UIImage *image= [UIImage imageWithCGImage:newImage scale:1.0 orientation:UIImageOrientationRight];
+			
+			/*We relase the CGImageRef*/
+			CGImageRelease(newImage);
+			
+			[_captureView performSelectorOnMainThread:@selector(setImage:) withObject:image waitUntilDone:YES];
+			
+			/*We unlock the  image buffer*/
+			CVPixelBufferUnlockBaseAddress(imageBuffer,0);
+			
+			[_lblStatus performSelectorOnMainThread:@selector(setText:) withObject:[NSString stringWithFormat:@"pic width=%d height=%d", width, height] waitUntilDone:YES];
+			
+			[pool drain];
+			needCapture = NO;
+		}
 	}
-} 
+}
 
+- (void)locationManager:(CLLocationManager *)manager
+	didUpdateToLocation:(CLLocation *)newLocation
+		   fromLocation:(CLLocation *)oldLocation
+{
+	CLLocationDegrees latitude = newLocation.coordinate.latitude; //纬度
+	CLLocationDegrees longitude = newLocation.coordinate.longitude; //经度
+	CLLocationAccuracy accuracy = newLocation.horizontalAccuracy; //精确度，负数表示数值即不可靠
+	NSString* str = [NSString stringWithFormat:@"latitude=%.4f longitude=%.4f accuracy=%.2f", latitude, longitude, accuracy];
+	[_lblStatus setText:str];
+	
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+	   didFailWithError:(NSError *)error
+{
+	NSLog(@"CapturePic locationManager:%@ didFailWithError:%@", manager, error);
+}
+
+- (IBAction)btnLocateClicked:(id)sender
+{
+	if (beginLocation)
+	{
+		[_locationManager stopUpdatingLocation];
+		beginLocation = NO;
+	}
+	else
+	{
+		[_locationManager startUpdatingLocation];
+		beginLocation = YES;
+	}
+}
 @end
