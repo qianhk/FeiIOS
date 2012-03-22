@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9382B001518676D002EBF8C /* GraphicsServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9382AFF1518676D002EBF8C /* GraphicsServices.framework */; };
 		DC156DDF150B83810001501F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156DDE150B83810001501F /* Foundation.framework */; };
 		DC156DE1150B83810001501F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156DE0150B83810001501F /* UIKit.framework */; };
 		DC156DE3150B83810001501F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC156DE2150B83810001501F /* CoreGraphics.framework */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D9382AFF1518676D002EBF8C /* GraphicsServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraphicsServices.framework; path = System/Library/PrivateFrameworks/GraphicsServices.framework; sourceTree = SDKROOT; };
 		DC156DDB150B83810001501F /* RunningIndicator.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = RunningIndicator.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC156DDE150B83810001501F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC156DE0150B83810001501F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -42,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9382B001518676D002EBF8C /* GraphicsServices.framework in Frameworks */,
 				DC156DDF150B83810001501F /* Foundation.framework in Frameworks */,
 				DC156E2E150B88620001501F /* libsubstrate.dylib in Frameworks */,
 				DC156DE1150B83810001501F /* UIKit.framework in Frameworks */,
@@ -73,6 +76,7 @@
 		DC156DDD150B83810001501F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9382AFF1518676D002EBF8C /* GraphicsServices.framework */,
 				DC156E2D150B88620001501F /* libsubstrate.dylib */,
 				DC156DDE150B83810001501F /* Foundation.framework */,
 				DC156DE0150B83810001501F /* UIKit.framework */,
@@ -345,6 +349,10 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RunningIndicator/RunningIndicator-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
@@ -368,6 +376,10 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "RunningIndicator/RunningIndicator-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;

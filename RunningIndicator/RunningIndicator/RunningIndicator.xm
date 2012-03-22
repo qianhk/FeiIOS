@@ -1,7 +1,10 @@
 #import "SpringBoard.h"
+#import <GraphicsServices/GSEvent.h>
 
 static NSMutableSet *runningIcons;
 static BOOL showCloseButtons;
+
+//int GSEventGetType(GSEventRef event);
 
 %hook SBAppSwitcherController
 
@@ -344,6 +347,113 @@ static void SettingsChanged(CFNotificationCenterRef center, void *observer, CFSt
 	%orig;
 }
 
+- (void)noteInterfaceOrientationChanged:(int)changed
+{
+	%log;
+	%orig;
+	
+	//UIDeviceOrientation p:1 left:3 right:4
+}
+
+//- (void)noteInterfaceOrientationChanged:(int)changed updateMirroredDisplays:(BOOL)displays
+//{
+//	%log;
+//	%orig;
+//}
+
+
+- (void)handleKeyEvent:(GSEventRef)event
+{
+	NSLog(@"qhk RunningIndicator handleKeyEvent %d", GSEventGetType(event));
+	%orig;
+}
+
+- (void)wipeDeviceNow
+{
+	%log;
+	%orig;
+}
+
+
+- (void)_setMenuButtonTimer:(id)timer
+{
+	%log;
+	%orig;
+}
+
+- (void)_setLockButtonTimer:(id)timer
+{
+	%log;
+	%orig;
+}
+
+- (void)systemWillSleep
+{
+	%log;
+	%orig;
+}
+
+- (void)setBacklightLevel:(float)level
+{
+	%log;
+	%orig;
+}
+
+- (void)setBacklightLevel:(float)level permanently:(BOOL)permanently
+{
+	%log;
+	%orig;
+}
+
+- (void)dimToBlackKeepingTouchOn
+{
+	%log;
+	%orig;
+}
+
+//- (void)undim
+//{
+//	%log;
+//	%orig;
+//}
+
+- (BOOL)shouldDimToBlackInsteadOfLock
+{
+	%log;
+	return %orig;
+}
+
+- (void)autoLock
+{
+	%log;
+	%orig;
+}
+
+//- (void)resetIdleTimerAndUndim:(BOOL)undim
+//{
+//	%log;
+//	%orig;
+//}
+
+- (void)noteCaseHardwarePresent
+{
+	%log;
+	%orig;
+}
+
+- (void)caseLatchWantsToAttemptLock
+{
+	%log;
+	%orig;
+}
+
+- (void)lockDevice:(GSEventRef)device
+{
+	%log;
+	%orig;
+}
+
+
 %end
 
 
@@ -509,6 +619,7 @@ static void WillEnterForeground(CFNotificationCenterRef center, void *observer, 
 %ctor
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	NSLog(@"qhk: RunningIndicator: %%cotr 1");
 	%init;
 	LoadSettings();
 	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, SettingsChanged, CFSTR("cn.njnu.kai.runningindicator/settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
