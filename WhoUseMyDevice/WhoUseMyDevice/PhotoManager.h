@@ -17,8 +17,13 @@
 {
 	AVCaptureSession *_captureSession;
 	
-	BOOL needCapture;
+	UIImage* _lastImage;
+	
+//	BOOL _saveImage;
 }
+
+@property (nonatomic, readonly) UIImage* lastImage;
+//@property (atomic) BOOL saveImage;
 
 - (void)beginCapture;
 - (void)stopCapture;

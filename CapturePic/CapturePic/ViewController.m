@@ -141,6 +141,14 @@
 
 - (IBAction)btnStartClicked:(id)sender
 {
+//	NSLog(@"abc");
+//	NSLog(@"a%d", 1);
+//#define NSLogDebug(a, ...) NSLog(a, ...)
+//	NSLogDebug(@"def");
+//	NSLogDebug(@"a%d", 2);
+//#undef NSLogDebug
+//	NSLog(@"abc123");
+//	NSLog(@"a%d", 3);
 	if(_captureSession.running)
 	{
 		[_captureSession stopRunning];

@@ -8,7 +8,12 @@
 
 #import "PhotoManager.h"
 
+extern NSLock* lockImage;
+
 @implementation PhotoManager
+
+@synthesize lastImage = _lastImage;
+//@synthesize saveImage = _saveImage;
 
 - (AVCaptureDevice *)getFrontCamera
 {
@@ -47,7 +52,7 @@
 	
 	[_captureSession addInput:captureInput];
 	[_captureSession addOutput:captureOutput];
-    [_captureSession setSessionPreset:AVCaptureSessionPreset640x480];
+    [_captureSession setSessionPreset:AVCaptureSessionPreset352x288];
 	[captureOutput release];
 }
 
@@ -55,11 +60,15 @@
 {
 	[self stopCapture];
 	
+	[_lastImage release];
+	
 	[super dealloc];
 }
 
 - (void)beginCapture
 {
+//	self.saveImage = YES;
+	
 	if (!_captureSession.running)
 	{
 		[self initCapture];
@@ -76,12 +85,17 @@
 	}
 }
 
+- (void)setLastImage:(UIImage *)lastImage
+{
+	[_lastImage release];
+	_lastImage = [lastImage retain];
+}
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput 
 didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer 
 	   fromConnection:(AVCaptureConnection *)connection 
 { 	
-	if (needCapture)
+//	if (self.saveImage)
 	{
 		@autoreleasepool
 		{
@@ -101,14 +115,15 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 			CGContextRelease(newContext); 
 			CGColorSpaceRelease(colorSpace);
 			
-			UIImage *image= [UIImage imageWithCGImage:newImage scale:1.0 orientation:UIImageOrientationRight];
+			[lockImage lock];
+			self.lastImage = [UIImage imageWithCGImage:newImage scale:1.0 orientation:UIImageOrientationRight];
+			[lockImage unlock];
 			
 			CGImageRelease(newImage);
 			
 			CVPixelBufferUnlockBaseAddress(imageBuffer,0);
 			
 			[pool drain];
-			needCapture = NO;
 		}
 	}
 }

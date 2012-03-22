@@ -15,9 +15,9 @@
 	NSString* curLocationDescription;
 }
 
+@property (nonatomic, readonly) NSString* curLocationDescription;
+
 - (void)start;
 - (void)stop;
-
-- (NSString *)curLocationDescription;
 
 @end

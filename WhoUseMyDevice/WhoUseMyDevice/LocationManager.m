@@ -10,6 +10,8 @@
 
 @implementation LocationManager
 
+@synthesize curLocationDescription;
+
 - (void)dealloc
 {
 	[self stop];
@@ -41,6 +43,7 @@
 	}
 	[curLocationDescription release];
 	curLocationDescription = @"Begin get location.";
+	NSLog(@"qhk who use my device: begin get location.");
 }
 
 - (void)stop
@@ -61,7 +64,8 @@
 	CLLocationDegrees longitude = newLocation.coordinate.longitude; //经度
 	CLLocationAccuracy accuracy = newLocation.horizontalAccuracy; //精确度，负数表示数值即不可靠
 	[curLocationDescription release];
-	curLocationDescription = [[NSString stringWithFormat:@"latitude=%.4f longitude=%.4f accuracy=%.2f", latitude, longitude, accuracy] retain];
+	curLocationDescription = [[NSString stringWithFormat:@"latitude=%.5f longitude=%.5f accuracy=%.2f", latitude, longitude, accuracy] retain];
+	NSLog(@"qhk who use my device: %@.", curLocationDescription);
 	
 }
 
@@ -70,7 +74,7 @@
 {
 	[curLocationDescription release];
 	curLocationDescription = [[NSString stringWithFormat:@"Get location error: locationManager:didFailWithError:%@", error] retain];
-	NSLog(@"qhk: %@", curLocationDescription);
+	NSLog(@"qhk who use my device: %@", curLocationDescription);
 }
 
 @end
