@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC99C0F1151A1D7B003E526F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC99C0F0151A1D7B003E526F /* Foundation.framework */; };
+		DC99C0F3151A1D7B003E526F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC99C0F2151A1D7B003E526F /* UIKit.framework */; };
+		DC99C0F5151A1D7B003E526F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC99C0F4151A1D7B003E526F /* CoreGraphics.framework */; };
+		DC99C0F7151A1D7B003E526F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC99C0F6151A1D7B003E526F /* QuartzCore.framework */; };
+		DC99C102151A1D7B003E526F /* WhoUseMyDevice.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC99C101151A1D7B003E526F /* WhoUseMyDevice.mm */; };
+		DC99C10D151A1DCB003E526F /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC99C10C151A1DCB003E526F /* libsubstrate.dylib */; };
+		DC99C10F151A1DEA003E526F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC99C10E151A1DEA003E526F /* CFNetwork.framework */; };
+		DC99C115151A1E12003E526F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC99C114151A1E12003E526F /* CoreLocation.framework */; };
+		DC99C117151A1E18003E526F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC99C116151A1E18003E526F /* AudioToolbox.framework */; };
+		DC99C119151A1E24003E526F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC99C118151A1E24003E526F /* CoreMedia.framework */; };
+		DC99C11B151A1E47003E526F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC99C11A151A1E47003E526F /* CoreVideo.framework */; };
+		DC99C11D151A1E4E003E526F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC99C11C151A1E4E003E526F /* AVFoundation.framework */; };
+		DC99C129151A217C003E526F /* LocationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DC99C127151A217C003E526F /* LocationManager.h */; };
+		DC99C12A151A217C003E526F /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC99C128151A217C003E526F /* LocationManager.m */; };
+		DC99C12E151A258A003E526F /* PhotoManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DC99C12C151A258A003E526F /* PhotoManager.h */; };
+		DC99C12F151A258A003E526F /* PhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC99C12D151A258A003E526F /* PhotoManager.m */; };
+		DC99C133151A2848003E526F /* MailManager.h in Headers */ = {isa = PBXBuildFile; fileRef = DC99C131151A2848003E526F /* MailManager.h */; };
+		DC99C134151A2848003E526F /* MailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DC99C132151A2848003E526F /* MailManager.m */; };
+		DC99C13F151A2918003E526F /* Base64Transcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = DC99C135151A2917003E526F /* Base64Transcoder.h */; };
+		DC99C140151A2918003E526F /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = DC99C136151A2917003E526F /* Base64Transcoder.m */; };
+		DC99C141151A2918003E526F /* HSK_CFUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = DC99C137151A2917003E526F /* HSK_CFUtilities.h */; };
+		DC99C142151A2918003E526F /* HSK_CFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = DC99C138151A2917003E526F /* HSK_CFUtilities.m */; };
+		DC99C143151A2918003E526F /* NSData+Base64Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = DC99C139151A2917003E526F /* NSData+Base64Additions.h */; };
+		DC99C144151A2918003E526F /* NSData+Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = DC99C13A151A2917003E526F /* NSData+Base64Additions.m */; };
+		DC99C145151A2918003E526F /* NSStream+SKPSMTPExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = DC99C13B151A2917003E526F /* NSStream+SKPSMTPExtensions.h */; };
+		DC99C146151A2918003E526F /* NSStream+SKPSMTPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = DC99C13C151A2917003E526F /* NSStream+SKPSMTPExtensions.m */; };
+		DC99C147151A2918003E526F /* SKPSMTPMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = DC99C13D151A2918003E526F /* SKPSMTPMessage.h */; };
+		DC99C148151A2918003E526F /* SKPSMTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = DC99C13E151A2918003E526F /* SKPSMTPMessage.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DC99C0ED151A1D7B003E526F /* WhoUseMyDevice.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = WhoUseMyDevice.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC99C0F0151A1D7B003E526F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DC99C0F2151A1D7B003E526F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DC99C0F4151A1D7B003E526F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DC99C0F6151A1D7B003E526F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		DC99C0FB151A1D7B003E526F /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		DC99C0FD151A1D7B003E526F /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		DC99C0FE151A1D7B003E526F /* installdeb */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = installdeb; path = ../installdeb; sourceTree = "<group>"; };
+		DC99C0FF151A1D7B003E526F /* WhoUseMyDevice-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WhoUseMyDevice-Prefix.pch"; sourceTree = "<group>"; };
+		DC99C100151A1D7B003E526F /* WhoUseMyDevice.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WhoUseMyDevice.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		DC99C101151A1D7B003E526F /* WhoUseMyDevice.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = WhoUseMyDevice.mm; sourceTree = "<group>"; };
+		DC99C106151A1D7B003E526F /* WhoUseMyDevice.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = WhoUseMyDevice.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/WhoUseMyDevice.plist; sourceTree = "<group>"; };
+		DC99C10C151A1DCB003E526F /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
+		DC99C10E151A1DEA003E526F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		DC99C114151A1E12003E526F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DC99C116151A1E18003E526F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		DC99C118151A1E24003E526F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		DC99C11A151A1E47003E526F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		DC99C11C151A1E4E003E526F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		DC99C127151A217C003E526F /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		DC99C128151A217C003E526F /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		DC99C12C151A258A003E526F /* PhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoManager.h; sourceTree = "<group>"; };
+		DC99C12D151A258A003E526F /* PhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoManager.m; sourceTree = "<group>"; };
+		DC99C131151A2848003E526F /* MailManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailManager.h; sourceTree = "<group>"; };
+		DC99C132151A2848003E526F /* MailManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailManager.m; sourceTree = "<group>"; };
+		DC99C135151A2917003E526F /* Base64Transcoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64Transcoder.h; sourceTree = "<group>"; };
+		DC99C136151A2917003E526F /* Base64Transcoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64Transcoder.m; sourceTree = "<group>"; };
+		DC99C137151A2917003E526F /* HSK_CFUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSK_CFUtilities.h; sourceTree = "<group>"; };
+		DC99C138151A2917003E526F /* HSK_CFUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSK_CFUtilities.m; sourceTree = "<group>"; };
+		DC99C139151A2917003E526F /* NSData+Base64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64Additions.h"; sourceTree = "<group>"; };
+		DC99C13A151A2917003E526F /* NSData+Base64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64Additions.m"; sourceTree = "<group>"; };
+		DC99C13B151A2917003E526F /* NSStream+SKPSMTPExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSStream+SKPSMTPExtensions.h"; sourceTree = "<group>"; };
+		DC99C13C151A2917003E526F /* NSStream+SKPSMTPExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSStream+SKPSMTPExtensions.m"; sourceTree = "<group>"; };
+		DC99C13D151A2918003E526F /* SKPSMTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKPSMTPMessage.h; sourceTree = "<group>"; };
+		DC99C13E151A2918003E526F /* SKPSMTPMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKPSMTPMessage.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC99C0E9151A1D7B003E526F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC99C11D151A1E4E003E526F /* AVFoundation.framework in Frameworks */,
+				DC99C11B151A1E47003E526F /* CoreVideo.framework in Frameworks */,
+				DC99C119151A1E24003E526F /* CoreMedia.framework in Frameworks */,
+				DC99C117151A1E18003E526F /* AudioToolbox.framework in Frameworks */,
+				DC99C115151A1E12003E526F /* CoreLocation.framework in Frameworks */,
+				DC99C10F151A1DEA003E526F /* CFNetwork.framework in Frameworks */,
+				DC99C0F1151A1D7B003E526F /* Foundation.framework in Frameworks */,
+				DC99C10D151A1DCB003E526F /* libsubstrate.dylib in Frameworks */,
+				DC99C0F3151A1D7B003E526F /* UIKit.framework in Frameworks */,
+				DC99C0F5151A1D7B003E526F /* CoreGraphics.framework in Frameworks */,
+				DC99C0F7151A1D7B003E526F /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC99C0E0151A1D7A003E526F = {
+			isa = PBXGroup;
+			children = (
+				DC99C0F8151A1D7B003E526F /* WhoUseMyDevice */,
+				DC99C0EF151A1D7B003E526F /* Frameworks */,
+				DC99C0EE151A1D7B003E526F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC99C0EE151A1D7B003E526F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC99C0ED151A1D7B003E526F /* WhoUseMyDevice.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC99C0EF151A1D7B003E526F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC99C10C151A1DCB003E526F /* libsubstrate.dylib */,
+				DC99C11C151A1E4E003E526F /* AVFoundation.framework */,
+				DC99C11A151A1E47003E526F /* CoreVideo.framework */,
+				DC99C118151A1E24003E526F /* CoreMedia.framework */,
+				DC99C116151A1E18003E526F /* AudioToolbox.framework */,
+				DC99C114151A1E12003E526F /* CoreLocation.framework */,
+				DC99C10E151A1DEA003E526F /* CFNetwork.framework */,
+				DC99C0F0151A1D7B003E526F /* Foundation.framework */,
+				DC99C0F2151A1D7B003E526F /* UIKit.framework */,
+				DC99C0F4151A1D7B003E526F /* CoreGraphics.framework */,
+				DC99C0F6151A1D7B003E526F /* QuartzCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC99C0F8151A1D7B003E526F /* WhoUseMyDevice */ = {
+			isa = PBXGroup;
+			children = (
+				DC99C130151A2822003E526F /* EMail */,
+				DC99C100151A1D7B003E526F /* WhoUseMyDevice.xm */,
+				DC99C101151A1D7B003E526F /* WhoUseMyDevice.mm */,
+				DC99C127151A217C003E526F /* LocationManager.h */,
+				DC99C128151A217C003E526F /* LocationManager.m */,
+				DC99C12C151A258A003E526F /* PhotoManager.h */,
+				DC99C12D151A258A003E526F /* PhotoManager.m */,
+				DC99C0F9151A1D7B003E526F /* Package */,
+				DC99C0FC151A1D7B003E526F /* Supporting Files */,
+			);
+			path = WhoUseMyDevice;
+			sourceTree = "<group>";
+		};
+		DC99C0F9151A1D7B003E526F /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				DC99C0FA151A1D7B003E526F /* DEBIAN */,
+				DC99C103151A1D7B003E526F /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		DC99C0FA151A1D7B003E526F /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				DC99C0FB151A1D7B003E526F /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		DC99C0FC151A1D7B003E526F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC99C0FD151A1D7B003E526F /* PackageVersion.plist */,
+				DC99C0FE151A1D7B003E526F /* installdeb */,
+				DC99C0FF151A1D7B003E526F /* WhoUseMyDevice-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC99C103151A1D7B003E526F /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				DC99C104151A1D7B003E526F /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		DC99C104151A1D7B003E526F /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				DC99C105151A1D7B003E526F /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		DC99C105151A1D7B003E526F /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				DC99C106151A1D7B003E526F /* WhoUseMyDevice.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+		DC99C130151A2822003E526F /* EMail */ = {
+			isa = PBXGroup;
+			children = (
+				DC99C135151A2917003E526F /* Base64Transcoder.h */,
+				DC99C136151A2917003E526F /* Base64Transcoder.m */,
+				DC99C137151A2917003E526F /* HSK_CFUtilities.h */,
+				DC99C138151A2917003E526F /* HSK_CFUtilities.m */,
+				DC99C139151A2917003E526F /* NSData+Base64Additions.h */,
+				DC99C13A151A2917003E526F /* NSData+Base64Additions.m */,
+				DC99C13B151A2917003E526F /* NSStream+SKPSMTPExtensions.h */,
+				DC99C13C151A2917003E526F /* NSStream+SKPSMTPExtensions.m */,
+				DC99C13D151A2918003E526F /* SKPSMTPMessage.h */,
+				DC99C13E151A2918003E526F /* SKPSMTPMessage.m */,
+				DC99C131151A2848003E526F /* MailManager.h */,
+				DC99C132151A2848003E526F /* MailManager.m */,
+			);
+			name = EMail;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DC99C0EA151A1D7B003E526F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC99C129151A217C003E526F /* LocationManager.h in Headers */,
+				DC99C12E151A258A003E526F /* PhotoManager.h in Headers */,
+				DC99C133151A2848003E526F /* MailManager.h in Headers */,
+				DC99C13F151A2918003E526F /* Base64Transcoder.h in Headers */,
+				DC99C141151A2918003E526F /* HSK_CFUtilities.h in Headers */,
+				DC99C143151A2918003E526F /* NSData+Base64Additions.h in Headers */,
+				DC99C145151A2918003E526F /* NSStream+SKPSMTPExtensions.h in Headers */,
+				DC99C147151A2918003E526F /* SKPSMTPMessage.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		DC99C0EC151A1D7B003E526F /* WhoUseMyDevice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC99C109151A1D7B003E526F /* Build configuration list for PBXNativeTarget "WhoUseMyDevice" */;
+			buildPhases = (
+				DC99C0E7151A1D7B003E526F /* ShellScript */,
+				DC99C0E8151A1D7B003E526F /* Sources */,
+				DC99C0E9151A1D7B003E526F /* Frameworks */,
+				DC99C0EA151A1D7B003E526F /* Headers */,
+				DC99C0EB151A1D7B003E526F /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WhoUseMyDevice;
+			productName = WhoUseMyDevice;
+			productReference = DC99C0ED151A1D7B003E526F /* WhoUseMyDevice.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC99C0E2151A1D7A003E526F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = SDS;
+			};
+			buildConfigurationList = DC99C0E5151A1D7A003E526F /* Build configuration list for PBXProject "WhoUseMyDevice" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DC99C0E0151A1D7A003E526F;
+			productRefGroup = DC99C0EE151A1D7B003E526F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC99C0EC151A1D7B003E526F /* WhoUseMyDevice */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DC99C0E7151A1D7B003E526F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+		};
+		DC99C0EB151A1D7B003E526F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC99C0E8151A1D7B003E526F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC99C102151A1D7B003E526F /* WhoUseMyDevice.mm in Sources */,
+				DC99C12A151A217C003E526F /* LocationManager.m in Sources */,
+				DC99C12F151A258A003E526F /* PhotoManager.m in Sources */,
+				DC99C134151A2848003E526F /* MailManager.m in Sources */,
+				DC99C140151A2918003E526F /* Base64Transcoder.m in Sources */,
+				DC99C142151A2918003E526F /* HSK_CFUtilities.m in Sources */,
+				DC99C144151A2918003E526F /* NSData+Base64Additions.m in Sources */,
+				DC99C146151A2918003E526F /* NSStream+SKPSMTPExtensions.m in Sources */,
+				DC99C148151A2918003E526F /* SKPSMTPMessage.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		DC99C107151A1D7B003E526F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		DC99C108151A1D7B003E526F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		DC99C10A151A1D7B003E526F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WhoUseMyDevice/WhoUseMyDevice-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		DC99C10B151A1D7B003E526F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "WhoUseMyDevice/WhoUseMyDevice-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC99C0E5151A1D7A003E526F /* Build configuration list for PBXProject "WhoUseMyDevice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC99C107151A1D7B003E526F /* Release */,
+				DC99C108151A1D7B003E526F /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC99C109151A1D7B003E526F /* Build configuration list for PBXNativeTarget "WhoUseMyDevice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC99C10A151A1D7B003E526F /* Release */,
+				DC99C10B151A1D7B003E526F /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC99C0E2151A1D7A003E526F /* Project object */;
+}
