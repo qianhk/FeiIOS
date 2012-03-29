@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9BBA486152045260021B5DB /* BulletinBoard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BBA2DC15203AF70021B5DB /* BulletinBoard.framework */; };
 		DC3E96E814F682B800441B6D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3E96E714F682B800441B6D /* Foundation.framework */; };
 		DC3E96F314F682B800441B6D /* MusicBanners.mm in Sources */ = {isa = PBXBuildFile; fileRef = DC3E96F214F682B800441B6D /* MusicBanners.mm */; };
 		DC3E970114F6838F00441B6D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3E970014F6838E00441B6D /* UIKit.framework */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D9BBA2D915203AA80021B5DB /* BulletinBoard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BulletinBoard.framework; path = /opt/iOSOpenDev/frameworks/BulletinBoard.framework; sourceTree = "<absolute>"; };
+		D9BBA2DC15203AF70021B5DB /* BulletinBoard.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BulletinBoard.framework; path = System/Library/PrivateFrameworks/BulletinBoard.framework; sourceTree = SDKROOT; };
 		DC3E96E414F682B800441B6D /* MusicBanners.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = MusicBanners.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC3E96E714F682B800441B6D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC3E96ED14F682B800441B6D /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
@@ -38,10 +41,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC3E970614F683A300441B6D /* CoreGraphics.framework in Frameworks */,
+				DC3E96E814F682B800441B6D /* Foundation.framework in Frameworks */,
+				D9BBA486152045260021B5DB /* BulletinBoard.framework in Frameworks */,
 				DC3E970414F6839C00441B6D /* QuartzCore.framework in Frameworks */,
 				DC3E970114F6838F00441B6D /* UIKit.framework in Frameworks */,
 				DC3E970814F683B200441B6D /* libsubstrate.dylib in Frameworks */,
-				DC3E96E814F682B800441B6D /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +72,8 @@
 		DC3E96E614F682B800441B6D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9BBA2DC15203AF70021B5DB /* BulletinBoard.framework */,
+				D9BBA2D915203AA80021B5DB /* BulletinBoard.framework */,
 				DC3E970714F683B200441B6D /* libsubstrate.dylib */,
 				DC3E970514F683A300441B6D /* CoreGraphics.framework */,
 				DC3E970314F6839C00441B6D /* QuartzCore.framework */,
@@ -258,7 +264,7 @@
 					"$(iOSOpenDevPath)/frameworks/**",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -290,7 +296,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -307,11 +313,17 @@
 		DC3E96FB14F682B800441B6D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/frameworks,
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MusicBanners/MusicBanners-Prefix.pch";
+				GCC_VERSION = "";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -332,11 +344,17 @@
 		DC3E96FC14F682B800441B6D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = armv6;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/frameworks,
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MusicBanners/MusicBanners-Prefix.pch";
+				GCC_VERSION = "";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

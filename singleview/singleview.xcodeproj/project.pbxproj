@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9513BED15232030005DD739 /* GraphicsServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9513BEC15232030005DD739 /* GraphicsServices.framework */; };
+		D9513BF0152320D9005DD739 /* GraphicsServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9513BEF152320D9005DD739 /* GraphicsServices.framework */; };
 		D96B4FEB14E3D67700580C3B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96B4FEA14E3D67700580C3B /* UIKit.framework */; };
 		D96B4FED14E3D67700580C3B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96B4FEC14E3D67700580C3B /* Foundation.framework */; };
 		D96B4FEF14E3D67700580C3B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96B4FEE14E3D67700580C3B /* CoreGraphics.framework */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D9513BEC15232030005DD739 /* GraphicsServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraphicsServices.framework; path = /opt/iOSOpenDev/frameworks/GraphicsServices.framework; sourceTree = "<absolute>"; };
+		D9513BEF152320D9005DD739 /* GraphicsServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraphicsServices.framework; path = System/Library/PrivateFrameworks/GraphicsServices.framework; sourceTree = SDKROOT; };
 		D96B4FE614E3D67700580C3B /* singleview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = singleview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96B4FEA14E3D67700580C3B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D96B4FEC14E3D67700580C3B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -51,9 +55,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9513BF0152320D9005DD739 /* GraphicsServices.framework in Frameworks */,
 				D9E955F014FDD4E0006C9785 /* MediaPlayer.framework in Frameworks */,
 				D96B4FEB14E3D67700580C3B /* UIKit.framework in Frameworks */,
 				D96B4FED14E3D67700580C3B /* Foundation.framework in Frameworks */,
+				D9513BED15232030005DD739 /* GraphicsServices.framework in Frameworks */,
 				D9FE3F5A150610D90095F824 /* libsubstrate.dylib in Frameworks */,
 				D96B4FEF14E3D67700580C3B /* CoreGraphics.framework in Frameworks */,
 			);
@@ -83,6 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				D9FE3F59150610D90095F824 /* libsubstrate.dylib */,
+				D9513BEF152320D9005DD739 /* GraphicsServices.framework */,
+				D9513BEC15232030005DD739 /* GraphicsServices.framework */,
 				D9E955EF14FDD4E0006C9785 /* MediaPlayer.framework */,
 				D96B4FEA14E3D67700580C3B /* UIKit.framework */,
 				D96B4FEC14E3D67700580C3B /* Foundation.framework */,
@@ -222,6 +230,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = /opt/iOSOpenDev/frameworks;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -234,6 +243,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;
 			};
@@ -246,11 +256,13 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = /opt/iOSOpenDev/frameworks;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
@@ -264,6 +276,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+					/opt/iOSOpenDev/frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleview/singleview-Prefix.pch";
@@ -283,6 +296,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+					/opt/iOSOpenDev/frameworks,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleview/singleview-Prefix.pch";

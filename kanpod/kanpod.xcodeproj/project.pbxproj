@@ -24,12 +24,12 @@
 		D9B3E95F14FE05450079969C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D9B3E96414FE05450079969C /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
 		D9B3E96614FE05450079969C /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
-		D9B3E96714FE05450079969C /* copykill */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = copykill; sourceTree = "<group>"; };
 		D9B3E96814FE05450079969C /* kanpod-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "kanpod-Prefix.pch"; sourceTree = "<group>"; };
 		D9B3E96914FE05450079969C /* kanpod.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = kanpod.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		D9B3E96A14FE05450079969C /* kanpod.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = kanpod.mm; sourceTree = "<group>"; };
 		D9B3E96F14FE05450079969C /* kanpod.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = kanpod.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/kanpod.plist; sourceTree = "<group>"; };
 		D9B3E97514FE05620079969C /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
+		D9F0FAFC15246FA3007110A0 /* installdeb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = installdeb; sourceTree = SOURCE_ROOT; };
 		DC81EF7214FFC2BE004F6FC5 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		DC81EF7514FFC652004F6FC5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		DC81EFD814FFDE9D004F6FC5 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -115,8 +115,8 @@
 		D9B3E96514FE05450079969C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D9F0FAFC15246FA3007110A0 /* installdeb */,
 				D9B3E96614FE05450079969C /* PackageVersion.plist */,
-				D9B3E96714FE05450079969C /* copykill */,
 				D9B3E96814FE05450079969C /* kanpod-Prefix.pch */,
 			);
 			name = "Supporting Files";

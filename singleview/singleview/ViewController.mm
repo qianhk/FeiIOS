@@ -18,6 +18,43 @@
 #import "LyricItem.h"
 #import "DesktopSettingWindow.h"
 
+#import "GraphicsServices/GSEvent.h"  
+#include <mach/mach_time.h> 
+
+void sendclickevent();
+void sendclickevent()
+{  
+    mach_port_t thePortOfApp = GSCopyPurpleNamedPort("com.ttpod.singleview");  
+	
+    GSEventRecord record;  
+	
+    memset(&record, 0, sizeof(GSEventRecord));
+	
+    record.type = kGSEventHand;  
+    record.subtype = kGSEventSubTypeUnknown;  
+    record.location.x = 50;  
+    record.location.y = 50;  
+    record.windowLocation.x = 50;  
+    record.windowLocation.y = 50;  
+    record.infoSize = sizeof(GSEventRecord);  
+//    record.timestamp = mach_absolute_time();  
+	record.timestamp = GSCurrentEventTimestamp();
+	
+	/* typedef struct GSEventRecord {
+	 GSEventType type; // 0x8
+	 GSEventSubType subtype;	// 0xC
+	 CGPoint location; 	// 0x10
+	 CGPoint windowLocation;	// 0x18
+	 int windowContextId;	// 0x20
+	 uint64_t timestamp;	// 0x24, from mach_absolute_time
+	 GSWindowRef window;	// 0x2C
+	 GSEventFlags flags;	// 0x30
+	 unsigned senderPID;	// 0x34
+	 CFIndex infoSize; // 0x38
+	 } GSEventRecord;  */
+    GSSendEvent(&record, thePortOfApp);  NSDate
+} 
+
 
 #define KTTMessagePort "com.ttpod.ttdesktop.port2"
 

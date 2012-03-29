@@ -32,7 +32,7 @@
 		self.windowLevel = 5000000.0f;
 		self.layer.cornerRadius = 7.5;
 		self.frame = frame;
-		self.backgroundColor = [UIColor yellowColor];
+		self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5];
 		
 		btnFontSizeSmaller = [[self makeButtonWithFrame:CGRectMake(10, 5, 50, 30) title:@"Smaller" image:nil action:@selector(btnChangeFontSizeClicked:) tag:0] retain];
 		btnFontSizeBigger = [[self makeButtonWithFrame:CGRectMake(70, 5, 50, 30) title:@"Bigger" image:nil action:@selector(btnChangeFontSizeClicked:) tag:0] retain];

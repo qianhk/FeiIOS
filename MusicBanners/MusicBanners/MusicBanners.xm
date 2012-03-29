@@ -83,36 +83,45 @@ static MusicBannersProvider *sharedProvider;
 	BOOL hasChanges = NO;
 	SBMediaController *mc = [%c(SBMediaController) sharedInstance];
 	NSString *title = mc.nowPlayingTitle;
-	if ((title != nowPlayingTitle) && ![title isEqualToString:nowPlayingTitle]) {
+	if ((title != nowPlayingTitle) && ![title isEqualToString:nowPlayingTitle])
+	{
 		[nowPlayingTitle release];
 		nowPlayingTitle = [title copy];
 		hasChanges = YES;
 	}
 	NSString *artist = mc.nowPlayingArtist;
-	if ((artist != nowPlayingArtist) && ![artist isEqualToString:nowPlayingArtist]) {
+	if ((artist != nowPlayingArtist) && ![artist isEqualToString:nowPlayingArtist])
+	{
 		[nowPlayingArtist release];
 		nowPlayingArtist = [artist copy];
 		hasChanges = YES;
 	}
 	NSString *album = mc.nowPlayingAlbum;
-	if ((album != nowPlayingArtist) && ![album isEqualToString:nowPlayingAlbum]) {
+	if ((album != nowPlayingArtist) && ![album isEqualToString:nowPlayingAlbum])
+	{
 		[nowPlayingAlbum release];
 		nowPlayingAlbum = [album copy];
 		hasChanges = YES;
 	}
-	if (hasChanges) {
+	if (hasChanges)
+	{
 		NSData *data = [[mc _nowPlayingInfo] objectForKey:@"artworkData"];
-		if (data) {
+		if (data)
+		{
 			UIImage *image = [[UIImage alloc] initWithData:data];
 			[nowPlayingImage release];
 			nowPlayingImage = image;
-		} else {
+		}
+		else
+		{
 			[nowPlayingImage release];
 			nowPlayingImage = nil;
 		}
 		BBDataProviderWithdrawBulletinsWithRecordID(self, @"com.apple.mobileipod/banner");
-		if ([artist length] && [title length]) {
-			if (!bulletin) {
+		if ([artist length] && [title length])
+		{
+			if (!bulletin)
+			{
 				bulletin = [[BBBulletinRequest alloc] init];
 				bulletin.sectionID = @"com.apple.mobileipod/banner";
 				bulletin.defaultAction = [BBAction actionWithLaunchURL:[NSURL URLWithString:@"music://"] callblock:nil];
@@ -135,7 +144,8 @@ static MusicBannersProvider *sharedProvider;
 
 - (CGFloat)attachmentAspectRatioForRecordID:(NSString *)recordID
 {
-	if (nowPlayingImage) {
+	if (nowPlayingImage)
+	{
 		CGSize size = nowPlayingImage.size;
 		if (size.height > 0.0f)
 			return size.width / size.height;
@@ -196,7 +206,8 @@ static MusicBannersProvider *sharedProvider;
 
 + (UIImage *)_applicationIconImageForBundleIdentifier:(NSString *)bundleIdentifier format:(int)format scale:(CGFloat)scale
 {
-	if ((format == 10) && [bundleIdentifier isEqualToString:@"com.apple.mobileipod"]) {
+	if ((format == 10) && [bundleIdentifier isEqualToString:@"com.apple.mobileipod"])
+	{
 		// Try nc_icon.png, but fallback to generating an icon based on Icon-Small.png
 		NSBundle *bundle = [NSBundle bundleWithPath:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? @"/Applications/Music~ipad.app" : @"/Applications/Music~iphone.app"];
 		return [UIImage imageNamed:@"nc_icon.png" inBundle:bundle] ?: [[UIImage imageNamed:@"Icon-Small.png" inBundle:bundle] _applicationIconImageForFormat:format precomposed:YES scale:scale];

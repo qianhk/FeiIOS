@@ -1,4 +1,4 @@
-#line 1 "/OnGitHub/FeiIOS/MusicBanners/MusicBanners/MusicBanners.xm"
+#line 1 "/OnGit/FeiIOS/MusicBanners/MusicBanners/MusicBanners.xm"
 #import <Foundation/Foundation.h>
 #import <SpringBoard/SpringBoard.h>
 #import "BulletinBoard/BulletinBoard.h"
@@ -84,41 +84,50 @@ static MusicBannersProvider *sharedProvider;
 @class UIImage; @class BBServer; @class SBMediaController; 
 static Class _logos_superclass$_ungrouped$BBServer; static void (*_logos_orig$_ungrouped$BBServer$_loadAllDataProviderPluginBundles)(BBServer*, SEL);static Class _logos_supermetaclass$_ungrouped$UIImage; static UIImage * (*_logos_meta_orig$_ungrouped$UIImage$_applicationIconImageForBundleIdentifier$format$scale$)(Class, SEL, NSString *, int, CGFloat);static Class _logos_superclass$_ungrouped$SBMediaController; static void (*_logos_orig$_ungrouped$SBMediaController$_nowPlayingInfoChanged)(SBMediaController*, SEL);static void (*_logos_orig$_ungrouped$SBMediaController$setNowPlayingInfo$)(SBMediaController*, SEL, id);
 static Class _logos_static_class$SBMediaController; 
-#line 82 "/OnGitHub/FeiIOS/MusicBanners/MusicBanners/MusicBanners.xm"
+#line 82 "/OnGit/FeiIOS/MusicBanners/MusicBanners/MusicBanners.xm"
 - (void)dataProviderDidLoad {
 	BOOL hasChanges = NO;
 	SBMediaController *mc = [_logos_static_class$SBMediaController sharedInstance];
 	NSString *title = mc.nowPlayingTitle;
-	if ((title != nowPlayingTitle) && ![title isEqualToString:nowPlayingTitle]) {
+	if ((title != nowPlayingTitle) && ![title isEqualToString:nowPlayingTitle])
+	{
 		[nowPlayingTitle release];
 		nowPlayingTitle = [title copy];
 		hasChanges = YES;
 	}
 	NSString *artist = mc.nowPlayingArtist;
-	if ((artist != nowPlayingArtist) && ![artist isEqualToString:nowPlayingArtist]) {
+	if ((artist != nowPlayingArtist) && ![artist isEqualToString:nowPlayingArtist])
+	{
 		[nowPlayingArtist release];
 		nowPlayingArtist = [artist copy];
 		hasChanges = YES;
 	}
 	NSString *album = mc.nowPlayingAlbum;
-	if ((album != nowPlayingArtist) && ![album isEqualToString:nowPlayingAlbum]) {
+	if ((album != nowPlayingArtist) && ![album isEqualToString:nowPlayingAlbum])
+	{
 		[nowPlayingAlbum release];
 		nowPlayingAlbum = [album copy];
 		hasChanges = YES;
 	}
-	if (hasChanges) {
+	if (hasChanges)
+	{
 		NSData *data = [[mc _nowPlayingInfo] objectForKey:@"artworkData"];
-		if (data) {
+		if (data)
+		{
 			UIImage *image = [[UIImage alloc] initWithData:data];
 			[nowPlayingImage release];
 			nowPlayingImage = image;
-		} else {
+		}
+		else
+		{
 			[nowPlayingImage release];
 			nowPlayingImage = nil;
 		}
 		BBDataProviderWithdrawBulletinsWithRecordID(self, @"com.apple.mobileipod/banner");
-		if ([artist length] && [title length]) {
-			if (!bulletin) {
+		if ([artist length] && [title length])
+		{
+			if (!bulletin)
+			{
 				bulletin = [[BBBulletinRequest alloc] init];
 				bulletin.sectionID = @"com.apple.mobileipod/banner";
 				bulletin.defaultAction = [BBAction actionWithLaunchURL:[NSURL URLWithString:@"music://"] callblock:nil];
@@ -141,7 +150,8 @@ static Class _logos_static_class$SBMediaController;
 
 
 - (CGFloat)attachmentAspectRatioForRecordID:(NSString *)recordID {
-	if (nowPlayingImage) {
+	if (nowPlayingImage)
+	{
 		CGSize size = nowPlayingImage.size;
 		if (size.height > 0.0f)
 			return size.width / size.height;
@@ -202,7 +212,8 @@ static void _logos_super$_ungrouped$BBServer$_loadAllDataProviderPluginBundles(B
 
 
 static UIImage * _logos_meta_super$_ungrouped$UIImage$_applicationIconImageForBundleIdentifier$format$scale$(Class self, SEL _cmd, NSString * bundleIdentifier, int format, CGFloat scale) {return ((UIImage * (*)(Class, SEL, NSString *, int, CGFloat))class_getMethodImplementation(_logos_supermetaclass$_ungrouped$UIImage, @selector(_applicationIconImageForBundleIdentifier:format:scale:)))(self, _cmd, bundleIdentifier, format, scale);}static UIImage * _logos_meta_method$_ungrouped$UIImage$_applicationIconImageForBundleIdentifier$format$scale$(Class self, SEL _cmd, NSString * bundleIdentifier, int format, CGFloat scale) {
-	if ((format == 10) && [bundleIdentifier isEqualToString:@"com.apple.mobileipod"]) {
+	if ((format == 10) && [bundleIdentifier isEqualToString:@"com.apple.mobileipod"])
+	{
 		
 		NSBundle *bundle = [NSBundle bundleWithPath:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? @"/Applications/Music~ipad.app" : @"/Applications/Music~iphone.app"];
 		return [UIImage imageNamed:@"nc_icon.png" inBundle:bundle] ?: [[UIImage imageNamed:@"Icon-Small.png" inBundle:bundle] _applicationIconImageForFormat:format precomposed:YES scale:scale];
@@ -248,4 +259,4 @@ NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 [pool drain];
 #endif
 }
-#line 224 "/OnGitHub/FeiIOS/MusicBanners/MusicBanners/MusicBanners.xm"
+#line 235 "/OnGit/FeiIOS/MusicBanners/MusicBanners/MusicBanners.xm"
