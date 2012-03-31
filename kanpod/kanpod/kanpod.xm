@@ -19,6 +19,7 @@
 
 #import <objc/runtime.h>
 #include <notify.h>
+#import "GraphicsServices/GSEvent.h"  
 
 @interface MPMediaLibrary(Test)
 +(void)syncGenerationDidChangeForLibraryDataProvider:(id)syncGeneration;
@@ -1245,39 +1246,48 @@ int replace_sqlite3_open_v2(const char * filename, sqlite3 **ppdb, int flags, co
 //
 //%end
 
-%hook UIApplication
+//%hook UIApplication
+//
+//-(BOOL)handleEvent:(GSEventRef)event withNewEvent:(id)newEvent
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(BOOL)handleEvent:(GSEventRef)event
+//{
+//	%log;
+//	return %orig;
+//}
+//
+//-(void)handleKeyEvent:(GSEventRef)event
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(void)_handleKeyEvent:(GSEventRef)event
+//{
+//	%log;
+//	%orig;
+//}
+//
+//-(void)sendEvent:(id)event
+//{
+//	%log;
+//	%orig;
+//}
+//
+//%end
 
--(BOOL)handleEvent:(GSEventRef)event withNewEvent:(id)newEvent
+
+static int (*ori_sqlite3_open)(const char *filename, sqlite3 **ppdb) = sqlite3_open;
+int replace_sqlite3_open(const char * filename, sqlite3 **ppdb)
 {
-	%log;
-	return %orig;
+	NSLog(@"sqlite3_open %s", filename);
+	return ori_sqlite3_open(filename, ppdb);
 }
 
--(BOOL)handleEvent:(GSEventRef)event
-{
-	%log;
-	return %orig;
-}
-
--(void)handleKeyEvent:(GSEventRef)event
-{
-	%log;
-	%orig;
-}
-
--(void)_handleKeyEvent:(GSEventRef)event
-{
-	%log;
-	%orig;
-}
-
--(void)sendEvent:(id)event
-{
-	%log;
-	%orig;
-}
-
-%end
 
 %ctor
 {

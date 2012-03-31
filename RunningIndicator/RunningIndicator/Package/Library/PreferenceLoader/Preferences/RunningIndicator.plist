@@ -18,6 +18,22 @@
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>© 2012 TTPod Kai</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<true/>
+			<key>defaults</key>
+			<string>cn.njnu.kai.runningindicator</string>
+			<key>key</key>
+			<string>RIShowRunningindicator</string>
+			<key>label</key>
+			<string>Show RunningIndicator</string>
+			<key>PostNotification</key>
+			<string>cn.njnu.kai.runningindicator/settingschanged</string>
 		</dict>
 		<dict>
 			<key>cell</key>

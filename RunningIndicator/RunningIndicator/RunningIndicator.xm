@@ -3,6 +3,7 @@
 
 static NSMutableSet *runningIcons;
 static BOOL showCloseButtons;
+static BOOL showRunningIndicator;
 
 //int GSEventGetType(GSEventRef event);
 
@@ -16,19 +17,22 @@ static BOOL showCloseButtons;
 	if (icon)
 	{
 		[runningIcons addObject:icon];
-		SBIconView *iconView = %c(SBIconViewMap) ? [[%c(SBIconViewMap) homescreenMap] mappedIconViewForIcon:icon] : (SBIconView *)icon;
-		if (iconView)
+		if (showRunningIndicator || showCloseButtons)
 		{
-			if ([icon respondsToSelector:@selector(setShowsImages:)])
-				[icon setShowsImages:YES];
-			[iconView prepareDropGlow];
-			UIImageView *dropGlow = [iconView dropGlow];
-			dropGlow.image = [UIImage imageNamed:@"RunningGlow"];
-			[UIView beginAnimations:nil context:NULL];
-			[UIView setAnimationDuration:1.0];
-			[iconView showDropGlow:YES];
-			[iconView setShowsCloseBox:showCloseButtons];
-			[UIView commitAnimations];
+			SBIconView *iconView = %c(SBIconViewMap) ? [[%c(SBIconViewMap) homescreenMap] mappedIconViewForIcon:icon] : (SBIconView *)icon;
+			if (iconView)
+			{
+				if ([icon respondsToSelector:@selector(setShowsImages:)])
+					[icon setShowsImages:YES];
+				[iconView prepareDropGlow];
+				UIImageView *dropGlow = [iconView dropGlow];
+				dropGlow.image = [UIImage imageNamed:@"RunningGlow"];
+				[UIView beginAnimations:nil context:NULL];
+				[UIView setAnimationDuration:1.0];
+				[iconView showDropGlow:showRunningIndicator];
+				[iconView setShowsCloseBox:showCloseButtons];
+				[UIView commitAnimations];
+			}
 		}
 	}
 	%orig;
@@ -42,14 +46,17 @@ static BOOL showCloseButtons;
 	if (icon)
 	{
 		[runningIcons removeObject:icon];
-		SBIconView *iconView = %c(SBIconViewMap) ? [[%c(SBIconViewMap) homescreenMap] mappedIconViewForIcon:icon] : (SBIconView *)icon;
-		if (iconView)
+		if (showRunningIndicator || showCloseButtons)
 		{
-			[UIView beginAnimations:nil context:NULL];
-			[UIView setAnimationDuration:1.0];
-			[iconView showDropGlow:NO];
-			[iconView setShowsCloseBox:NO];
-			[UIView commitAnimations];
+			SBIconView *iconView = %c(SBIconViewMap) ? [[%c(SBIconViewMap) homescreenMap] mappedIconViewForIcon:icon] : (SBIconView *)icon;
+			if (iconView)
+			{
+				[UIView beginAnimations:nil context:NULL];
+				[UIView setAnimationDuration:1.0];
+				[iconView showDropGlow:NO];
+				[iconView setShowsCloseBox:NO];
+				[UIView commitAnimations];
+			}
 		}
 	}
 	%orig;
@@ -172,23 +179,49 @@ static void LoadSettings()
 	NSDictionary *settings = [[NSDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/cn.njnu.kai.runningindicator.plist"];
 	id temp = [settings objectForKey:@"RIShowCloseButtons"];
 	showCloseButtons = temp ? [temp boolValue] : YES;
+	temp = [settings objectForKey:@"RIShowRunningindicator"];
+	showRunningIndicator = temp ? [temp boolValue] : YES;
 	[settings release];
+}
+
+static void ShowRunningIndicator(SBIconView* iconView, SBIcon* icon)
+{
+	if (showRunningIndicator)
+	{
+		if ([icon respondsToSelector:@selector(setShowsImages:)])
+			[icon setShowsImages:YES];
+		[iconView prepareDropGlow];
+		UIImageView *dropGlow = [iconView dropGlow];
+		dropGlow.image = [UIImage imageNamed:@"RunningGlow"];
+		[iconView showDropGlow:YES];
+	}
+	else
+	{
+		[iconView showDropGlow:NO];
+	}
 }
 
 static void SettingsChanged(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef userInfo)
 {
-	NSLog(@"qhk runningIndicator: SettingsChanged");
+//	NSLog(@"qhk runningIndicator: SettingsChanged");
 	LoadSettings();
 	if (%c(SBIconViewMap))
 	{
 		SBIconViewMap *map = [%c(SBIconViewMap) homescreenMap];
 		for (SBIcon *icon in runningIcons)
-			[[map mappedIconViewForIcon:icon] setShowsCloseBox:showCloseButtons];
+		{
+			SBIconView* iconView = [map mappedIconViewForIcon:icon];
+			[iconView setShowsCloseBox:showCloseButtons];
+			ShowRunningIndicator(iconView, icon);
+		}
 	}
 	else
 	{
-		for (SBIcon *icon in runningIcons)
+		for (SBIcon* icon in runningIcons)
+		{
 			[icon setShowsCloseBox:showCloseButtons];
+			ShowRunningIndicator((SBIconView *)icon, icon);
+		}
 	}
 }
 
@@ -258,10 +291,10 @@ static void SettingsChanged(CFNotificationCenterRef center, void *observer, CFSt
 {
 //	%log;
 	%orig;
-	id id1 = [self _accessibilityFrontMostApplication];
-	id id2 = [self _accessibilityTopDisplay];
+	SBApplication* id1 = [self _accessibilityFrontMostApplication];
+	SBApplication* id2 = [self _accessibilityTopDisplay];
 //	id id3 = [self _accessibilityRunningApplications];
-	NSLog(@"qhk RunningIndicator: frontdisplayDidChanged: id1=%@ id2=%@", id1, id2);
+	NSLog(@"qhk RunningIndicator: frontdisplayDidChanged: id1=%@ id2=%@", id1.displayIdentifier, id2.displayIdentifier);
 }
 
 - (void)didIdle
