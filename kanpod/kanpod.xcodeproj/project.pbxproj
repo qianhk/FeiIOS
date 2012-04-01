@@ -12,6 +12,7 @@
 		D9B3E96014FE05450079969C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B3E95F14FE05450079969C /* UIKit.framework */; };
 		D9B3E96B14FE05450079969C /* kanpod.mm in Sources */ = {isa = PBXBuildFile; fileRef = D9B3E96A14FE05450079969C /* kanpod.mm */; };
 		D9B3E97614FE05620079969C /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D9B3E97514FE05620079969C /* libsubstrate.dylib */; };
+		D9CA9086152840F2002715BC /* GraphicsServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CA9085152840F2002715BC /* GraphicsServices.framework */; };
 		DC81EF7314FFC2BE004F6FC5 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC81EF7214FFC2BE004F6FC5 /* CoreFoundation.framework */; };
 		DC81EF7614FFC652004F6FC5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC81EF7514FFC652004F6FC5 /* MediaPlayer.framework */; };
 		DC81EFD914FFDE9D004F6FC5 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC81EFD814FFDE9D004F6FC5 /* libsqlite3.0.dylib */; };
@@ -29,6 +30,8 @@
 		D9B3E96A14FE05450079969C /* kanpod.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = kanpod.mm; sourceTree = "<group>"; };
 		D9B3E96F14FE05450079969C /* kanpod.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = kanpod.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/kanpod.plist; sourceTree = "<group>"; };
 		D9B3E97514FE05620079969C /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
+		D9CA908015283DD9002715BC /* GraphicsServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraphicsServices.framework; path = /opt/iOSOpenDev/frameworks/GraphicsServices.framework; sourceTree = "<absolute>"; };
+		D9CA9085152840F2002715BC /* GraphicsServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraphicsServices.framework; path = System/Library/PrivateFrameworks/GraphicsServices.framework; sourceTree = SDKROOT; };
 		D9F0FAFC15246FA3007110A0 /* installdeb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = installdeb; sourceTree = SOURCE_ROOT; };
 		DC81EF7214FFC2BE004F6FC5 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		DC81EF7514FFC652004F6FC5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
@@ -40,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9CA9086152840F2002715BC /* GraphicsServices.framework in Frameworks */,
 				DC81EFD914FFDE9D004F6FC5 /* libsqlite3.0.dylib in Frameworks */,
 				DC81EF7614FFC652004F6FC5 /* MediaPlayer.framework in Frameworks */,
 				DC81EF7314FFC2BE004F6FC5 /* CoreFoundation.framework in Frameworks */,
@@ -73,6 +77,8 @@
 		D9B3E95A14FE05450079969C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D9CA9085152840F2002715BC /* GraphicsServices.framework */,
+				D9CA908015283DD9002715BC /* GraphicsServices.framework */,
 				DC81EFD814FFDE9D004F6FC5 /* libsqlite3.0.dylib */,
 				DC81EF7514FFC652004F6FC5 /* MediaPlayer.framework */,
 				DC81EF7214FFC2BE004F6FC5 /* CoreFoundation.framework */,
@@ -307,6 +313,11 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/frameworks,
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "kanpod/kanpod-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
@@ -329,6 +340,11 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/frameworks,
+					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "kanpod/kanpod-Prefix.pch";
 				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;

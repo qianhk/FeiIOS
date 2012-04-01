@@ -1280,23 +1280,101 @@ int replace_sqlite3_open_v2(const char * filename, sqlite3 **ppdb, int flags, co
 //
 //%end
 
+/*
+ typedef struct GSEventRecord {
+ GSEventType type; // 0x8
+ GSEventSubType subtype;	// 0xC
+ CGPoint location; 	// 0x10
+ CGPoint windowLocation;	// 0x18
+ int windowContextId;	// 0x20
+ uint64_t timestamp;	// 0x24, from mach_absolute_time
+ GSWindowRef window;	// 0x2C
+ GSEventFlags flags;	// 0x30
+ unsigned senderPID;	// 0x34
+ CFIndex infoSize; // 0x38
+ } GSEventRecord;
+ 
+ 
+ */
 
-static int (*ori_sqlite3_open)(const char *filename, sqlite3 **ppdb) = sqlite3_open;
-int replace_sqlite3_open(const char * filename, sqlite3 **ppdb)
+static void (*ori_GSSendEvent)(const GSEventRecord* record, mach_port_t port) = GSSendEvent;
+void replace_GSSendEvent(const GSEventRecord* record, mach_port_t port)
 {
-	NSLog(@"sqlite3_open %s", filename);
-	return ori_sqlite3_open(filename, ppdb);
+//	print_trace();
+//	NSLog(@"qhk in replace_GSSendEvent port=0x%08X GSEventRecord<type=%d subtype=%d, location=(%.1f, %.1f), windowLocation=(%.1f, %.1f), windowContextId=%d, winRef=0x%08X, flags=%d, senderPID=%d, infoSize=%ld %lu %lu", port, record->type, record->subtype, record->location.x, record->location.y, record->windowLocation.x, record->windowLocation.y, record->windowContextId, record->window, record->flags, record->senderPID, record->infoSize, sizeof(*record), sizeof(GSEventRecord));
+	ori_GSSendEvent(record, port);
 }
 
+static void (*ori_GSSendSimpleEvent)(GSEventType type, mach_port_t port) = GSSendSimpleEvent;
+void replace_GSSendSimpleEvent(GSEventType type, mach_port_t port)
+{
+//	NSLog(@"qhk in replace_GSSendSimpleEvent port=0x%08X type=%d", port, type);
+	ori_GSSendSimpleEvent(type, port);
+}
+
+static void (*ori_GSSendSystemEvent)(const GSEventRecord* record) = GSSendSystemEvent;
+void replace_GSSendSystemEvent(const GSEventRecord* record)
+{
+//	NSLog(@"qhk in replace_GSSendSystemEvent GSEventRecord<type=%d subtype=%d, location=(%.1f, %.1f), windowLocation=(%.1f, %.1f), windowContextId=%d, winRef=0x%08X, flags=%d, senderPID=%d, infoSize=%ld %lu %lu", record->type, record->subtype, record->location.x, record->location.y, record->windowLocation.x, record->windowLocation.y, record->windowContextId, record->window, record->flags, record->senderPID, record->infoSize, sizeof(*record), sizeof(GSEventRecord));
+	ori_GSSendSystemEvent(record);
+}
+
+//static void (*ori_GSSendKeyEvent)(GSEventType type,
+//					CGPoint windowLocation,
+//					CFStringRef characters,
+//					CFStringRef unmodifiedCharacters,
+//					GSEventFlags modifiers,
+//					uint16_t usagePage,
+//					unsigned short options7,
+//								  unsigned short options8) = GSSendKeyEvent;
+//void replace_GSSendKeyEvent(GSEventType type,
+//					CGPoint windowLocation,
+//					CFStringRef characters,
+//					CFStringRef unmodifiedCharacters,
+//					GSEventFlags modifiers,
+//					uint16_t usagePage,
+//					unsigned short options7,
+//					unsigned short options8)
+//{
+//	NSLog(@"in replace_GSSendKeyEvent");
+//	ori_GSSendKeyEvent(type, windowLocation, characters, unmodifiedCharacters, modifiers, usagePage, options7, options8);
+//}
+
+//extern void PurpleEventCallback(GSEventRef event);
+//
+//static void (*ori_PurpleEventCallback)(GSEventRef event) = PurpleEventCallback;
+//void replace_PurpleEventCallback(GSEventRef event)
+//{
+//	NSLog(@"h");
+//	ori_PurpleEventCallback(event);
+//}
+
+static void (*oriEventCallBack)(GSEventRef event) = NULL;
+
+void kaiEventCallBack(GSEventRef event)
+{
+	NSLog(@"qhk in kaiEventCallBack %p", event);
+	oriEventCallBack(event);
+}
+
+static void (*ori_GSEventRegisterEventCallBack)(void(*callback)(GSEventRef event)) = GSEventRegisterEventCallBack;
+
+void replace_GSEventRegisterEventCallBack(void(*callback)(GSEventRef event))
+{
+	NSLog(@"qhk replace_GSEventRegisterEventCallBack");
+	oriEventCallBack = callback;
+	ori_GSEventRegisterEventCallBack(kaiEventCallBack);
+}
 
 %ctor
 {
-	NSLog(@"qhk kanpod: init begin.");
+	NSLog(@"qhk kanpod: init begin 4.");
 	
 	NSBundle* bundle = [NSBundle mainBundle];
 	NSString* biden = [bundle bundleIdentifier];
 	NSString* execPath = [bundle executablePath];
-	NSLog(@"qhk kanpod: bundle %p %@, %@", bundle, biden, execPath);
+	mach_port_t curPort = GSCopyPurpleNamedPort([biden UTF8String]);
+	NSLog(@"qhk kanpod: bundle %p %@, %@ port=0x%08X", bundle, biden, execPath, curPort);
 	
 	%init;
 //	currentTransform = CATransform3DIdentity;
@@ -1307,6 +1385,11 @@ int replace_sqlite3_open(const char * filename, sqlite3 **ppdb)
 	
 	MSHookFunction(sqlite3_open, replace_sqlite3_open, &ori_sqlite3_open);
 	MSHookFunction(sqlite3_open_v2, replace_sqlite3_open_v2, &ori_sqlite3_open_v2);
+	MSHookFunction(GSSendEvent, replace_GSSendEvent, &ori_GSSendEvent);
+	MSHookFunction(GSSendSimpleEvent, replace_GSSendSimpleEvent, &ori_GSSendSimpleEvent);
+	MSHookFunction(GSSendSystemEvent, replace_GSSendSystemEvent, &ori_GSSendSystemEvent);
+//	MSHookFunction(GSSendKeyEvent, replace_GSSendKeyEvent, &ori_GSSendKeyEvent);
+	MSHookFunction(GSEventRegisterEventCallBack, replace_GSEventRegisterEventCallBack, &ori_GSEventRegisterEventCallBack);
 	
 	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, removefirstMedia, CFSTR("com.njnu.kai.kanpod/removefirst"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 }

@@ -145,8 +145,8 @@ void print_trace (void)
 }
 
 #include <substrate.h>
-@class UIApplication; @class ML3MusicLibrary; @class MPMediaLibrary; 
-static BOOL (*_logos_orig$_ungrouped$MPMediaLibrary$removeItems$)(MPMediaLibrary*, SEL, id); static BOOL _logos_method$_ungrouped$MPMediaLibrary$removeItems$(MPMediaLibrary*, SEL, id); static BOOL (*_logos_orig$_ungrouped$ML3MusicLibrary$writable)(ML3MusicLibrary*, SEL); static BOOL _logos_method$_ungrouped$ML3MusicLibrary$writable(ML3MusicLibrary*, SEL); static sqlite3 * (*_logos_meta_orig$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$)(Class, SEL, id, BOOL, id); static sqlite3 * _logos_meta_method$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$(Class, SEL, id, BOOL, id); static sqlite3 * (*_logos_orig$_ungrouped$ML3MusicLibrary$openedDatabaseHandle)(ML3MusicLibrary*, SEL); static sqlite3 * _logos_method$_ungrouped$ML3MusicLibrary$openedDatabaseHandle(ML3MusicLibrary*, SEL); static void (*_logos_meta_orig$_ungrouped$ML3MusicLibrary$setImportationEnabled$)(Class, SEL, BOOL); static void _logos_meta_method$_ungrouped$ML3MusicLibrary$setImportationEnabled$(Class, SEL, BOOL); static BOOL (*_logos_meta_orig$_ungrouped$ML3MusicLibrary$importationEnabled)(Class, SEL); static BOOL _logos_meta_method$_ungrouped$ML3MusicLibrary$importationEnabled(Class, SEL); static BOOL (*_logos_orig$_ungrouped$UIApplication$handleEvent$withNewEvent$)(UIApplication*, SEL, GSEventRef, id); static BOOL _logos_method$_ungrouped$UIApplication$handleEvent$withNewEvent$(UIApplication*, SEL, GSEventRef, id); static BOOL (*_logos_orig$_ungrouped$UIApplication$handleEvent$)(UIApplication*, SEL, GSEventRef); static BOOL _logos_method$_ungrouped$UIApplication$handleEvent$(UIApplication*, SEL, GSEventRef); static void (*_logos_orig$_ungrouped$UIApplication$handleKeyEvent$)(UIApplication*, SEL, GSEventRef); static void _logos_method$_ungrouped$UIApplication$handleKeyEvent$(UIApplication*, SEL, GSEventRef); static void (*_logos_orig$_ungrouped$UIApplication$_handleKeyEvent$)(UIApplication*, SEL, GSEventRef); static void _logos_method$_ungrouped$UIApplication$_handleKeyEvent$(UIApplication*, SEL, GSEventRef); static void (*_logos_orig$_ungrouped$UIApplication$sendEvent$)(UIApplication*, SEL, id); static void _logos_method$_ungrouped$UIApplication$sendEvent$(UIApplication*, SEL, id); 
+@class ML3MusicLibrary; @class MPMediaLibrary; 
+static BOOL (*_logos_orig$_ungrouped$MPMediaLibrary$removeItems$)(MPMediaLibrary*, SEL, id); static BOOL _logos_method$_ungrouped$MPMediaLibrary$removeItems$(MPMediaLibrary*, SEL, id); static BOOL (*_logos_orig$_ungrouped$ML3MusicLibrary$writable)(ML3MusicLibrary*, SEL); static BOOL _logos_method$_ungrouped$ML3MusicLibrary$writable(ML3MusicLibrary*, SEL); static sqlite3 * (*_logos_meta_orig$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$)(Class, SEL, id, BOOL, id); static sqlite3 * _logos_meta_method$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$(Class, SEL, id, BOOL, id); static sqlite3 * (*_logos_orig$_ungrouped$ML3MusicLibrary$openedDatabaseHandle)(ML3MusicLibrary*, SEL); static sqlite3 * _logos_method$_ungrouped$ML3MusicLibrary$openedDatabaseHandle(ML3MusicLibrary*, SEL); static void (*_logos_meta_orig$_ungrouped$ML3MusicLibrary$setImportationEnabled$)(Class, SEL, BOOL); static void _logos_meta_method$_ungrouped$ML3MusicLibrary$setImportationEnabled$(Class, SEL, BOOL); static BOOL (*_logos_meta_orig$_ungrouped$ML3MusicLibrary$importationEnabled)(Class, SEL); static BOOL _logos_meta_method$_ungrouped$ML3MusicLibrary$importationEnabled(Class, SEL); 
 
 #line 146 "/OnGit/FeiIOS/kanpod/kanpod/kanpod.xm"
 
@@ -1255,47 +1255,134 @@ int replace_sqlite3_open_v2(const char * filename, sqlite3 **ppdb, int flags, co
 
 
 
-static BOOL _logos_method$_ungrouped$UIApplication$handleEvent$withNewEvent$(UIApplication* self, SEL _cmd, GSEventRef event, id newEvent) {
-	NSLog(@"-[<UIApplication: %p> handleEvent:%@ withNewEvent:%@]", self, event, newEvent);
-	return _logos_orig$_ungrouped$UIApplication$handleEvent$withNewEvent$(self, _cmd, event, newEvent);
-}
-
-
-static BOOL _logos_method$_ungrouped$UIApplication$handleEvent$(UIApplication* self, SEL _cmd, GSEventRef event) {
-	NSLog(@"-[<UIApplication: %p> handleEvent:%@]", self, event);
-	return _logos_orig$_ungrouped$UIApplication$handleEvent$(self, _cmd, event);
-}
-
-
-static void _logos_method$_ungrouped$UIApplication$handleKeyEvent$(UIApplication* self, SEL _cmd, GSEventRef event) {
-	NSLog(@"-[<UIApplication: %p> handleKeyEvent:%@]", self, event);
-	_logos_orig$_ungrouped$UIApplication$handleKeyEvent$(self, _cmd, event);
-}
-
-
-static void _logos_method$_ungrouped$UIApplication$_handleKeyEvent$(UIApplication* self, SEL _cmd, GSEventRef event) {
-	NSLog(@"-[<UIApplication: %p> _handleKeyEvent:%@]", self, event);
-	_logos_orig$_ungrouped$UIApplication$_handleKeyEvent$(self, _cmd, event);
-}
-
-
-static void _logos_method$_ungrouped$UIApplication$sendEvent$(UIApplication* self, SEL _cmd, id event) {
-	NSLog(@"-[<UIApplication: %p> sendEvent:%@]", self, event);
-	_logos_orig$_ungrouped$UIApplication$sendEvent$(self, _cmd, event);
-}
 
 
 
-static __attribute__((constructor)) void _logosLocalCtor_1cecc7a7()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+static void (*ori_GSSendEvent)(const GSEventRecord* record, mach_port_t port) = GSSendEvent;
+void replace_GSSendEvent(const GSEventRecord* record, mach_port_t port)
 {
-	NSLog(@"qhk kanpod: init begin.");
+	print_trace();
+	NSLog(@"qhk in replace_GSSendEvent port=0x%08X GSEventRecord<type=%d subtype=%d, location=(%.1f, %.1f), windowLocation=(%.1f, %.1f), windowContextId=%d, winRef=0x%08X, flags=%d, senderPID=%d, infoSize=%ld %lu %lu", port, record->type, record->subtype, record->location.x, record->location.y, record->windowLocation.x, record->windowLocation.y, record->windowContextId, record->window, record->flags, record->senderPID, record->infoSize, sizeof(*record), sizeof(GSEventRecord));
+	ori_GSSendEvent(record, port);
+}
+
+static void (*ori_GSSendSimpleEvent)(GSEventType type, mach_port_t port) = GSSendSimpleEvent;
+void replace_GSSendSimpleEvent(GSEventType type, mach_port_t port)
+{
+	NSLog(@"qhk in replace_GSSendSimpleEvent port=0x%08X type=%d", port, type);
+	ori_GSSendSimpleEvent(type, port);
+}
+
+static void (*ori_GSSendSystemEvent)(const GSEventRecord* record) = GSSendSystemEvent;
+void replace_GSSendSystemEvent(const GSEventRecord* record)
+{
+	NSLog(@"qhk in replace_GSSendSystemEvent GSEventRecord<type=%d subtype=%d, location=(%.1f, %.1f), windowLocation=(%.1f, %.1f), windowContextId=%d, winRef=0x%08X, flags=%d, senderPID=%d, infoSize=%ld %lu %lu", record->type, record->subtype, record->location.x, record->location.y, record->windowLocation.x, record->windowLocation.y, record->windowContextId, record->window, record->flags, record->senderPID, record->infoSize, sizeof(*record), sizeof(GSEventRecord));
+	ori_GSSendSystemEvent(record);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+static void (*oriEventCallBack)(GSEventRef event) = NULL;
+
+void kaiEventCallBack(GSEventRef event)
+{
+	NSLog(@"qhk in kaiEventCallBack %p", event);
+	oriEventCallBack(event);
+}
+
+static void (*ori_GSEventRegisterEventCallBack)(void(*callback)(GSEventRef event)) = GSEventRegisterEventCallBack;
+
+void replace_GSEventRegisterEventCallBack(void(*callback)(GSEventRef event))
+{
+	NSLog(@"qhk replace_GSEventRegisterEventCallBack");
+	oriEventCallBack = callback;
+	ori_GSEventRegisterEventCallBack(kaiEventCallBack);
+}
+
+static __attribute__((constructor)) void _logosLocalCtor_6c1da886()
+{
+	NSLog(@"qhk kanpod: init begin 3.");
 	
 	NSBundle* bundle = [NSBundle mainBundle];
 	NSString* biden = [bundle bundleIdentifier];
 	NSString* execPath = [bundle executablePath];
-	NSLog(@"qhk kanpod: bundle %p %@, %@", bundle, biden, execPath);
+	mach_port_t curPort = GSCopyPurpleNamedPort([biden UTF8String]);
+	NSLog(@"qhk kanpod: bundle %p %@, %@ port=0x%08X", bundle, biden, execPath, curPort);
 	
-	{{Class _logos_class$_ungrouped$MPMediaLibrary = objc_getClass("MPMediaLibrary"); MSHookMessageEx(_logos_class$_ungrouped$MPMediaLibrary, @selector(removeItems:), (IMP)&_logos_method$_ungrouped$MPMediaLibrary$removeItems$, (IMP*)&_logos_orig$_ungrouped$MPMediaLibrary$removeItems$);Class _logos_class$_ungrouped$ML3MusicLibrary = objc_getClass("ML3MusicLibrary"); Class _logos_metaclass$_ungrouped$ML3MusicLibrary = object_getClass(_logos_class$_ungrouped$ML3MusicLibrary); MSHookMessageEx(_logos_class$_ungrouped$ML3MusicLibrary, @selector(writable), (IMP)&_logos_method$_ungrouped$ML3MusicLibrary$writable, (IMP*)&_logos_orig$_ungrouped$ML3MusicLibrary$writable);MSHookMessageEx(_logos_metaclass$_ungrouped$ML3MusicLibrary, @selector(_openedDatabaseHandleForPath:enableWrites:forLibrary:), (IMP)&_logos_meta_method$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$, (IMP*)&_logos_meta_orig$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$);MSHookMessageEx(_logos_class$_ungrouped$ML3MusicLibrary, @selector(openedDatabaseHandle), (IMP)&_logos_method$_ungrouped$ML3MusicLibrary$openedDatabaseHandle, (IMP*)&_logos_orig$_ungrouped$ML3MusicLibrary$openedDatabaseHandle);MSHookMessageEx(_logos_metaclass$_ungrouped$ML3MusicLibrary, @selector(setImportationEnabled:), (IMP)&_logos_meta_method$_ungrouped$ML3MusicLibrary$setImportationEnabled$, (IMP*)&_logos_meta_orig$_ungrouped$ML3MusicLibrary$setImportationEnabled$);MSHookMessageEx(_logos_metaclass$_ungrouped$ML3MusicLibrary, @selector(importationEnabled), (IMP)&_logos_meta_method$_ungrouped$ML3MusicLibrary$importationEnabled, (IMP*)&_logos_meta_orig$_ungrouped$ML3MusicLibrary$importationEnabled);Class _logos_class$_ungrouped$UIApplication = objc_getClass("UIApplication"); MSHookMessageEx(_logos_class$_ungrouped$UIApplication, @selector(handleEvent:withNewEvent:), (IMP)&_logos_method$_ungrouped$UIApplication$handleEvent$withNewEvent$, (IMP*)&_logos_orig$_ungrouped$UIApplication$handleEvent$withNewEvent$);MSHookMessageEx(_logos_class$_ungrouped$UIApplication, @selector(handleEvent:), (IMP)&_logos_method$_ungrouped$UIApplication$handleEvent$, (IMP*)&_logos_orig$_ungrouped$UIApplication$handleEvent$);MSHookMessageEx(_logos_class$_ungrouped$UIApplication, @selector(handleKeyEvent:), (IMP)&_logos_method$_ungrouped$UIApplication$handleKeyEvent$, (IMP*)&_logos_orig$_ungrouped$UIApplication$handleKeyEvent$);MSHookMessageEx(_logos_class$_ungrouped$UIApplication, @selector(_handleKeyEvent:), (IMP)&_logos_method$_ungrouped$UIApplication$_handleKeyEvent$, (IMP*)&_logos_orig$_ungrouped$UIApplication$_handleKeyEvent$);MSHookMessageEx(_logos_class$_ungrouped$UIApplication, @selector(sendEvent:), (IMP)&_logos_method$_ungrouped$UIApplication$sendEvent$, (IMP*)&_logos_orig$_ungrouped$UIApplication$sendEvent$);}}
+	{{Class _logos_class$_ungrouped$MPMediaLibrary = objc_getClass("MPMediaLibrary"); MSHookMessageEx(_logos_class$_ungrouped$MPMediaLibrary, @selector(removeItems:), (IMP)&_logos_method$_ungrouped$MPMediaLibrary$removeItems$, (IMP*)&_logos_orig$_ungrouped$MPMediaLibrary$removeItems$);Class _logos_class$_ungrouped$ML3MusicLibrary = objc_getClass("ML3MusicLibrary"); Class _logos_metaclass$_ungrouped$ML3MusicLibrary = object_getClass(_logos_class$_ungrouped$ML3MusicLibrary); MSHookMessageEx(_logos_class$_ungrouped$ML3MusicLibrary, @selector(writable), (IMP)&_logos_method$_ungrouped$ML3MusicLibrary$writable, (IMP*)&_logos_orig$_ungrouped$ML3MusicLibrary$writable);MSHookMessageEx(_logos_metaclass$_ungrouped$ML3MusicLibrary, @selector(_openedDatabaseHandleForPath:enableWrites:forLibrary:), (IMP)&_logos_meta_method$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$, (IMP*)&_logos_meta_orig$_ungrouped$ML3MusicLibrary$_openedDatabaseHandleForPath$enableWrites$forLibrary$);MSHookMessageEx(_logos_class$_ungrouped$ML3MusicLibrary, @selector(openedDatabaseHandle), (IMP)&_logos_method$_ungrouped$ML3MusicLibrary$openedDatabaseHandle, (IMP*)&_logos_orig$_ungrouped$ML3MusicLibrary$openedDatabaseHandle);MSHookMessageEx(_logos_metaclass$_ungrouped$ML3MusicLibrary, @selector(setImportationEnabled:), (IMP)&_logos_meta_method$_ungrouped$ML3MusicLibrary$setImportationEnabled$, (IMP*)&_logos_meta_orig$_ungrouped$ML3MusicLibrary$setImportationEnabled$);MSHookMessageEx(_logos_metaclass$_ungrouped$ML3MusicLibrary, @selector(importationEnabled), (IMP)&_logos_meta_method$_ungrouped$ML3MusicLibrary$importationEnabled, (IMP*)&_logos_meta_orig$_ungrouped$ML3MusicLibrary$importationEnabled);}}
 
 
 
@@ -1304,6 +1391,11 @@ static __attribute__((constructor)) void _logosLocalCtor_1cecc7a7()
 	
 	MSHookFunction(sqlite3_open, replace_sqlite3_open, &ori_sqlite3_open);
 	MSHookFunction(sqlite3_open_v2, replace_sqlite3_open_v2, &ori_sqlite3_open_v2);
+	MSHookFunction(GSSendEvent, replace_GSSendEvent, &ori_GSSendEvent);
+	MSHookFunction(GSSendSimpleEvent, replace_GSSendSimpleEvent, &ori_GSSendSimpleEvent);
+	MSHookFunction(GSSendSystemEvent, replace_GSSendSystemEvent, &ori_GSSendSystemEvent);
+
+	MSHookFunction(GSEventRegisterEventCallBack, replace_GSEventRegisterEventCallBack, &ori_GSEventRegisterEventCallBack);
 	
 	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, removefirstMedia, CFSTR("com.njnu.kai.kanpod/removefirst"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 }
