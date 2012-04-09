@@ -106,6 +106,10 @@ static BOOL showRunningIndicator;
 
 %end
 
+/*
+ Apr  9 10:50:21 unknown SpringBoard[5554] <Warning>: MS:Warning: message not found [SBApplicationIcon closeBoxTapped]
+ Apr  9 10:50:21 unknown SpringBoard[5554] <Warning>: MS:Warning: message not found [SBApplicationIcon setShowsCloseBox:]
+ */
 %hook SBApplicationIcon //未见使用这个，一般都是SBIconView
 
 - (void)closeBoxTapped
@@ -167,7 +171,7 @@ static BOOL showRunningIndicator;
 		[iconView prepareDropGlow];
 		UIImageView *dropGlow = [iconView dropGlow];
 		dropGlow.image = [UIImage imageNamed:@"RunningGlow"];
-		[iconView showDropGlow:YES];
+		[iconView showDropGlow:showRunningIndicator];
 		[iconView setShowsCloseBox:showCloseButtons];
 	}
 }
@@ -363,6 +367,11 @@ static void SettingsChanged(CFNotificationCenterRef center, void *observer, CFSt
 	%orig;
 }
 
+/*
+ Apr  9 10:50:21 unknown SpringBoard[5554] <Warning>: MS:Warning: message not found [SpringBoard applicationDidBecomeActive:]
+ Apr  9 10:50:21 unknown SpringBoard[5554] <Warning>: MS:Warning: message not found [SpringBoard applicationDidEnterBackground:]
+ Apr  9 10:50:21 unknown SpringBoard[5554] <Warning>: MS:Warning: message not found [SpringBoard applicationWillEnterForeground:]
+ */
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
 	%log;
@@ -672,7 +681,7 @@ static void WillEnterForeground(CFNotificationCenterRef center, void *observer, 
 %ctor
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	NSLog(@"qhk: RunningIndicator: %%cotr 1");
+	NSLog(@"qhk: RunningIndicator: %%cotr 2");
 	%init;
 	LoadSettings();
 	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, SettingsChanged, CFSTR("cn.njnu.kai.runningindicator/settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
