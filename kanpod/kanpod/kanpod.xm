@@ -1351,9 +1351,17 @@ void replace_GSSendSystemEvent(const GSEventRecord* record)
 
 static void (*oriEventCallBack)(GSEventRef event) = NULL;
 
+/*
+ GSHandInfo GSEventGetHandInfo(GSEventRef event);
+ GSPathInfo GSEventGetPathInfoAtIndex(GSEventRef event, CFIndex index);
+ 
+ */
 void kaiEventCallBack(GSEventRef event)
 {
-	NSLog(@"qhk in kaiEventCallBack %p", event);
+	CFDictionaryRef dic = GSEventCreatePlistRepresentation(event);
+	GSEventType type = GSEventGetType(event);
+	NSLog(@"qhk in kaiEventCallBack %p %@ type=%d", event, dic, type);
+	CFRelease(dic);
 	oriEventCallBack(event);
 }
 
@@ -1368,7 +1376,7 @@ void replace_GSEventRegisterEventCallBack(void(*callback)(GSEventRef event))
 
 %ctor
 {
-	NSLog(@"qhk kanpod: init begin 4.");
+	NSLog(@"qhk kanpod: init begin 5.");
 	
 	NSBundle* bundle = [NSBundle mainBundle];
 	NSString* biden = [bundle bundleIdentifier];
