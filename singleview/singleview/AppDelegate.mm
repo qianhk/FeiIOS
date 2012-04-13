@@ -50,6 +50,7 @@ static BOOL replaced_ML3MusicLibrary_writable(ML3MusicLibrary* self, SEL _cmd)
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	NSLog(@"See Time 1 application:didFinishLanuchingWithOptions");
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
 	self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
@@ -65,7 +66,7 @@ static BOOL replaced_ML3MusicLibrary_writable(ML3MusicLibrary* self, SEL _cmd)
 	MSHookMessageEx(_ML3MusicLibrary, @selector(writable), (IMP)&replaced_ML3MusicLibrary_writable, (IMP*)&original_ML3MusicLibrary_writable);
 #endif
 
-	
+	NSLog(@"See Time 2 application:didFinishLanuchingWithOptions");
     return YES;
 }
 

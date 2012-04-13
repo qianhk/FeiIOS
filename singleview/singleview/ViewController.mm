@@ -183,6 +183,7 @@ static CFMessagePortRef messagePort = NULL;
 
 - (void)viewDidLoad
 {
+	NSLog(@"See Time 1 viewDidLoad");
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
@@ -214,6 +215,7 @@ static CFMessagePortRef messagePort = NULL;
 #endif
 //	self.view.backgroundColor = [UIColor clearColor];
 //	_switch.onTintColor = [UIColor clearColor];
+	NSLog(@"See Time 2 viewDidLoad");
 }
 
 - (void)viewDidUnload
@@ -232,11 +234,13 @@ static CFMessagePortRef messagePort = NULL;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+	NSLog(@"See Time viewWillAppear");
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+	NSLog(@"See Time viewDidAppear");
 }
 
 - (IBAction)btnStatusBarClicked:(id)sender

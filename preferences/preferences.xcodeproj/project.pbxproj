@@ -1,0 +1,354 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D99FCD141537CD2C0022291C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99FCD131537CD2C0022291C /* Foundation.framework */; };
+		D99FCD161537CD2C0022291C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99FCD151537CD2C0022291C /* CoreGraphics.framework */; };
+		D99FCD181537CD2C0022291C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D99FCD171537CD2C0022291C /* UIKit.framework */; };
+		D99FCD231537CD2C0022291C /* preferences.mm in Sources */ = {isa = PBXBuildFile; fileRef = D99FCD221537CD2C0022291C /* preferences.mm */; };
+		D99FCD2E1537CDEB0022291C /* libsubstrate.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D99FCD2D1537CDEB0022291C /* libsubstrate.dylib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D99FCD101537CD2C0022291C /* preferences.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = preferences.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		D99FCD131537CD2C0022291C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D99FCD151537CD2C0022291C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D99FCD171537CD2C0022291C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D99FCD1C1537CD2C0022291C /* control */ = {isa = PBXFileReference; lastKnownFileType = text; name = control; path = Package/DEBIAN/control; sourceTree = "<group>"; };
+		D99FCD1E1537CD2C0022291C /* PackageVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PackageVersion.plist; sourceTree = "<group>"; };
+		D99FCD201537CD2C0022291C /* preferences-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "preferences-Prefix.pch"; sourceTree = "<group>"; };
+		D99FCD211537CD2C0022291C /* preferences.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = preferences.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		D99FCD221537CD2C0022291C /* preferences.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = preferences.mm; sourceTree = "<group>"; };
+		D99FCD271537CD2C0022291C /* preferences.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = preferences.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/preferences.plist; sourceTree = "<group>"; };
+		D99FCD2D1537CDEB0022291C /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
+		D99FCD2F1537CF0E0022291C /* installdeb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = installdeb; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D99FCD0C1537CD2C0022291C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D99FCD141537CD2C0022291C /* Foundation.framework in Frameworks */,
+				D99FCD161537CD2C0022291C /* CoreGraphics.framework in Frameworks */,
+				D99FCD2E1537CDEB0022291C /* libsubstrate.dylib in Frameworks */,
+				D99FCD181537CD2C0022291C /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D99FCD031537CD2C0022291C = {
+			isa = PBXGroup;
+			children = (
+				D99FCD191537CD2C0022291C /* preferences */,
+				D99FCD121537CD2C0022291C /* Frameworks */,
+				D99FCD111537CD2C0022291C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D99FCD111537CD2C0022291C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D99FCD101537CD2C0022291C /* preferences.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D99FCD121537CD2C0022291C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D99FCD2D1537CDEB0022291C /* libsubstrate.dylib */,
+				D99FCD131537CD2C0022291C /* Foundation.framework */,
+				D99FCD151537CD2C0022291C /* CoreGraphics.framework */,
+				D99FCD171537CD2C0022291C /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D99FCD191537CD2C0022291C /* preferences */ = {
+			isa = PBXGroup;
+			children = (
+				D99FCD211537CD2C0022291C /* preferences.xm */,
+				D99FCD221537CD2C0022291C /* preferences.mm */,
+				D99FCD1A1537CD2C0022291C /* Package */,
+				D99FCD1D1537CD2C0022291C /* Supporting Files */,
+			);
+			path = preferences;
+			sourceTree = "<group>";
+		};
+		D99FCD1A1537CD2C0022291C /* Package */ = {
+			isa = PBXGroup;
+			children = (
+				D99FCD1B1537CD2C0022291C /* DEBIAN */,
+				D99FCD241537CD2C0022291C /* Library */,
+			);
+			name = Package;
+			sourceTree = "<group>";
+		};
+		D99FCD1B1537CD2C0022291C /* DEBIAN */ = {
+			isa = PBXGroup;
+			children = (
+				D99FCD1C1537CD2C0022291C /* control */,
+			);
+			name = DEBIAN;
+			sourceTree = "<group>";
+		};
+		D99FCD1D1537CD2C0022291C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D99FCD2F1537CF0E0022291C /* installdeb */,
+				D99FCD1E1537CD2C0022291C /* PackageVersion.plist */,
+				D99FCD201537CD2C0022291C /* preferences-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D99FCD241537CD2C0022291C /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D99FCD251537CD2C0022291C /* MobileSubstrate */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		D99FCD251537CD2C0022291C /* MobileSubstrate */ = {
+			isa = PBXGroup;
+			children = (
+				D99FCD261537CD2C0022291C /* DynamicLibraries */,
+			);
+			name = MobileSubstrate;
+			sourceTree = "<group>";
+		};
+		D99FCD261537CD2C0022291C /* DynamicLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				D99FCD271537CD2C0022291C /* preferences.plist */,
+			);
+			name = DynamicLibraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D99FCD0D1537CD2C0022291C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D99FCD0F1537CD2C0022291C /* preferences */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D99FCD2A1537CD2C0022291C /* Build configuration list for PBXNativeTarget "preferences" */;
+			buildPhases = (
+				D99FCD0A1537CD2C0022291C /* ShellScript */,
+				D99FCD0B1537CD2C0022291C /* Sources */,
+				D99FCD0C1537CD2C0022291C /* Frameworks */,
+				D99FCD0D1537CD2C0022291C /* Headers */,
+				D99FCD0E1537CD2C0022291C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = preferences;
+			productName = preferences;
+			productReference = D99FCD101537CD2C0022291C /* preferences.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D99FCD051537CD2C0022291C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = TTPod;
+			};
+			buildConfigurationList = D99FCD081537CD2C0022291C /* Build configuration list for PBXProject "preferences" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D99FCD031537CD2C0022291C;
+			productRefGroup = D99FCD111537CD2C0022291C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D99FCD0F1537CD2C0022291C /* preferences */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D99FCD0A1537CD2C0022291C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp-logos";
+		};
+		D99FCD0E1537CD2C0022291C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/iOSOpenDev/bin/iosod --xcbp";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D99FCD0B1537CD2C0022291C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D99FCD231537CD2C0022291C /* preferences.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D99FCD281537CD2C0022291C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Release;
+		};
+		D99FCD291537CD2C0022291C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				EXCLUDED_RECURSIVE_SEARCH_PATH_SUBDIRECTORIES = "*.nib *.lproj *.gch (*) .DS_Store CVS .svn .git .hg *.xcodeproj *.xcode *.pbproj *.pbxproj";
+				FRAMEWORK_SEARCH_PATHS = "$(iOSOpenDevPath)/frameworks/**";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(iOSOpenDevPath)/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = "$(iOSOpenDevPath)/lib/**";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
+				iOSOpenDevPath = /opt/iOSOpenDev;
+			};
+			name = Debug;
+		};
+		D99FCD2B1537CD2C0022291C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "preferences/preferences-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Release;
+		};
+		D99FCD2C1537CD2C0022291C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "preferences/preferences-Prefix.pch";
+				INSTALL_PATH = /Library/MobileSubstrate/DynamicLibraries;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/opt/iOSOpenDev/lib,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				iOSOpenDevCopyOnBuild = NO;
+				iOSOpenDevDevice = "";
+				iOSOpenDevInstallOnAnyBuild = NO;
+				iOSOpenDevInstallOnProfiling = NO;
+				iOSOpenDevRespringOnInstall = NO;
+				iOSOpenDevUsePackageVersionPList = YES;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D99FCD081537CD2C0022291C /* Build configuration list for PBXProject "preferences" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D99FCD281537CD2C0022291C /* Release */,
+				D99FCD291537CD2C0022291C /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D99FCD2A1537CD2C0022291C /* Build configuration list for PBXNativeTarget "preferences" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D99FCD2B1537CD2C0022291C /* Release */,
+				D99FCD2C1537CD2C0022291C /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D99FCD051537CD2C0022291C /* Project object */;
+}
