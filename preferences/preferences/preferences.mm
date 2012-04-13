@@ -4,60 +4,151 @@
 
 
 
+
+#import <objc/runtime.h>
+
+static BOOL enableContactSwitch = YES;
+
+@interface PSControlTableCell
+
+@property(retain) UIControl *control;	
+
+@end;
+
+UITableView* findFirstTableView(NSArray* subviews)
+{
+	for (id subview in subviews)
+	{
+		if ([subview class] == [UITableView class])
+		{
+			return subview;
+		}
+	}
+	return nil;
+}
+
+@interface PSSpecifier
+
+@property(assign, nonatomic) id target;	
+@property(assign, nonatomic) Class detailControllerClass;	
+@property(assign, nonatomic) int cellType;	
+@property(assign, nonatomic) Class editPaneClass;	
+@property(retain, nonatomic) id userInfo;	
+@property(retain, nonatomic) NSDictionary *titleDictionary;	
+@property(retain, nonatomic) NSDictionary *shortTitleDictionary;	
+@property(retain, nonatomic) NSArray *values;	
+@property(retain, nonatomic) NSString *name;	
+@property(retain, nonatomic) NSString *identifier;	
+@property(retain) NSMutableDictionary *properties;	
+
+@end;
+
+@interface PreferencesTableCell
+@property(retain, nonatomic) PSSpecifier *specifier;	
+@property(retain) id target;	
+@property(assign) SEL action;	
+@end;
+
 #include <substrate.h>
-@class ClassName; 
-static id (*_logos_meta_orig$_ungrouped$ClassName$sharedInstance)(Class, SEL); static id _logos_meta_method$_ungrouped$ClassName$sharedInstance(Class, SEL); static void (*_logos_orig$_ungrouped$ClassName$messageWithNoReturnAndOneArgument$)(ClassName*, SEL, id); static void _logos_method$_ungrouped$ClassName$messageWithNoReturnAndOneArgument$(ClassName*, SEL, id); static id (*_logos_orig$_ungrouped$ClassName$messageWithReturnAndNoArguments)(ClassName*, SEL); static id _logos_method$_ungrouped$ClassName$messageWithReturnAndNoArguments(ClassName*, SEL); 
+@class PSControlTableCell; @class UIViewController; 
+static void (*_logos_orig$_ungrouped$PSControlTableCell$refreshCellContentsWithSpecifier$)(PSControlTableCell*, SEL, id); static void _logos_method$_ungrouped$PSControlTableCell$refreshCellContentsWithSpecifier$(PSControlTableCell*, SEL, id); 
 
-#line 6 "/OnGit/FeiIOS/preferences/preferences/preferences.xm"
-
-
-
-static id _logos_meta_method$_ungrouped$ClassName$sharedInstance(Class self, SEL _cmd) {
-	NSLog(@"+[<ClassName: %p> sharedInstance]", self);
-
-	return _logos_meta_orig$_ungrouped$ClassName$sharedInstance(self, _cmd);
-}
+#line 51 "/OnGit/FeiIOS/preferences/preferences/preferences.xm"
 
 
-static void _logos_method$_ungrouped$ClassName$messageWithNoReturnAndOneArgument$(ClassName* self, SEL _cmd, id originalArgument) {
-	NSLog(@"-[<ClassName: %p> messageWithNoReturnAndOneArgument:%@]", self, originalArgument);
 
-	_logos_orig$_ungrouped$ClassName$messageWithNoReturnAndOneArgument$(self, _cmd, originalArgument);
+static void _logos_method$_ungrouped$PSControlTableCell$refreshCellContentsWithSpecifier$(PSControlTableCell* self, SEL _cmd, id spe) {
+	_logos_orig$_ungrouped$PSControlTableCell$refreshCellContentsWithSpecifier$(self, _cmd, spe);
 	
-	
+	PSSpecifier* specifier = (PSSpecifier *)spe;
+	if ([NSStringFromClass([specifier.target class]) isEqualToString:@"AASettingsSyncController"])
+	{
+		NSDictionary* userInfo = specifier.userInfo;
+		NSString* syncClassKey = [userInfo objectForKey:@"AccountSettingsSyncDataclassKey"];
+
+		{
+			UISwitch* contactSwitch = [specifier.properties objectForKey:@"control"];
+			if ([contactSwitch class] == [UISwitch class])
+			{
+
+				if (!enableContactSwitch)
+				{
+					contactSwitch.on = YES;
+					contactSwitch.enabled = NO;
+				}
+			}
+		}
+	}
 }
 
 
-static id _logos_method$_ungrouped$ClassName$messageWithReturnAndNoArguments(ClassName* self, SEL _cmd) {
-	NSLog(@"-[<ClassName: %p> messageWithReturnAndNoArguments]", self);
 
-	id originalReturnOfMessage = _logos_orig$_ungrouped$ClassName$messageWithReturnAndNoArguments(self, _cmd);
-	
-	
 
-	return originalReturnOfMessage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+static __attribute__((constructor)) void _logosLocalCtor_3988c7f8()
+{
+	@autoreleasepool
+	{
+		enableContactSwitch = ![[NSFileManager defaultManager] fileExistsAtPath:@"/Library/MobileSubstrate/DynamicLibraries/kaipreferences (1).plist"];
+		NSLog(@"qhk preferences: startup enableContactSwitch=%d 6", enableContactSwitch);
+		{{Class _logos_class$_ungrouped$PSControlTableCell = objc_getClass("PSControlTableCell"); MSHookMessageEx(_logos_class$_ungrouped$PSControlTableCell, @selector(refreshCellContentsWithSpecifier:), (IMP)&_logos_method$_ungrouped$PSControlTableCell$refreshCellContentsWithSpecifier$, (IMP*)&_logos_orig$_ungrouped$PSControlTableCell$refreshCellContentsWithSpecifier$);}}
+		
+		
+	}
 }
-
-
-static __attribute__((constructor)) void _logosLocalInit() {
-#ifdef __clang__
-#if __has_feature(objc_arc)
-@autoreleasepool {
-#else
-NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-#endif
-#else
-NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-#endif
-{Class _logos_class$_ungrouped$ClassName = objc_getClass("ClassName"); Class _logos_metaclass$_ungrouped$ClassName = object_getClass(_logos_class$_ungrouped$ClassName); MSHookMessageEx(_logos_metaclass$_ungrouped$ClassName, @selector(sharedInstance), (IMP)&_logos_meta_method$_ungrouped$ClassName$sharedInstance, (IMP*)&_logos_meta_orig$_ungrouped$ClassName$sharedInstance);MSHookMessageEx(_logos_class$_ungrouped$ClassName, @selector(messageWithNoReturnAndOneArgument:), (IMP)&_logos_method$_ungrouped$ClassName$messageWithNoReturnAndOneArgument$, (IMP*)&_logos_orig$_ungrouped$ClassName$messageWithNoReturnAndOneArgument$);MSHookMessageEx(_logos_class$_ungrouped$ClassName, @selector(messageWithReturnAndNoArguments), (IMP)&_logos_method$_ungrouped$ClassName$messageWithReturnAndNoArguments, (IMP*)&_logos_orig$_ungrouped$ClassName$messageWithReturnAndNoArguments);}  
-#ifdef __clang__
-#if __has_feature(objc_arc)
-}
-#else
-[pool drain];
-#endif
-#else
-[pool drain];
-#endif
-}
-#line 36 "/OnGit/FeiIOS/preferences/preferences/preferences.xm"

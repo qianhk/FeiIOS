@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D99FCD101537CD2C0022291C /* preferences.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = preferences.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		D99FCD101537CD2C0022291C /* kaipreferences.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = kaipreferences.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		D99FCD131537CD2C0022291C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D99FCD151537CD2C0022291C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D99FCD171537CD2C0022291C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -24,7 +24,7 @@
 		D99FCD201537CD2C0022291C /* preferences-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "preferences-Prefix.pch"; sourceTree = "<group>"; };
 		D99FCD211537CD2C0022291C /* preferences.xm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = preferences.xm; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		D99FCD221537CD2C0022291C /* preferences.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = preferences.mm; sourceTree = "<group>"; };
-		D99FCD271537CD2C0022291C /* preferences.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = preferences.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/preferences.plist; sourceTree = "<group>"; };
+		D99FCD271537CD2C0022291C /* kaipreferences.plist */ = {isa = PBXFileReference; name = kaipreferences.plist; path = Package/Library/MobileSubstrate/DynamicLibraries/kaipreferences.plist; sourceTree = "<group>"; };
 		D99FCD2D1537CDEB0022291C /* libsubstrate.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsubstrate.dylib; path = /opt/iOSOpenDev/lib/libsubstrate.dylib; sourceTree = "<absolute>"; };
 		D99FCD2F1537CF0E0022291C /* installdeb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = installdeb; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -56,7 +56,7 @@
 		D99FCD111537CD2C0022291C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D99FCD101537CD2C0022291C /* preferences.dylib */,
+				D99FCD101537CD2C0022291C /* kaipreferences.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,7 +129,7 @@
 		D99FCD261537CD2C0022291C /* DynamicLibraries */ = {
 			isa = PBXGroup;
 			children = (
-				D99FCD271537CD2C0022291C /* preferences.plist */,
+				D99FCD271537CD2C0022291C /* kaipreferences.plist */,
 			);
 			name = DynamicLibraries;
 			sourceTree = "<group>";
@@ -163,7 +163,7 @@
 			);
 			name = preferences;
 			productName = preferences;
-			productReference = D99FCD101537CD2C0022291C /* preferences.dylib */;
+			productReference = D99FCD101537CD2C0022291C /* kaipreferences.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 /* End PBXNativeTarget section */
@@ -296,7 +296,7 @@
 					"$(inherited)",
 					/opt/iOSOpenDev/lib,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = kaipreferences;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = "";
 				iOSOpenDevInstallOnAnyBuild = NO;
@@ -318,7 +318,7 @@
 					"$(inherited)",
 					/opt/iOSOpenDev/lib,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = kaipreferences;
 				iOSOpenDevCopyOnBuild = NO;
 				iOSOpenDevDevice = "";
 				iOSOpenDevInstallOnAnyBuild = NO;
@@ -347,6 +347,7 @@
 				D99FCD2C1537CD2C0022291C /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
