@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D914AED615454F10003B20A2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D914AED515454F10003B20A2 /* main.cpp */; };
-		D914AED815454F10003B20A2 /* Sieve.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = D914AED715454F10003B20A2 /* Sieve.1 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +17,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				D914AED815454F10003B20A2 /* Sieve.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -27,7 +25,6 @@
 /* Begin PBXFileReference section */
 		D914AED115454F10003B20A2 /* Sieve */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Sieve; sourceTree = BUILT_PRODUCTS_DIR; };
 		D914AED515454F10003B20A2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		D914AED715454F10003B20A2 /* Sieve.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = Sieve.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				D914AED515454F10003B20A2 /* main.cpp */,
-				D914AED715454F10003B20A2 /* Sieve.1 */,
 			);
 			path = Sieve;
 			sourceTree = "<group>";
@@ -172,6 +168,7 @@
 		D914AEDC15454F10003B20A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_VERSION = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -179,6 +176,8 @@
 		D914AEDD15454F10003B20A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_VERSION = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
