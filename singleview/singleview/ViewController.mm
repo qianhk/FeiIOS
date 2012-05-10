@@ -208,14 +208,30 @@ static CFMessagePortRef messagePort = NULL;
 		NSLog(@"CFMessagePortCreateRemote result: 0x%08X %d", (int)messagePort, sucess);
 	}
 	
+	NSMutableString* info = [NSMutableString string];
 #if TARGET_IPHONE_SIMULATOR
-	lbltext.text = @"TARGET_IPHONE_SIMULATOR";
+	[info appendString:@"TARGET_IPHONE_SIMULATOR"];
 #elif TARGET_OS_IPHONE
-	lbltext.text = @"TARGET_OS_IPHONE";
+	[info appendString:@"TARGET_OS_IPHONE"];
 #endif
 //	self.view.backgroundColor = [UIColor clearColor];
 //	_switch.onTintColor = [UIColor clearColor];
 	NSLog(@"See Time 2 viewDidLoad");
+	NSLog(@"homedir=%@", NSHomeDirectory());
+	int uid = getuid();
+	int gid = getgid();
+	int euid = geteuid();
+	int egid = getegid();
+	[info appendFormat:@"\npermission uid=%d gid=%d euid=%d egid=%d", uid, gid, euid, egid];
+	int r1 = setuid(euid);
+	int r2 = setgid(egid);
+	uid = getuid();
+	gid = getgid();
+	euid = geteuid();
+	egid = getegid();
+	[info appendFormat:@"\n%d %d uid=%d gid=%d euid=%d egid=%d", r1, r2 , uid, gid, euid, egid];
+
+	lbltext.text = info;
 }
 
 - (void)viewDidUnload
@@ -266,6 +282,23 @@ static CFMessagePortRef messagePort = NULL;
 {
 	DesktopSettingWindow* win = [[DesktopSettingWindow alloc] initWithFrame:CGRectMake(0, 150, 320, 100)];
 	win.hidden = NO;
+}
+
+- (IBAction)btnSeeFileCanWrite:(id)sender
+{
+	NSString* filePath = @"/var/mobile/Media/general_storage/HttpUtility.java";
+	NSFileManager* mana = [NSFileManager defaultManager];
+	BOOL fileExist = [mana fileExistsAtPath:filePath];
+	BOOL canRead = [mana isReadableFileAtPath:filePath];
+	BOOL canWrite = [mana isWritableFileAtPath:filePath];
+	NSMutableString* allStr = [NSMutableString stringWithFormat:@"file exist: %d canRead %d, can write %d", fileExist, canRead, canWrite];
+	
+	filePath = @"/Applications/singleview.app/Info.plist";
+	fileExist = [mana fileExistsAtPath:filePath];
+	canRead = [mana isReadableFileAtPath:filePath];
+	canWrite = [mana isWritableFileAtPath:filePath];
+	[allStr appendFormat:@"\nfile exist: %d canRead %d, can write %d", fileExist, canRead, canWrite];
+	lbltext.text = allStr;
 }
 
 - (void)viewWillDisappear:(BOOL)animated

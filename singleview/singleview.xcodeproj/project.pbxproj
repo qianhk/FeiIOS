@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D91EDCFC1553C96200B3DC29 /* singleview2 in Resources */ = {isa = PBXBuildFile; fileRef = D91EDCFB1553C96200B3DC29 /* singleview2 */; };
 		D9513BED15232030005DD739 /* GraphicsServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9513BEC15232030005DD739 /* GraphicsServices.framework */; };
 		D9513BF0152320D9005DD739 /* GraphicsServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9513BEF152320D9005DD739 /* GraphicsServices.framework */; };
 		D96B4FEB14E3D67700580C3B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96B4FEA14E3D67700580C3B /* UIKit.framework */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D91EDCFB1553C96200B3DC29 /* singleview2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = singleview2; sourceTree = "<group>"; };
 		D9513BEC15232030005DD739 /* GraphicsServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraphicsServices.framework; path = /opt/iOSOpenDev/frameworks/GraphicsServices.framework; sourceTree = "<absolute>"; };
 		D9513BEF152320D9005DD739 /* GraphicsServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GraphicsServices.framework; path = System/Library/PrivateFrameworks/GraphicsServices.framework; sourceTree = SDKROOT; };
 		D96B4FE614E3D67700580C3B /* singleview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = singleview.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +123,7 @@
 		D96B4FF114E3D67700580C3B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D91EDCFB1553C96200B3DC29 /* singleview2 */,
 				D96B4FF214E3D67700580C3B /* singleview-Info.plist */,
 				D96B4FF314E3D67700580C3B /* InfoPlist.strings */,
 				D96B4FF614E3D67700580C3B /* main.m */,
@@ -182,6 +185,7 @@
 			files = (
 				D96B4FF514E3D67700580C3B /* InfoPlist.strings in Resources */,
 				D96B500114E3D67700580C3B /* ViewController.xib in Resources */,
+				D91EDCFC1553C96200B3DC29 /* singleview2 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,6 +35,10 @@
 	[_tv setDataSource:self];
 	_arrText = [[NSArray alloc] initWithObjects:@"国外媒体今天发表署名为Jessica E. Vascellaro的文章称，对于苹果来说，中国已经不再是无足轻重的市场，而是已经变成了其“中央王国”。", @"凯凯Test", @"我设置了mageview的大小，然后把。", @"就在不久以前，亚太市场在科技巨子苹果的财务报告中还只不过是个脚注。但现在已不再如此。", nil];
 	[self.view addSubview:_tv];
+	for (NSString* str in _arrText)
+	{
+		NSLog(@"haha: %@", str);
+	}
 	
 	[_tv reloadData];
 }
