@@ -1374,9 +1374,17 @@ int replace_sqlite3_open_v2(const char * filename, sqlite3 **ppdb, int flags, co
 //	ori_GSEventRegisterEventCallBack(kaiEventCallBack);
 //}
 
+%hook UIApplication
+- (BOOL)openURL:(NSURL*)url
+{
+	%log;
+	return %orig;
+}
+%end
+
 %ctor
 {
-	NSLog(@"qhk kanpod: init begin 5.");
+	NSLog(@"qhk kanpod: init begin 6.");
 	
 	NSBundle* bundle = [NSBundle mainBundle];
 	NSString* biden = [bundle bundleIdentifier];
@@ -1395,8 +1403,8 @@ int replace_sqlite3_open_v2(const char * filename, sqlite3 **ppdb, int flags, co
 //	CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, OrientationChangedCallback, CFSTR("com.apple.springboard.rawOrientation"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 //	NSLog(@"qhk: IconRotator init end.");
 	
-	MSHookFunction(sqlite3_open, replace_sqlite3_open, &ori_sqlite3_open);
-	MSHookFunction(sqlite3_open_v2, replace_sqlite3_open_v2, &ori_sqlite3_open_v2);
+//	MSHookFunction(sqlite3_open, replace_sqlite3_open, &ori_sqlite3_open);
+//	MSHookFunction(sqlite3_open_v2, replace_sqlite3_open_v2, &ori_sqlite3_open_v2);
 //	MSHookFunction(GSSendEvent, replace_GSSendEvent, &ori_GSSendEvent);
 //	MSHookFunction(GSSendSimpleEvent, replace_GSSendSimpleEvent, &ori_GSSendSimpleEvent);
 //	MSHookFunction(GSSendSystemEvent, replace_GSSendSystemEvent, &ori_GSSendSystemEvent);
