@@ -1,0 +1,253 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D96ADC04162828350052AB27 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96ADC03162828350052AB27 /* Foundation.framework */; };
+		D96ADC07162828350052AB27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D96ADC06162828350052AB27 /* main.m */; };
+		D96ADC151628292F0052AB27 /* imagegcd1.m in Sources */ = {isa = PBXBuildFile; fileRef = D96ADC111628292F0052AB27 /* imagegcd1.m */; };
+		D96ADC161628292F0052AB27 /* imagegcd2.m in Sources */ = {isa = PBXBuildFile; fileRef = D96ADC121628292F0052AB27 /* imagegcd2.m */; };
+		D96ADC171628292F0052AB27 /* imagegcd3.m in Sources */ = {isa = PBXBuildFile; fileRef = D96ADC131628292F0052AB27 /* imagegcd3.m */; };
+		D96ADC181628292F0052AB27 /* imagegcd4.m in Sources */ = {isa = PBXBuildFile; fileRef = D96ADC141628292F0052AB27 /* imagegcd4.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D96ADBFD162828350052AB27 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D96ADBFF162828350052AB27 /* ImageGCD */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ImageGCD; sourceTree = BUILT_PRODUCTS_DIR; };
+		D96ADC03162828350052AB27 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D96ADC06162828350052AB27 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D96ADC09162828350052AB27 /* ImageGCD-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ImageGCD-Prefix.pch"; sourceTree = "<group>"; };
+		D96ADC111628292F0052AB27 /* imagegcd1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imagegcd1.m; sourceTree = "<group>"; };
+		D96ADC121628292F0052AB27 /* imagegcd2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imagegcd2.m; sourceTree = "<group>"; };
+		D96ADC131628292F0052AB27 /* imagegcd3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imagegcd3.m; sourceTree = "<group>"; };
+		D96ADC141628292F0052AB27 /* imagegcd4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imagegcd4.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D96ADBFC162828350052AB27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96ADC04162828350052AB27 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D96ADBF4162828350052AB27 = {
+			isa = PBXGroup;
+			children = (
+				D96ADC05162828350052AB27 /* ImageGCD */,
+				D96ADC02162828350052AB27 /* Frameworks */,
+				D96ADC00162828350052AB27 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D96ADC00162828350052AB27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D96ADBFF162828350052AB27 /* ImageGCD */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D96ADC02162828350052AB27 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D96ADC03162828350052AB27 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D96ADC05162828350052AB27 /* ImageGCD */ = {
+			isa = PBXGroup;
+			children = (
+				D96ADC06162828350052AB27 /* main.m */,
+				D96ADC111628292F0052AB27 /* imagegcd1.m */,
+				D96ADC121628292F0052AB27 /* imagegcd2.m */,
+				D96ADC131628292F0052AB27 /* imagegcd3.m */,
+				D96ADC141628292F0052AB27 /* imagegcd4.m */,
+				D96ADC08162828350052AB27 /* Supporting Files */,
+			);
+			path = ImageGCD;
+			sourceTree = "<group>";
+		};
+		D96ADC08162828350052AB27 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D96ADC09162828350052AB27 /* ImageGCD-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D96ADBFE162828350052AB27 /* ImageGCD */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D96ADC0E162828350052AB27 /* Build configuration list for PBXNativeTarget "ImageGCD" */;
+			buildPhases = (
+				D96ADBFB162828350052AB27 /* Sources */,
+				D96ADBFC162828350052AB27 /* Frameworks */,
+				D96ADBFD162828350052AB27 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ImageGCD;
+			productName = ImageGCD;
+			productReference = D96ADBFF162828350052AB27 /* ImageGCD */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D96ADBF6162828350052AB27 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = TTKai;
+			};
+			buildConfigurationList = D96ADBF9162828350052AB27 /* Build configuration list for PBXProject "ImageGCD" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D96ADBF4162828350052AB27;
+			productRefGroup = D96ADC00162828350052AB27 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D96ADBFE162828350052AB27 /* ImageGCD */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D96ADBFB162828350052AB27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96ADC07162828350052AB27 /* main.m in Sources */,
+				D96ADC151628292F0052AB27 /* imagegcd1.m in Sources */,
+				D96ADC161628292F0052AB27 /* imagegcd2.m in Sources */,
+				D96ADC171628292F0052AB27 /* imagegcd3.m in Sources */,
+				D96ADC181628292F0052AB27 /* imagegcd4.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		D96ADC0C162828350052AB27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D96ADC0D162828350052AB27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D96ADC0F162828350052AB27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ImageGCD/ImageGCD-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D96ADC10162828350052AB27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ImageGCD/ImageGCD-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D96ADBF9162828350052AB27 /* Build configuration list for PBXProject "ImageGCD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D96ADC0C162828350052AB27 /* Debug */,
+				D96ADC0D162828350052AB27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D96ADC0E162828350052AB27 /* Build configuration list for PBXNativeTarget "ImageGCD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D96ADC0F162828350052AB27 /* Debug */,
+				D96ADC10162828350052AB27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D96ADBF6162828350052AB27 /* Project object */;
+}
