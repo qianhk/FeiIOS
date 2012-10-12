@@ -29,6 +29,14 @@
 	self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
 	self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+	
+	NSNumber* a = [NSNumber numberWithInt:2];
+	NSMutableArray* arr1 = [NSMutableArray arrayWithObject:a];
+	NSMutableArray* arr2 = [NSMutableArray array];
+//	[arr2 addObjectsFromArray:arr1];
+	[arr2 addObject:a];
+	NSLog(@"%d %d", [arr1 count], [arr2 count]);
+	
     return YES;
 }
 
