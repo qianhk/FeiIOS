@@ -7,12 +7,12 @@
 
 struct timeval gStartTime;
 
-void Start(void)
+void Start3(void)
 {
     gettimeofday(&gStartTime, NULL);
 }
 
-void End(void)
+void End3(void)
 {
     struct timeval endtv;
     gettimeofday(&endtv, NULL);
@@ -23,21 +23,21 @@ void End(void)
     NSLog(@"Operation took %f seconds to complete", (end - start) / 1000000.0);
 }
 
-void WithAutoreleasePool(dispatch_block_t block)
+void WithAutoreleasePool3(dispatch_block_t block)
 {
     NSAutoreleasePool *pool = [NSAutoreleasePool new];
     block();
     [pool release];
 }
 
-dispatch_block_t BlockWithAutoreleasePool(dispatch_block_t block)
+dispatch_block_t BlockWithAutoreleasePool3(dispatch_block_t block)
 {
     return [[^{
-        WithAutoreleasePool(block);
+        WithAutoreleasePool3(block);
     } copy] autorelease];
 }
 
-NSBitmapImageRep *Thumbnail(NSImage *image, int thumbMaxDim)
+NSBitmapImageRep *Thumbnail3(NSImage *image, int thumbMaxDim)
 {
     NSSize imgSize = [image size];
     NSSize thumbSize;
@@ -78,19 +78,19 @@ NSBitmapImageRep *Thumbnail(NSImage *image, int thumbMaxDim)
     return [rep autorelease];
 }
 
-NSData *ThumbnailDataForData(NSData *data)
+NSData *ThumbnailDataForData3(NSData *data)
 {
     NSImage *image = [[NSImage alloc] initWithData: data];
     if(!image)
         return nil;
     
-    NSBitmapImageRep *thumbnailRep = Thumbnail(image, 320);
+    NSBitmapImageRep *thumbnailRep = Thumbnail3(image, 320);
     NSData *thumbnailData = [thumbnailRep representationUsingType: NSJPEGFileType properties: nil];
     [image release];
     return thumbnailData;
 }
 
-int main(int argc, char **argv)
+int main3(int argc, char **argv)
 {
     NSAutoreleasePool *outerPool = [NSAutoreleasePool new];
     
@@ -101,7 +101,7 @@ int main(int argc, char **argv)
     [[NSFileManager defaultManager] createDirectoryAtPath: destination withIntermediateDirectories: YES attributes: nil error: NULL];
     
     
-    Start();
+    Start3();
     
     NSString *dir = [@"~/Pictures" stringByExpandingTildeInPath];
     NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath: dir];
@@ -115,16 +115,16 @@ int main(int argc, char **argv)
         {
             NSString *fullPath = [dir stringByAppendingPathComponent: path];
             
-            dispatch_group_async(group, ioQueue, BlockWithAutoreleasePool(^{
+            dispatch_group_async(group, ioQueue, BlockWithAutoreleasePool3(^{
                 NSData *data = [NSData dataWithContentsOfFile: fullPath];
                 if(data)
-                    dispatch_group_async(group, globalQueue, BlockWithAutoreleasePool(^{
-                        NSData *thumbnailData = ThumbnailDataForData(data);
+                    dispatch_group_async(group, globalQueue, BlockWithAutoreleasePool3(^{
+                        NSData *thumbnailData = ThumbnailDataForData3(data);
                         if(thumbnailData)
                         {
                             NSString *thumbnailName = [NSString stringWithFormat: @"%d.jpg", OSAtomicIncrement32(&count)];
                             NSString *thumbnailPath = [destination stringByAppendingPathComponent: thumbnailName];
-                            dispatch_group_async(group, ioQueue, BlockWithAutoreleasePool(^{
+                            dispatch_group_async(group, ioQueue, BlockWithAutoreleasePool3(^{
                                 [thumbnailData writeToFile: thumbnailPath atomically: NO];
                             }));
                         }
@@ -134,7 +134,7 @@ int main(int argc, char **argv)
     }
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
     
-    End();
+    End3();
     
     [outerPool release];
 }

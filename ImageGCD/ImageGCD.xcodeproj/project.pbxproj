@@ -13,6 +13,7 @@
 		D96ADC161628292F0052AB27 /* imagegcd2.m in Sources */ = {isa = PBXBuildFile; fileRef = D96ADC121628292F0052AB27 /* imagegcd2.m */; };
 		D96ADC171628292F0052AB27 /* imagegcd3.m in Sources */ = {isa = PBXBuildFile; fileRef = D96ADC131628292F0052AB27 /* imagegcd3.m */; };
 		D96ADC181628292F0052AB27 /* imagegcd4.m in Sources */ = {isa = PBXBuildFile; fileRef = D96ADC141628292F0052AB27 /* imagegcd4.m */; };
+		D96ADC1A16282B310052AB27 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96ADC1916282B310052AB27 /* AppKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,6 +37,7 @@
 		D96ADC121628292F0052AB27 /* imagegcd2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imagegcd2.m; sourceTree = "<group>"; };
 		D96ADC131628292F0052AB27 /* imagegcd3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imagegcd3.m; sourceTree = "<group>"; };
 		D96ADC141628292F0052AB27 /* imagegcd4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = imagegcd4.m; sourceTree = "<group>"; };
+		D96ADC1916282B310052AB27 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D96ADC1A16282B310052AB27 /* AppKit.framework in Frameworks */,
 				D96ADC04162828350052AB27 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +73,7 @@
 		D96ADC02162828350052AB27 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D96ADC1916282B310052AB27 /* AppKit.framework */,
 				D96ADC03162828350052AB27 /* Foundation.framework */,
 			);
 			name = Frameworks;

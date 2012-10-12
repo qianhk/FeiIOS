@@ -5,12 +5,12 @@
 
 struct timeval gStartTime;
 
-void Start(void)
+void Start1(void)
 {
     gettimeofday(&gStartTime, NULL);
 }
 
-void End(void)
+void End1(void)
 {
     struct timeval endtv;
     gettimeofday(&endtv, NULL);
@@ -21,7 +21,7 @@ void End(void)
     NSLog(@"Operation took %f seconds to complete", (end - start) / 1000000.0);
 }
 
-NSBitmapImageRep *Thumbnail(NSImage *image, int thumbMaxDim)
+NSBitmapImageRep *Thumbnail1(NSImage *image, int thumbMaxDim)
 {
     NSSize imgSize = [image size];
     NSSize thumbSize;
@@ -62,19 +62,19 @@ NSBitmapImageRep *Thumbnail(NSImage *image, int thumbMaxDim)
     return [rep autorelease];
 }
 
-NSData *ThumbnailDataForData(NSData *data)
+NSData *ThumbnailDataForData1(NSData *data)
 {
     NSImage *image = [[NSImage alloc] initWithData: data];
     if(!image)
         return nil;
     
-    NSBitmapImageRep *thumbnailRep = Thumbnail(image, 320);
+    NSBitmapImageRep *thumbnailRep = Thumbnail1(image, 320);
     NSData *thumbnailData = [thumbnailRep representationUsingType: NSJPEGFileType properties: nil];
     [image release];
     return thumbnailData;
 }
 
-int main(int argc, char **argv)
+int main1(int argc, char **argv)
 {
     NSAutoreleasePool *outerPool = [NSAutoreleasePool new];
     
@@ -85,7 +85,7 @@ int main(int argc, char **argv)
     [[NSFileManager defaultManager] createDirectoryAtPath: destination withIntermediateDirectories: YES attributes: nil error: NULL];
     
     
-    Start();
+    Start1();
     
     NSString *dir = [@"~/Pictures" stringByExpandingTildeInPath];
     NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath: dir];
@@ -101,7 +101,7 @@ int main(int argc, char **argv)
             NSData *data = [NSData dataWithContentsOfFile: path];
             if(data)
             {
-                NSData *thumbnailData = ThumbnailDataForData(data);
+                NSData *thumbnailData = ThumbnailDataForData1(data);
                 if(thumbnailData)
                 {
                     NSString *thumbnailName = [NSString stringWithFormat: @"%d.jpg", count++];
@@ -114,7 +114,7 @@ int main(int argc, char **argv)
         [innerPool release];
     }
     
-    End();
+    End1();
     
     [outerPool release];
 }

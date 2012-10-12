@@ -7,12 +7,12 @@
 
 struct timeval gStartTime;
 
-void Start(void)
+void Start4(void)
 {
     gettimeofday(&gStartTime, NULL);
 }
 
-void End(void)
+void End4(void)
 {
     struct timeval endtv;
     gettimeofday(&endtv, NULL);
@@ -23,21 +23,21 @@ void End(void)
     NSLog(@"Operation took %f seconds to complete", (end - start) / 1000000.0);
 }
 
-void WithAutoreleasePool(dispatch_block_t block)
+void WithAutoreleasePool4(dispatch_block_t block)
 {
     NSAutoreleasePool *pool = [NSAutoreleasePool new];
     block();
     [pool release];
 }
 
-dispatch_block_t BlockWithAutoreleasePool(dispatch_block_t block)
+dispatch_block_t BlockWithAutoreleasePool4(dispatch_block_t block)
 {
     return [[^{
-        WithAutoreleasePool(block);
+        WithAutoreleasePool4(block);
     } copy] autorelease];
 }
 
-NSBitmapImageRep *Thumbnail(NSImage *image, int thumbMaxDim)
+NSBitmapImageRep *Thumbnail4(NSImage *image, int thumbMaxDim)
 {
     NSSize imgSize = [image size];
     NSSize thumbSize;
@@ -78,19 +78,19 @@ NSBitmapImageRep *Thumbnail(NSImage *image, int thumbMaxDim)
     return [rep autorelease];
 }
 
-NSData *ThumbnailDataForData(NSData *data)
+NSData *ThumbnailDataForData4(NSData *data)
 {
     NSImage *image = [[NSImage alloc] initWithData: data];
     if(!image)
         return nil;
     
-    NSBitmapImageRep *thumbnailRep = Thumbnail(image, 320);
+    NSBitmapImageRep *thumbnailRep = Thumbnail4(image, 320);
     NSData *thumbnailData = [thumbnailRep representationUsingType: NSJPEGFileType properties: nil];
     [image release];
     return thumbnailData;
 }
 
-int main(int argc, char **argv)
+int main4(int argc, char **argv)
 {
     NSAutoreleasePool *outerPool = [NSAutoreleasePool new];
     
@@ -100,7 +100,7 @@ int main(int argc, char **argv)
     [[NSFileManager defaultManager] removeItemAtPath: destination error: NULL];
     [[NSFileManager defaultManager] createDirectoryAtPath: destination withIntermediateDirectories: YES attributes: nil error: NULL];
     
-    Start();
+    Start4();
     
     NSString *dir = [@"~/Pictures" stringByExpandingTildeInPath];
     NSDirectoryEnumerator *enumerator = [[NSFileManager defaultManager] enumeratorAtPath: dir];
@@ -115,22 +115,22 @@ int main(int argc, char **argv)
     __block uint32_t count = -1;
     for(NSString *path in enumerator)
     {
-        WithAutoreleasePool(^{
+        WithAutoreleasePool4(^{
             if([[[path pathExtension] lowercaseString] isEqual: @"jpg"])
             {
                 NSString *fullPath = [dir stringByAppendingPathComponent: path];
                 
                 dispatch_semaphore_wait(jobSemaphore, DISPATCH_TIME_FOREVER);
             
-                dispatch_group_async(group, ioQueue, BlockWithAutoreleasePool(^{
+                dispatch_group_async(group, ioQueue, BlockWithAutoreleasePool4(^{
                     NSData *data = [NSData dataWithContentsOfFile: fullPath];
-                    dispatch_group_async(group, globalQueue, BlockWithAutoreleasePool(^{
-                        NSData *thumbnailData = ThumbnailDataForData(data);
+                    dispatch_group_async(group, globalQueue, BlockWithAutoreleasePool4(^{
+                        NSData *thumbnailData = ThumbnailDataForData4(data);
                         if(thumbnailData)
                         {
                             NSString *thumbnailName = [NSString stringWithFormat: @"%d.jpg", OSAtomicIncrement32(&count)];
                             NSString *thumbnailPath = [destination stringByAppendingPathComponent: thumbnailName];
-                            dispatch_group_async(group, ioQueue, BlockWithAutoreleasePool(^{
+                            dispatch_group_async(group, ioQueue, BlockWithAutoreleasePool4(^{
                                 [thumbnailData writeToFile: thumbnailPath atomically: NO];
                                 dispatch_semaphore_signal(jobSemaphore);
                             }));
@@ -144,7 +144,7 @@ int main(int argc, char **argv)
     }
     dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
     
-    End();
+    End4();
     
     [outerPool release];
 }
