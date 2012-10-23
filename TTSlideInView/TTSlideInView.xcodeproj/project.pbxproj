@@ -1,0 +1,297 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D985B2B71636A27900D939E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D985B2B61636A27900D939E6 /* UIKit.framework */; };
+		D985B2B91636A27900D939E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D985B2B81636A27900D939E6 /* Foundation.framework */; };
+		D985B2BB1636A27900D939E6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D985B2BA1636A27900D939E6 /* CoreGraphics.framework */; };
+		D985B2C11636A27900D939E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D985B2BF1636A27900D939E6 /* InfoPlist.strings */; };
+		D985B2C31636A27900D939E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D985B2C21636A27900D939E6 /* main.m */; };
+		D985B2C71636A27900D939E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D985B2C61636A27900D939E6 /* AppDelegate.m */; };
+		D985B2C91636A27900D939E6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = D985B2C81636A27900D939E6 /* Default.png */; };
+		D985B2CB1636A27900D939E6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D985B2CA1636A27900D939E6 /* Default@2x.png */; };
+		D985B2CD1636A27900D939E6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D985B2CC1636A27900D939E6 /* Default-568h@2x.png */; };
+		D985B2D01636A27900D939E6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D985B2CF1636A27900D939E6 /* ViewController.m */; };
+		D985B2D31636A27A00D939E6 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D985B2D11636A27A00D939E6 /* ViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D985B2B21636A27900D939E6 /* TTSlideInView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTSlideInView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D985B2B61636A27900D939E6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D985B2B81636A27900D939E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D985B2BA1636A27900D939E6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D985B2BE1636A27900D939E6 /* TTSlideInView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TTSlideInView-Info.plist"; sourceTree = "<group>"; };
+		D985B2C01636A27900D939E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D985B2C21636A27900D939E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D985B2C41636A27900D939E6 /* TTSlideInView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TTSlideInView-Prefix.pch"; sourceTree = "<group>"; };
+		D985B2C51636A27900D939E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D985B2C61636A27900D939E6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D985B2C81636A27900D939E6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		D985B2CA1636A27900D939E6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		D985B2CC1636A27900D939E6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D985B2CE1636A27900D939E6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D985B2CF1636A27900D939E6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D985B2D21636A27A00D939E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D985B2AF1636A27900D939E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D985B2B71636A27900D939E6 /* UIKit.framework in Frameworks */,
+				D985B2B91636A27900D939E6 /* Foundation.framework in Frameworks */,
+				D985B2BB1636A27900D939E6 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D985B2A71636A27900D939E6 = {
+			isa = PBXGroup;
+			children = (
+				D985B2BC1636A27900D939E6 /* TTSlideInView */,
+				D985B2B51636A27900D939E6 /* Frameworks */,
+				D985B2B31636A27900D939E6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D985B2B31636A27900D939E6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D985B2B21636A27900D939E6 /* TTSlideInView.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D985B2B51636A27900D939E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D985B2B61636A27900D939E6 /* UIKit.framework */,
+				D985B2B81636A27900D939E6 /* Foundation.framework */,
+				D985B2BA1636A27900D939E6 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D985B2BC1636A27900D939E6 /* TTSlideInView */ = {
+			isa = PBXGroup;
+			children = (
+				D985B2C51636A27900D939E6 /* AppDelegate.h */,
+				D985B2C61636A27900D939E6 /* AppDelegate.m */,
+				D985B2CE1636A27900D939E6 /* ViewController.h */,
+				D985B2CF1636A27900D939E6 /* ViewController.m */,
+				D985B2D11636A27A00D939E6 /* ViewController.xib */,
+				D985B2BD1636A27900D939E6 /* Supporting Files */,
+			);
+			path = TTSlideInView;
+			sourceTree = "<group>";
+		};
+		D985B2BD1636A27900D939E6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D985B2BE1636A27900D939E6 /* TTSlideInView-Info.plist */,
+				D985B2BF1636A27900D939E6 /* InfoPlist.strings */,
+				D985B2C21636A27900D939E6 /* main.m */,
+				D985B2C41636A27900D939E6 /* TTSlideInView-Prefix.pch */,
+				D985B2C81636A27900D939E6 /* Default.png */,
+				D985B2CA1636A27900D939E6 /* Default@2x.png */,
+				D985B2CC1636A27900D939E6 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D985B2B11636A27900D939E6 /* TTSlideInView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D985B2D61636A27A00D939E6 /* Build configuration list for PBXNativeTarget "TTSlideInView" */;
+			buildPhases = (
+				D985B2AE1636A27900D939E6 /* Sources */,
+				D985B2AF1636A27900D939E6 /* Frameworks */,
+				D985B2B01636A27900D939E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TTSlideInView;
+			productName = TTSlideInView;
+			productReference = D985B2B21636A27900D939E6 /* TTSlideInView.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D985B2A91636A27900D939E6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = kai;
+			};
+			buildConfigurationList = D985B2AC1636A27900D939E6 /* Build configuration list for PBXProject "TTSlideInView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D985B2A71636A27900D939E6;
+			productRefGroup = D985B2B31636A27900D939E6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D985B2B11636A27900D939E6 /* TTSlideInView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D985B2B01636A27900D939E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D985B2C11636A27900D939E6 /* InfoPlist.strings in Resources */,
+				D985B2C91636A27900D939E6 /* Default.png in Resources */,
+				D985B2CB1636A27900D939E6 /* Default@2x.png in Resources */,
+				D985B2CD1636A27900D939E6 /* Default-568h@2x.png in Resources */,
+				D985B2D31636A27A00D939E6 /* ViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D985B2AE1636A27900D939E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D985B2C31636A27900D939E6 /* main.m in Sources */,
+				D985B2C71636A27900D939E6 /* AppDelegate.m in Sources */,
+				D985B2D01636A27900D939E6 /* ViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D985B2BF1636A27900D939E6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D985B2C01636A27900D939E6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D985B2D11636A27A00D939E6 /* ViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D985B2D21636A27A00D939E6 /* en */,
+			);
+			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D985B2D41636A27A00D939E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D985B2D51636A27A00D939E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D985B2D71636A27A00D939E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TTSlideInView/TTSlideInView-Prefix.pch";
+				INFOPLIST_FILE = "TTSlideInView/TTSlideInView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D985B2D81636A27A00D939E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TTSlideInView/TTSlideInView-Prefix.pch";
+				INFOPLIST_FILE = "TTSlideInView/TTSlideInView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D985B2AC1636A27900D939E6 /* Build configuration list for PBXProject "TTSlideInView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D985B2D41636A27A00D939E6 /* Debug */,
+				D985B2D51636A27A00D939E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D985B2D61636A27A00D939E6 /* Build configuration list for PBXNativeTarget "TTSlideInView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D985B2D71636A27A00D939E6 /* Debug */,
+				D985B2D81636A27A00D939E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D985B2A91636A27900D939E6 /* Project object */;
+}
