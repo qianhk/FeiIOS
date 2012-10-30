@@ -23,6 +23,14 @@
 	
 	[self.window makeKeyAndVisible];
 	
+	NSString * tmpS = [NSString stringWithFormat:@"432%d", 1];
+	NSString *str = [[NSString alloc] initWithString:tmpS];
+	NSString *str2 =[[NSString alloc] initWithString:tmpS];
+	NSLog(@"%p %u %p %u", str, [str retainCount], str2, [str2 retainCount]);
+	str = @"123";
+	NSLog(@"%p %u %p %u", str, [str retainCount], str2, [str2 retainCount]);
+	[str release];
+	NSLog(@"%p %u %p %u", str, [str retainCount], str2, [str2 retainCount]);
     return YES;
 }
 

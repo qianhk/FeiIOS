@@ -26,4 +26,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc {
+	[_labelOne release];
+	[super dealloc];
+}
 @end

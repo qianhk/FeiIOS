@@ -18,6 +18,7 @@
 		D985B2CD1636A27900D939E6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D985B2CC1636A27900D939E6 /* Default-568h@2x.png */; };
 		D985B2D01636A27900D939E6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D985B2CF1636A27900D939E6 /* ViewController.m */; };
 		D985B2D31636A27A00D939E6 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D985B2D11636A27A00D939E6 /* ViewController.xib */; };
+		D985B2DB1636A74B00D939E6 /* SlideViewMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = D985B2DA1636A74B00D939E6 /* SlideViewMgr.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		D985B2CE1636A27900D939E6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D985B2CF1636A27900D939E6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D985B2D21636A27A00D939E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		D985B2D91636A74A00D939E6 /* SlideViewMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideViewMgr.h; sourceTree = "<group>"; };
+		D985B2DA1636A74B00D939E6 /* SlideViewMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideViewMgr.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 			children = (
 				D985B2C51636A27900D939E6 /* AppDelegate.h */,
 				D985B2C61636A27900D939E6 /* AppDelegate.m */,
+				D985B2D91636A74A00D939E6 /* SlideViewMgr.h */,
+				D985B2DA1636A74B00D939E6 /* SlideViewMgr.m */,
 				D985B2CE1636A27900D939E6 /* ViewController.h */,
 				D985B2CF1636A27900D939E6 /* ViewController.m */,
 				D985B2D11636A27A00D939E6 /* ViewController.xib */,
@@ -176,6 +181,7 @@
 				D985B2C31636A27900D939E6 /* main.m in Sources */,
 				D985B2C71636A27900D939E6 /* AppDelegate.m in Sources */,
 				D985B2D01636A27900D939E6 /* ViewController.m in Sources */,
+				D985B2DB1636A74B00D939E6 /* SlideViewMgr.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
