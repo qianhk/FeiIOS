@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 
-class HelloWorld : public cocos2d::CCLayer
+class HelloWorld : public cocos2d::CCLayerColor
 {
 public:
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
@@ -17,6 +17,12 @@ public:
 
     // preprocessor macro for "static create()" constructor ( node() deprecated )
     CREATE_FUNC(HelloWorld);
+    
+private:
+    void addTarget();
+    void spriteMoveFinished(cocos2d::CCNode* sender);
+    void updateGame(float dt);
+    void gameLogic(float dt);
 };
 
 #endif // __HELLOWORLD_SCENE_H__
