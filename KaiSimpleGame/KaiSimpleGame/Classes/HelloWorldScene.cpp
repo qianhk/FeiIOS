@@ -1,8 +1,34 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
+#include "GameOverScene.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
+
+HelloWorld::~HelloWorld()
+{
+	if (_targets)
+	{
+		_targets->release();
+		_targets = NULL;
+	}
+    
+	if (_projectiles)
+	{
+		_projectiles->release();
+		_projectiles = NULL;
+	}
+    
+	// cpp don't need to call super dealloc
+	// virtual destructor will do this
+}
+
+HelloWorld::HelloWorld()
+:_targets(NULL)
+,_projectiles(NULL)
+,_projectilesDestroyed(0)
+{
+}
 
 CCScene* HelloWorld::scene()
 {
@@ -52,29 +78,29 @@ void HelloWorld::addTarget()
                                                              callfuncN_selector(HelloWorld::spriteMoveFinished));
 	target->runAction( CCSequence::create(actionMove, actionMoveDone, NULL) );
     
-//	// Add to targets array
-//	target->setTag(1);
-//	_targets->addObject(target);
+	// Add to targets array
+	target->setTag(1);
+	_targets->addObject(target);
 }
 
 void HelloWorld::spriteMoveFinished(CCNode* sender)
 {
 	CCSprite *sprite = (CCSprite *)sender;
 	this->removeChild(sprite, true);
-//    
-//	if (sprite->getTag() == 1)  // target
-//	{
-//		_targets->removeObject(sprite);
-//        
-//		GameOverScene *gameOverScene = GameOverScene::create();
-//		gameOverScene->getLayer()->getLabel()->setString("凯提示你，You Lose :[");
-//		CCDirector::sharedDirector()->replaceScene(gameOverScene);
-//        
-//	}
-//	else if (sprite->getTag() == 2) // projectile
-//	{
-//		_projectiles->removeObject(sprite);
-//	}
+    
+	if (sprite->getTag() == 1)  // target
+	{
+		_targets->removeObject(sprite);
+        
+		GameOverScene *gameOverScene = GameOverScene::create();
+		gameOverScene->getLayer()->getLabel()->setString("凯提示你，You Lose :[");
+		CCDirector::sharedDirector()->replaceScene(gameOverScene);
+        
+	}
+	else if (sprite->getTag() == 2) // projectile
+	{
+		_projectiles->removeObject(sprite);
+	}
 }
 
 // on "init" you need to initialize your instance
@@ -87,6 +113,7 @@ bool HelloWorld::init()
         return false;
     }
 
+    this->setTouchEnabled(true);
     /////////////////////////////
     // 2. add a menu item with "X" image, which is clicked to quit the program
     //    you may modify it.
@@ -134,9 +161,65 @@ bool HelloWorld::init()
     
     this->schedule( schedule_selector(HelloWorld::gameLogic), 1.0 );
     
-//    this->schedule( schedule_selector(HelloWorld::updateGame) );
+    _targets = new CCArray;
+    _projectiles = new CCArray;
+    
+    this->schedule( schedule_selector(HelloWorld::updateGame) );
+    
+    CocosDenshion::SimpleAudioEngine::sharedEngine()->playBackgroundMusic("background-music-aac.wav", true);
     
     return true;
+}
+
+
+void HelloWorld::ccTouchesEnded(CCSet* touches, CCEvent* event)
+{
+	// Choose one of the touches to work with
+	CCTouch* touch = (CCTouch*)( touches->anyObject() );
+	CCPoint location = touch->getLocation();
+    
+	CCLog("++++++++after  x:%f, y:%f", location.x, location.y);
+    
+	// Set up initial location of projectile
+	CCSize winSize = CCDirector::sharedDirector()->getVisibleSize();
+	CCSprite *projectile = CCSprite::create("Projectile.png", CCRectMake(0, 0, 20, 20));
+	projectile->setPosition( ccp(20, winSize.height/2) );
+    
+	// Determinie offset of location to projectile
+	float offX = location.x - projectile->getPosition().x;
+	float offY = location.y - projectile->getPosition().y;
+    
+	// Bail out if we are shooting down or backwards
+	if (offX <= 0) return;
+    
+	// Ok to add now - we've double checked position
+	this->addChild(projectile);
+    
+	// Determine where we wish to shoot the projectile to
+	float realX = winSize.width + (projectile->getContentSize().width/2);
+	float ratio = offY / offX;
+	float realY = (realX * ratio) + projectile->getPosition().y;
+	CCPoint realDest = ccp(realX, realY);
+    
+	// Determine the length of how far we're shooting
+	float offRealX = realX - projectile->getPosition().x;
+	float offRealY = realY - projectile->getPosition().y;
+	float length = sqrtf((offRealX * offRealX) + (offRealY*offRealY));
+	float velocity = 480/1; // 480pixels/1sec
+	float realMoveDuration = length/velocity;
+    
+	// Move projectile to actual endpoint
+	projectile->runAction( CCSequence::create(
+                                              CCMoveTo::create(realMoveDuration, realDest),
+                                              CCCallFuncN::create(this,
+                                                                  callfuncN_selector(HelloWorld::spriteMoveFinished)),
+                                              NULL) );
+    
+	// Add to projectiles array
+	projectile->setTag(2);
+	_projectiles->addObject(projectile);
+    
+	CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("pew-pew-lei.wav");
 }
 
 void HelloWorld::gameLogic(float dt)
@@ -147,70 +230,70 @@ void HelloWorld::gameLogic(float dt)
 
 void HelloWorld::updateGame(float dt)
 {
-//	CCArray *projectilesToDelete = new CCArray;
-//    CCObject* it = NULL;
-//    CCObject* jt = NULL;
-//    
-//	// for (it = _projectiles->begin(); it != _projectiles->end(); it++)
-//    CCARRAY_FOREACH(_projectiles, it)
-//	{
-//		CCSprite *projectile = dynamic_cast<CCSprite*>(it);
-//		CCRect projectileRect = CCRectMake(
-//                                           projectile->getPosition().x - (projectile->getContentSize().width/2),
-//                                           projectile->getPosition().y - (projectile->getContentSize().height/2),
-//                                           projectile->getContentSize().width,
-//                                           projectile->getContentSize().height);
-//        
-//		CCArray* targetsToDelete =new CCArray;
-//        
-//		// for (jt = _targets->begin(); jt != _targets->end(); jt++)
-//        CCARRAY_FOREACH(_targets, jt)
-//		{
-//			CCSprite *target = dynamic_cast<CCSprite*>(jt);
-//			CCRect targetRect = CCRectMake(
-//                                           target->getPosition().x - (target->getContentSize().width/2),
-//                                           target->getPosition().y - (target->getContentSize().height/2),
-//                                           target->getContentSize().width,
-//                                           target->getContentSize().height);
-//            
-//			// if (CCRect::CCRectIntersectsRect(projectileRect, targetRect))
-//            if (projectileRect.intersectsRect(targetRect))
-//			{
-//				targetsToDelete->addObject(target);
-//			}
-//		}
-//        
-//		// for (jt = targetsToDelete->begin(); jt != targetsToDelete->end(); jt++)
-//        CCARRAY_FOREACH(targetsToDelete, jt)
-//		{
-//			CCSprite *target = dynamic_cast<CCSprite*>(jt);
-//			_targets->removeObject(target);
-//			this->removeChild(target, true);
-//            
-//			_projectilesDestroyed++;
-//			if (_projectilesDestroyed >= 5)
-//			{
-//				GameOverScene *gameOverScene = GameOverScene::create();
-//				gameOverScene->getLayer()->getLabel()->setString("You Win!");
-//				CCDirector::sharedDirector()->replaceScene(gameOverScene);
-//			}
-//		}
-//        
-//		if (targetsToDelete->count() > 0)
-//		{
-//			projectilesToDelete->addObject(projectile);
-//		}
-//		targetsToDelete->release();
-//	}
-//    
-//	// for (it = projectilesToDelete->begin(); it != projectilesToDelete->end(); it++)
-//    CCARRAY_FOREACH(projectilesToDelete, it)
-//	{
-//		CCSprite* projectile = dynamic_cast<CCSprite*>(it);
-//		_projectiles->removeObject(projectile);
-//		this->removeChild(projectile, true);
-//	}
-//	projectilesToDelete->release();
+	CCArray *projectilesToDelete = new CCArray;
+    CCObject* it = NULL;
+    CCObject* jt = NULL;
+    
+	// for (it = _projectiles->begin(); it != _projectiles->end(); it++)
+    CCARRAY_FOREACH(_projectiles, it)
+	{
+		CCSprite *projectile = dynamic_cast<CCSprite*>(it);
+		CCRect projectileRect = CCRectMake(
+                                           projectile->getPosition().x - (projectile->getContentSize().width/2),
+                                           projectile->getPosition().y - (projectile->getContentSize().height/2),
+                                           projectile->getContentSize().width,
+                                           projectile->getContentSize().height);
+        
+		CCArray* targetsToDelete =new CCArray;
+        
+		// for (jt = _targets->begin(); jt != _targets->end(); jt++)
+        CCARRAY_FOREACH(_targets, jt)
+		{
+			CCSprite *target = dynamic_cast<CCSprite*>(jt);
+			CCRect targetRect = CCRectMake(
+                                           target->getPosition().x - (target->getContentSize().width/2),
+                                           target->getPosition().y - (target->getContentSize().height/2),
+                                           target->getContentSize().width,
+                                           target->getContentSize().height);
+            
+			// if (CCRect::CCRectIntersectsRect(projectileRect, targetRect))
+            if (projectileRect.intersectsRect(targetRect))
+			{
+				targetsToDelete->addObject(target);
+			}
+		}
+        
+		// for (jt = targetsToDelete->begin(); jt != targetsToDelete->end(); jt++)
+        CCARRAY_FOREACH(targetsToDelete, jt)
+		{
+			CCSprite *target = dynamic_cast<CCSprite*>(jt);
+			_targets->removeObject(target);
+			this->removeChild(target, true);
+            
+			_projectilesDestroyed++;
+			if (_projectilesDestroyed >= 5)
+			{
+				GameOverScene *gameOverScene = GameOverScene::create();
+				gameOverScene->getLayer()->getLabel()->setString("You Win!");
+				CCDirector::sharedDirector()->replaceScene(gameOverScene);
+			}
+		}
+        
+		if (targetsToDelete->count() > 0)
+		{
+			projectilesToDelete->addObject(projectile);
+		}
+		targetsToDelete->release();
+	}
+    
+	// for (it = projectilesToDelete->begin(); it != projectilesToDelete->end(); it++)
+    CCARRAY_FOREACH(projectilesToDelete, it)
+	{
+		CCSprite* projectile = dynamic_cast<CCSprite*>(it);
+		_projectiles->removeObject(projectile);
+		this->removeChild(projectile, true);
+	}
+	projectilesToDelete->release();
 }
 
 

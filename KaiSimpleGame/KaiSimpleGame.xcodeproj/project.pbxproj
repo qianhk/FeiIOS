@@ -43,6 +43,8 @@
 		2A7071E71642D02D005D5F17 /* Projectile.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7071E21642D02D005D5F17 /* Projectile.png */; };
 		2A7071E81642D02D005D5F17 /* Target.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7071E31642D02D005D5F17 /* Target.png */; };
 		2A7071F41642DA00005D5F17 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7071F31642DA00005D5F17 /* Default-568h@2x.png */; };
+		2ABCEF0E1645594E003B0DB3 /* Player@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ABCEF0D1645594E003B0DB3 /* Player@2x.png */; };
+		2ABCEF1116456371003B0DB3 /* GameOverScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCEF0F16455F99003B0DB3 /* GameOverScene.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,9 @@
 		2A7071E21642D02D005D5F17 /* Projectile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Projectile.png; path = Resources/Projectile.png; sourceTree = "<group>"; };
 		2A7071E31642D02D005D5F17 /* Target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Target.png; path = Resources/Target.png; sourceTree = "<group>"; };
 		2A7071F31642DA00005D5F17 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
+		2ABCEF0D1645594E003B0DB3 /* Player@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Player@2x.png"; path = "Resources/Player@2x.png"; sourceTree = "<group>"; };
+		2ABCEF0F16455F99003B0DB3 /* GameOverScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverScene.cpp; sourceTree = "<group>"; };
+		2ABCEF1016455F99003B0DB3 /* GameOverScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +184,7 @@
 				2A7071DF1642D02D005D5F17 /* background-music-aac.wav */,
 				2A7071E01642D02D005D5F17 /* pew-pew-lei.wav */,
 				2A7071E11642D02D005D5F17 /* Player.png */,
+				2ABCEF0D1645594E003B0DB3 /* Player@2x.png */,
 				2A7071E21642D02D005D5F17 /* Projectile.png */,
 				2A7071E31642D02D005D5F17 /* Target.png */,
 				2A5F16091641879800E598B0 /* CloseNormal.png */,
@@ -225,6 +231,8 @@
 				2A5F18A61641879B00E598B0 /* AppDelegate.cpp */,
 				2A5F18A81641879B00E598B0 /* HelloWorldScene.h */,
 				2A5F18A91641879B00E598B0 /* HelloWorldScene.cpp */,
+				2ABCEF1016455F99003B0DB3 /* GameOverScene.h */,
+				2ABCEF0F16455F99003B0DB3 /* GameOverScene.cpp */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -357,6 +365,7 @@
 				2A7071E71642D02D005D5F17 /* Projectile.png in Resources */,
 				2A7071E81642D02D005D5F17 /* Target.png in Resources */,
 				2A7071F41642DA00005D5F17 /* Default-568h@2x.png in Resources */,
+				2ABCEF0E1645594E003B0DB3 /* Player@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +383,7 @@
 				2A5F18AA1641879B00E598B0 /* HelloWorldScene.cpp in Sources */,
 				2A5F18F016418C7400E598B0 /* CDAudioManager.m in Sources */,
 				2A5F18F116418C7400E598B0 /* CDOpenALSupport.m in Sources */,
+				2ABCEF1116456371003B0DB3 /* GameOverScene.cpp in Sources */,
 				2A5F18F216418C7400E598B0 /* CocosDenshion.m in Sources */,
 				2A5F18F316418C7400E598B0 /* SimpleAudioEngine.mm in Sources */,
 				2A5F18F416418C7400E598B0 /* SimpleAudioEngine_objc.m in Sources */,

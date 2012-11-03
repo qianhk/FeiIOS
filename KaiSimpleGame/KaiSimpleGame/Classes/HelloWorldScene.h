@@ -6,6 +6,9 @@
 class HelloWorld : public cocos2d::CCLayerColor
 {
 public:
+    HelloWorld();
+	~HelloWorld();
+    
     // Method 'init' in cocos2d-x returns bool, instead of 'id' in cocos2d-iphone (an object pointer)
     virtual bool init();
 
@@ -23,6 +26,11 @@ private:
     void spriteMoveFinished(cocos2d::CCNode* sender);
     void updateGame(float dt);
     void gameLogic(float dt);
+    void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
+    
+    cocos2d::CCArray *_targets;
+	cocos2d::CCArray *_projectiles;
+	int _projectilesDestroyed;
 };
 
 #endif // __HELLOWORLD_SCENE_H__
