@@ -26,6 +26,7 @@ private:
     void spriteMoveFinished(cocos2d::CCNode* sender);
     void updateGame(float dt);
     void gameLogic(float dt);
+    void finishShoot(cocos2d::CCNode* sender);
     void ccTouchesEnded(cocos2d::CCSet* touches, cocos2d::CCEvent* event);
     
     cocos2d::CCArray *_targets;
@@ -33,7 +34,7 @@ private:
 	int _projectilesDestroyed;
     
     cocos2d::CCSprite* mPlayerSprite;
-    
+    cocos2d::CCSprite* mNextProjectile;
 };
 
 #endif // __HELLOWORLD_SCENE_H__

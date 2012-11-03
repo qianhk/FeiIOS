@@ -33,6 +33,7 @@ HelloWorld::HelloWorld()
 :_targets(NULL)
 ,_projectiles(NULL)
 ,_projectilesDestroyed(0)
+,mNextProjectile(NULL)
 {
 }
 
@@ -181,6 +182,8 @@ bool HelloWorld::init()
 
 void HelloWorld::ccTouchesEnded(CCSet* touches, CCEvent* event)
 {
+    if (mNextProjectile) return;
+    
 	// Choose one of the touches to work with
 	CCTouch* touch = (CCTouch*)( touches->anyObject() );
 	CCPoint location = touch->getLocation();
@@ -189,28 +192,28 @@ void HelloWorld::ccTouchesEnded(CCSet* touches, CCEvent* event)
     
 	// Set up initial location of projectile
 	CCSize winSize = CCDirector::sharedDirector()->getVisibleSize();
-	CCSprite *projectile = CCSprite::create("Projectile2.jpg");
-	projectile->setPosition( ccp(20, winSize.height/2) );
+	mNextProjectile = CCSprite::create("Projectile2.jpg");
+    mNextProjectile->retain();
+	mNextProjectile->setPosition( ccp(20, winSize.height/2) );
     
 	// Determinie offset of location to projectile
-	float offX = location.x - projectile->getPosition().x;
-	float offY = location.y - projectile->getPosition().y;
+	float offX = location.x - mNextProjectile->getPosition().x;
+	float offY = location.y - mNextProjectile->getPosition().y;
     
 	// Bail out if we are shooting down or backwards
 	if (offX <= 0) return;
     
-	// Ok to add now - we've double checked position
-	this->addChild(projectile);
+	
     
 	// Determine where we wish to shoot the projectile to
-	float realX = winSize.width + (projectile->getContentSize().width/2);
+	float realX = winSize.width + (mNextProjectile->getContentSize().width/2);
 	float ratio = offY / offX;
-	float realY = (realX * ratio) + projectile->getPosition().y;
+	float realY = (realX * ratio) + mNextProjectile->getPosition().y;
 	CCPoint realDest = ccp(realX, realY);
     
 	// Determine the length of how far we're shooting
-	float offRealX = realX - projectile->getPosition().x;
-	float offRealY = realY - projectile->getPosition().y;
+	float offRealX = realX - mNextProjectile->getPosition().x;
+	float offRealY = realY - mNextProjectile->getPosition().y;
 	float length = sqrtf((offRealX * offRealX) + (offRealY*offRealY));
 	float velocity = 480/1; // 480pixels/1sec
 	float realMoveDuration = length/velocity;
@@ -218,20 +221,33 @@ void HelloWorld::ccTouchesEnded(CCSet* touches, CCEvent* event)
     float angleRadians = atanf(offRealY/offRealX);
     float angleDegress = CC_RADIANS_TO_DEGREES(angleRadians);
     float cocosAngle = -1 * angleDegress;
-    mPlayerSprite->setRotation(cocosAngle);
+    float rotateSpeed = 0.5 / M_PI;
+    float rotateDuration = fabs(angleRadians * rotateSpeed);
+
+    mPlayerSprite->runAction(CCSequence::create(CCRotateTo::create(rotateDuration, cocosAngle), CCCallFuncN::create(this, callfuncN_selector(HelloWorld::finishShoot)), NULL));
     
 	// Move projectile to actual endpoint
-	projectile->runAction( CCSequence::create(
+	mNextProjectile->runAction( CCSequence::create(
                                               CCMoveTo::create(realMoveDuration, realDest),
                                               CCCallFuncN::create(this,
                                                                   callfuncN_selector(HelloWorld::spriteMoveFinished)),
                                               NULL) );
     
 	// Add to projectiles array
-	projectile->setTag(2);
-	_projectiles->addObject(projectile);
+	mNextProjectile->setTag(2);
+	
+}
+
+void HelloWorld::finishShoot(cocos2d::CCNode* sender)
+{
+    // Ok to add now - we've double checked position
+	this->addChild(mNextProjectile);
+    _projectiles->addObject(mNextProjectile);
     
 	CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("pew-pew-lei.wav");
+    
+    mNextProjectile->release();
+    mNextProjectile = NULL;
 }
 
 void HelloWorld::gameLogic(float dt)
