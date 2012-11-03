@@ -45,6 +45,8 @@
 		2A7071F41642DA00005D5F17 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A7071F31642DA00005D5F17 /* Default-568h@2x.png */; };
 		2ABCEF0E1645594E003B0DB3 /* Player@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2ABCEF0D1645594E003B0DB3 /* Player@2x.png */; };
 		2ABCEF1116456371003B0DB3 /* GameOverScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2ABCEF0F16455F99003B0DB3 /* GameOverScene.cpp */; };
+		2ABCEF1D164570C7003B0DB3 /* Player2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2ABCEF1B164570C7003B0DB3 /* Player2.jpg */; };
+		2ABCEF1E164570C7003B0DB3 /* Projectile2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2ABCEF1C164570C7003B0DB3 /* Projectile2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		2ABCEF0D1645594E003B0DB3 /* Player@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Player@2x.png"; path = "Resources/Player@2x.png"; sourceTree = "<group>"; };
 		2ABCEF0F16455F99003B0DB3 /* GameOverScene.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameOverScene.cpp; sourceTree = "<group>"; };
 		2ABCEF1016455F99003B0DB3 /* GameOverScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameOverScene.h; sourceTree = "<group>"; };
+		2ABCEF1B164570C7003B0DB3 /* Player2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Player2.jpg; path = Resources/Player2.jpg; sourceTree = "<group>"; };
+		2ABCEF1C164570C7003B0DB3 /* Projectile2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Projectile2.jpg; path = Resources/Projectile2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,8 @@
 				2A7071E11642D02D005D5F17 /* Player.png */,
 				2ABCEF0D1645594E003B0DB3 /* Player@2x.png */,
 				2A7071E21642D02D005D5F17 /* Projectile.png */,
+				2ABCEF1B164570C7003B0DB3 /* Player2.jpg */,
+				2ABCEF1C164570C7003B0DB3 /* Projectile2.jpg */,
 				2A7071E31642D02D005D5F17 /* Target.png */,
 				2A5F16091641879800E598B0 /* CloseNormal.png */,
 				2A5F160B1641879800E598B0 /* CloseSelected.png */,
@@ -366,6 +372,8 @@
 				2A7071E81642D02D005D5F17 /* Target.png in Resources */,
 				2A7071F41642DA00005D5F17 /* Default-568h@2x.png in Resources */,
 				2ABCEF0E1645594E003B0DB3 /* Player@2x.png in Resources */,
+				2ABCEF1D164570C7003B0DB3 /* Player2.jpg in Resources */,
+				2ABCEF1E164570C7003B0DB3 /* Projectile2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

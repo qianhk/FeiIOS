@@ -19,6 +19,12 @@ HelloWorld::~HelloWorld()
 		_projectiles = NULL;
 	}
     
+    if (mPlayerSprite)
+    {
+        mPlayerSprite->release();
+        mPlayerSprite = NULL;
+    }
+    
 	// cpp don't need to call super dealloc
 	// virtual destructor will do this
 }
@@ -149,15 +155,16 @@ bool HelloWorld::init()
     this->addChild(pLabel, 1);
 
     // add "HelloWorld" splash screen"
-    CCSprite* pSprite = CCSprite::create("Player.png", CCRectMake(0, 0, 27, 40));
+    mPlayerSprite = CCSprite::create("Player2.jpg");
+    mPlayerSprite->retain();
 
     // position the sprite on the center of the screen
-    pSprite->setPosition( ccp(pSprite->getContentSize().width/2, size.height/2) );
+    mPlayerSprite->setPosition( ccp(mPlayerSprite->getContentSize().width/2, size.height/2) );
     
     
 
     // add the sprite as a child to this layer
-    this->addChild(pSprite, 0);
+    this->addChild(mPlayerSprite, 0);
     
     this->schedule( schedule_selector(HelloWorld::gameLogic), 1.0 );
     
@@ -182,7 +189,7 @@ void HelloWorld::ccTouchesEnded(CCSet* touches, CCEvent* event)
     
 	// Set up initial location of projectile
 	CCSize winSize = CCDirector::sharedDirector()->getVisibleSize();
-	CCSprite *projectile = CCSprite::create("Projectile.png", CCRectMake(0, 0, 20, 20));
+	CCSprite *projectile = CCSprite::create("Projectile2.jpg");
 	projectile->setPosition( ccp(20, winSize.height/2) );
     
 	// Determinie offset of location to projectile
@@ -207,6 +214,11 @@ void HelloWorld::ccTouchesEnded(CCSet* touches, CCEvent* event)
 	float length = sqrtf((offRealX * offRealX) + (offRealY*offRealY));
 	float velocity = 480/1; // 480pixels/1sec
 	float realMoveDuration = length/velocity;
+    
+    float angleRadians = atanf(offRealY/offRealX);
+    float angleDegress = CC_RADIANS_TO_DEGREES(angleRadians);
+    float cocosAngle = -1 * angleDegress;
+    mPlayerSprite->setRotation(cocosAngle);
     
 	// Move projectile to actual endpoint
 	projectile->runAction( CCSequence::create(
