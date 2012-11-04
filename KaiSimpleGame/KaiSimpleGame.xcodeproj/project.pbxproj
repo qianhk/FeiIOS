@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A52399F164664FC003CE951 /* Monster.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2A52399D164664FC003CE951 /* Monster.cpp */; };
+		2A5239A216467101003CE951 /* explosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = 2A5239A0164666E6003CE951 /* explosion.caf */; };
+		2A5239A316467104003CE951 /* Target2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5239A1164666E6003CE951 /* Target2.png */; };
 		2A5F15F81641879800E598B0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5F15F71641879800E598B0 /* QuartzCore.framework */; };
 		2A5F15FA1641879800E598B0 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5F15F91641879800E598B0 /* OpenGLES.framework */; };
 		2A5F15FC1641879800E598B0 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5F15FB1641879800E598B0 /* OpenAL.framework */; };
@@ -60,6 +63,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A52399D164664FC003CE951 /* Monster.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Monster.cpp; sourceTree = "<group>"; };
+		2A52399E164664FC003CE951 /* Monster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Monster.h; sourceTree = "<group>"; };
+		2A5239A0164666E6003CE951 /* explosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = explosion.caf; path = Resources/explosion.caf; sourceTree = "<group>"; };
+		2A5239A1164666E6003CE951 /* Target2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Target2.png; path = Resources/Target2.png; sourceTree = "<group>"; };
 		2A5F15F31641879800E598B0 /* KaiSimpleGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KaiSimpleGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A5F15F71641879800E598B0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2A5F15F91641879800E598B0 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -193,6 +200,8 @@
 				2ABCEF1B164570C7003B0DB3 /* Player2.jpg */,
 				2ABCEF1C164570C7003B0DB3 /* Projectile2.jpg */,
 				2A7071E31642D02D005D5F17 /* Target.png */,
+				2A5239A1164666E6003CE951 /* Target2.png */,
+				2A5239A0164666E6003CE951 /* explosion.caf */,
 				2A5F16091641879800E598B0 /* CloseNormal.png */,
 				2A5F160B1641879800E598B0 /* CloseSelected.png */,
 				2A5F160D1641879800E598B0 /* Default.png */,
@@ -239,6 +248,8 @@
 				2A5F18A91641879B00E598B0 /* HelloWorldScene.cpp */,
 				2ABCEF1016455F99003B0DB3 /* GameOverScene.h */,
 				2ABCEF0F16455F99003B0DB3 /* GameOverScene.cpp */,
+				2A52399E164664FC003CE951 /* Monster.h */,
+				2A52399D164664FC003CE951 /* Monster.cpp */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -361,11 +372,13 @@
 				2A5F16121641879800E598B0 /* Icon-72.png in Resources */,
 				2A5F16141641879800E598B0 /* Icon-Small-50.png in Resources */,
 				2A5F16161641879800E598B0 /* Icon-Small.png in Resources */,
+				2A5239A216467101003CE951 /* explosion.caf in Resources */,
 				2A5F16181641879800E598B0 /* Icon-Small@2x.png in Resources */,
 				2A5F161A1641879800E598B0 /* Icon.png in Resources */,
 				2A5F161C1641879800E598B0 /* Icon@2x.png in Resources */,
 				2A5F161E1641879800E598B0 /* iTunesArtwork in Resources */,
 				2A7071E41642D02D005D5F17 /* background-music-aac.wav in Resources */,
+				2A5239A316467104003CE951 /* Target2.png in Resources */,
 				2A7071E51642D02D005D5F17 /* pew-pew-lei.wav in Resources */,
 				2A7071E61642D02D005D5F17 /* Player.png in Resources */,
 				2A7071E71642D02D005D5F17 /* Projectile.png in Resources */,
@@ -395,6 +408,7 @@
 				2A5F18F216418C7400E598B0 /* CocosDenshion.m in Sources */,
 				2A5F18F316418C7400E598B0 /* SimpleAudioEngine.mm in Sources */,
 				2A5F18F416418C7400E598B0 /* SimpleAudioEngine_objc.m in Sources */,
+				2A52399F164664FC003CE951 /* Monster.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

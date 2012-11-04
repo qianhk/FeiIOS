@@ -1,6 +1,7 @@
 #include "HelloWorldScene.h"
 #include "SimpleAudioEngine.h"
 #include "GameOverScene.h"
+#include "Monster.h"
 
 using namespace cocos2d;
 using namespace CocosDenshion;
@@ -54,7 +55,15 @@ CCScene* HelloWorld::scene()
 
 void HelloWorld::addTarget()
 {
-    CCSprite *target = CCSprite::create("Target.png", CCRectMake(0,0,27,40) );
+    srand(time(NULL));
+    Monster *target = NULL;
+    int randValue = rand();
+    cocos2d::CCLog("helloworld:addTarget rand Value=%d", randValue);
+    if ((randValue % 3) != 0) {
+        target = WeakAndFastMonster::monster();
+    } else {
+        target = StrongAndSlowMonster::monster();
+    }
     
 	// Determine where to spawn the target along the Y axis
 	CCSize winSize = CCDirector::sharedDirector()->getVisibleSize();
@@ -72,8 +81,8 @@ void HelloWorld::addTarget()
 	this->addChild(target);
     
 	// Determine speed of the target
-	int minDuration = (int)2.0;
-	int maxDuration = (int)4.0;
+	int minDuration = target->_minMoveDuration;
+	int maxDuration = target->_maxMoveDuration;
 	int rangeDuration = maxDuration - minDuration;
 	// srand( TimGetTicks() );
 	int actualDuration = ( rand() % rangeDuration ) + minDuration;
@@ -271,13 +280,13 @@ void HelloWorld::updateGame(float dt)
                                            projectile->getPosition().y - (projectile->getContentSize().height/2),
                                            projectile->getContentSize().width,
                                            projectile->getContentSize().height);
-        
+        bool monsterHit = false;
 		CCArray* targetsToDelete =new CCArray;
         
 		// for (jt = _targets->begin(); jt != _targets->end(); jt++)
         CCARRAY_FOREACH(_targets, jt)
 		{
-			CCSprite *target = dynamic_cast<CCSprite*>(jt);
+			Monster *target = dynamic_cast<Monster*>(jt);
 			CCRect targetRect = CCRectMake(
                                            target->getPosition().x - (target->getContentSize().width/2),
                                            target->getPosition().y - (target->getContentSize().height/2),
@@ -287,7 +296,12 @@ void HelloWorld::updateGame(float dt)
 			// if (CCRect::CCRectIntersectsRect(projectileRect, targetRect))
             if (projectileRect.intersectsRect(targetRect))
 			{
-				targetsToDelete->addObject(target);
+                monsterHit = true;
+                --target->_curHp;
+                if (target->_curHp <= 0) {
+                    targetsToDelete->addObject(target);
+                }
+                break;
 			}
 		}
         
@@ -307,9 +321,10 @@ void HelloWorld::updateGame(float dt)
 			}
 		}
         
-		if (targetsToDelete->count() > 0)
+		if (monsterHit)
 		{
 			projectilesToDelete->addObject(projectile);
+            CocosDenshion::SimpleAudioEngine::sharedEngine()->playEffect("explosion.caf");
 		}
 		targetsToDelete->release();
 	}
