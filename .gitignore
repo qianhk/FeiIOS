@@ -6,6 +6,9 @@ build/
 *.mode2v3
 *.perspectivev3
 xcuserdata/
+LatestBuild
+*.deb
+*.zip
 
 # old skool
 .svn

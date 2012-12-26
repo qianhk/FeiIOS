@@ -164,7 +164,7 @@ int match_line_with_keyword(const char *line, int line_length, const char *keywo
         return match_hanzi_count;
 }
 
-int main(int argc, char **argv)
+int main4(int argc, char **argv)
 {
     int show_match_count = 0;
     int match_firstletter = 0;

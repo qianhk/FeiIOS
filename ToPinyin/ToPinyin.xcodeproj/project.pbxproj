@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		2AA039161653F54C005F9D89 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 2AA039151653F54C005F9D89 /* main.c */; };
 		2AA039181653F54C005F9D89 /* ToPinyin.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2AA039171653F54C005F9D89 /* ToPinyin.1 */; };
+		2AA039261653F5FD005F9D89 /* linereader.c in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0391E1653F5AA005F9D89 /* linereader.c */; };
+		2AA039271653F5FD005F9D89 /* linereader.h in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0391F1653F5AA005F9D89 /* linereader.h */; };
+		2AA039281653F5FD005F9D89 /* pinyin_data.h in Sources */ = {isa = PBXBuildFile; fileRef = 2AA039201653F5AA005F9D89 /* pinyin_data.h */; };
+		2AA039291653F5FD005F9D89 /* pinyin.c in Sources */ = {isa = PBXBuildFile; fileRef = 2AA039211653F5AA005F9D89 /* pinyin.c */; };
+		2AA0392A1653F5FD005F9D89 /* pinyin.h in Sources */ = {isa = PBXBuildFile; fileRef = 2AA039221653F5AA005F9D89 /* pinyin.h */; };
+		2AA0392B1653F5FD005F9D89 /* pinyinmatch.c in Sources */ = {isa = PBXBuildFile; fileRef = 2AA039231653F5AA005F9D89 /* pinyinmatch.c */; };
+		2AA0392C1653F5FD005F9D89 /* utf8vector.c in Sources */ = {isa = PBXBuildFile; fileRef = 2AA039241653F5AA005F9D89 /* utf8vector.c */; };
+		2AA0392D1653F5FD005F9D89 /* utf8vector.h in Sources */ = {isa = PBXBuildFile; fileRef = 2AA039251653F5AA005F9D89 /* utf8vector.h */; };
+		2ABE431A165D2BB400F29942 /* Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE4318165D2BB400F29942 /* Test.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +37,16 @@
 		2AA039111653F54C005F9D89 /* ToPinyin */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ToPinyin; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA039151653F54C005F9D89 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		2AA039171653F54C005F9D89 /* ToPinyin.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ToPinyin.1; sourceTree = "<group>"; };
+		2AA0391E1653F5AA005F9D89 /* linereader.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = linereader.c; sourceTree = "<group>"; };
+		2AA0391F1653F5AA005F9D89 /* linereader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = linereader.h; sourceTree = "<group>"; };
+		2AA039201653F5AA005F9D89 /* pinyin_data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pinyin_data.h; sourceTree = "<group>"; };
+		2AA039211653F5AA005F9D89 /* pinyin.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pinyin.c; sourceTree = "<group>"; };
+		2AA039221653F5AA005F9D89 /* pinyin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pinyin.h; sourceTree = "<group>"; };
+		2AA039231653F5AA005F9D89 /* pinyinmatch.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = pinyinmatch.c; sourceTree = "<group>"; };
+		2AA039241653F5AA005F9D89 /* utf8vector.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = utf8vector.c; sourceTree = "<group>"; };
+		2AA039251653F5AA005F9D89 /* utf8vector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = utf8vector.h; sourceTree = "<group>"; };
+		2ABE4318165D2BB400F29942 /* Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test.cpp; sourceTree = "<group>"; };
+		2ABE4319165D2BB400F29942 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +80,17 @@
 			isa = PBXGroup;
 			children = (
 				2AA039151653F54C005F9D89 /* main.c */,
+				2AA0391E1653F5AA005F9D89 /* linereader.c */,
+				2AA0391F1653F5AA005F9D89 /* linereader.h */,
+				2AA039201653F5AA005F9D89 /* pinyin_data.h */,
+				2AA039211653F5AA005F9D89 /* pinyin.c */,
+				2AA039221653F5AA005F9D89 /* pinyin.h */,
+				2AA039231653F5AA005F9D89 /* pinyinmatch.c */,
+				2AA039241653F5AA005F9D89 /* utf8vector.c */,
+				2AA039251653F5AA005F9D89 /* utf8vector.h */,
 				2AA039171653F54C005F9D89 /* ToPinyin.1 */,
+				2ABE4318165D2BB400F29942 /* Test.cpp */,
+				2ABE4319165D2BB400F29942 /* Test.h */,
 			);
 			path = ToPinyin;
 			sourceTree = "<group>";
@@ -117,7 +146,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AA039261653F5FD005F9D89 /* linereader.c in Sources */,
+				2AA039271653F5FD005F9D89 /* linereader.h in Sources */,
+				2AA039281653F5FD005F9D89 /* pinyin_data.h in Sources */,
+				2AA039291653F5FD005F9D89 /* pinyin.c in Sources */,
+				2AA0392A1653F5FD005F9D89 /* pinyin.h in Sources */,
+				2AA0392B1653F5FD005F9D89 /* pinyinmatch.c in Sources */,
+				2AA0392C1653F5FD005F9D89 /* utf8vector.c in Sources */,
+				2AA0392D1653F5FD005F9D89 /* utf8vector.h in Sources */,
 				2AA039161653F54C005F9D89 /* main.c in Sources */,
+				2ABE431A165D2BB400F29942 /* Test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +166,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -157,7 +195,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -208,6 +246,7 @@
 				2AA0391D1653F54C005F9D89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

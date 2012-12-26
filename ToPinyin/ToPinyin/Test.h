@@ -11,4 +11,17 @@
 
 #include <iostream>
 
+class CBase {};
+
+class CChildV {
+    virtual ~CChildV();
+};
+
+class CChildA {
+    int a;
+    char b;
+    virtual void TestFunc() = 0;
+    virtual void TestVirtual() =  0;
+};
+
 #endif /* defined(__ToPinyin__Test__) */

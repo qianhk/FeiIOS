@@ -111,7 +111,7 @@ int linereader_readline(linereader reader)
 }
 
 #ifdef LINEREADER_BIN
-int main()
+int main3()
 {
 #ifdef DEBUG
     FILE *fp = fopen("./linereader.c", "r");
