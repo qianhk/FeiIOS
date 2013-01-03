@@ -31,6 +31,55 @@ void writeParamToFileHandle(int argc, const char * argv[], NSFileHandle* fileHan
 //    [[[NSTask launchedTaskWithLaunchPath:@"/usr/libexec/InternetSharing"] arguments:nil] waitUntilExit];
 }
 
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <ifaddrs.h>
+// you may need to include other headers
+
+
+void getnetinterface() {
+    
+    struct ifaddrs* interfaces = NULL;
+    struct ifaddrs* temp_addr = NULL;
+    // retrieve the current interfaces - returns 0 on success
+    NSInteger success = getifaddrs(&interfaces);
+    NSMutableArray* muArray = [NSMutableArray array];
+    NSMutableSet* muSet = [NSMutableSet set];
+    if (success == 0)
+    {
+        // Loop through linked list of interfaces
+        temp_addr = interfaces;
+        while (temp_addr != NULL)
+        {
+//            if (temp_addr->ifa_addr->sa_family == AF_INET) // internetwork only
+            {
+                NSString* name = [NSString stringWithUTF8String:temp_addr->ifa_name];
+                NSString* address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_in *)temp_addr->ifa_addr)->sin_addr)];
+                NSLog(@"interface name: %s; address: %@ %d", temp_addr->ifa_name, address, temp_addr->ifa_addr->sa_family);
+                
+                if ([muArray indexOfObject:name] == NSNotFound) {
+                    [muArray addObject:name];
+                }
+                [muSet addObject:name];
+            }
+            
+            temp_addr = temp_addr->ifa_next;
+        }
+    }
+    // Free memory
+    freeifaddrs(interfaces);
+
+    for (NSUInteger idx = 0; idx < muArray.count; ++idx) {
+        NSLog(@"i name in Array: %@", [muArray objectAtIndex:idx]);
+    }
+    
+    [muSet enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id obj, BOOL *stop) {
+        NSLog(@"i name in Set: %@", obj);
+    }];
+}
+
+
 int main(int argc, const char * argv[])
 {
 
@@ -57,6 +106,8 @@ int main(int argc, const char * argv[])
         [handle seekToEndOfFile];
         writeParamToFileHandle(argc, argv, handle);
         [handle closeFile];
+        
+        getnetinterface();
         
     }
     return 0;

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2AAA88EF1691C88C00ADFAA0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAA88EE1691C88C00ADFAA0 /* Foundation.framework */; };
-		2AAA88F21691C88C00ADFAA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAA88F11691C88C00ADFAA0 /* main.m */; };
+		2AAA88F21691C88C00ADFAA0 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AAA88F11691C88C00ADFAA0 /* main.mm */; };
 		2AAA88F61691C88C00ADFAA0 /* fakeifconfig.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2AAA88F51691C88C00ADFAA0 /* fakeifconfig.1 */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,7 @@
 /* Begin PBXFileReference section */
 		2AAA88EA1691C88C00ADFAA0 /* fakeifconfig */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = fakeifconfig; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AAA88EE1691C88C00ADFAA0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		2AAA88F11691C88C00ADFAA0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2AAA88F11691C88C00ADFAA0 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		2AAA88F41691C88C00ADFAA0 /* fakeifconfig-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fakeifconfig-Prefix.pch"; sourceTree = "<group>"; };
 		2AAA88F51691C88C00ADFAA0 /* fakeifconfig.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = fakeifconfig.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,7 +73,7 @@
 		2AAA88F01691C88C00ADFAA0 /* fakeifconfig */ = {
 			isa = PBXGroup;
 			children = (
-				2AAA88F11691C88C00ADFAA0 /* main.m */,
+				2AAA88F11691C88C00ADFAA0 /* main.mm */,
 				2AAA88F51691C88C00ADFAA0 /* fakeifconfig.1 */,
 				2AAA88F31691C88C00ADFAA0 /* Supporting Files */,
 			);
@@ -139,7 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AAA88F21691C88C00ADFAA0 /* main.m in Sources */,
+				2AAA88F21691C88C00ADFAA0 /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +234,7 @@
 				2AAA88FB1691C88C00ADFAA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
