@@ -80,13 +80,9 @@ void getnetinterface() {
 }
 
 #include <assert.h>
-#include <errno.h>
-#include <stdbool.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include <sys/sysctl.h>
 
-typedef struct kinfo_proc kinfo_proc;
+//typedef struct kinfo_proc kinfo_proc;
 
 static int GetBSDProcessList(kinfo_proc **procList, size_t *procCount)
 // Returns a list of all BSD processes on the system.  This routine
@@ -198,8 +194,35 @@ void findGivenProcessName()
         {
             kinfo_proc p = processInfo[index];
             NSLog(@"Pid:%i\tName:%s\tprocessName=s", p.kp_proc.p_pid, p.kp_proc.p_comm);
+			if (strcmp(p.kp_proc.p_comm, "fakeifconfig") == 0) {
+                NSLog(@"find natd.................");
+            }
         }
+		free(processInfo);
     }
+}
+
+void getProcess() {
+    NSTask *task = [[NSTask alloc] init];
+    [task setLaunchPath: @"/bin/ps"];
+
+    NSArray *arguments = [NSArray arrayWithObjects: @"-alT", nil];
+    [task setArguments: arguments];
+
+    NSPipe *pipe = [NSPipe pipe];
+    [task setStandardOutput: pipe];
+    [task setStandardError:pipe];
+
+    NSFileHandle *file = [pipe fileHandleForReading];
+
+    [task launch];
+    [task waitUntilExit];
+
+    NSData *data = [file readDataToEndOfFile];
+
+    NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog (@"got\n%@", string);
+    [string release];
 }
 
 int main(int argc, const char * argv[])
@@ -226,13 +249,14 @@ int main(int argc, const char * argv[])
         NSLog(@"fakeConsole: fullPath=%@", fullPath);
         NSFileHandle* handle = [NSFileHandle fileHandleForWritingAtPath:fullPath];
         [handle seekToEndOfFile];
-        writeParamToFileHandle(argc, argv, handle);
+//        writeParamToFileHandle(argc, argv, handle);
         [handle closeFile];
         
-        getnetinterface();
+//        getnetinterface();
         
-        findGivenProcessName();
-        
+//        findGivenProcessName();
+
+        getProcess();
     }
     return 0;
 }
