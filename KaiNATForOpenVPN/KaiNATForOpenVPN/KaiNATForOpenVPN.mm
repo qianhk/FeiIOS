@@ -49,16 +49,27 @@
     if (sender == segCtlVpn) {
         if (segCtlVpn.selectedSegment == 0) {
             //vpn off
-            segCtlNat.selectedSegment = 0;
+            if (segCtlNat.selectedSegment == 1) {
+                segCtlNat.selectedSegment = 0;
+                if (!launchKaiNatBash(KaiNatActionTypeStop, @"qhk_none")) {
+                    segCtlVpn.selectedSegment = 1;
+                    segCtlNat.selectedSegment = 1;
+                }
+            }
         } else {
             //vpn On
         }
     } else if (sender == segCtlNat){
         if (segCtlNat.selectedSegment == 0) {
             //nat off
+            if (!launchKaiNatBash(KaiNatActionTypeStop, @"qhk_none")) {
+                segCtlNat.selectedSegment = 1;
+            }
         } else {
             //nat on
-            launchKaiNatBash();
+            if (!launchKaiNatBash(KaiNatActionTypeStart, [popupBtnNetworkInterface titleOfSelectedItem])) {
+                segCtlNat.selectedSegment = 0;
+            }
         }
     }
     [self configViewState];

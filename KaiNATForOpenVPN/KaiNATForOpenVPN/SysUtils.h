@@ -17,6 +17,11 @@ BOOL hasProcess(const char *process);
 
 NSString * getProcessExpeted();
 
-void launchKaiNatBash();
+typedef enum KaiNatActionType : NSUInteger {
+    KaiNatActionTypeStart,
+    KaiNatActionTypeStop
+}KaiNatActionType;
+
+BOOL launchKaiNatBash(KaiNatActionType action, NSString* netInterface);
 
 #endif //__SysUtils_H_

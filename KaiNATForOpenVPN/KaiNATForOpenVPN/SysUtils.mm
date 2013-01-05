@@ -9,6 +9,8 @@
 #include <assert.h>
 #include <sys/sysctl.h>
 
+#import "SysUtils.h"
+
 NSArray *getNetInterface() {
 
     struct ifaddrs *interfaces = NULL;
@@ -163,31 +165,20 @@ NSString* getProcessExpeted() {
     return process;
 }
 
-void launchKaiNatBash() {
+BOOL launchKaiNatBash(KaiNatActionType action, NSString* netInterface) {
     NSBundle * bundle = [NSBundle mainBundle];
-//    NSString * bashPath = [bundle pathForAuxiliaryExecutable:@"natd_via_who.sh"];
-    NSString *shPath2 = [bundle pathForResource:@"natd_via_who" ofType:@"sh"];
-//    system([bashPath UTF8String]);
-
-    NSTask *task = [[NSTask alloc] init];
-    [task setLaunchPath: shPath2];
-    NSArray *arguments = [NSArray arrayWithObjects: @"start", @"en0", nil];
-    [task setArguments: arguments];
-
-    NSPipe *pipe = [NSPipe pipe];
-    [task setStandardOutput: pipe];
-    [task setStandardError:pipe];
-
-    NSFileHandle *file = [pipe fileHandleForReading];
-
-    [task launch];
-    [task waitUntilExit];
-
-    NSData *data = [file readDataToEndOfFile];
-
-    NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    [task release];
-
-    NSLog (@"got\n%@", string);
-    [string release];
+    NSString * natFilePath = [bundle pathForAuxiliaryExecutable:@"natd_via_who"];
+    
+    NSDictionary *error = nil;
+    NSString *script =  [NSString stringWithFormat:@"do shell script \"%@ %@ %@\" with administrator privileges", natFilePath, action == KaiNatActionTypeStart ? @"start" : @"stop", netInterface];
+    NSAppleScript *appleScript = [[NSAppleScript alloc] initWithSource:script];
+    BOOL result = [appleScript executeAndReturnError:&error] != nil;
+    [appleScript release];
+    if (error != nil) {
+        NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+        [alert setMessageText:[[NSBundle bundleWithIdentifier:@"com.njnu.kai.kainatforopenvpn"] description]];
+//        [alert setMessageText:[@"natFilePath: " stringByAppendingString:natFilePath ?: @"null"]];
+        [alert runModal];
+    }
+    return result;
 }
