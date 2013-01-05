@@ -48,10 +48,18 @@
 - (IBAction)clickSegmentedControl:(id)sender {
     if (sender == segCtlVpn) {
         if (segCtlVpn.selectedSegment == 0) {
+            //vpn off
             segCtlNat.selectedSegment = 0;
+        } else {
+            //vpn On
         }
     } else if (sender == segCtlNat){
-        
+        if (segCtlNat.selectedSegment == 0) {
+            //nat off
+        } else {
+            //nat on
+            launchKaiNatBash();
+        }
     }
     [self configViewState];
 }

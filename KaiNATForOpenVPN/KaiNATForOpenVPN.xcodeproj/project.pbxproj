@@ -13,6 +13,7 @@
 		2AA52EBB1695BB6A0078CBA5 /* KaiNATForOpenVPN.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2AA52EBA1695BB6A0078CBA5 /* KaiNATForOpenVPN.mm */; };
 		2AA52EC01695BB6A0078CBA5 /* KaiNATForOpenVPN.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AA52EBE1695BB6A0078CBA5 /* KaiNATForOpenVPN.xib */; };
 		2AA52EFB1695CC910078CBA5 /* vpn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AA52EFA1695CC910078CBA5 /* vpn.png */; };
+		4C70B36DDF008F00F55C3CE0 /* natd_via_who.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4C70BDABAD1CA6F4B105BC28 /* natd_via_who.sh */; };
 		4C70B728D396B4F68B3CEAFD /* SysUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C70B8669A133C89F6174AD7 /* SysUtils.h */; };
 		4C70B7954B976E018571F019 /* SysUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4C70BE276BF53D49FC953899 /* SysUtils.mm */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		2AA52EBF1695BB6A0078CBA5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/KaiNATForOpenVPN.xib; sourceTree = "<group>"; };
 		2AA52EFA1695CC910078CBA5 /* vpn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vpn.png; sourceTree = "<group>"; };
 		4C70B8669A133C89F6174AD7 /* SysUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SysUtils.h; sourceTree = "<group>"; };
+		4C70BDABAD1CA6F4B105BC28 /* natd_via_who.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = natd_via_who.sh; sourceTree = "<group>"; };
 		4C70BE276BF53D49FC953899 /* SysUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SysUtils.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 				2AA52EFA1695CC910078CBA5 /* vpn.png */,
 				2AA52EB51695BB6A0078CBA5 /* InfoPlist.strings */,
 				2AA52EB81695BB6A0078CBA5 /* KaiNATForOpenVPN-Prefix.pch */,
+				4C70BDABAD1CA6F4B105BC28 /* natd_via_who.sh */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				2AA52EB71695BB6A0078CBA5 /* InfoPlist.strings in Resources */,
 				2AA52EC01695BB6A0078CBA5 /* KaiNATForOpenVPN.xib in Resources */,
 				2AA52EFB1695CC910078CBA5 /* vpn.png in Resources */,
+				4C70B36DDF008F00F55C3CE0 /* natd_via_who.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

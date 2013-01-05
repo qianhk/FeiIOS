@@ -162,3 +162,32 @@ NSString* getProcessExpeted() {
     }
     return process;
 }
+
+void launchKaiNatBash() {
+    NSBundle * bundle = [NSBundle mainBundle];
+//    NSString * bashPath = [bundle pathForAuxiliaryExecutable:@"natd_via_who.sh"];
+    NSString *shPath2 = [bundle pathForResource:@"natd_via_who" ofType:@"sh"];
+//    system([bashPath UTF8String]);
+
+    NSTask *task = [[NSTask alloc] init];
+    [task setLaunchPath: shPath2];
+    NSArray *arguments = [NSArray arrayWithObjects: @"start", @"en0", nil];
+    [task setArguments: arguments];
+
+    NSPipe *pipe = [NSPipe pipe];
+    [task setStandardOutput: pipe];
+    [task setStandardError:pipe];
+
+    NSFileHandle *file = [pipe fileHandleForReading];
+
+    [task launch];
+    [task waitUntilExit];
+
+    NSData *data = [file readDataToEndOfFile];
+
+    NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    [task release];
+
+    NSLog (@"got\n%@", string);
+    [string release];
+}

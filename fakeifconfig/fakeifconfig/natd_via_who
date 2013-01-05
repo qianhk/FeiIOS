@@ -16,28 +16,5 @@ function enipfw() #添加防火墙规则
 }
  
 echo "NATD SYSTEM START ITEM."
- 
-  case $1 in
-    start)
-      echo "Starting NATD"
-      sysctl -w net.inet.ip.forwarding=1 #设置网关
-      natd -s -m -d -n en0 -dynamic #启动Nat
-      enipfw
-      sysctl -w net.inet.ip.fw.enable=1 #开启防火墙
-      ;;
-    stop)
-      echo "Stopping NATD"
-      sysctl -w net.inet.ip.forwarding=0
-      killall natd
-      ipfw -f flush
-      sysctl -w net.inet.ip.fw.enable=0
-      ;;
-    restart)
-      echo "Restarting NATD"
-      killall natd
-      sleep 10
-      sysctl -w net.inet.ip.forwarding=1
-      enipfw
-      sysctl -w net.inet.ip.fw.enable=1
-      ;;
-  esac
+echo "param0="$0 "param1="$1 "param2="$2
+

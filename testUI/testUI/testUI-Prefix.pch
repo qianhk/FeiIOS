@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'testUI' target in the 'testUI' project
-//
-
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-#endif

@@ -241,6 +241,12 @@ NSString* getProcessExpeted() {
     return process;
 }
 
+void launchKaiNatBash() {
+    NSBundle * bundle = [NSBundle mainBundle];
+    NSString * bashPath = [bundle pathForResource:@"natd_via_who" ofType:@"sh"];
+    system([bashPath UTF8String]);
+}
+
 int main(int argc, const char * argv[])
 {
 
@@ -273,6 +279,8 @@ int main(int argc, const char * argv[])
 //        findGivenProcessName();
 
         NSLog(@"expeted process: %@", getProcessExpeted());
+
+        launchKaiNatBash();
     }
     return 0;
 }

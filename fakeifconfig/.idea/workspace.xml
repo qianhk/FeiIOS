@@ -29,10 +29,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="natd_via_who" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fakeifconfig/natd_via_who">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="35" selection-start="318" selection-end="318" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="main.mm" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/fakeifconfig/main.mm">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="204" column="0" selection-start="6719" selection-end="8076" vertical-scroll-proportion="0.2857143">
+            <state line="283" column="0" selection-start="9583" selection-end="9583" vertical-scroll-proportion="0.64953274">
               <folding>
                 <element signature="e#2831#2850#0" expanded="true" />
               </folding>
@@ -50,6 +59,7 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/fakeifconfig/natd_via_who" />
         <option value="$PROJECT_DIR$/fakeifconfig/main.mm" />
       </list>
     </option>
@@ -150,13 +160,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="preferences.keymap" />
+    <property name="options.lastSelected" value="preferences.general" />
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../KaiNATForOpenVPN" />
     <property name="FullScreen" value="false" />
     <property name="OBJC.PRESERVED_TARGET_SELECTION" value="fakeifconfig" />
     <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.splitter.details.proportions" value="0.41507176" />
   </component>
   <component name="RunManager" selected="Application.fakeifconfig">
     <configuration default="true" type="AppleRunConfiguration" factoryName="Application" PROJECT_NAME="fakeifconfig" TARGET_NAME="fakeifconfig" CONFIG_NAME="Debug" PASS_PARENT_ENVS="FALSE" RUN_TARGET_PROJECT_NAME="fakeifconfig" RUN_TARGET_NAME="fakeifconfig" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
@@ -231,11 +241,11 @@
       <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20536344" sideWeight="0.6705128" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20536344" sideWeight="0.6" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32948717" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22820513" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -297,7 +307,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/fakeifconfig/main.mm</url>
+          <line>245</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -347,17 +364,14 @@
     </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSFileHandle.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="12" selection-start="303" selection-end="303" vertical-scroll-proportion="0.33333334" />
+        <state line="14" column="12" selection-start="303" selection-end="303" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSTask.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="12" selection-start="2806" selection-end="2806" vertical-scroll-proportion="0.5031056" />
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="265" column="64" selection-start="18468" selection-end="18468" vertical-scroll-proportion="0.031055901">
+        <state line="75" column="12" selection-start="2806" selection-end="2806" vertical-scroll-proportion="0.5031056">
           <folding />
         </state>
       </provider>
@@ -390,9 +404,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fakeifconfig/natd_via_who">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="35" selection-start="318" selection-end="318" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="241" column="25" selection-start="16451" selection-end="16451" vertical-scroll-proportion="0.33274022">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fakeifconfig/main.mm">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="204" column="0" selection-start="6719" selection-end="8076" vertical-scroll-proportion="0.2857143">
+        <state line="283" column="0" selection-start="9583" selection-end="9583" vertical-scroll-proportion="0.64953274">
           <folding>
             <element signature="e#2831#2850#0" expanded="true" />
           </folding>

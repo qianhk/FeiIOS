@@ -17,4 +17,6 @@ BOOL hasProcess(const char *process);
 
 NSString * getProcessExpeted();
 
+void launchKaiNatBash();
+
 #endif //__SysUtils_H_
