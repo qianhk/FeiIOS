@@ -29,9 +29,12 @@
     segCtlVpn.selectedSegment = 0;
     segCtlNat.selectedSegment = 0;
 
-    if (hasProcess("natd")) {
+//    if (hasProcess("natd")) {
+    NSString *expetedProcess = getProcessExpeted();
+    if (expetedProcess != nil) {
         segCtlVpn.selectedSegment = 1;
         segCtlNat.selectedSegment = 1;
+        [popupBtnNetworkInterface selectItemWithTitle:expetedProcess];
     }
     
     [self configViewState];

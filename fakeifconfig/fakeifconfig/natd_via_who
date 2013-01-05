@@ -1,0 +1,43 @@
+#!/bin/sh
+ 
+ 
+function enipfw() #添加防火墙规则
+{
+    ipfw -f flush
+#    ipfw add allow all from any to me ssh
+#    ipfw add allow all from any to me http
+#    ipfw add allow all from any to me https
+#    ipfw add allow all from any to me openvpn
+#    ipfw add allow all from any to me ftp
+#    ipfw add 90 allow all from any to me 590
+
+    ipfw add divert natd all from any to any via en0
+    ipfw add pass all from any to any
+}
+ 
+echo "NATD SYSTEM START ITEM."
+ 
+  case $1 in
+    start)
+      echo "Starting NATD"
+      sysctl -w net.inet.ip.forwarding=1 #设置网关
+      natd -s -m -d -n en0 -dynamic #启动Nat
+      enipfw
+      sysctl -w net.inet.ip.fw.enable=1 #开启防火墙
+      ;;
+    stop)
+      echo "Stopping NATD"
+      sysctl -w net.inet.ip.forwarding=0
+      killall natd
+      ipfw -f flush
+      sysctl -w net.inet.ip.fw.enable=0
+      ;;
+    restart)
+      echo "Restarting NATD"
+      killall natd
+      sleep 10
+      sysctl -w net.inet.ip.forwarding=1
+      enipfw
+      sysctl -w net.inet.ip.fw.enable=1
+      ;;
+  esac

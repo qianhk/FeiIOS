@@ -15,4 +15,6 @@ NSArray * getNetInterface();
 
 BOOL hasProcess(const char *process);
 
+NSString * getProcessExpeted();
+
 #endif //__SysUtils_H_

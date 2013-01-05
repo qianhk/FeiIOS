@@ -31,6 +31,7 @@
 		2AAA88F11691C88C00ADFAA0 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		2AAA88F41691C88C00ADFAA0 /* fakeifconfig-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fakeifconfig-Prefix.pch"; sourceTree = "<group>"; };
 		2AAA88F51691C88C00ADFAA0 /* fakeifconfig.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = fakeifconfig.1; sourceTree = "<group>"; };
+		4C70B75D19ECC4F824136091 /* natd_via_who */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = natd_via_who; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				2AAA88F41691C88C00ADFAA0 /* fakeifconfig-Prefix.pch */,
+				4C70B75D19ECC4F824136091 /* natd_via_who */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

@@ -32,27 +32,25 @@
       <file leaf-file-name="SysUtils.h" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/SysUtils.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
+            <state line="18" column="0" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SysUtils.mm" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SysUtils.mm" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/SysUtils.mm">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="24" selection-start="2240" selection-end="2240" vertical-scroll-proportion="0.78629035">
-              <folding>
-                <element signature="e#42#61#0" expanded="true" />
-              </folding>
+            <state line="126" column="10" selection-start="3279" selection-end="3279" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KaiNATForOpenVPN.mm" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="KaiNATForOpenVPN.mm" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/KaiNATForOpenVPN.mm">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="38" selection-start="856" selection-end="856" vertical-scroll-proportion="0.0">
+            <state line="38" column="4" selection-start="1025" selection-end="1025" vertical-scroll-proportion="0.48207173">
               <folding>
                 <element signature="e#138#161#0" expanded="true" />
                 <element signature="e#315#337#0" expanded="true" />
@@ -72,9 +70,9 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/KaiNATForOpenVPN/KaiNATForOpenVPN.h" />
+        <option value="$PROJECT_DIR$/KaiNATForOpenVPN/SysUtils.mm" />
         <option value="$PROJECT_DIR$/KaiNATForOpenVPN/SysUtils.h" />
         <option value="$PROJECT_DIR$/KaiNATForOpenVPN/KaiNATForOpenVPN.mm" />
-        <option value="$PROJECT_DIR$/KaiNATForOpenVPN/SysUtils.mm" />
       </list>
     </option>
   </component>
@@ -143,10 +141,6 @@
               <option name="myItemId" value="Products" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="KaiNATForOpenVPN.prefPane" />
-              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodePBXReferenceNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -185,7 +179,8 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="preferences.keymap" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="FullScreen" value="false" />
     <property name="OBJC.PRESERVED_TARGET_SELECTION" value="KaiNATForOpenVPN" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -222,36 +217,60 @@
     <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
     <option name="FORCE_UPDATE" value="false" />
     <option name="IGNORE_EXTERNALS" value="false" />
+    <configuration useDefault="true">$USER_HOME$/.subversion</configuration>
     <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="1f35cdec-b4a3-42ec-830a-9b8ddf434404" name="Default" comment="" />
       <created>1357291503389</created>
       <updated>1357291503389</updated>
     </task>
     <servers />
   </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="874" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32948717" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Regex Tester" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24982357" sideWeight="0.6705128" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21877205" sideWeight="0.6705128" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.49752998" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32948717" sideWeight="0.49752998" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -307,30 +326,19 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/vpn.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/AppKit.framework/Headers/AppKit.h">
+    <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/KaiNATForOpenVPN.mm">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0027027028">
+        <state line="29" column="34" selection-start="747" selection-end="747" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#280#313#0" expanded="true" />
+            <element signature="e#138#161#0" expanded="true" />
+            <element signature="e#315#337#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include/string.h">
+    <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/SysUtils.mm">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="5" selection-start="3414" selection-end="3414" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/KaiNATForOpenVPN.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="22" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0">
+        <state line="115" column="54" selection-start="3048" selection-end="3048" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -338,6 +346,13 @@
     <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/SysUtils.h">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/KaiNATForOpenVPN.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="22" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -354,9 +369,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/SysUtils.mm">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="24" selection-start="2240" selection-end="2240" vertical-scroll-proportion="0.78629035">
+        <state line="83" column="24" selection-start="2240" selection-end="2240" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/SysUtils.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/vpn.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/AppKit.framework/Headers/AppKit.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0027027028">
           <folding>
-            <element signature="e#42#61#0" expanded="true" />
+            <element signature="e#280#313#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/include/string.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="5" selection-start="3414" selection-end="3414" vertical-scroll-proportion="0.33333334" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/KaiNATForOpenVPN.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="22" selection-start="586" selection-end="586" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/SysUtils.mm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="10" selection-start="3279" selection-end="3279" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/SysUtils.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="0" selection-start="280" selection-end="280" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/KaiNATForOpenVPN/KaiNATForOpenVPN.mm">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="4" selection-start="1025" selection-end="1025" vertical-scroll-proportion="0.48207173">
+          <folding>
+            <element signature="e#138#161#0" expanded="true" />
+            <element signature="e#315#337#0" expanded="true" />
           </folding>
         </state>
       </provider>

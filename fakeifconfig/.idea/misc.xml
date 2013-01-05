@@ -4,5 +4,9 @@
     <default-html-doctype>$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5.rnc</default-html-doctype>
   </component>
   <component name="ProjectRootManager" version="2" />
+  <component name="RegexUtilComponent" text="dyld: DYLD_ environment variables being ignored because main executable (/bin/ps) is setuid or setgid&#10; 1413 ??         0:00.44 natd -s -m -d -dynamic -n en0 2&#10; 1527 ??         0:00.01 /bin/sh -c ps -ax | grep natd&#10; 1529 ??         0:00.00 grep natd&#10;" flags="0" regex="natd -s -m -d -dynamic -n (\w+)" mode="0" />
+  <component name="SvnBranchConfigurationManager">
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
 </project>
 

@@ -202,27 +202,43 @@ void findGivenProcessName()
     }
 }
 
-void getProcess() {
-    NSTask *task = [[NSTask alloc] init];
-    [task setLaunchPath: @"/bin/ps"];
+NSString* getProcessExpeted() {
+    NSString * process = nil;
+    @try {
+        NSTask *task = [[NSTask alloc] init];
+        [task setLaunchPath: @"/bin/sh"];
+        NSArray *arguments = [NSArray arrayWithObjects: @"-c", @"ps -ax | grep natd", nil];
+        [task setArguments: arguments];
 
-    NSArray *arguments = [NSArray arrayWithObjects: @"-alT", nil];
-    [task setArguments: arguments];
+        NSPipe *pipe = [NSPipe pipe];
+        [task setStandardOutput: pipe];
+        [task setStandardError:pipe];
 
-    NSPipe *pipe = [NSPipe pipe];
-    [task setStandardOutput: pipe];
-    [task setStandardError:pipe];
+        NSFileHandle *file = [pipe fileHandleForReading];
 
-    NSFileHandle *file = [pipe fileHandleForReading];
+        [task launch];
+        [task waitUntilExit];
 
-    [task launch];
-    [task waitUntilExit];
+        NSData *data = [file readDataToEndOfFile];
 
-    NSData *data = [file readDataToEndOfFile];
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        [task release];
 
-    NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog (@"got\n%@", string);
-    [string release];
+        NSLog (@"got\n%@", string);
+
+        NSError * error;
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"natd -s -m -d -dynamic -n (\\w+)" options:0 error:&error];
+        NSTextCheckingResult *result = [regex firstMatchInString:string options:0 range:NSMakeRange(0, [string length])];
+        if (result != nil) {
+            NSRange range = [result rangeAtIndex:1];
+            process = [string substringWithRange:range];
+        }
+        [string release];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Kai Exception occurred: %@, %@", exception, [exception userInfo]);
+    }
+    return process;
 }
 
 int main(int argc, const char * argv[])
@@ -256,7 +272,7 @@ int main(int argc, const char * argv[])
         
 //        findGivenProcessName();
 
-        getProcess();
+        NSLog(@"expeted process: %@", getProcessExpeted());
     }
     return 0;
 }
