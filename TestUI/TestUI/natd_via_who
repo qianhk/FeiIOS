@@ -1,0 +1,20 @@
+#!/bin/sh
+ 
+ 
+function enipfw() #添加防火墙规则
+{
+    ipfw -f flush
+#    ipfw add allow all from any to me ssh
+#    ipfw add allow all from any to me http
+#    ipfw add allow all from any to me https
+#    ipfw add allow all from any to me openvpn
+#    ipfw add allow all from any to me ftp
+#    ipfw add 90 allow all from any to me 590
+
+    ipfw add divert natd all from any to any via $2
+    ipfw add pass all from any to any
+}
+ 
+echo "NATD SYSTEM START ITEM."
+ 
+touch /AndroidDev/$1
