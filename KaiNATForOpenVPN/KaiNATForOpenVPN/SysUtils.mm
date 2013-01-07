@@ -166,7 +166,7 @@ NSString* getProcessExpeted() {
 }
 
 BOOL launchKaiNatBash(KaiNatActionType action, NSString* netInterface) {
-    NSBundle * bundle = [NSBundle mainBundle];
+    NSBundle * bundle = [NSBundle bundleWithIdentifier:@"com.njnu.kai.kainatforopenvpn"];
     NSString * natFilePath = [bundle pathForAuxiliaryExecutable:@"natd_via_who"];
     
     NSDictionary *error = nil;
@@ -176,8 +176,11 @@ BOOL launchKaiNatBash(KaiNatActionType action, NSString* netInterface) {
     [appleScript release];
     if (error != nil) {
         NSAlert *alert = [[[NSAlert alloc] init] autorelease];
-        [alert setMessageText:[[NSBundle bundleWithIdentifier:@"com.njnu.kai.kainatforopenvpn"] description]];
-//        [alert setMessageText:[@"natFilePath: " stringByAppendingString:natFilePath ?: @"null"]];
+        if ([error objectForKey:NSAppleScriptErrorBriefMessage] != nil) {
+            [alert setMessageText:[error objectForKey:NSAppleScriptErrorBriefMessage]];
+        } else {
+            [alert setMessageText:[error description]];
+        }
         [alert runModal];
     }
     return result;
