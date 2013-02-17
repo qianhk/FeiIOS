@@ -223,8 +223,12 @@ static CFMessagePortRef messagePort = NULL;
 	int euid = geteuid();
 	int egid = getegid();
 	[info appendFormat:@"\npermission uid=%d gid=%d euid=%d egid=%d", uid, gid, euid, egid];
-	int r1 = setuid(euid);
-	int r2 = setgid(egid);
+	int r1 = 0;
+	int r2 = 0;
+	
+//	r1 = setuid(euid);
+//	r2 = setgid(egid);
+	
 	uid = getuid();
 	gid = getgid();
 	euid = geteuid();
@@ -232,6 +236,8 @@ static CFMessagePortRef messagePort = NULL;
 	[info appendFormat:@"\n%d %d uid=%d gid=%d euid=%d egid=%d", r1, r2 , uid, gid, euid, egid];
 
 	lbltext.text = info;
+	
+	NSLog(@"See Time 3 viewDidLoad");
 }
 
 - (void)viewDidUnload
@@ -266,7 +272,8 @@ static CFMessagePortRef messagePort = NULL;
 //	[alert release];
 	if (_statusBar == nil)
 	{
-		_statusBar = [[KaiStatusBar alloc] initWithFrame:CGRectMake(0, 100, 320, 60)];
+		NSLog(@"win count=%d %@", 2, @"win");
+		_statusBar = [[KaiStatusBar alloc] initWithFrame:CGRectMake(0, 200, 220, 60)];
 //		_statusBar.hidden = NO;
 		[_statusBar showWithStatusMessage:@"测试这，测试那……"];
 	}
@@ -311,10 +318,24 @@ static CFMessagePortRef messagePort = NULL;
 	[super viewDidDisappear:animated];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
-    // Return YES for supported orientations
-	return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+	NSLog(@"ViewController shouldAutorotateToInterfaceOrientation");
+	return YES;
+}
+
+// New Autorotation support.
+- (BOOL)shouldAutorotate
+{
+	NSLog(@"ViewController shouldAutorotate");
+	return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+	NSLog(@"ViewController supportedInterfaceOrientations");
+	[_statusBar kaisetupforDeviceOri];
+	return UIInterfaceOrientationMaskAll;
 }
 
 - (IBAction)tttClicked:(id)sender
@@ -379,7 +400,8 @@ static CFMessagePortRef messagePort = NULL;
 	UIButton* btn = (UIButton *)sender;
 	CFDataRef data = NULL;
 	SInt32 rPort = 0;
-	switch (btn.tag)
+	switch (btn.
+			tag)
 	{
 		case 1001:
 		{

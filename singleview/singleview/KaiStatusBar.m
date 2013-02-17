@@ -10,6 +10,8 @@
 
 #import "KaiStatusBar.h"
 
+#import "FloatViewController.h"
+
 @implementation KaiStatusBar
 
 
@@ -29,7 +31,7 @@
 //		backgroundImageView.image = [[UIImage imageNamed:@"statusbar_background.png"] stretchableImageWithLeftCapWidth:2 topCapHeight:0];    
 //		[self addSubview:backgroundImageView];    
 //		[backgroundImageView release];   
-		self.backgroundColor = [UIColor colorWithWhite:1 alpha:0.2]; 
+		self.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.4];
 		
 		//创建一个progress    
 //		indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];    
@@ -43,102 +45,72 @@
 //		[self addSubview:indicator];    
 		
 		//文字信息，用于和用户进行交互，最好能提示用户当前是什么操作    
-		lblStatus = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 50)];    
-		lblStatus.backgroundColor = [UIColor clearColor];    
-		lblStatus.textColor = [UIColor blackColor];    
-		lblStatus.font = [UIFont systemFontOfSize:18.0f];    
-		[self addSubview:lblStatus]; 
 		
-		UIWindow* win = [[UIApplication sharedApplication] keyWindow];
-		NSInteger count = [[win subviews] count];
-		NSLog(@"win count=%d %@", count, win);
-		if (count > 0)
-		{
-			referenceView = [[win subviews] objectAtIndex:0];
-		}
+
 		
+		controller = [[FloatViewController alloc] initWithFrame:frame];
+		UIViewController* c = self.rootViewController;
+//		self.rootViewController = controller;
+		frame.origin.y = 0;
+		controller.view.frame = frame;
+//		[self setDelegate:controller];
+//		c = self.rootViewController;
+		[self addSubview:controller.view];
+		[self kaisetupforDeviceOri];
 		
+//		CGAffineTransform rotation = CGAffineTransformMakeRotation(M_PI/2);
+//		[self setTransform:rotation];
 
 	}    
 	return self;    
-}    
+}
+
+-(void)kaisetupforDeviceOri {
+	[self matchDeviceOrientation];
+	[self setAutorotates:YES forceUpdateInterfaceOrientation:YES];
+//	[self setupForOrientation:[[UIDevice currentDevice] orientation]];
+	self.frame = CGRectMake(0, 200, 220, 60);
+}
 
 
 - (void) showWithStatusMessage:(NSString*) msg {    
 	if (!msg) return;    
-	lblStatus.text = msg;    
-	[indicator startAnimating];    
-	self.hidden = NO;    
+//	lblStatus.text = msg;    
+//	[indicator startAnimating];    
+	self.hidden = NO;
 }    
 
 
 - (void) hide {    
-	[indicator stopAnimating];    
-	self.hidden = YES;    
+//	[indicator stopAnimating];    
+	self.hidden = YES;
 }    
 
 
-- (void) dealloc {    
-	[lblStatus release];    
-	[indicator release];    
+- (void) dealloc {
+	self.rootViewController = nil;
+    [controller release];   
 	[super dealloc];    
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	lastPoint = [[touches anyObject] locationInView:referenceView];
-//	NSLog(@"ttdesktop touchesbegan (%.2f, %.2f)", pointBeginDrag.x, pointBeginDrag.y);
-	needToFrame = self.frame;
-	self.backgroundColor = [UIColor colorWithWhite:1 alpha:0.6];
-	[NSObject cancelPreviousPerformRequestsWithTarget:self];
-}
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+//{
+//	NSLog(@"KaiStatusBar shouldAutorotateToInterfaceOrientation");
+//	return YES;
+//}
+//
+//// New Autorotation support.
+//- (BOOL)shouldAutorotate
+//{
+//	NSLog(@"KaiStatusBar shouldAutorotate");
+//	return YES;
+//}
+//
+//- (NSUInteger)supportedInterfaceOrientations
+//{
+//	NSLog(@"KaiStatusBar supportedInterfaceOrientations");
+//	return UIInterfaceOrientationMaskAll;
+//}
 
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	UITouch* touch = [touches anyObject];
-	CGPoint curPoint = [touch locationInView:referenceView];
-	needToFrame.origin.y += curPoint.y - lastPoint.y;
-	if (needToFrame.origin.y >= 0 && (needToFrame.origin.y + needToFrame.size.height) <= 480)
-	{
-		[NSObject cancelPreviousPerformRequestsWithTarget:self];
-		[self performSelector:@selector(setNewFrame) withObject:nil afterDelay:0];
-	}
-	lastPoint = curPoint;
-}
-
-- (void)setNewFrame
-{
-	self.frame = needToFrame;
-}
-
-- (void)touchesOver:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	UITouch* touch = [touches anyObject];
-	CGPoint curPoint = [touch locationInView:referenceView];
-	needToFrame.origin.y += curPoint.y - lastPoint.y;
-	if (needToFrame.origin.y >= 0 && (needToFrame.origin.y + needToFrame.size.height) <= 480)
-	{
-		[NSObject cancelPreviousPerformRequestsWithTarget:self];
-		[self performSelector:@selector(setNewFrame) withObject:nil afterDelay:0];
-	}
-	[self performSelector:@selector(recoverBackgroundColor) withObject:nil afterDelay:2.0f];
-}
-
-- (void)recoverBackgroundColor
-{
-	[UIView animateWithDuration:0.4f animations:^{
-		self.backgroundColor = [UIColor colorWithWhite:1 alpha:0.2]; 
-	}];
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	[self touchesOver:touches withEvent:event];
-}
-
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	[self touchesOver:touches withEvent:event];
-}
 
 @end

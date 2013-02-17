@@ -50,6 +50,7 @@ static BOOL replaced_ML3MusicLibrary_writable(ML3MusicLibrary* self, SEL _cmd)
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	NSLog(@"win count=%d %@", 1, @"win");
 	NSLog(@"See Time 1 application:didFinishLanuchingWithOptions");
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
@@ -84,6 +85,7 @@ static BOOL replaced_ML3MusicLibrary_writable(ML3MusicLibrary* self, SEL _cmd)
 	 Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
 	 If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 	 */
+	NSLog(@"See Time 1 applicationDidEnterBackground");
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
