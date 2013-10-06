@@ -6,9 +6,12 @@ build/
 *.mode2v3
 *.perspectivev3
 xcuserdata/
+*.xcuserstate
 LatestBuild
 *.deb
+DynamicLibraries/
 *.zip
+*.dylib
 
 # old skool
 .svn

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0FC77302-5FC6-4DED-A18B-F685005ABFDF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>singleViewDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>80C87289-9AFC-4626-83C5-DC18C371FC52</key>
+		<string>https://github.com/qhkyzf/FeiIOS.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>singleViewDemo/singleViewDemo.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>80C87289-9AFC-4626-83C5-DC18C371FC52</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/qhkyzf/FeiIOS.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>80C87289-9AFC-4626-83C5-DC18C371FC52</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>80C87289-9AFC-4626-83C5-DC18C371FC52</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FeiIOS</string>
+		</dict>
+	</array>
+</dict>
+</plist>
