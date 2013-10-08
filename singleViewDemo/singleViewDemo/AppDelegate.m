@@ -22,6 +22,16 @@
     [self.window addSubview:self.navigationController.view];
     return YES;
 }
+
+- (NSUInteger)supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskAll;
+}
+
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskAll;
+}
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

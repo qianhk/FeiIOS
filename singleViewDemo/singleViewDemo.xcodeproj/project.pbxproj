@@ -24,6 +24,7 @@
 		2AA11E231800493500F17D38 /* singleViewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA11E221800493500F17D38 /* singleViewDemoTests.m */; };
 		2AA11E2E1800511B00F17D38 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA11E2D1800511B00F17D38 /* RootViewController.m */; };
 		2AA11E311800597900F17D38 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA11E301800597900F17D38 /* SecondViewController.m */; };
+		2AC8831A18019FCC0050949E /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8831918019FCC0050949E /* ThirdViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		2AA11E2D1800511B00F17D38 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		2AA11E2F1800597900F17D38 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		2AA11E301800597900F17D38 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		2AC8831818019FCC0050949E /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		2AC8831918019FCC0050949E /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,8 @@
 				2AA11E2D1800511B00F17D38 /* RootViewController.m */,
 				2AA11E2F1800597900F17D38 /* SecondViewController.h */,
 				2AA11E301800597900F17D38 /* SecondViewController.m */,
+				2AC8831818019FCC0050949E /* ThirdViewController.h */,
+				2AC8831918019FCC0050949E /* ThirdViewController.m */,
 			);
 			path = singleViewDemo;
 			sourceTree = "<group>";
@@ -212,6 +217,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = njnu;
 				TargetAttributes = {
+					2AA11DF01800493500F17D38 = {
+						DevelopmentTeam = ZXBM26PMSE;
+					};
 					2AA11E141800493500F17D38 = {
 						TestTargetID = 2AA11DF01800493500F17D38;
 					};
@@ -265,6 +273,7 @@
 			files = (
 				2AA11E311800597900F17D38 /* SecondViewController.m in Sources */,
 				2AA11E0E1800493500F17D38 /* ViewController.m in Sources */,
+				2AC8831A18019FCC0050949E /* ThirdViewController.m in Sources */,
 				2AA11E051800493500F17D38 /* AppDelegate.m in Sources */,
 				2AA11E2E1800511B00F17D38 /* RootViewController.m in Sources */,
 				2AA11E011800493500F17D38 /* main.m in Sources */,
@@ -404,6 +413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleViewDemo/singleViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "singleViewDemo/singleViewDemo-Info.plist";
@@ -417,6 +427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleViewDemo/singleViewDemo-Prefix.pch";
 				INFOPLIST_FILE = "singleViewDemo/singleViewDemo-Info.plist";
@@ -486,6 +497,7 @@
 				2AA11E281800493500F17D38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2AA11E291800493500F17D38 /* Build configuration list for PBXNativeTarget "singleViewDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +506,7 @@
 				2AA11E2B1800493500F17D38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

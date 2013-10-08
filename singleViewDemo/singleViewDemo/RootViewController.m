@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "SecondViewController.h"
+#import "ThirdViewController.h"
 
 @interface RootViewController ()
 
@@ -16,6 +17,13 @@
 @end
 
 @implementation RootViewController
+
+- (void)layoutTestBtnClicked:(id)sender
+{
+    NSLog(@"layoutTestBtnClicked %@", sender);
+    ThirdViewController *thirdController = [[ThirdViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:thirdController animated:YES];
+}
 
 - (void)addTextField
 {
@@ -27,6 +35,13 @@
     textField.leftView = currencyLabel;
     textField.leftViewMode = UITextFieldViewModeAlways;
     [self.view addSubview:textField];
+    
+    UIButton * btnLayout = [UIButton buttonWithType:UIButtonTypeSystem];
+    [btnLayout setFrame:CGRectMake(20, 150, 100, 60)];
+    [btnLayout setTitle:@"LayoutTest" forState:UIControlStateNormal];
+//    [btnLayout setBackgroundColor:[UIColor redColor]];
+    [btnLayout addTarget:self action:@selector(layoutTestBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btnLayout];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -72,7 +87,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    [self performSelector:@selector(pushSecondController) withObject:nil afterDelay:3.0f];
+//    [self performSelector:@selector(pushSecondController) withObject:nil afterDelay:3.0f];
 }
 
 

@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>3357E440-304F-478E-A7B6-A56E71768506</string>
+	<string>C82E7C4B-B2DF-4010-AF1C-7491A0F1704D</string>
 	<key>IDESourceControlProjectName</key>
-	<string>singleViewDemo</string>
+	<string>singleview2</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>80C87289-9AFC-4626-83C5-DC18C371FC52</key>
 		<string>https://github.com/qhkyzf/FeiIOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>singleViewDemo/singleViewDemo.xcodeproj/project.xcworkspace</string>
+	<string>singleview2/singleview2.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>80C87289-9AFC-4626-83C5-DC18C371FC52</key>
