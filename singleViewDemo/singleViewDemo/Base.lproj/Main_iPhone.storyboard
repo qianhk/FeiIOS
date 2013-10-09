@@ -67,13 +67,13 @@
         <scene sceneID="VCo-c3-mc1">
             <objects>
                 <tableViewController id="1VP-gd-8B4" customClass="TestTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="OB7-jn-97N">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="OB7-jn-97N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell_TYPE_FIRST" textLabel="8bm-Tv-ua6" detailTextLabel="6bH-rg-mgZ" style="IBUITableViewCellStyleValue1" id="riX-AU-lAt">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="riX-AU-lAt" id="nsD-BQ-1QQ">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -95,9 +95,12 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="xU8-rQ-mju" kind="push" id="TL6-Nl-dd5"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="Cell_TYPE_SECOND" textLabel="I7Z-Up-czb" detailTextLabel="MnV-MT-4Q9" style="IBUITableViewCellStyleValue2" id="5fd-gf-pVe">
-                                <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="163" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5fd-gf-pVe" id="XmM-89-cck">
                                     <rect key="frame" x="0.0" y="0.0" width="273" height="43"/>
@@ -119,6 +122,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="xU8-rQ-mju" kind="push" trigger="accessoryAction" id="Q3A-vq-h2h"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -130,7 +136,36 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQv-F8-h40" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-804" y="556"/>
+            <point key="canvasLocation" x="-780" y="554"/>
+        </scene>
+        <!--Expand Table View Controller - ExpandlistView-->
+        <scene sceneID="BjO-qn-aHq">
+            <objects>
+                <tableViewController id="xU8-rQ-mju" customClass="ExpandTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jyE-NE-4Wl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="B0D-6X-2CQ">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="B0D-6X-2CQ" id="78N-Tb-MRT">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xU8-rQ-mju" id="my5-BO-pNG"/>
+                            <outlet property="delegate" destination="xU8-rQ-mju" id="lzb-zk-YzW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="ExpandlistView" id="2UB-lg-xeF"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eYR-cK-dU2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-352" y="523"/>
         </scene>
         <!--View Controller - Single View Controller-->
         <scene sceneID="hC0-jC-LPX">
@@ -171,5 +206,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Ffi-fU-bzA"/>
+        <segue reference="TL6-Nl-dd5"/>
     </inferredMetricsTieBreakers>
 </document>
