@@ -67,7 +67,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return 0;
     return [_dataList count];
 }
 
@@ -75,41 +74,33 @@
 {
     if (self.isOpen) {
         if (self.selectIndex.section == section) {
-            return [[[_dataList objectAtIndex:section] objectForKey:@"list"] count]+1;;
+            return [[[_dataList objectAtIndex:section] objectForKey:@"list"] count] + 1;
         }
     }
     return 1;
 }
+
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 40;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if (self.isOpen&&self.selectIndex.section == indexPath.section&&indexPath.row!=0) {
-//        static NSString *CellIdentifier = @"Cell2";
-//        Cell2 *cell = (Cell2*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//        
-//        if (!cell) {
-//            cell = [[[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil] objectAtIndex:0];
-//        }
-//        NSArray *list = [[_dataList objectAtIndex:self.selectIndex.section] objectForKey:@"list"];
-//        cell.titleLabel.text = [list objectAtIndex:indexPath.row-1];
-//        return cell;
-//    }else
-//    {
-//        static NSString *CellIdentifier = @"Cell1";
-//        Cell1 *cell = (Cell1*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//        if (!cell) {
-//            cell = [[[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil] objectAtIndex:0];
-//        }
-//        NSString *name = [[_dataList objectAtIndex:indexPath.section] objectForKey:@"name"];
-//        cell.titleLabel.text = name;
+    if (self.isOpen && self.selectIndex.section == indexPath.section && indexPath.row != 0) {
+        static NSString *CellIdentifier = @"Expand_Child";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        NSArray *list = [[_dataList objectAtIndex:self.selectIndex.section] objectForKey:@"list"];
+        cell.textLabel.text = [list objectAtIndex:indexPath.row - 1];
+        return cell;
+    } else {
+        static NSString *CellIdentifier = @"Expand_Group";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+        NSString *name = [[_dataList objectAtIndex:indexPath.section] objectForKey:@"name"];
+        cell.textLabel.text = name;
 //        [cell changeArrowWithUp:([self.selectIndex isEqual:indexPath]?YES:NO)];
-//        return cell;
-//    }
+        return cell;
+    }
 	return nil;
 }
 
@@ -123,21 +114,16 @@
             [self didSelectCellRowFirstDo:NO nextDo:NO];
             self.selectIndex = nil;
             
-        }else
-        {
+        } else {
             if (!self.selectIndex) {
                 self.selectIndex = indexPath;
                 [self didSelectCellRowFirstDo:YES nextDo:NO];
-                
-            }else
-            {
-                
+            } else {
                 [self didSelectCellRowFirstDo:NO nextDo:YES];
             }
         }
         
-    }else
-    {
+    } else {
 //        NSDictionary *dic = [_dataList objectAtIndex:indexPath.section];
 //        NSArray *list = [dic objectForKey:@"list"];
 //        NSString *item = [list objectAtIndex:indexPath.row-1];
@@ -150,38 +136,37 @@
 
 - (void)didSelectCellRowFirstDo:(BOOL)firstDoInsert nextDo:(BOOL)nextDoInsert
 {
-//    self.isOpen = firstDoInsert;
-//    
-//    Cell1 *cell = (Cell1 *)[self.expansionTableView cellForRowAtIndexPath:self.selectIndex];
+    self.isOpen = firstDoInsert;
+    
+    UITableViewCell *cell = [self.expansionTableView cellForRowAtIndexPath:self.selectIndex];
 //    [cell changeArrowWithUp:firstDoInsert];
-//    
-//    [self.expansionTableView beginUpdates];
-//    
-//    int section = self.selectIndex.section;
-//    int contentCount = [[[_dataList objectAtIndex:section] objectForKey:@"list"] count];
-//	NSMutableArray* rowToInsert = [[NSMutableArray alloc] init];
-//	for (NSUInteger i = 1; i < contentCount + 1; i++) {
-//		NSIndexPath* indexPathToInsert = [NSIndexPath indexPathForRow:i inSection:section];
-//		[rowToInsert addObject:indexPathToInsert];
-//	}
-//	
-//	if (firstDoInsert)
-//    {   [self.expansionTableView insertRowsAtIndexPaths:rowToInsert withRowAnimation:UITableViewRowAnimationTop];
-//    }
-//	else
-//    {
-//        [self.expansionTableView deleteRowsAtIndexPaths:rowToInsert withRowAnimation:UITableViewRowAnimationTop];
-//    }
-//    
-//	[rowToInsert release];
-//	
-//	[self.expansionTableView endUpdates];
-//    if (nextDoInsert) {
-//        self.isOpen = YES;
-//        self.selectIndex = [self.expansionTableView indexPathForSelectedRow];
-//        [self didSelectCellRowFirstDo:YES nextDo:NO];
-//    }
-//    if (self.isOpen) [self.expansionTableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionTop animated:YES];
+    
+    [self.expansionTableView beginUpdates];
+    
+    int section = self.selectIndex.section;
+    int contentCount = [[[_dataList objectAtIndex:section] objectForKey:@"list"] count];
+	NSMutableArray* rowToInsert = [[NSMutableArray alloc] init];
+	for (NSUInteger i = 1; i < contentCount + 1; i++) {
+		NSIndexPath* indexPathToInsert = [NSIndexPath indexPathForRow:i inSection:section];
+		[rowToInsert addObject:indexPathToInsert];
+	}
+	
+	if (firstDoInsert)
+    {   [self.expansionTableView insertRowsAtIndexPaths:rowToInsert withRowAnimation:UITableViewRowAnimationTop];
+    }
+	else
+    {
+        [self.expansionTableView deleteRowsAtIndexPaths:rowToInsert withRowAnimation:UITableViewRowAnimationTop];
+    }
+	
+	[self.expansionTableView endUpdates];
+    
+    if (nextDoInsert) {
+        self.isOpen = YES;
+        self.selectIndex = [self.expansionTableView indexPathForSelectedRow];
+        [self didSelectCellRowFirstDo:YES nextDo:NO];
+    }
+    if (self.isOpen) [self.expansionTableView scrollToNearestSelectedRowAtScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 
