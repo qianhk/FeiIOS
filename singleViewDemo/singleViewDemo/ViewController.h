@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController<UIAlertViewDelegate>
+@interface ViewController2 : UIViewController<UIAlertViewDelegate>
 
 @end

@@ -15,11 +15,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    [self.window makeKeyAndVisible];
-    self.rootViewController = [[RootViewController alloc] initWithNibName:nil bundle:NULL];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.rootViewController];
-    [self.window addSubview:self.navigationController.view];
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    [self.window makeKeyAndVisible];
+//    self.rootViewController = [[RootViewController alloc] initWithNibName:nil bundle:NULL];
+//    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.rootViewController];
+//    [self.window addSubview:self.navigationController.view];
     return YES;
 }
 

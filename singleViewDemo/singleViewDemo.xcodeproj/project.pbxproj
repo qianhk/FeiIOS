@@ -25,6 +25,7 @@
 		2AA11E2E1800511B00F17D38 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA11E2D1800511B00F17D38 /* RootViewController.m */; };
 		2AA11E311800597900F17D38 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA11E301800597900F17D38 /* SecondViewController.m */; };
 		2AC8831A18019FCC0050949E /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AC8831918019FCC0050949E /* ThirdViewController.m */; };
+		D900148C18054F34005D253F /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D900148B18054F34005D253F /* TestTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		2AA11E301800597900F17D38 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		2AC8831818019FCC0050949E /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		2AC8831918019FCC0050949E /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		D900148A18054F34005D253F /* TestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewController.h; sourceTree = "<group>"; };
+		D900148B18054F34005D253F /* TestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 				2AA11E301800597900F17D38 /* SecondViewController.m */,
 				2AC8831818019FCC0050949E /* ThirdViewController.h */,
 				2AC8831918019FCC0050949E /* ThirdViewController.m */,
+				D900148A18054F34005D253F /* TestTableViewController.h */,
+				D900148B18054F34005D253F /* TestTableViewController.m */,
 			);
 			path = singleViewDemo;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 				2AC8831A18019FCC0050949E /* ThirdViewController.m in Sources */,
 				2AA11E051800493500F17D38 /* AppDelegate.m in Sources */,
 				2AA11E2E1800511B00F17D38 /* RootViewController.m in Sources */,
+				D900148C18054F34005D253F /* TestTableViewController.m in Sources */,
 				2AA11E011800493500F17D38 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

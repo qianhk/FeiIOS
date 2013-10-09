@@ -8,22 +8,24 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController2 ()
 
 @end
 
-@implementation ViewController
+@implementation ViewController2
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Title" message:@"Message" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
-    [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
-    UITextField *textField = [alertView textFieldAtIndex:0];
-    textField.keyboardType = UIKeyboardTypeNumberPad;
-    [alertView show];
+//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Title" message:@"Message" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+//    [alertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+//    UITextField *textField = [alertView textFieldAtIndex:0];
+//    textField.keyboardType = UIKeyboardTypeNumberPad;
+//    [alertView show];
+	
+	[self setTitle:@"First Title"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,6 +44,12 @@
 - (void)alertViewCancel:(UIAlertView *)alertView
 {
     NSLog(@"alertViewCancel");
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	NSLog(@"sourceController=%@, DestinationController=%@, SegueIdentifier=%@, sender=%@", [segue sourceViewController]
+		  , [segue destinationViewController], [segue identifier], sender);
 }
 
 @end
