@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A9DE0A01807004100EC1638 /* ViewPagerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DE09F1807004100EC1638 /* ViewPagerController.m */; };
+		2A9DE0A6180700CD00EC1638 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DE0A3180700CD00EC1638 /* ContentViewController.m */; };
+		2A9DE0A7180700CD00EC1638 /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9DE0A5180700CD00EC1638 /* HostViewController.m */; };
 		2AA11DF51800493500F17D38 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA11DF41800493500F17D38 /* Foundation.framework */; };
 		2AA11DF71800493500F17D38 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA11DF61800493500F17D38 /* CoreGraphics.framework */; };
 		2AA11DF91800493500F17D38 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA11DF81800493500F17D38 /* UIKit.framework */; };
@@ -53,6 +56,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A9DE09E1807004100EC1638 /* ViewPagerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewPagerController.h; sourceTree = "<group>"; };
+		2A9DE09F1807004100EC1638 /* ViewPagerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewPagerController.m; sourceTree = "<group>"; };
+		2A9DE0A2180700CD00EC1638 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		2A9DE0A3180700CD00EC1638 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		2A9DE0A4180700CD00EC1638 /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
+		2A9DE0A5180700CD00EC1638 /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
 		2AA11DF11800493500F17D38 /* singleViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = singleViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AA11DF41800493500F17D38 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2AA11DF61800493500F17D38 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -134,9 +143,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A9DE09D1807004100EC1638 /* ICViewPager */ = {
+			isa = PBXGroup;
+			children = (
+				2A9DE09E1807004100EC1638 /* ViewPagerController.h */,
+				2A9DE09F1807004100EC1638 /* ViewPagerController.m */,
+			);
+			path = ICViewPager;
+			sourceTree = "<group>";
+		};
+		2A9DE0A1180700B100EC1638 /* ICViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2A9DE0A2180700CD00EC1638 /* ContentViewController.h */,
+				2A9DE0A3180700CD00EC1638 /* ContentViewController.m */,
+				2A9DE0A4180700CD00EC1638 /* HostViewController.h */,
+				2A9DE0A5180700CD00EC1638 /* HostViewController.m */,
+			);
+			name = ICViewController;
+			sourceTree = "<group>";
+		};
 		2AA11DE81800493500F17D38 = {
 			isa = PBXGroup;
 			children = (
+				2A9DE0A1180700B100EC1638 /* ICViewController */,
+				2A9DE09D1807004100EC1638 /* ICViewPager */,
 				D9A7014218065D5000D95FE4 /* MainSlideMenuController */,
 				D9A7010B1806597600D95FE4 /* REFrostedViewController */,
 				2AA11DFA1800493500F17D38 /* singleViewDemo */,
@@ -362,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AA11E311800597900F17D38 /* SecondViewController.m in Sources */,
+				2A9DE0A01807004100EC1638 /* ViewPagerController.m in Sources */,
 				D9A701181806597600D95FE4 /* RECommonFunctions.m in Sources */,
 				D9A7014F18065D5000D95FE4 /* DEMONavigationController.m in Sources */,
 				2AA11E0E1800493500F17D38 /* ViewController.m in Sources */,
@@ -371,7 +403,9 @@
 				D9A7011C1806597600D95FE4 /* UIView+REFrostedViewController.m in Sources */,
 				D9A7011A1806597600D95FE4 /* REFrostedViewController.m in Sources */,
 				D9A701191806597600D95FE4 /* REFrostedContainerViewController.m in Sources */,
+				2A9DE0A7180700CD00EC1638 /* HostViewController.m in Sources */,
 				D9A7011B1806597600D95FE4 /* UIImage+REFrostedViewController.m in Sources */,
+				2A9DE0A6180700CD00EC1638 /* ContentViewController.m in Sources */,
 				2AA11E2E1800511B00F17D38 /* RootViewController.m in Sources */,
 				D900149118056B41005D253F /* ExpandTableViewController.m in Sources */,
 				D9A7014E18065D5000D95FE4 /* DEMOMenuViewController.m in Sources */,
