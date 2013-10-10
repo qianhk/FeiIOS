@@ -20,6 +20,53 @@
             </objects>
             <point key="canvasLocation" x="-1721" y="89"/>
         </scene>
+        <!--Root View Controller-->
+        <scene sceneID="d9q-lF-pkl">
+            <objects>
+                <viewController id="vdq-yi-t5n" customClass="DEMORootViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kCE-G7-TRm"/>
+                        <viewControllerLayoutGuide type="bottom" id="36L-EK-cXE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W1a-yk-WhE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ClX-9L-OVc"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="guh-RW-doW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1561" y="679"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="XJk-aH-OfZ">
+            <objects>
+                <tableViewController storyboardIdentifier="menuController" id="AAe-c0-Mgo" customClass="DEMOMenuViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="stl-zb-CtC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="8eR-YF-J36">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8eR-YF-J36" id="rdN-lQ-8iF">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="AAe-c0-Mgo" id="6cG-jm-Gd9"/>
+                            <outlet property="delegate" destination="AAe-c0-Mgo" id="74Z-VL-2g1"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YiW-Cn-9yR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1531" y="1284"/>
+        </scene>
         <!--View Controller2-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -33,7 +80,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7t1-je-F65">
-                                <rect key="frame" x="160" y="223" width="100" height="65"/>
+                                <rect key="frame" x="186" y="86" width="100" height="65"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
@@ -42,13 +89,23 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sz5-ZX-N1D">
-                                <rect key="frame" x="85" y="347" width="90" height="46"/>
+                                <rect key="frame" x="20" y="95" width="90" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="TableView">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="1VP-gd-8B4" kind="push" id="H4n-67-1j9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tbb-hk-fR4">
+                                <rect key="frame" x="26" y="158" width="84" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SlideMenu">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vdq-yi-t5n" kind="modal" id="L7v-ye-nlB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -62,6 +119,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1221" y="89"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KgK-7E-gdz">
+            <objects>
+                <navigationController storyboardIdentifier="contentController" definesPresentationContext="YES" id="UJg-hE-ADL" customClass="DEMONavigationController" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="s4M-tJ-kKe">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="h0J-8o-VY7" kind="relationship" relationship="rootViewController" id="CAM-Pe-oHY"/>
+                        <segue destination="KAz-ii-vql" kind="push" id="xWO-Zs-kwn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hw4-51-MID" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1188" y="711"/>
+        </scene>
+        <!--Home View Controller - HomeView-->
+        <scene sceneID="8vJ-uk-Oxv">
+            <objects>
+                <viewController storyboardIdentifier="homeController" id="h0J-8o-VY7" customClass="DEMOHomeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7hv-wn-9Bn"/>
+                        <viewControllerLayoutGuide type="bottom" id="a9G-1I-ZLw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nRv-wc-a3O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Balloon" translatesAutoresizingMaskIntoConstraints="NO" id="ycQ-mM-Sqg">
+                                <rect key="frame" x="-7" y="0.0" width="320" height="480"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="HomeView" id="sgR-cx-OvQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="snj-8a-Vbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1005" y="1346"/>
+        </scene>
+        <!--Second View Controller - SecondView-->
+        <scene sceneID="Svt-vf-P4U">
+            <objects>
+                <viewController storyboardIdentifier="secondController" id="KAz-ii-vql" customClass="DEMOSecondViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="e4O-1F-Kwa"/>
+                        <viewControllerLayoutGuide type="bottom" id="4tH-8V-c3f"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DYM-C3-OVk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="SecondView" id="9Gd-4R-Qcu"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nce-AG-x3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-632" y="1294"/>
         </scene>
         <!--Test Table View Controller - Test Table Title-->
         <scene sceneID="VCo-c3-mc1">
@@ -225,13 +342,16 @@
             <point key="canvasLocation" x="-627" y="-56"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Balloon" width="320" height="568"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ffi-fU-bzA"/>
+        <segue reference="H4n-67-1j9"/>
         <segue reference="TL6-Nl-dd5"/>
     </inferredMetricsTieBreakers>
 </document>

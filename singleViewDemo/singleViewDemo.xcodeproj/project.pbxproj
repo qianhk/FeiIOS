@@ -28,6 +28,17 @@
 		D900148C18054F34005D253F /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D900148B18054F34005D253F /* TestTableViewController.m */; };
 		D900148E18056B16005D253F /* ExpansionTableTestData.plist in Resources */ = {isa = PBXBuildFile; fileRef = D900148D18056B16005D253F /* ExpansionTableTestData.plist */; };
 		D900149118056B41005D253F /* ExpandTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D900149018056B41005D253F /* ExpandTableViewController.m */; };
+		D9A701181806597600D95FE4 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A7010D1806597600D95FE4 /* RECommonFunctions.m */; };
+		D9A701191806597600D95FE4 /* REFrostedContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A7010F1806597600D95FE4 /* REFrostedContainerViewController.m */; };
+		D9A7011A1806597600D95FE4 /* REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A701111806597600D95FE4 /* REFrostedViewController.m */; };
+		D9A7011B1806597600D95FE4 /* UIImage+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A701131806597600D95FE4 /* UIImage+REFrostedViewController.m */; };
+		D9A7011C1806597600D95FE4 /* UIView+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A701151806597600D95FE4 /* UIView+REFrostedViewController.m */; };
+		D9A7011D1806597600D95FE4 /* UIViewController+REFrostedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A701171806597600D95FE4 /* UIViewController+REFrostedViewController.m */; };
+		D9A7014D18065D5000D95FE4 /* DEMOHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A7014418065D5000D95FE4 /* DEMOHomeViewController.m */; };
+		D9A7014E18065D5000D95FE4 /* DEMOMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A7014618065D5000D95FE4 /* DEMOMenuViewController.m */; };
+		D9A7014F18065D5000D95FE4 /* DEMONavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A7014818065D5000D95FE4 /* DEMONavigationController.m */; };
+		D9A7015018065D5000D95FE4 /* DEMORootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A7014A18065D5000D95FE4 /* DEMORootViewController.m */; };
+		D9A7015118065D5000D95FE4 /* DEMOSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A7014C18065D5000D95FE4 /* DEMOSecondViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +83,28 @@
 		D900148D18056B16005D253F /* ExpansionTableTestData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ExpansionTableTestData.plist; sourceTree = "<group>"; };
 		D900148F18056B41005D253F /* ExpandTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpandTableViewController.h; path = ../ExpandTableViewController.h; sourceTree = "<group>"; };
 		D900149018056B41005D253F /* ExpandTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpandTableViewController.m; path = ../ExpandTableViewController.m; sourceTree = "<group>"; };
+		D9A7010C1806597600D95FE4 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		D9A7010D1806597600D95FE4 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		D9A7010E1806597600D95FE4 /* REFrostedContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedContainerViewController.h; sourceTree = "<group>"; };
+		D9A7010F1806597600D95FE4 /* REFrostedContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedContainerViewController.m; sourceTree = "<group>"; };
+		D9A701101806597600D95FE4 /* REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = REFrostedViewController.h; sourceTree = "<group>"; };
+		D9A701111806597600D95FE4 /* REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = REFrostedViewController.m; sourceTree = "<group>"; };
+		D9A701121806597600D95FE4 /* UIImage+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+REFrostedViewController.h"; sourceTree = "<group>"; };
+		D9A701131806597600D95FE4 /* UIImage+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+REFrostedViewController.m"; sourceTree = "<group>"; };
+		D9A701141806597600D95FE4 /* UIView+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+REFrostedViewController.h"; sourceTree = "<group>"; };
+		D9A701151806597600D95FE4 /* UIView+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+REFrostedViewController.m"; sourceTree = "<group>"; };
+		D9A701161806597600D95FE4 /* UIViewController+REFrostedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+REFrostedViewController.h"; sourceTree = "<group>"; };
+		D9A701171806597600D95FE4 /* UIViewController+REFrostedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+REFrostedViewController.m"; sourceTree = "<group>"; };
+		D9A7014318065D5000D95FE4 /* DEMOHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOHomeViewController.h; sourceTree = "<group>"; };
+		D9A7014418065D5000D95FE4 /* DEMOHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOHomeViewController.m; sourceTree = "<group>"; };
+		D9A7014518065D5000D95FE4 /* DEMOMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOMenuViewController.h; sourceTree = "<group>"; };
+		D9A7014618065D5000D95FE4 /* DEMOMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOMenuViewController.m; sourceTree = "<group>"; };
+		D9A7014718065D5000D95FE4 /* DEMONavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMONavigationController.h; sourceTree = "<group>"; };
+		D9A7014818065D5000D95FE4 /* DEMONavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMONavigationController.m; sourceTree = "<group>"; };
+		D9A7014918065D5000D95FE4 /* DEMORootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMORootViewController.h; sourceTree = "<group>"; };
+		D9A7014A18065D5000D95FE4 /* DEMORootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMORootViewController.m; sourceTree = "<group>"; };
+		D9A7014B18065D5000D95FE4 /* DEMOSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOSecondViewController.h; sourceTree = "<group>"; };
+		D9A7014C18065D5000D95FE4 /* DEMOSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOSecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +134,8 @@
 		2AA11DE81800493500F17D38 = {
 			isa = PBXGroup;
 			children = (
+				D9A7014218065D5000D95FE4 /* MainSlideMenuController */,
+				D9A7010B1806597600D95FE4 /* REFrostedViewController */,
 				2AA11DFA1800493500F17D38 /* singleViewDemo */,
 				2AA11E1C1800493500F17D38 /* singleViewDemoTests */,
 				2AA11DF31800493500F17D38 /* Frameworks */,
@@ -181,6 +216,42 @@
 				2AA11E1F1800493500F17D38 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D9A7010B1806597600D95FE4 /* REFrostedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D9A7010C1806597600D95FE4 /* RECommonFunctions.h */,
+				D9A7010D1806597600D95FE4 /* RECommonFunctions.m */,
+				D9A7010E1806597600D95FE4 /* REFrostedContainerViewController.h */,
+				D9A7010F1806597600D95FE4 /* REFrostedContainerViewController.m */,
+				D9A701101806597600D95FE4 /* REFrostedViewController.h */,
+				D9A701111806597600D95FE4 /* REFrostedViewController.m */,
+				D9A701121806597600D95FE4 /* UIImage+REFrostedViewController.h */,
+				D9A701131806597600D95FE4 /* UIImage+REFrostedViewController.m */,
+				D9A701141806597600D95FE4 /* UIView+REFrostedViewController.h */,
+				D9A701151806597600D95FE4 /* UIView+REFrostedViewController.m */,
+				D9A701161806597600D95FE4 /* UIViewController+REFrostedViewController.h */,
+				D9A701171806597600D95FE4 /* UIViewController+REFrostedViewController.m */,
+			);
+			path = REFrostedViewController;
+			sourceTree = "<group>";
+		};
+		D9A7014218065D5000D95FE4 /* MainSlideMenuController */ = {
+			isa = PBXGroup;
+			children = (
+				D9A7014318065D5000D95FE4 /* DEMOHomeViewController.h */,
+				D9A7014418065D5000D95FE4 /* DEMOHomeViewController.m */,
+				D9A7014518065D5000D95FE4 /* DEMOMenuViewController.h */,
+				D9A7014618065D5000D95FE4 /* DEMOMenuViewController.m */,
+				D9A7014718065D5000D95FE4 /* DEMONavigationController.h */,
+				D9A7014818065D5000D95FE4 /* DEMONavigationController.m */,
+				D9A7014918065D5000D95FE4 /* DEMORootViewController.h */,
+				D9A7014A18065D5000D95FE4 /* DEMORootViewController.m */,
+				D9A7014B18065D5000D95FE4 /* DEMOSecondViewController.h */,
+				D9A7014C18065D5000D95FE4 /* DEMOSecondViewController.m */,
+			);
+			path = MainSlideMenuController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,13 +357,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AA11E311800597900F17D38 /* SecondViewController.m in Sources */,
+				D9A701181806597600D95FE4 /* RECommonFunctions.m in Sources */,
+				D9A7014F18065D5000D95FE4 /* DEMONavigationController.m in Sources */,
 				2AA11E0E1800493500F17D38 /* ViewController.m in Sources */,
+				D9A7014D18065D5000D95FE4 /* DEMOHomeViewController.m in Sources */,
 				2AC8831A18019FCC0050949E /* ThirdViewController.m in Sources */,
 				2AA11E051800493500F17D38 /* AppDelegate.m in Sources */,
+				D9A7011C1806597600D95FE4 /* UIView+REFrostedViewController.m in Sources */,
+				D9A7011A1806597600D95FE4 /* REFrostedViewController.m in Sources */,
+				D9A701191806597600D95FE4 /* REFrostedContainerViewController.m in Sources */,
+				D9A7011B1806597600D95FE4 /* UIImage+REFrostedViewController.m in Sources */,
 				2AA11E2E1800511B00F17D38 /* RootViewController.m in Sources */,
 				D900149118056B41005D253F /* ExpandTableViewController.m in Sources */,
+				D9A7014E18065D5000D95FE4 /* DEMOMenuViewController.m in Sources */,
 				D900148C18054F34005D253F /* TestTableViewController.m in Sources */,
+				D9A7011D1806597600D95FE4 /* UIViewController+REFrostedViewController.m in Sources */,
+				D9A7015118065D5000D95FE4 /* DEMOSecondViewController.m in Sources */,
 				2AA11E011800493500F17D38 /* main.m in Sources */,
+				D9A7015018065D5000D95FE4 /* DEMORootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
