@@ -105,7 +105,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vdq-yi-t5n" kind="modal" id="L7v-ye-nlB"/>
+                                    <segue destination="vdq-yi-t5n" kind="modal" modalTransitionStyle="crossDissolve" id="L7v-ye-nlB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -129,14 +129,14 @@
                     </navigationBar>
                     <connections>
                         <segue destination="h0J-8o-VY7" kind="relationship" relationship="rootViewController" id="CAM-Pe-oHY"/>
-                        <segue destination="KAz-ii-vql" kind="push" id="xWO-Zs-kwn"/>
+                        <segue destination="KAz-ii-vql" kind="push" identifier="toSecondView" id="xWO-Zs-kwn"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hw4-51-MID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1188" y="711"/>
         </scene>
-        <!--Home View Controller - HomeView-->
+        <!--Home View Controller - Title-->
         <scene sceneID="8vJ-uk-Oxv">
             <objects>
                 <viewController storyboardIdentifier="homeController" id="h0J-8o-VY7" customClass="DEMOHomeViewController" sceneMemberID="viewController">
@@ -155,7 +155,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="HomeView" id="sgR-cx-OvQ"/>
+                    <navigationItem key="navigationItem" title="Title" id="36t-FJ-LTp">
+                        <barButtonItem key="leftBarButtonItem" image="icon_main_menu2" id="vOB-N3-UsH">
+                            <connections>
+                                <action selector="showMainMenu:" destination="h0J-8o-VY7" id="elu-qb-u1l"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="snj-8a-Vbh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -174,7 +180,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="SecondView" id="9Gd-4R-Qcu"/>
+                    <navigationItem key="navigationItem" title="SecondView" id="9Gd-4R-Qcu">
+                        <barButtonItem key="leftBarButtonItem" image="icon_main_menu2" id="BOL-ZE-Ikd">
+                            <connections>
+                                <action selector="showMainMenu:" destination="KAz-ii-vql" id="2Ky-uc-fhH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nce-AG-x3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -253,7 +265,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZQv-F8-h40" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-780" y="554"/>
+            <point key="canvasLocation" x="-674" y="540"/>
         </scene>
         <!--Expand Table View Controller - ExpandlistView-->
         <scene sceneID="BjO-qn-aHq">
@@ -344,6 +356,7 @@
     </scenes>
     <resources>
         <image name="Balloon" width="320" height="568"/>
+        <image name="icon_main_menu2" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

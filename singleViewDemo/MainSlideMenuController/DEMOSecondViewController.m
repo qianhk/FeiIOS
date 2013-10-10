@@ -14,9 +14,4 @@
 
 @implementation DEMOSecondViewController
 
-- (IBAction)showMenu
-{
-    [self.frostedViewController presentMenuViewController];
-}
-
 @end

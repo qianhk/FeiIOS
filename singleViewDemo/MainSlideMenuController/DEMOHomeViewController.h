@@ -6,11 +6,9 @@
 //  Copyright (c) 2013 Roman Efimov. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "REFrostedViewController.h"
+#import "FirstGradeViewController.h"
 
-@interface DEMOHomeViewController : UIViewController
+@interface DEMOHomeViewController : FirstGradeViewController
 
-- (IBAction)showMenu;
 
 @end

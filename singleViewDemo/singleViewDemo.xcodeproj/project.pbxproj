@@ -14,7 +14,6 @@
 		2AA11E011800493500F17D38 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA11E001800493500F17D38 /* main.m */; };
 		2AA11E051800493500F17D38 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA11E041800493500F17D38 /* AppDelegate.m */; };
 		2AA11E081800493500F17D38 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA11E061800493500F17D38 /* Main_iPhone.storyboard */; };
-		2AA11E0B1800493500F17D38 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2AA11E091800493500F17D38 /* Main_iPad.storyboard */; };
 		2AA11E0E1800493500F17D38 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA11E0D1800493500F17D38 /* ViewController.m */; };
 		2AA11E101800493500F17D38 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AA11E0F1800493500F17D38 /* Images.xcassets */; };
 		2AA11E171800493500F17D38 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AA11E161800493500F17D38 /* XCTest.framework */; };
@@ -39,6 +38,8 @@
 		D9A7014F18065D5000D95FE4 /* DEMONavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A7014818065D5000D95FE4 /* DEMONavigationController.m */; };
 		D9A7015018065D5000D95FE4 /* DEMORootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A7014A18065D5000D95FE4 /* DEMORootViewController.m */; };
 		D9A7015118065D5000D95FE4 /* DEMOSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A7014C18065D5000D95FE4 /* DEMOSecondViewController.m */; };
+		D9A701541806864300D95FE4 /* FirstGradeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9A701531806864300D95FE4 /* FirstGradeViewController.m */; };
+		D9A70156180690EF00D95FE4 /* avatar@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D9A70155180690EF00D95FE4 /* avatar@2x.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +64,6 @@
 		2AA11E031800493500F17D38 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2AA11E041800493500F17D38 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2AA11E071800493500F17D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		2AA11E0A1800493500F17D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		2AA11E0C1800493500F17D38 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		2AA11E0D1800493500F17D38 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		2AA11E0F1800493500F17D38 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -105,6 +105,9 @@
 		D9A7014A18065D5000D95FE4 /* DEMORootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMORootViewController.m; sourceTree = "<group>"; };
 		D9A7014B18065D5000D95FE4 /* DEMOSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEMOSecondViewController.h; sourceTree = "<group>"; };
 		D9A7014C18065D5000D95FE4 /* DEMOSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DEMOSecondViewController.m; sourceTree = "<group>"; };
+		D9A701521806864300D95FE4 /* FirstGradeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstGradeViewController.h; sourceTree = "<group>"; };
+		D9A701531806864300D95FE4 /* FirstGradeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstGradeViewController.m; sourceTree = "<group>"; };
+		D9A70155180690EF00D95FE4 /* avatar@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "avatar@2x.jpg"; path = "singleViewDemoTests/avatar@2x.jpg"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +172,6 @@
 				2AA11E031800493500F17D38 /* AppDelegate.h */,
 				2AA11E041800493500F17D38 /* AppDelegate.m */,
 				2AA11E061800493500F17D38 /* Main_iPhone.storyboard */,
-				2AA11E091800493500F17D38 /* Main_iPad.storyboard */,
 				2AA11E0C1800493500F17D38 /* ViewController.h */,
 				2AA11E0D1800493500F17D38 /* ViewController.m */,
 				2AA11E0F1800493500F17D38 /* Images.xcassets */,
@@ -191,6 +193,7 @@
 		2AA11DFB1800493500F17D38 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D9A70155180690EF00D95FE4 /* avatar@2x.jpg */,
 				D900148D18056B16005D253F /* ExpansionTableTestData.plist */,
 				2AA11DFC1800493500F17D38 /* singleViewDemo-Info.plist */,
 				2AA11DFD1800493500F17D38 /* InfoPlist.strings */,
@@ -250,6 +253,8 @@
 				D9A7014A18065D5000D95FE4 /* DEMORootViewController.m */,
 				D9A7014B18065D5000D95FE4 /* DEMOSecondViewController.h */,
 				D9A7014C18065D5000D95FE4 /* DEMOSecondViewController.m */,
+				D9A701521806864300D95FE4 /* FirstGradeViewController.h */,
+				D9A701531806864300D95FE4 /* FirstGradeViewController.m */,
 			);
 			path = MainSlideMenuController;
 			sourceTree = "<group>";
@@ -333,10 +338,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2AA11E0B1800493500F17D38 /* Main_iPad.storyboard in Resources */,
 				2AA11E101800493500F17D38 /* Images.xcassets in Resources */,
 				2AA11E081800493500F17D38 /* Main_iPhone.storyboard in Resources */,
 				D900148E18056B16005D253F /* ExpansionTableTestData.plist in Resources */,
+				D9A70156180690EF00D95FE4 /* avatar@2x.jpg in Resources */,
 				2AA11DFF1800493500F17D38 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +380,7 @@
 				D9A7015118065D5000D95FE4 /* DEMOSecondViewController.m in Sources */,
 				2AA11E011800493500F17D38 /* main.m in Sources */,
 				D9A7015018065D5000D95FE4 /* DEMORootViewController.m in Sources */,
+				D9A701541806864300D95FE4 /* FirstGradeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,14 +417,6 @@
 				2AA11E071800493500F17D38 /* Base */,
 			);
 			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		2AA11E091800493500F17D38 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2AA11E0A1800493500F17D38 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		2AA11E1F1800493500F17D38 /* InfoPlist.strings */ = {

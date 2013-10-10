@@ -14,9 +14,5 @@
 
 @implementation DEMOHomeViewController
 
-- (IBAction)showMenu
-{
-    [self.frostedViewController presentMenuViewController];
-}
 
 @end
