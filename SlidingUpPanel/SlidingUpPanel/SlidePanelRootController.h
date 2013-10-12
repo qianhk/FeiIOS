@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SlidePanelViewController.h"
 
 @interface SlidePanelRootController : UIViewController
 
 @property (strong, nonatomic) UIViewController *contentViewController;
-@property (strong, nonatomic) UIViewController *panelViewController;
+@property (strong, nonatomic) SlidePanelViewController *panelViewController;
 
 @end

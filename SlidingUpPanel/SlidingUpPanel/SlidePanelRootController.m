@@ -29,9 +29,10 @@
 	
 	[self displayController:_contentViewController frame:self.view.frame];
 	CGRect panelFrame = self.view.frame;
-	panelFrame.size.height /= 2;
-	panelFrame.origin.y = panelFrame.size.height;
+	panelFrame.size.height = _panelViewController.expandHeight;
+	panelFrame.origin.y = self.view.frame.size.height - _panelViewController.collapseHeight;
 	[self displayController:_panelViewController frame:panelFrame];
+	_panelViewController.parentHeight = self.view.frame.size.height;
 	
 //	[self.view addSubview:_panelViewController.view];
 //	[self transitionFromViewController:_panelViewController toViewController:_contentViewController duration:3.0f options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{} completion:^(BOOL finished){}];
@@ -47,6 +48,8 @@
 {
 	self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentController"];
 	self.panelViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"panelController"];
+	self.panelViewController.expandHeight = 300;
+	self.panelViewController.collapseHeight = 40;
 }
 
 - (void)displayController:(UIViewController *)controller frame:(CGRect)frame

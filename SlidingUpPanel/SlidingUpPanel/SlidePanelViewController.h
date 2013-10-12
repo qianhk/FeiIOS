@@ -10,4 +10,9 @@
 
 @interface SlidePanelViewController : UIViewController
 
+@property (weak, nonatomic) UIView *dragView;
+@property float expandHeight;
+@property float collapseHeight;
+@property float parentHeight;
+
 @end
