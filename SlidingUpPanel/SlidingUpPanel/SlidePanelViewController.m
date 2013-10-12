@@ -53,48 +53,26 @@
     
     if (recognizer.state == UIGestureRecognizerStateBegan) {
 		_originYPos = self.view.frame.origin.y;
+        _anmitioning = YES;
     }
     
     if (recognizer.state == UIGestureRecognizerStateChanged) {
         CGRect frame = self.view.frame;
 		frame.origin.y = point.y + _originYPos;
+        if (frame.origin.y > _parentHeight - _collapseHeight) {
+            frame.origin.y = _parentHeight - _collapseHeight;
+        } else if (frame.origin.y < _parentHeight - _expandHeight) {
+            frame.origin.y = _parentHeight - _expandHeight;
+        }
         
         [self.view setFrame:frame];
     }
     
-//    if (recognizer.state == UIGestureRecognizerStateEnded) {
-//        if (self.frostedViewController.direction == REFrostedViewControllerDirectionLeft) {
-//            if ([recognizer velocityInView:self.view].x < 0) {
-//                [self hide];
-//            } else {
-//                [self show];
-//            }
-//        }
-//        
-//        if (self.frostedViewController.direction == REFrostedViewControllerDirectionRight) {
-//            if ([recognizer velocityInView:self.view].x < 0) {
-//                [self show];
-//            } else {
-//                [self hide];
-//            }
-//        }
-//        
-//        if (self.frostedViewController.direction == REFrostedViewControllerDirectionTop) {
-//            if ([recognizer velocityInView:self.view].y < 0) {
-//                [self hide];
-//            } else {
-//                [self show];
-//            }
-//        }
-//        
-//        if (self.frostedViewController.direction == REFrostedViewControllerDirectionBottom) {
-//            if ([recognizer velocityInView:self.view].y < 0) {
-//                [self show];
-//            } else {
-//                [self hide];
-//            }
-//        }
-//    }
+    if (recognizer.state == UIGestureRecognizerStateEnded) {
+        _anmitioning = NO;
+        _expand = [recognizer velocityInView:self.view].y > 0;
+        [self tapGestureRecognized:nil];
+    }
 }
 
 - (void)tapGestureRecognized:(UITapGestureRecognizer *)recognizer
@@ -107,7 +85,7 @@
     if (_expand) {
 		NSLog(@"PanelView will collapse");
 		[UIView animateWithDuration:0.5f animations:^{
-			[self.view setFrame:CGRectMake(0, _parentHeight - _collapseHeight, _parentHeight, _collapseHeight)];
+			[self.view setFrame:CGRectMake(0, _parentHeight - _collapseHeight, _parentHeight, _expandHeight)];
 		} completion:^(BOOL finished) {
 			_anmitioning = NO;
 		}];
