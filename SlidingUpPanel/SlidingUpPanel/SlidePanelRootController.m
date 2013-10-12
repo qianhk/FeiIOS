@@ -67,4 +67,9 @@
     [controller removeFromParentViewController];
 }
 
+- (BOOL)shouldAutorotate
+{
+	return NO;
+}
+
 @end

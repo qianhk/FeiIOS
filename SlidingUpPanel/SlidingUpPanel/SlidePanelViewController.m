@@ -12,6 +12,7 @@
 {
 	BOOL _expand;
 	BOOL _anmitioning;
+	float _originYPos;
 }
 @end
 
@@ -37,6 +38,63 @@
 	
 	UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognized:)];
     [self.dragView addGestureRecognizer:tapRecognizer];
+	
+	UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)];
+    [self.view addGestureRecognizer:panRecognizer];
+}
+
+- (void)panGestureRecognized:(UIPanGestureRecognizer *)recognizer
+{
+	if (recognizer.state == UIGestureRecognizerStateBegan) {
+//        [self presentMenuViewControllerWithAnimatedApperance:NO];
+    }
+	
+    CGPoint point = [recognizer translationInView:self.view];
+    
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+		_originYPos = self.view.frame.origin.y;
+    }
+    
+    if (recognizer.state == UIGestureRecognizerStateChanged) {
+        CGRect frame = self.view.frame;
+		frame.origin.y = point.y + _originYPos;
+        
+        [self.view setFrame:frame];
+    }
+    
+//    if (recognizer.state == UIGestureRecognizerStateEnded) {
+//        if (self.frostedViewController.direction == REFrostedViewControllerDirectionLeft) {
+//            if ([recognizer velocityInView:self.view].x < 0) {
+//                [self hide];
+//            } else {
+//                [self show];
+//            }
+//        }
+//        
+//        if (self.frostedViewController.direction == REFrostedViewControllerDirectionRight) {
+//            if ([recognizer velocityInView:self.view].x < 0) {
+//                [self show];
+//            } else {
+//                [self hide];
+//            }
+//        }
+//        
+//        if (self.frostedViewController.direction == REFrostedViewControllerDirectionTop) {
+//            if ([recognizer velocityInView:self.view].y < 0) {
+//                [self hide];
+//            } else {
+//                [self show];
+//            }
+//        }
+//        
+//        if (self.frostedViewController.direction == REFrostedViewControllerDirectionBottom) {
+//            if ([recognizer velocityInView:self.view].y < 0) {
+//                [self show];
+//            } else {
+//                [self hide];
+//            }
+//        }
+//    }
 }
 
 - (void)tapGestureRecognized:(UITapGestureRecognizer *)recognizer
