@@ -7,6 +7,7 @@
 //
 
 #import "SlidePanelViewController.h"
+#import "SlidePanelRootController.h"
 
 @interface SlidePanelViewController ()
 {
@@ -17,6 +18,17 @@
 @end
 
 @implementation SlidePanelViewController
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    NSLog(@"SlidePanelViewController willRotateToInterfaceOrientation(%f %f %f %f)", self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+}
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    NSLog(@"SlidePanelViewController didRotateFromInterfaceOrientation(%f %f %f %f)", self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,7 +43,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-	
+
+    [self.view setBackgroundColor:[UIColor colorWithRed:1.0f green:0.0f blue:0.0f alpha:0.5f]];
+    
 	if (self.dragView == nil) {
 		self.dragView = self.view;
 	}
@@ -40,7 +54,7 @@
     [self.dragView addGestureRecognizer:tapRecognizer];
 	
 	UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)];
-    [self.view addGestureRecognizer:panRecognizer];
+    [self.dragView addGestureRecognizer:panRecognizer];
 }
 
 - (void)panGestureRecognized:(UIPanGestureRecognizer *)recognizer
@@ -80,7 +94,7 @@
 	if (_anmitioning) {
 		return;
 	}
-	
+	NSLog(@"tapGestureRecognized %f %f", self.view.frame.size.width, self.view.frame.size.height);
 	_anmitioning = YES;
     if (_expand) {
 		NSLog(@"PanelView will collapse");
@@ -88,6 +102,8 @@
 			[self.view setFrame:CGRectMake(0, _parentHeight - _collapseHeight, _parentHeight, _expandHeight)];
 		} completion:^(BOOL finished) {
 			_anmitioning = NO;
+            SlidePanelRootController *rootController = (SlidePanelRootController *)[self parentViewController];
+            [rootController setMidViewAlpha:0.0f];
 		}];
 	} else {
 		NSLog(@"PanelView will expand");
@@ -95,6 +111,8 @@
 			[self.view setFrame:CGRectMake(0, _parentHeight - _expandHeight, _parentHeight, _expandHeight)];
 		} completion:^(BOOL finished) {
 			_anmitioning = NO;
+            SlidePanelRootController *rootController = (SlidePanelRootController *)[self parentViewController];
+            [rootController setMidViewAlpha:1.0f];
 		}];
 	}
 	_expand = !_expand;

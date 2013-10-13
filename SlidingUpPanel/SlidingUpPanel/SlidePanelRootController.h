@@ -14,4 +14,6 @@
 @property (strong, nonatomic) UIViewController *contentViewController;
 @property (strong, nonatomic) SlidePanelViewController *panelViewController;
 
+- (void)setMidViewAlpha:(float)alpha;
+
 @end

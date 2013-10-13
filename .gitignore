@@ -12,6 +12,7 @@ LatestBuild
 DynamicLibraries/
 *.zip
 *.dylib
+*.xccheckout
 
 # old skool
 .svn
