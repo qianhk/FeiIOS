@@ -25,8 +25,8 @@
             <objects>
                 <viewController storyboardIdentifier="panelController" id="4UT-TJ-eG5" customClass="SlidePanelViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="IJq-fr-Mpo"/>
-                        <viewControllerLayoutGuide type="bottom" id="woC-37-Hl1"/>
+                        <viewControllerLayoutGuide type="top" id="VXY-lw-GAx"/>
+                        <viewControllerLayoutGuide type="bottom" id="6ya-Pf-kuK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="sK9-Jw-ooO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -110,9 +110,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZTR-EP-IiN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="topGrayView" destination="ZTR-EP-IiN" id="Y15-iO-N87"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFS-MU-Hdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,8 +131,8 @@
             <objects>
                 <viewController id="rlW-bJ-e2E" customClass="SlidePanelRootController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5j5-Dk-TuK"/>
-                        <viewControllerLayoutGuide type="bottom" id="kHm-29-nXY"/>
+                        <viewControllerLayoutGuide type="top" id="Oyc-n8-zMO"/>
+                        <viewControllerLayoutGuide type="bottom" id="iY9-90-m1E"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pqP-NZ-aS5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -142,8 +150,8 @@
             <objects>
                 <viewController storyboardIdentifier="contentController" id="PkX-qb-aU1" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="DyV-IZ-HUm"/>
-                        <viewControllerLayoutGuide type="bottom" id="GJK-8S-uXl"/>
+                        <viewControllerLayoutGuide type="top" id="xJh-Ks-3Z3"/>
+                        <viewControllerLayoutGuide type="bottom" id="1aI-0b-64q"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="KPH-az-7dw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -198,8 +206,8 @@
             <objects>
                 <viewController id="BJ9-Ie-Y8k" customClass="SecondViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="H8v-FM-8SQ"/>
-                        <viewControllerLayoutGuide type="bottom" id="gJj-HM-g0k"/>
+                        <viewControllerLayoutGuide type="top" id="IfD-11-g5e"/>
+                        <viewControllerLayoutGuide type="bottom" id="dkq-rg-bAS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BBX-UV-Wg3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>

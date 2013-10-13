@@ -15,6 +15,7 @@
 	BOOL _anmitioning;
 	float _originYPos;
 }
+
 @end
 
 @implementation SlidePanelViewController
@@ -45,10 +46,17 @@
 	// Do any additional setup after loading the view.
 
     [self.view setBackgroundColor:[UIColor colorWithRed:1.0f green:0.0f blue:0.0f alpha:0.5f]];
-    
-	if (self.dragView == nil) {
-		self.dragView = self.view;
-	}
+    [self.view setAutoresizesSubviews:YES];
+    [_topGrayView setTranslatesAutoresizingMaskIntoConstraints:YES];
+    _topGrayView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    _dragView = _topGrayView;
+//	if (self.dragView == nil) {
+//		self.dragView = self.view;
+//	}
+    UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, self.view.frame.size.width, 50)];
+    [self.view addSubview:testView];
+    testView.backgroundColor = [UIColor blueColor];
+    testView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
 	
 	UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognized:)];
     [self.dragView addGestureRecognizer:tapRecognizer];

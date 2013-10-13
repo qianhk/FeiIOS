@@ -15,4 +15,6 @@
 @property float collapseHeight;
 @property float parentHeight;
 
+@property (weak, nonatomic) IBOutlet UIView *topGrayView;
+
 @end

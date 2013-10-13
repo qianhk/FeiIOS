@@ -39,6 +39,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    self.view.autoresizesSubviews = NO;
 	
     CGRect contentFrame = self.view.frame;
     if (IOS_VERSION < 7.0) {
@@ -56,8 +57,11 @@
 	CGRect panelFrame = contentFrame;
 	panelFrame.size.height = _panelViewController.expandHeight;
 	panelFrame.origin.y = contentFrame.size.height - _panelViewController.collapseHeight;
+//    _panelViewController.view.autoresizesSubviews = NO;
+//    _panelViewController.dragView = _panelViewController.topGrayView;
 	[self displayController:_panelViewController frame:panelFrame];
     _panelViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+//    _panelViewController.view.autoresizesSubviews = YES;
     _panelViewController.parentHeight = contentFrame.size.height;
 	
 //	[self.view addSubview:_panelViewController.view];
