@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AAC87B7180AF18F00593661 /* MyNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAC87B6180AF18F00593661 /* MyNavigationViewController.m */; };
 		D9968B421809341600E768FA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9968B411809341600E768FA /* Foundation.framework */; };
 		D9968B441809341600E768FA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9968B431809341600E768FA /* CoreGraphics.framework */; };
 		D9968B461809341600E768FA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9968B451809341600E768FA /* UIKit.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AAC87B5180AF18F00593661 /* MyNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavigationViewController.h; sourceTree = "<group>"; };
+		2AAC87B6180AF18F00593661 /* MyNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavigationViewController.m; sourceTree = "<group>"; };
 		D9968B3E1809341600E768FA /* SlidingUpPanel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlidingUpPanel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9968B411809341600E768FA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D9968B431809341600E768FA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -137,6 +140,8 @@
 				D9968B5A1809341600E768FA /* SecondViewController.m */,
 				D9968B5C1809341600E768FA /* Images.xcassets */,
 				D9968B481809341600E768FA /* Supporting Files */,
+				2AAC87B5180AF18F00593661 /* MyNavigationViewController.h */,
+				2AAC87B6180AF18F00593661 /* MyNavigationViewController.m */,
 			);
 			path = SlidingUpPanel;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9968B5B1809341600E768FA /* SecondViewController.m in Sources */,
+				2AAC87B7180AF18F00593661 /* MyNavigationViewController.m in Sources */,
 				D9968B841809357300E768FA /* SlidePanelRootController.m in Sources */,
 				D9968B521809341600E768FA /* AppDelegate.m in Sources */,
 				D9968B87180935C600E768FA /* SlidePanelViewController.m in Sources */,

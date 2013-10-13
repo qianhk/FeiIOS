@@ -25,14 +25,15 @@
     return self;
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    NSLog(@"SlidePanelRootController willRotateToInterfaceOrientation(%f %f %f %f)", self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
-}
+//- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+//{
+//    NSLog(@"SlidePanelRootController willRotateToInterfaceOrientation(%f %f %f %f)", self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+//}
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    NSLog(@"SlidePanelRootController didRotateFromInterfaceOrientation(%f %f %f %f)", self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+//    NSLog(@"SlidePanelRootController didRotateFromInterfaceOrientation(%f %f %f %f)", self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+    _panelViewController.parentHeight = self.view.frame.size.height;
 }
 
 - (void)viewDidLoad
@@ -56,7 +57,7 @@
 	panelFrame.size.height = _panelViewController.expandHeight;
 	panelFrame.origin.y = contentFrame.size.height - _panelViewController.collapseHeight;
 	[self displayController:_panelViewController frame:panelFrame];
-    _panelViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    _panelViewController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     _panelViewController.parentHeight = contentFrame.size.height;
 	
 //	[self.view addSubview:_panelViewController.view];
@@ -78,7 +79,7 @@
 {
 	self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentController"];
 	self.panelViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"panelController"];
-	self.panelViewController.expandHeight = 300;
+	self.panelViewController.expandHeight = 200;
 	self.panelViewController.collapseHeight = 80;
 }
 
@@ -98,9 +99,6 @@
     [controller removeFromParentViewController];
 }
 
-- (BOOL)shouldAutorotate
-{
-	return NO;
-}
+
 
 @end

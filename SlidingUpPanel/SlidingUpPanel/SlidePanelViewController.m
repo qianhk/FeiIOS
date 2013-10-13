@@ -21,12 +21,12 @@
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    NSLog(@"SlidePanelViewController willRotateToInterfaceOrientation(%f %f %f %f)", self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+    NSLog(@"SlidePanelViewController willRotateToInterfaceOrientation %@", NSStringFromCGRect(self.view.frame));
 }
 
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
-    NSLog(@"SlidePanelViewController didRotateFromInterfaceOrientation(%f %f %f %f)", self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+    NSLog(@"SlidePanelViewController didRotateFromInterfaceOrientation %@", NSStringFromCGRect(self.view.frame));
 }
 
 
@@ -94,12 +94,12 @@
 	if (_anmitioning) {
 		return;
 	}
-	NSLog(@"tapGestureRecognized %f %f", self.view.frame.size.width, self.view.frame.size.height);
+	NSLog(@"tapGestureRecognized frame=%@ window=%@", NSStringFromCGRect(self.view.frame), NSStringFromCGRect([[UIApplication sharedApplication] keyWindow].frame));
 	_anmitioning = YES;
     if (_expand) {
 		NSLog(@"PanelView will collapse");
 		[UIView animateWithDuration:0.5f animations:^{
-			[self.view setFrame:CGRectMake(0, _parentHeight - _collapseHeight, _parentHeight, _expandHeight)];
+			[self.view setFrame:CGRectMake(0, _parentHeight - _collapseHeight, self.view.frame.size.width, _expandHeight)];
 		} completion:^(BOOL finished) {
 			_anmitioning = NO;
             SlidePanelRootController *rootController = (SlidePanelRootController *)[self parentViewController];
@@ -108,7 +108,7 @@
 	} else {
 		NSLog(@"PanelView will expand");
 		[UIView animateWithDuration:0.5f animations:^{
-			[self.view setFrame:CGRectMake(0, _parentHeight - _expandHeight, _parentHeight, _expandHeight)];
+			[self.view setFrame:CGRectMake(0, _parentHeight - _expandHeight, self.view.frame.size.width, _expandHeight)];
 		} completion:^(BOOL finished) {
 			_anmitioning = NO;
             SlidePanelRootController *rootController = (SlidePanelRootController *)[self parentViewController];
