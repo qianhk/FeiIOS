@@ -73,6 +73,14 @@
     _midView.alpha = alpha;
 }
 
+- (void)setMidViewAlpha:(float)alpha duration:(NSTimeInterval)duration
+{
+	[UIView animateWithDuration:duration animations:^{
+		_midView.alpha = alpha;
+	} completion:^(BOOL finished) {
+	}];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

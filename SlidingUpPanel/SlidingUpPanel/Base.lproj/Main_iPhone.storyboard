@@ -28,7 +28,7 @@
                         <viewControllerLayoutGuide type="top" id="VXY-lw-GAx"/>
                         <viewControllerLayoutGuide type="bottom" id="6ya-Pf-kuK"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sK9-Jw-ooO">
+                    <view key="view" contentMode="scaleToFill" id="sK9-Jw-ooO" customClass="SlidePanelRootView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>

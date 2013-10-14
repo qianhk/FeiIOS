@@ -18,6 +18,8 @@
 
 @end
 
+const float Animation_Duration = 0.5f;
+
 @implementation SlidePanelViewController
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -47,9 +49,14 @@
 
     [self.view setBackgroundColor:[UIColor colorWithRed:1.0f green:0.0f blue:0.0f alpha:0.5f]];
     [self.view setAutoresizesSubviews:YES];
+	
+	CGRect rect = _topGrayView.frame;
+	rect.size.width = self.view.frame.size.width;
+	_topGrayView.frame = rect;
     [_topGrayView setTranslatesAutoresizingMaskIntoConstraints:YES];
     _topGrayView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _dragView = _topGrayView;
+	
 //	if (self.dragView == nil) {
 //		self.dragView = self.view;
 //	}
@@ -81,13 +88,18 @@
     if (recognizer.state == UIGestureRecognizerStateChanged) {
         CGRect frame = self.view.frame;
 		frame.origin.y = point.y + _originYPos;
-        if (frame.origin.y > _parentHeight - _collapseHeight) {
-            frame.origin.y = _parentHeight - _collapseHeight;
+		float shoudBottomYPos = _parentHeight - _collapseHeight;
+        if (frame.origin.y > shoudBottomYPos) {
+            frame.origin.y = shoudBottomYPos;
         } else if (frame.origin.y < _parentHeight - _expandHeight) {
             frame.origin.y = _parentHeight - _expandHeight;
         }
         
         [self.view setFrame:frame];
+		float canDragHeight = _expandHeight - _collapseHeight;
+		float dragedHeight = shoudBottomYPos - frame.origin.y;
+		SlidePanelRootController *rootController = (SlidePanelRootController *)[self parentViewController];
+		[rootController setMidViewAlpha:dragedHeight / canDragHeight];
     }
     
     if (recognizer.state == UIGestureRecognizerStateEnded) {
@@ -104,24 +116,24 @@
 	}
 	NSLog(@"tapGestureRecognized frame=%@ window=%@", NSStringFromCGRect(self.view.frame), NSStringFromCGRect([[UIApplication sharedApplication] keyWindow].frame));
 	_anmitioning = YES;
+	SlidePanelRootController *rootController = (SlidePanelRootController *)[self parentViewController];
+	
     if (_expand) {
 		NSLog(@"PanelView will collapse");
-		[UIView animateWithDuration:0.5f animations:^{
+		[UIView animateWithDuration:Animation_Duration animations:^{
 			[self.view setFrame:CGRectMake(0, _parentHeight - _collapseHeight, self.view.frame.size.width, _expandHeight)];
 		} completion:^(BOOL finished) {
 			_anmitioning = NO;
-            SlidePanelRootController *rootController = (SlidePanelRootController *)[self parentViewController];
-            [rootController setMidViewAlpha:0.0f];
 		}];
+		[rootController setMidViewAlpha:0.0f duration:Animation_Duration];
 	} else {
 		NSLog(@"PanelView will expand");
-		[UIView animateWithDuration:0.5f animations:^{
+		[UIView animateWithDuration:Animation_Duration animations:^{
 			[self.view setFrame:CGRectMake(0, _parentHeight - _expandHeight, self.view.frame.size.width, _expandHeight)];
 		} completion:^(BOOL finished) {
 			_anmitioning = NO;
-            SlidePanelRootController *rootController = (SlidePanelRootController *)[self parentViewController];
-            [rootController setMidViewAlpha:1.0f];
 		}];
+		[rootController setMidViewAlpha:1.0f duration:Animation_Duration];
 	}
 	_expand = !_expand;
 }

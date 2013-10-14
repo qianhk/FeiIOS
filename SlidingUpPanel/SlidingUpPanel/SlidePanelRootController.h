@@ -15,5 +15,6 @@
 @property (strong, nonatomic) SlidePanelViewController *panelViewController;
 
 - (void)setMidViewAlpha:(float)alpha;
+- (void)setMidViewAlpha:(float)alpha duration:(NSTimeInterval)duration;
 
 @end
