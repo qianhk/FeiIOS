@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <OpenCL/opencl.h>
 
-int main2 (int argc, const char * argv[])
+int main1 (int argc, const char * argv[])
 {
     cl_context context;
     cl_device_id *devices;

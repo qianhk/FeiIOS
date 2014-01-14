@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		698FF357A798DD5866544177 /* hello.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 698FF7A8D43B80BE2280680C /* hello.cpp */; };
+		698FFB480C8ACED9F5D1AC1E /* amdMain.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 698FF5048670F17769FA5A14 /* amdMain.cpp */; };
+		698FFC7FA8E4207C838D1677 /* ocl_info.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 698FF88AF9830BA3BC486558 /* ocl_info.cpp */; };
+		698FFD047AA175B6006E932A /* mainGpu.cl in Sources */ = {isa = PBXBuildFile; fileRef = 698FF56787705CAE31E8D162 /* mainGpu.cl */; };
+		698FFE8B1C41A2315008CD5E /* mainCpu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 698FFC398A7A151E79926B23 /* mainCpu.cpp */; };
 		D9F64634187FC84E007FA903 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = D9F64633187FC84E007FA903 /* main.c */; };
 		D9F64636187FC84E007FA903 /* hellocl.1 in Copy Files */ = {isa = PBXBuildFile; fileRef = D9F64635187FC84E007FA903 /* hellocl.1 */; };
 		D9F6463D187FC8BA007FA903 /* OpenCL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9F6463C187FC8BA007FA903 /* OpenCL.framework */; };
@@ -28,6 +33,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		698FF5048670F17769FA5A14 /* amdMain.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = amdMain.cpp; sourceTree = "<group>"; };
+		698FF56787705CAE31E8D162 /* mainGpu.cl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.opencl; path = mainGpu.cl; sourceTree = "<group>"; };
+		698FF7A8D43B80BE2280680C /* hello.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hello.cpp; sourceTree = "<group>"; };
+		698FF88AF9830BA3BC486558 /* ocl_info.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ocl_info.cpp; sourceTree = "<group>"; };
+		698FFC398A7A151E79926B23 /* mainCpu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mainCpu.cpp; sourceTree = "<group>"; };
+		698FFC3BA80D19FD244E5D8E /* mainGpu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mainGpu.cpp; sourceTree = "<group>"; };
 		D9F64630187FC84E007FA903 /* hellocl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = hellocl; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9F64633187FC84E007FA903 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		D9F64635187FC84E007FA903 /* hellocl.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = hellocl.1; sourceTree = "<group>"; };
@@ -72,6 +83,12 @@
 				D9F64635187FC84E007FA903 /* hellocl.1 */,
 				D9F6463E1880042A007FA903 /* main2.cpp */,
 				D9F6463F1880042A007FA903 /* main2.h */,
+				698FFC398A7A151E79926B23 /* mainCpu.cpp */,
+				698FFC3BA80D19FD244E5D8E /* mainGpu.cpp */,
+				698FF56787705CAE31E8D162 /* mainGpu.cl */,
+				698FF7A8D43B80BE2280680C /* hello.cpp */,
+				698FF5048670F17769FA5A14 /* amdMain.cpp */,
+				698FF88AF9830BA3BC486558 /* ocl_info.cpp */,
 			);
 			path = hellocl;
 			sourceTree = "<group>";
@@ -129,6 +146,11 @@
 			files = (
 				D9F64634187FC84E007FA903 /* main.c in Sources */,
 				D9F646401880042A007FA903 /* main2.cpp in Sources */,
+				698FFE8B1C41A2315008CD5E /* mainCpu.cpp in Sources */,
+				698FFD047AA175B6006E932A /* mainGpu.cl in Sources */,
+				698FF357A798DD5866544177 /* hello.cpp in Sources */,
+				698FFB480C8ACED9F5D1AC1E /* amdMain.cpp in Sources */,
+				698FFC7FA8E4207C838D1677 /* ocl_info.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
