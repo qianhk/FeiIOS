@@ -169,7 +169,7 @@ const NSString* KTTPhoneNumber = @"Phone Number";
 	[_dic setObject:(phoneNumber == nil) ? NSLocalizedString(@"Unknow", @"") : phoneNumber forKey:KTTPhoneNumber];
 	
 	[_arrKey addObject:KTTSerialNo];
-	[_dic setObject:[device serialnumber] forKey:KTTSerialNo];
+	[_dic setObject:@"[device serialnumber]" forKey:KTTSerialNo];
 	
 	[_arrKey addObject:KTTBacklightLevel];
 	[lastBacklightLevel release];

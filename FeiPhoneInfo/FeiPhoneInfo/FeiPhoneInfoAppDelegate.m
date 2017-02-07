@@ -18,8 +18,7 @@
 	// Override point for customization after application launch.
 
 	switchController = [[SwitchViewController alloc] init];
-	[self.window addSubview:switchController.view];
-//	self.window.rootViewController = switchController;
+	self.window.rootViewController = switchController;
 	
 	[self.window makeKeyAndVisible];
 	

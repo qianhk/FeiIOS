@@ -414,7 +414,7 @@
 			name = FeiPhoneInfoTests;
 			productName = FeiPhoneInfoTests;
 			productReference = D94E0D9F143054DB00552FBE /* FeiPhoneInfoTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -422,8 +422,15 @@
 		D94E0D6D143054DB00552FBE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0730;
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = TTPod;
+				TargetAttributes = {
+					D94E0D75143054DB00552FBE = {
+						DevelopmentTeam = A27YPEY3N3;
+						ProvisioningStyle = Automatic;
+					};
+				};
 			};
 			buildConfigurationList = D94E0D70143054DB00552FBE /* Build configuration list for PBXProject "FeiPhoneInfo" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -625,7 +632,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -645,7 +652,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -658,6 +665,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = A27YPEY3N3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)//System/Library/Frameworks\"",
@@ -678,6 +687,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = A27YPEY3N3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)//System/Library/Frameworks\"",

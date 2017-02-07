@@ -99,7 +99,7 @@
 //	[self getIntegerValue:GL_MAX_VIEWPORT_DIMS keyStr:@"Max_ViewPort_Dims"];
 	
 	[self getStringValue:GL_RENDERER keyStr:@"Renderer"];
-	[self getStringValue:GL_SHADING_LANGUAGE_VERSION keyStr:@"Shading_Language_Version"];
+//	[self getStringValue:GL_SHADING_LANGUAGE_VERSION keyStr:@"Shading_Language_Version"];
 	[self getStringValue:GL_VENDOR keyStr:@"Vendor"];
 	[self getStringValue:GL_VERSION keyStr:@"Version"];
 	[self getStringValue:GL_EXTENSIONS keyStr:@"Extensions"];
