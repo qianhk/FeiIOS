@@ -12,12 +12,31 @@
     int mIndex;
 }
 
+@property (weak, nonatomic) IBOutlet UITextField *mEditText;
+
 @end
 
 @implementation DetailViewController
 
+- (IBAction)editTextPrimaryActionTrigger:(UITextField *)sender {
+     [self setDetailItem:@"editTextPrimaryActionTrigger"];
+}
+
+- (IBAction)editTextDidEnd:(UITextField *)sender {
+    [self setDetailItem:@"editTextDidEnd"];
+}
+
 - (IBAction)buttonPressed:(UIButton *)sender {
-    [self setDetailItem: [NSString stringWithFormat:@"click_%d", mIndex++]];
+    NSInteger tag = sender.tag;
+    if (tag == 3) {
+        [self popupAlert];
+    } else {
+        [self setDetailItem: [NSString stringWithFormat:@"click_%d", mIndex+=tag]];
+    }
+}
+
+- (void)popupAlert {
+    
 }
 
 - (void)configureView {
@@ -32,6 +51,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    
+    _mEditText.text = @"init Value";
 }
 
 
