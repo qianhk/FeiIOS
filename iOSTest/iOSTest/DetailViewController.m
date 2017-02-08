@@ -35,6 +35,10 @@
     }
 }
 
+- (IBAction)backgroundTap:(id)sender {
+    [self.mEditText resignFirstResponder];
+}
+
 - (void)popupAlert: (UIControl *)sender {
     UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"message" preferredStyle:UIAlertControllerStyleAlert];
     
@@ -76,7 +80,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self configureView];
     
-    _mEditText.text = @"init Value";
+    self.mEditText.text = @"init Value";
 }
 
 
