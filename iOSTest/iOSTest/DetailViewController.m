@@ -19,7 +19,7 @@
 @implementation DetailViewController
 
 - (IBAction)editTextPrimaryActionTrigger:(UITextField *)sender {
-     [self setDetailItem:@"editTextPrimaryActionTrigger"];
+//     [self setDetailItem:@"editTextPrimaryActionTrigger"];
 }
 
 - (IBAction)editTextDidEnd:(UITextField *)sender {
@@ -29,14 +29,38 @@
 - (IBAction)buttonPressed:(UIButton *)sender {
     NSInteger tag = sender.tag;
     if (tag == 3) {
-        [self popupAlert];
+        [self popupAlert: sender];
     } else {
         [self setDetailItem: [NSString stringWithFormat:@"click_%d", mIndex+=tag]];
     }
 }
 
-- (void)popupAlert {
+- (void)popupAlert: (UIControl *)sender {
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"message" preferredStyle:UIAlertControllerStyleAlert];
     
+    UIAlertAction *yesAction = [UIAlertAction actionWithTitle:@"Yes, sure" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self setDetailItem:@"click yes button"];
+    }];
+    
+    UIAlertAction *yes2Action = [UIAlertAction actionWithTitle:@"Yes2, sure2" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self setDetailItem:@"click yes2 button"];
+    }];
+    
+    UIAlertAction *noAction = [UIAlertAction actionWithTitle:@"No way" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self setDetailItem:@"click no button"];
+    }];
+    [controller addAction:yesAction];
+    [controller addAction:yes2Action];
+    [controller addAction:noAction];
+    
+    UIPopoverPresentationController *ppc = controller.popoverPresentationController;
+    if (ppc != nil) {
+        ppc.sourceView = sender;
+        ppc.sourceRect = sender.bounds;
+    }
+    [self presentViewController:controller animated:YES completion:^{
+         [self setDetailItem:@"presentViewController"];
+    }];
 }
 
 - (void)configureView {
