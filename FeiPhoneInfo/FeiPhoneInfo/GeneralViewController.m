@@ -102,7 +102,7 @@ const NSString* KTTPhoneNumber = @"Phone Number";
 	UIDevice* device = [UIDevice currentDevice];
 	device.batteryMonitoringEnabled = YES;
 	
-    NSString* udid = [device uniqueIdentifier];
+    NSString* udid = @"[device uniqueIdentifier]";
 	[_arrKey addObject:KTTUDID];
 	[_dic setObject:udid forKey:KTTUDID];
 	

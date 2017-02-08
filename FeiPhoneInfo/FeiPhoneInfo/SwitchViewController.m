@@ -47,6 +47,22 @@
 	return self;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+#ifdef IOS7_SDK_AVAILABLE
+    if(IOS7_OR_LATER)
+    {
+//        self.edgesForExtendedLayout = UIRectEdgeNone;
+//        self.extendedLayoutIncludesOpaqueBars = NO;
+//        self.modalPresentationCapturesStatusBarAppearance = NO;
+//        self.view.bounds = CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height);
+    }
+#endif
+    
+}
+
 
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView
@@ -54,9 +70,10 @@
 	[super loadView];
 	
 	CGRect rect = [[UIScreen mainScreen] bounds];
-	CGRect rectbottom = CGRectMake(0, rect.size.height - 20 - 44, rect.size.width, 44);
+	CGRect rectbottom = CGRectMake(0, rect.size.height - 0 - 48, rect.size.width, 48);
 	
 	tabBar = [[UITabBar alloc] initWithFrame:rectbottom];
+    tabBar.backgroundColor = [UIColor cyanColor];
 	tabBarItem0 = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"General", @"for general info") image:[UIImage imageNamed:@"generalinfo.png"] tag:100];
 	tabBarItem1 = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Tasks", @"for phone tasks") image:[UIImage imageNamed:@"tasks.png"] tag:101];
 	tabBarItem2 = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"Profiles", @"for phone profiles") image:[UIImage imageNamed:@"profiles.png"] tag:102];
@@ -77,6 +94,7 @@
 	hardwareController = [[HardwareViewController alloc] initWithStyle:UITableViewStylePlain];
 	aboutController = [[AboutViewController alloc] initWithStyle:UITableViewStyleGrouped];
 
+    generalController.view.bounds = CGRectMake(0, 20, rect.size.width, rect.size.height - 48);
 	[self.view addSubview:generalController.view];
 	[self.view addSubview:taskController.view];
 	[self.view addSubview:profilesController.view];

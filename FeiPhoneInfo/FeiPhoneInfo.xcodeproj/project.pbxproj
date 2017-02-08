@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A50AA201E4B3DB500B88151 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A50AA1F1E4B3DB500B88151 /* Images.xcassets */; };
+		2A50AA241E4B40AF00B88151 /* LaunchScreen2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A50AA231E4B40AF00B88151 /* LaunchScreen2.storyboard */; };
 		D9016893144EA0A0002C65EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94E0D7C143054DB00552FBE /* Foundation.framework */; };
 		D90168D0144EDB4B002C65EF /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9016896144EA4D1002C65EF /* IOKit.framework */; };
 		D91B8E2E1432C71800E62AE5 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D91B8E2D1432C71800E62AE5 /* BaseViewController.m */; };
@@ -81,6 +83,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A50AA1F1E4B3DB500B88151 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2A50AA231E4B40AF00B88151 /* LaunchScreen2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen2.storyboard; sourceTree = "<group>"; };
 		D9016896144EA4D1002C65EF /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		D901689C144EA9E2002C65EF /* IOPowerSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOPowerSources.h; sourceTree = "<group>"; };
 		D901689D144EA9E2002C65EF /* IOPSKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IOPSKeys.h; sourceTree = "<group>"; };
@@ -246,6 +250,7 @@
 		D94E0D80143054DB00552FBE /* FeiPhoneInfo */ = {
 			isa = PBXGroup;
 			children = (
+				2A50AA231E4B40AF00B88151 /* LaunchScreen2.storyboard */,
 				DCC45E2014792B850035B763 /* EGORefreshTableHeaderView.h */,
 				DCC45E2114792B850035B763 /* EGORefreshTableHeaderView.m */,
 				D94E0D89143054DB00552FBE /* FeiPhoneInfoAppDelegate.h */,
@@ -272,6 +277,7 @@
 				D91B8E2C1432C71800E62AE5 /* BaseViewController.h */,
 				D91B8E2D1432C71800E62AE5 /* BaseViewController.m */,
 				D9F31BDD1431A76200C019BE /* Localizable.strings */,
+				2A50AA1F1E4B3DB500B88151 /* Images.xcassets */,
 			);
 			path = FeiPhoneInfo;
 			sourceTree = "<group>";
@@ -457,9 +463,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A50AA241E4B40AF00B88151 /* LaunchScreen2.storyboard in Resources */,
 				D94E0D85143054DB00552FBE /* InfoPlist.strings in Resources */,
 				D94E0D92143054DB00552FBE /* MainWindow_iPhone.xib in Resources */,
 				D94E0D99143054DB00552FBE /* MainWindow_iPad.xib in Resources */,
+				2A50AA201E4B3DB500B88151 /* Images.xcassets in Resources */,
 				D9F31BB414316AC600C019BE /* iPhone.png in Resources */,
 				D9F31BC3143172A400C019BE /* Camera.png in Resources */,
 				D9F31BC5143172A400C019BE /* generalinfo.png in Resources */,
@@ -616,7 +624,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -643,7 +651,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -664,6 +672,8 @@
 		D94E0DB4143054DB00552FBE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = A27YPEY3N3;
@@ -686,6 +696,8 @@
 		D94E0DB5143054DB00552FBE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = A27YPEY3N3;

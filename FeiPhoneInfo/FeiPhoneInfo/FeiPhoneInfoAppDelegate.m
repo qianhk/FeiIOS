@@ -16,6 +16,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 	// Override point for customization after application launch.
+    
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue ]>= 7.0) {
+//        [application setStatusBarStyle:UIStatusBarStyleLightContent];
+//        self.window.clipsToBounds = YES;
+//        self.window.frame = CGRectMake(0, 20, self.window.frame.size.width, self.window.frame.size.height - 20);
+//    }
 
 	switchController = [[SwitchViewController alloc] init];
 	self.window.rootViewController = switchController;
