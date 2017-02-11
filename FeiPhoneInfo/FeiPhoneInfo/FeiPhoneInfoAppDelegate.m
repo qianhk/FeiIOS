@@ -23,19 +23,34 @@
 //        self.window.frame = CGRectMake(0, 20, self.window.frame.size.width, self.window.frame.size.height - 20);
 //    }
 
+    NSLog(@"lookSize application didFinish %@", NSStringFromCGRect(self.window.frame));
+//    self.window.backgroundColor = [UIColor redColor];
+    
+    
 	switchController = [[SwitchViewController alloc] init];
-	self.window.rootViewController = switchController;
-	
+    
+//    CGRect newRect = CGRectMake(10, 40, self.window.frame.size.width - 10 - 10, self.window.frame.size.height - 40 -40);
+//    NSLog(@"lookSize application didFinish will change bounds %@", NSStringFromCGRect(newRect));
+//    
+//    switchController.view.frame = newRect;
+    
+    
+    
+    switchController.view.clipsToBounds = YES;
+    
+    
+    self.window.rootViewController = switchController;
+    
 	[self.window makeKeyAndVisible];
 	
-	NSString * tmpS = [NSString stringWithFormat:@"432%d", 1];
-	NSString *str = [[NSString alloc] initWithString:tmpS];
-	NSString *str2 =[[NSString alloc] initWithString:tmpS];
-	NSLog(@"%p %u %p %u", str, [str retainCount], str2, [str2 retainCount]);
-	str = @"123";
-	NSLog(@"%p %u %p %u", str, [str retainCount], str2, [str2 retainCount]);
-	[str release];
-	NSLog(@"%p %u %p %u", str, [str retainCount], str2, [str2 retainCount]);
+//	NSString * tmpS = [NSString stringWithFormat:@"432%d", 1];
+//	NSString *str = [[NSString alloc] initWithString:tmpS];
+//	NSString *str2 =[[NSString alloc] initWithString:tmpS];
+//	NSLog(@"%p %u %p %u", str, [str retainCount], str2, [str2 retainCount]);
+//	str = @"123";
+//	NSLog(@"%p %u %p %u", str, [str retainCount], str2, [str2 retainCount]);
+//	[str release];
+//	NSLog(@"%p %u %p %u", str, [str retainCount], str2, [str2 retainCount]);
     return YES;
 }
 

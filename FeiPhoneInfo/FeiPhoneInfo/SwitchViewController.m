@@ -61,6 +61,10 @@
     }
 #endif
     
+    CGRect rect = self.view.bounds;
+    
+    NSLog(@"lookSize  switch view did load %@  frame=%@", NSStringFromCGRect(rect), NSStringFromCGRect(self.view.frame));
+    
 }
 
 
@@ -68,9 +72,14 @@
 - (void)loadView
 {
 	[super loadView];
+    
+//    self.view.backgroundColor = [UIColor greenColor];
 	
-	CGRect rect = [[UIScreen mainScreen] bounds];
-	CGRect rectbottom = CGRectMake(0, rect.size.height - 0 - 48, rect.size.width, 48);
+	CGRect rect = self.view.bounds;
+    
+    NSLog(@"lookSize  switch view load view %@", NSStringFromCGRect(rect));
+    
+	CGRect rectbottom = CGRectMake(rect.origin.x, rect.origin.y + rect.size.height - 48, rect.size.width, 48);
 	
 	tabBar = [[UITabBar alloc] initWithFrame:rectbottom];
     tabBar.backgroundColor = [UIColor cyanColor];
@@ -94,7 +103,7 @@
 	hardwareController = [[HardwareViewController alloc] initWithStyle:UITableViewStylePlain];
 	aboutController = [[AboutViewController alloc] initWithStyle:UITableViewStyleGrouped];
 
-    generalController.view.bounds = CGRectMake(0, 20, rect.size.width, rect.size.height - 48);
+//    generalController.view.bounds = CGRectMake(0, 20, rect.size.width, rect.size.height - 48);
 	[self.view addSubview:generalController.view];
 	[self.view addSubview:taskController.view];
 	[self.view addSubview:profilesController.view];
@@ -155,19 +164,19 @@
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-	CGRect rect = [[UIScreen mainScreen] bounds];
-	CGRect rectbottom;
-    if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown)
-	{
-		rectbottom = CGRectMake(0, rect.size.height - 20 - 44, rect.size.width, 44);
-	}
-	else
-	{
-		rectbottom = CGRectMake(0, rect.size.width - 20 - 44, rect.size.height, 44);
-	}
-	[tabBar setFrame:rectbottom];
-	
-	[aboutController willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+//	CGRect rect = [[UIScreen mainScreen] bounds];
+//	CGRect rectbottom;
+//    if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown)
+//	{
+//		rectbottom = CGRectMake(0, rect.size.height - 20 - 44, rect.size.width, 44);
+//	}
+//	else
+//	{
+//		rectbottom = CGRectMake(0, rect.size.width - 20 - 44, rect.size.height, 44);
+//	}
+//	[tabBar setFrame:rectbottom];
+//	
+//	[aboutController willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item

@@ -45,7 +45,7 @@
     [super viewDidLoad];
 
 	CGRect rect = [[UIScreen mainScreen] bounds];
-	CGRect rectView = CGRectMake(0, 0, rect.size.width, rect.size.height - 20 - 44);
+	CGRect rectView = CGRectMake(0, 20, rect.size.width, rect.size.height - 20 - 48);
 	self.view.frame = rectView;
 }
 
