@@ -116,6 +116,38 @@
 	[self.view bringSubviewToFront:generalController.view];
 }
 
+- (void)layoutPortrait {
+    CGRect rect = self.view.bounds;
+    
+    NSLog(@"lookSize  layoutPortrait %@", NSStringFromCGRect(rect));
+    
+    CGRect rectbottom = CGRectMake(rect.origin.x, rect.origin.y + rect.size.height - 48, rect.size.width, 48);
+    
+    tabBar.frame = rectbottom;
+}
+
+- (void)layoutLandscape {
+    CGRect rect = self.view.bounds;
+    
+    NSLog(@"lookSize  layoutLandscape %@", NSStringFromCGRect(rect));
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+//    if (interfaceOrientation==UIInterfaceOrientationLandscapeLeft) {
+//        [self layoutLandscape];
+//    } else
+//    if (interfaceOrientation==UIInterfaceOrientationLandscapeRight) {
+//        [self layoutLandscape];
+//    } else
+//    if (interfaceOrientation==UIInterfaceOrientationPortrait) {
+//        [self layoutPortrait];
+//    } else
+//    if (interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown) {
+//        [self layoutPortrait];
+//    }
+    return YES;
+}
+
 - (void)dealloc
 {
 	[generalController release];
@@ -156,27 +188,46 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-	return YES;
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    CGRect rect = [[UIScreen mainScreen] bounds];
+    NSLog(@"lookSize  didRotateFromInterfaceOrientation from=%ld bounds=%@", (long)fromInterfaceOrientation, NSStringFromCGRect(rect));
+    
+    CGRect rectbottom = CGRectMake(0, rect.size.height - 0 - 48, rect.size.width, 48);
+    [tabBar setFrame:rectbottom];
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-//	CGRect rect = [[UIScreen mainScreen] bounds];
+    CGRect rect = [[UIScreen mainScreen] bounds];
+    
+    NSLog(@"lookSize  willRotateToInterfaceOrientation to=%ld bounds=%@", (long)toInterfaceOrientation, NSStringFromCGRect(rect));
+    
+	
 //	CGRect rectbottom;
 //    if (toInterfaceOrientation == UIInterfaceOrientationPortrait || toInterfaceOrientation == UIDeviceOrientationPortraitUpsideDown)
 //	{
-//		rectbottom = CGRectMake(0, rect.size.height - 20 - 44, rect.size.width, 44);
+//		rectbottom = CGRectMake(0, rect.size.height - 0 - 48, rect.size.width, 48);
 //	}
 //	else
 //	{
-//		rectbottom = CGRectMake(0, rect.size.width - 20 - 44, rect.size.height, 44);
+//		rectbottom = CGRectMake(0, rect.size.width - 0 - 48, rect.size.height, 48);
 //	}
 //	[tabBar setFrame:rectbottom];
-//	
+	
 //	[aboutController willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    
+//    if (toInterfaceOrientation==UIInterfaceOrientationLandscapeLeft) {
+//        [self layoutLandscape];
+//    } else
+//        if (toInterfaceOrientation==UIInterfaceOrientationLandscapeRight) {
+//            [self layoutLandscape];
+//        } else
+//            if (toInterfaceOrientation==UIInterfaceOrientationPortrait) {
+//                [self layoutPortrait];
+//            } else
+//                if (toInterfaceOrientation==UIInterfaceOrientationPortraitUpsideDown) {
+//                    [self layoutPortrait];
+//                }
 }
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
@@ -214,6 +265,22 @@
 		default:
 			break;
 	}
+}
+
+//设置样式
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
+//设置是否隐藏
+- (BOOL)prefersStatusBarHidden {
+    //    [super prefersStatusBarHidden];
+    return NO;
+}
+
+//设置隐藏动画
+- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
+    return UIStatusBarAnimationNone;
 }
 
 @end
