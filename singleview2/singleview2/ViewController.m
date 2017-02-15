@@ -93,15 +93,16 @@
                         , @{@"Name" : @"Kai4", @"Color": @"Blue"}];
     
 //    [self.tableView registerClass:[NameAndColorCell class] forCellReuseIdentifier:@"CellTableIdentifier"];
-    UINib *nameAndColorCellNib = [UINib nibWithNibName:@"NameAndColorCell" bundle:nil];
+    UINib *nameAndColorCellNib = [UINib nibWithNibName:@"NameAndColorCell2" bundle:nil];
     [self.tableView registerNib:nameAndColorCellNib forCellReuseIdentifier:@"CellTableIdentifier"];
 
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.separatorColor = [UIColor magentaColor];
 
 //    self.tableView.rowHeight = 80;
+    self.tableView.estimatedRowHeight = 144;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
@@ -150,6 +151,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

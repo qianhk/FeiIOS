@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellTableIdentifier" rowHeight="76" id="O96-3u-Apk" customClass="NameAndColorCell">
+            <rect key="frame" x="0.0" y="0.0" width="522" height="76"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O96-3u-Apk" id="fxs-WJ-18X">
+                <rect key="frame" x="0.0" y="0.0" width="522" height="76"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="topLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCN-47-ujR">
+                        <rect key="frame" x="8" y="14" width="67" height="20.5"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="bottomLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahV-u6-zjK">
+                        <rect key="frame" x="8" y="40.5" width="97" height="21"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="ahV-u6-zjK" firstAttribute="top" secondItem="nCN-47-ujR" secondAttribute="bottom" constant="6" id="85Y-BC-UL3"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ahV-u6-zjK" secondAttribute="bottom" constant="6" id="EUv-rD-AWG"/>
+                    <constraint firstItem="nCN-47-ujR" firstAttribute="top" secondItem="fxs-WJ-18X" secondAttribute="topMargin" constant="6" id="Qpa-vM-xpg"/>
+                    <constraint firstItem="ahV-u6-zjK" firstAttribute="leading" secondItem="nCN-47-ujR" secondAttribute="leading" id="hfq-Fv-IIv"/>
+                    <constraint firstItem="nCN-47-ujR" firstAttribute="leading" secondItem="fxs-WJ-18X" secondAttribute="leadingMargin" id="rgq-16-qDA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="nameLabel" destination="nCN-47-ujR" id="Ydj-WW-wJD"/>
+            </connections>
+            <point key="canvasLocation" x="-83" y="-53"/>
+        </tableViewCell>
+    </objects>
+</document>

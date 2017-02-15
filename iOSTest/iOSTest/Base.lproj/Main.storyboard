@@ -46,7 +46,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Hr-K0-CUU">
-                                <rect key="frame" x="159.5" y="318.5" width="55" height="30"/>
+                                <rect key="frame" x="160" y="318.5" width="55" height="30"/>
                                 <state key="normal" title="Button2"/>
                                 <connections>
                                     <action selector="buttonPressed:" destination="JEX-9P-axG" eventType="touchUpInside" id="CoR-PQ-Zrr"/>
