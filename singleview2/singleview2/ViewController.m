@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "NameAndColorCell.h"
 
 #define KTTMessagePort "com.ttpod.ttdesktop.port2"
 
@@ -16,6 +17,7 @@
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource> {
     NSArray *mDataArray;
+    NSArray *mColorDataArray;
 //    UILabel *lblStatus;
 }
 
@@ -84,35 +86,56 @@
 //	CFRunLoopAddSource(CFRunLoopGetCurrent(), source, kCFRunLoopCommonModes);
 
     mDataArray = @[@"Kai1", @"Kai2", @"Kai3", @"Kai4"];
+    
+    mColorDataArray = @[@{@"Name" : @"Kai1", @"Color": @"Sliver"}
+                        , @{@"Name" : @"Kai2", @"Color": @"Red"}
+                        , @{@"Name" : @"Kai3", @"Color": @"Green"}
+                        , @{@"Name" : @"Kai4", @"Color": @"Blue"}];
+    
+//    [self.tableView registerClass:[NameAndColorCell class] forCellReuseIdentifier:@"CellTableIdentifier"];
+    UINib *nameAndColorCellNib = [UINib nibWithNibName:@"NameAndColorCell" bundle:nil];
+    [self.tableView registerNib:nameAndColorCellNib forCellReuseIdentifier:@"CellTableIdentifier"];
 
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorColor = [UIColor magentaColor];
+
+//    self.tableView.rowHeight = 80;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return mDataArray.count;
+    return mColorDataArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"SimpleTableIdentifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
-    cell.textLabel.text = mDataArray[indexPath.row];
+//    static NSString *simpleTableIdentifier = @"SimpleTableIdentifier";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+//    if (!cell) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+//    }
+//    cell.textLabel.text = mDataArray[indexPath.row];
+//    return cell;
+    
+    NameAndColorCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CellTableIdentifier"];
+    NSDictionary *rowData = mColorDataArray[indexPath.row];
+    cell.name = rowData[@"Name"];
+    cell.color = rowData[@"Color"];
+    
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger row = indexPath.row;
-    if (row == 0) {
-        return 60.f;
-    } else {
-        return 30.f;
-    }
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+////    NSInteger row = indexPath.row;
+////    if (row == 0) {
+////        return 60.f;
+////    } else {
+////        return 30.f;
+////    }
+//    
+//    return UITableViewAutomaticDimension;
+//}
 
 
 - (void)viewDidUnload {
