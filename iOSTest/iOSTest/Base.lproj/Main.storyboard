@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -37,25 +38,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dsy-XB-BBj">
-                                <rect key="frame" x="51" y="408" width="72" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dsy-XB-BBj">
+                                <rect key="frame" x="28" y="318.5" width="52" height="30"/>
                                 <state key="normal" title="Button1"/>
                                 <connections>
                                     <action selector="buttonPressed:" destination="JEX-9P-axG" eventType="touchUpInside" id="8AV-Ft-7q5"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Hr-K0-CUU">
-                                <rect key="frame" x="149" y="408" width="76" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Hr-K0-CUU">
+                                <rect key="frame" x="159.5" y="318.5" width="55" height="30"/>
                                 <state key="normal" title="Button2"/>
                                 <connections>
                                     <action selector="buttonPressed:" destination="JEX-9P-axG" eventType="touchUpInside" id="CoR-PQ-Zrr"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Done" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vJs-XQ-2ya">
-                                <rect key="frame" x="130" y="196" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WeexLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bB7-KN-yot">
+                                <rect key="frame" x="147.5" y="575" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="8hX-wS-Rcr"/>
+                                    <constraint firstAttribute="width" constant="80" id="uwL-AS-wKz"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwf-SQ-jaU">
+                                <rect key="frame" x="292" y="318.5" width="55" height="30"/>
+                                <state key="normal" title="Button3"/>
+                                <connections>
+                                    <action selector="buttonPressed:" destination="JEX-9P-axG" eventType="touchUpInside" id="ftA-NE-aPB"/>
+                                </connections>
+                            </button>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw" userLabel="Detail Description Label2">
+                                <rect key="frame" x="91.5" y="76" width="192" height="17"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" size="system"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Done" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vJs-XQ-2ya">
+                                <rect key="frame" x="291" y="105" width="56" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -64,28 +83,22 @@
                                     <action selector="editTextPrimaryActionTrigger:" destination="JEX-9P-axG" eventType="primaryActionTriggered" id="CgY-wG-2M8"/>
                                 </connections>
                             </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="WeexLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bB7-KN-yot">
-                                <rect key="frame" x="98" y="487" width="160" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mwf-SQ-jaU">
-                                <rect key="frame" x="253" y="408" width="69" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button3"/>
-                                <connections>
-                                    <action selector="buttonPressed:" destination="JEX-9P-axG" eventType="touchUpInside" id="ftA-NE-aPB"/>
-                                </connections>
-                            </button>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw" userLabel="Detail Description Label2">
-                                <rect key="frame" x="16" y="128" width="335" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="GAO-Cl-Wes" firstAttribute="top" secondItem="bB7-KN-yot" secondAttribute="bottom" constant="12" id="0fU-XD-eiL"/>
+                            <constraint firstItem="mwf-SQ-jaU" firstAttribute="baseline" secondItem="5Hr-K0-CUU" secondAttribute="baseline" id="1xe-Z4-ozl"/>
+                            <constraint firstItem="5Hr-K0-CUU" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="7eH-kQ-U3O"/>
+                            <constraint firstItem="5Hr-K0-CUU" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="CHW-9R-toi"/>
+                            <constraint firstItem="Dsy-XB-BBj" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leadingMargin" constant="12" id="OCI-Et-gAC"/>
+                            <constraint firstItem="Dsy-XB-BBj" firstAttribute="baseline" secondItem="5Hr-K0-CUU" secondAttribute="baseline" id="c35-v0-Oz4"/>
+                            <constraint firstItem="vJs-XQ-2ya" firstAttribute="top" secondItem="0XM-y9-sOw" secondAttribute="bottom" constant="12" id="d88-tN-Lh9"/>
+                            <constraint firstItem="bB7-KN-yot" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="dDW-gU-S6Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vJs-XQ-2ya" secondAttribute="trailing" constant="12" id="jO8-Jv-nO2"/>
+                            <constraint firstItem="0XM-y9-sOw" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="12" id="pQk-Gi-y8t"/>
+                            <constraint firstItem="0XM-y9-sOw" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="t5m-zI-MDh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mwf-SQ-jaU" secondAttribute="trailing" constant="12" id="zD8-53-5Bs"/>
+                        </constraints>
                         <connections>
                             <action selector="backgroundTap:" destination="JEX-9P-axG" eventType="touchDown" id="LbN-Tl-V59"/>
                         </connections>
