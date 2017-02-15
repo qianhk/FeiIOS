@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2AEEE3AE1E5404A3000F43D9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AEEE3AD1E5404A3000F43D9 /* Images.xcassets */; };
 		D9CE40AD14FB8F1000E6FD79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40AC14FB8F1000E6FD79 /* UIKit.framework */; };
 		D9CE40AF14FB8F1000E6FD79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40AE14FB8F1000E6FD79 /* Foundation.framework */; };
 		D9CE40B114FB8F1000E6FD79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40B014FB8F1000E6FD79 /* CoreGraphics.framework */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2AEEE3AD1E5404A3000F43D9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D9CE40A814FB8F1000E6FD79 /* singleview2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = singleview2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CE40AC14FB8F1000E6FD79 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D9CE40AE14FB8F1000E6FD79 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,6 +84,7 @@
 				D9CE40BE14FB8F1000E6FD79 /* ViewController.h */,
 				D9CE40BF14FB8F1000E6FD79 /* ViewController.m */,
 				D9CE40C114FB8F1000E6FD79 /* ViewController.xib */,
+				2AEEE3AD1E5404A3000F43D9 /* Images.xcassets */,
 				D9CE40B314FB8F1000E6FD79 /* Supporting Files */,
 			);
 			path = singleview2;
@@ -149,6 +152,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AEEE3AE1E5404A3000F43D9 /* Images.xcassets in Resources */,
 				D9CE40B714FB8F1000E6FD79 /* InfoPlist.strings in Resources */,
 				D9CE40C314FB8F1000E6FD79 /* ViewController.xib in Resources */,
 			);
@@ -193,7 +197,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -208,7 +212,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -217,7 +221,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -225,7 +229,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -235,6 +239,8 @@
 		D9CE40C714FB8F1000E6FD79 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleview2/singleview2-Prefix.pch";
 				INFOPLIST_FILE = "singleview2/singleview2-Info.plist";
@@ -246,6 +252,8 @@
 		D9CE40C814FB8F1000E6FD79 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleview2/singleview2-Prefix.pch";
 				INFOPLIST_FILE = "singleview2/singleview2-Info.plist";
@@ -273,6 +281,7 @@
 				D9CE40C814FB8F1000E6FD79 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
