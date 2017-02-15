@@ -9,10 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-{
-	UILabel* lblStatus;
-}
 
-- (void)setLabel:(NSString *)text;
+@property (retain, nonatomic) IBOutlet UITableView *tableView;
 
 @end
