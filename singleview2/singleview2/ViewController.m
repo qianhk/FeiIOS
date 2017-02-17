@@ -104,6 +104,8 @@
 //    self.tableView.rowHeight = 80;
     self.tableView.estimatedRowHeight = 144;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    NSLog(@"viewDidLoad iOS8 table view 使用自动布局, 得tableView.estimatedRowHeight != 0, tableView.rowHeight = UITableViewAutomaticDimension 无需重载heightForRowAtIndexPath， 同时还可以通过constraints更新cell子view的高度");
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -122,8 +124,24 @@
     NameAndColorCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CellTableIdentifier"];
     NSDictionary *rowData = mColorDataArray[indexPath.row];
     cell.name = rowData[@"Name"];
-    cell.color = rowData[@"Color"];
-    
+
+    NSString *colorStr = rowData[@"Color"];
+    cell.color = colorStr;
+
+//    NSMutableAttributedString *styledText = [[NSMutableAttributedString alloc] initWithString:colorStr];
+//    NSDictionary *attributes = @{
+////            NSFontAttributeName : []
+//    };
+//    NSRange colorRange = [colorStr rangeOfString:colorStr];
+//    [styledText setAttributes:attributes range:colorRange];
+
+    NSRange range = NSMakeRange(1, colorStr.length - 1);
+    NSMutableAttributedString *styledText = [[NSMutableAttributedString alloc] initWithString:colorStr];
+    [styledText addAttribute:NSForegroundColorAttributeName
+                             value:[UIColor redColor]
+                             range:range];
+
+    cell.colorLabel.attributedText = styledText;
     return cell;
 }
 

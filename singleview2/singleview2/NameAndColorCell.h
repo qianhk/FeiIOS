@@ -10,6 +10,8 @@
 
 @interface NameAndColorCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UILabel *colorLabel;
+
 @property (copy, nonatomic) NSString *name;
 @property (copy, nonatomic) NSString *color;
 
