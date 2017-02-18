@@ -6,7 +6,7 @@
 //  Copyright (c) 2012年 TTPod. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "TestTableViewController.h"
 #import "NameAndColorCell.h"
 
 #define KTTMessagePort "com.ttpod.ttdesktop.port2"
@@ -15,7 +15,7 @@
 //static int callbacktimes = 0;
 //static ViewController * pView = nil;
 
-@interface ViewController () <UITableViewDelegate, UITableViewDataSource> {
+@interface TestTableViewController () {
     NSArray *mDataArray;
     NSArray *mColorDataArray;
 //    UILabel *lblStatus;
@@ -23,7 +23,7 @@
 
 @end;
 
-@implementation ViewController
+@implementation TestTableViewController
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

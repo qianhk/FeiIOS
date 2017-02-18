@@ -12,14 +12,17 @@
 		2AEEE3B01E5424F5000F43D9 /* NameAndColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AEEE3AF1E5424F5000F43D9 /* NameAndColorCell.xib */; };
 		2AEEE3B31E542670000F43D9 /* NameAndColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEEE3B21E542670000F43D9 /* NameAndColorCell.m */; };
 		2AEEE3B51E544141000F43D9 /* NameAndColorCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AEEE3B41E544141000F43D9 /* NameAndColorCell2.xib */; };
-		2AEEE3B71E5445CF000F43D9 /* Empty.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AEEE3B61E5445CF000F43D9 /* Empty.xib */; };
+		2AF01FB91E5891330088008E /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF01FB71E5891330088008E /* SwitchViewController.m */; };
+		2AF01FBA1E5891330088008E /* SwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF01FB81E5891330088008E /* SwitchViewController.xib */; };
+		2AF01FBE1E58935D0088008E /* BlueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF01FBC1E58935D0088008E /* BlueViewController.m */; };
+		2AF01FBF1E58935D0088008E /* BlueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF01FBD1E58935D0088008E /* BlueViewController.xib */; };
 		D9CE40AD14FB8F1000E6FD79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40AC14FB8F1000E6FD79 /* UIKit.framework */; };
 		D9CE40AF14FB8F1000E6FD79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40AE14FB8F1000E6FD79 /* Foundation.framework */; };
 		D9CE40B114FB8F1000E6FD79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40B014FB8F1000E6FD79 /* CoreGraphics.framework */; };
 		D9CE40B714FB8F1000E6FD79 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9CE40B514FB8F1000E6FD79 /* InfoPlist.strings */; };
 		D9CE40B914FB8F1000E6FD79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE40B814FB8F1000E6FD79 /* main.m */; };
 		D9CE40BD14FB8F1000E6FD79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE40BC14FB8F1000E6FD79 /* AppDelegate.m */; };
-		D9CE40C014FB8F1000E6FD79 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE40BF14FB8F1000E6FD79 /* ViewController.m */; };
+		D9CE40C014FB8F1000E6FD79 /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE40BF14FB8F1000E6FD79 /* TestTableViewController.m */; };
 		D9CE40C314FB8F1000E6FD79 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CE40C114FB8F1000E6FD79 /* ViewController.xib */; };
 /* End PBXBuildFile section */
 
@@ -31,7 +34,12 @@
 		2AEEE3B11E542670000F43D9 /* NameAndColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameAndColorCell.h; sourceTree = "<group>"; };
 		2AEEE3B21E542670000F43D9 /* NameAndColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameAndColorCell.m; sourceTree = "<group>"; };
 		2AEEE3B41E544141000F43D9 /* NameAndColorCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NameAndColorCell2.xib; sourceTree = "<group>"; };
-		2AEEE3B61E5445CF000F43D9 /* Empty.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Empty.xib; sourceTree = "<group>"; };
+		2AF01FB61E5891330088008E /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
+		2AF01FB71E5891330088008E /* SwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
+		2AF01FB81E5891330088008E /* SwitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchViewController.xib; sourceTree = "<group>"; };
+		2AF01FBB1E58935D0088008E /* BlueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlueViewController.h; sourceTree = "<group>"; };
+		2AF01FBC1E58935D0088008E /* BlueViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlueViewController.m; sourceTree = "<group>"; };
+		2AF01FBD1E58935D0088008E /* BlueViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlueViewController.xib; sourceTree = "<group>"; };
 		D9CE40A814FB8F1000E6FD79 /* singleview2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = singleview2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CE40AC14FB8F1000E6FD79 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D9CE40AE14FB8F1000E6FD79 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -42,8 +50,8 @@
 		D9CE40BA14FB8F1000E6FD79 /* singleview2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "singleview2-Prefix.pch"; sourceTree = "<group>"; };
 		D9CE40BB14FB8F1000E6FD79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D9CE40BC14FB8F1000E6FD79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D9CE40BE14FB8F1000E6FD79 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		D9CE40BF14FB8F1000E6FD79 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D9CE40BE14FB8F1000E6FD79 /* TestTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTableViewController.h; sourceTree = "<group>"; };
+		D9CE40BF14FB8F1000E6FD79 /* TestTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTableViewController.m; sourceTree = "<group>"; };
 		D9CE40C214FB8F1000E6FD79 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,8 +101,8 @@
 			children = (
 				D9CE40BB14FB8F1000E6FD79 /* AppDelegate.h */,
 				D9CE40BC14FB8F1000E6FD79 /* AppDelegate.m */,
-				D9CE40BE14FB8F1000E6FD79 /* ViewController.h */,
-				D9CE40BF14FB8F1000E6FD79 /* ViewController.m */,
+				D9CE40BE14FB8F1000E6FD79 /* TestTableViewController.h */,
+				D9CE40BF14FB8F1000E6FD79 /* TestTableViewController.m */,
 				D9CE40C114FB8F1000E6FD79 /* ViewController.xib */,
 				2AEEE3AD1E5404A3000F43D9 /* Images.xcassets */,
 				D9CE40B314FB8F1000E6FD79 /* Supporting Files */,
@@ -102,9 +110,14 @@
 				2AEEE3B41E544141000F43D9 /* NameAndColorCell2.xib */,
 				2AEEE3B11E542670000F43D9 /* NameAndColorCell.h */,
 				2AEEE3B21E542670000F43D9 /* NameAndColorCell.m */,
-				2AEEE3B61E5445CF000F43D9 /* Empty.xib */,
 				19DD34BAF8EBB489D79A5C8A /* UIColor+String.m */,
 				19DD33194D955DB098B8AD03 /* UIColor+String.h */,
+				2AF01FB61E5891330088008E /* SwitchViewController.h */,
+				2AF01FB71E5891330088008E /* SwitchViewController.m */,
+				2AF01FB81E5891330088008E /* SwitchViewController.xib */,
+				2AF01FBB1E58935D0088008E /* BlueViewController.h */,
+				2AF01FBC1E58935D0088008E /* BlueViewController.m */,
+				2AF01FBD1E58935D0088008E /* BlueViewController.xib */,
 			);
 			path = singleview2;
 			sourceTree = "<group>";
@@ -174,8 +187,9 @@
 				2AEEE3B01E5424F5000F43D9 /* NameAndColorCell.xib in Resources */,
 				2AEEE3AE1E5404A3000F43D9 /* Images.xcassets in Resources */,
 				D9CE40B714FB8F1000E6FD79 /* InfoPlist.strings in Resources */,
-				2AEEE3B71E5445CF000F43D9 /* Empty.xib in Resources */,
+				2AF01FBA1E5891330088008E /* SwitchViewController.xib in Resources */,
 				D9CE40C314FB8F1000E6FD79 /* ViewController.xib in Resources */,
+				2AF01FBF1E58935D0088008E /* BlueViewController.xib in Resources */,
 				2AEEE3B51E544141000F43D9 /* NameAndColorCell2.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -190,7 +204,9 @@
 				2AEEE3B31E542670000F43D9 /* NameAndColorCell.m in Sources */,
 				D9CE40B914FB8F1000E6FD79 /* main.m in Sources */,
 				D9CE40BD14FB8F1000E6FD79 /* AppDelegate.m in Sources */,
-				D9CE40C014FB8F1000E6FD79 /* ViewController.m in Sources */,
+				D9CE40C014FB8F1000E6FD79 /* TestTableViewController.m in Sources */,
+				2AF01FBE1E58935D0088008E /* BlueViewController.m in Sources */,
+				2AF01FB91E5891330088008E /* SwitchViewController.m in Sources */,
 				19DD3344B7BBF183D45BFCF5 /* UIColor+String.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
