@@ -23,7 +23,11 @@
                     <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                     <items>
-                        <barButtonItem title="Item" id="Lsc-RF-9Ju"/>
+                        <barButtonItem title="SwitchViews" id="Lsc-RF-9Ju">
+                            <connections>
+                                <action selector="switchViews:" destination="-1" id="1Db-P0-HWm"/>
+                            </connections>
+                        </barButtonItem>
                     </items>
                 </toolbar>
             </subviews>
