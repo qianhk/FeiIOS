@@ -23,7 +23,6 @@
 		D9CE40B914FB8F1000E6FD79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE40B814FB8F1000E6FD79 /* main.m */; };
 		D9CE40BD14FB8F1000E6FD79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE40BC14FB8F1000E6FD79 /* AppDelegate.m */; };
 		D9CE40C014FB8F1000E6FD79 /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE40BF14FB8F1000E6FD79 /* TestTableViewController.m */; };
-		D9CE40C314FB8F1000E6FD79 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9CE40C114FB8F1000E6FD79 /* ViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +51,6 @@
 		D9CE40BC14FB8F1000E6FD79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D9CE40BE14FB8F1000E6FD79 /* TestTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTableViewController.h; sourceTree = "<group>"; };
 		D9CE40BF14FB8F1000E6FD79 /* TestTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTableViewController.m; sourceTree = "<group>"; };
-		D9CE40C214FB8F1000E6FD79 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +101,6 @@
 				D9CE40BC14FB8F1000E6FD79 /* AppDelegate.m */,
 				D9CE40BE14FB8F1000E6FD79 /* TestTableViewController.h */,
 				D9CE40BF14FB8F1000E6FD79 /* TestTableViewController.m */,
-				D9CE40C114FB8F1000E6FD79 /* ViewController.xib */,
 				2AEEE3AD1E5404A3000F43D9 /* Images.xcassets */,
 				D9CE40B314FB8F1000E6FD79 /* Supporting Files */,
 				2AEEE3AF1E5424F5000F43D9 /* NameAndColorCell.xib */,
@@ -188,7 +185,6 @@
 				2AEEE3AE1E5404A3000F43D9 /* Images.xcassets in Resources */,
 				D9CE40B714FB8F1000E6FD79 /* InfoPlist.strings in Resources */,
 				2AF01FBA1E5891330088008E /* SwitchViewController.xib in Resources */,
-				D9CE40C314FB8F1000E6FD79 /* ViewController.xib in Resources */,
 				2AF01FBF1E58935D0088008E /* BlueViewController.xib in Resources */,
 				2AEEE3B51E544141000F43D9 /* NameAndColorCell2.xib in Resources */,
 			);
@@ -220,14 +216,6 @@
 				D9CE40B614FB8F1000E6FD79 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D9CE40C114FB8F1000E6FD79 /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D9CE40C214FB8F1000E6FD79 /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

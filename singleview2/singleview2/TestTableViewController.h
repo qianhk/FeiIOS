@@ -10,6 +10,4 @@
 
 @interface TestTableViewController : UITableViewController
 
-@property (retain, nonatomic) IBOutlet UITableView *tableView;
-
 @end

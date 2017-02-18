@@ -44,7 +44,22 @@
 */
 
 - (IBAction)switchViews:(id)sender {
-
+    if (!self.testTableViewController.view.superview) {
+        if (!self.testTableViewController) {
+            self.testTableViewController = [[TestTableViewController alloc] init];
+        }
+    } else {
+        if (!self.blueViewController) {
+            self.blueViewController = [[BlueViewController alloc] initWithNibName:@"BlueViewController" bundle:nil];
+        }
+    }
+    if (!_testTableViewController.view.superview) {
+        _testTableViewController.view.frame = self.view.frame;
+        [self switchViewFromViewController:_blueViewController toViewController:_testTableViewController];
+    } else {
+        _blueViewController.view.frame = self.view.frame;
+        [self switchViewFromViewController:_testTableViewController toViewController:_blueViewController];
+    }
 }
 
 #pragma mark - 转换控制器
