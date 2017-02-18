@@ -87,7 +87,7 @@
 
     mDataArray = @[@"Kai1", @"Kai2", @"Kai3", @"Kai4"];
     
-    mColorDataArray = @[@{@"Name" : @"Kai1", @"Color": @"Sliver"}
+    mColorDataArray = @[@{@"Name" : @"Kai1", @"Color": @"Orange"}
                         , @{@"Name" : @"Kai2", @"Color": @"Red"}
                         , @{@"Name" : @"Kai3", @"Color": @"Green"}
                         , @{@"Name" : @"Kai4", @"Color": @"Blue"}];
@@ -128,20 +128,6 @@
     NSString *colorStr = rowData[@"Color"];
     cell.color = colorStr;
 
-//    NSMutableAttributedString *styledText = [[NSMutableAttributedString alloc] initWithString:colorStr];
-//    NSDictionary *attributes = @{
-////            NSFontAttributeName : []
-//    };
-//    NSRange colorRange = [colorStr rangeOfString:colorStr];
-//    [styledText setAttributes:attributes range:colorRange];
-
-    NSRange range = NSMakeRange(1, colorStr.length - 1);
-    NSMutableAttributedString *styledText = [[NSMutableAttributedString alloc] initWithString:colorStr];
-    [styledText addAttribute:NSForegroundColorAttributeName
-                             value:[UIColor redColor]
-                             range:range];
-
-    cell.colorLabel.attributedText = styledText;
     return cell;
 }
 

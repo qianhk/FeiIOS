@@ -7,10 +7,11 @@
 //
 
 #import "NameAndColorCell.h"
+#import "UIColor+String.h"
 
-@interface NameAndColorCell()
+@interface NameAndColorCell ()
 
-@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property(strong, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
 
@@ -32,9 +33,25 @@
     _nameLabel.text = _name;
 }
 
-- (void)setColor:(NSString *)color {
-    _color = [color copy];
-    _colorLabel.text = _color;
+- (void)setColor:(NSString *)colorStr {
+    _color = [colorStr copy];
+//    _colorLabel.text = _color;
+
+
+//    NSMutableAttributedString *styledText = [[NSMutableAttributedString alloc] initWithString:colorStr];
+//    NSDictionary *attributes = @{
+////            NSFontAttributeName : []
+//    };
+//    NSRange colorRange = [colorStr rangeOfString:colorStr];
+//    [styledText setAttributes:attributes range:colorRange];
+
+    NSRange range = NSMakeRange(0, colorStr.length);
+    NSMutableAttributedString *styledText = [[NSMutableAttributedString alloc] initWithString:colorStr];
+    [styledText addAttribute:NSForegroundColorAttributeName
+                       value:[UIColor colorWithString:colorStr]
+                       range:range];
+
+    _colorLabel.attributedText = styledText;
 }
 
 @end
