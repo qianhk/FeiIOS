@@ -22,15 +22,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
     self.blueViewController = [[BlueViewController alloc] initWithNibName:@"BlueViewController" bundle:nil];
-    self.blueViewController.view.frame = self.view.frame;
+    _blueViewController.view.frame = [self getContentViewFrame];
     [self switchViewFromViewController:nil toViewController:self.blueViewController];
+
+//    self.testTableViewController = [[TestTableViewController alloc] init];
+//    _testTableViewController.view.frame = [self getContentViewFrame];
+//    [self switchViewFromViewController:nil toViewController:_testTableViewController];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    if (_testTableViewController.view.superview) {
+        self.blueViewController = nil;
+    } else {
+        self.testTableViewController = nil;
+    }
 }
 
 /*
@@ -47,17 +56,17 @@
     if (!self.testTableViewController.view.superview) {
         if (!self.testTableViewController) {
             self.testTableViewController = [[TestTableViewController alloc] init];
+            _testTableViewController.view.frame = [self getContentViewFrame];
         }
     } else {
         if (!self.blueViewController) {
             self.blueViewController = [[BlueViewController alloc] initWithNibName:@"BlueViewController" bundle:nil];
+            _blueViewController.view.frame = [self getContentViewFrame];
         }
     }
     if (!_testTableViewController.view.superview) {
-        _testTableViewController.view.frame = self.view.frame;
         [self switchViewFromViewController:_blueViewController toViewController:_testTableViewController];
     } else {
-        _blueViewController.view.frame = self.view.frame;
         [self switchViewFromViewController:_testTableViewController toViewController:_blueViewController];
     }
 }
@@ -75,9 +84,14 @@
     if (toVC != nil) {
         [self addChildViewController:toVC];
         [self.view insertSubview:toVC.view atIndex:0];
+//        [self.view bringSubviewToFront:toVC.view];
         [toVC didMoveToParentViewController:self];
     }
+}
 
+- (CGRect)getContentViewFrame {
+    CGRect originFrame = self.view.frame;
+    return CGRectMake(originFrame.origin.x, originFrame.origin.y + 20, originFrame.size.width, originFrame.size.height - 20);
 }
 
 @end
