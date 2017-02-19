@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BlueViewController">
             <connections>
+                <outlet property="datePicker" destination="p0i-3w-TbQ" id="n7G-D1-QdS"/>
+                <outlet property="resultLabel" destination="G6m-I6-Xkc" id="wgs-lH-n0v"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,15 +22,44 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXO-Dj-cGl">
-                    <rect key="frame" x="147.5" y="0.0" width="80" height="30"/>
+                    <rect key="frame" x="148" y="0.0" width="80" height="30"/>
                     <state key="normal" title="Blue Button"/>
+                    <connections>
+                        <action selector="onButtonClicked:" destination="-1" eventType="touchUpInside" id="HH5-Iw-4ws"/>
+                    </connections>
                 </button>
+                <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="p0i-3w-TbQ">
+                    <rect key="frame" x="0.0" y="38" width="375" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <date key="date" timeIntervalSinceReferenceDate="509189889.81078702">
+                        <!--2017-02-19 09:38:09 +0000-->
+                    </date>
+                    <date key="minimumDate" timeIntervalSinceReferenceDate="-662799600">
+                        <!--1979-12-31 17:00:00 +0000-->
+                    </date>
+                    <date key="maximumDate" timeIntervalSinceReferenceDate="631119600">
+                        <!--2020-12-31 15:00:00 +0000-->
+                    </date>
+                    <connections>
+                        <action selector="datePickerValueChanged:" destination="-1" eventType="valueChanged" id="RCl-eq-UZG"/>
+                    </connections>
+                </datePicker>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="result:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6m-I6-Xkc">
+                    <rect key="frame" x="0.0" y="586" width="375" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="G6m-I6-Xkc" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="WoR-XZ-hIp"/>
                 <constraint firstItem="RXO-Dj-cGl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XPI-mK-GLt"/>
+                <constraint firstItem="G6m-I6-Xkc" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="g0W-Hr-IZU"/>
                 <constraint firstItem="RXO-Dj-cGl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="isS-tD-hPg"/>
+                <constraint firstAttribute="bottom" secondItem="G6m-I6-Xkc" secondAttribute="bottom" constant="60" id="zhE-kw-d0F"/>
             </constraints>
+            <point key="canvasLocation" x="72.5" y="54.5"/>
         </view>
     </objects>
 </document>

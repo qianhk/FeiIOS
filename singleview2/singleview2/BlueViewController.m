@@ -9,10 +9,21 @@
 #import "BlueViewController.h"
 
 @interface BlueViewController ()
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) IBOutlet UILabel *resultLabel;
 
 @end
 
 @implementation BlueViewController
+
+- (IBAction)onButtonClicked:(UIButton *)sender {
+    _resultLabel.text = _datePicker.date.description;
+}
+
+
+- (IBAction)datePickerValueChanged:(UIDatePicker *)sender {
+    _resultLabel.text = sender.date.description;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,7 +32,14 @@
 //    CGRect originFrame = self.view.frame;
 //    self.view.frame = CGRectMake(originFrame.origin.x, originFrame.origin.y + 20, originFrame.size.width, originFrame.size.height - 20);
     
-    self.view.backgroundColor = [UIColor blueColor];
+//    self.view.backgroundColor = [UIColor blueColor];
+    
+//    self.view.bounds = [self getContentViewFrame];
+//    _datePicker change
+//    [_datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
+    
+    NSDate *date = [NSDate date];
+    [_datePicker setDate:date animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,5 +56,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (CGRect)getContentViewFrame {
+    CGRect originFrame = self.view.frame;
+    return CGRectMake(originFrame.origin.x, originFrame.origin.y + 20, originFrame.size.width, originFrame.size.height - 20 - 44);
+}
 
 @end

@@ -21,12 +21,12 @@
     // Do any additional setup after loading the view.
     
     UIViewController *testViewController = [[TestTableViewController alloc] init];
-    testViewController.view.frame = [self getContentViewFrame];
+//    testViewController.view.frame = [self getContentViewFrame];
     UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"First" image:[UIImage imageNamed:@"hotel"] tag:0];
     testViewController.tabBarItem = item;
     
     UIViewController * blueViewController= [[BlueViewController alloc] initWithNibName:@"BlueViewController" bundle:nil];
-    blueViewController.view.frame = [self getContentViewFrame];
+//    blueViewController.view.frame = [self getContentViewFrame];
     item = [[UITabBarItem alloc] initWithTitle:@"Blue" image:[UIImage imageNamed:@"scenic"] tag:1];
     blueViewController.tabBarItem = item;
     
@@ -51,7 +51,7 @@
 
 - (CGRect)getContentViewFrame {
     CGRect originFrame = self.view.frame;
-    return CGRectMake(originFrame.origin.x, originFrame.origin.y + 20, originFrame.size.width, originFrame.size.height - 20 - 44);
+    return CGRectMake(originFrame.origin.x, originFrame.origin.y + 100, originFrame.size.width, originFrame.size.height - 20 - 44);
 }
 
 @end
