@@ -64,11 +64,20 @@
             _blueViewController.view.frame = [self getContentViewFrame];
         }
     }
+    
+    [UIView beginAnimations:@"View Flip" context:NULL];
+    [UIView setAnimationDuration:0.4];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
     if (!_testTableViewController.view.superview) {
+        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromRight forView:self.view cache:YES];
         [self switchViewFromViewController:_blueViewController toViewController:_testTableViewController];
     } else {
+        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.view cache:YES];
         [self switchViewFromViewController:_testTableViewController toViewController:_blueViewController];
     }
+    
+    [UIView commitAnimations];
 }
 
 #pragma mark - 转换控制器
@@ -91,7 +100,7 @@
 
 - (CGRect)getContentViewFrame {
     CGRect originFrame = self.view.frame;
-    return CGRectMake(originFrame.origin.x, originFrame.origin.y + 20, originFrame.size.width, originFrame.size.height - 20);
+    return CGRectMake(originFrame.origin.x, originFrame.origin.y + 20, originFrame.size.width, originFrame.size.height - 20 - 44);
 }
 
 @end

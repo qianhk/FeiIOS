@@ -20,6 +20,8 @@
     
 //    CGRect originFrame = self.view.frame;
 //    self.view.frame = CGRectMake(originFrame.origin.x, originFrame.origin.y + 20, originFrame.size.width, originFrame.size.height - 20);
+    
+    self.view.backgroundColor = [UIColor blueColor];
 }
 
 - (void)didReceiveMemoryWarning {
