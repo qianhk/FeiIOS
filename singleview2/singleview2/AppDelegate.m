@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "SwitchViewController.h"
+#import "MainTabBarViewController.h"
 
 @implementation AppDelegate
 
@@ -19,7 +20,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
-    self.viewController = [[SwitchViewController alloc] initWithNibName:@"SwitchViewController" bundle:nil];
+//    self.viewController = [[SwitchViewController alloc] initWithNibName:@"SwitchViewController" bundle:nil];
+    self.viewController = [[MainTabBarViewController alloc] init];
 	self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
