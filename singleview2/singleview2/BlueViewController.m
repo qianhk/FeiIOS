@@ -8,16 +8,22 @@
 
 #import "BlueViewController.h"
 
-@interface BlueViewController ()
+@interface BlueViewController () <UIPickerViewDelegate, UIPickerViewDataSource> {
+
+    NSArray<NSString *> *mCharacterNames;
+}
+
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (strong, nonatomic) IBOutlet UILabel *resultLabel;
+@property (strong, nonatomic) IBOutlet UIPickerView *picker;
 
 @end
 
 @implementation BlueViewController
 
 - (IBAction)onButtonClicked:(UIButton *)sender {
-    _resultLabel.text = _datePicker.date.description;
+    NSInteger row = [_picker selectedRowInComponent:0];
+    _resultLabel.text = [NSString stringWithFormat:@"%@ %@", _datePicker.date.description, mCharacterNames[row]];
 }
 
 
@@ -40,11 +46,34 @@
     
     NSDate *date = [NSDate date];
     [_datePicker setDate:date animated:NO];
+    
+    mCharacterNames = @[@"BaoShan", @"FengZhen", @"HongKai", @"TianChun", @"YiYang", @"NaShei", @"SonShei"];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark -
+// returns the number of 'columns' to display.
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+// returns the # of rows in each component..
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return mCharacterNames.count;
+}
+
+#pragma mark -
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    return mCharacterNames[row];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    _resultLabel.text = mCharacterNames[row];
 }
 
 /*
@@ -56,6 +85,8 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark -
 
 - (CGRect)getContentViewFrame {
     CGRect originFrame = self.view.frame;
