@@ -11,6 +11,7 @@
 @interface BlueViewController () <UIPickerViewDelegate, UIPickerViewDataSource> {
 
     NSArray<NSString *> *mCharacterNames;
+    NSArray< NSArray<NSString *> *> *mCharacterNamesList;
 }
 
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
@@ -22,8 +23,9 @@
 @implementation BlueViewController
 
 - (IBAction)onButtonClicked:(UIButton *)sender {
-    NSInteger row = [_picker selectedRowInComponent:0];
-    _resultLabel.text = [NSString stringWithFormat:@"%@ %@", _datePicker.date.description, mCharacterNames[row]];
+    NSInteger row0 = [_picker selectedRowInComponent:0];
+    NSInteger row1 = [_picker selectedRowInComponent:1];
+    _resultLabel.text = [NSString stringWithFormat:@"%@ %@ %@", _datePicker.date.description, mCharacterNamesList[0][row0], mCharacterNamesList[1][row1]];
 }
 
 
@@ -48,6 +50,7 @@
     [_datePicker setDate:date animated:NO];
     
     mCharacterNames = @[@"BaoShan", @"FengZhen", @"HongKai", @"TianChun", @"YiYang", @"NaShei", @"SonShei"];
+    mCharacterNamesList = @[@[@"BaoShan", @"FengZhen", @"HongKai", @"TianChun", @"YiYang", @"NaShei", @"SonShei"], @[@"BaoShan2", @"FengZhen2", @"HongKai2", @"TianChun2", @"YiYang2", @"NaShei2", @"SonShei2"]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,22 +61,22 @@
 #pragma mark -
 // returns the number of 'columns' to display.
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
+    return mCharacterNamesList.count;
 }
 
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return mCharacterNames.count;
+    return [mCharacterNamesList objectAtIndex:component].count;
 }
 
 #pragma mark -
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return mCharacterNames[row];
+    return mCharacterNamesList[component][row];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    _resultLabel.text = mCharacterNames[row];
+    _resultLabel.text = mCharacterNamesList[component][row];
 }
 
 /*
