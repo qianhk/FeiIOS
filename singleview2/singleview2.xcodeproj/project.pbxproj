@@ -10,6 +10,7 @@
 		19DD3344B7BBF183D45BFCF5 /* UIColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD34BAF8EBB489D79A5C8A /* UIColor+String.m */; };
 		2A56B2951E59744800DD29B4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A56B2941E59744800DD29B4 /* Storyboard.storyboard */; };
 		2A56B2981E59778100DD29B4 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */; };
+		2A746B171E5B20670022F2B3 /* statedDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A746B161E5B20670022F2B3 /* statedDictionary.plist */; };
 		2AEEE3AE1E5404A3000F43D9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AEEE3AD1E5404A3000F43D9 /* Images.xcassets */; };
 		2AEEE3B01E5424F5000F43D9 /* NameAndColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AEEE3AF1E5424F5000F43D9 /* NameAndColorCell.xib */; };
 		2AEEE3B31E542670000F43D9 /* NameAndColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AEEE3B21E542670000F43D9 /* NameAndColorCell.m */; };
@@ -33,6 +34,7 @@
 		2A56B2941E59744800DD29B4 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		2A56B2961E59778100DD29B4 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
 		2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
+		2A746B161E5B20670022F2B3 /* statedDictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = statedDictionary.plist; sourceTree = "<group>"; };
 		2AEEE3AD1E5404A3000F43D9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2AEEE3AF1E5424F5000F43D9 /* NameAndColorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NameAndColorCell.xib; sourceTree = "<group>"; };
 		2AEEE3B11E542670000F43D9 /* NameAndColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameAndColorCell.h; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				D9CE40B514FB8F1000E6FD79 /* InfoPlist.strings */,
 				D9CE40B814FB8F1000E6FD79 /* main.m */,
 				D9CE40BA14FB8F1000E6FD79 /* singleview2-Prefix.pch */,
+				2A746B161E5B20670022F2B3 /* statedDictionary.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				2AEEE3B01E5424F5000F43D9 /* NameAndColorCell.xib in Resources */,
 				2AEEE3AE1E5404A3000F43D9 /* Images.xcassets in Resources */,
 				D9CE40B714FB8F1000E6FD79 /* InfoPlist.strings in Resources */,
+				2A746B171E5B20670022F2B3 /* statedDictionary.plist in Resources */,
 				2AF01FBA1E5891330088008E /* SwitchViewController.xib in Resources */,
 				2AF01FBF1E58935D0088008E /* BlueViewController.xib in Resources */,
 				2A56B2951E59744800DD29B4 /* Storyboard.storyboard in Resources */,
