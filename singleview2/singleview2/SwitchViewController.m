@@ -8,13 +8,13 @@
 
 #import "SwitchViewController.h"
 #import "NormalTableViewController.h"
-#import "BlueViewController.h"
+#import "PickerViewController.h"
 
 @interface SwitchViewController ()
 
 @property(strong, nonatomic) NormalTableViewController *testTableViewController;
 
-@property(strong, nonatomic) BlueViewController *blueViewController;
+@property(strong, nonatomic) PickerViewController *blueViewController;
 
 @end
 
@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.blueViewController = [[BlueViewController alloc] initWithNibName:@"BlueViewController" bundle:nil];
+    self.blueViewController = [[PickerViewController alloc] initWithNibName:@"BlueViewController" bundle:nil];
     _blueViewController.view.frame = [self getContentViewFrame];
     [self switchViewFromViewController:nil toViewController:self.blueViewController];
 
@@ -60,7 +60,7 @@
         }
     } else {
         if (!self.blueViewController) {
-            self.blueViewController = [[BlueViewController alloc] initWithNibName:@"BlueViewController" bundle:nil];
+            self.blueViewController = [[PickerViewController alloc] initWithNibName:@"BlueViewController" bundle:nil];
             _blueViewController.view.frame = [self getContentViewFrame];
         }
     }

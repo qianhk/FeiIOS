@@ -1,14 +1,14 @@
 //
-//  BlueViewController.m
+//  PickerViewController.m
 //  singleview2
 //
 //  Created by KaiKai on 17/2/18.
 //  Copyright © 2017年 TTPod. All rights reserved.
 //
 
-#import "BlueViewController.h"
+#import "PickerViewController.h"
 
-@interface BlueViewController () <UIPickerViewDelegate, UIPickerViewDataSource> {
+@interface PickerViewController () <UIPickerViewDelegate, UIPickerViewDataSource> {
 
     NSArray<NSString *> *mCharacterNames;
     NSArray< NSArray<NSString *> *> *mCharacterNamesList;
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation BlueViewController
+@implementation PickerViewController
 
 - (IBAction)onButtonClicked:(UIButton *)sender {
     NSInteger row0 = [_picker selectedRowInComponent:0];

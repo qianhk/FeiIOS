@@ -1,5 +1,5 @@
 //
-//  BlueViewController.h
+//  PickerViewController.h
 //  singleview2
 //
 //  Created by KaiKai on 17/2/18.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BlueViewController : UIViewController
+@interface PickerViewController : UIViewController
 
 @end

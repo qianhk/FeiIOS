@@ -8,7 +8,8 @@
 
 #import "MainTabBarViewController.h"
 #import "NormalTableViewController.h"
-#import "BlueViewController.h"
+#import "PickerViewController.h"
+#import "SectionTableViewController.h"
 
 @interface MainTabBarViewController ()
 
@@ -22,15 +23,18 @@
     
     UIViewController *testViewController = [[NormalTableViewController alloc] init];
 //    testViewController.view.frame = [self getContentViewFrame];
-    UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"First" image:[UIImage imageNamed:@"hotel"] tag:0];
+    UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"Normal" image:[UIImage imageNamed:@"hotel"] tag:0];
     testViewController.tabBarItem = item;
     
-    UIViewController * blueViewController= [[BlueViewController alloc] initWithNibName:@"BlueViewController" bundle:nil];
+    UIViewController * blueViewController= [[PickerViewController alloc] initWithNibName:@"BlueViewController" bundle:nil];
 //    blueViewController.view.frame = [self getContentViewFrame];
-    item = [[UITabBarItem alloc] initWithTitle:@"Blue" image:[UIImage imageNamed:@"scenic"] tag:1];
+    item = [[UITabBarItem alloc] initWithTitle:@"Picker" image:[UIImage imageNamed:@"scenic"] tag:1];
     blueViewController.tabBarItem = item;
+
+    UIViewController * sectionTableViewController= [[SectionTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    sectionTableViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Section" image:[UIImage imageNamed:@"hotel"] tag:2];
     
-    self.viewControllers = @[testViewController, blueViewController];
+    self.viewControllers = @[testViewController, blueViewController, sectionTableViewController];
     
 }
 

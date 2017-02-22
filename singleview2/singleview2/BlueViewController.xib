@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BlueViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PickerViewController">
             <connections>
                 <outlet property="datePicker" destination="p0i-3w-TbQ" id="n7G-D1-QdS"/>
                 <outlet property="picker" destination="Wrq-3C-Sg9" id="bzr-dF-Pih"/>
