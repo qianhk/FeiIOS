@@ -7,7 +7,7 @@
 //
 
 #import "MainTabBarViewController.h"
-#import "TestTableViewController.h"
+#import "NormalTableViewController.h"
 #import "BlueViewController.h"
 
 @interface MainTabBarViewController ()
@@ -20,7 +20,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIViewController *testViewController = [[TestTableViewController alloc] init];
+    UIViewController *testViewController = [[NormalTableViewController alloc] init];
 //    testViewController.view.frame = [self getContentViewFrame];
     UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"First" image:[UIImage imageNamed:@"hotel"] tag:0];
     testViewController.tabBarItem = item;

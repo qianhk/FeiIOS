@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		19DD3344B7BBF183D45BFCF5 /* UIColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD34BAF8EBB489D79A5C8A /* UIColor+String.m */; };
+		19DD3A76623BD5DC58194F8A /* sortednames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19DD3396F3E6744ABF10836B /* sortednames.plist */; };
 		2A56B2951E59744800DD29B4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A56B2941E59744800DD29B4 /* Storyboard.storyboard */; };
 		2A56B2981E59778100DD29B4 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */; };
 		2A746B171E5B20670022F2B3 /* statedDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A746B161E5B20670022F2B3 /* statedDictionary.plist */; };
@@ -25,11 +26,12 @@
 		D9CE40B714FB8F1000E6FD79 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D9CE40B514FB8F1000E6FD79 /* InfoPlist.strings */; };
 		D9CE40B914FB8F1000E6FD79 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE40B814FB8F1000E6FD79 /* main.m */; };
 		D9CE40BD14FB8F1000E6FD79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE40BC14FB8F1000E6FD79 /* AppDelegate.m */; };
-		D9CE40C014FB8F1000E6FD79 /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE40BF14FB8F1000E6FD79 /* TestTableViewController.m */; };
+		D9CE40C014FB8F1000E6FD79 /* NormalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D9CE40BF14FB8F1000E6FD79 /* NormalTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		19DD33194D955DB098B8AD03 /* UIColor+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+String.h"; sourceTree = "<group>"; };
+		19DD3396F3E6744ABF10836B /* sortednames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = sortednames.plist; sourceTree = "<group>"; };
 		19DD34BAF8EBB489D79A5C8A /* UIColor+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+String.m"; sourceTree = "<group>"; };
 		2A56B2941E59744800DD29B4 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		2A56B2961E59778100DD29B4 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
@@ -56,8 +58,8 @@
 		D9CE40BA14FB8F1000E6FD79 /* singleview2-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "singleview2-Prefix.pch"; sourceTree = "<group>"; };
 		D9CE40BB14FB8F1000E6FD79 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D9CE40BC14FB8F1000E6FD79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		D9CE40BE14FB8F1000E6FD79 /* TestTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestTableViewController.h; sourceTree = "<group>"; };
-		D9CE40BF14FB8F1000E6FD79 /* TestTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestTableViewController.m; sourceTree = "<group>"; };
+		D9CE40BE14FB8F1000E6FD79 /* NormalTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalTableViewController.h; sourceTree = "<group>"; };
+		D9CE40BF14FB8F1000E6FD79 /* NormalTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NormalTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +108,8 @@
 			children = (
 				D9CE40BB14FB8F1000E6FD79 /* AppDelegate.h */,
 				D9CE40BC14FB8F1000E6FD79 /* AppDelegate.m */,
-				D9CE40BE14FB8F1000E6FD79 /* TestTableViewController.h */,
-				D9CE40BF14FB8F1000E6FD79 /* TestTableViewController.m */,
+				D9CE40BE14FB8F1000E6FD79 /* NormalTableViewController.h */,
+				D9CE40BF14FB8F1000E6FD79 /* NormalTableViewController.m */,
 				2AEEE3AD1E5404A3000F43D9 /* Images.xcassets */,
 				D9CE40B314FB8F1000E6FD79 /* Supporting Files */,
 				2AEEE3AF1E5424F5000F43D9 /* NameAndColorCell.xib */,
@@ -137,6 +139,7 @@
 				D9CE40B814FB8F1000E6FD79 /* main.m */,
 				D9CE40BA14FB8F1000E6FD79 /* singleview2-Prefix.pch */,
 				2A746B161E5B20670022F2B3 /* statedDictionary.plist */,
+				19DD3396F3E6744ABF10836B /* sortednames.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				2AF01FBF1E58935D0088008E /* BlueViewController.xib in Resources */,
 				2A56B2951E59744800DD29B4 /* Storyboard.storyboard in Resources */,
 				2AEEE3B51E544141000F43D9 /* NameAndColorCell2.xib in Resources */,
+				19DD3A76623BD5DC58194F8A /* sortednames.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +222,7 @@
 				2AEEE3B31E542670000F43D9 /* NameAndColorCell.m in Sources */,
 				D9CE40B914FB8F1000E6FD79 /* main.m in Sources */,
 				D9CE40BD14FB8F1000E6FD79 /* AppDelegate.m in Sources */,
-				D9CE40C014FB8F1000E6FD79 /* TestTableViewController.m in Sources */,
+				D9CE40C014FB8F1000E6FD79 /* NormalTableViewController.m in Sources */,
 				2AF01FBE1E58935D0088008E /* BlueViewController.m in Sources */,
 				2A56B2981E59778100DD29B4 /* MainTabBarViewController.m in Sources */,
 				2AF01FB91E5891330088008E /* SwitchViewController.m in Sources */,

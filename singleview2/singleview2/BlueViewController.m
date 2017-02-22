@@ -125,15 +125,15 @@
     }
 }
 
-/*
-#pragma mark - Navigation
+//- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+//    CGFloat pickerWidth = pickerView.bounds.size.width;
+//    if (component == 0) {
+//        return pickerWidth / 5;
+//    } else {
+//        return pickerWidth / 5 * 4;
+//    }
+//}
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark -
 

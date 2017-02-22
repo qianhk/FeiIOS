@@ -6,7 +6,7 @@
 //  Copyright (c) 2012年 TTPod. All rights reserved.
 //
 
-#import "TestTableViewController.h"
+#import "NormalTableViewController.h"
 #import "NameAndColorCell.h"
 
 #define KTTMessagePort "com.ttpod.ttdesktop.port2"
@@ -15,7 +15,7 @@
 //static int callbacktimes = 0;
 //static ViewController * pView = nil;
 
-@interface TestTableViewController () {
+@interface NormalTableViewController () {
     NSArray *mDataArray;
     NSArray *mColorDataArray;
 //    UILabel *lblStatus;
@@ -23,7 +23,7 @@
 
 @end;
 
-@implementation TestTableViewController
+@implementation NormalTableViewController
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -148,6 +148,21 @@
 //    return UITableViewAutomaticDimension;
 //}
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0) {
+        return nil;
+//    } else if (indexPath.row == 2) {
+//        return [NSIndexPath indexPathForRow:1 inSection:indexPath.section];
+    } else {
+        return indexPath;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
+}
+
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
@@ -157,5 +172,11 @@
     CGRect originFrame = self.view.frame;
     return CGRectMake(originFrame.origin.x, originFrame.origin.y + 20, originFrame.size.width, originFrame.size.height - 20 - 44);
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"didSelectRowAtIndexPath row=%d %.2f", indexPath.row, UITableViewAutomaticDimension);
+    [tableView deselectRowAtIndexPath:indexPath animated:indexPath.row % 2 == 0];
+}
+
 
 @end
