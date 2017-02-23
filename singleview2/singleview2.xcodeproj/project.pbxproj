@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19DD301481461E71B78450EE /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD300AC4CDEC6811ED40A4 /* SearchResultController.m */; };
 		19DD303893CF546659CE6743 /* SectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3D174477D552F4B8B94F /* SectionTableViewController.m */; };
 		19DD3344B7BBF183D45BFCF5 /* UIColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD34BAF8EBB489D79A5C8A /* UIColor+String.m */; };
 		19DD3A76623BD5DC58194F8A /* sortednames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19DD3396F3E6744ABF10836B /* sortednames.plist */; };
@@ -31,9 +32,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19DD300AC4CDEC6811ED40A4 /* SearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultController.m; sourceTree = "<group>"; };
 		19DD33194D955DB098B8AD03 /* UIColor+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+String.h"; sourceTree = "<group>"; };
 		19DD3396F3E6744ABF10836B /* sortednames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = sortednames.plist; sourceTree = "<group>"; };
 		19DD34BAF8EBB489D79A5C8A /* UIColor+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+String.m"; sourceTree = "<group>"; };
+		19DD382F0C31BDCFDDC03022 /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
 		19DD3D174477D552F4B8B94F /* SectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionTableViewController.m; sourceTree = "<group>"; };
 		19DD3E0FB07BB801A978E301 /* SectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionTableViewController.h; sourceTree = "<group>"; };
 		2A56B2941E59744800DD29B4 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */,
 				19DD3D174477D552F4B8B94F /* SectionTableViewController.m */,
 				19DD3E0FB07BB801A978E301 /* SectionTableViewController.h */,
+				19DD300AC4CDEC6811ED40A4 /* SearchResultController.m */,
+				19DD382F0C31BDCFDDC03022 /* SearchResultController.h */,
 			);
 			path = singleview2;
 			sourceTree = "<group>";
@@ -233,6 +238,7 @@
 				2AF01FB91E5891330088008E /* SwitchViewController.m in Sources */,
 				19DD3344B7BBF183D45BFCF5 /* UIColor+String.m in Sources */,
 				19DD303893CF546659CE6743 /* SectionTableViewController.m in Sources */,
+				19DD301481461E71B78450EE /* SearchResultController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
