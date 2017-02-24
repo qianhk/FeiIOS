@@ -19,6 +19,10 @@
     NSArray<NSString *> *mKeys;
 }
 
+- (void)dealloc {
+    NSLog(@"lookEvent SectionTableViewController dealloc");
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -50,7 +54,7 @@
     return mKeys.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {it
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return mNames[mKeys[section]].count;
 }
 

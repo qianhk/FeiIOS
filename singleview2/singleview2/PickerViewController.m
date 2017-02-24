@@ -7,6 +7,7 @@
 //
 
 #import "PickerViewController.h"
+#import "SectionTableViewController.h"
 
 @interface PickerViewController () <UIPickerViewDelegate, UIPickerViewDataSource> {
 
@@ -35,6 +36,8 @@
     } else {
         _resultLabel.text = [NSString stringWithFormat:@"%@ %@ %@", _datePicker.date.description, mStateList[row0], mCityList[row1]];
     }
+    SectionTableViewController *controller = [[SectionTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 

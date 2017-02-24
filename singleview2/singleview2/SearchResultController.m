@@ -18,6 +18,10 @@ static const NSUInteger LongNameIndex = 2;
     NSMutableArray *mFilterArray;
 }
 
+- (void)dealloc {
+    NSLog(@"lookEvent SearchResultController dealloc");
+}
+
 - (instancetype)initWithNames:(NSDictionary *)names keys:(NSArray *)keys {
     if (self = [super initWithStyle:UITableViewStylePlain]) {
         mNames = names;
