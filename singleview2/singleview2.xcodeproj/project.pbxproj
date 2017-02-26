@@ -10,6 +10,7 @@
 		19DD301481461E71B78450EE /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD300AC4CDEC6811ED40A4 /* SearchResultController.m */; };
 		19DD303893CF546659CE6743 /* SectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3D174477D552F4B8B94F /* SectionTableViewController.m */; };
 		19DD3344B7BBF183D45BFCF5 /* UIColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD34BAF8EBB489D79A5C8A /* UIColor+String.m */; };
+		19DD372648793B8E4647C87B /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3927EFEBF2B130D53BA2 /* MyNavigationController.m */; };
 		19DD3A76623BD5DC58194F8A /* sortednames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19DD3396F3E6744ABF10836B /* sortednames.plist */; };
 		2A56B2951E59744800DD29B4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A56B2941E59744800DD29B4 /* Storyboard.storyboard */; };
 		2A56B2981E59778100DD29B4 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */; };
@@ -21,7 +22,7 @@
 		2AF01FB91E5891330088008E /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF01FB71E5891330088008E /* SwitchViewController.m */; };
 		2AF01FBA1E5891330088008E /* SwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF01FB81E5891330088008E /* SwitchViewController.xib */; };
 		2AF01FBE1E58935D0088008E /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF01FBC1E58935D0088008E /* PickerViewController.m */; };
-		2AF01FBF1E58935D0088008E /* BlueViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF01FBD1E58935D0088008E /* BlueViewController.xib */; };
+		2AF01FBF1E58935D0088008E /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF01FBD1E58935D0088008E /* PickerViewController.xib */; };
 		D9CE40AD14FB8F1000E6FD79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40AC14FB8F1000E6FD79 /* UIKit.framework */; };
 		D9CE40AF14FB8F1000E6FD79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40AE14FB8F1000E6FD79 /* Foundation.framework */; };
 		D9CE40B114FB8F1000E6FD79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40B014FB8F1000E6FD79 /* CoreGraphics.framework */; };
@@ -37,6 +38,8 @@
 		19DD3396F3E6744ABF10836B /* sortednames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = sortednames.plist; sourceTree = "<group>"; };
 		19DD34BAF8EBB489D79A5C8A /* UIColor+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+String.m"; sourceTree = "<group>"; };
 		19DD382F0C31BDCFDDC03022 /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
+		19DD3927EFEBF2B130D53BA2 /* MyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavigationController.m; sourceTree = "<group>"; };
+		19DD3B12072853845EC93B0F /* MyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavigationController.h; sourceTree = "<group>"; };
 		19DD3D174477D552F4B8B94F /* SectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionTableViewController.m; sourceTree = "<group>"; };
 		19DD3E0FB07BB801A978E301 /* SectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionTableViewController.h; sourceTree = "<group>"; };
 		2A56B2941E59744800DD29B4 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
@@ -53,7 +56,7 @@
 		2AF01FB81E5891330088008E /* SwitchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchViewController.xib; sourceTree = "<group>"; };
 		2AF01FBB1E58935D0088008E /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
 		2AF01FBC1E58935D0088008E /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
-		2AF01FBD1E58935D0088008E /* BlueViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlueViewController.xib; sourceTree = "<group>"; };
+		2AF01FBD1E58935D0088008E /* PickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
 		D9CE40A814FB8F1000E6FD79 /* singleview2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = singleview2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CE40AC14FB8F1000E6FD79 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D9CE40AE14FB8F1000E6FD79 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -129,7 +132,7 @@
 				2AF01FB81E5891330088008E /* SwitchViewController.xib */,
 				2AF01FBB1E58935D0088008E /* PickerViewController.h */,
 				2AF01FBC1E58935D0088008E /* PickerViewController.m */,
-				2AF01FBD1E58935D0088008E /* BlueViewController.xib */,
+				2AF01FBD1E58935D0088008E /* PickerViewController.xib */,
 				2A56B2941E59744800DD29B4 /* Storyboard.storyboard */,
 				2A56B2961E59778100DD29B4 /* MainTabBarViewController.h */,
 				2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */,
@@ -137,6 +140,8 @@
 				19DD3E0FB07BB801A978E301 /* SectionTableViewController.h */,
 				19DD300AC4CDEC6811ED40A4 /* SearchResultController.m */,
 				19DD382F0C31BDCFDDC03022 /* SearchResultController.h */,
+				19DD3927EFEBF2B130D53BA2 /* MyNavigationController.m */,
+				19DD3B12072853845EC93B0F /* MyNavigationController.h */,
 			);
 			path = singleview2;
 			sourceTree = "<group>";
@@ -215,7 +220,7 @@
 				D9CE40B714FB8F1000E6FD79 /* InfoPlist.strings in Resources */,
 				2A746B171E5B20670022F2B3 /* statedDictionary.plist in Resources */,
 				2AF01FBA1E5891330088008E /* SwitchViewController.xib in Resources */,
-				2AF01FBF1E58935D0088008E /* BlueViewController.xib in Resources */,
+				2AF01FBF1E58935D0088008E /* PickerViewController.xib in Resources */,
 				2A56B2951E59744800DD29B4 /* Storyboard.storyboard in Resources */,
 				2AEEE3B51E544141000F43D9 /* NameAndColorCell2.xib in Resources */,
 				19DD3A76623BD5DC58194F8A /* sortednames.plist in Resources */,
@@ -239,6 +244,7 @@
 				19DD3344B7BBF183D45BFCF5 /* UIColor+String.m in Sources */,
 				19DD303893CF546659CE6743 /* SectionTableViewController.m in Sources */,
 				19DD301481461E71B78450EE /* SearchResultController.m in Sources */,
+				19DD372648793B8E4647C87B /* MyNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

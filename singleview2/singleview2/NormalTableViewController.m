@@ -8,6 +8,7 @@
 
 #import "NormalTableViewController.h"
 #import "NameAndColorCell.h"
+#import "PickerViewController.h"
 
 #define KTTMessagePort "com.ttpod.ttdesktop.port2"
 
@@ -85,13 +86,10 @@
 //	CFRunLoopSourceRef source = CFMessagePortCreateRunLoopSource(kCFAllocatorDefault, messagePort, 0);
 //	CFRunLoopAddSource(CFRunLoopGetCurrent(), source, kCFRunLoopCommonModes);
 
-    mDataArray = @[@"Kai1", @"Kai2", @"Kai3", @"Kai4"];
-    
-    mColorDataArray = @[@{@"Name" : @"Kai1", @"Color": @"Orange"}
-                        , @{@"Name" : @"Kai2", @"Color": @"Red"}
-                        , @{@"Name" : @"Kai3", @"Color": @"Green"}
-                        , @{@"Name" : @"Kai4", @"Color": @"Blue"}];
-    
+    mDataArray = @[@"Kai1", @"Navigation Test", @"Kai3", @"Kai4"];
+
+    mColorDataArray = @[@{@"Name": @"Kai1", @"Color": @"Orange"}, @{@"Name": @"Kai2", @"Color": @"Red"}, @{@"Name": @"Kai3", @"Color": @"Green"}, @{@"Name": @"Kai4", @"Color": @"Blue"}];
+
 //    [self.tableView registerClass:[NameAndColorCell class] forCellReuseIdentifier:@"CellTableIdentifier"];
     UINib *nameAndColorCellNib = [UINib nibWithNibName:@"NameAndColorCell2" bundle:nil];
     [self.tableView registerNib:nameAndColorCellNib forCellReuseIdentifier:@"CellTableIdentifier"];
@@ -104,13 +102,13 @@
 //    self.tableView.rowHeight = 80;
     self.tableView.estimatedRowHeight = 60;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
+
 //    CGRect originFrame = self.view.frame;
 //    self.view.frame = CGRectMake(originFrame.origin.x, originFrame.origin.y + 20, originFrame.size.width, originFrame.size.height - 20);
-    
+
 //    NSLog(@"viewDidLoad iOS8 table view 使用自动布局, 得tableView.estimatedRowHeight != 0, tableView.rowHeight = UITableViewAutomaticDimension 无需重载heightForRowAtIndexPath， 同时还可以通过constraints更新cell子view的高度");
     self.view.backgroundColor = [UIColor redColor];
-    
+
 //    self.view.bounds = [self getContentViewFrame];
 }
 
@@ -126,8 +124,8 @@
 //    }
 //    cell.textLabel.text = mDataArray[indexPath.row];
 //    return cell;
-    
-    NameAndColorCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CellTableIdentifier"];
+
+    NameAndColorCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellTableIdentifier"];
     NSDictionary *rowData = mColorDataArray[indexPath.row];
     cell.name = rowData[@"Name"];
 
@@ -176,6 +174,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"didSelectRowAtIndexPath row=%d %.2f", indexPath.row, UITableViewAutomaticDimension);
     [tableView deselectRowAtIndexPath:indexPath animated:indexPath.row % 2 == 0];
+
+    switch (indexPath.row) {
+        case 1:
+            [self.navigationController pushViewController:
+                            [[PickerViewController alloc] initWithNibName:@"PickerViewController" bundle:nil]
+                                                 animated:YES];
+            break;
+    }
 }
 
 

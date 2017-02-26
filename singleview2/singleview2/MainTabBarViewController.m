@@ -21,12 +21,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [[UITabBar appearance] setTintColor:[UIColor orangeColor]];
+    
     UIViewController *testViewController = [[NormalTableViewController alloc] init];
 //    testViewController.view.frame = [self getContentViewFrame];
     UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:@"Normal" image:[UIImage imageNamed:@"hotel"] tag:0];
     testViewController.tabBarItem = item;
     
-    UIViewController * blueViewController= [[PickerViewController alloc] initWithNibName:@"BlueViewController" bundle:nil];
+    UIViewController * blueViewController= [[PickerViewController alloc] initWithNibName:@"PickerViewController" bundle:nil];
 //    blueViewController.view.frame = [self getContentViewFrame];
     item = [[UITabBarItem alloc] initWithTitle:@"Picker" image:[UIImage imageNamed:@"scenic"] tag:1];
     blueViewController.tabBarItem = item;

@@ -28,6 +28,10 @@
 
 @implementation PickerViewController
 
+- (void)dealloc {
+    NSLog(@"lookEvent PickerViewController dealloc");
+}
+
 - (IBAction)onButtonClicked:(UIButton *)sender {
     NSInteger row0 = [_picker selectedRowInComponent:0];
     NSInteger row1 = [_picker selectedRowInComponent:1];
@@ -48,6 +52,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    self.title = @"Picker Test Page";
 
 //    CGRect originFrame = self.view.frame;
 //    self.view.frame = CGRectMake(originFrame.origin.x, originFrame.origin.y + 20, originFrame.size.width, originFrame.size.height - 20);

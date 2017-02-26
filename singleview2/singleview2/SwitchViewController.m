@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.blueViewController = [[PickerViewController alloc] initWithNibName:@"BlueViewController" bundle:nil];
+    self.blueViewController = [[PickerViewController alloc] initWithNibName:@"PickerViewController" bundle:nil];
     _blueViewController.view.frame = [self getContentViewFrame];
     [self switchViewFromViewController:nil toViewController:self.blueViewController];
 
@@ -60,7 +60,7 @@
         }
     } else {
         if (!self.blueViewController) {
-            self.blueViewController = [[PickerViewController alloc] initWithNibName:@"BlueViewController" bundle:nil];
+            self.blueViewController = [[PickerViewController alloc] initWithNibName:@"PickerViewController" bundle:nil];
             _blueViewController.view.frame = [self getContentViewFrame];
         }
     }
