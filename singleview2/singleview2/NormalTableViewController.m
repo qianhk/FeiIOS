@@ -17,8 +17,8 @@
 //static ViewController * pView = nil;
 
 @interface NormalTableViewController () {
-    NSArray *mDataArray;
-    NSArray *mColorDataArray;
+//    NSArray *mDataArray;
+    NSMutableArray *mColorDataArray;
 //    UILabel *lblStatus;
 }
 
@@ -86,9 +86,10 @@
 //	CFRunLoopSourceRef source = CFMessagePortCreateRunLoopSource(kCFAllocatorDefault, messagePort, 0);
 //	CFRunLoopAddSource(CFRunLoopGetCurrent(), source, kCFRunLoopCommonModes);
 
-    mDataArray = @[@"Kai1", @"Navigation Test", @"Kai3", @"Kai4"];
+//    mDataArray = @[@"Kai1", @"Navigation Test", @"Kai3", @"Kai4"];
 
-    mColorDataArray = @[@{@"Name": @"Kai1", @"Color": @"Orange"}, @{@"Name": @"Kai2", @"Color": @"Red"}, @{@"Name": @"Kai3", @"Color": @"Green"}, @{@"Name": @"Kai4", @"Color": @"Blue"}];
+    mColorDataArray = [[NSMutableArray alloc] initWithArray:
+            @[@{@"Name": @"Kai1", @"Color": @"Orange"}, @{@"Name": @"Kai2", @"Color": @"Red"}, @{@"Name": @"Kai3", @"Color": @"Green"}, @{@"Name": @"Kai4", @"Color": @"Blue"}]];
 
 //    [self.tableView registerClass:[NameAndColorCell class] forCellReuseIdentifier:@"CellTableIdentifier"];
     UINib *nameAndColorCellNib = [UINib nibWithNibName:@"NameAndColorCell2" bundle:nil];
@@ -109,6 +110,7 @@
 //    NSLog(@"viewDidLoad iOS8 table view 使用自动布局, 得tableView.estimatedRowHeight != 0, tableView.rowHeight = UITableViewAutomaticDimension 无需重载heightForRowAtIndexPath， 同时还可以通过constraints更新cell子view的高度");
     self.view.backgroundColor = [UIColor redColor];
 
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 //    self.view.bounds = [self getContentViewFrame];
 }
 
@@ -146,6 +148,19 @@
 //    return UITableViewAutomaticDimension;
 //}
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.row != 0;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"tableView commitEditingStyle %d row=%d", editingStyle, indexPath.row);
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [mColorDataArray removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         return nil;
@@ -158,6 +173,13 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return UITableViewAutomaticDimension;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    NSLog(@"moveRowAtIndexPath sourceRow=%d destRow=%d", sourceIndexPath.row, destinationIndexPath.row);
+    id obj = mColorDataArray[sourceIndexPath.row];
+    [mColorDataArray removeObjectAtIndex:sourceIndexPath.row];
+    [mColorDataArray insertObject:obj atIndex:destinationIndexPath.row];
 }
 
 
@@ -177,9 +199,11 @@
 
     switch (indexPath.row) {
         case 1:
-            [self.navigationController pushViewController:
-                            [[PickerViewController alloc] initWithNibName:@"PickerViewController" bundle:nil]
-                                                 animated:YES];
+            [self.navigationController pushViewController:[[PickerViewController alloc] initWithNibName:@"PickerViewController" bundle:nil] animated:YES];
+            break;
+
+        case 2:
+            [self.navigationController pushViewController:[[NormalTableViewController alloc] init] animated:YES];
             break;
     }
 }
