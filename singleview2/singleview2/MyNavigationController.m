@@ -1,6 +1,6 @@
 //
 // Created by KaiKai on 17/2/26.
-// Copyright (c) 2017 TTPod. All rights reserved.
+// Copyright (c) 2017 Njnu. All rights reserved.
 //
 
 #import "MyNavigationController.h"

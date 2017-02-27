@@ -3,12 +3,13 @@
 //  singleview2
 //
 //  Created by hongkai.qian on 12-2-27.
-//  Copyright (c) 2012年 TTPod. All rights reserved.
+//  Copyright (c) 2012年 Njnu. All rights reserved.
 //
 
 #import "NormalTableViewController.h"
 #import "NameAndColorCell.h"
 #import "PickerViewController.h"
+#import "TestCollectionViewController.h"
 
 #define KTTMessagePort "com.ttpod.ttdesktop.port2"
 
@@ -182,7 +183,6 @@
     [mColorDataArray insertObject:obj atIndex:destinationIndexPath.row];
 }
 
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
@@ -204,6 +204,10 @@
 
         case 2:
             [self.navigationController pushViewController:[[NormalTableViewController alloc] init] animated:YES];
+            break;
+
+        case 3:
+            [self.navigationController pushViewController:[[TestCollectionViewController alloc] init] animated:YES];
             break;
     }
 }

@@ -3,7 +3,7 @@
 //  singleview2
 //
 //  Created by KaiKai on 17/2/18.
-//  Copyright © 2017年 TTPod. All rights reserved.
+//  Copyright © 2017年 Njnu. All rights reserved.
 //
 
 #import "PickerViewController.h"
