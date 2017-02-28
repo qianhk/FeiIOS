@@ -7,4 +7,11 @@
 
 
 @interface ContentCell : UICollectionViewCell
+
+@property (nonatomic, strong) UILabel *label;
+@property (nonatomic, copy) NSString *text;
+@property (nonatomic, assign) CGFloat  maxWidth;
+
++ (CGSize)sizeForContentSize:(NSString *)str forMaxWidth:(CGFloat)maxWidth;
+
 @end

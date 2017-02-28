@@ -7,4 +7,7 @@
 
 
 @interface TestCollectionViewController : UICollectionViewController
+
+@property (nonatomic, copy) NSArray *sections;
+
 @end
