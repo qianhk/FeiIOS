@@ -5,6 +5,7 @@
 
 #import "TestCollectionViewController.h"
 #import "ContentCell.h"
+#import "HeaderCell.h"
 
 @interface TestCollectionViewController () <UICollectionViewDelegateFlowLayout>
 
@@ -18,9 +19,9 @@
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     self = [super initWithCollectionViewLayout:flowLayout];
     if (self) {
-
+        flowLayout.sectionInset = UIEdgeInsetsMake(10, 20, 30, 20);
+        flowLayout.headerReferenceSize = CGSizeMake(1, 20);
     }
-
     return self;
 }
 
@@ -31,15 +32,18 @@
     self.collectionView.backgroundColor = [UIColor whiteColor];
 
     self.sections = @[
-            @{@"header": @"First Section", @"content": @"first content ha ha empty "},
+            @{@"header": @"First Section", @"content": @"first content ha ha empty long long row, long row again"},
             @{@"header": @"second Section", @"content": @"second content"},
             @{@"header": @"Section 3", @"content": @"content 3"},
-            @{@"header": @"Section 4", @"content": @"content 第第第第第第第第第第第第4 try"},
+            @{@"header": @"Section 4", @"content": @"content 第第第第第第第第第第第第4 try it, try2 again 第几行？ 6 7 8 9 a b c dd ee ff"},
             @{@"header": @"Section 5", @"content": @"content 第6 word"},
             @{@"header": @"Section 666666", @"content": @"content 666666 origin world"},
     ];
 
     [self.collectionView registerClass:[ContentCell class] forCellWithReuseIdentifier:@"CONTENT"];
+//    [self.collectionView registerClass:[HeaderCell class] forCellWithReuseIdentifier:@"HEADER"];
+    [self.collectionView registerClass:[HeaderCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HEADER"];
+
 }
 
 - (NSArray *)worldsInSection:(NSInteger)section {
@@ -70,6 +74,16 @@
     NSArray *words = [self worldsInSection:indexPath.section];
     CGSize result = [ContentCell sizeForContentSize:words[indexPath.row] forMaxWidth:collectionView.bounds.size.width];
     return result;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    if ([kind isEqual:UICollectionElementKindSectionHeader]) {
+        __kindof HeaderCell *cell = [self.collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:@"HEADER" forIndexPath:indexPath];
+        cell.maxWidth = collectionView.bounds.size.width;
+        cell.text = self.sections[indexPath.section][@"header"];
+        return cell;
+    }
+    return nil;
 }
 
 
