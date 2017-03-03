@@ -55,20 +55,20 @@
 
 #pragma mark - Segues
 
-//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    if ([[segue identifier] isEqualToString:@"showDetail"]) {
-//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-//        NSString *object = self.objects[indexPath.row];
-//        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
-//        [controller setDetailItem:object];
-//        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-//        controller.navigationItem.leftItemsSupplementBackButton = YES;
-//    }
-//}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        NSString *object = self.objects[indexPath.row];
+        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+        [controller setDetailItem:object];
+        controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+        controller.navigationItem.leftItemsSupplementBackButton = YES;
+    }
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *object = self.objects[indexPath.row];
-    NSLog(@"didSelectRowAtIndexPath %d %@", indexPath.row, object);
+    NSLog(@"didSelectRowAtIndexPath %ld %@", (long)indexPath.row, object);
 }
 
 

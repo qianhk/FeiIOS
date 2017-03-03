@@ -13,5 +13,9 @@
 @property (strong, nonatomic) NSString *detailItem;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 
+@property (nonatomic, strong) UIBarButtonItem *languageButton;
+@property (nonatomic, strong) UIPopoverController *popoverController;
+@property (nonatomic, copy) NSString *language;
+
 @end
 
