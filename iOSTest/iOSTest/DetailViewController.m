@@ -81,10 +81,12 @@
 
     self.mEditText.text = @"init Value";
 
-//    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        //Terminating app due to uncaught exception 'NSInvalidArgumentException',
+        // reason: '-[UIPopoverController initWithContentViewController:] called when not running under UIUserInterfaceIdiomPad.'
         self.languageButton = [[UIBarButtonItem alloc] initWithTitle:@"Choose Language" style:UIBarButtonItemStylePlain target:self action:@selector(toggleLanguagePopover)];
-    self.navigationItem.rightBarButtonItem = self.languageButton;
-//    }
+        self.navigationItem.rightBarButtonItem = self.languageButton;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
