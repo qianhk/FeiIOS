@@ -40,6 +40,10 @@
     [self.mEditText resignFirstResponder];
 }
 
+- (void)dealloc {
+    NSLog(@"look DetailViewController dealloc, item=%@", self.detailItem);
+}
+
 - (void)popupAlert:(UIControl *)sender {
     UIAlertController *controller = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"message" preferredStyle:UIAlertControllerStyleAlert];
 

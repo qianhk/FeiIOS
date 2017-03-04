@@ -26,7 +26,9 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
     self.navigationItem.rightBarButtonItem = addButton;
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    __kindof UIViewController *lastVcAtSplistVc = [self.splitViewController.viewControllers lastObject];
+    NSLog(@"look MasterViewController viewDidLoad lastVc=%@", NSStringFromClass(lastVcAtSplistVc.class));
+    self.detailViewController = (DetailViewController *)[lastVcAtSplistVc topViewController];
 }
 
 
@@ -59,10 +61,15 @@
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSString *object = self.objects[indexPath.row];
-        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+        __kindof UIViewController *viewController = [segue destinationViewController];
+        NSLog(@"look MasterViewController prepareForSegue destVc=%@", NSStringFromClass(viewController.class));
+        DetailViewController *controller = (DetailViewController *)[viewController topViewController];
         [controller setDetailItem:object];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
+
+        controller.language = self.detailViewController.language;
+        self.detailViewController = controller;
     }
 }
 
