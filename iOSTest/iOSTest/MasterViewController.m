@@ -2,8 +2,8 @@
 //  MasterViewController.m
 //  iOSTest
 //
-//  Created by 钱红凯 on 17/2/6.
-//  Copyright © 2017年 凯. All rights reserved.
+//  Created by kai on 17/2/6.
+//  Copyright © 2017年 njnu. All rights reserved.
 //
 
 #import "MasterViewController.h"
