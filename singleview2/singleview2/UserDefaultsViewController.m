@@ -36,15 +36,31 @@
 }
 */
 
+- (void)applicationWillEnterForeground:(NSNotification *)notification {
+    NSLog(@"lookLifecycle UserDefaultsViewController applicationWillEnterForeground");
+    [self refreshUserDefaults];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    NSLog(@"lookLifecycle UserDefaultsViewController viewWillAppear");
     [self refreshUserDefaults];
+
+    UIApplication *app = [UIApplication sharedApplication];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:)
+                                                 name:UIApplicationWillEnterForegroundNotification object:app];
+
 }
 
 //- (void)viewDidAppear:(BOOL)animated {
 //    [super viewDidAppear:animated];
 //    [self refreshUserDefaults];
 //}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)refreshUserDefaults {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
