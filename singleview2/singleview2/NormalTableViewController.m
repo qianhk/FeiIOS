@@ -10,6 +10,7 @@
 #import "NameAndColorCell.h"
 #import "PickerViewController.h"
 #import "TestCollectionViewController.h"
+#import "UserDefaultsViewController.h"
 
 #define KTTMessagePort "com.ttpod.ttdesktop.port2"
 
@@ -90,7 +91,7 @@
 //    mDataArray = @[@"Kai1", @"Navigation Test", @"Kai3", @"Kai4"];
 
     mColorDataArray = [[NSMutableArray alloc] initWithArray:
-            @[@{@"Name": @"Kai1", @"Color": @"Orange"}, @{@"Name": @"Kai2", @"Color": @"Red"}, @{@"Name": @"Kai3", @"Color": @"Green"}, @{@"Name": @"Kai4", @"Color": @"Blue"}]];
+                       @[@{@"Name": @"Kai1", @"Color": @"Orange"}, @{@"Name": @"Kai2", @"Color": @"Red"}, @{@"Name": @"Kai3", @"Color": @"Green"}, @{@"Name": @"Kai4", @"Color": @"Blue"}, @{@"Name": @"User Defaults", @"Color": @"Yellow"}]];
 
 //    [self.tableView registerClass:[NameAndColorCell class] forCellReuseIdentifier:@"CellTableIdentifier"];
     UINib *nameAndColorCellNib = [UINib nibWithNibName:@"NameAndColorCell2" bundle:nil];
@@ -177,7 +178,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    NSLog(@"moveRowAtIndexPath sourceRow=%d destRow=%d", sourceIndexPath.row, destinationIndexPath.row);
+    NSLog(@"moveRowAtIndexPath sourceRow=%ld destRow=%ld", (long)sourceIndexPath.row, (long)destinationIndexPath.row);
     id obj = mColorDataArray[sourceIndexPath.row];
     [mColorDataArray removeObjectAtIndex:sourceIndexPath.row];
     [mColorDataArray insertObject:obj atIndex:destinationIndexPath.row];
@@ -194,7 +195,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"didSelectRowAtIndexPath row=%d %.2f", indexPath.row, UITableViewAutomaticDimension);
+    NSLog(@"didSelectRowAtIndexPath row=%ld %.2f", (long)indexPath.row, UITableViewAutomaticDimension);
     [tableView deselectRowAtIndexPath:indexPath animated:indexPath.row % 2 == 0];
 
     switch (indexPath.row) {
@@ -208,6 +209,10 @@
 
         case 3:
             [self.navigationController pushViewController:[[TestCollectionViewController alloc] init] animated:YES];
+            break;
+            
+        case 4:
+            [self.navigationController pushViewController:[[UserDefaultsViewController alloc] init] animated:YES];
             break;
     }
 }
