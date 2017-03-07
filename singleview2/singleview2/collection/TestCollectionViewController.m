@@ -32,7 +32,7 @@
     self.collectionView.backgroundColor = [UIColor whiteColor];
 
     self.sections = @[
-            @{@"header": @"First Section", @"content": @"first content ha ha empty long long row, long row again"},
+            @{@"header": @"First Section", @"content": @"first content ha ha empty longlong1long2long3long4 row, long row again"},
             @{@"header": @"second Section", @"content": @"second content"},
             @{@"header": @"Section 3", @"content": @"content 3"},
             @{@"header": @"Section 4", @"content": @"content 第第第第第第第第第第第第4 try it, try2 again 第几行？ 6 7 8 9 a b c dd ee ff"},
@@ -68,6 +68,10 @@
     cell.maxWidth = collectionView.bounds.size.width;
     cell.text = words[indexPath.row];
     return cell;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 0.f;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
