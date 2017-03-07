@@ -30,7 +30,7 @@
     [super viewDidLoad];
 
     self.collectionView.backgroundColor = [UIColor whiteColor];
-    self.dataList = @[@"100*30", @"100*20", @"100*150", @"100*120", @"100*60", @"100*40", @"100*80", @"100*40", @"100*80"];
+    self.dataList = @[@"100*150", @"100*50", @"100*100", @"100*80", @"100*60", @"100*120", @"100*30", @"100*80", @"100*60"];
 
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CONTENT"];
 
