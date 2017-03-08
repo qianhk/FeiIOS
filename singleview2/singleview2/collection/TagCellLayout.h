@@ -6,9 +6,10 @@
 #import <Foundation/Foundation.h>
 
 @protocol UICollectionViewDelegateTagCellLayout <UICollectionViewDelegate>
-@optional
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath;
+
+- (void)collectionView:(UICollectionView *)collectionView preparedLayout:(CGSize)size;
 
 @end
 

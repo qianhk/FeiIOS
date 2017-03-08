@@ -21,6 +21,7 @@
     _layoutInfo = [NSMutableDictionary dictionary];
     _maxHeight = 0.f;
     [self getLayoutInfoInOrder];
+    [self.delegate collectionView:self.collectionView preparedLayout:[self collectionViewContentSize]];
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
@@ -70,6 +71,7 @@
             }
             itemAttributes.frame = CGRectMake(originX, originY, itemSize.width, itemSize.height);
             _layoutInfo[indexPath] = itemAttributes;
+//            NSLog(@"lookLayout getLayoutInfoInOrder section=%d row=%d frame=%@", section, item, NSStringFromCGRect(itemAttributes.frame));
             originX += itemSize.width + _itemSpacing;
 
         }

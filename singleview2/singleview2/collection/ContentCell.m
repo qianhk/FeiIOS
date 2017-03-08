@@ -47,7 +47,7 @@
 }
 
 + (CGSize)sizeForContentSize:(NSString *)str forMaxWidth:(CGFloat)maxWidth {
-    CGSize maxSize = CGSizeMake(maxWidth, 1000);
+    CGSize maxSize = CGSizeMake(10000, 1000);
 
     NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];

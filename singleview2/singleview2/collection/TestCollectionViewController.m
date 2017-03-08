@@ -35,11 +35,11 @@
 
     self.sections = @[
             @{@"header": @"First Section", @"content": @"first content ha ha empty longlong1long2long3long4 row, long row again"}
-//            , @{@"header": @"second Section", @"content": @"second content"}
-//            , @{@"header": @"Section 3", @"content": @"content 3"}
+            , @{@"header": @"second Section", @"content": @"second content"}
+            , @{@"header": @"Section 3", @"content": @"content 3"}
             , @{@"header": @"Section 4", @"content": @"新section 自己单独一行都放不下第第第第第第哈后来好啊那个4 try it, try2 again 第几行？ 6 7 8 9 a b c dd ee ff"}
-//            , @{@"header": @"Section 5", @"content": @"content 第6 word"}
-//            , @{@"header": @"Section 666666", @"content": @"content 666666 origin world"}
+            , @{@"header": @"Section 5", @"content": @"content 第6 word"}
+            , @{@"header": @"Section 666666", @"content": @"content 666666 origin world"}
     ];
 
     [self.collectionView registerClass:[ContentCell class] forCellWithReuseIdentifier:@"CONTENT"];
@@ -96,6 +96,10 @@
     NSArray *words = [self worldsInSection:indexPath.section];
     NSString *str = words[indexPath.row];
     NSLog(@"lookLayout didSelectItemAtIndexPath , section=%d row=%d text=%@", indexPath.section, indexPath.row, str);
+}
+
+- (void)collectionView:(UICollectionView *)collectionView preparedLayout:(CGSize)size {
+    NSLog(@"lookLayout preparedLayout size=%@", NSStringFromCGSize(size));
 }
 
 @end
