@@ -29,7 +29,7 @@
 
 - (void)prepareLayout {
     _numberOfColumns = 3;
-
+//    NSLog(@"lookLayout prepareLayout");
     _lastYValueForColumn = [NSMutableDictionary dictionary];
     _layoutInfo = [NSMutableDictionary dictionary];
 
@@ -48,6 +48,7 @@
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
+//    NSLog(@"lookLayout layoutAttributesForElementsInRect");
     NSMutableArray *allAttributes = [NSMutableArray array];
     [_layoutInfo enumerateKeysAndObjectsUsingBlock:^(NSIndexPath *indexPath, UICollectionViewLayoutAttributes *attributes, BOOL *stop) {
         if (CGRectIntersectsRect(rect, attributes.frame)) {
@@ -67,6 +68,7 @@
         }
         currentColumns++;
     } while (currentColumns < _numberOfColumns);
+//    NSLog(@"lookLayout collectionViewContentSize maxHeight=%d", maxHeight);
     return CGSizeMake(self.collectionView.frame.size.width, maxHeight);
 }
 

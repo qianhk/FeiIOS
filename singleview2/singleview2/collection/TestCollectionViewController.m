@@ -6,8 +6,9 @@
 #import "TestCollectionViewController.h"
 #import "ContentCell.h"
 #import "HeaderCell.h"
+#import "TagCellLayout.h"
 
-@interface TestCollectionViewController () <UICollectionViewDelegateFlowLayout>
+@interface TestCollectionViewController () <UICollectionViewDelegateTagCellLayout>
 
 @end
 
@@ -16,11 +17,12 @@
 }
 
 - (instancetype)init {
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    TagCellLayout *flowLayout = [[TagCellLayout alloc] init];
     self = [super initWithCollectionViewLayout:flowLayout];
     if (self) {
-        flowLayout.sectionInset = UIEdgeInsetsMake(10, 20, 30, 20);
-        flowLayout.headerReferenceSize = CGSizeMake(1, 20);
+        flowLayout.delegate = self;
+        flowLayout.itemSpacing = 10;
+        flowLayout.lineSpacing = 10;
     }
     return self;
 }
@@ -32,12 +34,12 @@
     self.collectionView.backgroundColor = [UIColor whiteColor];
 
     self.sections = @[
-            @{@"header": @"First Section", @"content": @"first content ha ha empty longlong1long2long3long4 row, long row again"},
-            @{@"header": @"second Section", @"content": @"second content"},
-            @{@"header": @"Section 3", @"content": @"content 3"},
-            @{@"header": @"Section 4", @"content": @"content 第第第第第第第第第第第第4 try it, try2 again 第几行？ 6 7 8 9 a b c dd ee ff"},
-            @{@"header": @"Section 5", @"content": @"content 第6 word"},
-            @{@"header": @"Section 666666", @"content": @"content 666666 origin world"},
+            @{@"header": @"First Section", @"content": @"first content ha ha empty longlong1long2long3long4 row, long row again"}
+//            , @{@"header": @"second Section", @"content": @"second content"}
+//            , @{@"header": @"Section 3", @"content": @"content 3"}
+            , @{@"header": @"Section 4", @"content": @"content 第第第第第第第第第第第第4 try it, try2 again 第几行？ 6 7 8 9 a b c dd ee ff"}
+//            , @{@"header": @"Section 5", @"content": @"content 第6 word"}
+//            , @{@"header": @"Section 666666", @"content": @"content 666666 origin world"}
     ];
 
     [self.collectionView registerClass:[ContentCell class] forCellWithReuseIdentifier:@"CONTENT"];
@@ -90,5 +92,10 @@
     return nil;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *words = [self worldsInSection:indexPath.section];
+    NSString *str = words[indexPath.row];
+    NSLog(@"lookLayout didSelectItemAtIndexPath , section=%d row=%d text=%@", indexPath.section, indexPath.row, str);
+}
 
 @end

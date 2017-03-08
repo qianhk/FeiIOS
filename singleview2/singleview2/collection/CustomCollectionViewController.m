@@ -34,6 +34,7 @@
 
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CONTENT"];
 
+    NSLog(@"lookLayout viewDidLoad");
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
