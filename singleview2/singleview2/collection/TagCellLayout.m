@@ -51,7 +51,7 @@
 
         CGFloat originX = 0.f;
 
-        CGFloat lastItemHeight;
+        CGFloat lastItemHeight = 0.f;
         for (NSInteger item = 0; item < numberOfItem; item++) {
             indexPath = [NSIndexPath indexPathForItem:item inSection:section];
 
@@ -73,6 +73,7 @@
             originX += itemSize.width + _itemSpacing;
 
         }
+        originY += lastItemHeight + _lineSpacing;
     }
 }
 
