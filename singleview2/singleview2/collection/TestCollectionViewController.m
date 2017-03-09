@@ -34,7 +34,7 @@
     self.collectionView.backgroundColor = [UIColor whiteColor];
 
     self.sections = @[
-            @{@"header": @"First Section", @"content": @"first content ha ha empty longlong1long2long3long4 row, long row again"}
+            @{@"header": @"First Section", @"content": @"第一行就超长都放不下第第第第第第哈后来好啊那个1 first content ha ha empty longlong1long2long3long4 row, long row again"}
             , @{@"header": @"second Section", @"content": @"second content"}
             , @{@"header": @"Section 3", @"content": @"content 3"}
             , @{@"header": @"Section 4", @"content": @"新section 自己单独一行都放不下第第第第第第哈后来好啊那个4 try it, try2 again 第几行？ 6 7 8 9 a b c dd ee ff"}
@@ -78,7 +78,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *words = [self worldsInSection:indexPath.section];
-    CGSize result = [ContentCell sizeForContentSize:words[indexPath.row] forMaxWidth:collectionView.bounds.size.width];
+    CGSize result = [ContentCell sizeForContentSize:words[indexPath.row] forMaxWidth:100000];
     return result;
 }
 

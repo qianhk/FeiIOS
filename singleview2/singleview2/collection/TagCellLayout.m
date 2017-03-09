@@ -59,19 +59,20 @@
             UICollectionViewLayoutAttributes *itemAttributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
 
             CGSize itemSize = [self.delegate collectionView:self.collectionView layout:self sizeForItemAtIndexPath:indexPath];
+            if (itemSize.width > validRowWidth) {
+                itemSize.width = validRowWidth;
+            }
             lastItemHeight = itemSize.height;
             if (item == 0) {
                 _maxHeight += lastItemHeight;
-            }
-
-            if (originX + itemSize.width > validRowWidth) {
+            } else if (originX + itemSize.width > validRowWidth) {
                 originX = 0.f;
                 originY += lastItemHeight + _lineSpacing;
                 _maxHeight += _lineSpacing + lastItemHeight;
             }
             itemAttributes.frame = CGRectMake(originX, originY, itemSize.width, itemSize.height);
             _layoutInfo[indexPath] = itemAttributes;
-//            NSLog(@"lookLayout getLayoutInfoInOrder section=%d row=%d frame=%@", section, item, NSStringFromCGRect(itemAttributes.frame));
+            NSLog(@"lookLayout getLayoutInfoInOrder section=%d row=%d frame=%@", section, item, NSStringFromCGRect(itemAttributes.frame));
             originX += itemSize.width + _itemSpacing;
 
         }

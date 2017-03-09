@@ -32,13 +32,13 @@
 
 - (void)setText:(NSString *)text {
     self.label.text = text;
-    CGRect newLabelFrame = self.label.frame;
-    CGRect newContentFrame = self.contentView.frame;
-    CGSize textSize = [[self class] sizeForContentSize:text forMaxWidth:_maxWidth];
-    newLabelFrame.size = textSize;
-    newContentFrame.size = textSize;
-    self.label.frame = newLabelFrame;
-    self.contentView.frame = newContentFrame;
+//    CGRect newLabelFrame = self.label.frame;
+//    CGRect newContentFrame = self.contentView.frame;
+//    CGSize textSize = [[self class] sizeForContentSize:text forMaxWidth:_maxWidth];
+//    newLabelFrame.size = textSize;
+//    newContentFrame.size = textSize;
+//    self.label.frame = newLabelFrame;
+//    self.contentView.frame = newContentFrame;
 }
 
 
@@ -47,7 +47,7 @@
 }
 
 + (CGSize)sizeForContentSize:(NSString *)str forMaxWidth:(CGFloat)maxWidth {
-    CGSize maxSize = CGSizeMake(10000, 1000);
+    CGSize maxSize = CGSizeMake(maxWidth, 1000);
 
     NSStringDrawingOptions options = NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading;
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
