@@ -19,6 +19,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    NSString *recordValue = @"{\"id_11111\":1, \"id_11112\":2, \"id_11113\":3}";
+    NSMutableDictionary *recordDic;
+
+    if (recordValue.length > 0) {
+        NSData *stringData = [recordValue dataUsingEncoding:NSUTF8StringEncoding];
+        id json = [NSJSONSerialization JSONObjectWithData:stringData options:0 error:nil];
+        recordDic = [NSMutableDictionary dictionaryWithDictionary:json];
+//        NSLog(@"recordValue.length > 0 id=%@", id);
+        recordDic[@"id_200"] = @6;
+        recordDic[@"id_201"] = @7;
+        recordDic[@"id_202"] = @"abc";
+    } else {
+        recordDic = [NSMutableDictionary new];
+        recordDic[@"id_100"] = @4;
+        recordDic[@"id_101"] = @5;
+//        [NSJSONSerialization dataWithJSONObject:<#(id)obj#> options:<#(NSJSONWritingOptions)opt#> error:<#(NSError **)error#>]
+    }
+    NSError *error2;
+    NSData *newData = [NSJSONSerialization dataWithJSONObject:recordDic options:0 error:&error2];
+    NSString *jsonString = [[NSString alloc] initWithData:newData encoding:NSUTF8StringEncoding];
+    NSLog(@"viewDidLoad new jsonString=%@", jsonString);
 }
 
 - (void)didReceiveMemoryWarning {
