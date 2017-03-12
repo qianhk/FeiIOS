@@ -10,7 +10,7 @@
 
 @interface UserDefaultsViewController ()
 
-@property (strong, nonatomic) IBOutlet UILabel *resultLabel;
+@property(strong, nonatomic) IBOutlet UILabel *resultLabel;
 
 @end
 
@@ -41,6 +41,25 @@
     NSData *newData = [NSJSONSerialization dataWithJSONObject:recordDic options:0 error:&error2];
     NSString *jsonString = [[NSString alloc] initWithData:newData encoding:NSUTF8StringEncoding];
     NSLog(@"viewDidLoad new jsonString=%@", jsonString);
+
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doSingleTap)];
+    singleTap.numberOfTapsRequired = 1;
+    [self.view addGestureRecognizer:singleTap];
+
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doDoubleTap)];
+    doubleTap.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:doubleTap];
+
+    [singleTap requireGestureRecognizerToFail:doubleTap];
+}
+
+
+- (void)doSingleTap {
+    NSLog(@"doSingleTap");
+}
+
+- (void)doDoubleTap {
+    NSLog(@"doDoubleTap");
 }
 
 - (void)didReceiveMemoryWarning {
