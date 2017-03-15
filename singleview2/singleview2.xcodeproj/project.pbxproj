@@ -15,6 +15,7 @@
 		19DD3186436FFA70C8EBC891 /* MyDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39586B2852DEEE88CD7A /* MyDrawerView.m */; };
 		19DD3344B7BBF183D45BFCF5 /* UIColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD34BAF8EBB489D79A5C8A /* UIColor+String.m */; };
 		19DD372648793B8E4647C87B /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3927EFEBF2B130D53BA2 /* MyNavigationController.m */; };
+		19DD3810B9A0002EC96A4767 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DD3639270FEEF858CD2455 /* CoreLocation.framework */; };
 		19DD3A76623BD5DC58194F8A /* sortednames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19DD3396F3E6744ABF10836B /* sortednames.plist */; };
 		19DD3B12AAB2D3F104CF4B69 /* CustomCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD397DECACEA625586A2AD /* CustomCollectionViewController.m */; };
 		19DD3BFDB43DEA83F51F4662 /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */; };
@@ -55,6 +56,7 @@
 		19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController.m; sourceTree = "<group>"; };
 		19DD35DFD5C2B5BE44657DDE /* MasonryLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasonryLayout.m; sourceTree = "<group>"; };
 		19DD3612E615A8DE8118A2C2 /* MasonryLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonryLayout.h; sourceTree = "<group>"; };
+		19DD3639270FEEF858CD2455 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		19DD36A1D71E01AF83E208C4 /* ContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentCell.m; sourceTree = "<group>"; };
 		19DD3769B2F26A377D2CB11D /* TestCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController.h; sourceTree = "<group>"; };
 		19DD382F0C31BDCFDDC03022 /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				D9CE40AF14FB8F1000E6FD79 /* Foundation.framework in Frameworks */,
 				2AE16A941E6C0A7B00B48A49 /* ExternalAccessory.framework in Frameworks */,
 				D9CE40B114FB8F1000E6FD79 /* CoreGraphics.framework in Frameworks */,
+				19DD3810B9A0002EC96A4767 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +172,7 @@
 				D9CE40AC14FB8F1000E6FD79 /* UIKit.framework */,
 				D9CE40AE14FB8F1000E6FD79 /* Foundation.framework */,
 				D9CE40B014FB8F1000E6FD79 /* CoreGraphics.framework */,
+				19DD3639270FEEF858CD2455 /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

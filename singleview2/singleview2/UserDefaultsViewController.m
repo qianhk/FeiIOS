@@ -6,9 +6,14 @@
 //  Copyright © 2017年 Njnu. All rights reserved.
 //
 
+#import <CoreLocation/CoreLocation.h>
 #import "UserDefaultsViewController.h"
 
-@interface UserDefaultsViewController ()
+@interface UserDefaultsViewController () <CLLocationManagerDelegate>
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLLocation *previousPoint;
+@property (nonatomic, assign) CLLocationDistance *totalMovementDisance;
 
 @property(strong, nonatomic) IBOutlet UILabel *resultLabel;
 
@@ -51,8 +56,31 @@
     [self.view addGestureRecognizer:doubleTap];
 
     [singleTap requireGestureRecognizerToFail:doubleTap];
+
+    self.locationManager = [CLLocationManager new];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [self.locationManager requestWhenInUseAuthorization];
 }
 
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    NSLog(@"Authorization status changed to %d", status);
+    switch (status) {
+        case kCLAuthorizationStatusAuthorizedAlways:
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+            [self.locationManager startUpdatingLocation];
+            break;
+
+        default:
+            [self.locationManager stopUpdatingLocation];
+            break;
+    }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    NSString *errorType = error.code == kCLErrorDenied ? @"禁止访问位置信息" : [NSString stringWithFormat:@"Error: %ld", (long) error.code];
+    NSLog(@"didFailWithError %@", errorType);
+}
 
 - (void)doSingleTap {
     NSLog(@"doSingleTap");
