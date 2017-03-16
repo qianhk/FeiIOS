@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, strong) CLLocation *previousPoint;
-@property (nonatomic, assign) CLLocationDistance *totalMovementDisance;
+@property (nonatomic, assign) CLLocationDistance totalMovementDisance;
 
 @property(strong, nonatomic) IBOutlet UILabel *resultLabel;
 
@@ -21,9 +21,16 @@
 
 @implementation UserDefaultsViewController
 
+- (void)dealloc {
+    NSLog(@"UserDefaultsViewController dealloc");
+    [self.locationManager stopUpdatingLocation];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
+    self.resultLabel.numberOfLines = 0;
 
     NSString *recordValue = @"{\"id_11111\":1, \"id_11112\":2, \"id_11113\":3}";
     NSMutableDictionary *recordDic;
@@ -81,6 +88,22 @@
     NSString *errorType = error.code == kCLErrorDenied ? @"禁止访问位置信息" : [NSString stringWithFormat:@"Error: %ld", (long) error.code];
     NSLog(@"didFailWithError %@", errorType);
 }
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
+    CLLocation *location = [locations lastObject];
+    if (self.previousPoint) {
+        self.totalMovementDisance += [location distanceFromLocation:self.previousPoint];
+    } else {
+        self.totalMovementDisance = 0;
+    }
+    self.previousPoint = location;
+    NSString *string = [NSString stringWithFormat:@"lat=%g\u00B0 lng=%g\u00B0 hAccuracy=%gm vAccuracy=%gm altitude=%gm distance=%gm"
+            , location.coordinate.latitude, location.coordinate.longitude
+            , location.horizontalAccuracy, location.verticalAccuracy, location.altitude, self.totalMovementDisance];
+    NSLog(string);
+    _resultLabel.text = string;
+}
+
 
 - (void)doSingleTap {
     NSLog(@"doSingleTap");
