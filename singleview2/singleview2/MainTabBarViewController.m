@@ -30,11 +30,11 @@
     
     UIViewController * blueViewController= [[PickerViewController alloc] initWithNibName:@"PickerViewController" bundle:nil];
 //    blueViewController.view.frame = [self getContentViewFrame];
-    item = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"PickerTab", @"选择器tab") image:[UIImage imageNamed:@"scenic"] tag:1];
+    item = [[UITabBarItem alloc] initWithTitle:NSLocalizedStringFromTable(@"PickerTab", @"InfoPlist", @"选择器tab") image:[UIImage imageNamed:@"scenic"] tag:1];
     blueViewController.tabBarItem = item;
 
     UIViewController * sectionTableViewController= [[SectionTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    sectionTableViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"SectionTab" image:[UIImage imageNamed:@"hotel"] tag:2];
+    sectionTableViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"SectionTab", @"分节的tableview") image:[UIImage imageNamed:@"hotel"] tag:2];
     
     self.viewControllers = @[testViewController, blueViewController, sectionTableViewController];
     

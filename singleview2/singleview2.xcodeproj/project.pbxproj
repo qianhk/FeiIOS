@@ -20,6 +20,7 @@
 		19DD3B12AAB2D3F104CF4B69 /* CustomCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD397DECACEA625586A2AD /* CustomCollectionViewController.m */; };
 		19DD3BFDB43DEA83F51F4662 /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */; };
 		19DD3E5F012285184B1F3C12 /* TagCellLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33CCCD6D0DD63BE6F2C0 /* TagCellLayout.m */; };
+		2A4D2EC41E7D72B7006FD451 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D2EC61E7D72B7006FD451 /* Localizable.strings */; };
 		2A56B2951E59744800DD29B4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A56B2941E59744800DD29B4 /* Storyboard.storyboard */; };
 		2A56B2981E59778100DD29B4 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */; };
 		2A746B171E5B20670022F2B3 /* statedDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A746B161E5B20670022F2B3 /* statedDictionary.plist */; };
@@ -70,6 +71,8 @@
 		19DD3E0FB07BB801A978E301 /* SectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionTableViewController.h; sourceTree = "<group>"; };
 		19DD3E48D1085ADD340DC4D3 /* TagCellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagCellLayout.h; sourceTree = "<group>"; };
 		2A4D2EC11E7D6E91006FD451 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		2A4D2EC51E7D72B7006FD451 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2A4D2EC71E7D72C8006FD451 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2A56B2941E59744800DD29B4 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		2A56B2961E59778100DD29B4 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
 		2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
@@ -228,6 +231,7 @@
 				D9CE40BA14FB8F1000E6FD79 /* singleview2-Prefix.pch */,
 				2A746B161E5B20670022F2B3 /* statedDictionary.plist */,
 				19DD3396F3E6744ABF10836B /* sortednames.plist */,
+				2A4D2EC61E7D72B7006FD451 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -295,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AEEE3B01E5424F5000F43D9 /* NameAndColorCell.xib in Resources */,
+				2A4D2EC41E7D72B7006FD451 /* Localizable.strings in Resources */,
 				2AEEE3AE1E5404A3000F43D9 /* Images.xcassets in Resources */,
 				2AE16A8D1E6BEA0B00B48A49 /* Settings.bundle in Resources */,
 				D9CE40B714FB8F1000E6FD79 /* InfoPlist.strings in Resources */,
@@ -340,6 +345,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		2A4D2EC61E7D72B7006FD451 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A4D2EC51E7D72B7006FD451 /* en */,
+				2A4D2EC71E7D72C8006FD451 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		D9CE40B514FB8F1000E6FD79 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
