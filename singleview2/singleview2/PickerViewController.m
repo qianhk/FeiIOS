@@ -53,7 +53,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 
-    self.title = @"Picker Test Page";
+//    self.title = @"Picker Test Page"; //如果设置了标题，底部tab里会用这个
 
 //    CGRect originFrame = self.view.frame;
 //    self.view.frame = CGRectMake(originFrame.origin.x, originFrame.origin.y + 20, originFrame.size.width, originFrame.size.height - 20);
