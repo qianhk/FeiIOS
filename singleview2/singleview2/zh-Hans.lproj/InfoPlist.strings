@@ -1,0 +1,7 @@
+/* Localized versions of Info.plist keys */
+
+"NormalTab" = "普通";
+
+"PickerTab" = "选择器";
+
+"SectionTab" = "分页";

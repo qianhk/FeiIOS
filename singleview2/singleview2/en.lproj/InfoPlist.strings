@@ -1,2 +1,7 @@
 /* Localized versions of Info.plist keys */
 
+"NormalTab"="Normal";
+
+"PickerTab" = "Picker";
+
+"SectionTab" = "Section";
