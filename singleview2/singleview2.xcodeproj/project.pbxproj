@@ -20,6 +20,8 @@
 		19DD3B12AAB2D3F104CF4B69 /* CustomCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD397DECACEA625586A2AD /* CustomCollectionViewController.m */; };
 		19DD3BFDB43DEA83F51F4662 /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */; };
 		19DD3E5F012285184B1F3C12 /* TagCellLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33CCCD6D0DD63BE6F2C0 /* TagCellLayout.m */; };
+		2A2D50871EB0817700BC161D /* UikitTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D50861EB0817700BC161D /* UikitTestViewController.m */; };
+		2A2D50891EB089D600BC161D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2D50881EB089D600BC161D /* QuartzCore.framework */; };
 		2A4D2EC41E7D72B7006FD451 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D2EC61E7D72B7006FD451 /* Localizable.strings */; };
 		2A56B2951E59744800DD29B4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A56B2941E59744800DD29B4 /* Storyboard.storyboard */; };
 		2A56B2981E59778100DD29B4 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */; };
@@ -70,6 +72,9 @@
 		19DD3D73E1F0DC9A3D0A74EA /* HeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCell.h; sourceTree = "<group>"; };
 		19DD3E0FB07BB801A978E301 /* SectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionTableViewController.h; sourceTree = "<group>"; };
 		19DD3E48D1085ADD340DC4D3 /* TagCellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagCellLayout.h; sourceTree = "<group>"; };
+		2A2D50851EB0817700BC161D /* UikitTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UikitTestViewController.h; sourceTree = "<group>"; };
+		2A2D50861EB0817700BC161D /* UikitTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UikitTestViewController.m; sourceTree = "<group>"; };
+		2A2D50881EB089D600BC161D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2A4D2EC11E7D6E91006FD451 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		2A4D2EC51E7D72B7006FD451 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A4D2EC71E7D72C8006FD451 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -113,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A2D50891EB089D600BC161D /* QuartzCore.framework in Frameworks */,
 				D9CE40AD14FB8F1000E6FD79 /* UIKit.framework in Frameworks */,
 				D9CE40AF14FB8F1000E6FD79 /* Foundation.framework in Frameworks */,
 				2AE16A941E6C0A7B00B48A49 /* ExternalAccessory.framework in Frameworks */,
@@ -172,6 +178,7 @@
 		D9CE40AB14FB8F1000E6FD79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A2D50881EB089D600BC161D /* QuartzCore.framework */,
 				2AE16A931E6C0A7B00B48A49 /* ExternalAccessory.framework */,
 				D9CE40AC14FB8F1000E6FD79 /* UIKit.framework */,
 				D9CE40AE14FB8F1000E6FD79 /* Foundation.framework */,
@@ -218,6 +225,8 @@
 				2AE16A8F1E6BF25A00B48A49 /* UserDefaultsViewController.m */,
 				2AE16A901E6BF25A00B48A49 /* UserDefaultsViewController.xib */,
 				19DD3DBE978F4B7606FA6DED /* draw */,
+				2A2D50851EB0817700BC161D /* UikitTestViewController.h */,
+				2A2D50861EB0817700BC161D /* UikitTestViewController.m */,
 			);
 			path = singleview2;
 			sourceTree = "<group>";
@@ -325,6 +334,7 @@
 				D9CE40BD14FB8F1000E6FD79 /* AppDelegate.m in Sources */,
 				D9CE40C014FB8F1000E6FD79 /* NormalTableViewController.m in Sources */,
 				2AF01FBE1E58935D0088008E /* PickerViewController.m in Sources */,
+				2A2D50871EB0817700BC161D /* UikitTestViewController.m in Sources */,
 				2A56B2981E59778100DD29B4 /* MainTabBarViewController.m in Sources */,
 				2AF01FB91E5891330088008E /* SwitchViewController.m in Sources */,
 				19DD3344B7BBF183D45BFCF5 /* UIColor+String.m in Sources */,
