@@ -93,7 +93,7 @@ static int TOP = 64;
 
     UIImageView * maskView2 = [[UIImageView alloc] init];
     [maskView2 setFrame:CGRectMake(0, TOP + 300, SCREEN_WIDTH, 81)];
-    [maskView2 setImage:[UIImage imageNamed:@"mask2"]];
+    [maskView2 setImage:[UIImage imageNamed:@"circle_mask"]];
     [self.view addSubview:maskView2];
 
     UIButton * button3 = [[UIButton alloc] init];
@@ -103,7 +103,7 @@ static int TOP = 64;
 
     UIImageView * maskView3 = [[UIImageView alloc] init];
     [maskView3 setFrame:CGRectMake(0, TOP + 400, SCREEN_WIDTH, 81)];
-    [maskView3 setImage:[UIImage imageNamed:@"mask2"]];
+    [maskView3 setImage:[UIImage imageNamed:@"circle_mask"]];
     [self.view addSubview:maskView3];
 
 
