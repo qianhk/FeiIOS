@@ -5,11 +5,11 @@
 
 #import <Foundation/Foundation.h>
 
-@class CaculatorMaker;
+@class CalculatorMaker;
 
 
-@interface NSObject (Calculate)
+@interface NSObject (Calculator)
 
-+ (int)makeCaculators:(void(^)(CaculatorMaker *make))caculatorMaker;
++ (int)makeCalculator:(void(^)(CalculatorMaker *make))calculatorMaker;
 
 @end

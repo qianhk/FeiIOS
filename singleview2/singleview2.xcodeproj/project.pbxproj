@@ -14,10 +14,11 @@
 		19DD312807F2C2619CEB3093 /* MasonryLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD35DFD5C2B5BE44657DDE /* MasonryLayout.m */; };
 		19DD3186436FFA70C8EBC891 /* MyDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39586B2852DEEE88CD7A /* MyDrawerView.m */; };
 		19DD3344B7BBF183D45BFCF5 /* UIColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD34BAF8EBB489D79A5C8A /* UIColor+String.m */; };
-		19DD337DB7DC01AC3E148418 /* NSObject+Caculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3A5D9476CA7391473F71 /* NSObject+Caculator.m */; };
+		19DD3392BE334E1457C22B3A /* NSObject+Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */; };
+		19DD35F32D58CA694658070B /* CalculatorMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD390963D60D7C86113D09 /* CalculatorMaker.m */; };
 		19DD372648793B8E4647C87B /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3927EFEBF2B130D53BA2 /* MyNavigationController.m */; };
 		19DD3810B9A0002EC96A4767 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DD3639270FEEF858CD2455 /* CoreLocation.framework */; };
-		19DD3973CB28EC39A4F16C21 /* CaculatorMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3D558728509B37858C74 /* CaculatorMaker.m */; };
+		19DD38DE90F47F4C1B8581C1 /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3C08706F84A4D5C6EFAA /* Calculator.m */; };
 		19DD3A76623BD5DC58194F8A /* sortednames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19DD3396F3E6744ABF10836B /* sortednames.plist */; };
 		19DD3B12AAB2D3F104CF4B69 /* CustomCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD397DECACEA625586A2AD /* CustomCollectionViewController.m */; };
 		19DD3BFDB43DEA83F51F4662 /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */; };
@@ -51,30 +52,32 @@
 
 /* Begin PBXFileReference section */
 		19DD300AC4CDEC6811ED40A4 /* SearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultController.m; sourceTree = "<group>"; };
+		19DD307566796FCAB64798F5 /* NSObject+Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Calculator.h"; sourceTree = "<group>"; };
 		19DD309D2C50688F68072FC4 /* MyDrawerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDrawerView.h; sourceTree = "<group>"; };
-		19DD32CF0517706A4EA7F37B /* CaculatorMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaculatorMaker.h; sourceTree = "<group>"; };
 		19DD33194D955DB098B8AD03 /* UIColor+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+String.h"; sourceTree = "<group>"; };
 		19DD3396F3E6744ABF10836B /* sortednames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = sortednames.plist; sourceTree = "<group>"; };
 		19DD33C0B4289BB2071627BB /* CustomCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewController.h; sourceTree = "<group>"; };
 		19DD33CCCD6D0DD63BE6F2C0 /* TagCellLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagCellLayout.m; sourceTree = "<group>"; };
 		19DD34BAF8EBB489D79A5C8A /* UIColor+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+String.m"; sourceTree = "<group>"; };
 		19DD34D6D63E5F65DC2E8979 /* HeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCell.m; sourceTree = "<group>"; };
+		19DD3503FE33C4DDAD5581B8 /* CalculatorMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorMaker.h; sourceTree = "<group>"; };
 		19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController.m; sourceTree = "<group>"; };
-		19DD35D2DC9B1D1B9E069382 /* NSObject+Caculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Caculator.h"; sourceTree = "<group>"; };
 		19DD35DFD5C2B5BE44657DDE /* MasonryLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasonryLayout.m; sourceTree = "<group>"; };
 		19DD3612E615A8DE8118A2C2 /* MasonryLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonryLayout.h; sourceTree = "<group>"; };
 		19DD3639270FEEF858CD2455 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		19DD36A1D71E01AF83E208C4 /* ContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentCell.m; sourceTree = "<group>"; };
 		19DD3769B2F26A377D2CB11D /* TestCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController.h; sourceTree = "<group>"; };
 		19DD382F0C31BDCFDDC03022 /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
+		19DD390963D60D7C86113D09 /* CalculatorMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorMaker.m; sourceTree = "<group>"; };
 		19DD3927EFEBF2B130D53BA2 /* MyNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavigationController.m; sourceTree = "<group>"; };
+		19DD394F159CA346FE9BB05D /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
 		19DD39586B2852DEEE88CD7A /* MyDrawerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDrawerView.m; sourceTree = "<group>"; };
 		19DD397DECACEA625586A2AD /* CustomCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewController.m; sourceTree = "<group>"; };
 		19DD3A11E663419DE358D851 /* ContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentCell.h; sourceTree = "<group>"; };
-		19DD3A5D9476CA7391473F71 /* NSObject+Caculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Caculator.m"; sourceTree = "<group>"; };
 		19DD3B12072853845EC93B0F /* MyNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavigationController.h; sourceTree = "<group>"; };
+		19DD3C08706F84A4D5C6EFAA /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
+		19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Calculator.m"; sourceTree = "<group>"; };
 		19DD3D174477D552F4B8B94F /* SectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionTableViewController.m; sourceTree = "<group>"; };
-		19DD3D558728509B37858C74 /* CaculatorMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaculatorMaker.m; sourceTree = "<group>"; };
 		19DD3D73E1F0DC9A3D0A74EA /* HeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCell.h; sourceTree = "<group>"; };
 		19DD3E0FB07BB801A978E301 /* SectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionTableViewController.h; sourceTree = "<group>"; };
 		19DD3E48D1085ADD340DC4D3 /* TagCellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagCellLayout.h; sourceTree = "<group>"; };
@@ -155,13 +158,31 @@
 			path = collection;
 			sourceTree = "<group>";
 		};
+		19DD3809E4BA9BC1CCF07AE4 /* chained */ = {
+			isa = PBXGroup;
+			children = (
+				19DD307566796FCAB64798F5 /* NSObject+Calculator.h */,
+				19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */,
+				19DD3503FE33C4DDAD5581B8 /* CalculatorMaker.h */,
+				19DD390963D60D7C86113D09 /* CalculatorMaker.m */,
+			);
+			path = chained;
+			sourceTree = "<group>";
+		};
+		19DD387681B2CF425E4E015C /* functional */ = {
+			isa = PBXGroup;
+			children = (
+				19DD3C08706F84A4D5C6EFAA /* Calculator.m */,
+				19DD394F159CA346FE9BB05D /* Calculator.h */,
+			);
+			path = functional;
+			sourceTree = "<group>";
+		};
 		19DD38E493A3F550332860C8 /* RAC */ = {
 			isa = PBXGroup;
 			children = (
-				19DD3A5D9476CA7391473F71 /* NSObject+Caculator.m */,
-				19DD35D2DC9B1D1B9E069382 /* NSObject+Caculator.h */,
-				19DD3D558728509B37858C74 /* CaculatorMaker.m */,
-				19DD32CF0517706A4EA7F37B /* CaculatorMaker.h */,
+				19DD3809E4BA9BC1CCF07AE4 /* chained */,
+				19DD387681B2CF425E4E015C /* functional */,
 			);
 			path = RAC;
 			sourceTree = "<group>";
@@ -367,8 +388,9 @@
 				19DD3B12AAB2D3F104CF4B69 /* CustomCollectionViewController.m in Sources */,
 				19DD312807F2C2619CEB3093 /* MasonryLayout.m in Sources */,
 				19DD3E5F012285184B1F3C12 /* TagCellLayout.m in Sources */,
-				19DD337DB7DC01AC3E148418 /* NSObject+Caculator.m in Sources */,
-				19DD3973CB28EC39A4F16C21 /* CaculatorMaker.m in Sources */,
+				19DD3392BE334E1457C22B3A /* NSObject+Calculator.m in Sources */,
+				19DD35F32D58CA694658070B /* CalculatorMaker.m in Sources */,
+				19DD38DE90F47F4C1B8581C1 /* Calculator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

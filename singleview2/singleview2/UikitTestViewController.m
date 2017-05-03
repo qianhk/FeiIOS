@@ -7,8 +7,9 @@
 //
 
 #import "UikitTestViewController.h"
-#import "NSObject+Caculator.h"
-#import "CaculatorMaker.h"
+#import "NSObject+Calculator.h"
+#import "CalculatorMaker.h"
+#import "Calculator.h"
 
 @interface UikitTestViewController ()
 
@@ -35,10 +36,22 @@
     NSLog(@"CGRectGetMinX--%f", CGRectGetMinX(rect));
     NSLog(@"CGRectGetMinY--%f", CGRectGetMinY(rect));
 
-    int result = [NSObject makeCaculators:^(CaculatorMaker *make) {
+    int result1 = [NSObject makeCalculator:^(CalculatorMaker *make) {
         make.add(1).add(2).add(3).add(4).divide(5);
     }];
-    NSLog(@"makeCaculators result=%d", result);
+    NSLog(@"chained makeCalculator result=%d", result1);
+
+
+    Calculator *c = [Calculator new];
+    c.result = 3;
+    [[c calculator:^int(int result) {
+        result += 2;
+        result *= 5;
+        return result;
+    }] equal:^BOOL(int result) {
+        return result == 10;
+    }];
+    NSLog(@"functional calculator result=%d equal=%@", c.result, c.isEqual ? @"YES" : @"NO");
 }
 
 - (void)didReceiveMemoryWarning {
