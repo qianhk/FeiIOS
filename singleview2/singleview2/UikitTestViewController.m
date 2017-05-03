@@ -7,6 +7,8 @@
 //
 
 #import "UikitTestViewController.h"
+#import "NSObject+Caculator.h"
+#import "CaculatorMaker.h"
 
 @interface UikitTestViewController ()
 
@@ -32,6 +34,11 @@
     NSLog(@"CGRectGetMidY--%f", CGRectGetMidY(rect));
     NSLog(@"CGRectGetMinX--%f", CGRectGetMinX(rect));
     NSLog(@"CGRectGetMinY--%f", CGRectGetMinY(rect));
+
+    int result = [NSObject makeCaculators:^(CaculatorMaker *make) {
+        make.add(1).add(2).add(3).add(4).divide(5);
+    }];
+    NSLog(@"makeCaculators result=%d", result);
 }
 
 - (void)didReceiveMemoryWarning {
