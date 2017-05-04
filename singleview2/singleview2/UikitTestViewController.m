@@ -11,6 +11,10 @@
 #import <ReactiveObjC/RACDisposable.h>
 #import <ReactiveObjC/RACSubject.h>
 #import <ReactiveObjC/RACReplaySubject.h>
+#import <ReactiveObjC/RACTuple.h>
+#import <ReactiveObjC/NSArray+RACSequenceAdditions.h>
+#import <ReactiveObjC/NSDictionary+RACSequenceAdditions.h>
+#import <ReactiveObjC/RACSequence.h>
 #import "UikitTestViewController.h"
 #import "NSObject+Calculator.h"
 #import "CalculatorMaker.h"
@@ -117,15 +121,32 @@
 
     // 3.订阅信号
     [replaySubject subscribeNext:^(id x) {
-
         NSLog(@"第一个订阅者接收到的数据%@",x);
     }];
 
     // 订阅信号
     [replaySubject subscribeNext:^(id x) {
-
         NSLog(@"第二个订阅者接收到的数据%@",x);
     }];
+
+    NSLog(@"Test step....");
+
+    NSArray *numbers = @[@1,@2,@3,@4];
+    [numbers.rac_sequence.signal subscribeNext:^(id x) {
+        NSLog(@"rac_sequence.signal %@ %@",x, NSStringFromClass([x class]));
+    }];
+
+
+    NSDictionary *dict = @{@"name":@"meizi",@"age":@18};
+    [dict.rac_sequence.signal subscribeNext:^(RACTuple *x) {
+        RACTupleUnpack(NSString *key,NSString *value) = x;
+        NSLog(@"rac_sequence.signal %@ %@",key,value);
+
+    }];
+
+
+    NSLog(@"Test End. rac_sequence.signal 貌似异步的， 他们的log再此log之后");
+
 }
 
 - (void)didReceiveMemoryWarning {
