@@ -15,6 +15,7 @@
 #import <ReactiveObjC/NSArray+RACSequenceAdditions.h>
 #import <ReactiveObjC/NSDictionary+RACSequenceAdditions.h>
 #import <ReactiveObjC/RACSequence.h>
+#import <ReactiveObjC/RACSignal+Operations.h>
 #import "UikitTestViewController.h"
 #import "NSObject+Calculator.h"
 #import "CalculatorMaker.h"
@@ -135,6 +136,14 @@
     [numbers.rac_sequence.signal subscribeNext:^(id x) {
         NSLog(@"rac_sequence.signal %@ %@",x, NSStringFromClass([x class]));
     }];
+
+    RACSignal * mapResult = [numbers.rac_sequence.signal map:^id(id value) {
+        NSLog(@"rac_sequence.signal map %@ ", value);
+        return value;
+    }]; //mapResult is RACDynamicSignal
+
+    NSArray *array = [mapResult toArray]; //没有这一句不会真的执行map操作
+    NSLog(@"mapResult %@ %@ %@", mapResult, NSStringFromClass([mapResult class]), array);
 
 
     NSDictionary *dict = @{@"name":@"meizi",@"age":@18};
