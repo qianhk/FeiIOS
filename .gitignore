@@ -25,3 +25,6 @@ profile
 # vim noise
 *~
 *.swp
+
+Pods/
+Podfile.lock

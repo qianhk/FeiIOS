@@ -1,0 +1,14 @@
+
+platform :ios, '8.0'
+
+use_frameworks!
+
+source "https://github.com/CocoaPods/Old-Specs"
+
+target 'singleview2' do
+
+
+  pod 'ReactiveObjC'
+  # pod 'ReactiveCocoa', '~> 5.0.0'
+
+end
