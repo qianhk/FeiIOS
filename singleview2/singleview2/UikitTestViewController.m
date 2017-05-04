@@ -9,6 +9,8 @@
 #import <ReactiveObjC/RACSignal.h>
 #import <ReactiveObjC/RACSubscriber.h>
 #import <ReactiveObjC/RACDisposable.h>
+#import <ReactiveObjC/RACSubject.h>
+#import <ReactiveObjC/RACReplaySubject.h>
 #import "UikitTestViewController.h"
 #import "NSObject+Calculator.h"
 #import "CalculatorMaker.h"
@@ -55,22 +57,7 @@
         return result == 10;
     }];
     NSLog(@"functional calculator result=%d equal=%@", c.result, c.isEqual ? @"YES" : @"NO");
-    
-    
-    // RACSignal使用步骤：
-    // 1.创建信号 + (RACSignal *)createSignal:(RACDisposable * (^)(id<RACSubscriber> subscriber))didSubscribe
-    // 2.订阅信号,才会激活信号. - (RACDisposable *)subscribeNext:(void (^)(id x))nextBlock
-    // 3.发送信号 - (void)sendNext:(id)value
-    
-    
-    // RACSignal底层实现：
-    // 1.创建信号，首先把didSubscribe保存到信号中，还不会触发。
-    // 2.当信号被订阅，也就是调用signal的subscribeNext:nextBlock
-    // 2.2 subscribeNext内部会创建订阅者subscriber，并且把nextBlock保存到subscriber中。
-    // 2.1 subscribeNext内部会调用siganl的didSubscribe
-    // 3.siganl的didSubscribe中调用[subscriber sendNext:@1];
-    // 3.1 sendNext底层其实就是执行subscriber的nextBlock
-    
+
     // 1.创建信号
     RACSignal *siganl = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
@@ -97,6 +84,47 @@
     [siganl subscribeNext:^(id x) {
         // block调用时刻：每当有信号发出数据，就会调用block.
         NSLog(@"接收到数据:%@",x);
+    }];
+
+
+
+
+
+    // 1.创建信号
+    RACSubject *subject = [RACSubject subject];
+
+    // 2.订阅信号
+    [subject subscribeNext:^(id x) {
+        // block调用时刻：当信号发出新值，就会调用.
+        NSLog(@"第一个订阅者%@",x);
+    }];
+    [subject subscribeNext:^(id x) {
+        // block调用时刻：当信号发出新值，就会调用.
+        NSLog(@"第二个订阅者%@",x);
+    }];
+
+    // 3.发送信号
+    [subject sendNext:@"1"];
+
+
+
+    // 1.创建信号
+    RACReplaySubject *replaySubject = [RACReplaySubject subject];
+
+    // 2.发送信号
+    [replaySubject sendNext:@1];
+    [replaySubject sendNext:@2];
+
+    // 3.订阅信号
+    [replaySubject subscribeNext:^(id x) {
+
+        NSLog(@"第一个订阅者接收到的数据%@",x);
+    }];
+
+    // 订阅信号
+    [replaySubject subscribeNext:^(id x) {
+
+        NSLog(@"第二个订阅者接收到的数据%@",x);
     }];
 }
 
