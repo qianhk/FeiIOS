@@ -16,12 +16,15 @@
 #import <ReactiveObjC/NSDictionary+RACSequenceAdditions.h>
 #import <ReactiveObjC/RACSequence.h>
 #import <ReactiveObjC/RACSignal+Operations.h>
+#import <ReactiveObjC/RACCommand.h>
 #import "UikitTestViewController.h"
 #import "NSObject+Calculator.h"
 #import "CalculatorMaker.h"
 #import "Calculator.h"
 
 @interface UikitTestViewController ()
+
+@property(nonatomic, strong) RACCommand *command;
 
 @end
 
@@ -64,31 +67,31 @@
     NSLog(@"functional calculator result=%d equal=%@", c.result, c.isEqual ? @"YES" : @"NO");
 
     // 1.创建信号
-    RACSignal *siganl = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        
+    RACSignal *siganl = [RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
+
         // block调用时刻：每当有订阅者订阅信号，就会调用block。
-        
+
         // 2.发送信号
         [subscriber sendNext:@66];
-        
+
         // 如果不在发送数据，最好发送信号完成，内部会自动调用[RACDisposable disposable]取消订阅信号。
         [subscriber sendCompleted];
-        
+
         return [RACDisposable disposableWithBlock:^{
-            
+
             // block调用时刻：当信号发送完成或者发送错误，就会自动执行这个block,取消订阅信号。
-            
+
             // 执行完Block后，当前信号就不在被订阅了。
-            
+
             NSLog(@"信号被销毁");
-            
+
         }];
     }];
-    
+
     // 3.订阅信号,才会激活信号.
     [siganl subscribeNext:^(id x) {
         // block调用时刻：每当有信号发出数据，就会调用block.
-        NSLog(@"接收到数据:%@",x);
+        NSLog(@"接收到数据:%@", x);
     }];
 
 
@@ -101,11 +104,11 @@
     // 2.订阅信号
     [subject subscribeNext:^(id x) {
         // block调用时刻：当信号发出新值，就会调用.
-        NSLog(@"第一个订阅者%@",x);
+        NSLog(@"第一个订阅者%@", x);
     }];
     [subject subscribeNext:^(id x) {
         // block调用时刻：当信号发出新值，就会调用.
-        NSLog(@"第二个订阅者%@",x);
+        NSLog(@"第二个订阅者%@", x);
     }];
 
     // 3.发送信号
@@ -122,22 +125,22 @@
 
     // 3.订阅信号
     [replaySubject subscribeNext:^(id x) {
-        NSLog(@"第一个订阅者接收到的数据%@",x);
+        NSLog(@"第一个订阅者接收到的数据%@", x);
     }];
 
     // 订阅信号
     [replaySubject subscribeNext:^(id x) {
-        NSLog(@"第二个订阅者接收到的数据%@",x);
+        NSLog(@"第二个订阅者接收到的数据%@", x);
     }];
 
     NSLog(@"Test step....");
 
-    NSArray *numbers = @[@1,@2,@3,@4];
+    NSArray *numbers = @[@1, @2, @3, @4];
     [numbers.rac_sequence.signal subscribeNext:^(id x) {
-        NSLog(@"rac_sequence.signal %@ %@",x, NSStringFromClass([x class]));
+        NSLog(@"rac_sequence.signal %@ %@", x, NSStringFromClass([x class]));
     }];
 
-    RACSignal * mapResult = [numbers.rac_sequence.signal map:^id(id value) {
+    RACSignal *mapResult = [numbers.rac_sequence.signal map:^id(id value) {
         NSLog(@"rac_sequence.signal map %@ ", value);
         return value;
     }]; //mapResult is RACDynamicSignal
@@ -146,15 +149,71 @@
     NSLog(@"mapResult %@ %@ %@", mapResult, NSStringFromClass([mapResult class]), array);
 
 
-    NSDictionary *dict = @{@"name":@"meizi",@"age":@18};
+    NSDictionary *dict = @{@"name": @"meizi", @"age": @18};
     [dict.rac_sequence.signal subscribeNext:^(RACTuple *x) {
-        RACTupleUnpack(NSString *key,NSString *value) = x;
-        NSLog(@"rac_sequence.signal %@ %@",key,value);
+        RACTupleUnpack(NSString *key, NSString *value) = x;
+        NSLog(@"rac_sequence.signal %@ %@", key, value);
 
     }];
 
 
-    NSLog(@"Test End. rac_sequence.signal 貌似异步的， 他们的log再此log之后");
+
+
+
+    // 1.创建命令 // 强引用命令，不要被销毁，否则接收不到数据
+    self.command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+
+        NSLog(@"RACCommand initWithSignalBlock input=%@", input);
+
+        // 创建空信号,必须返回信号
+        // return [RACSignal empty];
+
+        // 2.创建信号,用来传递数据
+        RACSignal *racSignal = [RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
+
+                [subscriber sendNext:[NSString stringWithFormat:@"数据(param=%@)", input]];
+                [subscriber sendCompleted];
+                return nil;
+            }];
+        racSignal.name = @"OriginSignal";
+        NSLog(@"RACCommand initWithSignalBlock signal=%@", racSignal);
+        return racSignal;
+
+    }];
+
+
+    // 3.订阅RACCommand中的信号
+    [_command.executionSignals subscribeNext:^(id signal) {
+
+        //此signal不是上面创建的那个racSignal
+        NSLog(@"RACCommand executionSignals subscribeNext %@", signal);
+
+        [signal subscribeNext:^(id data) {
+            NSLog(@"RACCommand executionSignals subscribeNext subscribeNext %@", data);
+        }];
+
+    }];
+
+//    // switchToLatest:用于signal of signals，获取signal of signals发出的最新信号,也就是可以直接拿到RACCommand中的信号
+//    [_command.executionSignals.switchToLatest subscribeNext:^(id x) {
+//        NSLog(@"RACCommand executionSignals switchToLatest subscribeNext %@", x);
+//    }];
+
+    // 4.监听命令是否执行完毕,默认会来一次，可以直接跳过，skip表示跳过第一次信号。  //为啥上来就有个信号?
+//    [[_command.executing skip:0] subscribeNext:^(id x) {
+//        if ([x boolValue]) {
+//            NSLog(@"RACCommand executing subscribeNext 正在执行 %@ %@", x, NSStringFromClass([x class]));
+//        } else {
+//            NSLog(@"RACCommand executing subscribeNext 执行完成 %@ %@", x, NSStringFromClass([x class]));
+//        }
+//
+//    }];
+
+    NSLog(@"RACCommand execute");
+    // 5.执行命令
+    [_command execute:@666];
+
+    NSLog(@"Test End. rac_sequence.signal 异步的， 他们的log再此log之后\n\n");
 
 }
 
