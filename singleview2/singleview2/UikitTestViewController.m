@@ -216,7 +216,7 @@
     // 5.执行命令
     [_command execute:@666];
 
-    NSLog(@"Test End. rac_sequence.signal 异步的， 他们的log再此log之后\n\n");
+    NSLog(@"Test End. rac_sequence.signal 异步的， 他们的log再此log之后\n");
 
     [[self rac_signalForSelector:@selector(viewWillAppear:)] subscribeNext:^(id x) {
         NSLog(@"subscribeNext viewWillAppear");
@@ -300,6 +300,7 @@ static int TOP = 64;
 
     UIButton *button3 = [[UIButton alloc] init];
     [button3 setFrame:CGRectMake(0, TOP + 400, SCREEN_WIDTH, 81)];
+    [button3 setTitle:@"B3" forState:UIControlStateNormal];
     [button3 setBackgroundColor:[UIColor blueColor]];
     [self.view addSubview:button3];
 
@@ -325,14 +326,36 @@ static int TOP = 64;
 
     [[button3 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
 
-        NSLog(@"button3 按钮被点击了 use rac_signalForControlEvents");
+        NSLog(@"\nbutton3 按钮被点击了 use rac_signalForControlEvents");
         button3.frame = CGRectMake(0, TOP + 400, SCREEN_WIDTH, button3.frame.size.height + 4);
+        [button3 setTitle:[NSString stringWithFormat:@"%@-", button3.currentTitle] forState:UIControlStateNormal];
     }];
 
+
+    [RACObserve(button3, frame) subscribeNext:^(id x) {
+        //x is NSConcreteValue
+        CGRect rect = [x CGRectValue];
+        NSLog(@"button3 property changed use RACObserve frame %@ class=%@ rect=%@", x, [x class], NSStringFromCGRect(rect));
+    }];
+
+    //同样的属性，后关注的先收到信号
     [[button3 rac_valuesAndChangesForKeyPath:@"frame" options:NSKeyValueObservingOptionNew observer:nil] subscribeNext:^(id x) {
+        RACTupleUnpack(id value, id value2) = x;
+        CGRect rect = [value CGRectValue];
+        NSLog(@"button3 property changed use rac_valuesAndChangesForKeyPath frame %@ class=%@ id=%@ id2=%@ rect=%@", x, [x class], value, value2, NSStringFromCGRect(rect));
+    }];
 
-        NSLog(@"button3 property changed use rac_valuesAndChangesForKeyPath %@", x);
 
+    [[button3.titleLabel rac_valuesAndChangesForKeyPath:@"text" options:NSKeyValueObservingOptionNew observer:nil] subscribeNext:^(id x) {
+        RACTupleUnpack(id value, id value2, id value3) = x;
+        NSLog(@"button3 property changed use rac_valuesAndChangesForKeyPath text %@ class=%@ id=%@ id2=%@ id3=%@", x, [x class], value, value2, value3);
+    }];
+
+    //同样的属性，后关注的先收到信号
+    [RACObserve(button3.titleLabel, text) subscribeNext:^(id x) {
+        //x is NSTaggedPointerString
+//        NSString *lable = [x string]; //直接用，不能转 [__NSCFConstantString string]: unrecognized selector sent to instance 0x1000c53b0
+        NSLog(@"button3 property changed use RACObserve text %@ class=%@", x, [x class]);
     }];
 }
 
