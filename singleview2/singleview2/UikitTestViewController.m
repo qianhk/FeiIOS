@@ -17,6 +17,9 @@
 #import <ReactiveObjC/RACSequence.h>
 #import <ReactiveObjC/RACSignal+Operations.h>
 #import <ReactiveObjC/RACCommand.h>
+#import <ReactiveObjC/NSObject+RACSelectorSignal.h>
+#import <ReactiveObjC/UIControl+RACSignalSupport.h>
+#import <ReactiveObjC/NSObject+RACPropertySubscribing.h>
 #import "UikitTestViewController.h"
 #import "NSObject+Calculator.h"
 #import "CalculatorMaker.h"
@@ -215,12 +218,21 @@
 
     NSLog(@"Test End. rac_sequence.signal 异步的， 他们的log再此log之后\n\n");
 
+    [[self rac_signalForSelector:@selector(viewWillAppear:)] subscribeNext:^(id x) {
+        NSLog(@"subscribeNext viewWillAppear");
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    NSLog(@"in viewWillAppear");
+}
+
 
 /*
 #pragma mark - Navigation
@@ -310,6 +322,18 @@ static int TOP = 64;
 //    maskLayer.path = path;
 //    CGPathRelease(path);
 //    button.layer.mask = maskLayer;
+
+    [[button3 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+
+        NSLog(@"button3 按钮被点击了 use rac_signalForControlEvents");
+        button3.frame = CGRectMake(0, TOP + 400, SCREEN_WIDTH, button3.frame.size.height + 4);
+    }];
+
+    [[button3 rac_valuesAndChangesForKeyPath:@"frame" options:NSKeyValueObservingOptionNew observer:nil] subscribeNext:^(id x) {
+
+        NSLog(@"button3 property changed use rac_valuesAndChangesForKeyPath %@", x);
+
+    }];
 }
 
 @end
