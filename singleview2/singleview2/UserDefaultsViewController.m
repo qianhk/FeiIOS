@@ -96,6 +96,19 @@
 //    [kvcModel setValue:@"AgeValue" forKey:@"age"];
 
     NSLog(@"age: %@ %@ %@", value1ForAge, value2ForAge, value3ForAge);
+    
+    kvcModel.age = 100;
+
+    KVCModel *kvcModel2 = [KVCModel new];
+    kvcModel2.age = 120;
+    KVCModel *kvcModel3 = [KVCModel new];
+    kvcModel3.age = 80;
+
+    NSArray *a = @[@4, @84, @2, @56];
+    NSLog(@"max a = %@", [a valueForKeyPath:@"@max.self"]);
+
+    NSArray *ages = @[kvcModel, kvcModel2, kvcModel3];
+    NSLog(@"max age = %@", [ages valueForKeyPath:@"@max.age"]); //KVC 的苹果官方文档有一个章节 Collection Operators 详细的讲述了类似的用法
 
 }
 
