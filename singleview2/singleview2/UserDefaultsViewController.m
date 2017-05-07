@@ -8,6 +8,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import "UserDefaultsViewController.h"
+#import "KVCModel.h"
 
 @interface UserDefaultsViewController () <CLLocationManagerDelegate>
 
@@ -68,6 +69,25 @@
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager requestWhenInUseAuthorization];
+
+
+    KVCModel *kvcModel = [KVCModel new];
+    kvcModel.name = @"KaiName";
+    id value1ForName = [kvcModel valueForKey:@"name"];
+    [kvcModel setValue:@"KaiSetName" forKey:@"name"];
+    id value2ForName = [kvcModel valueForKey:@"name"];
+
+    id value1ForName2 = [kvcModel valueForKey:@"name2"];
+    [kvcModel setValue:@"KaiSetName2" forKey:@"name2"];
+    id value2ForName2 = [kvcModel valueForKey:@"name2"];
+
+    id value1ForName3 = [kvcModel valueForKey:@"name3"];
+    [kvcModel setValue:@"KaiSetName3" forKey:@"name3"];
+    id value2ForName3 = [kvcModel valueForKey:@"name3"];
+
+
+    NSLog(@"%@ %@, %@ %@", value1ForName, value2ForName, value1ForName2, value2ForName2);
+
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -100,7 +120,7 @@
     NSString *string = [NSString stringWithFormat:@"lat=%g\u00B0 lng=%g\u00B0 hAccuracy=%gm vAccuracy=%gm altitude=%gm distance=%gm"
             , location.coordinate.latitude, location.coordinate.longitude
             , location.horizontalAccuracy, location.verticalAccuracy, location.altitude, self.totalMovementDisance];
-    NSLog(string);
+//    NSLog(string);
     _resultLabel.text = string;
 }
 
