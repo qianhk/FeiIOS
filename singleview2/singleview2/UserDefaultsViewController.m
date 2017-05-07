@@ -86,7 +86,16 @@
     id value2ForName3 = [kvcModel valueForKey:@"name3"];
 
 
-    NSLog(@"%@ %@, %@ %@", value1ForName, value2ForName, value1ForName2, value2ForName2);
+    NSLog(@"%@ %@, %@ %@, %@ %@", value1ForName, value2ForName, value1ForName2, value2ForName2, value1ForName3, value2ForName3);
+
+    id value1ForAge = [kvcModel valueForKey:@"age"];
+    [kvcModel setValue:@32 forKey:@"age"];
+    id value2ForAge = [kvcModel valueForKey:@"age"];
+    [kvcModel setValue:nil forKey:@"age"];
+    id value3ForAge = [kvcModel valueForKey:@"age"];
+//    [kvcModel setValue:@"AgeValue" forKey:@"age"];
+
+    NSLog(@"age: %@ %@ %@", value1ForAge, value2ForAge, value3ForAge);
 
 }
 

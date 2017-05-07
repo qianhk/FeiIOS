@@ -14,7 +14,7 @@
 
 - (nullable id)valueForUndefinedKey:(NSString *)key {
     NSLog(@"您访问的key:[%@]不存在", key);
-    return nil; // default throw NSUnknownKeyException [super valueForUndefinedKey:key];
+    return @"无key"; // default throw NSUnknownKeyException [super valueForUndefinedKey:key];
 }
 
 - (void)setValue:(nullable id)value forUndefinedKey:(NSString *)key {
@@ -23,7 +23,12 @@
 }
 
 - (void)setNilValueForKey:(NSString *)key {
-    [super setNilValueForKey:key];
+    NSLog(@"setNilValueForKey %@", key);
+    if ([key isEqualToString:@"age"]) {
+        self.age = 0;
+    } else {
+        [super setNilValueForKey:key]; //'NSInvalidArgumentException'
+    }
 }
 
 
