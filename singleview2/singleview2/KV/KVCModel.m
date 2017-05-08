@@ -31,5 +31,14 @@
     }
 }
 
+- (void)willChangeValueForKey:(NSString *)key {
+    [super willChangeValueForKey:key];
+    NSLog(@"kvcModel willChangeValueForKey key=%@", key);
+}
+
+- (void)didChangeValueForKey:(NSString *)key {
+    [super didChangeValueForKey:key];
+    NSLog(@"kvcModel didChangeValueForKey key=%@", key);
+}
 
 @end

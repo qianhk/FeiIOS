@@ -12,9 +12,11 @@
 
 @interface UserDefaultsViewController () <CLLocationManagerDelegate>
 
-@property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, strong) CLLocation *previousPoint;
-@property (nonatomic, assign) CLLocationDistance totalMovementDisance;
+@property(nonatomic, strong) CLLocationManager *locationManager;
+@property(nonatomic, strong) CLLocation *previousPoint;
+@property(nonatomic, assign) CLLocationDistance totalMovementDisance;
+
+@property(nonatomic, strong) KVCModel *kvcModel;
 
 @property(strong, nonatomic) IBOutlet UILabel *resultLabel;
 
@@ -24,6 +26,7 @@
 
 - (void)dealloc {
     NSLog(@"UserDefaultsViewController dealloc");
+    [self.kvcModel removeObserver:self forKeyPath:@"name"];
     [self.locationManager stopUpdatingLocation];
 }
 
@@ -71,33 +74,33 @@
     [self.locationManager requestWhenInUseAuthorization];
 
 
-    KVCModel *kvcModel = [KVCModel new];
-    kvcModel.name = @"KaiName";
-    id value1ForName = [kvcModel valueForKey:@"name"];
-    [kvcModel setValue:@"KaiSetName" forKey:@"name"];
-    id value2ForName = [kvcModel valueForKey:@"name"];
+    self.kvcModel = [KVCModel new];
+    _kvcModel.name = @"KaiName";
+    id value1ForName = [_kvcModel valueForKey:@"name"];
+    [_kvcModel setValue:@"KaiSetName" forKey:@"name"];
+    id value2ForName = [_kvcModel valueForKey:@"name"];
 
-    id value1ForName2 = [kvcModel valueForKey:@"name2"];
-    [kvcModel setValue:@"KaiSetName2" forKey:@"name2"];
-    id value2ForName2 = [kvcModel valueForKey:@"name2"];
+    id value1ForName2 = [_kvcModel valueForKey:@"name2"];
+    [_kvcModel setValue:@"KaiSetName2" forKey:@"name2"];
+    id value2ForName2 = [_kvcModel valueForKey:@"name2"];
 
-    id value1ForName3 = [kvcModel valueForKey:@"name3"];
-    [kvcModel setValue:@"KaiSetName3" forKey:@"name3"];
-    id value2ForName3 = [kvcModel valueForKey:@"name3"];
+    id value1ForName3 = [_kvcModel valueForKey:@"name3"];
+    [_kvcModel setValue:@"KaiSetName3" forKey:@"name3"];
+    id value2ForName3 = [_kvcModel valueForKey:@"name3"];
 
 
     NSLog(@"%@ %@, %@ %@, %@ %@", value1ForName, value2ForName, value1ForName2, value2ForName2, value1ForName3, value2ForName3);
 
-    id value1ForAge = [kvcModel valueForKey:@"age"];
-    [kvcModel setValue:@32 forKey:@"age"];
-    id value2ForAge = [kvcModel valueForKey:@"age"];
-    [kvcModel setValue:nil forKey:@"age"];
-    id value3ForAge = [kvcModel valueForKey:@"age"];
+    id value1ForAge = [_kvcModel valueForKey:@"age"];
+    [_kvcModel setValue:@32 forKey:@"age"];
+    id value2ForAge = [_kvcModel valueForKey:@"age"];
+    [_kvcModel setValue:nil forKey:@"age"];
+    id value3ForAge = [_kvcModel valueForKey:@"age"];
 //    [kvcModel setValue:@"AgeValue" forKey:@"age"];
 
     NSLog(@"age: %@ %@ %@", value1ForAge, value2ForAge, value3ForAge);
-    
-    kvcModel.age = 100;
+
+    _kvcModel.age = 100;
 
     KVCModel *kvcModel2 = [KVCModel new];
     kvcModel2.age = 120;
@@ -107,9 +110,23 @@
     NSArray *a = @[@4, @84, @2, @56];
     NSLog(@"max a = %@", [a valueForKeyPath:@"@max.self"]);
 
-    NSArray *ages = @[kvcModel, kvcModel2, kvcModel3];
+    NSArray *ages = @[_kvcModel, kvcModel2, kvcModel3];
     NSLog(@"max age = %@", [ages valueForKeyPath:@"@max.age"]); //KVC 的苹果官方文档有一个章节 Collection Operators 详细的讲述了类似的用法
 
+    [self.kvcModel addObserver:self forKeyPath:@"name" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+
+    NSLog(@"after kvcModel addObserver");
+    self.kvcModel.name = @"kai58";
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+//    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    //'NSInternalInconsistencyException', reason: '<UserDefaultsViewController: 0x100403580>: An -observeValueForKeyPath:ofObject:change:context: message was received but not handled.
+    
+    
+    NSLog(@"kvcModel observeValueForKeyPath key=%@ new=%@ old=%@", keyPath, [change valueForKey:NSKeyValueChangeNewKey], change[NSKeyValueChangeOldKey]);
+    if ([keyPath isEqualToString:@"name"]) {
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -193,12 +210,14 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    NSLog(@"lookLifecycle UserDefaultsViewController viewWillDisappear");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)refreshUserDefaults {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     id nameStr = [defaults objectForKey:@"name_preference"];
+    NSLog(@"refreshUserDefaults %@ %@", nameStr, [nameStr class]);
     _resultLabel.text = nameStr;
 }
 
