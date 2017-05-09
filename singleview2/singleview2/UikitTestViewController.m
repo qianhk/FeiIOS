@@ -105,11 +105,15 @@
     RACSubject *subject = [RACSubject subject];
 
     // 2.订阅信号
-    [subject subscribeNext:^(id x) {
+    [[subject flattenMap:^RACStream *(id value) {
+        return siganl;
+    }] subscribeNext:^(id x) {
         // block调用时刻：当信号发出新值，就会调用.
         NSLog(@"第一个订阅者%@", x);
     }];
-    [subject subscribeNext:^(id x) {
+    [[subject map:^id(id value) {
+        return [NSString stringWithFormat:@"map %@", value];
+    }] subscribeNext:^(id x) {
         // block调用时刻：当信号发出新值，就会调用.
         NSLog(@"第二个订阅者%@", x);
     }];
