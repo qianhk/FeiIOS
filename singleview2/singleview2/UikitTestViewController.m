@@ -70,7 +70,7 @@
     NSLog(@"functional calculator result=%d equal=%@", c.result, c.isEqual ? @"YES" : @"NO");
 
     // 1.创建信号
-    RACSignal *siganl = [RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
 
         // block调用时刻：每当有订阅者订阅信号，就会调用block。
 
@@ -91,10 +91,18 @@
         }];
     }];
 
+    RACSignal *signal2 = [signal doNext:^(id x) {
+        NSLog(@"信号doNext x=%@", x);
+    }];
+
     // 3.订阅信号,才会激活信号.
-    [siganl subscribeNext:^(id x) {
+    [signal subscribeNext:^(id x) {
         // block调用时刻：每当有信号发出数据，就会调用block.
         NSLog(@"接收到数据:%@", x);
+    }];
+
+    [signal2 subscribeNext:^(id x) {
+        NSLog(@"接收到数据2:%@", x);
     }];
 
 
@@ -106,7 +114,7 @@
 
     // 2.订阅信号
     [[subject flattenMap:^RACStream *(id value) {
-        return siganl;
+        return signal;
     }] subscribeNext:^(id x) {
         // block调用时刻：当信号发出新值，就会调用.
         NSLog(@"第一个订阅者%@", x);
