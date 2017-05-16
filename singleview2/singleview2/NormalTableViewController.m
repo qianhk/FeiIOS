@@ -13,6 +13,7 @@
 #import "UserDefaultsViewController.h"
 #import "CustomCollectionViewController.h"
 #import "UikitTestViewController.h"
+#import "MasonryTestViewController.h"
 
 #define KTTMessagePort "com.ttpod.ttdesktop.port2"
 
@@ -95,7 +96,9 @@
     mColorDataArray = [[NSMutableArray alloc] initWithArray:
             @[@{@"Name": @"Kai1", @"Color": @"Orange"}, @{@"Name": @"Kai2", @"Color": @"Red"}, @{@"Name": @"Kai3", @"Color": @"Green"}
                     , @{@"Name": @"Test CollectionView", @"Color": @"Blue"}, @{@"Name": @"User Defaults", @"Color": @"Orange"}, @{@"Name": @"Custom CollectionView", @"Color": @"Blue"}
-              , @{@"Name": @"layer mask", @"Color": @"Blue"}]];
+              , @{@"Name": @"layer mask", @"Color": @"Blue"}
+              , @{@"Name": @"Masonry Test", @"Color": @"Blue"}
+            ]];
 
 //    [self.tableView registerClass:[NameAndColorCell class] forCellReuseIdentifier:@"CellTableIdentifier"];
     UINib *nameAndColorCellNib = [UINib nibWithNibName:@"NameAndColorCell2" bundle:nil];
@@ -225,6 +228,10 @@
             
         case 6:
             [self.navigationController pushViewController:[[UikitTestViewController alloc] init] animated:YES];
+            break;
+
+        case 7:
+            [self.navigationController pushViewController:[[MasonryTestViewController alloc] init] animated:YES];
             break;
     }
 }
