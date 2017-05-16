@@ -34,7 +34,7 @@
     if (!_middleView) {
         _middleView = [[UIView alloc] init];
         _middleView.frame = CGRectMake(0, 0, 16, 16);
-        _topView.backgroundColor = [UIColor redColor];
+        _middleView.backgroundColor = [UIColor redColor];
         [self.view addSubview:_middleView];
     }
     return _middleView;
@@ -44,7 +44,7 @@
     if (!_bottomView) {
         _bottomView = [[UIView alloc] init];
         _bottomView.frame = CGRectMake(0, 0, 16, 16);
-        _topView.backgroundColor = [UIColor blueColor];
+        _bottomView.backgroundColor = [UIColor blueColor];
         [self.view addSubview:_bottomView];
     }
     return _bottomView;
@@ -54,7 +54,7 @@
     if (!_aboveMiddleView) {
         _aboveMiddleView = [[UIView alloc] init];
         _aboveMiddleView.frame = CGRectMake(0, 0, 16, 16);
-        _topView.backgroundColor = [UIColor cyanColor];
+        _aboveMiddleView.backgroundColor = [UIColor cyanColor];
         [self.view addSubview:_aboveMiddleView];
     }
     return _aboveMiddleView;
@@ -66,31 +66,32 @@
     // Do any additional setup after loading the view.
 
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.topMargin.mas_equalTo(80);
+        make.topMargin.mas_equalTo(64 + 8);
 //        make.top.equalTo(self.view);
         make.centerX.equalTo(self.view);
-        make.width.mas_equalTo(16);
-        make.height.mas_equalTo(16);
+        make.width.mas_equalTo(32);
+        make.height.mas_equalTo(32);
     }];
 
     [self.middleView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
-        make.width.mas_equalTo(16);
-        make.height.mas_equalTo(16);
+        make.width.mas_equalTo(32);
+        make.height.mas_equalTo(32);
     }];
 
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottomMargin.mas_equalTo(12);
-        make.width.mas_equalTo(16);
-        make.height.mas_equalTo(16);
+        make.bottom.equalTo(self.view).offset(-32.f);
+        make.width.mas_equalTo(32);
+        make.height.mas_equalTo(32);
         make.centerX.equalTo(self.view);
     }];
 
     [self.aboveMiddleView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.topMargin.mas_equalTo(12);
-        make.top.equalTo(self.middleView.mas_top);
-        make.width.mas_equalTo(16);
-        make.height.mas_equalTo(16);
+        make.top.equalTo(self.middleView.mas_bottom).offset(32.f);
+//        make.centerX.equalTo(self.view);
+        make.leading.equalTo(self.middleView);
+        make.width.mas_equalTo(32);
+        make.height.mas_equalTo(32);
         
     }];
     
