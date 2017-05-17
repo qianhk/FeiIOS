@@ -7,6 +7,8 @@
 //
 
 #import <Masonry/View+MASAdditions.h>
+#import <ReactiveObjC/UIControl+RACSignalSupport.h>
+#import <ReactiveObjC/RACSignal+Operations.h>
 #import "MasonryTestViewController.h"
 
 @interface MasonryTestViewController ()
@@ -15,6 +17,8 @@
 @property(nonatomic, strong) UIView *middleView;
 @property(nonatomic, strong) UIView *bottomView;
 @property(nonatomic, strong) UIView *aboveMiddleView;
+
+@property(nonatomic, strong) UIButton *changeButton;
 
 @end
 
@@ -60,6 +64,15 @@
     return _aboveMiddleView;
 }
 
+- (UIButton *)changeButton {
+    if (!_changeButton) {
+        _changeButton = [[UIButton alloc] init];
+        _changeButton.frame = CGRectMake(0, 0, 16, 16);
+        [self.view addSubview:_changeButton];
+    }
+    return _changeButton;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
@@ -94,9 +107,27 @@
         make.height.mas_equalTo(32);
         
     }];
-    
+
+    [self.changeButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.view).offset(-50);
+        make.width.mas_equalTo(50);
+        make.height.mas_equalTo(50);
+    }];
+
+    [[self.changeButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        [self.view setNeedsUpdateConstraints];
+    }];
 //    [self.view setNeedsUpdateConstraints];
 }
+
+- (void)updateViewConstraints {
+    [super updateViewConstraints];
+
+    [self.aboveMiddleView mas_updateConstraints:^(MASConstraintMaker *make) {
+       make.width.mas_equalTo(_aboveMiddleView.frame.size.width + 2);
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
