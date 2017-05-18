@@ -19,6 +19,7 @@
 @property(nonatomic, strong) UIView *aboveMiddleView;
 
 @property(nonatomic, strong) UIButton *changeButton;
+@property(nonatomic, strong) UIButton *changeButton2;
 
 @end
 
@@ -57,7 +58,7 @@
 - (UIView *)aboveMiddleView {
     if (!_aboveMiddleView) {
         _aboveMiddleView = [[UIView alloc] init];
-        _aboveMiddleView.frame = CGRectMake(0, 0, 16, 16);
+        _aboveMiddleView.frame = CGRectMake(0, 0, 0, 0);
         _aboveMiddleView.backgroundColor = [UIColor cyanColor];
         [self.view addSubview:_aboveMiddleView];
     }
@@ -68,9 +69,22 @@
     if (!_changeButton) {
         _changeButton = [[UIButton alloc] init];
         _changeButton.frame = CGRectMake(0, 0, 16, 16);
+        _changeButton.backgroundColor = [UIColor magentaColor];
+        [_changeButton setTitle:@"Changed" forState:UIControlStateNormal];
         [self.view addSubview:_changeButton];
     }
     return _changeButton;
+}
+
+- (UIButton *)changeButton2 {
+    if (!_changeButton2) {
+        _changeButton2 = [[UIButton alloc] init];
+        _changeButton2.frame = CGRectMake(0, 0, 16, 16);
+        _changeButton2.backgroundColor = [UIColor magentaColor];
+        [_changeButton2 setTitle:@"Changed2" forState:UIControlStateNormal];
+        [self.view addSubview:_changeButton2];
+    }
+    return _changeButton2;
 }
 
 - (void)viewDidLoad {
@@ -108,24 +122,44 @@
         
     }];
 
+    [self.changeButton sizeToFit];
+    [self.changeButton2 sizeToFit];
+
     [self.changeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(self.view).offset(-50);
-        make.width.mas_equalTo(50);
-        make.height.mas_equalTo(50);
+        make.right.equalTo(self.view).offset(-100.f);
+//        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.topView.mas_bottom).offset(8);
+//        make.width.mas_equalTo(50);
+//        make.height.mas_equalTo(50);
+    }];
+
+    [self.changeButton2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.changeButton.mas_bottom).offset(8);
     }];
 
     [[self.changeButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         [self.view setNeedsUpdateConstraints];
     }];
+
+//    [[self.changeButton2 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+//        [self.view setNeedsUpdateConstraints];
+//    }];
 //    [self.view setNeedsUpdateConstraints];
 }
 
 - (void)updateViewConstraints {
     [super updateViewConstraints];
 
-    [self.aboveMiddleView mas_updateConstraints:^(MASConstraintMaker *make) {
-       make.width.mas_equalTo(_aboveMiddleView.frame.size.width + 2);
-    }];
+    if (_aboveMiddleView.frame.size.width > 0) {
+        [self.aboveMiddleView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(_aboveMiddleView.frame.size.width + 2);
+        }];
+
+        [self.bottomView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(_bottomView.frame.size.width + 2);
+        }];
+    }
 }
 
 
