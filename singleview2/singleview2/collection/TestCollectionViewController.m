@@ -31,6 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.title = @"CollectionView";
     self.collectionView.backgroundColor = [UIColor whiteColor];
 
     self.sections = @[

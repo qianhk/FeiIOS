@@ -14,6 +14,7 @@
 #import "CustomCollectionViewController.h"
 #import "UikitTestViewController.h"
 #import "MasonryTestViewController.h"
+#import "StickyCollectionViewController.h"
 
 #define KTTMessagePort "com.ttpod.ttdesktop.port2"
 
@@ -98,6 +99,7 @@
                     , @{@"Name": @"Test CollectionView", @"Color": @"Blue"}, @{@"Name": @"User Defaults", @"Color": @"Orange"}, @{@"Name": @"Custom CollectionView", @"Color": @"Blue"}
               , @{@"Name": @"layer mask", @"Color": @"Blue"}
               , @{@"Name": @"Masonry Test", @"Color": @"Blue"}
+              , @{@"Name": @"Sticky CollectionView", @"Color": @"Blue"}
             ]];
 
 //    [self.tableView registerClass:[NameAndColorCell class] forCellReuseIdentifier:@"CellTableIdentifier"];
@@ -232,6 +234,10 @@
 
         case 7:
             [self.navigationController pushViewController:[[MasonryTestViewController alloc] init] animated:YES];
+            break;
+
+        case 8:
+            [self.navigationController pushViewController:[[StickyCollectionViewController alloc] init] animated:YES];
             break;
     }
 }

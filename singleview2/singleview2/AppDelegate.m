@@ -30,7 +30,7 @@
     if (useNavi) {
         self.navController = [[UINavigationController alloc] init];
         self.navController.delegate = self;
-        self.viewController.title = @"";
+        self.viewController.title = @"KaiPractice";
         [self.navController pushViewController:self.viewController animated:YES];
 //        [self.navController setNavigationBarHidden:YES];
     }
@@ -41,13 +41,27 @@
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    NSLog(@"lookNavigation willShowViewController cv=%@", NSStringFromClass(viewController.class));
-    [self.navController setNavigationBarHidden:viewController == self.viewController];
+    NSLog(@"lookNavigation willShowViewController vc=%@", NSStringFromClass(viewController.class));
 }
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-
+    NSLog(@"lookNavigation didShowViewController vc=%@", NSStringFromClass(viewController.class));
+//    [self.navController setNavigationBarHidden:viewController == self.viewController];
 }
+
+//- (nullable id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
+//                                   interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>) animationController {
+//    NSLog(@"lookNavigation interactionControllerForAnimationController vc=%@", NSStringFromClass(animationController.class));
+//    return nil;
+//}
+
+//- (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+//                                            animationControllerForOperation:(UINavigationControllerOperation)operation
+//                                                         fromViewController:(UIViewController *)fromVC
+//                                                           toViewController:(UIViewController *)toVC {
+//    NSLog(@"lookNavigation animationControllerForOperation operation=%ld fromVC=%@, toVc=%@", (long)operation, NSStringFromClass(fromVC.class), NSStringFromClass(toVC.class));
+//    return nil;
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     /*
