@@ -17,6 +17,7 @@
 		19DD3344B7BBF183D45BFCF5 /* UIColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD34BAF8EBB489D79A5C8A /* UIColor+String.m */; };
 		19DD3392BE334E1457C22B3A /* NSObject+Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */; };
 		19DD35F32D58CA694658070B /* CalculatorMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD390963D60D7C86113D09 /* CalculatorMaker.m */; };
+		19DD3721FFA82A7C2243E9BC /* StickyHeaderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD30DD2FE79C0AD3F52D9F /* StickyHeaderInfo.m */; };
 		19DD372648793B8E4647C87B /* MyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3927EFEBF2B130D53BA2 /* MyNavigationController.m */; };
 		19DD3810B9A0002EC96A4767 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DD3639270FEEF858CD2455 /* CoreLocation.framework */; };
 		19DD38DE90F47F4C1B8581C1 /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3C08706F84A4D5C6EFAA /* Calculator.m */; };
@@ -27,6 +28,7 @@
 		19DD3E5F012285184B1F3C12 /* TagCellLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33CCCD6D0DD63BE6F2C0 /* TagCellLayout.m */; };
 		19DD3F2591202825A572A3A3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 19DD398A48524E2F900C6B8D /* Podfile */; };
 		19DD3F34926154CA2DB93FF4 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3EF00066527A7954D946 /* Person.m */; };
+		19DD3F89356E7CDD5E9C1CD0 /* StickyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD361D0FFC45D10D4F1C71 /* StickyHeaderView.m */; };
 		19DD3FE2530BF5203203512D /* StickyPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39883B52AA4D56FA111D /* StickyPersonCell.m */; };
 		2A2D50871EB0817700BC161D /* UikitTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D50861EB0817700BC161D /* UikitTestViewController.m */; };
 		2A2D50891EB089D600BC161D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2D50881EB089D600BC161D /* QuartzCore.framework */; };
@@ -62,6 +64,8 @@
 		19DD300AC4CDEC6811ED40A4 /* SearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultController.m; sourceTree = "<group>"; };
 		19DD307566796FCAB64798F5 /* NSObject+Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Calculator.h"; sourceTree = "<group>"; };
 		19DD309D2C50688F68072FC4 /* MyDrawerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDrawerView.h; sourceTree = "<group>"; };
+		19DD309F08D6D3736AEEA86B /* StickyHeaderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyHeaderInfo.h; sourceTree = "<group>"; };
+		19DD30DD2FE79C0AD3F52D9F /* StickyHeaderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeaderInfo.m; sourceTree = "<group>"; };
 		19DD31FA4E6F39FD7DF2249D /* KVCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVCModel.m; sourceTree = "<group>"; };
 		19DD322307A68FDFF2E13D33 /* KVCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVCModel.h; sourceTree = "<group>"; };
 		19DD33194D955DB098B8AD03 /* UIColor+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+String.h"; sourceTree = "<group>"; };
@@ -72,10 +76,12 @@
 		19DD34D6D63E5F65DC2E8979 /* HeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCell.m; sourceTree = "<group>"; };
 		19DD3503FE33C4DDAD5581B8 /* CalculatorMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorMaker.h; sourceTree = "<group>"; };
 		19DD350DA143007383D7E3C2 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		19DD3545901E441121F068D6 /* StickyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyHeaderView.h; sourceTree = "<group>"; };
 		19DD3583BA26B05DA6AC5503 /* StickyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyCollectionViewController.h; sourceTree = "<group>"; };
 		19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController.m; sourceTree = "<group>"; };
 		19DD35DFD5C2B5BE44657DDE /* MasonryLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasonryLayout.m; sourceTree = "<group>"; };
 		19DD3612E615A8DE8118A2C2 /* MasonryLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonryLayout.h; sourceTree = "<group>"; };
+		19DD361D0FFC45D10D4F1C71 /* StickyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeaderView.m; sourceTree = "<group>"; };
 		19DD3639270FEEF858CD2455 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		19DD36A1D71E01AF83E208C4 /* ContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentCell.m; sourceTree = "<group>"; };
 		19DD3769B2F26A377D2CB11D /* TestCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController.h; sourceTree = "<group>"; };
@@ -198,6 +204,10 @@
 				19DD39C53B1537612522E188 /* StickyPersonCell.h */,
 				19DD3EF00066527A7954D946 /* Person.m */,
 				19DD350DA143007383D7E3C2 /* Person.h */,
+				19DD361D0FFC45D10D4F1C71 /* StickyHeaderView.m */,
+				19DD3545901E441121F068D6 /* StickyHeaderView.h */,
+				19DD30DD2FE79C0AD3F52D9F /* StickyHeaderInfo.m */,
+				19DD309F08D6D3736AEEA86B /* StickyHeaderInfo.h */,
 			);
 			path = Sticky;
 			sourceTree = "<group>";
@@ -532,6 +542,8 @@
 				19DD3089BCF35385264D1919 /* StickyCollectionViewController.m in Sources */,
 				19DD3FE2530BF5203203512D /* StickyPersonCell.m in Sources */,
 				19DD3F34926154CA2DB93FF4 /* Person.m in Sources */,
+				19DD3F89356E7CDD5E9C1CD0 /* StickyHeaderView.m in Sources */,
+				19DD3721FFA82A7C2243E9BC /* StickyHeaderInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

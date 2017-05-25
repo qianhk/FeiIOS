@@ -6,10 +6,14 @@
 #import "StickyCollectionViewController.h"
 #import "Person.h"
 #import "StickyPersonCell.h"
+#import "StickyHeaderInfo.h"
+#import "StickyHeaderView.h"
+#import "UIColor+String.h"
 
 @interface StickyCollectionViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property(nonatomic, strong) UICollectionView *collectionView;
+@property(nonatomic, strong) StickyHeaderView *stickyHeaderView;
 
 @property(nonatomic, strong) NSArray<Person *> *personList;
 
@@ -46,6 +50,10 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
 
+    self.stickyHeaderView = [[StickyHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 107)];
+    _stickyHeaderView.backgroundColor = [UIColor colorWithHexString:@"#2000"];
+    [self.view addSubview:_stickyHeaderView];
+
     [self prepareData];
 }
 
@@ -66,6 +74,11 @@
 //- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
 //    return UIEdgeInsetsZero;
 //}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSLog(@"scrollViewDidScroll contentOffset=%@", NSStringFromCGPoint(scrollView.contentOffset));
+    [self.stickyHeaderView translationWhole:scrollView.contentOffset.x];
+}
 
 
 - (void)prepareData {
@@ -90,6 +103,24 @@
 
 //    [self.collectionView scrollsToTop];
 
+    NSMutableArray *infoList = [NSMutableArray array];
+    NSString *year = nil;
+    int singleViewWidth = 118;
+    int marginLeft = 0;
+    for (int idx = 0; idx < self.personList.count; ++idx) {
+        Person *person = self.personList[idx];
+        if ([person.year isEqualToString:year]) {
+            marginLeft += singleViewWidth;
+        } else {
+            StickyHeaderInfo *headerInfo = [[StickyHeaderInfo alloc] init];
+            headerInfo.title = person.year;
+            headerInfo.marginLeft = marginLeft;
+            [infoList addObject:headerInfo];
+            year = person.year;
+            marginLeft = singleViewWidth;
+        }
+    }
+    [self.stickyHeaderView updateDataWidth:12 data:infoList];
 }
 
 @end
