@@ -33,8 +33,9 @@
 }
 
 
-- (void)updateDataWidth:(CGFloat)leftPadding data:(NSArray<StickyHeaderInfo *> *)infoList {
+- (void)updateDataWidth:(CGFloat)leftPadding data:(NSArray<StickyHeaderInfo *> *)infoList initOffsetX:(CGFloat)offsetX {
     self.leftPadding = leftPadding;
+    self.lastOffsetX = offsetX;
 
     NSArray<__kindof UIView *> *subviews = [self subviews];
     for (int idx = subviews.count - 1; idx >= 0; --idx) {
@@ -57,7 +58,7 @@
         [self.infoList addObjectsFromArray:infoList];
     }
 
-    int x = self.leftPadding;
+    CGFloat x = self.leftPadding;
     for (StickyHeaderInfo *info in self.infoList) {
         UILabel *textView = [self getLabelView];
         textView.text = info.title;
@@ -76,20 +77,120 @@
 
 - (void)translationWhole:(CGFloat)offsetX {
     CGFloat dx = offsetX - self.lastOffsetX;
+    self.lastOffsetX = offsetX;
 
     for (StickyHeaderInfo *info in self.infoList) {
         info.wholeTx -= dx;
         info.tx -= dx;
     }
 
+    if (dx > 0) {
+        [self scrollToRight];
+    } else if (dx < 0) {
+        [self scrollToLeft];
+    }
+
     [self updateViewTranslationX];
+}
+
+- (void)scrollToLeft {
+    int titleCount = self.infoList.count;
+    for (int idx = 0; idx < titleCount; ++idx) {
+        CGFloat titleViewWidth = self.subviews[idx].frame.size.width;
+        StickyHeaderInfo *info = self.infoList[idx];
+        if (info.tx >= _leftPadding) {
+            if (info.wholeTx > 0) {
+                if (idx > 0) {
+                    StickyHeaderInfo *before = self.infoList[idx - 1];
+                    if (info.wholeTx > _leftPadding + titleViewWidth) {
+                        before.tx = _leftPadding;
+                    } else {
+                        before.tx = info.wholeTx - titleViewWidth;
+                        info.tx = info.wholeTx;
+                    }
+                } else {
+                    info.tx = _leftPadding;
+                }
+            }
+            if (info.wholeTx < _leftPadding) {
+                if (idx > 0) {
+                    StickyHeaderInfo *before = self.infoList[idx - 1];
+                    if (before.tx + titleViewWidth > _leftPadding) {
+                        info.tx = before.tx + titleViewWidth;
+                    } else {
+                        info.tx = _leftPadding;
+                    }
+                } else {
+                    info.tx = _leftPadding;
+                }
+            }
+            break;
+        }
+    }
+}
+
+- (void)scrollToRight {
+    int titleCount = self.infoList.count;
+    for (int idx = 0; idx < titleCount; ++idx) {
+        CGFloat titleViewWidth = self.subviews[idx].frame.size.width;
+        StickyHeaderInfo *info = self.infoList[idx];
+        int jdx = idx + 1;
+        if (info.tx < 0) {
+            if (info.tx + titleViewWidth > 0) {
+                if (jdx < titleCount) {
+                    StickyHeaderInfo *after = self.infoList[jdx];
+                    if (after.tx > _leftPadding + titleViewWidth) {
+                        info.tx = _leftPadding;
+                    } else {
+                        if (after.tx > _leftPadding) {
+                            info.tx = after.tx - titleViewWidth;
+                        } else {
+                            after.tx = _leftPadding;
+                        }
+                    }
+                    break;
+                } else {
+                    info.tx = _leftPadding;
+                }
+            }
+        } else {
+            if (info.tx > _leftPadding) {
+                if (idx > 0) {
+                    StickyHeaderInfo *before = self.infoList[idx - 1];
+                    if (info.tx > _leftPadding + titleViewWidth) {
+                        before.tx = _leftPadding;
+                    } else {
+                        before.tx = info.tx - titleViewWidth;
+                    }
+                }
+            } else {
+                if (jdx < titleCount) {
+                    StickyHeaderInfo *after = self.infoList[jdx];
+                    if (after.tx > _leftPadding + titleViewWidth) {
+                        info.tx = _leftPadding;
+                    } else {
+                        info.tx = after.tx - titleViewWidth;
+                    }
+                } else {
+                    if (info.tx < _leftPadding) {
+                        info.tx = _leftPadding;
+                    }
+                }
+            }
+            break;
+        }
+    }
 }
 
 - (void)updateViewTranslationX {
 
+    NSMutableString *logStr = [NSMutableString stringWithString:@"lookTranslationX:"];
     for (int idx = 0; idx < self.infoList.count; ++idx) {
-        self.subviews[idx].center = CGPointMake(self.infoList[idx].tx + 37.f / 2, 17.f / 2);
+        StickyHeaderInfo *info = self.infoList[idx];
+        [logStr appendFormat:@" %@ %.1f", info.title, info.tx];
+        self.subviews[idx].center = CGPointMake(info.tx + 37.f / 2, 17.f / 2);
     }
+//    NSLog(logStr);
 
     if (self.infoList.count > 0) {
         StickyHeaderInfo *info = self.infoList[0];
@@ -106,6 +207,7 @@
         textView.textColor = [Person stickyGrayColor];
         textView.font = [UIFont systemFontOfSize:12];
         textView.textAlignment = NSTextAlignmentCenter;
+        textView.backgroundColor = [UIColor whiteColor];
         textView.layer.borderWidth = 1;
         textView.layer.cornerRadius = 17.f / 2;
         textView.layer.borderColor = [Person stickyGrayColor].CGColor;

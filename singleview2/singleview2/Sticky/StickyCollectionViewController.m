@@ -25,6 +25,10 @@
     [super viewDidLoad];
     self.title = @"Sticky";
     self.view.backgroundColor = [UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
+    CGRect rect = self.view.bounds;
+    self.view.bounds = CGRectMake(0, -64, rect.size.width, rect.size.height);
 
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     CGFloat minInteritemSpacing = layout.minimumInteritemSpacing;
@@ -36,22 +40,20 @@
     layout.itemSize = CGSizeMake(118, 17 + 170 + 6 + 20);
 //    layout.sectionInset = UIEdgeInsetsMake(-8, 12, 0, 0);
 
-    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 300) collectionViewLayout:layout];
-    self.collectionView.backgroundColor = [UIColor clearColor];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, layout.itemSize.height) collectionViewLayout:layout];
+    self.collectionView.backgroundColor = [UIColor yellowColor];
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.contentInset = UIEdgeInsetsMake(0, 12, 0, 0);
     [self.view addSubview:_collectionView];
-
-    self.collectionView.collectionViewLayout = layout;
 
     [self.collectionView registerClass:StickyPersonCell.class forCellWithReuseIdentifier:NSStringFromClass(StickyPersonCell.class)];
 
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
 
-    self.stickyHeaderView = [[StickyHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 107)];
-    _stickyHeaderView.backgroundColor = [UIColor colorWithHexString:@"#2000"];
+    self.stickyHeaderView = [[StickyHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 17)];
+    _stickyHeaderView.backgroundColor = [UIColor colorWithHexString:@"#0F00"];
     [self.view addSubview:_stickyHeaderView];
 
     [self prepareData];
@@ -76,7 +78,7 @@
 //}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSLog(@"scrollViewDidScroll contentOffset=%@", NSStringFromCGPoint(scrollView.contentOffset));
+//    NSLog(@"scrollViewDidScroll contentOffset=%@", NSStringFromCGPoint(scrollView.contentOffset));
     [self.stickyHeaderView translationWhole:scrollView.contentOffset.x];
 }
 
@@ -120,7 +122,7 @@
             marginLeft = singleViewWidth;
         }
     }
-    [self.stickyHeaderView updateDataWidth:12 data:infoList];
+    [self.stickyHeaderView updateDataWidth:12 data:infoList initOffsetX:self.collectionView.contentOffset.x];
 }
 
 @end

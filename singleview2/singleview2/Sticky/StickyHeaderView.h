@@ -10,7 +10,7 @@
 
 @interface StickyHeaderView : UIView
 
-- (void)updateDataWidth:(CGFloat)leftPadding data:(NSArray<StickyHeaderInfo *> *)data;
+- (void)updateDataWidth:(CGFloat)leftPadding data:(NSArray<StickyHeaderInfo *> *)data initOffsetX:(CGFloat)offsetX;
 
 - (void)translationWhole:(CGFloat)offsetX;
 

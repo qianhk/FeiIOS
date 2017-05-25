@@ -9,9 +9,9 @@
 @interface StickyHeaderInfo : NSObject
 
 @property(nonatomic, strong) NSString *title;
-@property(nonatomic, assign) int marginLeft;
+@property(nonatomic, assign) CGFloat marginLeft;
 
-@property(nonatomic, assign) int wholeTx;
-@property(nonatomic, assign) int tx;
+@property(nonatomic, assign) CGFloat wholeTx;
+@property(nonatomic, assign) CGFloat tx;
 
 @end

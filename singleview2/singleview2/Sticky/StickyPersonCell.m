@@ -20,7 +20,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-//        self.backgroundColor = [UIColor greenColor];
+        self.backgroundColor = [UIColor greenColor];
         self.lineView.backgroundColor = [Person stickyGrayColor];
     }
 
@@ -38,7 +38,7 @@
         _lineView = [[UIView alloc] init];
         _lineView.frame = CGRectMake(0, 8.5f, 118, 0.5f);
 //        _lineView.backgroundColor = [UIColor greenColor];
-        [self addSubview:_lineView];
+        [self.contentView addSubview:_lineView];
     }
     return _lineView;
 }
@@ -50,7 +50,7 @@
         _avatarImageView.contentMode = UIViewContentModeScaleAspectFill;
         _avatarImageView.backgroundColor = [UIColor colorWithHexString:@"#2000"];
         _avatarImageView.clipsToBounds = YES;
-        [self addSubview:_avatarImageView];
+        [self.contentView addSubview:_avatarImageView];
     }
     return _avatarImageView;
 }
@@ -60,7 +60,7 @@
         _nameLabel = [[UILabel alloc] init];
         _nameLabel.frame = CGRectMake(0, 17 + 170 + 6, 114, 16);
         _nameLabel.textColor = [Person stickyGrayColor];
-        [self addSubview:_nameLabel];
+        [self.contentView addSubview:_nameLabel];
     }
     return _nameLabel;
 }
