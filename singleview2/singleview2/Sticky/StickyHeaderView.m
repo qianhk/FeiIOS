@@ -34,6 +34,7 @@
 
 
 - (void)updateDataWidth:(CGFloat)leftPadding data:(NSArray<StickyHeaderInfo *> *)infoList initOffsetX:(CGFloat)offsetX {
+    NSLog(@"init offset X=%.2f", offsetX);
     self.leftPadding = leftPadding;
     self.lastOffsetX = offsetX;
 

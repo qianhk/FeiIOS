@@ -3,6 +3,8 @@
 // Copyright (c) 2017 Njnu. All rights reserved.
 //
 
+#import <ReactiveObjC/UIControl+RACSignalSupport.h>
+#import <ReactiveObjC/RACSignal.h>
 #import "StickyCollectionViewController.h"
 #import "Person.h"
 #import "StickyPersonCell.h"
@@ -10,7 +12,9 @@
 #import "StickyHeaderView.h"
 #import "UIColor+String.h"
 
-@interface StickyCollectionViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface StickyCollectionViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
+    int mYearAdd;
+}
 
 @property(nonatomic, strong) UICollectionView *collectionView;
 @property(nonatomic, strong) StickyHeaderView *stickyHeaderView;
@@ -38,13 +42,14 @@
     layout.minimumLineSpacing = 0.f;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.itemSize = CGSizeMake(118, 17 + 170 + 6 + 20);
-//    layout.sectionInset = UIEdgeInsetsMake(-8, 12, 0, 0);
+    layout.sectionInset = UIEdgeInsetsMake(0, 12, 0, 0);
 
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, layout.itemSize.height) collectionViewLayout:layout];
     self.collectionView.backgroundColor = [UIColor yellowColor];
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
-    self.collectionView.contentInset = UIEdgeInsetsMake(0, 12, 0, 0);
+    self.collectionView.bounces = NO;
+//    self.collectionView.contentInset = UIEdgeInsetsMake(0, 12, 0, 0);
     [self.view addSubview:_collectionView];
 
     [self.collectionView registerClass:StickyPersonCell.class forCellWithReuseIdentifier:NSStringFromClass(StickyPersonCell.class)];
@@ -53,9 +58,22 @@
     self.collectionView.dataSource = self;
 
     self.stickyHeaderView = [[StickyHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 17)];
-    _stickyHeaderView.backgroundColor = [UIColor colorWithHexString:@"#0F00"];
+//    _stickyHeaderView.backgroundColor = [UIColor colorWithHexString:@"#0F00"];
+    _stickyHeaderView.backgroundColor = [UIColor colorWithWhite:0.f alpha:0.3f];
     [self.view addSubview:_stickyHeaderView];
 
+//    UIButton *flushButton = [UIButton buttonWithType:UIButtonTypeSystem];
+//    flushButton.frame = CGRectMake(10, layout.itemSize.height + 20, 100, 30);
+    UIButton *flushButton = [[UIButton alloc] initWithFrame:CGRectMake(10, layout.itemSize.height + 20, 100, 30)];
+    [flushButton setTitle:@"Flush" forState:UIControlStateNormal];
+    flushButton.layer.borderWidth = 1;
+    flushButton.layer.borderColor = [UIColor blueColor].CGColor;
+    [flushButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [[flushButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl *btn) {
+        NSLog(@"clicked flush button: %@", btn);
+        [self prepareData];
+    }];
+    [self.view addSubview:flushButton];
     [self prepareData];
 }
 
@@ -99,16 +117,21 @@
     [personList addObject:[Person constructYear:@"2007" name:@"第12个人" avatarId:@"scenic"]];
     [personList addObject:[Person constructYear:@"2007" name:@"第13个人" avatarId:@"car1"]];
 
+    mYearAdd += 1000;
+    for (Person *person in personList) {
+        person.year = [@([person.year longLongValue] + mYearAdd) stringValue];
+    }
+
     self.personList = [NSArray arrayWithArray:personList];
 
+//    self.collectionView.contentOffset = CGPointMake(-12, self.collectionView.contentOffset.y);
     [self.collectionView reloadData];
 
-//    [self.collectionView scrollsToTop];
 
     NSMutableArray *infoList = [NSMutableArray array];
     NSString *year = nil;
-    int singleViewWidth = 118;
-    int marginLeft = 0;
+    CGFloat singleViewWidth = 118;
+    CGFloat marginLeft = 0;
     for (int idx = 0; idx < self.personList.count; ++idx) {
         Person *person = self.personList[idx];
         if ([person.year isEqualToString:year]) {
@@ -122,7 +145,8 @@
             marginLeft = singleViewWidth;
         }
     }
-    [self.stickyHeaderView updateDataWidth:12 data:infoList initOffsetX:self.collectionView.contentOffset.x];
+    [self.stickyHeaderView updateDataWidth:12 data:infoList initOffsetX:0];
+    [self.stickyHeaderView translationWhole:self.collectionView.contentOffset.x];
 }
 
 @end
