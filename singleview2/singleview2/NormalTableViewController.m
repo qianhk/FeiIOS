@@ -15,6 +15,7 @@
 #import "UikitTestViewController.h"
 #import "MasonryTestViewController.h"
 #import "StickyCollectionViewController.h"
+#import "TestGetClassInfoViewController.h"
 
 #define KTTMessagePort "com.ttpod.ttdesktop.port2"
 
@@ -217,7 +218,7 @@
             break;
 
         case 3:
-            [self.navigationController pushViewController:[[TestCollectionViewController alloc] init] animated:YES];
+            [self.navigationController pushViewController:[[TestGetClassInfoViewController alloc] init] animated:YES];
             break;
 
         case 4:

@@ -103,4 +103,9 @@
     NSLog(@"lookLayout preparedLayout size=%@", NSStringFromCGSize(size));
 }
 
+- (void)dealloc {
+    NSLog(@"dealloc vc=%@", NSStringFromClass(self.class)); //output  dealloc vc=TestGetClassInfoViewController
+}
+
+
 @end
