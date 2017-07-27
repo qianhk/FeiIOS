@@ -50,7 +50,7 @@
 		2AF01FBA1E5891330088008E /* SwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF01FB81E5891330088008E /* SwitchViewController.xib */; };
 		2AF01FBE1E58935D0088008E /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF01FBC1E58935D0088008E /* PickerViewController.m */; };
 		2AF01FBF1E58935D0088008E /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF01FBD1E58935D0088008E /* PickerViewController.xib */; };
-		ABDCE2BDBFBC1BC46656DD31 /* Pods_singleview2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA87E159637A94211CF72824 /* Pods_singleview2.framework */; };
+		A2B809B4E5CD8CC8FCDC8852 /* Pods_singleview2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554219FBB4929258DEF2521A /* Pods_singleview2.framework */; };
 		D9CE40AD14FB8F1000E6FD79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40AC14FB8F1000E6FD79 /* UIKit.framework */; };
 		D9CE40AF14FB8F1000E6FD79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40AE14FB8F1000E6FD79 /* Foundation.framework */; };
 		D9CE40B114FB8F1000E6FD79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40B014FB8F1000E6FD79 /* CoreGraphics.framework */; };
@@ -61,7 +61,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		06D862E078ABDEA9D601350E /* Pods-singleview2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-singleview2.release.xcconfig"; path = "Pods/Target Support Files/Pods-singleview2/Pods-singleview2.release.xcconfig"; sourceTree = "<group>"; };
 		19DD300AC4CDEC6811ED40A4 /* SearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultController.m; sourceTree = "<group>"; };
 		19DD307566796FCAB64798F5 /* NSObject+Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Calculator.h"; sourceTree = "<group>"; };
 		19DD309D2C50688F68072FC4 /* MyDrawerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDrawerView.h; sourceTree = "<group>"; };
@@ -107,6 +106,7 @@
 		19DD3E48D1085ADD340DC4D3 /* TagCellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagCellLayout.h; sourceTree = "<group>"; };
 		19DD3EF00066527A7954D946 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		19DD3F44AB13D9283FA8459E /* StickyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyCollectionViewController.m; sourceTree = "<group>"; };
+		1D10952B8412B82D62641B77 /* Pods-singleview2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-singleview2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-singleview2/Pods-singleview2.debug.xcconfig"; sourceTree = "<group>"; };
 		2A2D50851EB0817700BC161D /* UikitTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UikitTestViewController.h; sourceTree = "<group>"; };
 		2A2D50861EB0817700BC161D /* UikitTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UikitTestViewController.m; sourceTree = "<group>"; };
 		2A2D50881EB089D600BC161D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -136,7 +136,8 @@
 		2AF01FBB1E58935D0088008E /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
 		2AF01FBC1E58935D0088008E /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
 		2AF01FBD1E58935D0088008E /* PickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
-		3EDE93C6B8719A3A6DD120C1 /* Pods-singleview2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-singleview2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-singleview2/Pods-singleview2.debug.xcconfig"; sourceTree = "<group>"; };
+		554219FBB4929258DEF2521A /* Pods_singleview2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_singleview2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8657450BE58F266EE4DBB397 /* Pods-singleview2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-singleview2.release.xcconfig"; path = "Pods/Target Support Files/Pods-singleview2/Pods-singleview2.release.xcconfig"; sourceTree = "<group>"; };
 		D9CE40A814FB8F1000E6FD79 /* singleview2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = singleview2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9CE40AC14FB8F1000E6FD79 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D9CE40AE14FB8F1000E6FD79 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -149,7 +150,6 @@
 		D9CE40BC14FB8F1000E6FD79 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D9CE40BE14FB8F1000E6FD79 /* NormalTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalTableViewController.h; sourceTree = "<group>"; };
 		D9CE40BF14FB8F1000E6FD79 /* NormalTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NormalTableViewController.m; sourceTree = "<group>"; };
-		FA87E159637A94211CF72824 /* Pods_singleview2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_singleview2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +163,7 @@
 				2AE16A941E6C0A7B00B48A49 /* ExternalAccessory.framework in Frameworks */,
 				D9CE40B114FB8F1000E6FD79 /* CoreGraphics.framework in Frameworks */,
 				19DD3810B9A0002EC96A4767 /* CoreLocation.framework in Frameworks */,
-				ABDCE2BDBFBC1BC46656DD31 /* Pods_singleview2.framework in Frameworks */,
+				A2B809B4E5CD8CC8FCDC8852 /* Pods_singleview2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +264,15 @@
 			path = Masonry;
 			sourceTree = "<group>";
 		};
+		733110295F6532FE63A2CEE2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1D10952B8412B82D62641B77 /* Pods-singleview2.debug.xcconfig */,
+				8657450BE58F266EE4DBB397 /* Pods-singleview2.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		D9CE409D14FB8F1000E6FD79 = {
 			isa = PBXGroup;
 			children = (
@@ -271,7 +280,7 @@
 				D9CE40AB14FB8F1000E6FD79 /* Frameworks */,
 				D9CE40A914FB8F1000E6FD79 /* Products */,
 				19DD398A48524E2F900C6B8D /* Podfile */,
-				E4F3A79F2BD9DA75C8D78DF3 /* Pods */,
+				733110295F6532FE63A2CEE2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -292,7 +301,7 @@
 				D9CE40AE14FB8F1000E6FD79 /* Foundation.framework */,
 				D9CE40B014FB8F1000E6FD79 /* CoreGraphics.framework */,
 				19DD3639270FEEF858CD2455 /* CoreLocation.framework */,
-				FA87E159637A94211CF72824 /* Pods_singleview2.framework */,
+				554219FBB4929258DEF2521A /* Pods_singleview2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -358,15 +367,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E4F3A79F2BD9DA75C8D78DF3 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3EDE93C6B8719A3A6DD120C1 /* Pods-singleview2.debug.xcconfig */,
-				06D862E078ABDEA9D601350E /* Pods-singleview2.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -374,13 +374,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9CE40C614FB8F1000E6FD79 /* Build configuration list for PBXNativeTarget "singleview2" */;
 			buildPhases = (
-				F4FEBDDB73AB52E7AF686196 /* [CP] Check Pods Manifest.lock */,
+				0D8302B898AA38B3B4DCD749 /* [CP] Check Pods Manifest.lock */,
 				D9CE40A414FB8F1000E6FD79 /* Sources */,
 				D9CE40A514FB8F1000E6FD79 /* Frameworks */,
 				D9CE40A614FB8F1000E6FD79 /* Resources */,
-				58BA724194F38A52D7B8585C /* [CP] Embed Pods Frameworks */,
-				5ED79AC7AC5518006D48B6AF /* [CP] Copy Pods Resources */,
-				192ED8A93A8F25502499B4AB /* Embed Pods Frameworks */,
+				DC62A10FDC9FAEF7F34EA5F5 /* [CP] Embed Pods Frameworks */,
+				39CDDC7D9DC201B9B3683D8F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -401,7 +400,8 @@
 				ORGANIZATIONNAME = Njnu;
 				TargetAttributes = {
 					D9CE40A714FB8F1000E6FD79 = {
-						DevelopmentTeam = A27YPEY3N3;
+						DevelopmentTeam = P8232VD523;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.WAC = {
 								enabled = 1;
@@ -452,37 +452,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		192ED8A93A8F25502499B4AB /* Embed Pods Frameworks */ = {
+		0D8302B898AA38B3B4DCD749 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-singleview2/Pods-singleview2-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		58BA724194F38A52D7B8585C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-singleview2/Pods-singleview2-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5ED79AC7AC5518006D48B6AF /* [CP] Copy Pods Resources */ = {
+		39CDDC7D9DC201B9B3683D8F /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -497,19 +482,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-singleview2/Pods-singleview2-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F4FEBDDB73AB52E7AF686196 /* [CP] Check Pods Manifest.lock */ = {
+		DC62A10FDC9FAEF7F34EA5F5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-singleview2/Pods-singleview2-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -626,33 +611,39 @@
 		};
 		D9CE40C714FB8F1000E6FD79 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3EDE93C6B8719A3A6DD120C1 /* Pods-singleview2.debug.xcconfig */;
+			baseConfigurationReference = 1D10952B8412B82D62641B77 /* Pods-singleview2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = singleview2/singleview2.entitlements;
-				DEVELOPMENT_TEAM = A27YPEY3N3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = P8232VD523;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleview2/singleview2-Prefix.pch";
 				INFOPLIST_FILE = "singleview2/singleview2-Info.plist";
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ttpod.singleview2-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		D9CE40C814FB8F1000E6FD79 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 06D862E078ABDEA9D601350E /* Pods-singleview2.release.xcconfig */;
+			baseConfigurationReference = 8657450BE58F266EE4DBB397 /* Pods-singleview2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = singleview2/singleview2.entitlements;
-				DEVELOPMENT_TEAM = A27YPEY3N3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = P8232VD523;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleview2/singleview2-Prefix.pch";
 				INFOPLIST_FILE = "singleview2/singleview2-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ttpod.singleview2-1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -16,10 +16,14 @@
     int mYearAdd;
 }
 
-@property(nonatomic, strong) UICollectionView *collectionView;
-@property(nonatomic, strong) StickyHeaderView *stickyHeaderView;
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) StickyHeaderView *stickyHeaderView;
 
-@property(nonatomic, strong) NSArray<Person *> *personList;
+@property (nonatomic, strong) NSArray<Person *> *personList;
+
+@property (nonatomic, strong) UILabel *label;
+@property (nonatomic, strong) UIButton *button;
+@property (nonatomic, assign) BOOL isAnimationing;
 
 @end
 
@@ -28,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Sticky";
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor yellowColor];
     self.automaticallyAdjustsScrollViewInsets = NO;
 
     CGRect rect = self.view.bounds;
@@ -75,6 +79,57 @@
     }];
     [self.view addSubview:flushButton];
     [self prepareData];
+
+    self.button = [UIButton buttonWithType:UIButtonTypeSystem];
+//    self.button = [UIButton new];
+    [self.button setTitle:@"动起来" forState:UIControlStateNormal];
+    self.button.frame = CGRectMake(50, 300, 0, 0);
+    [self.button sizeToFit];
+    [self.button addTarget:self action:@selector(onClickButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.button];
+
+    self.label = [[UILabel alloc] init];
+    self.label.frame = CGRectMake(50, 350, 0, 0);
+    self.label.text = @"测试旋转文字，我转转转...";
+    flushButton.layer.borderWidth = 1;
+    flushButton.layer.borderColor = [UIColor blueColor].CGColor;
+    [self.label sizeToFit];
+//    self.label.textColor = [UIColor blackColor];
+//    self.label.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.label];
+}
+
+- (void)onClickButton:(id)sender {
+    if (self.isAnimationing) {
+        [self stopRotateImageView];
+    } else {
+        [self rotateImageView];
+    }
+    self.isAnimationing = !self.isAnimationing;
+}
+
+- (void)rotateImageView {
+
+//    [UIView animateWithDuration:1.f
+//                          delay:0
+//                        options:UIViewAnimationOptionCurveLinear
+//                     animations:^{
+//                         self.label.transform = CGAffineTransformRotate(self.label.transform, M_PI_2);
+//                     }
+//                     completion:^(BOOL finished){
+//                         [self rotateImageView];
+//                     }];
+
+    CABasicAnimation *animation = [CABasicAnimation animation];
+    animation.keyPath = @"transform.rotation";
+    animation.duration = 0.7f;
+    animation.byValue = @(M_PI * 2);
+    animation.repeatCount = INFINITY;
+    [self.label.layer addAnimation:animation forKey:nil];
+}
+
+- (void)stopRotateImageView {
+    [self.label.layer removeAllAnimations];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
