@@ -12,6 +12,10 @@
 #import "StickyHeaderView.h"
 #import "UIColor+String.h"
 
+/*
+对于UICollectionView来说方向不同minimumLineSpacing InteritemSpacing的含义正好反的。。。
+对于横向的view，设置间距应该是minimumLineSpacing, 而不是InteritemSpacing
+ */
 @interface StickyCollectionViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout> {
     int mYearAdd;
 }
@@ -43,7 +47,7 @@
     CGFloat minLineSpacing = layout.minimumLineSpacing;
     NSLog(@"minInteritemSpacing=%.2f minLineSpacing=%.2f", minInteritemSpacing, minLineSpacing);
     layout.minimumInteritemSpacing = 0.f;
-    layout.minimumLineSpacing = 0.f;
+    layout.minimumLineSpacing = 20.f;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     layout.itemSize = CGSizeMake(118, 17 + 170 + 6 + 20);
     layout.sectionInset = UIEdgeInsetsMake(0, 12, 0, 0);
