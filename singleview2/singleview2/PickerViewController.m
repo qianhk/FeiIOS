@@ -173,12 +173,19 @@
 
     NSDictionary *contentAttributedStringAttributes = @{
             NSForegroundColorAttributeName: [UIColor blackColor],
-            NSBaselineOffsetAttributeName:@(3),
+//            NSBaselineOffsetAttributeName:@(3),
             NSFontAttributeName: [UIFont boldSystemFontOfSize:16.f]
     };
     NSAttributedString *contentString = [[NSAttributedString alloc] initWithString:text
                                                                            attributes:contentAttributedStringAttributes];
+
+    int len = attributedString.length;
     [attributedString appendAttributedString:contentString];
+    [attributedString setAttributes:
+            @{
+            NSBaselineOffsetAttributeName:@(3),
+            NSForegroundColorAttributeName: [UIColor blueColor]
+    } range:NSMakeRange(len, contentString.length)];
 
     return attributedString;
 }
