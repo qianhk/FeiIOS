@@ -77,6 +77,11 @@
     mCityList = mStateDictionary[mStateList[0]];
 
     mUseTwo = NO;
+
+    self.resultLabel.backgroundColor = [UIColor lightGrayColor];
+
+    self.resultLabel.attributedText = [PickerViewController attributedStringWithTag:@"凯测试效果" tagColor:[UIColor redColor] text:@"这是一个怎么样的精神，调ui效果啊啊, 这是第二行啊"];
+    [self.resultLabel sizeToFit];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -150,5 +155,68 @@
     CGRect originFrame = self.view.frame;
     return CGRectMake(originFrame.origin.x, originFrame.origin.y + 20, originFrame.size.width, originFrame.size.height - 20 - 44);
 }
+
+
++ (NSAttributedString *)attributedStringWithTag:(NSString *)tag tagColor:(UIColor *)tagColor text:(NSString *)text {
+
+    NSMutableAttributedString *attributedString = [NSMutableAttributedString new];
+
+    if ([tag length] > 0) {
+        UIView *tagView = [self tagLabelCellWithColor:tagColor withText:tag];
+        UIImage *tagImage = [self imageByRenderingViewForRetina:tagView];
+        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+        textAttachment.image = tagImage;
+//        textAttachment.bounds = CGRectMake(0, 0, tagView.frame.size.width, tagView.frame.size.height);
+        NSAttributedString *attrStringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
+        [attributedString appendAttributedString:attrStringWithImage];
+    }
+
+    NSDictionary *contentAttributedStringAttributes = @{
+            NSForegroundColorAttributeName: [UIColor blackColor],
+            NSBaselineOffsetAttributeName:@(3),
+            NSFontAttributeName: [UIFont boldSystemFontOfSize:16.f]
+    };
+    NSAttributedString *contentString = [[NSAttributedString alloc] initWithString:text
+                                                                           attributes:contentAttributedStringAttributes];
+    [attributedString appendAttributedString:contentString];
+
+    return attributedString;
+}
+
+
++ (UIImage *)imageByRenderingViewForRetina:(UIView *)view {
+    UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, 0.0);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
++ (UIView *)tagLabelCellWithColor:(UIColor *)color withText:(NSString *)text {
+
+    NSInteger kMargin = 3;
+    UIFont *font = [UIFont systemFontOfSize:11.f];
+    CGSize textSize = [text sizeWithAttributes:@{
+            NSFontAttributeName: font,
+    }];
+
+    UILabel *cellLabel = [UILabel new];
+    cellLabel.font = font;
+    cellLabel.textAlignment = NSTextAlignmentCenter;
+    cellLabel.textColor = [UIColor whiteColor];
+    cellLabel.layer.cornerRadius = 2;
+    cellLabel.backgroundColor = color;
+    cellLabel.text = text;
+    cellLabel.frame = CGRectMake(0, 1, textSize.width + kMargin * 2, 16);
+    cellLabel.layer.masksToBounds = YES;
+
+    UIView *containerView = [UIView new];
+    containerView.frame = CGRectMake(0, 0, CGRectGetWidth(cellLabel.frame) + kMargin, 18);
+    [containerView addSubview:cellLabel];
+//    containerView.backgroundColor = [UIColor greenColor];
+
+    return containerView;
+}
+
 
 @end
