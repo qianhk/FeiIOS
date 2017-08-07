@@ -44,7 +44,6 @@
             , @{@"Name": @"UserDefaultsViewController", @"Vc": @"UserDefaultsViewController"}
             , @{@"Name": @"CustomCollectionViewController", @"Vc": @"CustomCollectionViewController"}
             , @{@"Name": @"MasonryTestViewController", @"Vc": @"MasonryTestViewController"}
-            , @{@"Name": @"TestGetClassInfoViewController", @"Vc": @"TestGetClassInfoViewController"}
             , @{@"Name": @"TestCollectionViewController", @"Vc": @"TestCollectionViewController"}
     ];
 
@@ -75,7 +74,7 @@
 //    [tableView deselectRowAtIndexPath:indexPath animated:indexPath.row % 2 == 0];
 
     NSDictionary *item = mEntryArray[indexPath.row];
-    Class clazz = item[@"Vc"];
+    Class clazz = NSClassFromString(item[@"Vc"]);
     UIViewController *vc = [clazz alloc];
     NSString *nib = item[@"Nib"];
     if (nib) {

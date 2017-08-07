@@ -30,7 +30,6 @@
 		19DD3BF4AE53495E71E69B77 /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33FBB3F06821C476843B /* SearchResultController.m */; };
 		19DD3BFDB43DEA83F51F4662 /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */; };
 		19DD3CADDC04DB6CF2E2B338 /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3F7CB7B197AACE4B0993 /* SwitchViewController.m */; };
-		19DD3D796551E988E581439A /* TestGetClassInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33AAA597F2633EDE2076 /* TestGetClassInfoViewController.m */; };
 		19DD3D7D15FC2E22FD9FA726 /* EntryTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3E5849807BA2501D5051 /* EntryTabViewController.m */; };
 		19DD3E1CE5C1A5C4E1B1EED8 /* NameAndColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD347E2879F0FB243A359B /* NameAndColorCell.m */; };
 		19DD3E5F012285184B1F3C12 /* TagCellLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33CCCD6D0DD63BE6F2C0 /* TagCellLayout.m */; };
@@ -77,7 +76,6 @@
 		19DD3302A657F08C52D1C3BE /* NameAndColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameAndColorCell.h; sourceTree = "<group>"; };
 		19DD3322AA1FD4886DC6EA7F /* SectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionTableViewController.h; sourceTree = "<group>"; };
 		19DD3396F3E6744ABF10836B /* sortednames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = sortednames.plist; sourceTree = "<group>"; };
-		19DD33AAA597F2633EDE2076 /* TestGetClassInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestGetClassInfoViewController.m; sourceTree = "<group>"; };
 		19DD33B5C5A15B1AE8D88FD2 /* NameAndColorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameAndColorCell.xib; sourceTree = "<group>"; };
 		19DD33C0B4289BB2071627BB /* CustomCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewController.h; sourceTree = "<group>"; };
 		19DD33CCCD6D0DD63BE6F2C0 /* TagCellLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagCellLayout.m; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 		19DD3A11E663419DE358D851 /* ContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentCell.h; sourceTree = "<group>"; };
 		19DD3C08706F84A4D5C6EFAA /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
 		19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Calculator.m"; sourceTree = "<group>"; };
-		19DD3C47E4822CB0F06C57F5 /* TestGetClassInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestGetClassInfoViewController.h; sourceTree = "<group>"; };
 		19DD3C762C20AFE9B642CE7B /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
 		19DD3CA74EB99547AE4AE0DD /* TableViewTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewTestController.h; sourceTree = "<group>"; };
 		19DD3D73E1F0DC9A3D0A74EA /* HeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCell.h; sourceTree = "<group>"; };
@@ -199,8 +196,6 @@
 				19DD3612E615A8DE8118A2C2 /* MasonryLayout.h */,
 				19DD33CCCD6D0DD63BE6F2C0 /* TagCellLayout.m */,
 				19DD3E48D1085ADD340DC4D3 /* TagCellLayout.h */,
-				19DD33AAA597F2633EDE2076 /* TestGetClassInfoViewController.m */,
-				19DD3C47E4822CB0F06C57F5 /* TestGetClassInfoViewController.h */,
 			);
 			path = collection;
 			sourceTree = "<group>";
@@ -584,7 +579,6 @@
 				19DD3F34926154CA2DB93FF4 /* Person.m in Sources */,
 				19DD3F89356E7CDD5E9C1CD0 /* StickyHeaderView.m in Sources */,
 				19DD3721FFA82A7C2243E9BC /* StickyHeaderInfo.m in Sources */,
-				19DD3D796551E988E581439A /* TestGetClassInfoViewController.m in Sources */,
 				19DD3D7D15FC2E22FD9FA726 /* EntryTabViewController.m in Sources */,
 				19DD3E1CE5C1A5C4E1B1EED8 /* NameAndColorCell.m in Sources */,
 				19DD3BF4AE53495E71E69B77 /* SearchResultController.m in Sources */,
