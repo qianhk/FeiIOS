@@ -41,7 +41,7 @@
             @{@"Name": @"StickyCollectionViewController", @"Vc": @"StickyCollectionViewController"}
             , @{@"Name": @"PickerViewController", @"Vc": @"PickerViewController", @"Nib": @"PickerViewController"}
             , @{@"Name": @"UikitTestViewController", @"Vc": @"UikitTestViewController"}
-            , @{@"Name": @"UserDefaultsViewController", @"Vc": @"UserDefaultsViewController"}
+            , @{@"Name": @"UserDefaultsViewController", @"Vc": @"UserDefaultsViewController", @"Nib": @"UserDefaultsViewController"}
             , @{@"Name": @"CustomCollectionViewController", @"Vc": @"CustomCollectionViewController"}
             , @{@"Name": @"MasonryTestViewController", @"Vc": @"MasonryTestViewController"}
             , @{@"Name": @"TestCollectionViewController", @"Vc": @"TestCollectionViewController"}

@@ -89,11 +89,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
+//    self.automaticallyAdjustsScrollViewInsets = YES;
+
+//    CGFloat navigationBarHeight = 64.f;
+
+//    CGRect oldFrame = self.view.frame;
+//    CGRect rect = CGRectMake(0, navigationBarHeight, oldFrame.size.width, oldFrame.size.height - navigationBarHeight);
+//    self.view.bounds = rect;
+    
+//    self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    
     self.view.backgroundColor = [UIColor whiteColor];
-    // Do any additional setup after loading the view.
+    
 
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.topMargin.mas_equalTo(64 + 8);
+        make.top.equalTo(self.view).offset(64);
 //        make.top.equalTo(self.view);
         make.centerX.equalTo(self.view);
         make.width.mas_equalTo(32);
@@ -107,7 +119,7 @@
     }];
 
     [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view).offset(-32.f);
+        make.bottom.equalTo(self.view).offset(-4.f);
         make.width.mas_equalTo(32);
         make.height.mas_equalTo(32);
         make.centerX.equalTo(self.view);
