@@ -7,9 +7,10 @@
 //
 
 #import "MainTabBarViewController.h"
-#import "NormalTableViewController.h"
+#import "TableViewTestController.h"
 #import "PickerViewController.h"
 #import "SectionTableViewController.h"
+#import "EntryTabViewController.h"
 
 @interface MainTabBarViewController ()
 
@@ -23,7 +24,7 @@
 
     [[UITabBar appearance] setTintColor:[UIColor orangeColor]];
     
-    UIViewController *testViewController = [[NormalTableViewController alloc] init];
+    UIViewController *testViewController = [[EntryTabViewController alloc] init];
     UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:NSLocalizedStringFromTable(@"NormalTab", @"InfoPlist", @"第一个tab的名称") image:[UIImage imageNamed:@"hotel"] tag:0];
     testViewController.tabBarItem = item;
     

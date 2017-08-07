@@ -6,7 +6,7 @@
 //  Copyright (c) 2012年 Njnu. All rights reserved.
 //
 
-#import "NormalTableViewController.h"
+#import "TableViewTestController.h"
 #import "NameAndColorCell.h"
 #import "PickerViewController.h"
 #import "TestCollectionViewController.h"
@@ -23,7 +23,7 @@
 //static int callbacktimes = 0;
 //static ViewController * pView = nil;
 
-@interface NormalTableViewController () {
+@interface TableViewTestController () {
 //    NSArray *mDataArray;
     NSMutableArray *mColorDataArray;
 //    UILabel *lblStatus;
@@ -31,7 +31,7 @@
 
 @end;
 
-@implementation NormalTableViewController
+@implementation TableViewTestController
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -222,7 +222,7 @@
             break;
 
         case 2:
-            [self.navigationController pushViewController:[[NormalTableViewController alloc] init] animated:YES];
+            [self.navigationController pushViewController:[[TableViewTestController alloc] init] animated:YES];
             break;
 
         case 3:

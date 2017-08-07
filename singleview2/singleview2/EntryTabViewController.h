@@ -1,10 +1,10 @@
 //
-// Created by KaiKai on 17/2/26.
+// Created by kai on 2017/8/7.
 // Copyright (c) 2017 Njnu. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 
-@interface MyNavigationController : UINavigationController
+@interface EntryTabViewController : UITableViewController
 @end
