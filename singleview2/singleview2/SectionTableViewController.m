@@ -26,6 +26,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
 
     NSString *plistFile = [[NSBundle mainBundle] pathForResource:@"sortednames" ofType:@"plist"];

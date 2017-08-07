@@ -20,22 +20,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     [[UITabBar appearance] setTintColor:[UIColor orangeColor]];
     
     UIViewController *testViewController = [[NormalTableViewController alloc] init];
-//    testViewController.view.frame = [self getContentViewFrame];
     UITabBarItem *item = [[UITabBarItem alloc] initWithTitle:NSLocalizedStringFromTable(@"NormalTab", @"InfoPlist", @"第一个tab的名称") image:[UIImage imageNamed:@"hotel"] tag:0];
     testViewController.tabBarItem = item;
     
     UIViewController * blueViewController= [[PickerViewController alloc] initWithNibName:@"PickerViewController" bundle:nil];
-//    blueViewController.view.frame = [self getContentViewFrame];
     item = [[UITabBarItem alloc] initWithTitle:NSLocalizedStringFromTable(@"PickerTab", @"InfoPlist", @"选择器tab") image:[UIImage imageNamed:@"scenic"] tag:1];
     blueViewController.tabBarItem = item;
 
     UIViewController * sectionTableViewController= [[SectionTableViewController alloc] initWithStyle:UITableViewStylePlain];
     sectionTableViewController.tabBarItem = [[UITabBarItem alloc] initWithTitle:NSLocalizedString(@"SectionTab", @"分节的tableview") image:[UIImage imageNamed:@"hotel"] tag:2];
-    
     self.viewControllers = @[testViewController, blueViewController, sectionTableViewController];
     
 }
@@ -54,10 +51,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (CGRect)getContentViewFrame {
-    CGRect originFrame = self.view.frame;
-    return CGRectMake(originFrame.origin.x, originFrame.origin.y + 100, originFrame.size.width, originFrame.size.height - 20 - 44);
-}
 
 @end

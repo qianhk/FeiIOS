@@ -64,6 +64,8 @@
 //    _datePicker change
 //    [_datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
 
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     NSDate *date = [NSDate date];
     [_datePicker setDate:date animated:NO];
 
