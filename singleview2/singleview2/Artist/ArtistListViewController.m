@@ -6,6 +6,8 @@
 #import "ArtistListViewController.h"
 #import "TextTableViewCell.h"
 #import "ArtistData.h"
+#import "ArtistDetailViewController.h"
+#import "ArtistTableViewCell.h"
 
 @interface ArtistListViewController () {
 
@@ -32,7 +34,7 @@
 //    NSLog(@"viewDidLoad iOS8 table view 使用自动布局, 得tableView.estimatedRowHeight != 0, tableView.rowHeight = UITableViewAutomaticDimension 无需重载heightForRowAtIndexPath， 同时还可以通过constraints更新cell子view的高度");
 //    self.view.backgroundColor = [UIColor redColor];
 
-    [self.tableView registerNib:[UINib nibWithNibName:@"TextTableViewCell" bundle:nil] forCellReuseIdentifier:@"TextTableViewCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"ArtistTableViewCell" bundle:nil] forCellReuseIdentifier:@"ArtistTableViewCell"];
 
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSString *finalPath = [path stringByAppendingPathComponent:@"artists.json"];
@@ -75,9 +77,16 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextTableViewCell"];
+    ArtistTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ArtistTableViewCell"];
     Artist *artist = mArtistList[indexPath.row];
-    cell.textLabel.text = artist.name;
+    cell.bioLabel.text = artist.bio;
+
+    cell.artistImageView.image = [UIImage imageNamed:artist.image];
+    cell.nameLabel.text = artist.name;
+    cell.nameLabel.backgroundColor = [UIColor colorWithRed:1 green:152/255 blue:0 alpha:1];
+    cell.nameLabel.textColor = [UIColor whiteColor];
+    cell.nameLabel.textAlignment = NSTextAlignmentCenter;
+
     return cell;
 }
 
@@ -95,7 +104,9 @@
 //    [tableView deselectRowAtIndexPath:indexPath animated:indexPath.row % 2 == 0];
 
     Artist *item = mArtistList[indexPath.row];
-//    [self.navigationController pushViewController:vc animated:YES];
+    ArtistDetailViewController *controller = [[ArtistDetailViewController alloc] initWithStyle:UITableViewStylePlain];
+    controller.artist = item;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 @end
