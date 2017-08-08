@@ -33,15 +33,19 @@
 }
 
 - (IBAction)onButtonClicked:(UIButton *)sender {
-    NSInteger row0 = [_picker selectedRowInComponent:0];
-    NSInteger row1 = [_picker selectedRowInComponent:1];
-    if (mUseTwo) {
-        _resultLabel.text = [NSString stringWithFormat:@"%@ %@ %@", _datePicker.date.description, mCharacterNamesList[0][row0], mCharacterNamesList[1][row1]];
-    } else {
-        _resultLabel.text = [NSString stringWithFormat:@"%@ %@ %@", _datePicker.date.description, mStateList[row0], mCityList[row1]];
-    }
-    SectionTableViewController *controller = [[SectionTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    [self presentViewController:controller animated:YES completion:nil];
+//    NSInteger row0 = [_picker selectedRowInComponent:0];
+//    NSInteger row1 = [_picker selectedRowInComponent:1];
+//    if (mUseTwo) {
+//        _resultLabel.text = [NSString stringWithFormat:@"%@ %@ %@", _datePicker.date.description, mCharacterNamesList[0][row0], mCharacterNamesList[1][row1]];
+//    } else {
+//        _resultLabel.text = [NSString stringWithFormat:@"%@ %@ %@", _datePicker.date.description, mStateList[row0], mCityList[row1]];
+//    }
+//    SectionTableViewController *controller = [[SectionTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+//    [self presentViewController:controller animated:YES completion:nil];
+    [UIView animateWithDuration:1.f animations:^{
+        self.resultLabel.numberOfLines  = (self.resultLabel.numberOfLines > 1 || self.resultLabel.numberOfLines <= 0) ? 1 : 0;
+        [self.view layoutIfNeeded];   // 这行不能少
+    }];
 }
 
 

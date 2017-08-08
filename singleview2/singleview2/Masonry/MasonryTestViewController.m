@@ -13,13 +13,13 @@
 
 @interface MasonryTestViewController ()
 
-@property(nonatomic, strong) UIView *topView;
-@property(nonatomic, strong) UIView *middleView;
-@property(nonatomic, strong) UIView *bottomView;
-@property(nonatomic, strong) UIView *aboveMiddleView;
+@property (nonatomic, strong) UIView *topView;
+@property (nonatomic, strong) UIView *middleView;
+@property (nonatomic, strong) UIView *bottomView;
+@property (nonatomic, strong) UIView *aboveMiddleView;
 
-@property(nonatomic, strong) UIButton *changeButton;
-@property(nonatomic, strong) UIButton *changeButton2;
+@property (nonatomic, strong) UIButton *changeButton;
+@property (nonatomic, strong) UIButton *changeButton2;
 
 @end
 
@@ -89,7 +89,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
 //    self.edgesForExtendedLayout = UIRectEdgeNone;
 //    self.automaticallyAdjustsScrollViewInsets = YES;
 
@@ -98,11 +98,11 @@
 //    CGRect oldFrame = self.view.frame;
 //    CGRect rect = CGRectMake(0, navigationBarHeight, oldFrame.size.width, oldFrame.size.height - navigationBarHeight);
 //    self.view.bounds = rect;
-    
+
 //    self.view.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    
+
     self.view.backgroundColor = [UIColor whiteColor];
-    
+
 
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(64);
@@ -131,7 +131,7 @@
         make.leading.equalTo(self.middleView);
         make.width.mas_equalTo(32);
         make.height.mas_equalTo(32);
-        
+
     }];
 
     [self.changeButton sizeToFit];
@@ -151,6 +151,7 @@
     }];
 
     [[self.changeButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        [self updateWithAnimation];
         [self.view setNeedsUpdateConstraints];
     }];
 
@@ -158,6 +159,15 @@
 //        [self.view setNeedsUpdateConstraints];
 //    }];
 //    [self.view setNeedsUpdateConstraints];
+}
+
+- (void)updateWithAnimation {
+    [UIView animateWithDuration:1.f animations:^{
+        [self.topView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(self.topView.frame.size.width + 20);
+        }];
+        [self.view layoutIfNeeded];   // 这行不能少
+    }];
 }
 
 - (void)updateViewConstraints {
@@ -168,7 +178,7 @@
             make.width.mas_equalTo(_aboveMiddleView.frame.size.width + 2);
         }];
 
-        [self.bottomView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        [self.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.width.mas_equalTo(_bottomView.frame.size.width + 2);
         }];
     }

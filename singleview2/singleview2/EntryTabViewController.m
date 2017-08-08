@@ -45,6 +45,7 @@
             , @{@"Name": @"CustomCollectionViewController", @"Vc": @"CustomCollectionViewController"}
             , @{@"Name": @"MasonryTestViewController", @"Vc": @"MasonryTestViewController"}
             , @{@"Name": @"TestCollectionViewController", @"Vc": @"TestCollectionViewController"}
+            , @{@"Name": @"ArtistListViewController", @"Vc": @"ArtistListViewController"}
     ];
 
 }
