@@ -31,20 +31,21 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kTw-sz-sma" userLabel="ArtistImage">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="kTw-sz-sma" userLabel="ArtistImage">
                         <rect key="frame" x="8" y="8" width="160" height="94.5"/>
                     </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="0gy-Uk-T0K" secondAttribute="bottom" constant="8" id="3EB-0l-H2i"/>
-                    <constraint firstAttribute="bottom" secondItem="grT-rV-rE3" secondAttribute="bottom" constant="8" id="Chy-G2-kQW"/>
                     <constraint firstItem="kTw-sz-sma" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Fdi-up-4Cg"/>
                     <constraint firstItem="0gy-Uk-T0K" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Hue-Ku-ifF"/>
+                    <constraint firstAttribute="bottom" secondItem="grT-rV-rE3" secondAttribute="bottom" priority="250" constant="8" id="K7i-FI-m79"/>
                     <constraint firstItem="grT-rV-rE3" firstAttribute="width" secondItem="kTw-sz-sma" secondAttribute="width" id="K8x-TO-fPA"/>
                     <constraint firstItem="kTw-sz-sma" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="SOc-jn-Mzo"/>
                     <constraint firstItem="0gy-Uk-T0K" firstAttribute="leading" secondItem="kTw-sz-sma" secondAttribute="trailing" constant="16" id="SkE-h2-RCx"/>
                     <constraint firstItem="grT-rV-rE3" firstAttribute="top" secondItem="kTw-sz-sma" secondAttribute="bottom" constant="8" id="aiB-I1-TeT"/>
                     <constraint firstItem="kTw-sz-sma" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="gL5-ct-uoB"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="grT-rV-rE3" secondAttribute="bottom" constant="8" id="jtt-6d-wIa"/>
                     <constraint firstItem="grT-rV-rE3" firstAttribute="centerX" secondItem="kTw-sz-sma" secondAttribute="centerX" id="ufn-8F-Ub4"/>
                     <constraint firstAttribute="trailing" secondItem="0gy-Uk-T0K" secondAttribute="trailing" constant="8" id="zVR-eT-KHB"/>
                 </constraints>
