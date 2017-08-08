@@ -52,6 +52,8 @@
 		2ABE85491F3987C700609D5A /* ArtistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE85471F3987C700609D5A /* ArtistTableViewCell.m */; };
 		2ABE854A1F3987C700609D5A /* ArtistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ABE85481F3987C700609D5A /* ArtistTableViewCell.xib */; };
 		2ABE854C1F398FF600609D5A /* ArtistAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ABE854B1F398FF600609D5A /* ArtistAssets.xcassets */; };
+		2ABE85501F39996500609D5A /* WorkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE854E1F39996500609D5A /* WorkTableViewCell.m */; };
+		2ABE85511F39996500609D5A /* WorkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ABE854F1F39996500609D5A /* WorkTableViewCell.xib */; };
 		2AE16A8D1E6BEA0B00B48A49 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2AE16A8C1E6BEA0A00B48A49 /* Settings.bundle */; };
 		2AE16A911E6BF25A00B48A49 /* UserDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE16A8F1E6BF25A00B48A49 /* UserDefaultsViewController.m */; };
 		2AE16A921E6BF25A00B48A49 /* UserDefaultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AE16A901E6BF25A00B48A49 /* UserDefaultsViewController.xib */; };
@@ -148,6 +150,9 @@
 		2ABE85471F3987C700609D5A /* ArtistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistTableViewCell.m; sourceTree = "<group>"; };
 		2ABE85481F3987C700609D5A /* ArtistTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistTableViewCell.xib; sourceTree = "<group>"; };
 		2ABE854B1F398FF600609D5A /* ArtistAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ArtistAssets.xcassets; sourceTree = "<group>"; };
+		2ABE854D1F39996500609D5A /* WorkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkTableViewCell.h; sourceTree = "<group>"; };
+		2ABE854E1F39996500609D5A /* WorkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkTableViewCell.m; sourceTree = "<group>"; };
+		2ABE854F1F39996500609D5A /* WorkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkTableViewCell.xib; sourceTree = "<group>"; };
 		2AE16A8C1E6BEA0A00B48A49 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2AE16A8E1E6BF25A00B48A49 /* UserDefaultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsViewController.h; sourceTree = "<group>"; };
 		2AE16A8F1E6BF25A00B48A49 /* UserDefaultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsViewController.m; sourceTree = "<group>"; };
@@ -345,6 +350,9 @@
 				2ABE85461F3987C700609D5A /* ArtistTableViewCell.h */,
 				2ABE85471F3987C700609D5A /* ArtistTableViewCell.m */,
 				2ABE85481F3987C700609D5A /* ArtistTableViewCell.xib */,
+				2ABE854D1F39996500609D5A /* WorkTableViewCell.h */,
+				2ABE854E1F39996500609D5A /* WorkTableViewCell.m */,
+				2ABE854F1F39996500609D5A /* WorkTableViewCell.xib */,
 			);
 			path = Artist;
 			sourceTree = "<group>";
@@ -533,6 +541,7 @@
 				2AE16A921E6BF25A00B48A49 /* UserDefaultsViewController.xib in Resources */,
 				2A56B2951E59744800DD29B4 /* Storyboard.storyboard in Resources */,
 				19DD3A76623BD5DC58194F8A /* sortednames.plist in Resources */,
+				2ABE85511F39996500609D5A /* WorkTableViewCell.xib in Resources */,
 				19DD3F2591202825A572A3A3 /* Podfile in Resources */,
 				19DD344DD2BF135B454A95E6 /* NameAndColorCell.xib in Resources */,
 				19DD3A4126018D3DFA157009 /* NameAndColorCell2.xib in Resources */,
@@ -612,6 +621,7 @@
 				19DD3E5F012285184B1F3C12 /* TagCellLayout.m in Sources */,
 				19DD3392BE334E1457C22B3A /* NSObject+Calculator.m in Sources */,
 				2A8DB25E1ECB0374006DBB60 /* MasonryTestViewController.m in Sources */,
+				2ABE85501F39996500609D5A /* WorkTableViewCell.m in Sources */,
 				19DD35F32D58CA694658070B /* CalculatorMaker.m in Sources */,
 				19DD38DE90F47F4C1B8581C1 /* Calculator.m in Sources */,
 				19DD39BEE2D30818E5D081B8 /* KVCModel.m in Sources */,

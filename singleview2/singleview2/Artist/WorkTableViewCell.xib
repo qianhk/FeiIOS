@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="168" id="KGk-i7-Jjw" customClass="WorkTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="168"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="167.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gUr-eQ-1Zs">
+                        <rect key="frame" x="8" y="8" width="304" height="81.5"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOH-02-WEA">
+                        <rect key="frame" x="8" y="97.5" width="304" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" text="Select For More Info &gt;" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QVM-cS-ZC2">
+                        <rect key="frame" x="84" y="126.5" width="153.5" height="33"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="QVM-cS-ZC2" firstAttribute="top" secondItem="SOH-02-WEA" secondAttribute="bottom" constant="8" id="2Ls-xL-szE"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="gUr-eQ-1Zs" secondAttribute="trailing" id="4fp-k2-zdT"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="QVM-cS-ZC2" secondAttribute="trailing" constant="74.5" id="DC5-8v-MDU"/>
+                    <constraint firstAttribute="topMargin" secondItem="gUr-eQ-1Zs" secondAttribute="top" id="Fpy-bq-7o9"/>
+                    <constraint firstItem="QVM-cS-ZC2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="76" id="G6F-nM-qXE"/>
+                    <constraint firstItem="SOH-02-WEA" firstAttribute="top" secondItem="gUr-eQ-1Zs" secondAttribute="bottom" constant="8" id="KgA-6o-I2w"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="gUr-eQ-1Zs" secondAttribute="leading" id="O33-DQ-8bM"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="QVM-cS-ZC2" secondAttribute="bottom" id="Z2M-0t-MFb"/>
+                    <constraint firstItem="SOH-02-WEA" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="bWX-yo-R1M"/>
+                    <constraint firstItem="SOH-02-WEA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="k5e-yn-QRy"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="SOH-02-WEA" secondAttribute="trailing" id="ue2-9G-Vvi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="moreInfoTextView" destination="QVM-cS-ZC2" id="Yau-PD-NlJ"/>
+                <outlet property="workImageView" destination="gUr-eQ-1Zs" id="Z7J-2e-Er0"/>
+                <outlet property="workTitleLabel" destination="SOH-02-WEA" id="YUU-K0-tj5"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="36"/>
+        </tableViewCell>
+    </objects>
+</document>

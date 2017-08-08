@@ -31,6 +31,7 @@
     UIEdgeInsets oriInsets = self.tableView.separatorInset; //left 15 , other 0
     self.tableView.separatorInset = UIEdgeInsetsZero;
 
+    self.title = @"Artistry";
     self.tableView.estimatedRowHeight = 60;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 
