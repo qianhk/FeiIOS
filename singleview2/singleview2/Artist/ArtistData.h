@@ -12,6 +12,8 @@
 @property (nonatomic, copy) NSString *image;
 @property (nonatomic, copy) NSString *info;
 
+@property (nonatomic, assign) BOOL isExpanded;
+
 @end
 
 

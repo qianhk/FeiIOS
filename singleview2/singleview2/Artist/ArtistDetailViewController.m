@@ -68,8 +68,21 @@
     NSLog(@"didSelectRowAtIndexPath row=%ld %.2f", (long) indexPath.row, UITableViewAutomaticDimension);
 //    [tableView deselectRowAtIndexPath:indexPath animated:indexPath.row % 2 == 0];
 
+    WorkTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (!cell) {
+        return;
+    }
+
     Work *work = self.artist.workList[indexPath.row];
-//    [self.navigationController pushViewController:vc animated:YES];
+    work.isExpanded = !work.isExpanded;
+
+    cell.moreInfoTextView.text = work.isExpanded ? work.info : @"Select For More Info >";
+    cell.moreInfoTextView.textAlignment = work.isExpanded ? NSTextAlignmentLeft : NSTextAlignmentCenter;
+
+    [tableView beginUpdates];
+    [tableView endUpdates];
+
+    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 @end
