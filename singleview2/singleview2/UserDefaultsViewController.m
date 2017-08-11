@@ -77,7 +77,8 @@
     [self.locationManager requestWhenInUseAuthorization];
 
     self.redView.hidden = YES;
-    self.redViewLeftConstraint.priority = 800;
+//    self.redViewLeftConstraint.priority = 800;
+    self.redViewLeftConstraint.active = NO;
     
 
     self.kvcModel = [KVCModel new];
