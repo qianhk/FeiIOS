@@ -20,6 +20,9 @@
 
 @property(strong, nonatomic) IBOutlet UILabel *resultLabel;
 
+@property (weak, nonatomic) IBOutlet UIView *redView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *redViewLeftConstraint;
+
 @end
 
 @implementation UserDefaultsViewController
@@ -73,6 +76,9 @@
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager requestWhenInUseAuthorization];
 
+    self.redView.hidden = YES;
+    self.redViewLeftConstraint.priority = 800;
+    
 
     self.kvcModel = [KVCModel new];
     _kvcModel.name = @"KaiName";
