@@ -48,6 +48,7 @@
             , @{@"Name": @"MasonryTestViewController", @"Vc": @"MasonryTestViewController"}
             , @{@"Name": @"TestCollectionViewController", @"Vc": @"TestCollectionViewController"}
             , @{@"Name": @"ArtistListViewController", @"Vc": @"ArtistListViewController"}
+            , @{@"Name": @"PostTableViewController", @"Vc": @"PostTableViewController"}
     ];
 
 }

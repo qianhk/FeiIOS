@@ -7,7 +7,7 @@
 //
 
 #import "MainTabBarViewController.h"
-#import "TableViewTestController.h"
+#import "PostTableViewController.h"
 #import "PickerViewController.h"
 #import "SectionTableViewController.h"
 #import "EntryTabViewController.h"

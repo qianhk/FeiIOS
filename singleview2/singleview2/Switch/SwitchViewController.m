@@ -7,12 +7,12 @@
 //
 
 #import "SwitchViewController.h"
-#import "TableViewTestController.h"
+#import "PostTableViewController.h"
 #import "PickerViewController.h"
 
 @interface SwitchViewController ()
 
-@property(strong, nonatomic) TableViewTestController *testTableViewController;
+@property(strong, nonatomic) PostTableViewController *testTableViewController;
 
 @property(strong, nonatomic) PickerViewController *blueViewController;
 
@@ -27,7 +27,7 @@
     _blueViewController.view.frame = [self getContentViewFrame];
     [self switchViewFromViewController:nil toViewController:self.blueViewController];
 
-//    self.testTableViewController = [[TableViewTestController alloc] init];
+//    self.testTableViewController = [[PostTableViewController alloc] init];
 //    _testTableViewController.view.frame = [self getContentViewFrame];
 //    [self switchViewFromViewController:nil toViewController:_testTableViewController];
 }
@@ -55,7 +55,7 @@
 - (IBAction)switchViews:(id)sender {
     if (!self.testTableViewController.view.superview) {
         if (!self.testTableViewController) {
-            self.testTableViewController = [[TableViewTestController alloc] init];
+            self.testTableViewController = [[PostTableViewController alloc] init];
             _testTableViewController.view.frame = [self getContentViewFrame];
         }
     } else {

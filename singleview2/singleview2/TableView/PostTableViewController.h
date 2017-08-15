@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TableViewTestController : UITableViewController
+@interface PostTableViewController : UITableViewController
 
 @end

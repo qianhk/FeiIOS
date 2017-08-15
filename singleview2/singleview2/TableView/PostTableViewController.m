@@ -6,17 +6,17 @@
 //  Copyright (c) 2012年 Njnu. All rights reserved.
 //
 
-#import "TableViewTestController.h"
+#import "PostTableViewController.h"
 #import "PostCell.h"
 #import "PostData.h"
 
-@interface TableViewTestController ()
+@interface PostTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray<Post *> *postList;
 
 @end;
 
-@implementation TableViewTestController
+@implementation PostTableViewController
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -38,25 +38,22 @@
 
 //    self.tableView.delegate = self; //基类是uitableview则无需设置delete、datasource
 //    self.tableView.dataSource = self;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorColor = [UIColor magentaColor];
 
 //    self.tableView.rowHeight = 80;
     self.tableView.estimatedRowHeight = 60;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-
+    self.tableView.separatorInset = UIEdgeInsetsZero;
 
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 //    self.view.bounds = [self getContentViewFrame];
 
-    if (([[[UIDevice currentDevice] systemVersion] doubleValue] >= 7.0)) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-//        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
-
 //    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 
     self.postList = [NSMutableArray arrayWithArray:[Post makeData]];
+
+    [self.tableView reloadData];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -77,17 +74,6 @@
     [cell configWithModel:post];
     return cell;
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-////    NSInteger row = indexPath.row;
-////    if (row == 0) {
-////        return 60.f;
-////    } else {
-////        return 30.f;
-////    }
-//
-//    return UITableViewAutomaticDimension;
-//}
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return indexPath.row != 0;

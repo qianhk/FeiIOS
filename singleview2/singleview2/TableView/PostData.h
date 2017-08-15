@@ -7,9 +7,13 @@
 
 
 
-@interface Comment
+@interface Comment : NSObject
 
 @property (nonatomic, strong) NSString *text;
+
+- (instancetype)initWithText:(NSString *)text;
+
++ (Comment *)constructWithText:(NSString *)text;
 
 @end
 

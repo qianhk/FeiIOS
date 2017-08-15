@@ -48,7 +48,7 @@
 		2A56B2981E59778100DD29B4 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */; };
 		2A746B171E5B20670022F2B3 /* statedDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A746B161E5B20670022F2B3 /* statedDictionary.plist */; };
 		2A8DB25E1ECB0374006DBB60 /* MasonryTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DB25D1ECB0374006DBB60 /* MasonryTestViewController.m */; };
-		2ABE85411F385BF900609D5A /* TableViewTestController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE85401F385BF900609D5A /* TableViewTestController.m */; };
+		2ABE85411F385BF900609D5A /* PostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE85401F385BF900609D5A /* PostTableViewController.m */; };
 		2ABE85431F388B7600609D5A /* artists.json in Resources */ = {isa = PBXBuildFile; fileRef = 2ABE85421F388B7600609D5A /* artists.json */; };
 		2ABE85491F3987C700609D5A /* ArtistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE85471F3987C700609D5A /* ArtistTableViewCell.m */; };
 		2ABE854A1F3987C700609D5A /* ArtistTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ABE85481F3987C700609D5A /* ArtistTableViewCell.xib */; };
@@ -126,7 +126,7 @@
 		19DD3C08706F84A4D5C6EFAA /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
 		19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Calculator.m"; sourceTree = "<group>"; };
 		19DD3C762C20AFE9B642CE7B /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
-		19DD3CA74EB99547AE4AE0DD /* TableViewTestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewTestController.h; sourceTree = "<group>"; };
+		19DD3CA74EB99547AE4AE0DD /* PostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewController.h; sourceTree = "<group>"; };
 		19DD3D73E1F0DC9A3D0A74EA /* HeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCell.h; sourceTree = "<group>"; };
 		19DD3DD66AD1900D4B8A6DAF /* NameAndColorCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameAndColorCell2.xib; sourceTree = "<group>"; };
 		19DD3E48D1085ADD340DC4D3 /* TagCellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagCellLayout.h; sourceTree = "<group>"; };
@@ -149,7 +149,7 @@
 		2A746B161E5B20670022F2B3 /* statedDictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = statedDictionary.plist; sourceTree = "<group>"; };
 		2A8DB25C1ECB0374006DBB60 /* MasonryTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonryTestViewController.h; sourceTree = "<group>"; };
 		2A8DB25D1ECB0374006DBB60 /* MasonryTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasonryTestViewController.m; sourceTree = "<group>"; };
-		2ABE85401F385BF900609D5A /* TableViewTestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewTestController.m; sourceTree = "<group>"; };
+		2ABE85401F385BF900609D5A /* PostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewController.m; sourceTree = "<group>"; };
 		2ABE85421F388B7600609D5A /* artists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artists.json; sourceTree = "<group>"; };
 		2ABE85461F3987C700609D5A /* ArtistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistTableViewCell.h; sourceTree = "<group>"; };
 		2ABE85471F3987C700609D5A /* ArtistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistTableViewCell.m; sourceTree = "<group>"; };
@@ -321,8 +321,8 @@
 		19DD3B3E34B00123A0138E0F /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				19DD3CA74EB99547AE4AE0DD /* TableViewTestController.h */,
-				2ABE85401F385BF900609D5A /* TableViewTestController.m */,
+				19DD3CA74EB99547AE4AE0DD /* PostTableViewController.h */,
+				2ABE85401F385BF900609D5A /* PostTableViewController.m */,
 				2AD3AA101F42CDA400C7940B /* PostCell.h */,
 				2AD3AA111F42CDA400C7940B /* PostCell.m */,
 				2AD3AA121F42CDA400C7940B /* PostCell.xib */,
@@ -647,7 +647,7 @@
 				19DD3D7D15FC2E22FD9FA726 /* EntryTabViewController.m in Sources */,
 				19DD3E1CE5C1A5C4E1B1EED8 /* NameAndColorCell.m in Sources */,
 				19DD3BF4AE53495E71E69B77 /* SearchResultController.m in Sources */,
-				2ABE85411F385BF900609D5A /* TableViewTestController.m in Sources */,
+				2ABE85411F385BF900609D5A /* PostTableViewController.m in Sources */,
 				2AD3AA131F42CDA400C7940B /* PostCell.m in Sources */,
 				19DD3494F53B2E79C82A9BB2 /* SectionTableViewController.m in Sources */,
 				19DD3CADDC04DB6CF2E2B338 /* SwitchViewController.m in Sources */,
