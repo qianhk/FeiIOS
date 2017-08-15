@@ -10,6 +10,7 @@
 		19DD30087B7CFAAD52AA47E4 /* ContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD36A1D71E01AF83E208C4 /* ContentCell.m */; };
 		19DD3089BCF35385264D1919 /* StickyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3F44AB13D9283FA8459E /* StickyCollectionViewController.m */; };
 		19DD30B5574E87EE5B6A965B /* HeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD34D6D63E5F65DC2E8979 /* HeaderCell.m */; };
+		19DD30BFE871A81403ABBF74 /* PostData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3775789F06655320FAEC /* PostData.m */; };
 		19DD3116A08085B55FA724BC /* ArtistData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD337772D0542BB7301384 /* ArtistData.m */; };
 		19DD312807F2C2619CEB3093 /* MasonryLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD35DFD5C2B5BE44657DDE /* MasonryLayout.m */; };
 		19DD3186436FFA70C8EBC891 /* MyDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39586B2852DEEE88CD7A /* MyDrawerView.m */; };
@@ -54,6 +55,8 @@
 		2ABE854C1F398FF600609D5A /* ArtistAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2ABE854B1F398FF600609D5A /* ArtistAssets.xcassets */; };
 		2ABE85501F39996500609D5A /* WorkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE854E1F39996500609D5A /* WorkTableViewCell.m */; };
 		2ABE85511F39996500609D5A /* WorkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ABE854F1F39996500609D5A /* WorkTableViewCell.xib */; };
+		2AD3AA131F42CDA400C7940B /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD3AA111F42CDA400C7940B /* PostCell.m */; };
+		2AD3AA141F42CDA400C7940B /* PostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AD3AA121F42CDA400C7940B /* PostCell.xib */; };
 		2AE16A8D1E6BEA0B00B48A49 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2AE16A8C1E6BEA0A00B48A49 /* Settings.bundle */; };
 		2AE16A911E6BF25A00B48A49 /* UserDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE16A8F1E6BF25A00B48A49 /* UserDefaultsViewController.m */; };
 		2AE16A921E6BF25A00B48A49 /* UserDefaultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AE16A901E6BF25A00B48A49 /* UserDefaultsViewController.xib */; };
@@ -92,6 +95,7 @@
 		19DD33C13AA2E5E44918F505 /* ArtistListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistListViewController.h; sourceTree = "<group>"; };
 		19DD33CCCD6D0DD63BE6F2C0 /* TagCellLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagCellLayout.m; sourceTree = "<group>"; };
 		19DD33FBB3F06821C476843B /* SearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultController.m; sourceTree = "<group>"; };
+		19DD33FD5708AB03AD9AADDB /* PostData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostData.h; sourceTree = "<group>"; };
 		19DD340E1384FB6D10475D3B /* ArtistListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistListViewController.m; sourceTree = "<group>"; };
 		19DD347E2879F0FB243A359B /* NameAndColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameAndColorCell.m; sourceTree = "<group>"; };
 		19DD34BE1711135CC2034501 /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 		19DD3639270FEEF858CD2455 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		19DD36A1D71E01AF83E208C4 /* ContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentCell.m; sourceTree = "<group>"; };
 		19DD3769B2F26A377D2CB11D /* TestCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController.h; sourceTree = "<group>"; };
+		19DD3775789F06655320FAEC /* PostData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostData.m; sourceTree = "<group>"; };
 		19DD38266F66FF54CD551E20 /* EntryTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryTabViewController.h; sourceTree = "<group>"; };
 		19DD390963D60D7C86113D09 /* CalculatorMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorMaker.m; sourceTree = "<group>"; };
 		19DD394F159CA346FE9BB05D /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
@@ -153,6 +158,9 @@
 		2ABE854D1F39996500609D5A /* WorkTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorkTableViewCell.h; sourceTree = "<group>"; };
 		2ABE854E1F39996500609D5A /* WorkTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorkTableViewCell.m; sourceTree = "<group>"; };
 		2ABE854F1F39996500609D5A /* WorkTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorkTableViewCell.xib; sourceTree = "<group>"; };
+		2AD3AA101F42CDA400C7940B /* PostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
+		2AD3AA111F42CDA400C7940B /* PostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
+		2AD3AA121F42CDA400C7940B /* PostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostCell.xib; sourceTree = "<group>"; };
 		2AE16A8C1E6BEA0A00B48A49 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2AE16A8E1E6BF25A00B48A49 /* UserDefaultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultsViewController.h; sourceTree = "<group>"; };
 		2AE16A8F1E6BF25A00B48A49 /* UserDefaultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultsViewController.m; sourceTree = "<group>"; };
@@ -315,6 +323,11 @@
 			children = (
 				19DD3CA74EB99547AE4AE0DD /* TableViewTestController.h */,
 				2ABE85401F385BF900609D5A /* TableViewTestController.m */,
+				2AD3AA101F42CDA400C7940B /* PostCell.h */,
+				2AD3AA111F42CDA400C7940B /* PostCell.m */,
+				2AD3AA121F42CDA400C7940B /* PostCell.xib */,
+				19DD3775789F06655320FAEC /* PostData.m */,
+				19DD33FD5708AB03AD9AADDB /* PostData.h */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -537,6 +550,7 @@
 				D9CE40B714FB8F1000E6FD79 /* InfoPlist.strings in Resources */,
 				2ABE85431F388B7600609D5A /* artists.json in Resources */,
 				2A746B171E5B20670022F2B3 /* statedDictionary.plist in Resources */,
+				2AD3AA141F42CDA400C7940B /* PostCell.xib in Resources */,
 				2AF01FBF1E58935D0088008E /* PickerViewController.xib in Resources */,
 				2AE16A921E6BF25A00B48A49 /* UserDefaultsViewController.xib in Resources */,
 				2A56B2951E59744800DD29B4 /* Storyboard.storyboard in Resources */,
@@ -634,6 +648,7 @@
 				19DD3E1CE5C1A5C4E1B1EED8 /* NameAndColorCell.m in Sources */,
 				19DD3BF4AE53495E71E69B77 /* SearchResultController.m in Sources */,
 				2ABE85411F385BF900609D5A /* TableViewTestController.m in Sources */,
+				2AD3AA131F42CDA400C7940B /* PostCell.m in Sources */,
 				19DD3494F53B2E79C82A9BB2 /* SectionTableViewController.m in Sources */,
 				19DD3CADDC04DB6CF2E2B338 /* SwitchViewController.m in Sources */,
 				19DD3975AE991346856C8E09 /* TextTableViewCell.m in Sources */,
@@ -641,6 +656,7 @@
 				19DD3F4395F3AC160E5A2959 /* ArtistListViewController.m in Sources */,
 				19DD3116A08085B55FA724BC /* ArtistData.m in Sources */,
 				19DD38F0B0A9A9670A6234BC /* ArtistDetailViewController.m in Sources */,
+				19DD30BFE871A81403ABBF74 /* PostData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
