@@ -9,10 +9,12 @@
 #import "PostTableViewController.h"
 #import "PostCell.h"
 #import "PostData.h"
+#import "TextTableViewCell.h"
 
 @interface PostTableViewController ()
 
 @property (nonatomic, strong) NSMutableArray<Post *> *postList;
+@property (nonatomic, strong) NSMutableArray<NSString *> *stringList;
 
 @end;
 
@@ -35,8 +37,9 @@
     [super viewDidLoad];
 
     [self.tableView registerNib:[UINib nibWithNibName:@"PostCell" bundle:nil] forCellReuseIdentifier:@"PostCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"TextTableViewCell" bundle:nil] forCellReuseIdentifier:@"TextTableViewCell"];
 
-//    self.tableView.delegate = self; //基类是uitableview则无需设置delete、datasource
+    self.tableView.delegate = self; //基类是uitableview则无需设置delete、datasource
 //    self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorColor = [UIColor magentaColor];
@@ -53,26 +56,36 @@
 
     self.postList = [NSMutableArray arrayWithArray:[Post makeData]];
 
+    self.stringList = [NSMutableArray arrayWithCapacity:16];
+    for (int idx = 0; idx < 16; ++idx) {
+        [self.stringList addObject:[NSString stringWithFormat:@"kai string %d", idx]];
+    }
+
     [self.tableView reloadData];
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return self.stringList.count;
+    }
     return self.postList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    static NSString *simpleTableIdentifier = @"SimpleTableIdentifier";
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//    if (!cell) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-//    }
-//    cell.textLabel.text = mDataArray[indexPath.row];
-//    return cell;
-
-    PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
-    Post *post = self.postList[indexPath.row];
-    [cell configWithModel:post];
-    return cell;
+    if (indexPath.section == 0) {
+        TextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextTableViewCell"];
+        cell.textLabel.text = self.stringList[indexPath.row];
+        return cell;
+    } else {
+        PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
+        Post *post = self.postList[indexPath.row];
+        [cell configWithModel:post];
+        return cell;
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -112,6 +125,31 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"didSelectRowAtIndexPath row=%ld %.2f", (long) indexPath.row, UITableViewAutomaticDimension);
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    NSLog(@"lookScroll scrollViewDidScroll"); //只要手在滑或者惯性自动滑都触发，刚进入页面、退出页面也会触发大约2次
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    //如果decelerate为NO，则真的停止了，如果为true，则会惯性滑动，得等scrollViewDidEndDecelerating才真的停止
+//    NSLog(@"lookScroll scrollViewDidEndDragging willDecelerate=%@", decelerate ? @"YES" : @"NO");
+    if (!decelerate) {
+        [self scrollViewDidEndScroll:scrollView];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+//    NSLog(@"lookScroll scrollViewDidEndDecelerating"); //惯性滑动停止
+    [self scrollViewDidEndScroll:scrollView];
+}
+
+- (void)scrollViewDidEndScroll:(UIScrollView *)scrollView {
+    NSLog(@"lookScroll scrollViewDidEndScroll"); //自己定义的，无论惯性滑动还是慢慢滑动的停止
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
+    NSLog(@"lookScroll scrollViewDidEndScrollingAnimation");
 }
 
 
