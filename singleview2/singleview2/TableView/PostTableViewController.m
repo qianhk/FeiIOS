@@ -25,13 +25,37 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
+//    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:<#(SEL)aSelector#> object:<#(nullable id)anArgument#>];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
 }
 
 #pragma mark - View lifecycle
 
+/*
+     offset.y + height  >= cell.y + cell.height 说明底都显示出来了
+    offset.y + 64 <= cell.y 说明顶部还没冒出去
+ */
+- (void)identifyFirstFullDisplayCell {
+    NSArray<NSIndexPath *> *array = self.tableView.indexPathsForVisibleRows;
+    CGPoint contentOffset = self.tableView.contentOffset;
+    CGFloat tableHeight = self.tableView.frame.size.height;
+    NSLog(@"lookVisibleRow tableView offset.y=%.2f height=%.2f VisibleRowCount=%d", contentOffset.y, tableHeight, array.count);
 
+
+    [array enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
+        if (indexPath.section == 1) {
+            CGRect cellRect = [self.tableView rectForRowAtIndexPath:indexPath];
+            CGFloat cellHeight = cellRect.size.height;
+            CGFloat cellY = cellRect.origin.y;
+    //        NSLog(@"lookVisibleRow indexPath=%d_%02d rect(y=%.2f ht=%.2f)", indexPath.section, indexPath.row, rect.origin.y, rect.size.height);
+            if (contentOffset.y + 64 <= cellY && contentOffset.y + tableHeight >= cellY + cellHeight) {
+                NSLog(@"lookVisibleRow find first post full display cell: indexPath=%d_%02d", indexPath.section, indexPath.row);
+                *stop = YES;
+            }
+        }
+    }];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -62,6 +86,8 @@
     }
 
     [self.tableView reloadData];
+
+    [self performSelector:@selector(identifyFirstFullDisplayCell) withObject:nil afterDelay:0.4f];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -146,6 +172,7 @@
 
 - (void)scrollViewDidEndScroll:(UIScrollView *)scrollView {
     NSLog(@"lookScroll scrollViewDidEndScroll"); //自己定义的，无论惯性滑动还是慢慢滑动的停止
+    [self identifyFirstFullDisplayCell];
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
