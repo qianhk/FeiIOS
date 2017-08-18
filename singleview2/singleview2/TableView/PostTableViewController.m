@@ -32,6 +32,16 @@
 
 #pragma mark - View lifecycle
 
+
+- (void)findFullDisplayCell:(NSIndexPath *)indexPath {
+    PostCell *postCell = [self.tableView cellForRowAtIndexPath:indexPath];
+    CGRect oldFrame = postCell.avatarImageView.frame;
+//    CGRect newFrame = [postCell.avatarImageView convertRect:oldFrame toView:self.view];
+//    CGRect newFrame = [postCell.avatarImageView convertRect:oldFrame toView:[[UIApplication sharedApplication].delegate window]];
+    CGRect newFrame = [postCell.avatarImageView convertRect:oldFrame toView:nil];
+    NSLog(@"lookVisibleRow oldFrame=%@ newFrame=%@", NSStringFromCGRect(oldFrame), NSStringFromCGRect(newFrame));
+}
+
 /*
      offset.y + height  >= cell.y + cell.height 说明底都显示出来了
     offset.y + 64 <= cell.y 说明顶部还没冒出去
@@ -51,6 +61,7 @@
     //        NSLog(@"lookVisibleRow indexPath=%d_%02d rect(y=%.2f ht=%.2f)", indexPath.section, indexPath.row, rect.origin.y, rect.size.height);
             if (contentOffset.y + 64 <= cellY && contentOffset.y + tableHeight >= cellY + cellHeight) {
                 NSLog(@"lookVisibleRow find first post full display cell: indexPath=%d_%02d", indexPath.section, indexPath.row);
+                [self findFullDisplayCell:indexPath];
                 *stop = YES;
             }
         }

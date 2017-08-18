@@ -12,5 +12,7 @@
 
 @interface PostCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+
 - (void)configWithModel:(Post *)post;
 @end

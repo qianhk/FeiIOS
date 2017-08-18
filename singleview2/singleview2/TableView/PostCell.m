@@ -10,7 +10,6 @@
 #import "PostData.h"
 
 @interface PostCell()
-@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nicknameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *contentImageView;
