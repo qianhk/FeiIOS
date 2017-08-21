@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSString *avatarUrl;
 
 @property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSAttributedString *attributedText;
 
 @property (nonatomic, strong) NSString *imageUrl;
 

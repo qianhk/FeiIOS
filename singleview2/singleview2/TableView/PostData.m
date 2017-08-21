@@ -89,4 +89,17 @@
     return array;
 }
 
+- (NSAttributedString *)attributedText {
+    if (_attributedText == nil) {
+        NSRange range = NSMakeRange(0, _text.length > 2 ? 2 : _text.length);
+        NSMutableAttributedString *styledText = [[NSMutableAttributedString alloc] initWithString:_text];
+        [styledText addAttribute:NSForegroundColorAttributeName
+                           value:[UIColor orangeColor]
+                           range:range];
+        _attributedText = [[NSAttributedString alloc] initWithAttributedString:styledText];
+    }
+    return _attributedText;
+}
+
+
 @end

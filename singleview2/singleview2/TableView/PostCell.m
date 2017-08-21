@@ -37,7 +37,9 @@
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:post.avatarUrl]];
     self.avatarImageView.image = [UIImage imageWithData:imageData];
     self.nicknameLabel.text = post.nickname;
-    self.contentLabel.text = post.text;
+    
+//    self.contentLabel.text = post.text;
+    self.contentLabel.attributedText = post.attributedText;
 
     if (post.imageUrl.length > 0) {
         self.contentImageView.hidden = NO;
