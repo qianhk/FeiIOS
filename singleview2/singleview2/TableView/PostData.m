@@ -61,6 +61,16 @@
     [array addObject:post];
 
 
+    post = [[Post alloc] initWithNickname:@"KaiKai6" avatarUrl:@"http://am.zdmimg.com/201609/16/57dbf56e9e779.jpg_e600.jpg" text:@"这是有图的内容，啊啊，而且还有超长的评论"];
+    post.imageUrl = @"http://am.zdmimg.com/201609/16/57dbf6a9efaf6.jpg_e600.jpg";
+    post.commentList = @[[Comment constructWithText:@"这是一条文本评论"]
+            , [Comment constructWithText:@"这是另一条文本评论"]
+            , [Comment constructWithText:@"就在不久前PlayStation官方推特和脸书账号都遭到黑客窃取，这个名为OurMine的黑客团队用PlayStation推特账号宣称自己已经窃取了PSN数据库信息，并且要求索尼的员工和他们联系。"]
+            , [Comment constructWithText:@"科学家在火星赤道附近的浅土中发现了大量埋藏的水冰。这一发现为在这颗红色星球上寻找生命的天体生物学家或寻找水源的未来火星定居者带来了希望，但它同时也给气候科学家带来了一个谜团。"]
+            , [Comment constructWithText:@"今天下午，Intel正式发布了第8代酷睿处理器，首波奉上的是四款笔记本平台低电压U系列产品，两款i7和i5均设计为4核8线程。不过，这四颗CPU其实属于Kaby Lake Refresh家族，而非Coffee Lake或者Cannon Lake，只是Intel均将其归入8代酷睿。然而性能倒是大跃进，提升了40%之多。"]
+            , [Comment constructWithText:@"这是另一条文本评论"]
+            ];
+    [array addObject:post];
 
 
     post = [[Post alloc] initWithNickname:@"KaiKai21这个用户的昵称真的是好长啊果然长长的昵称" avatarUrl:@"http://am.zdmimg.com/201609/16/57dbf57ee68a9.jpg_e600.jpg" text:@"第二批：这是一条纯内容啊啊啊啊啊"];

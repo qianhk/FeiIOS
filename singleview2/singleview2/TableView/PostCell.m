@@ -40,6 +40,7 @@
     
 //    self.contentLabel.text = post.text;
     self.contentLabel.attributedText = post.attributedText;
+    CGSize needSize = [self.contentLabel sizeThatFits:CGSizeMake(242.f, 0.f)];
 
     if (post.imageUrl.length > 0) {
         self.contentImageView.hidden = NO;
@@ -66,5 +67,10 @@
     self.commentLabelBottomDistanceConstraint.constant = commentCount <= 0 ? 0 : 8;
     self.commentLayoutBottomDistanceConstraint.constant = commentCount <= 0 ? 0 : 8;
 }
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+}
+
 
 @end
