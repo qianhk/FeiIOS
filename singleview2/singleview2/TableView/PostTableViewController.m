@@ -10,6 +10,7 @@
 #import "PostCell.h"
 #import "PostData.h"
 #import "TextTableViewCell.h"
+#import "CodeTextTableViewCell.h"
 
 @interface PostTableViewController ()
 
@@ -58,7 +59,7 @@
             CGRect cellRect = [self.tableView rectForRowAtIndexPath:indexPath];
             CGFloat cellHeight = cellRect.size.height;
             CGFloat cellY = cellRect.origin.y;
-    //        NSLog(@"lookVisibleRow indexPath=%d_%02d rect(y=%.2f ht=%.2f)", indexPath.section, indexPath.row, rect.origin.y, rect.size.height);
+            //        NSLog(@"lookVisibleRow indexPath=%d_%02d rect(y=%.2f ht=%.2f)", indexPath.section, indexPath.row, rect.origin.y, rect.size.height);
             if (contentOffset.y + 64 <= cellY && contentOffset.y + tableHeight >= cellY + cellHeight) {
                 NSLog(@"lookVisibleRow find first post full display cell: indexPath=%d_%02d", indexPath.section, indexPath.row);
                 [self findFullDisplayCell:indexPath];
@@ -73,6 +74,7 @@
 
     [self.tableView registerNib:[UINib nibWithNibName:@"PostCell" bundle:nil] forCellReuseIdentifier:@"PostCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"TextTableViewCell" bundle:nil] forCellReuseIdentifier:@"TextTableViewCell"];
+    [self.tableView registerClass:CodeTextTableViewCell.class forCellReuseIdentifier:@"CodeTextTableViewCell"];
 
     self.tableView.delegate = self; //基类是uitableview则无需设置delete、datasource
 //    self.tableView.dataSource = self;
@@ -112,11 +114,24 @@
     return self.postList.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0 && indexPath.row % 2 == 0) {
+        return [CodeTextTableViewCell heightOfCell];
+    }
+    return UITableViewAutomaticDimension;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        TextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextTableViewCell"];
-        cell.textLabel.text = self.stringList[indexPath.row];
-        return cell;
+        if (indexPath.row % 2 == 0) {
+            CodeTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CodeTextTableViewCell"];
+            [cell configWithText:self.stringList[indexPath.row]];
+            return cell;
+        } else {
+            TextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextTableViewCell"];
+            cell.textLabel.text = self.stringList[indexPath.row];
+            return cell;
+        }
     } else {
         PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
         Post *post = self.postList[indexPath.row];
@@ -148,10 +163,6 @@
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewAutomaticDimension;
-}
-
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     NSLog(@"moveRowAtIndexPath sourceRow=%ld destRow=%ld", (long) sourceIndexPath.row, (long) destinationIndexPath.row);
     Post *post = self.postList[sourceIndexPath.row];
@@ -161,7 +172,11 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"didSelectRowAtIndexPath row=%ld %.2f", (long) indexPath.row, UITableViewAutomaticDimension);
+    if (indexPath.section == 0) {
+        [tableView deselectRowAtIndexPath:indexPath animated:indexPath.row % 2 == 0];
+    }
+    
+    //NSLog(@"didSelectRowAtIndexPath row=%ld %.2f", (long) indexPath.row, UITableViewAutomaticDimension);
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

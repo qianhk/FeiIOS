@@ -11,6 +11,7 @@
 		19DD3089BCF35385264D1919 /* StickyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3F44AB13D9283FA8459E /* StickyCollectionViewController.m */; };
 		19DD30B5574E87EE5B6A965B /* HeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD34D6D63E5F65DC2E8979 /* HeaderCell.m */; };
 		19DD30BFE871A81403ABBF74 /* PostData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3775789F06655320FAEC /* PostData.m */; };
+		19DD30C15B40E912940BDBA2 /* CodeTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33B9DAD3B6E13BE52724 /* CodeTextTableViewCell.m */; };
 		19DD3116A08085B55FA724BC /* ArtistData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD337772D0542BB7301384 /* ArtistData.m */; };
 		19DD312807F2C2619CEB3093 /* MasonryLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD35DFD5C2B5BE44657DDE /* MasonryLayout.m */; };
 		19DD3186436FFA70C8EBC891 /* MyDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39586B2852DEEE88CD7A /* MyDrawerView.m */; };
@@ -88,9 +89,11 @@
 		19DD32A3EBA3A2D22608583C /* SwitchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchViewController.xib; sourceTree = "<group>"; };
 		19DD3302A657F08C52D1C3BE /* NameAndColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameAndColorCell.h; sourceTree = "<group>"; };
 		19DD3322AA1FD4886DC6EA7F /* SectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionTableViewController.h; sourceTree = "<group>"; };
+		19DD334E7563C744F5E87E46 /* CodeTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeTextTableViewCell.h; sourceTree = "<group>"; };
 		19DD337772D0542BB7301384 /* ArtistData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistData.m; sourceTree = "<group>"; };
 		19DD3396F3E6744ABF10836B /* sortednames.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = sortednames.plist; sourceTree = "<group>"; };
 		19DD33B5C5A15B1AE8D88FD2 /* NameAndColorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameAndColorCell.xib; sourceTree = "<group>"; };
+		19DD33B9DAD3B6E13BE52724 /* CodeTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeTextTableViewCell.m; sourceTree = "<group>"; };
 		19DD33C0B4289BB2071627BB /* CustomCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewController.h; sourceTree = "<group>"; };
 		19DD33C13AA2E5E44918F505 /* ArtistListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistListViewController.h; sourceTree = "<group>"; };
 		19DD33CCCD6D0DD63BE6F2C0 /* TagCellLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagCellLayout.m; sourceTree = "<group>"; };
@@ -347,6 +350,8 @@
 				19DD35979B384518741ED29F /* TextTableViewCell.h */,
 				19DD3103813FF8B83D737440 /* TextTableViewCell.xib */,
 				19DD356B5C754C5D13C5828B /* TextTableViewCell.m */,
+				19DD33B9DAD3B6E13BE52724 /* CodeTextTableViewCell.m */,
+				19DD334E7563C744F5E87E46 /* CodeTextTableViewCell.h */,
 			);
 			path = CommonCell;
 			sourceTree = "<group>";
@@ -657,6 +662,7 @@
 				19DD3116A08085B55FA724BC /* ArtistData.m in Sources */,
 				19DD38F0B0A9A9670A6234BC /* ArtistDetailViewController.m in Sources */,
 				19DD30BFE871A81403ABBF74 /* PostData.m in Sources */,
+				19DD30C15B40E912940BDBA2 /* CodeTextTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    //对于xib创建的，此时self.bounds还是ide里的，不是真实的
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
