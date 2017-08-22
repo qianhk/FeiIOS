@@ -11,6 +11,9 @@
 #import "PostData.h"
 #import "TextTableViewCell.h"
 #import "CodeTextTableViewCell.h"
+#import "SVPullToRefresh.h"
+
+#import <ReactiveObjC/RACEXTScope.h>
 
 @interface PostTableViewController ()
 
@@ -28,10 +31,37 @@
 
 - (void)dealloc {
 //    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:<#(SEL)aSelector#> object:<#(nullable id)anArgument#>];
-    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+
+//    [self removeObserver:self forKeyPath:@"postList"];
+
+    NSLog(@"PostTableViewController dealloc");
 }
 
 #pragma mark - View lifecycle
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    NSLog(@"PostTableViewController viewWillDisappear");
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+
+    NSNotificationCenter *notify = [NSNotificationCenter defaultCenter];
+    [notify removeObserver:self];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+
+    NSNotificationCenter *notify = [NSNotificationCenter defaultCenter];
+    [notify addObserver:self
+               selector:@selector(keyboardWillShow:)
+                   name:UIKeyboardWillShowNotification
+                 object:nil];
+
+    [notify addObserver:self
+               selector:@selector(keyboardWillHide:)
+                   name:UIKeyboardWillHideNotification
+                 object:nil];
+}
 
 
 - (void)findFullDisplayCell:(NSIndexPath *)indexPath {
@@ -72,6 +102,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    NSLog(@"PostTableViewController viewDidLoad");
+
     [self.tableView registerNib:[UINib nibWithNibName:@"PostCell" bundle:nil] forCellReuseIdentifier:@"PostCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"TextTableViewCell" bundle:nil] forCellReuseIdentifier:@"TextTableViewCell"];
     [self.tableView registerClass:CodeTextTableViewCell.class forCellReuseIdentifier:@"CodeTextTableViewCell"];
@@ -91,7 +123,15 @@
 
 //    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 
+//    [self addObserver:self forKeyPath:@"postList" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld | NSKeyValueObservingOptionInitial context:nil];
+
+//    id abc = nil;
+//    [abc addObserver:self forKeyPath:@"postList" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld | NSKeyValueObservingOptionInitial context:nil];
+
+//    [self addObserver:nil forKeyPath:@"postList" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld | NSKeyValueObservingOptionInitial context:nil];
+
     self.postList = [NSMutableArray arrayWithArray:[Post makeData]];
+
 
     self.stringList = [NSMutableArray arrayWithCapacity:16];
     for (int idx = 0; idx < 16; ++idx) {
@@ -101,6 +141,74 @@
     [self.tableView reloadData];
 
     [self performSelector:@selector(identifyFirstFullDisplayCell) withObject:nil afterDelay:0.4f];
+    
+//    [self performSelector:@selector(delayDoSth) withObject:nil afterDelay:2.f];
+
+    @weakify(self)
+    [self.tableView addPullToRefreshWithActionHandler:^{
+    }];
+
+    // setup infinite scrolling
+    [self.tableView addInfiniteScrollingWithActionHandler:^{
+//        [weakSelf insertRowAtBottom];
+    }];
+}
+
+- (void)insertRowAtTop {
+    int64_t delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//        [self.tableView beginUpdates];
+//        [self.dataSource insertObject:[NSDate date] atIndex:0];
+//        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
+//        [self.tableView endUpdates];
+
+        [self.tableView.pullToRefreshView stopAnimating];
+    });
+}
+
+
+- (void)insertRowAtBottom {
+    int64_t delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+//        [self.tableView beginUpdates];
+//        [self.dataSource addObject:[self.dataSource.lastObject dateByAddingTimeInterval:-90]];
+//        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:weakSelf.dataSource.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
+//        [self.tableView endUpdates];
+
+        [self.tableView.infiniteScrollingView stopAnimating];
+    });
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+//    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    //'NSInternalInconsistencyException', reason: '<UserDefaultsViewController: 0x100403580>: An -observeValueForKeyPath:ofObject:change:context: message was received but not handled.
+
+
+    NSLog(@"PostTableViewController observeValueForKeyPath key=%@ new=%@ old=%@", keyPath, [change valueForKey:NSKeyValueChangeNewKey], change[NSKeyValueChangeOldKey]);
+    if ([keyPath isEqualToString:@"name"]) {
+    }
+}
+
+- (void)delayDoSth {
+    [self keyboardWillShow:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+
+    CGFloat toY = self.tableView.contentOffset.y + 100.f;
+    CGFloat duration = 3; //[[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    @weakify(self)
+    [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         @strongify(self)
+                         self.tableView.contentOffset = CGPointMake(0, toY);
+                     } completion:^(BOOL finished) {
+            }];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -175,7 +283,7 @@
     if (indexPath.section == 0) {
         [tableView deselectRowAtIndexPath:indexPath animated:indexPath.row % 2 == 0];
     }
-    
+
     //NSLog(@"didSelectRowAtIndexPath row=%ld %.2f", (long) indexPath.row, UITableViewAutomaticDimension);
 }
 

@@ -47,6 +47,8 @@
 		2A4D2EC41E7D72B7006FD451 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D2EC61E7D72B7006FD451 /* Localizable.strings */; };
 		2A56B2951E59744800DD29B4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A56B2941E59744800DD29B4 /* Storyboard.storyboard */; };
 		2A56B2981E59778100DD29B4 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */; };
+		2A6A1F8B1F4C53060002AA84 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6A1F881F4C53060002AA84 /* UIScrollView+SVInfiniteScrolling.m */; };
+		2A6A1F8C1F4C53060002AA84 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6A1F8A1F4C53060002AA84 /* UIScrollView+SVPullToRefresh.m */; };
 		2A746B171E5B20670022F2B3 /* statedDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A746B161E5B20670022F2B3 /* statedDictionary.plist */; };
 		2A8DB25E1ECB0374006DBB60 /* MasonryTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DB25D1ECB0374006DBB60 /* MasonryTestViewController.m */; };
 		2ABE85411F385BF900609D5A /* PostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE85401F385BF900609D5A /* PostTableViewController.m */; };
@@ -149,6 +151,11 @@
 		2A56B2941E59744800DD29B4 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		2A56B2961E59778100DD29B4 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
 		2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
+		2A6A1F861F4C53060002AA84 /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
+		2A6A1F871F4C53060002AA84 /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		2A6A1F881F4C53060002AA84 /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		2A6A1F891F4C53060002AA84 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		2A6A1F8A1F4C53060002AA84 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		2A746B161E5B20670022F2B3 /* statedDictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = statedDictionary.plist; sourceTree = "<group>"; };
 		2A8DB25C1ECB0374006DBB60 /* MasonryTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonryTestViewController.h; sourceTree = "<group>"; };
 		2A8DB25D1ECB0374006DBB60 /* MasonryTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasonryTestViewController.m; sourceTree = "<group>"; };
@@ -375,6 +382,18 @@
 			path = Artist;
 			sourceTree = "<group>";
 		};
+		2A6A1F851F4C53060002AA84 /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				2A6A1F861F4C53060002AA84 /* SVPullToRefresh.h */,
+				2A6A1F871F4C53060002AA84 /* UIScrollView+SVInfiniteScrolling.h */,
+				2A6A1F881F4C53060002AA84 /* UIScrollView+SVInfiniteScrolling.m */,
+				2A6A1F891F4C53060002AA84 /* UIScrollView+SVPullToRefresh.h */,
+				2A6A1F8A1F4C53060002AA84 /* UIScrollView+SVPullToRefresh.m */,
+			);
+			path = SVPullToRefresh;
+			sourceTree = "<group>";
+		};
 		2A8DB25A1ECAEE04006DBB60 /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,6 +477,7 @@
 				2A8DB25A1ECAEE04006DBB60 /* Masonry */,
 				19DD3B3E34B00123A0138E0F /* TableView */,
 				19DD39E25D7FA8D68E7BC22A /* Utils */,
+				2A6A1F851F4C53060002AA84 /* SVPullToRefresh */,
 				D9CE40B314FB8F1000E6FD79 /* Supporting Files */,
 				19DD3FE098551CF95893D801 /* Artist */,
 			);
@@ -624,10 +644,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A6A1F8C1F4C53060002AA84 /* UIScrollView+SVPullToRefresh.m in Sources */,
 				D9CE40B914FB8F1000E6FD79 /* main.m in Sources */,
 				D9CE40BD14FB8F1000E6FD79 /* AppDelegate.m in Sources */,
 				2AF01FBE1E58935D0088008E /* PickerViewController.m in Sources */,
 				2A2D50871EB0817700BC161D /* UikitTestViewController.m in Sources */,
+				2A6A1F8B1F4C53060002AA84 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				2A56B2981E59778100DD29B4 /* MainTabBarViewController.m in Sources */,
 				19DD3BFDB43DEA83F51F4662 /* TestCollectionViewController.m in Sources */,
 				19DD30087B7CFAAD52AA47E4 /* ContentCell.m in Sources */,
