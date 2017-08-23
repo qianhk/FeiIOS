@@ -15,7 +15,9 @@
 
 #import <ReactiveObjC/RACEXTScope.h>
 
-@interface PostTableViewController ()
+@interface PostTableViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray<Post *> *postList;
 @property (nonatomic, strong) NSMutableArray<NSString *> *stringList;
@@ -104,12 +106,15 @@
 
     NSLog(@"PostTableViewController viewDidLoad");
 
+    self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    [self.view addSubview:self.tableView];
+
     [self.tableView registerNib:[UINib nibWithNibName:@"PostCell" bundle:nil] forCellReuseIdentifier:@"PostCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"TextTableViewCell" bundle:nil] forCellReuseIdentifier:@"TextTableViewCell"];
     [self.tableView registerClass:CodeTextTableViewCell.class forCellReuseIdentifier:@"CodeTextTableViewCell"];
 
     self.tableView.delegate = self; //基类是uitableview则无需设置delete、datasource
-//    self.tableView.dataSource = self;
+    self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorColor = [UIColor magentaColor];
 
@@ -144,6 +149,7 @@
     
 //    [self performSelector:@selector(delayDoSth) withObject:nil afterDelay:2.f];
 
+
     @weakify(self)
     [self.tableView addPullToRefreshWithActionHandler:^{
     }];
@@ -152,6 +158,7 @@
     [self.tableView addInfiniteScrollingWithActionHandler:^{
 //        [weakSelf insertRowAtBottom];
     }];
+
 }
 
 - (void)insertRowAtTop {
