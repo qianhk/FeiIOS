@@ -12,6 +12,7 @@
 #import "TextTableViewCell.h"
 #import "CodeTextTableViewCell.h"
 #import "SVPullToRefresh.h"
+#import "OperateSuccessView.h"
 
 #import <ReactiveObjC/RACEXTScope.h>
 
@@ -268,15 +269,15 @@
 }
 
 
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        return nil;
-//    } else if (indexPath.row == 2) {
-//        return [NSIndexPath indexPathForRow:1 inSection:indexPath.section];
-    } else {
-        return indexPath;
-    }
-}
+//- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (indexPath.row == 0) {
+//        return nil;
+////    } else if (indexPath.row == 2) {
+////        return [NSIndexPath indexPathForRow:1 inSection:indexPath.section];
+//    } else {
+//        return indexPath;
+//    }
+//}
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     NSLog(@"moveRowAtIndexPath sourceRow=%ld destRow=%ld", (long) sourceIndexPath.row, (long) destinationIndexPath.row);
@@ -292,6 +293,7 @@
     }
 
     //NSLog(@"didSelectRowAtIndexPath row=%ld %.2f", (long) indexPath.row, UITableViewAutomaticDimension);
+    [OperateSuccessView show:self.view.window];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

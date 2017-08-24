@@ -36,7 +36,7 @@
 }
 
 + (float)heightOfCell {
-    return 30.f;
+    return 40.f;
 }
 
 @end

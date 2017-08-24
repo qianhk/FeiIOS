@@ -37,6 +37,7 @@
 		19DD3D7D15FC2E22FD9FA726 /* EntryTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3E5849807BA2501D5051 /* EntryTabViewController.m */; };
 		19DD3E1CE5C1A5C4E1B1EED8 /* NameAndColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD347E2879F0FB243A359B /* NameAndColorCell.m */; };
 		19DD3E5F012285184B1F3C12 /* TagCellLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33CCCD6D0DD63BE6F2C0 /* TagCellLayout.m */; };
+		19DD3EAE1079667CA61DD269 /* OperateSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39B78D6BDCE40174EA12 /* OperateSuccessView.m */; };
 		19DD3F2591202825A572A3A3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 19DD398A48524E2F900C6B8D /* Podfile */; };
 		19DD3F34926154CA2DB93FF4 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3EF00066527A7954D946 /* Person.m */; };
 		19DD3F4395F3AC160E5A2959 /* ArtistListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD340E1384FB6D10475D3B /* ArtistListViewController.m */; };
@@ -126,6 +127,7 @@
 		19DD397DECACEA625586A2AD /* CustomCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewController.m; sourceTree = "<group>"; };
 		19DD39883B52AA4D56FA111D /* StickyPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyPersonCell.m; sourceTree = "<group>"; };
 		19DD398A48524E2F900C6B8D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		19DD39B78D6BDCE40174EA12 /* OperateSuccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperateSuccessView.m; sourceTree = "<group>"; };
 		19DD39C53B1537612522E188 /* StickyPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyPersonCell.h; sourceTree = "<group>"; };
 		19DD3A11E663419DE358D851 /* ContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentCell.h; sourceTree = "<group>"; };
 		19DD3C08706F84A4D5C6EFAA /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 		19DD3CA74EB99547AE4AE0DD /* PostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewController.h; sourceTree = "<group>"; };
 		19DD3D73E1F0DC9A3D0A74EA /* HeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCell.h; sourceTree = "<group>"; };
 		19DD3DD66AD1900D4B8A6DAF /* NameAndColorCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameAndColorCell2.xib; sourceTree = "<group>"; };
+		19DD3E2859B96C2CEFCEADC3 /* OperateSuccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperateSuccessView.h; sourceTree = "<group>"; };
 		19DD3E48D1085ADD340DC4D3 /* TagCellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagCellLayout.h; sourceTree = "<group>"; };
 		19DD3E5849807BA2501D5051 /* EntryTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryTabViewController.m; sourceTree = "<group>"; };
 		19DD3EF00066527A7954D946 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
@@ -317,6 +320,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		19DD3A7C55785E3FE0621264 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19DD39B78D6BDCE40174EA12 /* OperateSuccessView.m */,
+				19DD3E2859B96C2CEFCEADC3 /* OperateSuccessView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		19DD3A86297140D8A124B72E /* ThirdTab */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,6 +492,7 @@
 				2A6A1F851F4C53060002AA84 /* SVPullToRefresh */,
 				D9CE40B314FB8F1000E6FD79 /* Supporting Files */,
 				19DD3FE098551CF95893D801 /* Artist */,
+				19DD3A7C55785E3FE0621264 /* View */,
 			);
 			path = singleview2;
 			sourceTree = "<group>";
@@ -685,6 +698,7 @@
 				19DD38F0B0A9A9670A6234BC /* ArtistDetailViewController.m in Sources */,
 				19DD30BFE871A81403ABBF74 /* PostData.m in Sources */,
 				19DD30C15B40E912940BDBA2 /* CodeTextTableViewCell.m in Sources */,
+				19DD3EAE1079667CA61DD269 /* OperateSuccessView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
