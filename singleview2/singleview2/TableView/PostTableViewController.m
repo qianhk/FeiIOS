@@ -23,6 +23,8 @@
 @property (nonatomic, strong) NSMutableArray<Post *> *postList;
 @property (nonatomic, strong) NSMutableArray<NSString *> *stringList;
 
+@property (nonatomic, strong) OperateSuccessView *successView;
+
 @end;
 
 @implementation PostTableViewController
@@ -49,6 +51,7 @@
 
     NSNotificationCenter *notify = [NSNotificationCenter defaultCenter];
     [notify removeObserver:self];
+    self.successView = nil;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -293,7 +296,11 @@
     }
 
     //NSLog(@"didSelectRowAtIndexPath row=%ld %.2f", (long) indexPath.row, UITableViewAutomaticDimension);
-    [OperateSuccessView show:self.view.window];
+    self.successView = [OperateSuccessView show:self.view.window];
+    self.successView.actionTapped = ^(NSInteger state) {
+        self.successView.subtitleLabel.text = [NSString stringWithFormat:@"此乃子View啊，哈哈 %d", state];
+        [self.successView.actionButton setTitle:[NSString stringWithFormat:@"按钮%d", state] forState:UIControlStateNormal];
+    };
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

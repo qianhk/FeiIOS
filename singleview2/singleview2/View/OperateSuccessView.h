@@ -8,6 +8,14 @@
 
 @interface OperateSuccessView : UIView
 
-+ (void)show:(UIWindow *)window;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *subtitleLabel;
+@property (nonatomic, strong) UIButton *actionButton;
+
++ (instancetype)show:(UIWindow *)window;
+
+- (void)dismissMe;
+
+@property (nonatomic, strong) void (^actionTapped)(NSInteger actionState);
 
 @end
