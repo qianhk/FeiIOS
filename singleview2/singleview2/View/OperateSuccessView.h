@@ -18,4 +18,6 @@
 
 @property (nonatomic, strong) void (^actionTapped)(NSInteger actionState);
 
+@property (nonatomic, strong) void (^onViewDismissed)();
+
 @end

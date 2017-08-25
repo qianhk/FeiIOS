@@ -301,6 +301,9 @@
         self.successView.subtitleLabel.text = [NSString stringWithFormat:@"此乃子View啊，哈哈 %d", state];
         [self.successView.actionButton setTitle:[NSString stringWithFormat:@"按钮%d", state] forState:UIControlStateNormal];
     };
+    self.successView.onViewDismissed = ^() {
+        self.successView = nil;
+    };
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

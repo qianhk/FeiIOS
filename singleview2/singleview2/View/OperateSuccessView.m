@@ -131,6 +131,11 @@
 }
 
 - (void)dismissMe {
+    if (self.onViewDismissed) {
+        self.onViewDismissed();
+    }
+    self.onViewDismissed = nil;
+    self.actionTapped = nil;
     [UIView animateWithDuration:.5f delay:0 options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
         self.alpha = 0;
     }                completion:^(BOOL finished) {
