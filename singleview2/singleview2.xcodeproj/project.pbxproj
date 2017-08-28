@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		19DD30087B7CFAAD52AA47E4 /* ContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD36A1D71E01AF83E208C4 /* ContentCell.m */; };
+		19DD3039B818F77C84081DCF /* KaiLayoutExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD35C43987F227D69D5940 /* KaiLayoutExt.m */; };
 		19DD3089BCF35385264D1919 /* StickyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3F44AB13D9283FA8459E /* StickyCollectionViewController.m */; };
 		19DD30B5574E87EE5B6A965B /* HeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD34D6D63E5F65DC2E8979 /* HeaderCell.m */; };
 		19DD30BFE871A81403ABBF74 /* PostData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3775789F06655320FAEC /* PostData.m */; };
@@ -25,6 +26,7 @@
 		19DD38DE90F47F4C1B8581C1 /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3C08706F84A4D5C6EFAA /* Calculator.m */; };
 		19DD38E39F2E18EF81057221 /* TextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DD3103813FF8B83D737440 /* TextTableViewCell.xib */; };
 		19DD38F0B0A9A9670A6234BC /* ArtistDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3F84B2DDF3F717B81062 /* ArtistDetailViewController.m */; };
+		19DD3902A66FF9F2A957C17F /* SimpleLinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3EE47EDB7229F1E2E37C /* SimpleLinearLayout.m */; };
 		19DD3975AE991346856C8E09 /* TextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD356B5C754C5D13C5828B /* TextTableViewCell.m */; };
 		19DD39A16F636F87A123796A /* SwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DD32A3EBA3A2D22608583C /* SwitchViewController.xib */; };
 		19DD39BEE2D30818E5D081B8 /* KVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD31FA4E6F39FD7DF2249D /* KVCModel.m */; };
@@ -111,6 +113,7 @@
 		19DD33FBB3F06821C476843B /* SearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultController.m; sourceTree = "<group>"; };
 		19DD33FD5708AB03AD9AADDB /* PostData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostData.h; sourceTree = "<group>"; };
 		19DD340E1384FB6D10475D3B /* ArtistListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistListViewController.m; sourceTree = "<group>"; };
+		19DD343497F86F9BCE1EE051 /* KaiLayoutExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaiLayoutExt.h; sourceTree = "<group>"; };
 		19DD347E2879F0FB243A359B /* NameAndColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameAndColorCell.m; sourceTree = "<group>"; };
 		19DD34BE1711135CC2034501 /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
 		19DD34D6D63E5F65DC2E8979 /* HeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCell.m; sourceTree = "<group>"; };
@@ -122,6 +125,7 @@
 		19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController.m; sourceTree = "<group>"; };
 		19DD35979B384518741ED29F /* TextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextTableViewCell.h; sourceTree = "<group>"; };
 		19DD359C8F368B3FA2BB75B8 /* CFTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFTool.m; sourceTree = "<group>"; };
+		19DD35C43987F227D69D5940 /* KaiLayoutExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaiLayoutExt.m; sourceTree = "<group>"; };
 		19DD35DFD5C2B5BE44657DDE /* MasonryLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasonryLayout.m; sourceTree = "<group>"; };
 		19DD3612E615A8DE8118A2C2 /* MasonryLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonryLayout.h; sourceTree = "<group>"; };
 		19DD361D0FFC45D10D4F1C71 /* StickyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeaderView.m; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 		19DD3A34601D91AAEA144E26 /* CFTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFTool.h; sourceTree = "<group>"; };
 		19DD3C08706F84A4D5C6EFAA /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
 		19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Calculator.m"; sourceTree = "<group>"; };
+		19DD3C4E6FCF9245BC4BCB01 /* SimpleLinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleLinearLayout.h; sourceTree = "<group>"; };
 		19DD3C762C20AFE9B642CE7B /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
 		19DD3CA74EB99547AE4AE0DD /* PostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewController.h; sourceTree = "<group>"; };
 		19DD3D73E1F0DC9A3D0A74EA /* HeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCell.h; sourceTree = "<group>"; };
@@ -150,6 +155,7 @@
 		19DD3E2859B96C2CEFCEADC3 /* OperateSuccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperateSuccessView.h; sourceTree = "<group>"; };
 		19DD3E48D1085ADD340DC4D3 /* TagCellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagCellLayout.h; sourceTree = "<group>"; };
 		19DD3E5849807BA2501D5051 /* EntryTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryTabViewController.m; sourceTree = "<group>"; };
+		19DD3EE47EDB7229F1E2E37C /* SimpleLinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleLinearLayout.m; sourceTree = "<group>"; };
 		19DD3EF00066527A7954D946 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		19DD3F2648E78579340F1450 /* ArtistData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistData.h; sourceTree = "<group>"; };
 		19DD3F44AB13D9283FA8459E /* StickyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyCollectionViewController.m; sourceTree = "<group>"; };
@@ -351,6 +357,10 @@
 			children = (
 				19DD39B78D6BDCE40174EA12 /* OperateSuccessView.m */,
 				19DD3E2859B96C2CEFCEADC3 /* OperateSuccessView.h */,
+				19DD3EE47EDB7229F1E2E37C /* SimpleLinearLayout.m */,
+				19DD3C4E6FCF9245BC4BCB01 /* SimpleLinearLayout.h */,
+				19DD35C43987F227D69D5940 /* KaiLayoutExt.m */,
+				19DD343497F86F9BCE1EE051 /* KaiLayoutExt.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -767,6 +777,8 @@
 				19DD3EAE1079667CA61DD269 /* OperateSuccessView.m in Sources */,
 				19DD3B51F05B1CE1C5C7B6B9 /* TestLinearLayoutViewController.m in Sources */,
 				19DD3EFEBCB70AB096E77DDE /* CFTool.m in Sources */,
+				19DD3902A66FF9F2A957C17F /* SimpleLinearLayout.m in Sources */,
+				19DD3039B818F77C84081DCF /* KaiLayoutExt.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

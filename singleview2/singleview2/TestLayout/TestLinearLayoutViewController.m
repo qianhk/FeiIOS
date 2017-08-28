@@ -6,6 +6,8 @@
 #import "TestLinearLayoutViewController.h"
 #import "MyLinearLayout.h"
 #import "CFTool.h"
+#import "SimpleLinearLayout.h"
+#import "KaiLayoutExt.h"
 
 @interface TestLinearLayoutViewController ()
 
@@ -110,6 +112,82 @@
     horzLayout.wrapContentHeight = YES;
     [rootLayout addSubview:horzLayout];
 
+
+    UILabel *kaiHorzTitleLabel = [self createSectionLabel:NSLocalizedString(@"超长文本", @"")];
+    kaiHorzTitleLabel.myTop = 10;
+    [rootLayout addSubview:kaiHorzTitleLabel];
+
+    SimpleLinearLayout *view = [self createKaiLinearLayoutLong];
+    view.myHorzMargin = 0;
+    view.firstUseMostSpace = YES;
+    [rootLayout addSubview:view];
+
+    UILabel *kaiHorzTitleLabel2 = [self createSectionLabel:NSLocalizedString(@"短文本", @"")];
+    kaiHorzTitleLabel2.myTop = 10;
+    [rootLayout addSubview:kaiHorzTitleLabel2];
+
+    SimpleLinearLayout *view2 = [self createKaiLinearLayout];
+    view2.myHorzMargin = 0;
+    view2.firstUseMostSpace = NO;
+    [rootLayout addSubview:view2];
+}
+
+- (SimpleLinearLayout *)createKaiLinearLayout {
+    SimpleLinearLayout *simpleLinearLayout = [SimpleLinearLayout new];
+    simpleLinearLayout.backgroundColor = [UIColor orangeColor];
+    simpleLinearLayout.myHeight = 100;
+
+    UILabel *v1 = [self createLabel:NSLocalizedString(@"Nickname", @"") backgroundColor:[CFTool color:5]];
+    v1.numberOfLines = 1;
+    [v1 sizeToFit];
+    [simpleLinearLayout addSubview:v1];
+
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    view.backgroundColor = [CFTool color:6];
+    view.extMarginLeft = 4;
+    [simpleLinearLayout addSubview:view];
+
+    view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 60)];
+    view.backgroundColor = [CFTool color:7];
+    view.extMarginLeft = 4;
+    [simpleLinearLayout addSubview:view];
+
+    view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+    view.backgroundColor = [CFTool color:8];
+    view.extMarginLeft = 4;
+    view.extMarginRight = 4;
+    [simpleLinearLayout addSubview:view];
+
+    return simpleLinearLayout;
+}
+
+- (SimpleLinearLayout *)createKaiLinearLayoutLong {
+    SimpleLinearLayout *simpleLinearLayout = [SimpleLinearLayout new];
+    simpleLinearLayout.backgroundColor = [UIColor orangeColor];
+    simpleLinearLayout.myHeight = 100;
+
+    UILabel *v1 = [self createLabel:NSLocalizedString(@"Nickname长长的昵称真的好长再来点儿够长了", @"") backgroundColor:[CFTool color:5]];
+    v1.numberOfLines = 1;
+    [v1 sizeToFit];
+    [simpleLinearLayout addSubview:v1];
+
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    view.backgroundColor = [CFTool color:6];
+    view.extMarginLeft = 4;
+    [simpleLinearLayout addSubview:view];
+
+    view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 60)];
+    view.backgroundColor = [CFTool color:7];
+    view.extMarginLeft = 4;
+    [simpleLinearLayout addSubview:view];
+
+    view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+    view.backgroundColor = [CFTool color:8];
+    view.extMarginLeft = 4;
+    view.extMarginRight = 4;
+    [simpleLinearLayout addSubview:view];
+
+    return simpleLinearLayout;
 }
 
 - (void)viewDidLoad {
@@ -138,7 +216,7 @@
     v.font = [CFTool font:15];
     v.numberOfLines = 0;
     v.textAlignment = NSTextAlignmentCenter;
-    v.adjustsFontSizeToFitWidth = YES;
+//    v.adjustsFontSizeToFitWidth = YES;
     v.backgroundColor = color;
 //    v.layer.shadowOffset = CGSizeMake(3, 3);
 //    v.layer.shadowColor = [CFTool color:4].CGColor;
@@ -224,7 +302,7 @@
 - (MyLinearLayout *)createHorzSubviewLayout {
     //创建水平布局视图。
     MyLinearLayout *horzLayout = [MyLinearLayout linearLayoutWithOrientation:MyOrientation_Horz];
-    horzLayout.backgroundColor = [UIColor orangeColor];
+    horzLayout.backgroundColor = [UIColor lightGrayColor];
 
 
     /*
@@ -275,7 +353,6 @@
 
     return horzLayout;
 }
-
 
 
 /*
