@@ -40,7 +40,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"TextTableViewCell" bundle:nil] forCellReuseIdentifier:@"TextTableViewCell"];
 
     mEntryArray = @[
-            @{@"Name": @"StickyCollectionViewController", @"Vc": @"StickyCollectionViewController"}
+            @{@"Name": @"LinearLayoutViewController", @"Vc": @"TestLinearLayoutViewController"}
+            , @{@"Name": @"StickyCollectionViewController", @"Vc": @"StickyCollectionViewController"}
             , @{@"Name": @"PickerViewController", @"Vc": @"PickerViewController", @"Nib": @"PickerViewController"}
             , @{@"Name": @"UikitTestViewController", @"Vc": @"UikitTestViewController"}
             , @{@"Name": @"UserDefaultsViewController", @"Vc": @"UserDefaultsViewController", @"Nib": @"UserDefaultsViewController"}

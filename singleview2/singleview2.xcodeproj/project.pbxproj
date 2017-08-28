@@ -31,6 +31,7 @@
 		19DD3A4126018D3DFA157009 /* NameAndColorCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DD3DD66AD1900D4B8A6DAF /* NameAndColorCell2.xib */; };
 		19DD3A76623BD5DC58194F8A /* sortednames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19DD3396F3E6744ABF10836B /* sortednames.plist */; };
 		19DD3B12AAB2D3F104CF4B69 /* CustomCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD397DECACEA625586A2AD /* CustomCollectionViewController.m */; };
+		19DD3B51F05B1CE1C5C7B6B9 /* TestLinearLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD393DEF9081909916D85D /* TestLinearLayoutViewController.m */; };
 		19DD3BF4AE53495E71E69B77 /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33FBB3F06821C476843B /* SearchResultController.m */; };
 		19DD3BFDB43DEA83F51F4662 /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */; };
 		19DD3CADDC04DB6CF2E2B338 /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3F7CB7B197AACE4B0993 /* SwitchViewController.m */; };
@@ -38,6 +39,7 @@
 		19DD3E1CE5C1A5C4E1B1EED8 /* NameAndColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD347E2879F0FB243A359B /* NameAndColorCell.m */; };
 		19DD3E5F012285184B1F3C12 /* TagCellLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33CCCD6D0DD63BE6F2C0 /* TagCellLayout.m */; };
 		19DD3EAE1079667CA61DD269 /* OperateSuccessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39B78D6BDCE40174EA12 /* OperateSuccessView.m */; };
+		19DD3EFEBCB70AB096E77DDE /* CFTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD359C8F368B3FA2BB75B8 /* CFTool.m */; };
 		19DD3F2591202825A572A3A3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 19DD398A48524E2F900C6B8D /* Podfile */; };
 		19DD3F34926154CA2DB93FF4 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3EF00066527A7954D946 /* Person.m */; };
 		19DD3F4395F3AC160E5A2959 /* ArtistListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD340E1384FB6D10475D3B /* ArtistListViewController.m */; };
@@ -52,6 +54,11 @@
 		2A6A1F8C1F4C53060002AA84 /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6A1F8A1F4C53060002AA84 /* UIScrollView+SVPullToRefresh.m */; };
 		2A746B171E5B20670022F2B3 /* statedDictionary.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A746B161E5B20670022F2B3 /* statedDictionary.plist */; };
 		2A8DB25E1ECB0374006DBB60 /* MasonryTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8DB25D1ECB0374006DBB60 /* MasonryTestViewController.m */; };
+		2A94AAC51F53C91A00D53616 /* MyBaseLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A94AAB71F53C91A00D53616 /* MyBaseLayout.m */; };
+		2A94AAC61F53C91A00D53616 /* MyLayoutPos.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A94AABC1F53C91A00D53616 /* MyLayoutPos.m */; };
+		2A94AAC71F53C91A00D53616 /* MyLayoutSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A94AABF1F53C91A00D53616 /* MyLayoutSize.m */; };
+		2A94AAC81F53C91A00D53616 /* MyLayoutSizeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A94AAC11F53C91A00D53616 /* MyLayoutSizeClass.m */; };
+		2A94AAC91F53C91A00D53616 /* MyLinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A94AAC41F53C91A00D53616 /* MyLinearLayout.m */; };
 		2ABE85411F385BF900609D5A /* PostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE85401F385BF900609D5A /* PostTableViewController.m */; };
 		2ABE85431F388B7600609D5A /* artists.json in Resources */ = {isa = PBXBuildFile; fileRef = 2ABE85421F388B7600609D5A /* artists.json */; };
 		2ABE85491F3987C700609D5A /* ArtistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE85471F3987C700609D5A /* ArtistTableViewCell.m */; };
@@ -89,6 +96,7 @@
 		19DD313F3356C3C211265CF4 /* ArtistDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistDetailViewController.h; sourceTree = "<group>"; };
 		19DD31FA4E6F39FD7DF2249D /* KVCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVCModel.m; sourceTree = "<group>"; };
 		19DD322307A68FDFF2E13D33 /* KVCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVCModel.h; sourceTree = "<group>"; };
+		19DD3272DCE6B95CC6C35809 /* TestLinearLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLinearLayoutViewController.h; sourceTree = "<group>"; };
 		19DD32A3EBA3A2D22608583C /* SwitchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchViewController.xib; sourceTree = "<group>"; };
 		19DD3302A657F08C52D1C3BE /* NameAndColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameAndColorCell.h; sourceTree = "<group>"; };
 		19DD3322AA1FD4886DC6EA7F /* SectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionTableViewController.h; sourceTree = "<group>"; };
@@ -113,6 +121,7 @@
 		19DD3583BA26B05DA6AC5503 /* StickyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyCollectionViewController.h; sourceTree = "<group>"; };
 		19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController.m; sourceTree = "<group>"; };
 		19DD35979B384518741ED29F /* TextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextTableViewCell.h; sourceTree = "<group>"; };
+		19DD359C8F368B3FA2BB75B8 /* CFTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFTool.m; sourceTree = "<group>"; };
 		19DD35DFD5C2B5BE44657DDE /* MasonryLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasonryLayout.m; sourceTree = "<group>"; };
 		19DD3612E615A8DE8118A2C2 /* MasonryLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonryLayout.h; sourceTree = "<group>"; };
 		19DD361D0FFC45D10D4F1C71 /* StickyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeaderView.m; sourceTree = "<group>"; };
@@ -122,6 +131,7 @@
 		19DD3775789F06655320FAEC /* PostData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostData.m; sourceTree = "<group>"; };
 		19DD38266F66FF54CD551E20 /* EntryTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryTabViewController.h; sourceTree = "<group>"; };
 		19DD390963D60D7C86113D09 /* CalculatorMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorMaker.m; sourceTree = "<group>"; };
+		19DD393DEF9081909916D85D /* TestLinearLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLinearLayoutViewController.m; sourceTree = "<group>"; };
 		19DD394F159CA346FE9BB05D /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
 		19DD39586B2852DEEE88CD7A /* MyDrawerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDrawerView.m; sourceTree = "<group>"; };
 		19DD397DECACEA625586A2AD /* CustomCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewController.m; sourceTree = "<group>"; };
@@ -130,6 +140,7 @@
 		19DD39B78D6BDCE40174EA12 /* OperateSuccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperateSuccessView.m; sourceTree = "<group>"; };
 		19DD39C53B1537612522E188 /* StickyPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyPersonCell.h; sourceTree = "<group>"; };
 		19DD3A11E663419DE358D851 /* ContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentCell.h; sourceTree = "<group>"; };
+		19DD3A34601D91AAEA144E26 /* CFTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFTool.h; sourceTree = "<group>"; };
 		19DD3C08706F84A4D5C6EFAA /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
 		19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Calculator.m"; sourceTree = "<group>"; };
 		19DD3C762C20AFE9B642CE7B /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
@@ -162,6 +173,21 @@
 		2A746B161E5B20670022F2B3 /* statedDictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = statedDictionary.plist; sourceTree = "<group>"; };
 		2A8DB25C1ECB0374006DBB60 /* MasonryTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonryTestViewController.h; sourceTree = "<group>"; };
 		2A8DB25D1ECB0374006DBB60 /* MasonryTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasonryTestViewController.m; sourceTree = "<group>"; };
+		2A94AAB61F53C91A00D53616 /* MyBaseLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBaseLayout.h; sourceTree = "<group>"; };
+		2A94AAB71F53C91A00D53616 /* MyBaseLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBaseLayout.m; sourceTree = "<group>"; };
+		2A94AAB81F53C91A00D53616 /* MyLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayout.h; sourceTree = "<group>"; };
+		2A94AAB91F53C91A00D53616 /* MyLayoutDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutDef.h; sourceTree = "<group>"; };
+		2A94AABA1F53C91A00D53616 /* MyLayoutInner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutInner.h; sourceTree = "<group>"; };
+		2A94AABB1F53C91A00D53616 /* MyLayoutPos.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutPos.h; sourceTree = "<group>"; };
+		2A94AABC1F53C91A00D53616 /* MyLayoutPos.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLayoutPos.m; sourceTree = "<group>"; };
+		2A94AABD1F53C91A00D53616 /* MyLayoutPosInner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutPosInner.h; sourceTree = "<group>"; };
+		2A94AABE1F53C91A00D53616 /* MyLayoutSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutSize.h; sourceTree = "<group>"; };
+		2A94AABF1F53C91A00D53616 /* MyLayoutSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLayoutSize.m; sourceTree = "<group>"; };
+		2A94AAC01F53C91A00D53616 /* MyLayoutSizeClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutSizeClass.h; sourceTree = "<group>"; };
+		2A94AAC11F53C91A00D53616 /* MyLayoutSizeClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLayoutSizeClass.m; sourceTree = "<group>"; };
+		2A94AAC21F53C91A00D53616 /* MyLayoutSizeInner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutSizeInner.h; sourceTree = "<group>"; };
+		2A94AAC31F53C91A00D53616 /* MyLinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLinearLayout.h; sourceTree = "<group>"; };
+		2A94AAC41F53C91A00D53616 /* MyLinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLinearLayout.m; sourceTree = "<group>"; };
 		2ABE85401F385BF900609D5A /* PostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewController.m; sourceTree = "<group>"; };
 		2ABE85421F388B7600609D5A /* artists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artists.json; sourceTree = "<group>"; };
 		2ABE85461F3987C700609D5A /* ArtistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistTableViewCell.h; sourceTree = "<group>"; };
@@ -363,6 +389,17 @@
 			path = draw;
 			sourceTree = "<group>";
 		};
+		19DD3ED24D255FE8C6DB4968 /* TestLayout */ = {
+			isa = PBXGroup;
+			children = (
+				19DD393DEF9081909916D85D /* TestLinearLayoutViewController.m */,
+				19DD3272DCE6B95CC6C35809 /* TestLinearLayoutViewController.h */,
+				19DD359C8F368B3FA2BB75B8 /* CFTool.m */,
+				19DD3A34601D91AAEA144E26 /* CFTool.h */,
+			);
+			path = TestLayout;
+			sourceTree = "<group>";
+		};
 		19DD3F5896097A798ACA5798 /* CommonCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +450,28 @@
 				2A8DB25D1ECB0374006DBB60 /* MasonryTestViewController.m */,
 			);
 			path = Masonry;
+			sourceTree = "<group>";
+		};
+		2A94AAB51F53C91A00D53616 /* MyLayout */ = {
+			isa = PBXGroup;
+			children = (
+				2A94AAB61F53C91A00D53616 /* MyBaseLayout.h */,
+				2A94AAB71F53C91A00D53616 /* MyBaseLayout.m */,
+				2A94AAB81F53C91A00D53616 /* MyLayout.h */,
+				2A94AAB91F53C91A00D53616 /* MyLayoutDef.h */,
+				2A94AABA1F53C91A00D53616 /* MyLayoutInner.h */,
+				2A94AABB1F53C91A00D53616 /* MyLayoutPos.h */,
+				2A94AABC1F53C91A00D53616 /* MyLayoutPos.m */,
+				2A94AABD1F53C91A00D53616 /* MyLayoutPosInner.h */,
+				2A94AABE1F53C91A00D53616 /* MyLayoutSize.h */,
+				2A94AABF1F53C91A00D53616 /* MyLayoutSize.m */,
+				2A94AAC01F53C91A00D53616 /* MyLayoutSizeClass.h */,
+				2A94AAC11F53C91A00D53616 /* MyLayoutSizeClass.m */,
+				2A94AAC21F53C91A00D53616 /* MyLayoutSizeInner.h */,
+				2A94AAC31F53C91A00D53616 /* MyLinearLayout.h */,
+				2A94AAC41F53C91A00D53616 /* MyLinearLayout.m */,
+			);
+			path = MyLayout;
 			sourceTree = "<group>";
 		};
 		733110295F6532FE63A2CEE2 /* Pods */ = {
@@ -487,12 +546,14 @@
 				19DD3A86297140D8A124B72E /* ThirdTab */,
 				19DD34C9AE11DCFC2B64E29A /* Switch */,
 				2A8DB25A1ECAEE04006DBB60 /* Masonry */,
+				2A94AAB51F53C91A00D53616 /* MyLayout */,
 				19DD3B3E34B00123A0138E0F /* TableView */,
 				19DD39E25D7FA8D68E7BC22A /* Utils */,
 				2A6A1F851F4C53060002AA84 /* SVPullToRefresh */,
 				D9CE40B314FB8F1000E6FD79 /* Supporting Files */,
 				19DD3FE098551CF95893D801 /* Artist */,
 				19DD3A7C55785E3FE0621264 /* View */,
+				19DD3ED24D255FE8C6DB4968 /* TestLayout */,
 			);
 			path = singleview2;
 			sourceTree = "<group>";
@@ -658,6 +719,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A6A1F8C1F4C53060002AA84 /* UIScrollView+SVPullToRefresh.m in Sources */,
+				2A94AAC71F53C91A00D53616 /* MyLayoutSize.m in Sources */,
 				D9CE40B914FB8F1000E6FD79 /* main.m in Sources */,
 				D9CE40BD14FB8F1000E6FD79 /* AppDelegate.m in Sources */,
 				2AF01FBE1E58935D0088008E /* PickerViewController.m in Sources */,
@@ -666,6 +728,7 @@
 				2A56B2981E59778100DD29B4 /* MainTabBarViewController.m in Sources */,
 				19DD3BFDB43DEA83F51F4662 /* TestCollectionViewController.m in Sources */,
 				19DD30087B7CFAAD52AA47E4 /* ContentCell.m in Sources */,
+				2A94AAC91F53C91A00D53616 /* MyLinearLayout.m in Sources */,
 				2AE16A911E6BF25A00B48A49 /* UserDefaultsViewController.m in Sources */,
 				2ABE85491F3987C700609D5A /* ArtistTableViewCell.m in Sources */,
 				19DD30B5574E87EE5B6A965B /* HeaderCell.m in Sources */,
@@ -679,6 +742,7 @@
 				19DD35F32D58CA694658070B /* CalculatorMaker.m in Sources */,
 				19DD38DE90F47F4C1B8581C1 /* Calculator.m in Sources */,
 				19DD39BEE2D30818E5D081B8 /* KVCModel.m in Sources */,
+				2A94AAC81F53C91A00D53616 /* MyLayoutSizeClass.m in Sources */,
 				19DD3089BCF35385264D1919 /* StickyCollectionViewController.m in Sources */,
 				19DD3FE2530BF5203203512D /* StickyPersonCell.m in Sources */,
 				19DD3F34926154CA2DB93FF4 /* Person.m in Sources */,
@@ -693,12 +757,16 @@
 				19DD3CADDC04DB6CF2E2B338 /* SwitchViewController.m in Sources */,
 				19DD3975AE991346856C8E09 /* TextTableViewCell.m in Sources */,
 				19DD3500937949A7147EC85E /* UIColor+String.m in Sources */,
+				2A94AAC51F53C91A00D53616 /* MyBaseLayout.m in Sources */,
 				19DD3F4395F3AC160E5A2959 /* ArtistListViewController.m in Sources */,
+				2A94AAC61F53C91A00D53616 /* MyLayoutPos.m in Sources */,
 				19DD3116A08085B55FA724BC /* ArtistData.m in Sources */,
 				19DD38F0B0A9A9670A6234BC /* ArtistDetailViewController.m in Sources */,
 				19DD30BFE871A81403ABBF74 /* PostData.m in Sources */,
 				19DD30C15B40E912940BDBA2 /* CodeTextTableViewCell.m in Sources */,
 				19DD3EAE1079667CA61DD269 /* OperateSuccessView.m in Sources */,
+				19DD3B51F05B1CE1C5C7B6B9 /* TestLinearLayoutViewController.m in Sources */,
+				19DD3EFEBCB70AB096E77DDE /* CFTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
