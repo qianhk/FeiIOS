@@ -5,6 +5,7 @@
 
 #import <objc/runtime.h>
 #import "KaiLayoutExt.h"
+#import "SimpleLinearLayout.h"
 
 const char *const ASSOCIATEDOBJECT_KEY_KAI_VIEW_LAYOUT_EXT = "ASSOCIATEDOBJECT_KEY_KAI_VIEW_LAYOUT_EXT";
 
@@ -43,5 +44,19 @@ const char *const ASSOCIATEDOBJECT_KEY_KAI_VIEW_LAYOUT_EXT = "ASSOCIATEDOBJECT_K
 - (void)setExtMarginRight:(CGFloat)extMarginRight {
     self.viewLayoutExt.extMarginRight = extMarginRight;
 }
+
+//- (void)setHidden:(BOOL)hidden {
+//    if (self.isHidden == hidden) {
+//        return;
+//    }
+//
+//    [super setHidden:hidden];
+//    if (hidden == NO) {
+//        if ([self.superview isKindOfClass:[SimpleLinearLayout class]]) {
+//            [self setNeedsLayout];
+//        }
+//    }
+//
+//}
 
 @end

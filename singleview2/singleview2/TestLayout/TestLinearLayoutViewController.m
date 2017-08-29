@@ -16,6 +16,12 @@
 @property (nonatomic, strong) UILabel *label3;
 @property (nonatomic, strong) UILabel *label4;
 
+@property (nonatomic, strong) UIView *view1;
+@property (nonatomic, strong) UIView *view2;
+
+@property (nonatomic, strong) SimpleLinearLayout *simpleLinearLayout1;
+@property (nonatomic, strong) SimpleLinearLayout *simpleLinearLayout2;
+
 @end
 
 @implementation TestLinearLayoutViewController
@@ -117,19 +123,19 @@
     kaiHorzTitleLabel.myTop = 10;
     [rootLayout addSubview:kaiHorzTitleLabel];
 
-    SimpleLinearLayout *view = [self createKaiLinearLayoutLong];
-    view.myHorzMargin = 0;
-    view.firstUseMostSpace = YES;
-    [rootLayout addSubview:view];
+    self.simpleLinearLayout1 = [self createKaiLinearLayoutLong];
+    self.simpleLinearLayout1.myHorzMargin = 0;
+    self.simpleLinearLayout1.firstUseMostSpace = YES;
+    [rootLayout addSubview:self.simpleLinearLayout1];
 
     UILabel *kaiHorzTitleLabel2 = [self createSectionLabel:NSLocalizedString(@"短文本", @"")];
     kaiHorzTitleLabel2.myTop = 10;
     [rootLayout addSubview:kaiHorzTitleLabel2];
 
-    SimpleLinearLayout *view2 = [self createKaiLinearLayout];
-    view2.myHorzMargin = 0;
-    view2.firstUseMostSpace = NO;
-    [rootLayout addSubview:view2];
+    self.simpleLinearLayout2 = [self createKaiLinearLayout];
+    self.simpleLinearLayout2.myHorzMargin = 0;
+    self.simpleLinearLayout2.firstUseMostSpace = NO;
+    [rootLayout addSubview:self.simpleLinearLayout2];
 }
 
 - (SimpleLinearLayout *)createKaiLinearLayout {
@@ -147,10 +153,10 @@
     view.extMarginLeft = 4;
     [simpleLinearLayout addSubview:view];
 
-    view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 60)];
-    view.backgroundColor = [CFTool color:7];
-    view.extMarginLeft = 4;
-    [simpleLinearLayout addSubview:view];
+    self.view2 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 60)];
+    self.view2.backgroundColor = [CFTool color:7];
+    self.view2.extMarginLeft = 4;
+    [simpleLinearLayout addSubview:self.view2];
 
     view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
     view.backgroundColor = [CFTool color:8];
@@ -176,10 +182,10 @@
     view.extMarginLeft = 4;
     [simpleLinearLayout addSubview:view];
 
-    view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 60)];
-    view.backgroundColor = [CFTool color:7];
-    view.extMarginLeft = 4;
-    [simpleLinearLayout addSubview:view];
+    self.view1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80, 60)];
+    self.view1.backgroundColor = [CFTool color:7];
+    self.view1.extMarginLeft = 4;
+    [simpleLinearLayout addSubview:self.view1];
 
     view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
     view.backgroundColor = [CFTool color:8];
@@ -215,7 +221,7 @@
     v.text = title;
     v.font = [CFTool font:15];
     v.numberOfLines = 0;
-    v.textAlignment = NSTextAlignmentCenter;
+    v.textAlignment = NSTextAlignmentLeft;
 //    v.adjustsFontSizeToFitWidth = YES;
     v.backgroundColor = color;
 //    v.layer.shadowOffset = CGSizeMake(3, 3);
@@ -371,6 +377,11 @@
     NSInteger tag = view.tag;
     if (tag == 1) {
         self.label2.hidden = !self.label2.hidden;
+        self.view1.hidden = self.label2.hidden;
+        self.view2.hidden = self.label2.hidden;
+
+        [self.simpleLinearLayout1 setNeedsLayout];
+        [self.simpleLinearLayout2 setNeedsLayout];
     }
 }
 
