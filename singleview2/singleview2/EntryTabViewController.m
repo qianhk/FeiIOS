@@ -81,13 +81,21 @@
     NSDictionary *item = mEntryArray[indexPath.row];
     Class clazz = NSClassFromString(item[@"Vc"]);
     UIViewController *vc = [clazz alloc];
-    NSString *nib = item[@"Nib"];
-    if (nib) {
-        vc = [vc initWithNibName:nib bundle:nil];
+    if (vc) {
+        NSString *nib = item[@"Nib"];
+        if (nib) {
+            vc = [vc initWithNibName:nib bundle:nil];
+        } else {
+            vc = [vc init];
+        }
+        [self.navigationController pushViewController:vc animated:YES];
     } else {
-        vc = [vc init];
+        NSString *msgStr = [NSString stringWithFormat:@"名字是: %@", item[@"Vc"]];
+        UIAlertController * alertController = [UIAlertController alertControllerWithTitle:@"提示缺失vc" message:msgStr preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"知道了" style:UIAlertActionStyleCancel handler:nil];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
