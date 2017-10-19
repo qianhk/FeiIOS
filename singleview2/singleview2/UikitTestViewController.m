@@ -242,7 +242,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    NSLog(@"in viewWillAppear");
+    UIDevice *device = [UIDevice currentDevice];
+    NSString *schema = [@"http://abc.com?id=123&title=中文字符" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"in viewWillAppear model=%@ schema=%@", [device model], schema);
+
 }
 
 
