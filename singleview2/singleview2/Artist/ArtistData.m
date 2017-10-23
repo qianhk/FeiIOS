@@ -5,7 +5,19 @@
 
 #import "ArtistData.h"
 
+@interface Artist() {
+
+    NSString *_innerName;
+
+}
+@end
+
 @implementation Artist
+
+- (void)setName:(NSString *)name {
+    _name = [name mutableCopy];
+    _innerName = [_name copy];
+}
 
 
 @end

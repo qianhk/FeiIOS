@@ -20,14 +20,16 @@
 #import <ReactiveObjC/NSObject+RACSelectorSignal.h>
 #import <ReactiveObjC/UIControl+RACSignalSupport.h>
 #import <ReactiveObjC/NSObject+RACPropertySubscribing.h>
+#import <objc/runtime.h>
 #import "UikitTestViewController.h"
 #import "NSObject+Calculator.h"
 #import "CalculatorMaker.h"
 #import "Calculator.h"
+#import "ArtistData.h"
 
 @interface UikitTestViewController ()
 
-@property(nonatomic, strong) RACCommand *command;
+@property (nonatomic, strong) RACCommand *command;
 
 @end
 
@@ -186,10 +188,10 @@
         // 2.创建信号,用来传递数据
         RACSignal *racSignal = [RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
 
-                [subscriber sendNext:[NSString stringWithFormat:@"数据(param=%@)", input]];
-                [subscriber sendCompleted];
-                return nil;
-            }];
+            [subscriber sendNext:[NSString stringWithFormat:@"数据(param=%@)", input]];
+            [subscriber sendCompleted];
+            return nil;
+        }];
         racSignal.name = @"OriginSignal";
         NSLog(@"RACCommand initWithSignalBlock signal=%@", racSignal);
         return racSignal;
@@ -233,6 +235,13 @@
     [[self rac_signalForSelector:@selector(viewWillAppear:)] subscribeNext:^(id x) {
         NSLog(@"subscribeNext viewWillAppear");
     }];
+
+    Artist *artist = [Artist new];
+    artist.name = @"KaiName Ha Test";
+
+//    NSString *str;//is unavailable: not available in arc mode (automatic reference counting)
+//    object_getInstanceVariable(artist, "_innerName", (void void *) &str);  //object_getInstanceVariable arc forbidden
+//    NSLog(@"Artist _innerName = %@", str);
 }
 
 - (void)didReceiveMemoryWarning {
