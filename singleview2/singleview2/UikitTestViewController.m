@@ -239,9 +239,20 @@
     Artist *artist = [Artist new];
     artist.name = @"KaiName Ha Test";
 
+    NSString *numberStr = @"1";
+    NSString *numberStr2 = @"1234";
+    @try {
+        [artist setValue:numberStr forKey:@"boolValue"];
+        [artist setValue:numberStr2 forKey:@"boolValue"];
+        [artist setValue:numberStr2 forKey:@"longValue"];
+    } @catch (NSException *exception) {
+        NSLog(@"setValueForKey exception: %@", exception);
+    }
 //    NSString *str;//is unavailable: not available in arc mode (automatic reference counting)
 //    object_getInstanceVariable(artist, "_innerName", (void void *) &str);  //object_getInstanceVariable arc forbidden
 //    NSLog(@"Artist _innerName = %@", str);
+
+
 }
 
 - (void)didReceiveMemoryWarning {

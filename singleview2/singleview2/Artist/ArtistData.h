@@ -23,5 +23,7 @@
 @property (nonatomic, copy) NSString *bio;
 @property (nonatomic, copy) NSString *image;
 @property (nonatomic, strong) NSArray<Work *> *workList;
+@property (nonatomic, assign) BOOL boolValue;
+@property (nonatomic, assign) long longValue;
 
 @end
