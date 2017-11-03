@@ -51,6 +51,7 @@
             , @{@"Name": @"ArtistListViewController", @"Vc": @"ArtistListViewController"}
             , @{@"Name": @"PostTableViewController", @"Vc": @"PostTableViewController"}
             , @{@"Name": @"CoordinatorLayoutTest", @"Vc": @"CoordinatorLayoutTestViewController"}
+            , @{@"Name": @"CoordinatorLayoutTestTab", @"Vc": @"CoordinatorLayoutTestTabViewController"}
     ];
 
 }

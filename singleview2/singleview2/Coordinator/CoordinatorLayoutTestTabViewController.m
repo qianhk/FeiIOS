@@ -3,21 +3,22 @@
 // Copyright (c) 2017 Njnu. All rights reserved.
 //
 
-#import "CoordinatorLayoutTestViewController.h"
+#import "CoordinatorLayoutTestTabViewController.h"
+
 #import "CoordinatorLayout.h"
 
-@interface CoordinatorLayoutTestViewController () <UITableViewDataSource>
+@interface CoordinatorLayoutTestTabViewController () <UITableViewDataSource, UIScrollViewDelegate>
 
 @property (nonatomic, strong) CoordinatorLayout *coordinatorLayout;
 @property (nonatomic, strong) NSMutableArray *listData;
 
 @end
 
-@implementation CoordinatorLayoutTestViewController
+@implementation CoordinatorLayoutTestTabViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Test Layout";
+    self.title = @"Test Tab Layout";
     self.view.backgroundColor = [UIColor whiteColor];
 
     self.listData = [NSMutableArray new];
@@ -34,7 +35,7 @@
     [self.view addSubview:_coordinatorLayout];
     _coordinatorLayout.headerView = [self makeHeaderView];
     _coordinatorLayout.headerView.tag = 101;
-    _coordinatorLayout.contentView = [self makeSingleContentView];
+    _coordinatorLayout.contentView = [self makeScrollContentView];
     _coordinatorLayout.contentView.tag = 102;
 }
 
@@ -57,12 +58,45 @@
 
 - (UITableView *)makeSingleContentView {
 
-    CGFloat viewWidth = CGRectGetWidth([UIScreen mainScreen].bounds);
-    CGFloat viewHeight = CGRectGetHeight([UIScreen mainScreen].bounds);
+    CGFloat viewWidth = CGRectGetWidth(self.coordinatorLayout.bounds);
+    CGFloat viewHeight = CGRectGetHeight(self.coordinatorLayout.bounds);
     UITableView *contentView = [[UITableView alloc] initWithFrame:CGRectMake(0.f, 0.f, viewWidth, viewHeight)];
     contentView.dataSource = self;
     contentView.backgroundColor = [UIColor orangeColor];
     return contentView;
+}
+
+- (UIView *)makeScrollContentView {
+
+    CGFloat viewWidth = CGRectGetWidth(self.coordinatorLayout.bounds);
+    CGFloat viewHeight = CGRectGetHeight(self.coordinatorLayout.bounds);
+    
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.coordinatorLayout.bounds];
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.directionalLockEnabled = YES;
+    scrollView.pagingEnabled = YES;
+    scrollView.bounces = NO;
+    scrollView.delegate = self;
+    scrollView.scrollsToTop = NO;
+    scrollView.delaysContentTouches = NO;
+    scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+
+    scrollView.backgroundColor = [UIColor magentaColor];
+    
+    scrollView.contentSize = CGSizeMake(viewWidth * 2, viewHeight);
+
+    UITableView *tab1View = [self makeSingleContentView];
+    UITableView *tab2View = [self makeSingleContentView];
+
+    [scrollView addSubview:tab1View];
+
+    [scrollView addSubview:tab2View];
+    CGRect rect = tab2View.frame;
+    rect.origin.x = viewWidth;
+    tab2View.frame = rect;
+
+    return scrollView;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -77,6 +111,4 @@
     cell.textLabel.text = self.listData[indexPath.row];
     return cell;
 }
-
-
 @end

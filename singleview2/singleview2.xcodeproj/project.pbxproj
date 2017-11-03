@@ -27,6 +27,7 @@
 		19DD38E39F2E18EF81057221 /* TextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DD3103813FF8B83D737440 /* TextTableViewCell.xib */; };
 		19DD38F0B0A9A9670A6234BC /* ArtistDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3F84B2DDF3F717B81062 /* ArtistDetailViewController.m */; };
 		19DD3902A66FF9F2A957C17F /* SimpleLinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3EE47EDB7229F1E2E37C /* SimpleLinearLayout.m */; };
+		19DD39051F155D36E9F68AD4 /* CoordinatorLayoutTestTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3F3F929F7ECBB3A4137F /* CoordinatorLayoutTestTabViewController.m */; };
 		19DD3975AE991346856C8E09 /* TextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD356B5C754C5D13C5828B /* TextTableViewCell.m */; };
 		19DD39A16F636F87A123796A /* SwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DD32A3EBA3A2D22608583C /* SwitchViewController.xib */; };
 		19DD39B7F8DFDBB4C03659DA /* CoordinatorLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3CDDE22E8C20EF6D099A /* CoordinatorLayout.m */; };
@@ -116,6 +117,7 @@
 		19DD33CCCD6D0DD63BE6F2C0 /* TagCellLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagCellLayout.m; sourceTree = "<group>"; };
 		19DD33FBB3F06821C476843B /* SearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultController.m; sourceTree = "<group>"; };
 		19DD33FD5708AB03AD9AADDB /* PostData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostData.h; sourceTree = "<group>"; };
+		19DD340DC160DA1623BB479B /* CoordinatorLayoutTestTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinatorLayoutTestTabViewController.h; sourceTree = "<group>"; };
 		19DD340E1384FB6D10475D3B /* ArtistListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistListViewController.m; sourceTree = "<group>"; };
 		19DD343497F86F9BCE1EE051 /* KaiLayoutExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaiLayoutExt.h; sourceTree = "<group>"; };
 		19DD347E2879F0FB243A359B /* NameAndColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameAndColorCell.m; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		19DD3EE47EDB7229F1E2E37C /* SimpleLinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleLinearLayout.m; sourceTree = "<group>"; };
 		19DD3EF00066527A7954D946 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		19DD3F2648E78579340F1450 /* ArtistData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistData.h; sourceTree = "<group>"; };
+		19DD3F3F929F7ECBB3A4137F /* CoordinatorLayoutTestTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinatorLayoutTestTabViewController.m; sourceTree = "<group>"; };
 		19DD3F44AB13D9283FA8459E /* StickyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyCollectionViewController.m; sourceTree = "<group>"; };
 		19DD3F7CB7B197AACE4B0993 /* SwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
 		19DD3F84B2DDF3F717B81062 /* ArtistDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistDetailViewController.m; sourceTree = "<group>"; };
@@ -356,6 +359,8 @@
 				19DD306BFA7614D0836AEC54 /* CoordinatorLayout.h */,
 				19DD3DC826679B40A9ECAF71 /* CoordinatorLayoutTestViewController.m */,
 				19DD30C425E286DBC2EBC02A /* CoordinatorLayoutTestViewController.h */,
+				19DD3F3F929F7ECBB3A4137F /* CoordinatorLayoutTestTabViewController.m */,
+				19DD340DC160DA1623BB479B /* CoordinatorLayoutTestTabViewController.h */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -799,6 +804,7 @@
 				19DD3039B818F77C84081DCF /* KaiLayoutExt.m in Sources */,
 				19DD39B7F8DFDBB4C03659DA /* CoordinatorLayout.m in Sources */,
 				19DD3B5358B0883672263EDF /* CoordinatorLayoutTestViewController.m in Sources */,
+				19DD39051F155D36E9F68AD4 /* CoordinatorLayoutTestTabViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
