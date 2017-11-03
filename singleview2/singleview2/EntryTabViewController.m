@@ -50,6 +50,7 @@
             , @{@"Name": @"TestCollectionViewController", @"Vc": @"TestCollectionViewController"}
             , @{@"Name": @"ArtistListViewController", @"Vc": @"ArtistListViewController"}
             , @{@"Name": @"PostTableViewController", @"Vc": @"PostTableViewController"}
+            , @{@"Name": @"CoordinatorLayoutTest", @"Vc": @"CoordinatorLayoutTestViewController"}
     ];
 
 }

@@ -29,11 +29,13 @@
 		19DD3902A66FF9F2A957C17F /* SimpleLinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3EE47EDB7229F1E2E37C /* SimpleLinearLayout.m */; };
 		19DD3975AE991346856C8E09 /* TextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD356B5C754C5D13C5828B /* TextTableViewCell.m */; };
 		19DD39A16F636F87A123796A /* SwitchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DD32A3EBA3A2D22608583C /* SwitchViewController.xib */; };
+		19DD39B7F8DFDBB4C03659DA /* CoordinatorLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3CDDE22E8C20EF6D099A /* CoordinatorLayout.m */; };
 		19DD39BEE2D30818E5D081B8 /* KVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD31FA4E6F39FD7DF2249D /* KVCModel.m */; };
 		19DD3A4126018D3DFA157009 /* NameAndColorCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DD3DD66AD1900D4B8A6DAF /* NameAndColorCell2.xib */; };
 		19DD3A76623BD5DC58194F8A /* sortednames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19DD3396F3E6744ABF10836B /* sortednames.plist */; };
 		19DD3B12AAB2D3F104CF4B69 /* CustomCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD397DECACEA625586A2AD /* CustomCollectionViewController.m */; };
 		19DD3B51F05B1CE1C5C7B6B9 /* TestLinearLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD393DEF9081909916D85D /* TestLinearLayoutViewController.m */; };
+		19DD3B5358B0883672263EDF /* CoordinatorLayoutTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3DC826679B40A9ECAF71 /* CoordinatorLayoutTestViewController.m */; };
 		19DD3BF4AE53495E71E69B77 /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33FBB3F06821C476843B /* SearchResultController.m */; };
 		19DD3BFDB43DEA83F51F4662 /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */; };
 		19DD3CADDC04DB6CF2E2B338 /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3F7CB7B197AACE4B0993 /* SwitchViewController.m */; };
@@ -89,10 +91,12 @@
 /* Begin PBXFileReference section */
 		19DD300ED600DA70E41094A0 /* UIColor+String.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+String.h"; sourceTree = "<group>"; };
 		19DD3054B76E9DA3D3BCEE84 /* SectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionTableViewController.m; sourceTree = "<group>"; };
+		19DD306BFA7614D0836AEC54 /* CoordinatorLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinatorLayout.h; sourceTree = "<group>"; };
 		19DD307566796FCAB64798F5 /* NSObject+Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Calculator.h"; sourceTree = "<group>"; };
 		19DD309D2C50688F68072FC4 /* MyDrawerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDrawerView.h; sourceTree = "<group>"; };
 		19DD309F08D6D3736AEEA86B /* StickyHeaderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyHeaderInfo.h; sourceTree = "<group>"; };
 		19DD30A884721626D468326F /* UIColor+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+String.m"; sourceTree = "<group>"; };
+		19DD30C425E286DBC2EBC02A /* CoordinatorLayoutTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinatorLayoutTestViewController.h; sourceTree = "<group>"; };
 		19DD30DD2FE79C0AD3F52D9F /* StickyHeaderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeaderInfo.m; sourceTree = "<group>"; };
 		19DD3103813FF8B83D737440 /* TextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextTableViewCell.xib; sourceTree = "<group>"; };
 		19DD313F3356C3C211265CF4 /* ArtistDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistDetailViewController.h; sourceTree = "<group>"; };
@@ -150,7 +154,9 @@
 		19DD3C4E6FCF9245BC4BCB01 /* SimpleLinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleLinearLayout.h; sourceTree = "<group>"; };
 		19DD3C762C20AFE9B642CE7B /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
 		19DD3CA74EB99547AE4AE0DD /* PostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewController.h; sourceTree = "<group>"; };
+		19DD3CDDE22E8C20EF6D099A /* CoordinatorLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinatorLayout.m; sourceTree = "<group>"; };
 		19DD3D73E1F0DC9A3D0A74EA /* HeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCell.h; sourceTree = "<group>"; };
+		19DD3DC826679B40A9ECAF71 /* CoordinatorLayoutTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinatorLayoutTestViewController.m; sourceTree = "<group>"; };
 		19DD3DD66AD1900D4B8A6DAF /* NameAndColorCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameAndColorCell2.xib; sourceTree = "<group>"; };
 		19DD3E2859B96C2CEFCEADC3 /* OperateSuccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperateSuccessView.h; sourceTree = "<group>"; };
 		19DD3E48D1085ADD340DC4D3 /* TagCellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagCellLayout.h; sourceTree = "<group>"; };
@@ -341,6 +347,17 @@
 				19DD387681B2CF425E4E015C /* functional */,
 			);
 			path = RAC;
+			sourceTree = "<group>";
+		};
+		19DD3980B96CA3AF5D71D0EE /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				19DD3CDDE22E8C20EF6D099A /* CoordinatorLayout.m */,
+				19DD306BFA7614D0836AEC54 /* CoordinatorLayout.h */,
+				19DD3DC826679B40A9ECAF71 /* CoordinatorLayoutTestViewController.m */,
+				19DD30C425E286DBC2EBC02A /* CoordinatorLayoutTestViewController.h */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		19DD39E25D7FA8D68E7BC22A /* Utils */ = {
@@ -564,6 +581,7 @@
 				19DD3FE098551CF95893D801 /* Artist */,
 				19DD3A7C55785E3FE0621264 /* View */,
 				19DD3ED24D255FE8C6DB4968 /* TestLayout */,
+				19DD3980B96CA3AF5D71D0EE /* Coordinator */,
 			);
 			path = singleview2;
 			sourceTree = "<group>";
@@ -779,6 +797,8 @@
 				19DD3EFEBCB70AB096E77DDE /* CFTool.m in Sources */,
 				19DD3902A66FF9F2A957C17F /* SimpleLinearLayout.m in Sources */,
 				19DD3039B818F77C84081DCF /* KaiLayoutExt.m in Sources */,
+				19DD39B7F8DFDBB4C03659DA /* CoordinatorLayout.m in Sources */,
+				19DD3B5358B0883672263EDF /* CoordinatorLayoutTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
