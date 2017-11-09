@@ -252,7 +252,38 @@
 //    object_getInstanceVariable(artist, "_innerName", (void void *) &str);  //object_getInstanceVariable arc forbidden
 //    NSLog(@"Artist _innerName = %@", str);
 
+    UIColor *color = [UIColor redColor];
+    CGFloat red = [self redWithColor:color];
+    CGFloat green = [self greenWithColor:color];
+    CGFloat blue = [self blueWithColor:color];
+    NSLog(@"UIColor red: %f,%f,%f", red, green, blue);
 
+//    color = nil;
+//    red = [self redWithColor:color]; //will crash
+//    green = [self greenWithColor:color];
+//    blue = [self blueWithColor:color];
+//    NSLog(@"UIColor nil: %f,%f,%f", red, green, blue);
+}
+
+- (CGFloat)redWithColor:(UIColor *)color {
+    const CGFloat *c = CGColorGetComponents(color.CGColor);
+    return c[0];
+}
+
+- (CGFloat)greenWithColor:(UIColor *)color {
+    const CGFloat *c = CGColorGetComponents(color.CGColor);
+    if ([self colorSpaceModelWithCGColor:color.CGColor] == kCGColorSpaceModelMonochrome) return c[0];
+    return c[1];
+}
+
+- (CGFloat)blueWithColor:(UIColor *)color {
+    const CGFloat *c = CGColorGetComponents(color.CGColor);
+    if ([self colorSpaceModelWithCGColor:color.CGColor] == kCGColorSpaceModelMonochrome) return c[0];
+    return c[2];
+}
+
+- (CGColorSpaceModel)colorSpaceModelWithCGColor:(CGColorRef)gColor {
+    return CGColorSpaceGetModel(CGColorGetColorSpace(gColor));
 }
 
 - (void)didReceiveMemoryWarning {

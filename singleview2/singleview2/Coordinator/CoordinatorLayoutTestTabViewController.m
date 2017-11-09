@@ -53,7 +53,23 @@
     [label sizeToFit];
     CGRect rect = headerView.frame;
     label.center = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
+    UIButton *leftBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+    leftBtn.frame = CGRectMake(20, viewHeight - 40, 60, 40);
+    rightBtn.frame = CGRectMake(viewWidth - 20 - 60, viewHeight - 40, 60, 40);
+    [headerView addSubview:leftBtn];
+    [headerView addSubview:rightBtn];
+    [leftBtn setTitle:@"Left" forState:UIControlStateNormal];
+    leftBtn.tag = 0;
+    [rightBtn setTitle:@"Right" forState:UIControlStateNormal];
+    rightBtn.tag = 1;
+    [leftBtn addTarget:self action:@selector(onClickTab:) forControlEvents:UIControlEventTouchUpInside];
+    [rightBtn addTarget:self action:@selector(onClickTab:) forControlEvents:UIControlEventTouchUpInside];
     return headerView;
+}
+
+- (void)onClickTab:(UIView *)sender {
+    NSLog(@"onClick Tab %d", sender.tag);
 }
 
 - (UITableView *)makeSingleContentView {
@@ -62,7 +78,6 @@
     CGFloat viewHeight = CGRectGetHeight(self.coordinatorLayout.bounds);
     UITableView *contentView = [[UITableView alloc] initWithFrame:CGRectMake(0.f, 0.f, viewWidth, viewHeight)];
     contentView.dataSource = self;
-    contentView.backgroundColor = [UIColor orangeColor];
     return contentView;
 }
 
@@ -87,7 +102,12 @@
     scrollView.contentSize = CGSizeMake(viewWidth * 2, viewHeight);
 
     UITableView *tab1View = [self makeSingleContentView];
+    tab1View.backgroundColor = [UIColor orangeColor];
+    tab1View.tag = 1000;
+
     UITableView *tab2View = [self makeSingleContentView];
+    tab2View.tag = 1001;
+    tab2View.backgroundColor = [UIColor yellowColor];
 
     [scrollView addSubview:tab1View];
 
@@ -100,6 +120,9 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    if (tableView.tag == 1001) {
+//        return 5;
+//    }
     return self.listData.count;
 }
 

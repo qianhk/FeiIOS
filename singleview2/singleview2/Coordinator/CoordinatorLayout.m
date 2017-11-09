@@ -34,7 +34,7 @@
     _headerView = headerView;
     [self addSubview:_headerView];
     mHeadHeight = CGRectGetHeight(self.headerView.frame);
-    mMinHeadY = -mHeadHeight + 20;
+    mMinHeadY = -mHeadHeight + 40;
     [self bringSubviewToFront:_headerView];
 
 }
@@ -82,7 +82,7 @@
         for (int idx = 0; idx < array.count; ++idx) {
             UIView *subView = array[idx];
             if ([subView isKindOfClass:UITableView.class]) {
-                [self doRemoveObserveForTableView:(UITableView *) view];
+                [self doRemoveObserveForTableView:(UITableView *) subView];
             }
         }
     }
@@ -170,16 +170,26 @@
     if (![curScrollView isKindOfClass:UIScrollView.class]) {
         return;
     }
+
+    UIEdgeInsets curScrollViewInset = curScrollView.contentInset;
+    CGFloat maxY = curScrollViewInset.bottom + curScrollView.contentSize.height - curScrollView.bounds.size.height;
+    if (curScrollView.contentOffset.y > maxY) {
+        NSLog(@"inset b=%.1f cH=%.1f bH=%.1f co=%.1f t=%.1f"
+                , curScrollViewInset.bottom, curScrollView.contentSize.height, curScrollView.bounds.size.height
+                , curScrollView.contentOffset.y, curScrollViewInset.top);
+        [curScrollView setContentOffset:CGPointMake(0, -curScrollViewInset.top) animated:YES];
+    }
+
     mContentOffsetY = curScrollView.contentOffset.y;
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self viewControllersAutoFitToScrollToIndex:self.curIndex - 1];
-    [self viewControllersAutoFitToScrollToIndex:self.curIndex + 1];
+    [self subviewAutoFitToScrollToIndex:self.curIndex - 1];
+    [self subviewAutoFitToScrollToIndex:self.curIndex + 1];
 }
 
 
-- (void)viewControllersAutoFitToScrollToIndex:(NSInteger)index {
+- (void)subviewAutoFitToScrollToIndex:(NSInteger)index {
     NSArray<__kindof UIView *> *contentSubViewList = self.contentView.subviews;
     NSUInteger subviewCount = contentSubViewList.count;
     if (index < 0 || index >= subviewCount) {
@@ -200,8 +210,10 @@
         if (![scrollView isKindOfClass:UIScrollView.class]) {
             continue;
         }
-        CGFloat minY = MIN(CGRectGetMaxY(self.headerView.frame), mHeadHeight);
+        CGFloat headerFrameMaxY = CGRectGetMaxY(self.headerView.frame);
+        CGFloat minY = MIN(headerFrameMaxY, mHeadHeight);
         if (scrollView.contentOffset.y < -minY) {
+            NSLog(@"AutoFit hMaxY=%.1f hH=%.1f cOY=%.1f", headerFrameMaxY, mHeadHeight, scrollView.contentOffset.y);
             scrollView.contentOffset = CGPointMake(scrollView.contentOffset.x, -minY);
         }
     }
