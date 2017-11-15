@@ -297,6 +297,20 @@
     NSString *schema = [@"http://abc.com?id=123&title=中文字符" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"in viewWillAppear model=%@ schema=%@", [device model], schema);
 
+    NSURL *url1 = [NSURL URLWithString:@"http://abc.com?id=123&title=title1"]; //参数里不能有中文，否则返回nil
+    NSURL *url2 = [NSURL URLWithString:@"http://abc.com/xyz.html?id=123&title=title2"];
+    NSString *string = url1.lastPathComponent;
+    NSString *string2 = url2.lastPathComponent;
+    NSLog(@"type of 1 str = %@ is str:%d %d, len=%d %d", NSStringFromClass(string.class), [string isKindOfClass:NSString.class], [string2 isKindOfClass:NSString.class]
+            , string.length, string2.length);
+    NSString *fragment1 = url1.fragment;
+    NSString *fragment2 = url2.fragment;
+    NSArray<NSString *> *array1 = url1.pathComponents;
+    NSArray<NSString *> *array2 = url2.pathComponents;
+    NSString *parameterString1 = url1.parameterString;
+    NSString *parameterString2 = url2.parameterString;
+    NSString *query1 = url1.query;
+    NSString *query2 = url2.query;
 }
 
 
