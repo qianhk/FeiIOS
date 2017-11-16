@@ -297,7 +297,7 @@
     NSString *schema = [@"http://abc.com?id=123&title=中文字符" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSLog(@"in viewWillAppear model=%@ schema=%@", [device model], schema);
 
-    NSURL *url1 = [NSURL URLWithString:@"http://abc.com?id=123&title=title1"]; //参数里不能有中文，否则返回nil
+    NSURL *url1 = [NSURL URLWithString:@"http://abc.com?id=123&title=title1#fragment"]; //参数里不能有中文，否则返回nil
     NSURL *url2 = [NSURL URLWithString:@"http://abc.com/xyz.html?id=123&title=title2"];
     NSString *string = url1.lastPathComponent;
     NSString *string2 = url2.lastPathComponent;
@@ -311,6 +311,23 @@
     NSString *parameterString2 = url2.parameterString;
     NSString *query1 = url1.query;
     NSString *query2 = url2.query;
+
+
+    NSUInteger queryLenght = query1.length;
+    NSString *toIndex1 = url1.absoluteString;
+    if (queryLenght > 0) {
+//        toIndex1 = [toIndex1 substringToIndex:toIndex1.length - queryLenght - 1]; //无法去除fragment
+        NSRange range = [toIndex1 rangeOfString:query1];
+        if (range.location != NSNotFound) {
+            toIndex1 = [toIndex1 substringToIndex:range.location - 1];
+        }
+    }
+    
+    NSString *toIndex2 = url2.absoluteString;
+    queryLenght = query2.length;
+    if (queryLenght > 0) {
+        toIndex2 = [toIndex2 substringToIndex:toIndex2.length - queryLenght - 1];
+    }
 }
 
 
