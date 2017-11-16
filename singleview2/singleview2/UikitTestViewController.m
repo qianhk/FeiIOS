@@ -20,7 +20,9 @@
 #import <ReactiveObjC/NSObject+RACSelectorSignal.h>
 #import <ReactiveObjC/UIControl+RACSignalSupport.h>
 #import <ReactiveObjC/NSObject+RACPropertySubscribing.h>
+#import <ReactiveObjC/RACEXTScope.h>
 #import <objc/runtime.h>
+#import <RegexKitLite/RegexKitLite.h>
 #import "UikitTestViewController.h"
 #import "NSObject+Calculator.h"
 #import "CalculatorMaker.h"
@@ -301,8 +303,7 @@
     NSURL *url2 = [NSURL URLWithString:@"http://abc.com/xyz.html?id=123&title=title2"];
     NSString *string = url1.lastPathComponent;
     NSString *string2 = url2.lastPathComponent;
-    NSLog(@"type of 1 str = %@ is str:%d %d, len=%d %d", NSStringFromClass(string.class), [string isKindOfClass:NSString.class], [string2 isKindOfClass:NSString.class]
-            , string.length, string2.length);
+    NSLog(@"type of 1 str = %@ is str:%d %d, len=%d %d", NSStringFromClass(string.class), [string isKindOfClass:NSString.class], [string2 isKindOfClass:NSString.class], string.length, string2.length);
     NSString *fragment1 = url1.fragment;
     NSString *fragment2 = url2.fragment;
     NSArray<NSString *> *array1 = url1.pathComponents;
@@ -322,12 +323,49 @@
             toIndex1 = [toIndex1 substringToIndex:range.location - 1];
         }
     }
-    
+
     NSString *toIndex2 = url2.absoluteString;
     queryLenght = query2.length;
     if (queryLenght > 0) {
         toIndex2 = [toIndex2 substringToIndex:toIndex2.length - queryLenght - 1];
     }
+
+    NSDictionary *properties = @{@"id": @(123), @"name": @"凯凯啊", @"noNeedKey": @"noNeedValue", @"boolValue": @(YES)};
+
+    NSString *pattern = @"\\$(\\S+?)\\$";
+
+    NSString *modelStr = @"{\"id\":\"$id$\", \"name\":\"$name$\",\"haha\":\"$noKey$ha\", \"boolkey\":$boolValue$}";
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:nil];
+    NSArray<NSTextCheckingResult *> *arrayOfAllMatches = [regex matchesInString:modelStr options:0 range:NSMakeRange(0, [modelStr length])];
+    @weakify(self)
+    if (arrayOfAllMatches && arrayOfAllMatches.count > 0) {
+        modelStr = [modelStr stringByReplacingOccurrencesOfRegex:pattern
+                                                      usingBlock:^NSString *(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+                                                          @strongify(self)
+                                                          NSString *placeholder = capturedStrings[1];
+                                                          if (placeholder && placeholder.length > 0) {
+                                                              id placeValue = properties[placeholder];
+                                                              NSString *replacedValue;
+                                                              if ([placeValue isKindOfClass:NSNumber.class]) {
+                                                                  replacedValue = [placeValue stringValue];
+                                                              } else {
+                                                                  replacedValue = placeValue;
+                                                              }
+//                                                              NSString *replacedValue = [placeValue stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                                                              if (replacedValue && replacedValue.length > 0) {
+                                                                  return replacedValue;
+                                                              }
+                                                              return @"";
+                                                          }
+                                                          return @"";
+                                                      }];
+    }
+
+    NSData *data = [modelStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *modelDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    NSLog(@"new model dic: %@", modelDic);
 }
 
 

@@ -13,4 +13,6 @@ target 'singleview2' do
 
   pod 'Masonry'
 
+  pod 'RegexKitLite'
+
 end
