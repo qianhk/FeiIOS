@@ -265,6 +265,11 @@
 //    green = [self greenWithColor:color];
 //    blue = [self blueWithColor:color];
 //    NSLog(@"UIColor nil: %f,%f,%f", red, green, blue);
+
+    NSTimeInterval ti = [[NSDate date] timeIntervalSince1970];
+    long long ts = ti * 1000; //由于ti是double，可以计算出毫秒来，后面并不是000
+    long long tsws = ti * 1000 * 1000;
+    long long tsns = ti * 1000 * 1000 * 1000;
 }
 
 - (CGFloat)redWithColor:(UIColor *)color {
