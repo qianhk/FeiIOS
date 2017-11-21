@@ -74,6 +74,15 @@
         [mutableArtistList addObject:artist];
     }];
     mArtistList = [NSArray arrayWithArray:mutableArtistList];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        [self tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+        //ios 8.x 系统会crash Can't add self as subview'
+        //参考资料：http://www.jianshu.com/p/0ba6e8e12f90
+        //http://blog.csdn.net/wihing/article/details/27960741
+        //ios11系统会在上一个页面启动完毕才进行下一个页面打开，应该是对这种情况有过处理
+    });
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
