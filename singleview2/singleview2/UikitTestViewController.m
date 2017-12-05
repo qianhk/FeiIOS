@@ -371,6 +371,9 @@
     NSData *data = [modelStr dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *modelDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSLog(@"new model dic: %@", modelDic);
+    
+    NSString *ab = [@"http%3a%2f%2fdotwe.org%2fraw%2fdist%2f844f3bab6125b81324040e2560230969.bundle.wx%3fwh_weex%3dtrue" stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *de = [@"好人" stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 

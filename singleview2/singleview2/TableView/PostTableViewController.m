@@ -91,7 +91,7 @@
 
 
     [array enumerateObjectsUsingBlock:^(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
-        if (indexPath.section == 1) {
+        if (indexPath.section == 2) {
             CGRect cellRect = [self.tableView rectForRowAtIndexPath:indexPath];
             CGFloat cellHeight = cellRect.size.height;
             CGFloat cellY = cellRect.origin.y;
@@ -223,12 +223,14 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return self.stringList.count;
+    } else if (section == 1) {
+        return 1;
     }
     return self.postList.count;
 }
@@ -236,6 +238,8 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row % 2 == 0) {
         return [CodeTextTableViewCell heightOfCell];
+    } else if (indexPath.section == 1) {
+        return 44;
     }
     return UITableViewAutomaticDimension;
 }
@@ -251,6 +255,13 @@
             cell.textLabel.text = self.stringList[indexPath.row];
             return cell;
         }
+    } else if (indexPath.section == 1) {
+        UITableViewCell *reloadDataCell = [tableView dequeueReusableCellWithIdentifier:@"ReloadDataCell"];
+        if (!reloadDataCell) {
+            reloadDataCell = [UITableViewCell new];
+        }
+        reloadDataCell.textLabel.text = @"点我倒序加载下面的内容";
+        return reloadDataCell;
     } else {
         PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
         Post *post = self.postList[indexPath.row];
@@ -289,10 +300,21 @@
     [self.postList insertObject:post atIndex:destinationIndexPath.row];
 }
 
+- (void)testReloadData {
+    NSArray *tmpArray = [[self.postList reverseObjectEnumerator] allObjects];
+    self.postList = [NSMutableArray arrayWithArray:tmpArray];
+
+    [self.tableView reloadData];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
+    if (indexPath.section <= 1) {
         [tableView deselectRowAtIndexPath:indexPath animated:indexPath.row % 2 == 0];
+    }
+
+    if (indexPath.section == 1) {
+        [self performSelector:@selector(testReloadData) withObject:nil afterDelay:.5f];
+        return;
     }
 
     //NSLog(@"didSelectRowAtIndexPath row=%ld %.2f", (long) indexPath.row, UITableViewAutomaticDimension);

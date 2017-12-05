@@ -28,15 +28,25 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    self.codeTextLabel.frame = CGRectMake(0, 0, self.bounds.size.width, [CodeTextTableViewCell heightOfCell]);
+    float height = [CodeTextTableViewCell heightOfCell];
+    if (height < 0.001) {
+        height = 40;
+    }
+    self.codeTextLabel.frame = CGRectMake(0, 0, self.bounds.size.width, height);
 }
 
 - (void)configWithText:(NSString *)text {
     self.codeTextLabel.text = [NSString stringWithFormat:@"code-cell %@", text];
 }
 
+- (CGSize)intrinsicContentSize {
+    return CGSizeMake(375, 40);
+}
+
+
 + (float)heightOfCell {
-    return 40.f;
+    return UITableViewAutomaticDimension;
+//    return 40.f;
 }
 
 @end
