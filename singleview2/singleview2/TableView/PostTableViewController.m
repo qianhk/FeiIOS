@@ -25,7 +25,10 @@
 
 @property (nonatomic, strong) OperateSuccessView *successView;
 
+@property (nonatomic, strong) NSMutableDictionary *cellHeightDictionary;
 @end;
+
+BOOL useEstimatedRowHeight = YES;
 
 @implementation PostTableViewController
 
@@ -122,9 +125,10 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorColor = [UIColor magentaColor];
 
-//    self.tableView.rowHeight = 80;
-    self.tableView.estimatedRowHeight = 60;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    if (useEstimatedRowHeight) {
+        self.tableView.estimatedRowHeight = 10;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+    }
     self.tableView.separatorInset = UIEdgeInsetsZero;
 
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -139,6 +143,8 @@
 
 //    [self addObserver:nil forKeyPath:@"postList" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld | NSKeyValueObservingOptionInitial context:nil];
 
+    self.cellHeightDictionary = @{}.mutableCopy;
+
     self.postList = [NSMutableArray arrayWithArray:[Post makeData]];
 
 
@@ -150,7 +156,7 @@
     [self.tableView reloadData];
 
     [self performSelector:@selector(identifyFirstFullDisplayCell) withObject:nil afterDelay:0.4f];
-    
+
 //    [self performSelector:@selector(delayDoSth) withObject:nil afterDelay:2.f];
 
 
@@ -168,7 +174,7 @@
 - (void)insertRowAtTop {
     int64_t delayInSeconds = 2.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
 //        [self.tableView beginUpdates];
 //        [self.dataSource insertObject:[NSDate date] atIndex:0];
 //        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationBottom];
@@ -182,7 +188,7 @@
 - (void)insertRowAtBottom {
     int64_t delayInSeconds = 2.0;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
 //        [self.tableView beginUpdates];
 //        [self.dataSource addObject:[self.dataSource.lastObject dateByAddingTimeInterval:-90]];
 //        [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:weakSelf.dataSource.count-1 inSection:0]] withRowAnimation:UITableViewRowAnimationTop];
@@ -235,13 +241,34 @@
     return self.postList.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0 && indexPath.row % 2 == 0) {
-        return [CodeTextTableViewCell heightOfCell];
-    } else if (indexPath.section == 1) {
-        return 44;
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    _cellHeightDictionary[indexPath] = @(cell.frame.size.height);
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSNumber *height = _cellHeightDictionary[indexPath];
+    if (height) {
+        return height.floatValue;
+    } else {
+        return UITableViewAutomaticDimension;
     }
-    return UITableViewAutomaticDimension;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (useEstimatedRowHeight) {
+        if (indexPath.section == 0 && indexPath.row % 2 == 0) {
+            return [CodeTextTableViewCell heightOfCell];
+        } else if (indexPath.section == 1) {
+            return 44;
+        }
+        return UITableViewAutomaticDimension;
+    } else {
+        if (indexPath.section <= 1) {
+            return 44;
+        } else {
+            return 100;
+        }
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
