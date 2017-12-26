@@ -13,6 +13,7 @@
 		19DD30B5574E87EE5B6A965B /* HeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD34D6D63E5F65DC2E8979 /* HeaderCell.m */; };
 		19DD30BFE871A81403ABBF74 /* PostData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3775789F06655320FAEC /* PostData.m */; };
 		19DD30C15B40E912940BDBA2 /* CodeTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33B9DAD3B6E13BE52724 /* CodeTextTableViewCell.m */; };
+		19DD30CED0679F1039F8274A /* UICollectionViewLeftFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3726D66A567F46388565 /* UICollectionViewLeftFlowLayout.m */; };
 		19DD3116A08085B55FA724BC /* ArtistData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD337772D0542BB7301384 /* ArtistData.m */; };
 		19DD312807F2C2619CEB3093 /* MasonryLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD35DFD5C2B5BE44657DDE /* MasonryLayout.m */; };
 		19DD3186436FFA70C8EBC891 /* MyDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39586B2852DEEE88CD7A /* MyDrawerView.m */; };
@@ -64,6 +65,7 @@
 		2A94AAC71F53C91A00D53616 /* MyLayoutSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A94AABF1F53C91A00D53616 /* MyLayoutSize.m */; };
 		2A94AAC81F53C91A00D53616 /* MyLayoutSizeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A94AAC11F53C91A00D53616 /* MyLayoutSizeClass.m */; };
 		2A94AAC91F53C91A00D53616 /* MyLinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A94AAC41F53C91A00D53616 /* MyLinearLayout.m */; };
+		2AA531381FF1F3990093F9B7 /* TestFlowCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA531371FF1F3990093F9B7 /* TestFlowCollectionViewController.m */; };
 		2ABE85411F385BF900609D5A /* PostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE85401F385BF900609D5A /* PostTableViewController.m */; };
 		2ABE85431F388B7600609D5A /* artists.json in Resources */ = {isa = PBXBuildFile; fileRef = 2ABE85421F388B7600609D5A /* artists.json */; };
 		2ABE85491F3987C700609D5A /* ArtistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE85471F3987C700609D5A /* ArtistTableViewCell.m */; };
@@ -120,6 +122,7 @@
 		19DD340DC160DA1623BB479B /* CoordinatorLayoutTestTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinatorLayoutTestTabViewController.h; sourceTree = "<group>"; };
 		19DD340E1384FB6D10475D3B /* ArtistListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistListViewController.m; sourceTree = "<group>"; };
 		19DD343497F86F9BCE1EE051 /* KaiLayoutExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaiLayoutExt.h; sourceTree = "<group>"; };
+		19DD34777B2FB5C660BC6A83 /* UICollectionViewLeftFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftFlowLayout.h; sourceTree = "<group>"; };
 		19DD347E2879F0FB243A359B /* NameAndColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameAndColorCell.m; sourceTree = "<group>"; };
 		19DD34BE1711135CC2034501 /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
 		19DD34D6D63E5F65DC2E8979 /* HeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCell.m; sourceTree = "<group>"; };
@@ -137,6 +140,7 @@
 		19DD361D0FFC45D10D4F1C71 /* StickyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeaderView.m; sourceTree = "<group>"; };
 		19DD3639270FEEF858CD2455 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		19DD36A1D71E01AF83E208C4 /* ContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentCell.m; sourceTree = "<group>"; };
+		19DD3726D66A567F46388565 /* UICollectionViewLeftFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftFlowLayout.m; sourceTree = "<group>"; };
 		19DD3769B2F26A377D2CB11D /* TestCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController.h; sourceTree = "<group>"; };
 		19DD3775789F06655320FAEC /* PostData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostData.m; sourceTree = "<group>"; };
 		19DD38266F66FF54CD551E20 /* EntryTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryTabViewController.h; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 		2A94AAC21F53C91A00D53616 /* MyLayoutSizeInner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutSizeInner.h; sourceTree = "<group>"; };
 		2A94AAC31F53C91A00D53616 /* MyLinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLinearLayout.h; sourceTree = "<group>"; };
 		2A94AAC41F53C91A00D53616 /* MyLinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLinearLayout.m; sourceTree = "<group>"; };
+		2AA531361FF1F3990093F9B7 /* TestFlowCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestFlowCollectionViewController.h; sourceTree = "<group>"; };
+		2AA531371FF1F3990093F9B7 /* TestFlowCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestFlowCollectionViewController.m; sourceTree = "<group>"; };
 		2ABE85401F385BF900609D5A /* PostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewController.m; sourceTree = "<group>"; };
 		2ABE85421F388B7600609D5A /* artists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artists.json; sourceTree = "<group>"; };
 		2ABE85461F3987C700609D5A /* ArtistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistTableViewCell.h; sourceTree = "<group>"; };
@@ -281,6 +287,10 @@
 				19DD3612E615A8DE8118A2C2 /* MasonryLayout.h */,
 				19DD33CCCD6D0DD63BE6F2C0 /* TagCellLayout.m */,
 				19DD3E48D1085ADD340DC4D3 /* TagCellLayout.h */,
+				2AA531361FF1F3990093F9B7 /* TestFlowCollectionViewController.h */,
+				2AA531371FF1F3990093F9B7 /* TestFlowCollectionViewController.m */,
+				19DD3726D66A567F46388565 /* UICollectionViewLeftFlowLayout.m */,
+				19DD34777B2FB5C660BC6A83 /* UICollectionViewLeftFlowLayout.h */,
 			);
 			path = collection;
 			sourceTree = "<group>";
@@ -790,6 +800,7 @@
 				19DD3CADDC04DB6CF2E2B338 /* SwitchViewController.m in Sources */,
 				19DD3975AE991346856C8E09 /* TextTableViewCell.m in Sources */,
 				19DD3500937949A7147EC85E /* UIColor+String.m in Sources */,
+				2AA531381FF1F3990093F9B7 /* TestFlowCollectionViewController.m in Sources */,
 				2A94AAC51F53C91A00D53616 /* MyBaseLayout.m in Sources */,
 				19DD3F4395F3AC160E5A2959 /* ArtistListViewController.m in Sources */,
 				2A94AAC61F53C91A00D53616 /* MyLayoutPos.m in Sources */,
@@ -805,6 +816,7 @@
 				19DD39B7F8DFDBB4C03659DA /* CoordinatorLayout.m in Sources */,
 				19DD3B5358B0883672263EDF /* CoordinatorLayoutTestViewController.m in Sources */,
 				19DD39051F155D36E9F68AD4 /* CoordinatorLayoutTestTabViewController.m in Sources */,
+				19DD30CED0679F1039F8274A /* UICollectionViewLeftFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -48,6 +48,7 @@
             , @{@"Name": @"CustomCollectionViewController", @"Vc": @"CustomCollectionViewController"}
             , @{@"Name": @"MasonryTestViewController", @"Vc": @"MasonryTestViewController"}
             , @{@"Name": @"TestCollectionViewController", @"Vc": @"TestCollectionViewController"}
+            , @{@"Name": @"TestFlowCollectionViewController", @"Vc": @"TestFlowCollectionViewController"}
             , @{@"Name": @"ArtistListViewController", @"Vc": @"ArtistListViewController"}
             , @{@"Name": @"PostTableViewController", @"Vc": @"PostTableViewController"}
             , @{@"Name": @"CoordinatorLayoutTest", @"Vc": @"CoordinatorLayoutTestViewController"}
