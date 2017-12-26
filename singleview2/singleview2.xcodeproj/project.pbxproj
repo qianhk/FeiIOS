@@ -17,6 +17,7 @@
 		19DD3116A08085B55FA724BC /* ArtistData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD337772D0542BB7301384 /* ArtistData.m */; };
 		19DD312807F2C2619CEB3093 /* MasonryLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD35DFD5C2B5BE44657DDE /* MasonryLayout.m */; };
 		19DD3186436FFA70C8EBC891 /* MyDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39586B2852DEEE88CD7A /* MyDrawerView.m */; };
+		19DD3362EC5A37A3202D56CF /* YYTextTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33FF453765820CE92883 /* YYTextTestViewController.m */; };
 		19DD3392BE334E1457C22B3A /* NSObject+Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */; };
 		19DD344DD2BF135B454A95E6 /* NameAndColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DD33B5C5A15B1AE8D88FD2 /* NameAndColorCell.xib */; };
 		19DD3494F53B2E79C82A9BB2 /* SectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3054B76E9DA3D3BCEE84 /* SectionTableViewController.m */; };
@@ -24,6 +25,7 @@
 		19DD35F32D58CA694658070B /* CalculatorMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD390963D60D7C86113D09 /* CalculatorMaker.m */; };
 		19DD3721FFA82A7C2243E9BC /* StickyHeaderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD30DD2FE79C0AD3F52D9F /* StickyHeaderInfo.m */; };
 		19DD3810B9A0002EC96A4767 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DD3639270FEEF858CD2455 /* CoreLocation.framework */; };
+		19DD3871B01154DA899885D2 /* YYTextParserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3684D771E0CAEA878FB4 /* YYTextParserObject.m */; };
 		19DD38DE90F47F4C1B8581C1 /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3C08706F84A4D5C6EFAA /* Calculator.m */; };
 		19DD38E39F2E18EF81057221 /* TextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DD3103813FF8B83D737440 /* TextTableViewCell.xib */; };
 		19DD38F0B0A9A9670A6234BC /* ArtistDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3F84B2DDF3F717B81062 /* ArtistDetailViewController.m */; };
@@ -103,6 +105,7 @@
 		19DD30DD2FE79C0AD3F52D9F /* StickyHeaderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeaderInfo.m; sourceTree = "<group>"; };
 		19DD3103813FF8B83D737440 /* TextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextTableViewCell.xib; sourceTree = "<group>"; };
 		19DD313F3356C3C211265CF4 /* ArtistDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistDetailViewController.h; sourceTree = "<group>"; };
+		19DD3185741EBE9B03ED23F3 /* YYTextParserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextParserObject.h; sourceTree = "<group>"; };
 		19DD31FA4E6F39FD7DF2249D /* KVCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVCModel.m; sourceTree = "<group>"; };
 		19DD322307A68FDFF2E13D33 /* KVCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVCModel.h; sourceTree = "<group>"; };
 		19DD3272DCE6B95CC6C35809 /* TestLinearLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLinearLayoutViewController.h; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 		19DD33CCCD6D0DD63BE6F2C0 /* TagCellLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagCellLayout.m; sourceTree = "<group>"; };
 		19DD33FBB3F06821C476843B /* SearchResultController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultController.m; sourceTree = "<group>"; };
 		19DD33FD5708AB03AD9AADDB /* PostData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostData.h; sourceTree = "<group>"; };
+		19DD33FF453765820CE92883 /* YYTextTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextTestViewController.m; sourceTree = "<group>"; };
 		19DD340DC160DA1623BB479B /* CoordinatorLayoutTestTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinatorLayoutTestTabViewController.h; sourceTree = "<group>"; };
 		19DD340E1384FB6D10475D3B /* ArtistListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistListViewController.m; sourceTree = "<group>"; };
 		19DD343497F86F9BCE1EE051 /* KaiLayoutExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaiLayoutExt.h; sourceTree = "<group>"; };
@@ -139,11 +143,13 @@
 		19DD3612E615A8DE8118A2C2 /* MasonryLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonryLayout.h; sourceTree = "<group>"; };
 		19DD361D0FFC45D10D4F1C71 /* StickyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeaderView.m; sourceTree = "<group>"; };
 		19DD3639270FEEF858CD2455 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		19DD3684D771E0CAEA878FB4 /* YYTextParserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextParserObject.m; sourceTree = "<group>"; };
 		19DD36A1D71E01AF83E208C4 /* ContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentCell.m; sourceTree = "<group>"; };
 		19DD3726D66A567F46388565 /* UICollectionViewLeftFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftFlowLayout.m; sourceTree = "<group>"; };
 		19DD3769B2F26A377D2CB11D /* TestCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController.h; sourceTree = "<group>"; };
 		19DD3775789F06655320FAEC /* PostData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostData.m; sourceTree = "<group>"; };
 		19DD38266F66FF54CD551E20 /* EntryTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryTabViewController.h; sourceTree = "<group>"; };
+		19DD38EB176FED3985EDDA5F /* YYTextTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextTestViewController.h; sourceTree = "<group>"; };
 		19DD390963D60D7C86113D09 /* CalculatorMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorMaker.m; sourceTree = "<group>"; };
 		19DD393DEF9081909916D85D /* TestLinearLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestLinearLayoutViewController.m; sourceTree = "<group>"; };
 		19DD394F159CA346FE9BB05D /* Calculator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calculator.h; sourceTree = "<group>"; };
@@ -304,6 +310,17 @@
 				19DD3302A657F08C52D1C3BE /* NameAndColorCell.h */,
 			);
 			path = Attribute;
+			sourceTree = "<group>";
+		};
+		19DD342A3BE4E31281D354AA /* YYText */ = {
+			isa = PBXGroup;
+			children = (
+				19DD33FF453765820CE92883 /* YYTextTestViewController.m */,
+				19DD38EB176FED3985EDDA5F /* YYTextTestViewController.h */,
+				19DD3684D771E0CAEA878FB4 /* YYTextParserObject.m */,
+				19DD3185741EBE9B03ED23F3 /* YYTextParserObject.h */,
+			);
+			path = YYText;
 			sourceTree = "<group>";
 		};
 		19DD34C9AE11DCFC2B64E29A /* Switch */ = {
@@ -597,6 +614,7 @@
 				19DD3A7C55785E3FE0621264 /* View */,
 				19DD3ED24D255FE8C6DB4968 /* TestLayout */,
 				19DD3980B96CA3AF5D71D0EE /* Coordinator */,
+				19DD342A3BE4E31281D354AA /* YYText */,
 			);
 			path = singleview2;
 			sourceTree = "<group>";
@@ -817,6 +835,8 @@
 				19DD3B5358B0883672263EDF /* CoordinatorLayoutTestViewController.m in Sources */,
 				19DD39051F155D36E9F68AD4 /* CoordinatorLayoutTestTabViewController.m in Sources */,
 				19DD30CED0679F1039F8274A /* UICollectionViewLeftFlowLayout.m in Sources */,
+				19DD3362EC5A37A3202D56CF /* YYTextTestViewController.m in Sources */,
+				19DD3871B01154DA899885D2 /* YYTextParserObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

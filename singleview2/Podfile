@@ -15,4 +15,6 @@ target 'singleview2' do
 
   pod 'RegexKitLite'
 
+  pod 'YYText'
+
 end

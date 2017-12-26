@@ -50,6 +50,7 @@
             , @{@"Name": @"TestCollectionViewController", @"Vc": @"TestCollectionViewController"}
             , @{@"Name": @"TestFlowCollectionViewController", @"Vc": @"TestFlowCollectionViewController"}
             , @{@"Name": @"ArtistListViewController", @"Vc": @"ArtistListViewController"}
+            , @{@"Name": @"YYTextTestViewController", @"Vc": @"YYTextTestViewController"}
             , @{@"Name": @"PostTableViewController", @"Vc": @"PostTableViewController"}
             , @{@"Name": @"CoordinatorLayoutTest", @"Vc": @"CoordinatorLayoutTestViewController"}
             , @{@"Name": @"CoordinatorLayoutTestTab", @"Vc": @"CoordinatorLayoutTestTabViewController"}
