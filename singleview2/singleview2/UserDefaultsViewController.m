@@ -9,6 +9,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "UserDefaultsViewController.h"
 #import "KVCModel.h"
+#import "WMButton.h"
 
 @interface UserDefaultsViewController () <CLLocationManagerDelegate>
 
@@ -124,6 +125,17 @@
 
     NSLog(@"after kvcModel addObserver");
     self.kvcModel.name = @"kai58";
+
+    WMButton *wmButton = [[WMButton alloc] initWithFrame:CGRectMake(100, 500, 100, 48)];
+    wmButton.clipsToBounds = YES;
+    wmButton.layer.cornerRadius = 8;
+    [wmButton setTitle:@"Title" forState:UIControlStateNormal];
+    [wmButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [wmButton setTitleColor:[UIColor greenColor] forState:UIControlStateHighlighted];
+
+    [wmButton setBackgroundColor:[UIColor greenColor]  forState:UIControlStateNormal];
+    [wmButton setBackgroundColor:[UIColor yellowColor] forState:UIControlStateHighlighted];
+    [self.view addSubview:wmButton];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

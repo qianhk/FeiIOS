@@ -16,6 +16,7 @@
 		19DD30CED0679F1039F8274A /* UICollectionViewLeftFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3726D66A567F46388565 /* UICollectionViewLeftFlowLayout.m */; };
 		19DD3116A08085B55FA724BC /* ArtistData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD337772D0542BB7301384 /* ArtistData.m */; };
 		19DD312807F2C2619CEB3093 /* MasonryLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD35DFD5C2B5BE44657DDE /* MasonryLayout.m */; };
+		19DD312CD11FDA635A075BFC /* WMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD37655F771667828F37CF /* WMButton.m */; };
 		19DD3186436FFA70C8EBC891 /* MyDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39586B2852DEEE88CD7A /* MyDrawerView.m */; };
 		19DD3362EC5A37A3202D56CF /* YYTextTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33FF453765820CE92883 /* YYTextTestViewController.m */; };
 		19DD3392BE334E1457C22B3A /* NSObject+Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */; };
@@ -125,6 +126,7 @@
 		19DD33FF453765820CE92883 /* YYTextTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextTestViewController.m; sourceTree = "<group>"; };
 		19DD340DC160DA1623BB479B /* CoordinatorLayoutTestTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinatorLayoutTestTabViewController.h; sourceTree = "<group>"; };
 		19DD340E1384FB6D10475D3B /* ArtistListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistListViewController.m; sourceTree = "<group>"; };
+		19DD34264A2C4FFE772E01A0 /* WMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMButton.h; sourceTree = "<group>"; };
 		19DD343497F86F9BCE1EE051 /* KaiLayoutExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaiLayoutExt.h; sourceTree = "<group>"; };
 		19DD34777B2FB5C660BC6A83 /* UICollectionViewLeftFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftFlowLayout.h; sourceTree = "<group>"; };
 		19DD347E2879F0FB243A359B /* NameAndColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameAndColorCell.m; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		19DD3684D771E0CAEA878FB4 /* YYTextParserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextParserObject.m; sourceTree = "<group>"; };
 		19DD36A1D71E01AF83E208C4 /* ContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentCell.m; sourceTree = "<group>"; };
 		19DD3726D66A567F46388565 /* UICollectionViewLeftFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftFlowLayout.m; sourceTree = "<group>"; };
+		19DD37655F771667828F37CF /* WMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMButton.m; sourceTree = "<group>"; };
 		19DD3769B2F26A377D2CB11D /* TestCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController.h; sourceTree = "<group>"; };
 		19DD3775789F06655320FAEC /* PostData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostData.m; sourceTree = "<group>"; };
 		19DD38266F66FF54CD551E20 /* EntryTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryTabViewController.h; sourceTree = "<group>"; };
@@ -410,6 +413,8 @@
 				19DD3C4E6FCF9245BC4BCB01 /* SimpleLinearLayout.h */,
 				19DD35C43987F227D69D5940 /* KaiLayoutExt.m */,
 				19DD343497F86F9BCE1EE051 /* KaiLayoutExt.h */,
+				19DD37655F771667828F37CF /* WMButton.m */,
+				19DD34264A2C4FFE772E01A0 /* WMButton.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -837,6 +842,7 @@
 				19DD30CED0679F1039F8274A /* UICollectionViewLeftFlowLayout.m in Sources */,
 				19DD3362EC5A37A3202D56CF /* YYTextTestViewController.m in Sources */,
 				19DD3871B01154DA899885D2 /* YYTextParserObject.m in Sources */,
+				19DD312CD11FDA635A075BFC /* WMButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
