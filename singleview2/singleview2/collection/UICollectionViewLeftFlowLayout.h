@@ -7,4 +7,7 @@
 
 
 @interface UICollectionViewLeftFlowLayout : UICollectionViewFlowLayout
+
+@property (nonatomic) CGFloat maximumInteritemSpacing;
+
 @end

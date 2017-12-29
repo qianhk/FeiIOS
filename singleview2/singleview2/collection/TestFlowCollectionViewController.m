@@ -23,13 +23,12 @@
 
 
 - (instancetype)init {
-    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewLeftFlowLayout alloc] init];
+    UICollectionViewLeftFlowLayout *flowLayout = [[UICollectionViewLeftFlowLayout alloc] init];
     flowLayout.minimumLineSpacing = 20;
     flowLayout.minimumInteritemSpacing = 10;
+    flowLayout.maximumInteritemSpacing = 10;
     //        flowLayout.minimumInteritemSpacing = 0;
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     flowLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
-//    flowLayout.collectionView.showsVerticalScrollIndicator = YES;
 //    flowLayout.collectionView.alwaysBounceVertical = YES;
     self = [super initWithCollectionViewLayout:flowLayout];
     if (self) {
@@ -90,9 +89,14 @@
 //    return 0.f;
 //}
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewFlowLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     NSArray *words = [self worldsInSection:indexPath.section];
     CGSize result = [ContentCell sizeForContentSize:words[indexPath.row] forMaxWidth:100000];
+    UIEdgeInsets sectionInset = collectionViewLayout.sectionInset;
+    CGFloat validMaxWidth = collectionView.frame.size.width - sectionInset.left - sectionInset.right;
+    if (result.width > validMaxWidth) {
+        result.width = validMaxWidth;
+    }
     return result;
 }
 
