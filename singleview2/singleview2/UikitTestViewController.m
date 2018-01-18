@@ -90,13 +90,19 @@
 
             // 执行完Block后，当前信号就不在被订阅了。
 
-            NSLog(@"信号被销毁");
+            NSLog(@"信号被销毁ori");
 
         }];
     }];
 
-    RACSignal *signal2 = [signal doNext:^(id x) {
-        NSLog(@"信号doNext x=%@", x);
+//    RACSignal *signal2 = [signal doNext:^(id x) {
+//        NSLog(@"信号doNext x=%@", x);
+//    }];
+
+    RACSignal *signal2 = [signal map:^id(id value) {
+        NSLog(@"map里的数据:%@", value);
+        int intValue = [value intValue];
+        return @(intValue + 1);
     }];
 
     // 3.订阅信号,才会激活信号.
@@ -113,71 +119,71 @@
 
 
 
-    // 1.创建信号
-    RACSubject *subject = [RACSubject subject];
-
-    // 2.订阅信号
-    [[subject flattenMap:^RACStream *(id value) {
-        return signal;
-    }] subscribeNext:^(id x) {
-        // block调用时刻：当信号发出新值，就会调用.
-        NSLog(@"第一个订阅者%@", x);
-    }];
-    [[subject map:^id(id value) {
-        return [NSString stringWithFormat:@"map %@", value];
-    }] subscribeNext:^(id x) {
-        // block调用时刻：当信号发出新值，就会调用.
-        NSLog(@"第二个订阅者%@", x);
-    }];
-
-    // 3.发送信号
-    [subject sendNext:@"1"];
-
-
-
-    // 1.创建信号
-    RACReplaySubject *replaySubject = [RACReplaySubject subject];
-
-    // 2.发送信号
-    [replaySubject sendNext:@1];
-    [replaySubject sendNext:@2];
-
-    // 3.订阅信号
-    [replaySubject subscribeNext:^(id x) {
-        NSLog(@"第一个订阅者接收到的数据%@", x);
-    }];
-
-    // 订阅信号
-    [replaySubject subscribeNext:^(id x) {
-        NSLog(@"第二个订阅者接收到的数据%@", x);
-    }];
-
-    NSLog(@"Test step....");
-
-    NSArray *numbers = @[@1, @2, @3, @4];
-    [numbers.rac_sequence.signal subscribeNext:^(id x) {
-        NSLog(@"rac_sequence.signal %@ %@", x, NSStringFromClass([x class]));
-    }];
-
-    RACSignal *mapResult = [numbers.rac_sequence.signal map:^id(id value) {
-        NSLog(@"rac_sequence.signal map %@ ", value);
-        return value;
-    }]; //mapResult is RACDynamicSignal
-
-    NSArray *array = [mapResult toArray]; //没有这一句不会真的执行map操作
-    NSLog(@"mapResult %@ %@ %@", mapResult, NSStringFromClass([mapResult class]), array);
-
-
-    NSDictionary *dict = @{@"name": @"meizi", @"age": @18};
-    [dict.rac_sequence.signal subscribeNext:^(RACTuple *x) {
-        RACTupleUnpack(NSString *key, NSString *value) = x;
-        NSLog(@"rac_sequence.signal %@ %@", key, value);
-
-    }];
-
-
+//    // 1.创建信号
+//    RACSubject *subject = [RACSubject subject];
+//
+//    // 2.订阅信号
+//    [[subject flattenMap:^RACStream *(id value) {
+//        return signal;
+//    }] subscribeNext:^(id x) {
+//        // block调用时刻：当信号发出新值，就会调用.
+//        NSLog(@"第一个订阅者%@", x);
+//    }];
+//    [[subject map:^id(id value) {
+//        return [NSString stringWithFormat:@"map %@", value];
+//    }] subscribeNext:^(id x) {
+//        // block调用时刻：当信号发出新值，就会调用.
+//        NSLog(@"第二个订阅者%@", x);
+//    }];
+//
+//    // 3.发送信号
+//    [subject sendNext:@"1"];
+//
+//
+//
+//    // 1.创建信号
+//    RACReplaySubject *replaySubject = [RACReplaySubject subject];
+//
+//    // 2.发送信号
+//    [replaySubject sendNext:@1];
+//    [replaySubject sendNext:@2];
+//
+//    // 3.订阅信号
+//    [replaySubject subscribeNext:^(id x) {
+//        NSLog(@"第一个订阅者接收到的数据%@", x);
+//    }];
+//
+//    // 订阅信号
+//    [replaySubject subscribeNext:^(id x) {
+//        NSLog(@"第二个订阅者接收到的数据%@", x);
+//    }];
+//
+//    NSLog(@"Test step....");
+//
+//    NSArray *numbers = @[@1, @2, @3, @4];
+//    [numbers.rac_sequence.signal subscribeNext:^(id x) {
+//        NSLog(@"rac_sequence.signal %@ %@", x, NSStringFromClass([x class]));
+//    }];
+//
+//    RACSignal *mapResult = [numbers.rac_sequence.signal map:^id(id value) {
+//        NSLog(@"rac_sequence.signal map %@ ", value);
+//        return value;
+//    }]; //mapResult is RACDynamicSignal
+//
+//    NSArray *array = [mapResult toArray]; //没有这一句不会真的执行map操作
+//    NSLog(@"mapResult %@ %@ %@", mapResult, NSStringFromClass([mapResult class]), array);
+//
+//
+//    NSDictionary *dict = @{@"name": @"meizi", @"age": @18};
+//    [dict.rac_sequence.signal subscribeNext:^(RACTuple *x) {
+//        RACTupleUnpack(NSString *key, NSString *value) = x;
+//        NSLog(@"rac_sequence.signal %@ %@", key, value);
+//
+//    }];
 
 
+
+    NSLog(@"\n");
 
     // 1.创建命令 // 强引用命令，不要被销毁，否则接收不到数据
     self.command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
@@ -213,12 +219,12 @@
 
     }];
 
-//    // switchToLatest:用于signal of signals，获取signal of signals发出的最新信号,也就是可以直接拿到RACCommand中的信号
-//    [_command.executionSignals.switchToLatest subscribeNext:^(id x) {
-//        NSLog(@"RACCommand executionSignals switchToLatest subscribeNext %@", x);
-//    }];
+    // switchToLatest:用于signal of signals，获取signal of signals发出的最新信号,也就是可以直接拿到RACCommand中的信号
+    [_command.executionSignals.switchToLatest subscribeNext:^(id x) {
+        NSLog(@"RACCommand executionSignals switchToLatest subscribeNext %@", x);
+    }];
 
-    // 4.监听命令是否执行完毕,默认会来一次，可以直接跳过，skip表示跳过第一次信号。  //为啥上来就有个信号?
+//     4.监听命令是否执行完毕,默认会来一次，可以直接跳过，skip表示跳过第一次信号。  //为啥上来就有个信号?
 //    [[_command.executing skip:0] subscribeNext:^(id x) {
 //        if ([x boolValue]) {
 //            NSLog(@"RACCommand executing subscribeNext 正在执行 %@ %@", x, NSStringFromClass([x class]));
@@ -227,6 +233,14 @@
 //        }
 //
 //    }];
+    [_command.executing subscribeNext:^(id x) {
+        if ([x boolValue]) {
+            NSLog(@"RACCommand executing subscribeNext 正在执行 %@ %@", x, NSStringFromClass([x class]));
+        } else {
+            NSLog(@"RACCommand executing subscribeNext 执行完成 %@ %@", x, NSStringFromClass([x class]));
+        }
+
+    }];
 
     NSLog(@"RACCommand execute");
     // 5.执行命令

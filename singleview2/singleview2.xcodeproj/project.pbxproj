@@ -22,8 +22,10 @@
 		19DD3392BE334E1457C22B3A /* NSObject+Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */; };
 		19DD344DD2BF135B454A95E6 /* NameAndColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DD33B5C5A15B1AE8D88FD2 /* NameAndColorCell.xib */; };
 		19DD3494F53B2E79C82A9BB2 /* SectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3054B76E9DA3D3BCEE84 /* SectionTableViewController.m */; };
+		19DD34B19D796175F796A244 /* SubscribeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3D91D1000EB87F5BF250 /* SubscribeViewController.m */; };
 		19DD3500937949A7147EC85E /* UIColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD30A884721626D468326F /* UIColor+String.m */; };
 		19DD35F32D58CA694658070B /* CalculatorMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD390963D60D7C86113D09 /* CalculatorMaker.m */; };
+		19DD3702EE3F3CBE5AA2D14C /* SubscribeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD32CF66963E64373CEC35 /* SubscribeViewModel.m */; };
 		19DD3721FFA82A7C2243E9BC /* StickyHeaderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD30DD2FE79C0AD3F52D9F /* StickyHeaderInfo.m */; };
 		19DD3810B9A0002EC96A4767 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DD3639270FEEF858CD2455 /* CoreLocation.framework */; };
 		19DD3871B01154DA899885D2 /* YYTextParserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3684D771E0CAEA878FB4 /* YYTextParserObject.m */; };
@@ -53,6 +55,7 @@
 		19DD3F34926154CA2DB93FF4 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3EF00066527A7954D946 /* Person.m */; };
 		19DD3F4395F3AC160E5A2959 /* ArtistListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD340E1384FB6D10475D3B /* ArtistListViewController.m */; };
 		19DD3F89356E7CDD5E9C1CD0 /* StickyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD361D0FFC45D10D4F1C71 /* StickyHeaderView.m */; };
+		19DD3FC02CBB864A3184F48B /* NSString+EmailAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3FA6E4B0B1FB28D1358C /* NSString+EmailAdditions.m */; };
 		19DD3FE2530BF5203203512D /* StickyPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39883B52AA4D56FA111D /* StickyPersonCell.m */; };
 		2A2D50871EB0817700BC161D /* UikitTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D50861EB0817700BC161D /* UikitTestViewController.m */; };
 		2A2D50891EB089D600BC161D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2D50881EB089D600BC161D /* QuartzCore.framework */; };
@@ -107,10 +110,12 @@
 		19DD3103813FF8B83D737440 /* TextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextTableViewCell.xib; sourceTree = "<group>"; };
 		19DD313F3356C3C211265CF4 /* ArtistDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistDetailViewController.h; sourceTree = "<group>"; };
 		19DD3185741EBE9B03ED23F3 /* YYTextParserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextParserObject.h; sourceTree = "<group>"; };
+		19DD31C6D9E8FF91C805F563 /* SubscribeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribeViewModel.h; sourceTree = "<group>"; };
 		19DD31FA4E6F39FD7DF2249D /* KVCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVCModel.m; sourceTree = "<group>"; };
 		19DD322307A68FDFF2E13D33 /* KVCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVCModel.h; sourceTree = "<group>"; };
 		19DD3272DCE6B95CC6C35809 /* TestLinearLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLinearLayoutViewController.h; sourceTree = "<group>"; };
 		19DD32A3EBA3A2D22608583C /* SwitchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchViewController.xib; sourceTree = "<group>"; };
+		19DD32CF66963E64373CEC35 /* SubscribeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeViewModel.m; sourceTree = "<group>"; };
 		19DD3302A657F08C52D1C3BE /* NameAndColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameAndColorCell.h; sourceTree = "<group>"; };
 		19DD3322AA1FD4886DC6EA7F /* SectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionTableViewController.h; sourceTree = "<group>"; };
 		19DD334E7563C744F5E87E46 /* CodeTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeTextTableViewCell.h; sourceTree = "<group>"; };
@@ -126,6 +131,7 @@
 		19DD33FF453765820CE92883 /* YYTextTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextTestViewController.m; sourceTree = "<group>"; };
 		19DD340DC160DA1623BB479B /* CoordinatorLayoutTestTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinatorLayoutTestTabViewController.h; sourceTree = "<group>"; };
 		19DD340E1384FB6D10475D3B /* ArtistListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistListViewController.m; sourceTree = "<group>"; };
+		19DD34252230FA5263F1F675 /* SubscribeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribeViewController.h; sourceTree = "<group>"; };
 		19DD34264A2C4FFE772E01A0 /* WMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMButton.h; sourceTree = "<group>"; };
 		19DD343497F86F9BCE1EE051 /* KaiLayoutExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaiLayoutExt.h; sourceTree = "<group>"; };
 		19DD34777B2FB5C660BC6A83 /* UICollectionViewLeftFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftFlowLayout.h; sourceTree = "<group>"; };
@@ -171,6 +177,8 @@
 		19DD3CA74EB99547AE4AE0DD /* PostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewController.h; sourceTree = "<group>"; };
 		19DD3CDDE22E8C20EF6D099A /* CoordinatorLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinatorLayout.m; sourceTree = "<group>"; };
 		19DD3D73E1F0DC9A3D0A74EA /* HeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCell.h; sourceTree = "<group>"; };
+		19DD3D91D1000EB87F5BF250 /* SubscribeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeViewController.m; sourceTree = "<group>"; };
+		19DD3D94D632EB5A38281740 /* NSString+EmailAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EmailAdditions.h"; sourceTree = "<group>"; };
 		19DD3DC826679B40A9ECAF71 /* CoordinatorLayoutTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinatorLayoutTestViewController.m; sourceTree = "<group>"; };
 		19DD3DD66AD1900D4B8A6DAF /* NameAndColorCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameAndColorCell2.xib; sourceTree = "<group>"; };
 		19DD3E2859B96C2CEFCEADC3 /* OperateSuccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperateSuccessView.h; sourceTree = "<group>"; };
@@ -183,6 +191,7 @@
 		19DD3F44AB13D9283FA8459E /* StickyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyCollectionViewController.m; sourceTree = "<group>"; };
 		19DD3F7CB7B197AACE4B0993 /* SwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
 		19DD3F84B2DDF3F717B81062 /* ArtistDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistDetailViewController.m; sourceTree = "<group>"; };
+		19DD3FA6E4B0B1FB28D1358C /* NSString+EmailAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EmailAdditions.m"; sourceTree = "<group>"; };
 		1D10952B8412B82D62641B77 /* Pods-singleview2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-singleview2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-singleview2/Pods-singleview2.debug.xcconfig"; sourceTree = "<group>"; };
 		2A2D50851EB0817700BC161D /* UikitTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UikitTestViewController.h; sourceTree = "<group>"; };
 		2A2D50861EB0817700BC161D /* UikitTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UikitTestViewController.m; sourceTree = "<group>"; };
@@ -378,6 +387,12 @@
 			children = (
 				19DD3809E4BA9BC1CCF07AE4 /* chained */,
 				19DD387681B2CF425E4E015C /* functional */,
+				19DD3D91D1000EB87F5BF250 /* SubscribeViewController.m */,
+				19DD34252230FA5263F1F675 /* SubscribeViewController.h */,
+				19DD32CF66963E64373CEC35 /* SubscribeViewModel.m */,
+				19DD31C6D9E8FF91C805F563 /* SubscribeViewModel.h */,
+				19DD3D94D632EB5A38281740 /* NSString+EmailAdditions.h */,
+				19DD3FA6E4B0B1FB28D1358C /* NSString+EmailAdditions.m */,
 			);
 			path = RAC;
 			sourceTree = "<group>";
@@ -843,6 +858,9 @@
 				19DD3362EC5A37A3202D56CF /* YYTextTestViewController.m in Sources */,
 				19DD3871B01154DA899885D2 /* YYTextParserObject.m in Sources */,
 				19DD312CD11FDA635A075BFC /* WMButton.m in Sources */,
+				19DD34B19D796175F796A244 /* SubscribeViewController.m in Sources */,
+				19DD3702EE3F3CBE5AA2D14C /* SubscribeViewModel.m in Sources */,
+				19DD3FC02CBB864A3184F48B /* NSString+EmailAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

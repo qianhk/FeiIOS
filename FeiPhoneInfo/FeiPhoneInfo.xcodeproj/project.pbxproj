@@ -433,7 +433,7 @@
 				ORGANIZATIONNAME = TTPod;
 				TargetAttributes = {
 					D94E0D75143054DB00552FBE = {
-						DevelopmentTeam = A27YPEY3N3;
+						DevelopmentTeam = P8232VD523;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -676,7 +676,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = A27YPEY3N3;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8232VD523;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)//System/Library/Frameworks\"",
@@ -689,6 +690,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -700,7 +702,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = A27YPEY3N3;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8232VD523;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)//System/Library/Frameworks\"",
@@ -713,6 +716,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
