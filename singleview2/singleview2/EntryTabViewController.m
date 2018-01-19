@@ -41,6 +41,7 @@
 
     mEntryArray = @[
             @{@"Name": @"LinearLayoutViewController", @"Vc": @"TestLinearLayoutViewController"}
+            , @{@"Name": @"SubscribeViewController", @"Vc": @"SubscribeViewController"}
             , @{@"Name": @"StickyCollectionViewController", @"Vc": @"StickyCollectionViewController"}
             , @{@"Name": @"PickerViewController", @"Vc": @"PickerViewController", @"Nib": @"PickerViewController"}
             , @{@"Name": @"UikitTestViewController", @"Vc": @"UikitTestViewController"}

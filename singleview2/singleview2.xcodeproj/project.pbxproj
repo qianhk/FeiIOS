@@ -57,6 +57,7 @@
 		19DD3F89356E7CDD5E9C1CD0 /* StickyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD361D0FFC45D10D4F1C71 /* StickyHeaderView.m */; };
 		19DD3FC02CBB864A3184F48B /* NSString+EmailAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3FA6E4B0B1FB28D1358C /* NSString+EmailAdditions.m */; };
 		19DD3FE2530BF5203203512D /* StickyPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39883B52AA4D56FA111D /* StickyPersonCell.m */; };
+		2A1E9D3D2011F765005D5B25 /* Pods_singleview2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1E9D3E2011F765005D5B25 /* Pods_singleview2.framework */; };
 		2A2D50871EB0817700BC161D /* UikitTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D50861EB0817700BC161D /* UikitTestViewController.m */; };
 		2A2D50891EB089D600BC161D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2D50881EB089D600BC161D /* QuartzCore.framework */; };
 		2A4D2EC41E7D72B7006FD451 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D2EC61E7D72B7006FD451 /* Localizable.strings */; };
@@ -88,7 +89,6 @@
 		2AEEE3AE1E5404A3000F43D9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AEEE3AD1E5404A3000F43D9 /* Images.xcassets */; };
 		2AF01FBE1E58935D0088008E /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF01FBC1E58935D0088008E /* PickerViewController.m */; };
 		2AF01FBF1E58935D0088008E /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF01FBD1E58935D0088008E /* PickerViewController.xib */; };
-		A2B809B4E5CD8CC8FCDC8852 /* Pods_singleview2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554219FBB4929258DEF2521A /* Pods_singleview2.framework */; };
 		D9CE40AD14FB8F1000E6FD79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40AC14FB8F1000E6FD79 /* UIKit.framework */; };
 		D9CE40AF14FB8F1000E6FD79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40AE14FB8F1000E6FD79 /* Foundation.framework */; };
 		D9CE40B114FB8F1000E6FD79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40B014FB8F1000E6FD79 /* CoreGraphics.framework */; };
@@ -193,6 +193,7 @@
 		19DD3F84B2DDF3F717B81062 /* ArtistDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistDetailViewController.m; sourceTree = "<group>"; };
 		19DD3FA6E4B0B1FB28D1358C /* NSString+EmailAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EmailAdditions.m"; sourceTree = "<group>"; };
 		1D10952B8412B82D62641B77 /* Pods-singleview2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-singleview2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-singleview2/Pods-singleview2.debug.xcconfig"; sourceTree = "<group>"; };
+		2A1E9D3E2011F765005D5B25 /* Pods_singleview2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_singleview2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A2D50851EB0817700BC161D /* UikitTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UikitTestViewController.h; sourceTree = "<group>"; };
 		2A2D50861EB0817700BC161D /* UikitTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UikitTestViewController.m; sourceTree = "<group>"; };
 		2A2D50881EB089D600BC161D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -268,13 +269,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A1E9D3D2011F765005D5B25 /* Pods_singleview2.framework in Frameworks */,
 				2A2D50891EB089D600BC161D /* QuartzCore.framework in Frameworks */,
 				D9CE40AD14FB8F1000E6FD79 /* UIKit.framework in Frameworks */,
 				D9CE40AF14FB8F1000E6FD79 /* Foundation.framework in Frameworks */,
 				2AE16A941E6C0A7B00B48A49 /* ExternalAccessory.framework in Frameworks */,
 				D9CE40B114FB8F1000E6FD79 /* CoreGraphics.framework in Frameworks */,
 				19DD3810B9A0002EC96A4767 /* CoreLocation.framework in Frameworks */,
-				A2B809B4E5CD8CC8FCDC8852 /* Pods_singleview2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +585,7 @@
 		D9CE40AB14FB8F1000E6FD79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A1E9D3E2011F765005D5B25 /* Pods_singleview2.framework */,
 				2A2D50881EB089D600BC161D /* QuartzCore.framework */,
 				2AE16A931E6C0A7B00B48A49 /* ExternalAccessory.framework */,
 				D9CE40AC14FB8F1000E6FD79 /* UIKit.framework */,
@@ -943,12 +945,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = singleview2/singleview2.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = P8232VD523;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleview2/singleview2-Prefix.pch";
 				INFOPLIST_FILE = "singleview2/singleview2-Info.plist";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ttpod.singleview2-1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ttpod.singleview2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
@@ -963,11 +966,12 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = singleview2/singleview2.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = P8232VD523;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleview2/singleview2-Prefix.pch";
 				INFOPLIST_FILE = "singleview2/singleview2-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ttpod.singleview2-1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ttpod.singleview2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
