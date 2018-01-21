@@ -691,7 +691,7 @@
 				ORGANIZATIONNAME = Njnu;
 				TargetAttributes = {
 					D9CE40A714FB8F1000E6FD79 = {
-						DevelopmentTeam = P8232VD523;
+						DevelopmentTeam = A27YPEY3N3;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.WAC = {
@@ -761,7 +761,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		39CDDC7D9DC201B9B3683D8F /* [CP] Copy Pods Resources */ = {
@@ -946,7 +946,7 @@
 				CODE_SIGN_ENTITLEMENTS = singleview2/singleview2.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = P8232VD523;
+				DEVELOPMENT_TEAM = A27YPEY3N3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleview2/singleview2-Prefix.pch";
 				INFOPLIST_FILE = "singleview2/singleview2-Info.plist";
@@ -967,7 +967,7 @@
 				CODE_SIGN_ENTITLEMENTS = singleview2/singleview2.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = P8232VD523;
+				DEVELOPMENT_TEAM = A27YPEY3N3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleview2/singleview2-Prefix.pch";
 				INFOPLIST_FILE = "singleview2/singleview2-Info.plist";

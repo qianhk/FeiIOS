@@ -6,13 +6,14 @@
 //  Copyright © 2017年 Njnu. All rights reserved.
 //
 
+#import <ReactiveObjC/ReactiveObjC.h>
 #import "PickerViewController.h"
 #import "SectionTableViewController.h"
 
 @interface PickerViewController () <UIPickerViewDelegate, UIPickerViewDataSource> {
 
     NSArray<NSString *> *mCharacterNames;
-    NSArray< NSArray<NSString *> *> *mCharacterNamesList;
+    NSArray<NSArray<NSString *> *> *mCharacterNamesList;
     NSDictionary *mStateDictionary;
     NSArray *mStateList;
     NSArray *mCityList;
@@ -43,7 +44,7 @@
 //    SectionTableViewController *controller = [[SectionTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
 //    [self presentViewController:controller animated:YES completion:nil];
     [UIView animateWithDuration:1.f animations:^{
-        self.resultLabel.numberOfLines  = (self.resultLabel.numberOfLines > 1 || self.resultLabel.numberOfLines <= 0) ? 1 : 0;
+        self.resultLabel.numberOfLines = (self.resultLabel.numberOfLines > 1 || self.resultLabel.numberOfLines <= 0) ? 1 : 0;
         [self.view layoutIfNeeded];   // 这行不能少
     }];
 }
@@ -69,7 +70,7 @@
 //    [_datePicker addTarget:self action:@selector(datePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
 
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    
+
     NSDate *date = [NSDate date];
     [_datePicker setDate:date animated:NO];
 
@@ -77,7 +78,7 @@
     mCharacterNamesList = @[@[@"BaoShan", @"FengZhen", @"HongKai", @"TianChun", @"YiYang", @"NaShei", @"SonShei"], @[@"BaoShan2", @"FengZhen2", @"HongKai2", @"TianChun2", @"YiYang2", @"NaShei2", @"SonShei2"]];
 
 
-    NSURL *plistUrl = [[NSBundle mainBundle] URLForResource:@"statedDictionary" withExtension:@"plist"];
+    NSURL * plistUrl = [[NSBundle mainBundle] URLForResource:@"statedDictionary" withExtension:@"plist"];
     mStateDictionary = [NSDictionary dictionaryWithContentsOfURL:plistUrl];
     mStateList = [mStateDictionary.allKeys sortedArrayUsingSelector:@selector(compare:)];
     mCityList = mStateDictionary[mStateList[0]];
@@ -88,6 +89,8 @@
 
     self.resultLabel.attributedText = [PickerViewController attributedStringWithTag:@"凯测试效果" tagColor:[UIColor redColor] text:@"这是一个怎么样的精神，调ui效果啊啊, 这是第二行啊"];
     [self.resultLabel sizeToFit];
+
+    [self testRacSignal];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -169,7 +172,7 @@
 
     if ([tag length] > 0) {
         UIView *tagView = [self tagLabelCellWithColor:tagColor withText:tag];
-        UIImage *tagImage = [self imageByRenderingViewForRetina:tagView];
+        UIImage * tagImage = [self imageByRenderingViewForRetina:tagView];
         NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
         textAttachment.image = tagImage;
 //        textAttachment.bounds = CGRectMake(0, 0, tagView.frame.size.width, tagView.frame.size.height);
@@ -177,21 +180,21 @@
         [attributedString appendAttributedString:attrStringWithImage];
     }
 
-    NSDictionary *contentAttributedStringAttributes = @{
+    NSDictionary * contentAttributedStringAttributes = @{
             NSForegroundColorAttributeName: [UIColor blackColor],
 //            NSBaselineOffsetAttributeName:@(3),
             NSFontAttributeName: [UIFont boldSystemFontOfSize:16.f]
     };
     NSAttributedString *contentString = [[NSAttributedString alloc] initWithString:text
-                                                                           attributes:contentAttributedStringAttributes];
+                                                                        attributes:contentAttributedStringAttributes];
 
     int len = attributedString.length;
     [attributedString appendAttributedString:contentString];
     [attributedString setAttributes:
             @{
-            NSBaselineOffsetAttributeName:@(3),
-            NSForegroundColorAttributeName: [UIColor blueColor]
-    } range:NSMakeRange(len, contentString.length)];
+                    NSBaselineOffsetAttributeName: @(3),
+                    NSForegroundColorAttributeName: [UIColor blueColor]
+            }                 range:NSMakeRange(len, contentString.length)];
 
     return attributedString;
 }
@@ -200,7 +203,7 @@
 + (UIImage *)imageByRenderingViewForRetina:(UIView *)view {
     UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, 0.0);
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
 }
@@ -231,5 +234,52 @@
     return containerView;
 }
 
+- (void)testRacSignal {
+    NSLog(@"lookSignal main thread mainT=%d tip=%p", [NSThread currentThread].isMainThread, [NSThread currentThread]);
+
+    RACSignal *signal1 = [[RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
+        NSLog(@"lookSignal createSignal1 before %p tid=%p", subscriber, [NSThread currentThread]);
+        [NSThread sleepForTimeInterval:2.0];
+        NSLog(@"lookSignal createSignal1 after %p tid=%p", subscriber, [NSThread currentThread]);
+        [subscriber sendNext:@11];
+        [subscriber sendError:[NSError errorWithDomain:@"KaiError1" code:6 userInfo:(@{@"kaiTestKey": @"ha", @"kaiKey": @88})]];
+        return nil;
+    }] catch:^RACSignal *(NSError *error) {
+        NSLog(@"lookSignal createSignal1 catch error=%@ tip=%p", error, [NSThread currentThread]);
+        return [RACSignal return:@1];
+    }];
+
+    RACSignal *signal2 = [[RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
+        NSLog(@"lookSignal createSignal2 before %p tid=%p", subscriber, [NSThread currentThread]);
+        [NSThread sleepForTimeInterval:1.0];
+        NSLog(@"lookSignal createSignal2 after %p tid=%p", subscriber, [NSThread currentThread]);
+        [subscriber sendNext:@44];
+        [subscriber sendCompleted];
+        return nil;
+    }] map:^id(id value) {
+        NSLog(@"lookSignal createSignal2 map data=%@ tid=%p", value, [NSThread currentThread]);
+        return value;
+    }];
+
+    RACSignal *signalError = [RACSignal error:[NSError errorWithDomain:@"KaiError" code:666 userInfo:(@{@"kaiTestKey": @"haha", @"kaiKey": @888})]];
+
+    RACSignal *zipSignal = [[[RACSignal zip:@[signalError, signal1, signal2]] subscribeOn:[RACScheduler scheduler]] deliverOnMainThread];
+
+    zipSignal = [zipSignal finally:^{
+        NSLog(@"lookSignal zipSignal finally tip=%p", [NSThread currentThread]);
+    }];
+
+    [zipSignal subscribeNext:^(id x) {
+        RACTupleUnpack(id one, id two) = x;
+        NSLog(@"lookSignal zipSignal subscribeNext tid=%p %@ %@", [NSThread currentThread], one, two);
+    }];
+
+    [zipSignal catch:^RACSignal *(NSError *error) {
+        NSLog(@"lookSignal zipSignal catch error=%@ tip=%p", error, [NSThread currentThread]);
+        return nil;
+    }];
+
+
+}
 
 @end

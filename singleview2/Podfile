@@ -8,13 +8,13 @@ source "https://github.com/CocoaPods/Old-Specs"
 target 'singleview2' do
 
 
-  pod 'ReactiveObjC'
+  pod 'ReactiveObjC', '2.0.0'
   # pod 'ReactiveCocoa', '~> 5.0.0'
 
-  pod 'Masonry'
+  pod 'Masonry', '1.0.2'
 
-  pod 'RegexKitLite'
+  pod 'RegexKitLite', '4.0'
 
-  pod 'YYText'
+  pod 'YYText', '1.0.7'
 
 end

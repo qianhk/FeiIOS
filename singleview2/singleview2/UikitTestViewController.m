@@ -6,23 +6,11 @@
 //  Copyright © 2017年 Njnu. All rights reserved.
 //
 
-#import <ReactiveObjC/RACSignal.h>
-#import <ReactiveObjC/RACSubscriber.h>
-#import <ReactiveObjC/RACDisposable.h>
-#import <ReactiveObjC/RACSubject.h>
-#import <ReactiveObjC/RACReplaySubject.h>
-#import <ReactiveObjC/RACTuple.h>
-#import <ReactiveObjC/NSArray+RACSequenceAdditions.h>
-#import <ReactiveObjC/NSDictionary+RACSequenceAdditions.h>
-#import <ReactiveObjC/RACSequence.h>
-#import <ReactiveObjC/RACSignal+Operations.h>
-#import <ReactiveObjC/RACCommand.h>
-#import <ReactiveObjC/NSObject+RACSelectorSignal.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 #import <ReactiveObjC/UIControl+RACSignalSupport.h>
-#import <ReactiveObjC/NSObject+RACPropertySubscribing.h>
-#import <ReactiveObjC/RACEXTScope.h>
 #import <objc/runtime.h>
 #import <RegexKitLite/RegexKitLite.h>
+
 #import "UikitTestViewController.h"
 #import "NSObject+Calculator.h"
 #import "CalculatorMaker.h"
@@ -73,11 +61,14 @@
     }];
     NSLog(@"functional calculator result=%d equal=%@", c.result, c.isEqual ? @"YES" : @"NO");
 
+    NSLog(@"\nmain thread mainT=%d tip=%p", [NSThread currentThread].isMainThread, [NSThread currentThread]);
+    
     // 1.创建信号
     RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
 
         // block调用时刻：每当有订阅者订阅信号，就会调用block。
 
+        NSLog(@"createSignal %p tid=%p", subscriber, [NSThread currentThread]);
         // 2.发送信号
         [subscriber sendNext:@66];
 
@@ -90,7 +81,7 @@
 
             // 执行完Block后，当前信号就不在被订阅了。
 
-            NSLog(@"信号被销毁ori");
+            NSLog(@"信号被销毁ori tid=%p", [NSThread currentThread]);
 
         }];
     }];
@@ -99,20 +90,20 @@
 //        NSLog(@"信号doNext x=%@", x);
 //    }];
 
-    RACSignal *signal2 = [signal map:^id(id value) {
-        NSLog(@"map里的数据:%@", value);
+    RACSignal *signal2 = [[signal map:^id(id value) {
+        NSLog(@"map里的数据:%@ tid=%p", value, [NSThread currentThread]);
         int intValue = [value intValue];
         return @(intValue + 1);
-    }];
+    }] deliverOnMainThread];
 
-    // 3.订阅信号,才会激活信号.
-    [signal subscribeNext:^(id x) {
-        // block调用时刻：每当有信号发出数据，就会调用block.
-        NSLog(@"接收到数据:%@", x);
-    }];
+//     3.订阅信号,才会激活信号.
+//    [[[signal deliverOn:[RACScheduler mainThreadScheduler]] subscribeOn:[RACScheduler scheduler]] subscribeNext:^(id x) {
+//        // block调用时刻：每当有信号发出数据，就会调用block.
+//        NSLog(@"接收到数据:%@ tid=%p", x, [NSThread currentThread]);
+//    }];
 
-    [signal2 subscribeNext:^(id x) {
-        NSLog(@"接收到数据2:%@", x);
+    [[[signal2 deliverOn:[RACScheduler mainThreadScheduler]] subscribeOn:[RACScheduler scheduler]] subscribeNext:^(id x) {
+        NSLog(@"接收到数据2:%@ tid=%p", x, [NSThread currentThread]);
     }];
 
 
