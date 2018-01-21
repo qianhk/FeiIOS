@@ -25,11 +25,14 @@
 @property(strong, nonatomic) IBOutlet UILabel *resultLabel;
 @property(strong, nonatomic) IBOutlet UIPickerView *picker;
 
+@property(nonatomic, strong) RACDisposable *disposable;
+
 @end
 
 @implementation PickerViewController
 
 - (void)dealloc {
+    [self.disposable dispose];
     NSLog(@"lookEvent PickerViewController dealloc");
 }
 
@@ -78,7 +81,7 @@
     mCharacterNamesList = @[@[@"BaoShan", @"FengZhen", @"HongKai", @"TianChun", @"YiYang", @"NaShei", @"SonShei"], @[@"BaoShan2", @"FengZhen2", @"HongKai2", @"TianChun2", @"YiYang2", @"NaShei2", @"SonShei2"]];
 
 
-    NSURL * plistUrl = [[NSBundle mainBundle] URLForResource:@"statedDictionary" withExtension:@"plist"];
+    NSURL *plistUrl = [[NSBundle mainBundle] URLForResource:@"statedDictionary" withExtension:@"plist"];
     mStateDictionary = [NSDictionary dictionaryWithContentsOfURL:plistUrl];
     mStateList = [mStateDictionary.allKeys sortedArrayUsingSelector:@selector(compare:)];
     mCityList = mStateDictionary[mStateList[0]];
@@ -172,7 +175,7 @@
 
     if ([tag length] > 0) {
         UIView *tagView = [self tagLabelCellWithColor:tagColor withText:tag];
-        UIImage * tagImage = [self imageByRenderingViewForRetina:tagView];
+        UIImage *tagImage = [self imageByRenderingViewForRetina:tagView];
         NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
         textAttachment.image = tagImage;
 //        textAttachment.bounds = CGRectMake(0, 0, tagView.frame.size.width, tagView.frame.size.height);
@@ -180,7 +183,7 @@
         [attributedString appendAttributedString:attrStringWithImage];
     }
 
-    NSDictionary * contentAttributedStringAttributes = @{
+    NSDictionary *contentAttributedStringAttributes = @{
             NSForegroundColorAttributeName: [UIColor blackColor],
 //            NSBaselineOffsetAttributeName:@(3),
             NSFontAttributeName: [UIFont boldSystemFontOfSize:16.f]
@@ -203,7 +206,7 @@
 + (UIImage *)imageByRenderingViewForRetina:(UIView *)view {
     UIGraphicsBeginImageContextWithOptions(view.frame.size, NO, 0.0);
     [view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
 }
@@ -237,49 +240,64 @@
 - (void)testRacSignal {
     NSLog(@"lookSignal main thread mainT=%d tip=%p", [NSThread currentThread].isMainThread, [NSThread currentThread]);
 
-    RACSignal *signal1 = [[RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
+    RACSignal *signal1 = [[[[RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
         NSLog(@"lookSignal createSignal1 before %p tid=%p", subscriber, [NSThread currentThread]);
         [NSThread sleepForTimeInterval:2.0];
         NSLog(@"lookSignal createSignal1 after %p tid=%p", subscriber, [NSThread currentThread]);
         [subscriber sendNext:@11];
-        [subscriber sendError:[NSError errorWithDomain:@"KaiError1" code:6 userInfo:(@{@"kaiTestKey": @"ha", @"kaiKey": @88})]];
+
+        [NSThread sleepForTimeInterval:2.0];
+        [subscriber sendNext:@12];
+
+        [NSThread sleepForTimeInterval:2.0];
+//        [subscriber sendError:[NSError errorWithDomain:@"KaiError1" code:6 userInfo:(@{@"kaiTestKey": @"ha", @"kaiKey": @88})]];
+        [subscriber sendCompleted];
         return nil;
-    }] catch:^RACSignal *(NSError *error) {
+    }] subscribeOn:[RACScheduler scheduler]] catch:^RACSignal *(NSError *error) {
         NSLog(@"lookSignal createSignal1 catch error=%@ tip=%p", error, [NSThread currentThread]);
         return [RACSignal return:@1];
+    }] finally:^{
+        NSLog(@"lookSignal createSignal1 finally tip=%p", [NSThread currentThread]);
     }];
 
-    RACSignal *signal2 = [[RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
+    RACSignal *signal2 = [[[RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
         NSLog(@"lookSignal createSignal2 before %p tid=%p", subscriber, [NSThread currentThread]);
         [NSThread sleepForTimeInterval:1.0];
         NSLog(@"lookSignal createSignal2 after %p tid=%p", subscriber, [NSThread currentThread]);
         [subscriber sendNext:@44];
+
+        [NSThread sleepForTimeInterval:2.0];
+        [subscriber sendNext:@45];
+
+        [NSThread sleepForTimeInterval:2.0];
         [subscriber sendCompleted];
         return nil;
-    }] map:^id(id value) {
+    }] subscribeOn:[RACScheduler scheduler]] map:^id(id value) {
         NSLog(@"lookSignal createSignal2 map data=%@ tid=%p", value, [NSThread currentThread]);
-        return value;
+        return @([value intValue] + 1);
     }];
 
     RACSignal *signalError = [RACSignal error:[NSError errorWithDomain:@"KaiError" code:666 userInfo:(@{@"kaiTestKey": @"haha", @"kaiKey": @888})]];
 
-    RACSignal *zipSignal = [[[RACSignal zip:@[signalError, signal1, signal2]] subscribeOn:[RACScheduler scheduler]] deliverOnMainThread];
+    RACSignal *zipSignal = [[[RACSignal zip:@[signal1, signal2]] subscribeOn:[RACScheduler scheduler]] deliverOnMainThread];
 
     zipSignal = [zipSignal finally:^{
         NSLog(@"lookSignal zipSignal finally tip=%p", [NSThread currentThread]);
     }];
 
-    [zipSignal subscribeNext:^(id x) {
-        RACTupleUnpack(id one, id two) = x;
-        NSLog(@"lookSignal zipSignal subscribeNext tid=%p %@ %@", [NSThread currentThread], one, two);
-    }];
-
-    [zipSignal catch:^RACSignal *(NSError *error) {
+    zipSignal = [zipSignal catch:^RACSignal *(NSError *error) {
         NSLog(@"lookSignal zipSignal catch error=%@ tip=%p", error, [NSThread currentThread]);
-        return nil;
+//        return [RACSignal return:@666];
+        return [RACSignal error:error];
     }];
 
+    self.disposable = [zipSignal subscribeNext:^(id x) {
+//        RACTupleUnpack(id one, id two) = x;
+//        NSLog(@"lookSignal zipSignal subscribeNext tid=%p %@ %@", [NSThread currentThread], one, two);
+        NSLog(@"lookSignal zipSignal subscribeNext tid=%p %@", [NSThread currentThread], x);
+    }];
 
+//    [self.disposable dispose];
 }
 
 @end
