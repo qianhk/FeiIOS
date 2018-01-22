@@ -237,7 +237,38 @@
     return containerView;
 }
 
+- (void)testPackUnpack {
+    NSNull *null = [NSNull null];
+    RACTuple *pack1 = RACTuplePack(@"abc", @123, null, nil); //nil会变成RACTupleNil
+    id pack2 = [RACTuple tupleWithObjects:@"abc", @123, null, nil]; //最后的nil仅表示结束，不会变成RACTupleNil，必须有，不然crash
+    
+    NSMutableArray *array = [NSMutableArray array];
+    [array addObject:@"abc"];
+    [array addObject:@123];
+    [array addObject:null];
+    id pack3 = [RACTuple tupleWithObjectsFromArray:array];
+    id pack4 = [RACTuple tupleWithObjectsFromArray:array convertNullsToNils:YES];
+    
+    RACTupleUnpack(id obj11, id obj12, id obj13, id obj14) = pack1;
+    RACTupleUnpack(id obj21, id obj22, id obj23, id obj24) = pack2;
+    RACTupleUnpack(id obj31, id obj32, id obj33, id obj34) = pack3;
+    RACTupleUnpack(id obj41, id obj42, id obj43, id obj44) = pack4;
+    
+    id packAppend = [pack1 tupleByAddingObject:@"Append"];
+    
+    int count = pack1.count;
+    id p41 = pack1.first;
+    id p42 = pack4[2];
+    id p43 = pack4[3];
+    id p422 = [pack4 objectAtIndex:2]; //对于RACTupleNil,貌似不同版本的RAC库直接用index取值行为不一样，有的返回nil，有的还是RACTupleNil，unpack都能转成nil
+    id p420 = [pack4 objectAtIndex:20];
+    
+}
+
 - (void)testRacSignal {
+    
+    [self testPackUnpack];
+    
     NSLog(@"lookSignal main thread mainT=%d tip=%p", [NSThread currentThread].isMainThread, [NSThread currentThread]);
 
     RACSignal *signal1 = [[[[RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
@@ -249,14 +280,21 @@
         [NSThread sleepForTimeInterval:2.0];
         [subscriber sendNext:@12];
 
-        [NSThread sleepForTimeInterval:2.0];
+//        [NSThread sleepForTimeInterval:2.0];
 //        [subscriber sendError:[NSError errorWithDomain:@"KaiError1" code:6 userInfo:(@{@"kaiTestKey": @"ha", @"kaiKey": @88})]];
         [subscriber sendCompleted];
-        return nil;
+        
+//        return nil;
+        
+        return [RACDisposable disposableWithBlock:^{
+            NSLog(@"lookSignal createSignal1 disposable tid=%p", [NSThread currentThread]);
+        }];
+        
     }] subscribeOn:[RACScheduler scheduler]] catch:^RACSignal *(NSError *error) {
         NSLog(@"lookSignal createSignal1 catch error=%@ tip=%p", error, [NSThread currentThread]);
         return [RACSignal return:@1];
     }] finally:^{
+        //貌似不会触发
         NSLog(@"lookSignal createSignal1 finally tip=%p", [NSThread currentThread]);
     }];
 
@@ -269,7 +307,7 @@
         [NSThread sleepForTimeInterval:2.0];
         [subscriber sendNext:@45];
 
-        [NSThread sleepForTimeInterval:2.0];
+//        [NSThread sleepForTimeInterval:2.0];
         [subscriber sendCompleted];
         return nil;
     }] subscribeOn:[RACScheduler scheduler]] map:^id(id value) {
@@ -279,7 +317,7 @@
 
     RACSignal *signalError = [RACSignal error:[NSError errorWithDomain:@"KaiError" code:666 userInfo:(@{@"kaiTestKey": @"haha", @"kaiKey": @888})]];
 
-    RACSignal *zipSignal = [[[RACSignal zip:@[signal1, signal2]] subscribeOn:[RACScheduler scheduler]] deliverOnMainThread];
+    RACSignal *zipSignal = [[[RACSignal zip:@[signal1, signal2, signalError]] subscribeOn:[RACScheduler scheduler]] deliverOnMainThread];
 
     zipSignal = [zipSignal finally:^{
         NSLog(@"lookSignal zipSignal finally tip=%p", [NSThread currentThread]);
