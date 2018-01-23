@@ -188,6 +188,7 @@
         RACSignal *racSignal = [RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
 
             [subscriber sendNext:[NSString stringWithFormat:@"数据(param=%@)", input]];
+            [subscriber sendNext:[NSString stringWithFormat:@"数据2(param=%@)", input]];
             [subscriber sendCompleted];
             return nil;
         }];

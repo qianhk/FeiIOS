@@ -82,8 +82,10 @@
 
 - (void)bindWithViewModel {
     RAC(self.viewModel, email) = self.emailTextField.rac_textSignal;
-    self.subscribeButton.rac_command = self.viewModel.subscribeCommand;
     RAC(self.statusLabel, text) = RACObserve(self.viewModel, statusMessage);
+    self.emailTextField.text = @"a@b.cn";
+    self.viewModel.email = self.emailTextField.text;
+    self.subscribeButton.rac_command = self.viewModel.subscribeCommand;
 }
 
 #pragma mark - Views
