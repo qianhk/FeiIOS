@@ -61,6 +61,13 @@
 		2A2D50871EB0817700BC161D /* UikitTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D50861EB0817700BC161D /* UikitTestViewController.m */; };
 		2A2D50891EB089D600BC161D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2D50881EB089D600BC161D /* QuartzCore.framework */; };
 		2A4D2EC41E7D72B7006FD451 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D2EC61E7D72B7006FD451 /* Localizable.strings */; };
+		2A5572192024B5FD00F1083C /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5572182024B5FD00F1083C /* CoreML.framework */; };
+		2A5572212024BAF100F1083C /* CoreMLMobileNetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5572202024BAF100F1083C /* CoreMLMobileNetViewController.m */; };
+		2A5572232024BCA600F1083C /* CoreML.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A5572222024BCA600F1083C /* CoreML.xcassets */; };
+		2A5572262024BD1B00F1083C /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5572252024BD1B00F1083C /* UIImage+Utils.m */; };
+		2A5572282024BD3000F1083C /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2A5572272024BD3000F1083C /* MobileNet.mlmodel */; };
+		2A55722C2024BEDC00F1083C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A55722B2024BEDC00F1083C /* CoreVideo.framework */; };
+		2A55722D2024BF1100F1083C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5572292024BECC00F1083C /* CoreMedia.framework */; };
 		2A56B2951E59744800DD29B4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A56B2941E59744800DD29B4 /* Storyboard.storyboard */; };
 		2A56B2981E59778100DD29B4 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */; };
 		2A6A1F8B1F4C53060002AA84 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6A1F881F4C53060002AA84 /* UIScrollView+SVInfiniteScrolling.m */; };
@@ -200,6 +207,15 @@
 		2A4D2EC11E7D6E91006FD451 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		2A4D2EC51E7D72B7006FD451 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A4D2EC71E7D72C8006FD451 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2A5572182024B5FD00F1083C /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
+		2A55721F2024BAF100F1083C /* CoreMLMobileNetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreMLMobileNetViewController.h; sourceTree = "<group>"; };
+		2A5572202024BAF100F1083C /* CoreMLMobileNetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreMLMobileNetViewController.m; sourceTree = "<group>"; };
+		2A5572222024BCA600F1083C /* CoreML.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = CoreML.xcassets; sourceTree = "<group>"; };
+		2A5572242024BD1B00F1083C /* UIImage+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
+		2A5572252024BD1B00F1083C /* UIImage+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
+		2A5572272024BD3000F1083C /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
+		2A5572292024BECC00F1083C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		2A55722B2024BEDC00F1083C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		2A56B2941E59744800DD29B4 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		2A56B2961E59778100DD29B4 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
 		2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
@@ -269,6 +285,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A55722D2024BF1100F1083C /* CoreMedia.framework in Frameworks */,
+				2A55722C2024BEDC00F1083C /* CoreVideo.framework in Frameworks */,
+				2A5572192024B5FD00F1083C /* CoreML.framework in Frameworks */,
 				2A1E9D3D2011F765005D5B25 /* Pods_singleview2.framework in Frameworks */,
 				2A2D50891EB089D600BC161D /* QuartzCore.framework in Frameworks */,
 				D9CE40AD14FB8F1000E6FD79 /* UIKit.framework in Frameworks */,
@@ -511,6 +530,17 @@
 			path = Artist;
 			sourceTree = "<group>";
 		};
+		2A55721E2024BAD400F1083C /* CoreML */ = {
+			isa = PBXGroup;
+			children = (
+				2A5572242024BD1B00F1083C /* UIImage+Utils.h */,
+				2A5572252024BD1B00F1083C /* UIImage+Utils.m */,
+				2A55721F2024BAF100F1083C /* CoreMLMobileNetViewController.h */,
+				2A5572202024BAF100F1083C /* CoreMLMobileNetViewController.m */,
+			);
+			path = CoreML;
+			sourceTree = "<group>";
+		};
 		2A6A1F851F4C53060002AA84 /* SVPullToRefresh */ = {
 			isa = PBXGroup;
 			children = (
@@ -585,6 +615,9 @@
 		D9CE40AB14FB8F1000E6FD79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A55722B2024BEDC00F1083C /* CoreVideo.framework */,
+				2A5572292024BECC00F1083C /* CoreMedia.framework */,
+				2A5572182024B5FD00F1083C /* CoreML.framework */,
 				2A1E9D3E2011F765005D5B25 /* Pods_singleview2.framework */,
 				2A2D50881EB089D600BC161D /* QuartzCore.framework */,
 				2AE16A931E6C0A7B00B48A49 /* ExternalAccessory.framework */,
@@ -600,6 +633,7 @@
 		D9CE40B214FB8F1000E6FD79 /* singleview2 */ = {
 			isa = PBXGroup;
 			children = (
+				2A55721E2024BAD400F1083C /* CoreML */,
 				19DD38266F66FF54CD551E20 /* EntryTabViewController.h */,
 				19DD3E5849807BA2501D5051 /* EntryTabViewController.m */,
 				2AF01FBB1E58935D0088008E /* PickerViewController.h */,
@@ -644,6 +678,7 @@
 		D9CE40B314FB8F1000E6FD79 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2A5572272024BD3000F1083C /* MobileNet.mlmodel */,
 				2ABE854B1F398FF600609D5A /* ArtistAssets.xcassets */,
 				2ABE85421F388B7600609D5A /* artists.json */,
 				2AEEE3AD1E5404A3000F43D9 /* Images.xcassets */,
@@ -654,6 +689,7 @@
 				2A746B161E5B20670022F2B3 /* statedDictionary.plist */,
 				19DD3396F3E6744ABF10836B /* sortednames.plist */,
 				2A4D2EC61E7D72B7006FD451 /* Localizable.strings */,
+				2A5572222024BCA600F1083C /* CoreML.xcassets */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -737,6 +773,7 @@
 				2AE16A921E6BF25A00B48A49 /* UserDefaultsViewController.xib in Resources */,
 				2A56B2951E59744800DD29B4 /* Storyboard.storyboard in Resources */,
 				19DD3A76623BD5DC58194F8A /* sortednames.plist in Resources */,
+				2A5572232024BCA600F1083C /* CoreML.xcassets in Resources */,
 				2ABE85511F39996500609D5A /* WorkTableViewCell.xib in Resources */,
 				19DD3F2591202825A572A3A3 /* Podfile in Resources */,
 				19DD344DD2BF135B454A95E6 /* NameAndColorCell.xib in Resources */,
@@ -827,8 +864,10 @@
 				19DD39BEE2D30818E5D081B8 /* KVCModel.m in Sources */,
 				2A94AAC81F53C91A00D53616 /* MyLayoutSizeClass.m in Sources */,
 				19DD3089BCF35385264D1919 /* StickyCollectionViewController.m in Sources */,
+				2A5572212024BAF100F1083C /* CoreMLMobileNetViewController.m in Sources */,
 				19DD3FE2530BF5203203512D /* StickyPersonCell.m in Sources */,
 				19DD3F34926154CA2DB93FF4 /* Person.m in Sources */,
+				2A5572262024BD1B00F1083C /* UIImage+Utils.m in Sources */,
 				19DD3F89356E7CDD5E9C1CD0 /* StickyHeaderView.m in Sources */,
 				19DD3721FFA82A7C2243E9BC /* StickyHeaderInfo.m in Sources */,
 				19DD3D7D15FC2E22FD9FA726 /* EntryTabViewController.m in Sources */,
@@ -855,6 +894,7 @@
 				19DD3039B818F77C84081DCF /* KaiLayoutExt.m in Sources */,
 				19DD39B7F8DFDBB4C03659DA /* CoordinatorLayout.m in Sources */,
 				19DD3B5358B0883672263EDF /* CoordinatorLayoutTestViewController.m in Sources */,
+				2A5572282024BD3000F1083C /* MobileNet.mlmodel in Sources */,
 				19DD39051F155D36E9F68AD4 /* CoordinatorLayoutTestTabViewController.m in Sources */,
 				19DD30CED0679F1039F8274A /* UICollectionViewLeftFlowLayout.m in Sources */,
 				19DD3362EC5A37A3202D56CF /* YYTextTestViewController.m in Sources */,
