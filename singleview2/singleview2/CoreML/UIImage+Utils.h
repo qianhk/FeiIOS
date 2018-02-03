@@ -12,6 +12,9 @@
 @interface UIImage (Utils)
 
 - (UIImage *)scaleToSize:(CGSize)size;
+
 - (CVPixelBufferRef)pixelBufferFromCGImage:(UIImage *)image;
-+ (CGImageRef)imageFromSampleBuffer:(CMSampleBufferRef) sampleBuffer;
+
++ (CGImageRef)imageFromSampleBuffer:(CMSampleBufferRef)sampleBuffer;
+
 @end

@@ -11,6 +11,7 @@
 #import "UIImage+Utils.h"
 #import "UIView+Toast.h"
 #import <AVFoundation/AVFoundation.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 
 @interface CoreMLMobileNetViewController () <AVCaptureVideoDataOutputSampleBufferDelegate>
 
@@ -23,6 +24,7 @@
 @property(nonatomic, strong) dispatch_queue_t sampleBufferQueue;
 @property(nonatomic, strong) UILabel *resultLabel;
 @property(nonatomic, assign) BOOL firstDisAppear;
+@property(nonatomic, assign) long long didOutputSampleCount;
 
 @end
 
@@ -33,14 +35,15 @@
     // Do any additional setup after loading the view.
     self.title = @"MobileNet";
     self.view.backgroundColor = [UIColor whiteColor];
-
     MobileNet *model = [[MobileNet alloc] init];
+
     UIImage *image = [UIImage imageNamed:@"desk"];
     UIImage *scaledImage = [image scaleToSize:CGSizeMake(224, 224)];
     CVPixelBufferRef buffer = [image pixelBufferFromCGImage:scaledImage];
     MobileNetInput *input = [[MobileNetInput alloc] initWithImage:buffer];
     NSError *error = nil;
     MobileNetOutput *output = [model predictionFromFeatures:input error:&error];
+    CVPixelBufferRelease(buffer);
     NSLog(@"output: error=%@ label=%@", error, output.classLabel);
 }
 
@@ -164,19 +167,26 @@
     NSError *error = nil;
     MobileNetOutput *output = [model predictionFromFeatures:input error:&error];
 //    NSLog(@"output: error=%@ label=%@ dic=%@", error, output.classLabel, output.classLabelProbs);
+    CVPixelBufferRelease(buffer);
     return output.classLabel;
 }
 
 #pragma mark --AVCaptureVideoDataOutputSampleBufferDelegate
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
-    static int idx = 0;
+    ++_didOutputSampleCount;
+    if (_didOutputSampleCount % 30 != 0) {
+        return;
+    }
+    @weakify(self)
     dispatch_sync(self.sampleBufferQueue, ^{
-        ++idx;
-//        CGImageRef cgImage = [UIImage imageFromSampleBuffer:sampleBuffer];
-//        NSString *text = [self predictImageScene:[UIImage imageWithCGImage:cgImage]];
-        NSString *text = [NSString stringWithFormat:@"calc %d", idx];
+        @strongify(self)
+        CGImageRef cgImage = [UIImage imageFromSampleBuffer:sampleBuffer];
+        NSString *text = [self predictImageScene:[UIImage imageWithCGImage:cgImage]];
+        CGImageRelease(cgImage);
+//        NSString *text = [NSString stringWithFormat:@"calc %d", _didOutputSampleCount];
         dispatch_async(dispatch_get_main_queue(), ^{
+            @strongify(self)
             self.resultLabel.text = text;
         });
     });
@@ -186,5 +196,8 @@
 
 }
 
+- (void)dealloc {
+    NSLog(@"dealloc %@", NSStringFromClass([self class]));
+}
 
 @end
