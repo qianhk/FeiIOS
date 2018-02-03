@@ -18,6 +18,7 @@
 		19DD312807F2C2619CEB3093 /* MasonryLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD35DFD5C2B5BE44657DDE /* MasonryLayout.m */; };
 		19DD312CD11FDA635A075BFC /* WMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD37655F771667828F37CF /* WMButton.m */; };
 		19DD3186436FFA70C8EBC891 /* MyDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39586B2852DEEE88CD7A /* MyDrawerView.m */; };
+		19DD322764FF51D2BE88B8F3 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3DBE461D96C50FF69B26 /* UIView+Toast.m */; };
 		19DD3362EC5A37A3202D56CF /* YYTextTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33FF453765820CE92883 /* YYTextTestViewController.m */; };
 		19DD3392BE334E1457C22B3A /* NSObject+Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */; };
 		19DD344DD2BF135B454A95E6 /* NameAndColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DD33B5C5A15B1AE8D88FD2 /* NameAndColorCell.xib */; };
@@ -68,6 +69,7 @@
 		2A5572282024BD3000F1083C /* MobileNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2A5572272024BD3000F1083C /* MobileNet.mlmodel */; };
 		2A55722C2024BEDC00F1083C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A55722B2024BEDC00F1083C /* CoreVideo.framework */; };
 		2A55722D2024BF1100F1083C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5572292024BECC00F1083C /* CoreMedia.framework */; };
+		2A55722F20257BEA00F1083C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A55722E20257BEA00F1083C /* AVFoundation.framework */; };
 		2A56B2951E59744800DD29B4 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A56B2941E59744800DD29B4 /* Storyboard.storyboard */; };
 		2A56B2981E59778100DD29B4 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */; };
 		2A6A1F8B1F4C53060002AA84 /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A6A1F881F4C53060002AA84 /* UIScrollView+SVInfiniteScrolling.m */; };
@@ -161,6 +163,7 @@
 		19DD3684D771E0CAEA878FB4 /* YYTextParserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextParserObject.m; sourceTree = "<group>"; };
 		19DD36A1D71E01AF83E208C4 /* ContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentCell.m; sourceTree = "<group>"; };
 		19DD3726D66A567F46388565 /* UICollectionViewLeftFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftFlowLayout.m; sourceTree = "<group>"; };
+		19DD372B937EC22B6EC9A2DC /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		19DD37655F771667828F37CF /* WMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMButton.m; sourceTree = "<group>"; };
 		19DD3769B2F26A377D2CB11D /* TestCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewController.h; sourceTree = "<group>"; };
 		19DD3775789F06655320FAEC /* PostData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostData.m; sourceTree = "<group>"; };
@@ -186,6 +189,7 @@
 		19DD3D73E1F0DC9A3D0A74EA /* HeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCell.h; sourceTree = "<group>"; };
 		19DD3D91D1000EB87F5BF250 /* SubscribeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeViewController.m; sourceTree = "<group>"; };
 		19DD3D94D632EB5A38281740 /* NSString+EmailAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EmailAdditions.h"; sourceTree = "<group>"; };
+		19DD3DBE461D96C50FF69B26 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		19DD3DC826679B40A9ECAF71 /* CoordinatorLayoutTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinatorLayoutTestViewController.m; sourceTree = "<group>"; };
 		19DD3DD66AD1900D4B8A6DAF /* NameAndColorCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameAndColorCell2.xib; sourceTree = "<group>"; };
 		19DD3E2859B96C2CEFCEADC3 /* OperateSuccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperateSuccessView.h; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 		2A5572272024BD3000F1083C /* MobileNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNet.mlmodel; sourceTree = "<group>"; };
 		2A5572292024BECC00F1083C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		2A55722B2024BEDC00F1083C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		2A55722E20257BEA00F1083C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2A56B2941E59744800DD29B4 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		2A56B2961E59778100DD29B4 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
 		2A56B2971E59778100DD29B4 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
@@ -285,6 +290,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A55722F20257BEA00F1083C /* AVFoundation.framework in Frameworks */,
 				2A55722D2024BF1100F1083C /* CoreMedia.framework in Frameworks */,
 				2A55722C2024BEDC00F1083C /* CoreVideo.framework in Frameworks */,
 				2A5572192024B5FD00F1083C /* CoreML.framework in Frameworks */,
@@ -450,6 +456,8 @@
 				19DD343497F86F9BCE1EE051 /* KaiLayoutExt.h */,
 				19DD37655F771667828F37CF /* WMButton.m */,
 				19DD34264A2C4FFE772E01A0 /* WMButton.h */,
+				19DD372B937EC22B6EC9A2DC /* UIView+Toast.h */,
+				19DD3DBE461D96C50FF69B26 /* UIView+Toast.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -615,6 +623,7 @@
 		D9CE40AB14FB8F1000E6FD79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A55722E20257BEA00F1083C /* AVFoundation.framework */,
 				2A55722B2024BEDC00F1083C /* CoreVideo.framework */,
 				2A5572292024BECC00F1083C /* CoreMedia.framework */,
 				2A5572182024B5FD00F1083C /* CoreML.framework */,
@@ -903,6 +912,7 @@
 				19DD34B19D796175F796A244 /* SubscribeViewController.m in Sources */,
 				19DD3702EE3F3CBE5AA2D14C /* SubscribeViewModel.m in Sources */,
 				19DD3FC02CBB864A3184F48B /* NSString+EmailAdditions.m in Sources */,
+				19DD322764FF51D2BE88B8F3 /* UIView+Toast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -985,13 +995,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = singleview2/singleview2.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = A27YPEY3N3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleview2/singleview2-Prefix.pch";
 				INFOPLIST_FILE = "singleview2/singleview2-Info.plist";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ttpod.singleview2;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ttpod.singleview2-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
@@ -1006,12 +1017,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = singleview2/singleview2.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = A27YPEY3N3;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleview2/singleview2-Prefix.pch";
 				INFOPLIST_FILE = "singleview2/singleview2-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ttpod.singleview2;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ttpod.singleview2-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;

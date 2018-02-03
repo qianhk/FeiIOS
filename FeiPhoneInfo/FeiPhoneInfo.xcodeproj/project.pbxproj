@@ -433,7 +433,7 @@
 				ORGANIZATIONNAME = TTPod;
 				TargetAttributes = {
 					D94E0D75143054DB00552FBE = {
-						DevelopmentTeam = P8232VD523;
+						DevelopmentTeam = A27YPEY3N3;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -677,7 +677,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P8232VD523;
+				DEVELOPMENT_TEAM = A27YPEY3N3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)//System/Library/Frameworks\"",
@@ -703,7 +703,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P8232VD523;
+				DEVELOPMENT_TEAM = A27YPEY3N3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SDKROOT)//System/Library/Frameworks\"",
