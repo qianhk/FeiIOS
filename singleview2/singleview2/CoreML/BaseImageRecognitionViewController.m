@@ -13,7 +13,7 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
 
 @interface BaseImageRecognitionViewController () <AVCaptureVideoDataOutputSampleBufferDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property(nonatomic, strong) UIImageView *realTimeView;
+@property(nonatomic, strong) UIImageView *previewImageView;
 @property(nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
 @property(nonatomic, strong) AVCaptureSession *session;
 @property(nonatomic, strong) AVCaptureVideoDataOutput *videoOutPut;
@@ -26,7 +26,7 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
 @property(nonatomic, assign) long long didOutputSampleCount;
 @property(nonatomic, weak) RACDisposable *showPicInfoDisposable;
 
-@property(nonatomic, assign) BOOL showingPictureInfo;
+@property(nonatomic, assign) BOOL showingStaticPictureInfo;
 
 @end
 
@@ -121,8 +121,9 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
 //            imageSize.height = 320;
 //            imageSize.width = 320;
         }
-        self.showingPictureInfo = YES;
-        self.realTimeView.image = captureImage;
+        self.showingStaticPictureInfo = YES;
+        self.previewImageView.image = captureImage;
+        [self.previewLayer removeFromSuperlayer];
         @weakify(self)
         dispatch_sync(self.imageRecognitionQueue, ^{
             @strongify(self)
@@ -131,10 +132,7 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
         if (SHOW_PICTURE_INFO_TIME <= 15.001f) {
             self.showPicInfoDisposable = [[[RACSignal return:@"显示静态图片信息时间过了"] delay:SHOW_PICTURE_INFO_TIME] subscribeNext:^(id x) {
                 @weakify(self)
-                self.showingPictureInfo = NO;
-                if ([AppGlobalUI isCurrentViewControllerVisible:self]) {
-                    [self startVideoCapture];
-                }
+                [self resumeVideoCapture];
             }];
         }
     } else {
@@ -183,7 +181,7 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
             return;
         }
     }
-    if (!self.showingPictureInfo) {
+    if (!self.showingStaticPictureInfo) {
         [self startVideoCapture];
     }
 }
@@ -191,7 +189,7 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.showPicInfoDisposable dispose];
-    self.showingPictureInfo = NO;
+    self.showingStaticPictureInfo = NO;
     [self stopVideoCapture];
 }
 
@@ -254,15 +252,16 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
     self.aiLookImageView.backgroundColor = [UIColor colorWithHexString:@"#4000"];
     [self.view addSubview:self.aiLookImageView];
 
-    self.realTimeView = [[UIImageView alloc] initWithFrame:viewBounds];
-    self.realTimeView.tag = 100;
-    self.realTimeView.backgroundColor = [UIColor lightGrayColor];
-    [self.view addSubview:self.realTimeView];
-    [self.realTimeView.superview sendSubviewToBack:self.realTimeView];
+    self.previewImageView = [[UIImageView alloc] initWithFrame:viewBounds];
+    self.previewImageView.tag = 100;
+    self.previewImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.previewImageView.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:self.previewImageView];
+    [self.previewImageView.superview sendSubviewToBack:self.previewImageView];
 
-    CGRect realBounds = self.realTimeView.bounds;
+    CGRect realBounds = self.previewImageView.bounds;
     self.previewLayer.frame = realBounds;
-    [self.realTimeView.layer addSublayer:self.previewLayer];
+    [self.previewImageView.layer addSublayer:self.previewLayer];
 
     CGRect middleRect = viewBounds;
     CGFloat midY = CGRectGetMidY(middleRect);
@@ -275,7 +274,7 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
     promptLayer.borderColor = [UIColor greenColor].CGColor;
     promptLayer.borderWidth = 1.f;
 //    promptLayer.backgroundColor = [UIColor colorWithHexString:@"#4F00"].CGColor;
-    [self.realTimeView.layer addSublayer:promptLayer];
+    [self.previewImageView.layer addSublayer:promptLayer];
 
     if (TARGET_OS_SIMULATOR) {
         self.resultLabel.text = @"TARGET_OS_SIMULATOR";
@@ -286,9 +285,17 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
 }
 
 - (void)onTapAiLookImageView:(UIGestureRecognizer *)gestureRecognizer {
-    if (self.showingPictureInfo) {
-        self.showingPictureInfo = NO;
-        [self startVideoCapture];
+    [self resumeVideoCapture];
+}
+
+- (void)resumeVideoCapture {
+    if (self.showingStaticPictureInfo) {
+        self.showingStaticPictureInfo = NO;
+        self.previewImageView.image = nil;
+        [self.previewImageView.layer insertSublayer:self.previewLayer atIndex:0];
+        if ([AppGlobalUI isCurrentViewControllerVisible:self]) {
+            [self startVideoCapture];
+        }
     }
 }
 
