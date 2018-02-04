@@ -19,5 +19,6 @@
 
 @interface AppGlobalUI : NSObject
 
++ (BOOL)isCurrentViewControllerVisible:(UIViewController *)viewController;
 
 @end

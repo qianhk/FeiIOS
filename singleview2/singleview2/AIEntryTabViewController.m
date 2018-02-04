@@ -39,8 +39,8 @@
     }
 
     mEntryArray = @[
-            @{@"Name": @"LinearLayoutViewController", @"Vc": @"TestLinearLayoutViewController"},
-            @{@"Name": @"SubscribeViewController", @"Vc": @"SubscribeViewController"},
+            @{@"Name": @"LinearLayoutViewController", @"Vc": @"TestLinearLayoutViewController2"},
+            @{@"Name": @"SubscribeViewController", @"Vc": @"SubscribeViewController2"},
             @{@"Name": @"Core ML MobileNet", @"Vc": @"CoreMLMobileNetViewController"}
     ];
 

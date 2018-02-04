@@ -9,20 +9,24 @@
 #import <ReactiveObjC/ReactiveObjC.h>
 #import "UIColor+String.h"
 
-@interface BaseImageRecognitionViewController () <AVCaptureVideoDataOutputSampleBufferDelegate>
+const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
 
-@property(nonatomic, strong) UIView *realTimeView;   //实时显示的区域容器
-@property(nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer; //实时显示摄像的区域
+@interface BaseImageRecognitionViewController () <AVCaptureVideoDataOutputSampleBufferDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property(nonatomic, strong) UIImageView *realTimeView;
+@property(nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;
 @property(nonatomic, strong) AVCaptureSession *session;
 @property(nonatomic, strong) AVCaptureVideoDataOutput *videoOutPut;
 @property(nonatomic, strong) AVCaptureConnection *videoConnection;
-@property(nonatomic, strong) dispatch_queue_t videoQueue;
-@property(nonatomic, strong) dispatch_queue_t sampleBufferQueue;
+@property(nonatomic, strong) dispatch_queue_t videoSampleQueue;
+@property(nonatomic, strong) dispatch_queue_t imageRecognitionQueue;
 @property(nonatomic, strong) UILabel *resultLabel;
-@property(nonatomic, strong) UIImageView *captureImageView;
-@property(nonatomic, assign) BOOL firstDisAppear;
+@property(nonatomic, strong) UIImageView *aiLookImageView;
+@property(nonatomic, assign) BOOL firstDidAppear;
 @property(nonatomic, assign) long long didOutputSampleCount;
+@property(nonatomic, weak) RACDisposable *showPicInfoDisposable;
 
+@property(nonatomic, assign) BOOL showingPictureInfo;
 
 @end
 
@@ -32,6 +36,115 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+
+    UIBarButtonItem *pickPictureBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"静态图" style:UIBarButtonItemStylePlain target:self action:@selector(doPickPicture:)];
+    NSArray *rightBarButtonItemArray = @[pickPictureBarButtonItem];
+    self.navigationItem.rightBarButtonItems = rightBarButtonItemArray;
+
+    self.videoSampleQueue = dispatch_queue_create("videoSampleQueue", NULL);
+    self.imageRecognitionQueue = dispatch_queue_create("imageRecognitionQueue", NULL);
+}
+
+- (void)doPickPicture:(id)sender {
+
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"请选择方式" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    @weakify(self)
+    UIAlertAction *galleryAction = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        @strongify(self)
+        [self handlerActionGallery];
+    }];
+    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        @strongify(self)
+        [self handlerActionCamera];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:galleryAction];
+    [alertController addAction:cameraAction];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+- (void)handlerActionGallery {
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+- (void)handlerActionCamera {
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        if ([self checkCamera]) {
+            [self presentViewController:picker animated:YES completion:nil];
+        } else {
+            [self.view makeToast:@"请在iPhone的“设置-隐私-相机”选项中，允许本应用程序访问你的相机。"];
+        }
+    } else {
+        [self.view makeToast:@"摄像头当前不可用"];
+    }
+}
+
+- (BOOL)checkCamera {
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    return AVAuthorizationStatusRestricted != authStatus && AVAuthorizationStatusDenied != authStatus;
+}
+
+//压缩图片质量
+- (UIImage *)reduceImage:(UIImage *)image percent:(float)percent {
+    NSData *imageData = UIImageJPEGRepresentation(image, percent);
+    UIImage *newImage = [UIImage imageWithData:imageData];
+    return newImage;
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> *)info {
+    NSString *type = info[UIImagePickerControllerMediaType];
+
+    //当选择的类型是图片
+    if ([type isEqualToString:@"public.image"]) {
+        NSString *key = nil;
+        if (picker.allowsEditing) {
+            key = UIImagePickerControllerEditedImage;
+        } else {
+            key = UIImagePickerControllerOriginalImage;
+        }
+        UIImage *captureImage = info[key];
+        if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+            // 固定方向
+//            image = [image fixOrientation];//这个方法是UIImage+Extras.h中方法
+            //压缩图片质量
+//            captureImage = [self reduceImage:captureImage percent:0.1];
+//            CGSize imageSize = image.size;
+//            imageSize.height = 320;
+//            imageSize.width = 320;
+        }
+        self.showingPictureInfo = YES;
+        self.realTimeView.image = captureImage;
+        @weakify(self)
+        dispatch_sync(self.imageRecognitionQueue, ^{
+            @strongify(self)
+            [self didCaptureImage:captureImage];
+        });
+        if (SHOW_PICTURE_INFO_TIME <= 15.001f) {
+            self.showPicInfoDisposable = [[[RACSignal return:@"显示静态图片信息时间过了"] delay:SHOW_PICTURE_INFO_TIME] subscribeNext:^(id x) {
+                @weakify(self)
+                self.showingPictureInfo = NO;
+                if ([AppGlobalUI isCurrentViewControllerVisible:self]) {
+                    [self startVideoCapture];
+                }
+            }];
+        }
+    } else {
+        [self.view makeToast:@"选择的图片无效"];
+    }
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,8 +154,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (!self.firstDisAppear) {
-        self.firstDisAppear = YES;
+    if (!self.firstDidAppear) {
+        self.firstDidAppear = YES;
         AVAuthorizationStatus authorizationStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
         if (authorizationStatus == AVAuthorizationStatusAuthorized) {
 //            [self.view makeToast:@"Camera Capture Video authorized."];
@@ -70,11 +183,15 @@
             return;
         }
     }
-    [self startVideoCapture];
+    if (!self.showingPictureInfo) {
+        [self startVideoCapture];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [self.showPicInfoDisposable dispose];
+    self.showingPictureInfo = NO;
     [self stopVideoCapture];
 }
 
@@ -132,12 +249,12 @@
 
     CGFloat previewWidth = 88;
     CGFloat previewHeight = previewWidth; //previewWidth * viewBounds.size.height / viewBounds.size.width;
-    self.captureImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, resultBkgView.frame.origin.y - previewHeight, previewWidth, previewHeight)];
-    self.captureImageView.contentMode = UIViewContentModeScaleToFill;
-    self.captureImageView.backgroundColor = [UIColor colorWithHexString:@"#4000"];
-    [self.view addSubview:self.captureImageView];
+    self.aiLookImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, resultBkgView.frame.origin.y - previewHeight, previewWidth, previewHeight)];
+    self.aiLookImageView.contentMode = UIViewContentModeScaleToFill;
+    self.aiLookImageView.backgroundColor = [UIColor colorWithHexString:@"#4000"];
+    [self.view addSubview:self.aiLookImageView];
 
-    self.realTimeView = [[UIView alloc] initWithFrame:viewBounds];
+    self.realTimeView = [[UIImageView alloc] initWithFrame:viewBounds];
     self.realTimeView.tag = 100;
     self.realTimeView.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:self.realTimeView];
@@ -147,7 +264,6 @@
     self.previewLayer.frame = realBounds;
     [self.realTimeView.layer addSublayer:self.previewLayer];
 
-//    CGRect middleRect = CGRectMake(0, safeInsets.top, viewBounds.size.width, viewBounds.size.height - safeInsets.top - resultBkgView.frame.size.height);
     CGRect middleRect = viewBounds;
     CGFloat midY = CGRectGetMidY(middleRect);
     middleRect.size.height = middleRect.size.width;
@@ -164,21 +280,27 @@
     if (TARGET_OS_SIMULATOR) {
         self.resultLabel.text = @"TARGET_OS_SIMULATOR";
     }
+
+    self.aiLookImageView.userInteractionEnabled = YES;
+    [self.aiLookImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapAiLookImageView:)]];
+}
+
+- (void)onTapAiLookImageView:(UIGestureRecognizer *)gestureRecognizer {
+    if (self.showingPictureInfo) {
+        self.showingPictureInfo = NO;
+        [self startVideoCapture];
+    }
 }
 
 - (void)startVideoCapture {
     [self.session startRunning];
     self.videoConnection.enabled = YES;
-    self.videoQueue = dispatch_queue_create("videoQueue", NULL);
-    self.sampleBufferQueue = dispatch_queue_create("sampleBufferQueue", NULL);
-    [self.videoOutPut setSampleBufferDelegate:self queue:self.videoQueue];
+    [self.videoOutPut setSampleBufferDelegate:self queue:self.videoSampleQueue];
 }
 
 - (void)stopVideoCapture {
     [self.videoOutPut setSampleBufferDelegate:nil queue:nil];
     self.videoConnection.enabled = NO;
-    self.videoQueue = nil;
-    self.sampleBufferQueue = nil;
     [self.session stopRunning];
 }
 
@@ -190,7 +312,7 @@
         return;
     }
     @weakify(self)
-    dispatch_sync(self.sampleBufferQueue, ^{
+    dispatch_sync(self.imageRecognitionQueue, ^{
         @strongify(self)
         CGImageRef cgImage = [UIImage imageFromSampleBuffer:sampleBuffer]; //8ms
         UIImage *captureImage = [UIImage imageWithCGImage:cgImage]; //0ms
@@ -216,7 +338,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         @strongify(self)
         self.resultLabel.text = result;
-        self.captureImageView.image = image;
+        self.aiLookImageView.image = image;
     });
 }
 
