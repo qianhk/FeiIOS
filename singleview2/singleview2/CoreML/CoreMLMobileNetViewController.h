@@ -6,8 +6,8 @@
 //  Copyright © 2018年 Njnu. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BaseImageRecognitionViewController.h"
 
-@interface CoreMLMobileNetViewController : UIViewController
+@interface CoreMLMobileNetViewController : BaseImageRecognitionViewController
 
 @end

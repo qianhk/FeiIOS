@@ -25,6 +25,7 @@
 		19DD3494F53B2E79C82A9BB2 /* SectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3054B76E9DA3D3BCEE84 /* SectionTableViewController.m */; };
 		19DD34B19D796175F796A244 /* SubscribeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3D91D1000EB87F5BF250 /* SubscribeViewController.m */; };
 		19DD3500937949A7147EC85E /* UIColor+String.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD30A884721626D468326F /* UIColor+String.m */; };
+		19DD357A98EE43402DE71999 /* BaseImageRecognitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3BFF87DE82FEE5D78D3A /* BaseImageRecognitionViewController.m */; };
 		19DD35F32D58CA694658070B /* CalculatorMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD390963D60D7C86113D09 /* CalculatorMaker.m */; };
 		19DD3702EE3F3CBE5AA2D14C /* SubscribeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD32CF66963E64373CEC35 /* SubscribeViewModel.m */; };
 		19DD3721FFA82A7C2243E9BC /* StickyHeaderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD30DD2FE79C0AD3F52D9F /* StickyHeaderInfo.m */; };
@@ -182,6 +183,7 @@
 		19DD3A11E663419DE358D851 /* ContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentCell.h; sourceTree = "<group>"; };
 		19DD3A34601D91AAEA144E26 /* CFTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFTool.h; sourceTree = "<group>"; };
 		19DD3A99985C7B0E18387E76 /* AppGlobalUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppGlobalUI.m; sourceTree = "<group>"; };
+		19DD3BFF87DE82FEE5D78D3A /* BaseImageRecognitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseImageRecognitionViewController.m; sourceTree = "<group>"; };
 		19DD3C08706F84A4D5C6EFAA /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
 		19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Calculator.m"; sourceTree = "<group>"; };
 		19DD3C4E6FCF9245BC4BCB01 /* SimpleLinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleLinearLayout.h; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 		19DD3F7CB7B197AACE4B0993 /* SwitchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwitchViewController.m; sourceTree = "<group>"; };
 		19DD3F84B2DDF3F717B81062 /* ArtistDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistDetailViewController.m; sourceTree = "<group>"; };
 		19DD3FA6E4B0B1FB28D1358C /* NSString+EmailAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EmailAdditions.m"; sourceTree = "<group>"; };
+		19DD3FC1BFD5EE51E9487967 /* BaseImageRecognitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseImageRecognitionViewController.h; sourceTree = "<group>"; };
 		1D10952B8412B82D62641B77 /* Pods-singleview2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-singleview2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-singleview2/Pods-singleview2.debug.xcconfig"; sourceTree = "<group>"; };
 		2A1E9D3E2011F765005D5B25 /* Pods_singleview2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_singleview2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A2D50851EB0817700BC161D /* UikitTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UikitTestViewController.h; sourceTree = "<group>"; };
@@ -547,6 +550,8 @@
 			children = (
 				2A55721F2024BAF100F1083C /* CoreMLMobileNetViewController.h */,
 				2A5572202024BAF100F1083C /* CoreMLMobileNetViewController.m */,
+				19DD3FC1BFD5EE51E9487967 /* BaseImageRecognitionViewController.h */,
+				19DD3BFF87DE82FEE5D78D3A /* BaseImageRecognitionViewController.m */,
 			);
 			path = CoreML;
 			sourceTree = "<group>";
@@ -915,6 +920,7 @@
 				19DD3FC02CBB864A3184F48B /* NSString+EmailAdditions.m in Sources */,
 				19DD322764FF51D2BE88B8F3 /* UIView+Toast.m in Sources */,
 				19DD3CC6218C01AD17AFCD4A /* AppGlobalUI.m in Sources */,
+				19DD357A98EE43402DE71999 /* BaseImageRecognitionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
