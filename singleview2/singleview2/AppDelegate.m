@@ -41,11 +41,11 @@
 }
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    NSLog(@"lookNavigation willShowViewController vc=%@", NSStringFromClass(viewController.class));
+//    NSLog(@"lookNavigation willShowViewController vc=%@", NSStringFromClass(viewController.class));
 }
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    NSLog(@"lookNavigation didShowViewController vc=%@", NSStringFromClass(viewController.class));
+//    NSLog(@"lookNavigation didShowViewController vc=%@", NSStringFromClass(viewController.class));
 //    [self.navController setNavigationBarHidden:viewController == self.viewController];
 }
 

@@ -2,24 +2,25 @@
 //  UIImage+Utils.h
 //  CoreMLDemo
 //
-//  Created by xuzichao on 08/06/2017.
-//  Copyright © 2017 xuzichao. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 #import <CoreMedia/CoreMedia.h>
 
 @interface UIImage (Utils)
 
-- (UIImage *)scaleToSize:(CGSize)targetSize;
+//不等比缩放到目标大小
+- (UIImage *)imageByScaleToSize:(CGSize)targetSize;
 
-- (UIImage *)scaleWithScale:(float)scale;
+//等比缩放到指定比例
+- (UIImage *)imageByScaleWithScale:(float)scale;
 
-- (UIImage *)croppingForSize:(CGSize)targetSize;
+//等比缩放到指定目标大小，长边砍头去尾crop，保留中间
+- (UIImage *)imageByClipToSize:(CGSize)targetSize;
 
-- (UIImage *)cutImageWithTargetSize:(CGSize)targetSize clipRect:(CGRect)rect;
+//将指定的Rect缩放到指定目标大小，是否等比取决于目标Rect的size是否与图片size比例相同
+- (UIImage *)imageByClipToSize:(CGSize)targetSize withClipRect:(CGRect)rect;
 
-- (CVPixelBufferRef)pixelBufferFromCGImage:(UIImage *)image;
++ (CVPixelBufferRef)pixelBufferFromCGImage:(CGImageRef)imageRef;
 
 + (CGImageRef)imageFromSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 

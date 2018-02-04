@@ -4,6 +4,7 @@
 //
 //  Created by KaiKai on 2018/2/2.
 //  Copyright © 2018年 Njnu. All rights reserved.
+// 函数执行耗时 iPhone7上, debug模式, 输入特征向量224*224
 //
 
 #import "CoreMLMobileNetViewController.h"
@@ -28,6 +29,7 @@
 @property(nonatomic, strong) UIImageView *captureImageView;
 @property(nonatomic, assign) BOOL firstDisAppear;
 @property(nonatomic, assign) long long didOutputSampleCount;
+@property(nonatomic, strong) MobileNet *mobileNet;
 
 @end
 
@@ -39,7 +41,8 @@
     self.title = @"MobileNet";
     self.view.backgroundColor = [UIColor whiteColor];
 
-    NSString *text = [self predictImageScene:[UIImage imageNamed:@"desk"]];
+    self.mobileNet = [[MobileNet alloc] init]; //90ms
+    NSString *text = [self imageRecognitionByImage:[UIImage imageNamed:@"desk"]];
     NSLog(@"output: label=%@", text);
 }
 
@@ -90,7 +93,6 @@
 - (void)initAVCapturWritterConfig {
     self.session = [[AVCaptureSession alloc] init];
 
-    //视频
     AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     if (videoDevice.isFocusPointOfInterestSupported && [videoDevice isFocusModeSupported:AVCaptureFocusModeContinuousAutoFocus]) {
         [videoDevice lockForConfiguration:nil];
@@ -137,7 +139,7 @@
     self.resultLabel.textColor = [UIColor whiteColor];
     [self.view addSubview:self.resultLabel];
 
-    CGFloat previewWidth = 150;
+    CGFloat previewWidth = 88;
     CGFloat previewHeight = previewWidth; //previewWidth * viewBounds.size.height / viewBounds.size.width;
     self.captureImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, resultBkgView.frame.origin.y - previewHeight, previewWidth, previewHeight)];
     self.captureImageView.contentMode = UIViewContentModeScaleToFill;
@@ -155,7 +157,8 @@
     self.previewLayer.frame = realBounds;
     [self.realTimeView.layer addSublayer:self.previewLayer];
 
-    CGRect middleRect = CGRectMake(0, safeInsets.top, viewBounds.size.width, viewBounds.size.height - safeInsets.top - resultBkgView.frame.size.height);
+//    CGRect middleRect = CGRectMake(0, safeInsets.top, viewBounds.size.width, viewBounds.size.height - safeInsets.top - resultBkgView.frame.size.height);
+    CGRect middleRect = viewBounds;
     CGFloat midY = CGRectGetMidY(middleRect);
     middleRect.size.height = middleRect.size.width;
     middleRect.origin.y = midY - middleRect.size.width / 2;
@@ -183,26 +186,27 @@
     [self.session stopRunning];
 }
 
-- (NSString *)predictImageScene:(UIImage *)image {
-    MobileNet *model = [[MobileNet alloc] init];
-    UIImage *scaledImage = [image scaleToSize:CGSizeMake(224, 224)];
-    CVPixelBufferRef buffer = [image pixelBufferFromCGImage:scaledImage];
-    MobileNetInput *input = [[MobileNetInput alloc] initWithImage:buffer];
-    NSError *error = nil;
-    MobileNetOutput *output = [model predictionFromFeatures:input error:&error];
-//    NSLog(@"output: error=%@ label=%@ dic=%@", error, output.classLabel, output.classLabelProbs);
-    CVPixelBufferRelease(buffer);
-    return output.classLabel;
+- (NSString *)imageRecognitionByImage:(UIImage *)image {
+    UIImage *scaledImage = [image imageByClipToSize:CGSizeMake(224, 224)]; //75ms 图片1080*1920
+    return [self imageRecognitionByScaledImage:scaledImage];
 }
 
-- (UIImage *)predictImageSceneTo224:(UIImage *)image {
-    CGSize size = image.size;
-    CGFloat shortSize = fminf(size.width, size.height);
-    CGFloat halfSize = shortSize / 2;
-    CGPoint middle = CGPointMake(size.width / 2, size.height / 2);
-//    UIImage *scaledImage = [image cutImageWithTargetSize:CGSizeMake(224, 224) clipRect:CGRectMake(middle.x - halfSize, middle.y - halfSize, shortSize, shortSize)];
-    UIImage *scaledImage = [image scaleWithScale:0.5f];
-    return scaledImage;
+- (NSString *)imageRecognitionByScaledImage:(UIImage *)scaledImage {
+    if (scaledImage) {
+        CVPixelBufferRef buffer = [UIImage pixelBufferFromCGImage:scaledImage.CGImage]; //0ms
+        MobileNetInput *input = [[MobileNetInput alloc] initWithImage:buffer]; //0ms
+        NSError *error = nil;
+        MobileNetOutput *output = [self.mobileNet predictionFromFeatures:input error:&error]; //35ms
+//      NSLog(@"output: error=%@ label=%@ dic=%@", error, output.classLabel, output.classLabelProbs);
+        CVPixelBufferRelease(buffer);
+        if (error) {
+            return error.localizedDescription;
+        } else {
+            return output.classLabel;
+        }
+    } else {
+        return @"make image error";
+    }
 }
 
 #pragma mark --AVCaptureVideoDataOutputSampleBufferDelegate
@@ -215,15 +219,24 @@
     @weakify(self)
     dispatch_sync(self.sampleBufferQueue, ^{
         @strongify(self)
-        CGImageRef cgImage = [UIImage imageFromSampleBuffer:sampleBuffer];
-        UIImage *captureImage = [UIImage imageWithCGImage:cgImage];
-        captureImage = [self predictImageSceneTo224:captureImage];
+        CGImageRef cgImage = [UIImage imageFromSampleBuffer:sampleBuffer]; //8ms
+        UIImage *captureImage = [UIImage imageWithCGImage:cgImage]; //0ms
         CGImageRelease(cgImage);
-//        NSString *text = [NSString stringWithFormat:@"calc %d", _didOutputSampleCount];
+
+        UIImage *scaledImage = [captureImage imageByClipToSize:CGSizeMake(224, 224)]; //75ms 图片1080*1920
+        NSString *result = [self imageRecognitionByScaledImage:scaledImage];
+
+//        NSDate *beginDate = [NSDate date];
+//        NSDate *makeImageDate = [NSDate date];
+//        NSDate *recognitionImageDate = [NSDate date];
+//        NSLog(@"lookTime total=%d makeImage=%d recog=%d",
+//                (int) ([recognitionImageDate timeIntervalSinceDate:beginDate] * 1000),
+//                (int) ([makeImageDate timeIntervalSinceDate:beginDate] * 1000),
+//                (int) ([recognitionImageDate timeIntervalSinceDate:makeImageDate] * 1000));
         dispatch_async(dispatch_get_main_queue(), ^{
             @strongify(self)
-            self.resultLabel.text = [captureImage description];
-            self.captureImageView.image = captureImage;
+            self.resultLabel.text = result;
+            self.captureImageView.image = scaledImage;
         });
     });
 }
