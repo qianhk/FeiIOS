@@ -54,10 +54,10 @@
                 NSLog(@"requestAccessForMediaType granted=%@ mainThread=%@", granted ? @"YES" : @"NO", [NSThread isMainThread] ? @"YES" : @"NO");
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (granted) {
-                        [self.view makeToast:@"Camera Capture Video authorized."];
                         [self initAVCapturWritterConfig];
                         [self setUpSubviews];
                         [self startVideoCapture];
+                        [self.view makeToast:@"Camera Capture Video authorized."];
                         return;
                     } else {
                         [self.view makeToast:@"Camera Capture Video Denied."];
@@ -79,6 +79,9 @@
 }
 
 - (void)initAVCapturWritterConfig {
+    if (TARGET_OS_SIMULATOR) {
+        return;
+    }
     self.session = [[AVCaptureSession alloc] init];
 
     AVCaptureDevice *videoDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -140,7 +143,6 @@
     [self.view addSubview:self.realTimeView];
     [self.realTimeView.superview sendSubviewToBack:self.realTimeView];
 
-    //实时图像预览
     CGRect realBounds = self.realTimeView.bounds;
     self.previewLayer.frame = realBounds;
     [self.realTimeView.layer addSublayer:self.previewLayer];
@@ -158,6 +160,10 @@
     promptLayer.borderWidth = 1.f;
 //    promptLayer.backgroundColor = [UIColor colorWithHexString:@"#4F00"].CGColor;
     [self.realTimeView.layer addSublayer:promptLayer];
+
+    if (TARGET_OS_SIMULATOR) {
+        self.resultLabel.text = @"TARGET_OS_SIMULATOR";
+    }
 }
 
 - (void)startVideoCapture {

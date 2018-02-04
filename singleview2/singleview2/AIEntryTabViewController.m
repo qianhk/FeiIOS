@@ -1,30 +1,26 @@
 //
-// Created by kai on 2017/8/7.
-// Copyright (c) 2017 Njnu. All rights reserved.
+// Created by kai on 2018/2/4.
+// Copyright (c) 2018 njnu. All rights reserved.
 //
 
-#import "EntryTabViewController.h"
+#import "AIEntryTabViewController.h"
 #import "TextTableViewCell.h"
 
-@interface EntryTabViewController () {
+@interface AIEntryTabViewController () {
+
     NSArray *mEntryArray;
 }
 
 @end
 
-@implementation EntryTabViewController
+@implementation AIEntryTabViewController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
-    if (([[[UIDevice currentDevice] systemVersion] doubleValue] >= 7.0)) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-//        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
-
+    self.edgesForExtendedLayout = UIRectEdgeNone;
 //    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     self.tableView.separatorInset = UIEdgeInsetsZero;
     self.tableView.separatorColor = [UIColor orangeColor];
@@ -45,19 +41,7 @@
     mEntryArray = @[
             @{@"Name": @"LinearLayoutViewController", @"Vc": @"TestLinearLayoutViewController"},
             @{@"Name": @"SubscribeViewController", @"Vc": @"SubscribeViewController"},
-            @{@"Name": @"StickyCollectionViewController", @"Vc": @"StickyCollectionViewController"},
-            @{@"Name": @"PickerViewController", @"Vc": @"PickerViewController", @"Nib": @"PickerViewController"},
-            @{@"Name": @"UikitTestViewController", @"Vc": @"UikitTestViewController"},
-            @{@"Name": @"UserDefaultsViewController", @"Vc": @"UserDefaultsViewController", @"Nib": @"UserDefaultsViewController"},
-            @{@"Name": @"CustomCollectionViewController", @"Vc": @"CustomCollectionViewController"},
-            @{@"Name": @"MasonryTestViewController", @"Vc": @"MasonryTestViewController"},
-            @{@"Name": @"TestCollectionViewController", @"Vc": @"TestCollectionViewController"},
-            @{@"Name": @"Test LeftFlowCollection", @"Vc": @"TestFlowCollectionViewController"},
-            @{@"Name": @"ArtistListViewController", @"Vc": @"ArtistListViewController"},
-            @{@"Name": @"YYTextTestViewController", @"Vc": @"YYTextTestViewController"},
-            @{@"Name": @"PostTableViewController", @"Vc": @"PostTableViewController"},
-            @{@"Name": @"CoordinatorLayoutTest", @"Vc": @"CoordinatorLayoutTestViewController"},
-            @{@"Name": @"CoordinatorLayoutTestTab", @"Vc": @"CoordinatorLayoutTestTabViewController"}
+            @{@"Name": @"Core ML MobileNet", @"Vc": @"CoreMLMobileNetViewController"}
     ];
 
 }
