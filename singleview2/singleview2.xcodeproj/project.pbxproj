@@ -47,6 +47,7 @@
 		19DD3BF4AE53495E71E69B77 /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33FBB3F06821C476843B /* SearchResultController.m */; };
 		19DD3BFDB43DEA83F51F4662 /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */; };
 		19DD3CADDC04DB6CF2E2B338 /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3F7CB7B197AACE4B0993 /* SwitchViewController.m */; };
+		19DD3CC6218C01AD17AFCD4A /* AppGlobalUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3A99985C7B0E18387E76 /* AppGlobalUI.m */; };
 		19DD3D7D15FC2E22FD9FA726 /* EntryTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3E5849807BA2501D5051 /* EntryTabViewController.m */; };
 		19DD3E1CE5C1A5C4E1B1EED8 /* NameAndColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD347E2879F0FB243A359B /* NameAndColorCell.m */; };
 		19DD3E5F012285184B1F3C12 /* TagCellLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33CCCD6D0DD63BE6F2C0 /* TagCellLayout.m */; };
@@ -177,8 +178,10 @@
 		19DD398A48524E2F900C6B8D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		19DD39B78D6BDCE40174EA12 /* OperateSuccessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperateSuccessView.m; sourceTree = "<group>"; };
 		19DD39C53B1537612522E188 /* StickyPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyPersonCell.h; sourceTree = "<group>"; };
+		19DD39E887674B49DA4B54E8 /* AppGlobalUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppGlobalUI.h; sourceTree = "<group>"; };
 		19DD3A11E663419DE358D851 /* ContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentCell.h; sourceTree = "<group>"; };
 		19DD3A34601D91AAEA144E26 /* CFTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFTool.h; sourceTree = "<group>"; };
+		19DD3A99985C7B0E18387E76 /* AppGlobalUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppGlobalUI.m; sourceTree = "<group>"; };
 		19DD3C08706F84A4D5C6EFAA /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
 		19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Calculator.m"; sourceTree = "<group>"; };
 		19DD3C4E6FCF9245BC4BCB01 /* SimpleLinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleLinearLayout.h; sourceTree = "<group>"; };
@@ -436,8 +439,12 @@
 		19DD39E25D7FA8D68E7BC22A /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2A5572242024BD1B00F1083C /* UIImage+Utils.h */,
+				2A5572252024BD1B00F1083C /* UIImage+Utils.m */,
 				19DD30A884721626D468326F /* UIColor+String.m */,
 				19DD300ED600DA70E41094A0 /* UIColor+String.h */,
+				19DD3A99985C7B0E18387E76 /* AppGlobalUI.m */,
+				19DD39E887674B49DA4B54E8 /* AppGlobalUI.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -538,8 +545,6 @@
 		2A55721E2024BAD400F1083C /* CoreML */ = {
 			isa = PBXGroup;
 			children = (
-				2A5572242024BD1B00F1083C /* UIImage+Utils.h */,
-				2A5572252024BD1B00F1083C /* UIImage+Utils.m */,
 				2A55721F2024BAF100F1083C /* CoreMLMobileNetViewController.h */,
 				2A5572202024BAF100F1083C /* CoreMLMobileNetViewController.m */,
 			);
@@ -909,6 +914,7 @@
 				19DD3702EE3F3CBE5AA2D14C /* SubscribeViewModel.m in Sources */,
 				19DD3FC02CBB864A3184F48B /* NSString+EmailAdditions.m in Sources */,
 				19DD322764FF51D2BE88B8F3 /* UIView+Toast.m in Sources */,
+				19DD3CC6218C01AD17AFCD4A /* AppGlobalUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

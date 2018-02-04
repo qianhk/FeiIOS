@@ -39,6 +39,10 @@
 
     [self.tableView registerNib:[UINib nibWithNibName:@"TextTableViewCell" bundle:nil] forCellReuseIdentifier:@"TextTableViewCell"];
 
+    if (@available(iOS 11.0, *)){
+//        _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+
     mEntryArray = @[
             @{@"Name": @"LinearLayoutViewController", @"Vc": @"TestLinearLayoutViewController"}
             , @{@"Name": @"SubscribeViewController", @"Vc": @"SubscribeViewController"}

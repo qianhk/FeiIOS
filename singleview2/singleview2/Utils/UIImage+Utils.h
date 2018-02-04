@@ -11,7 +11,13 @@
 
 @interface UIImage (Utils)
 
-- (UIImage *)scaleToSize:(CGSize)size;
+- (UIImage *)scaleToSize:(CGSize)targetSize;
+
+- (UIImage *)scaleWithScale:(float)scale;
+
+- (UIImage *)croppingForSize:(CGSize)targetSize;
+
+- (UIImage *)cutImageWithTargetSize:(CGSize)targetSize clipRect:(CGRect)rect;
 
 - (CVPixelBufferRef)pixelBufferFromCGImage:(UIImage *)image;
 
