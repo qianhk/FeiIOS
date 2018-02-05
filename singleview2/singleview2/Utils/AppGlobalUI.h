@@ -21,4 +21,6 @@
 
 + (BOOL)isCurrentViewControllerVisible:(UIViewController *)viewController;
 
++ (void)setOrientation:(UIInterfaceOrientation)orientation;
+
 @end

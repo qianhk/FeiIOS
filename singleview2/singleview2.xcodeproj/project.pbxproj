@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		19DD30087B7CFAAD52AA47E4 /* ContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD36A1D71E01AF83E208C4 /* ContentCell.m */; };
 		19DD3039B818F77C84081DCF /* KaiLayoutExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD35C43987F227D69D5940 /* KaiLayoutExt.m */; };
+		19DD3072145AFFBC8DEEC01A /* AppUINavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD31BD97360A69477DCFC5 /* AppUINavigationController.m */; };
 		19DD3089BCF35385264D1919 /* StickyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3F44AB13D9283FA8459E /* StickyCollectionViewController.m */; };
 		19DD30B5574E87EE5B6A965B /* HeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD34D6D63E5F65DC2E8979 /* HeaderCell.m */; };
 		19DD30BFE871A81403ABBF74 /* PostData.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3775789F06655320FAEC /* PostData.m */; };
@@ -117,10 +118,12 @@
 		19DD309F08D6D3736AEEA86B /* StickyHeaderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyHeaderInfo.h; sourceTree = "<group>"; };
 		19DD30A884721626D468326F /* UIColor+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+String.m"; sourceTree = "<group>"; };
 		19DD30C425E286DBC2EBC02A /* CoordinatorLayoutTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinatorLayoutTestViewController.h; sourceTree = "<group>"; };
+		19DD30D9FCDCC0B3219D86B2 /* AppUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUINavigationController.h; sourceTree = "<group>"; };
 		19DD30DD2FE79C0AD3F52D9F /* StickyHeaderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeaderInfo.m; sourceTree = "<group>"; };
 		19DD3103813FF8B83D737440 /* TextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextTableViewCell.xib; sourceTree = "<group>"; };
 		19DD313F3356C3C211265CF4 /* ArtistDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistDetailViewController.h; sourceTree = "<group>"; };
 		19DD3185741EBE9B03ED23F3 /* YYTextParserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextParserObject.h; sourceTree = "<group>"; };
+		19DD31BD97360A69477DCFC5 /* AppUINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUINavigationController.m; sourceTree = "<group>"; };
 		19DD31C6D9E8FF91C805F563 /* SubscribeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribeViewModel.h; sourceTree = "<group>"; };
 		19DD31FA4E6F39FD7DF2249D /* KVCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVCModel.m; sourceTree = "<group>"; };
 		19DD322307A68FDFF2E13D33 /* KVCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVCModel.h; sourceTree = "<group>"; };
@@ -691,6 +694,8 @@
 				19DD342A3BE4E31281D354AA /* YYText */,
 				19DD3DED89743E7CE567FE6A /* AIEntryTabViewController.m */,
 				19DD39CE30D1845F861CA8F7 /* AIEntryTabViewController.h */,
+				19DD31BD97360A69477DCFC5 /* AppUINavigationController.m */,
+				19DD30D9FCDCC0B3219D86B2 /* AppUINavigationController.h */,
 			);
 			path = singleview2;
 			sourceTree = "<group>";
@@ -747,7 +752,7 @@
 				ORGANIZATIONNAME = Njnu;
 				TargetAttributes = {
 					D9CE40A714FB8F1000E6FD79 = {
-						DevelopmentTeam = A27YPEY3N3;
+						DevelopmentTeam = P8232VD523;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.WAC = {
@@ -927,6 +932,7 @@
 				19DD3CC6218C01AD17AFCD4A /* AppGlobalUI.m in Sources */,
 				19DD357A98EE43402DE71999 /* BaseImageRecognitionViewController.m in Sources */,
 				19DD32D6459F7174AB9BF233 /* AIEntryTabViewController.m in Sources */,
+				19DD3072145AFFBC8DEEC01A /* AppUINavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1010,12 +1016,12 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = A27YPEY3N3;
+				DEVELOPMENT_TEAM = P8232VD523;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleview2/singleview2-Prefix.pch";
 				INFOPLIST_FILE = "singleview2/singleview2-Info.plist";
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ttpod.singleview2-2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ttpod.singleview2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
@@ -1031,11 +1037,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = A27YPEY3N3;
+				DEVELOPMENT_TEAM = P8232VD523;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "singleview2/singleview2-Prefix.pch";
 				INFOPLIST_FILE = "singleview2/singleview2-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ttpod.singleview2-2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ttpod.singleview2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;

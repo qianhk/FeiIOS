@@ -8,6 +8,7 @@
 #import "CFTool.h"
 #import "SimpleLinearLayout.h"
 #import "KaiLayoutExt.h"
+#import "AppGlobalUI.h"
 
 @interface TestLinearLayoutViewController ()
 
@@ -385,5 +386,21 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+//    NSNumber *orientationUnknown = [NSNumber numberWithInt:UIInterfaceOrientationUnknown];
+//    [[UIDevice currentDevice] setValue:orientationUnknown forKey:@"orientation"];
+//
+//    NSNumber *orientationTarget = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
+//    [[UIDevice currentDevice] setValue:orientationTarget forKey:@"orientation"];
+
+    [AppGlobalUI setOrientation:UIInterfaceOrientationLandscapeLeft];
+}
+
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskAll;
+}
 
 @end

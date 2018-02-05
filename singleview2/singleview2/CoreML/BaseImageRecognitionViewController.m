@@ -68,7 +68,7 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     picker.delegate = self;
-    picker.allowsEditing = YES;
+    picker.allowsEditing = NO;
     [self presentViewController:picker animated:YES completion:nil];
 }
 
@@ -351,6 +351,19 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didDropSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
 
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [AppGlobalUI setOrientation:UIInterfaceOrientationPortrait];
+}
+
+//- (BOOL)shouldAutorotate {
+//    return NO; //不能禁止旋转，不然如果从横屏进来，通过AppGlobalUI setOrientation也无法改变方向
+//}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait; //允许旋转，但只开启这一个方向
 }
 
 - (void)dealloc {

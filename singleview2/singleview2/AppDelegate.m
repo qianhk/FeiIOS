@@ -8,8 +8,8 @@
 
 #import "AppDelegate.h"
 
-#import "SwitchViewController.h"
 #import "MainTabBarViewController.h"
+#import "AppUINavigationController.h"
 
 @interface AppDelegate () <UINavigationControllerDelegate>
 @end
@@ -20,15 +20,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
 
     BOOL useNavi = YES;
 
-//    self.viewController = [[SwitchViewController alloc] initWithNibName:@"SwitchViewController" bundle:nil];
     self.viewController = [[MainTabBarViewController alloc] init];
 
     if (useNavi) {
-        self.navController = [[UINavigationController alloc] init];
+        self.navController = [[AppUINavigationController alloc] init];
         self.navController.delegate = self;
         self.viewController.title = @"KaiPractice";
         [self.navController pushViewController:self.viewController animated:YES];
