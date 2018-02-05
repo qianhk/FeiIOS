@@ -77,7 +77,7 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         picker.delegate = self;
-        picker.allowsEditing = YES;
+        picker.allowsEditing = NO;
         if ([self checkCamera]) {
             [self presentViewController:picker animated:YES completion:nil];
         } else {
