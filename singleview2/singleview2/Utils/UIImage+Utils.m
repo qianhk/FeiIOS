@@ -18,14 +18,14 @@
 - (UIImage *)imageByScaleWithScale:(float)scale {
     CGFloat targetWidth = self.size.width * scale;
     CGFloat targetHeight = self.size.height * scale;
-    UIGraphicsBeginImageContext(CGSizeMake(targetWidth, targetHeight));
+    UIGraphicsBeginImageContextWithOptions(CGSizeMake(targetWidth, targetHeight), YES, [UIScreen mainScreen].scale);
     [self drawInRect:CGRectMake(0, 0, targetWidth, targetHeight)];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return newImage;
 }
 
-- (UIImage *)imageByClipToSize:(CGSize)targetSize {
+- (CGRect)getImageMiddleSquareRect:(CGSize)targetSize {
     CGSize selfSize = self.size;
     CGFloat widthFactor = targetSize.width / selfSize.width;
     CGFloat heightFactor = targetSize.height / selfSize.height;
@@ -39,7 +39,12 @@
         retainHeight = retainWidth * targetSize.height / targetSize.width;
         point.y = (selfSize.height - retainHeight) / 2;
     }
-    return [self imageByClipToSize:targetSize withClipRect:CGRectMake(point.x, point.y, retainWidth, retainHeight)];
+    return CGRectMake(point.x, point.y, retainWidth, retainHeight);
+}
+
+- (UIImage *)imageByClipToSize:(CGSize)targetSize usingScreenScale:(BOOL)usingScreenScale {
+    CGRect imageDestRect = [self getImageMiddleSquareRect:targetSize];
+    return [self imageByClipToSize:targetSize withClipRect:imageDestRect usingScreenScale:usingScreenScale];
 }
 
 //此方法与imageByClipToSize效果一样
@@ -72,7 +77,7 @@
         }
     }
 
-    UIGraphicsBeginImageContext(targetSize);
+    UIGraphicsBeginImageContextWithOptions(targetSize, YES, [UIScreen mainScreen].scale);
     CGRect thumbnailRect = CGRectZero;
     thumbnailRect.origin = thumbnailPoint;
     thumbnailRect.size.width = scaledWidth;
@@ -83,13 +88,17 @@
     return newImage;
 }
 
-- (UIImage *)imageByClipToSize:(CGSize)targetSize withClipRect:(CGRect)rect {
+- (UIImage *)imageByClipToSize:(CGSize)targetSize withClipRect:(CGRect)rect usingScreenScale:(BOOL)usingScreenScale {
     CGSize rectSize = rect.size;
     CGFloat scale_width = targetSize.width / rectSize.width;
     CGFloat scale_height = targetSize.height / rectSize.height;
     CGRect destRect = CGRectMake(-rect.origin.x * scale_width, -rect.origin.y * scale_height,
             self.size.width * scale_width, self.size.height * scale_height);
-    UIGraphicsBeginImageContext(targetSize);
+    if (usingScreenScale) {
+        UIGraphicsBeginImageContextWithOptions(targetSize, YES, [UIScreen mainScreen].scale);
+    } else {
+        UIGraphicsBeginImageContext(targetSize);
+    }
     [self drawInRect:destRect];
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -149,6 +158,31 @@
     CGColorSpaceRelease(colorSpace);
     CVPixelBufferUnlockBaseAddress(imageBuffer, 0);
     /* CVBufferRelease(imageBuffer); */  // do not call this!
+
+    return newImage;
+}
+
+- (UIImage *)imageByMiddleSquareSideToShortSizeSide:(CGSize)targetSize {
+    CGSize middleViewSize = CGSizeMake(100, 100);
+    CGRect imageDestRect = [self getImageMiddleSquareRect:middleViewSize];
+
+    UIImage *newImage = nil;
+    CGFloat factor;
+    CGFloat drawWidth;
+    CGFloat drawHeight;
+    CGSize selfSize = self.size;
+    if (targetSize.width < targetSize.height) {
+        factor = targetSize.width / imageDestRect.size.width;
+        drawWidth = selfSize.width * factor;
+        drawHeight = selfSize.height * factor;
+        CGRect destRect = CGRectMake(-imageDestRect.origin.x * factor, (targetSize.height - drawHeight) / 2, drawWidth, drawHeight);
+        UIGraphicsBeginImageContextWithOptions(targetSize, YES, [UIScreen mainScreen].scale);
+        [self drawInRect:destRect];
+        newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    } else {
+        newImage = [UIImage imageNamed:@"AppIcon"];
+    }
 
     return newImage;
 }

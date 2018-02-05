@@ -13,4 +13,6 @@
 
 - (void)flushResult:(NSString *)result withImage:(UIImage *)image;
 
+- (UIImage *)dealOriginalImage:(UIImage *)oriImage toSize:(CGSize)size;
+
 @end

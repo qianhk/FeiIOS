@@ -29,7 +29,7 @@
 }
 
 - (NSString *)imageRecognitionByImage:(UIImage *)image {
-    UIImage *scaledImage = [image imageByClipToSize:CGSizeMake(224, 224)]; //75ms 图片1080*1920
+    UIImage *scaledImage = [image imageByClipToSize:CGSizeMake(224, 224) usingScreenScale:NO]; //75ms 图片1080*1920
     return [self imageRecognitionByScaledImage:scaledImage];
 }
 
@@ -52,9 +52,14 @@
 }
 
 - (void)didCaptureImage:(UIImage *)captureImage {
-    UIImage *scaledImage = [captureImage imageByClipToSize:CGSizeMake(224, 224)]; //75ms 图片1080*1920
+    UIImage *scaledImage = [captureImage imageByClipToSize:CGSizeMake(224, 224) usingScreenScale:NO]; //75ms 图片1080*1920
     NSString *result = [self imageRecognitionByScaledImage:scaledImage];
     [self flushResult:result withImage:scaledImage];
 }
+
+- (UIImage *)dealOriginalImage:(UIImage *)oriImage toSize:(CGSize)size {
+    return [oriImage imageByMiddleSquareSideToShortSizeSide:size];
+}
+
 
 @end

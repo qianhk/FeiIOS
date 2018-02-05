@@ -68,7 +68,7 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     picker.delegate = self;
-    picker.allowsEditing = NO;
+    picker.allowsEditing = YES;
     [self presentViewController:picker animated:YES completion:nil];
 }
 
@@ -122,7 +122,7 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
 //            imageSize.width = 320;
         }
         self.showingStaticPictureInfo = YES;
-        self.previewImageView.image = captureImage;
+        self.previewImageView.image = [self dealOriginalImage:captureImage toSize:self.previewImageView.frame.size];
         [self.previewLayer removeFromSuperlayer];
         @weakify(self)
         dispatch_sync(self.imageRecognitionQueue, ^{
@@ -267,8 +267,8 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
     CGFloat midY = CGRectGetMidY(middleRect);
     middleRect.size.height = middleRect.size.width;
     middleRect.origin.y = midY - middleRect.size.width / 2;
-    middleRect.origin.x += 4;
-    middleRect.size.width -= 8;
+    middleRect.origin.x += 2;
+    middleRect.size.width -= 4;
     CALayer *promptLayer = [[CALayer alloc] init];
     promptLayer.frame = middleRect;
     promptLayer.borderColor = [UIColor greenColor].CGColor;
@@ -347,6 +347,10 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
         self.resultLabel.text = result;
         self.aiLookImageView.image = image;
     });
+}
+
+- (UIImage *)dealOriginalImage:(UIImage *)oriImage toSize:(CGSize)size {
+    return oriImage;
 }
 
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didDropSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
