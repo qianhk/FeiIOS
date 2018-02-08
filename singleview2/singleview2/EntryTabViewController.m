@@ -39,6 +39,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"TextTableViewCell" bundle:nil] forCellReuseIdentifier:@"TextTableViewCell"];
 
     if (@available(iOS 11.0, *)) {
+        //UIScrollViewContentInsetAdjustmentNever 尽量不要用这个，影响safeArea。
+        //https://www.jianshu.com/p/82b692af6858
 //        _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
 
