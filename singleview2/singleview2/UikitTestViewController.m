@@ -11,17 +11,22 @@
 #import <objc/runtime.h>
 #import <RegexKitLite/RegexKitLite.h>
 
+#import "UIView+Toast.h"
+
 #import "UikitTestViewController.h"
 #import "NSObject+Calculator.h"
 #import "CalculatorMaker.h"
 #import "Calculator.h"
 #import "ArtistData.h"
+#import "AnimationView.h"
 
 @interface UikitTestViewController ()
 
 @property (nonatomic, strong) RACCommand *command;
 
-@property (nonatomic, strong) UIView *translateView;
+@property (nonatomic, strong) AnimationView *translateView;
+@property (nonatomic, assign) BOOL animating;
+@property (nonatomic, assign) BOOL animationPaused;
 
 @end
 
@@ -32,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor greenColor];
+    self.view.backgroundColor = [UIColor lightGrayColor];
     // Do any additional setup after loading the view.
 //    [self addMask];
     [self addMask2];
@@ -518,12 +523,24 @@ static int TOP = 64;
     CGFloat myViewH = 100;
     CGFloat myViewX = (SCREEN_WIDTH - myViewW) / 2;
     CGFloat myViewY = (SCREEN_HEIGHT - myViewH) / 2;
-    self.translateView = [[UIView alloc] initWithFrame:CGRectMake(myViewX, myViewY, myViewW, myViewH)];
+    self.translateView = [[AnimationView alloc] initWithFrame:CGRectMake(myViewX, myViewY, myViewW, myViewH)];
     [self.view addSubview:self.translateView];
     self.translateView.backgroundColor = [UIColor greenColor];
+    self.translateView.userInteractionEnabled = YES;
+    
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapTranslateView:)];
+//    tapGes.numberOfTapsRequired = 1;
+//    tapGes.numberOfTouchesRequired = 1;
+//    tapGes.cancelsTouchesInView = YES;
+//    tapGes.delaysTouchesEnded = NO;
+    [self.translateView addGestureRecognizer:tapGes];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+- (void)onTapTranslateView:(id)sender {
+    [self.view makeToast:@"onTap TranslateView" duration:0.5f];
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 
 //    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
 //    animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(0, SCREEN_HEIGHT / 2 - 75)];
@@ -533,20 +550,33 @@ static int TOP = 64;
 //    //anima.removedOnCompletion = NO;
 //    [self.translateView.layer addAnimation:animation forKey:@"positionAnimation"];
 
-    CGFloat myViewW = 100;
-    CGFloat myViewH = 100;
-    CGFloat myViewX = (0 - myViewW) / 2;
-    CGFloat myViewY = (SCREEN_HEIGHT - myViewH) / 2;
-    self.translateView.frame = CGRectMake(myViewX, myViewY, myViewW, myViewH);
-
-    [UIView animateWithDuration:5.f
-                          delay:0
-                        options:UIViewAnimationOptionCurveLinear
-                     animations:^{
-                         CGFloat myViewXEnd = SCREEN_WIDTH;
-                         self.translateView.frame = CGRectMake(myViewXEnd, myViewY, myViewW, myViewH);
-                     } completion:^(BOOL finished){
-            }];
+    if (self.animating) {
+        if (self.animationPaused) {
+            [self resumeLayer:self.translateView.layer];
+        } else {
+            [self pauseLayer:self.translateView.layer];
+        }
+        self.animationPaused = !self.animationPaused;
+    } else {
+        CGFloat myViewW = 100;
+        CGFloat myViewH = 100;
+        CGFloat myViewX = (0 - myViewW) / 2;
+        CGFloat myViewY = (SCREEN_HEIGHT - myViewH) / 2;
+        self.translateView.frame = CGRectMake(myViewX, myViewY, myViewW, myViewH);
+        self.animating = YES;
+        self.animationPaused = NO;
+        
+        [UIView animateWithDuration:8.f
+                              delay:0
+                            options:UIViewAnimationOptionCurveLinear
+                         animations:^{
+                             CGFloat myViewXEnd = SCREEN_WIDTH;
+                             self.translateView.frame = CGRectMake(myViewXEnd - 50, myViewY, myViewW, myViewH);
+                         } completion:^(BOOL finished){
+                             self.animating = NO;
+                         }];
+    }
+    
 
 }
 

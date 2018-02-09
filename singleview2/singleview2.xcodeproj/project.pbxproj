@@ -47,6 +47,7 @@
 		19DD3B12AAB2D3F104CF4B69 /* CustomCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD397DECACEA625586A2AD /* CustomCollectionViewController.m */; };
 		19DD3B51F05B1CE1C5C7B6B9 /* TestLinearLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD393DEF9081909916D85D /* TestLinearLayoutViewController.m */; };
 		19DD3B5358B0883672263EDF /* CoordinatorLayoutTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3DC826679B40A9ECAF71 /* CoordinatorLayoutTestViewController.m */; };
+		19DD3B6FCAE758EBA103D691 /* AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD30AD4BF95AA588A6735D /* AnimationView.m */; };
 		19DD3BF4AE53495E71E69B77 /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33FBB3F06821C476843B /* SearchResultController.m */; };
 		19DD3BFDB43DEA83F51F4662 /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */; };
 		19DD3CADDC04DB6CF2E2B338 /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3F7CB7B197AACE4B0993 /* SwitchViewController.m */; };
@@ -117,6 +118,7 @@
 		19DD309D2C50688F68072FC4 /* MyDrawerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDrawerView.h; sourceTree = "<group>"; };
 		19DD309F08D6D3736AEEA86B /* StickyHeaderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyHeaderInfo.h; sourceTree = "<group>"; };
 		19DD30A884721626D468326F /* UIColor+String.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+String.m"; sourceTree = "<group>"; };
+		19DD30AD4BF95AA588A6735D /* AnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationView.m; sourceTree = "<group>"; };
 		19DD30C425E286DBC2EBC02A /* CoordinatorLayoutTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinatorLayoutTestViewController.h; sourceTree = "<group>"; };
 		19DD30D9FCDCC0B3219D86B2 /* AppUINavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppUINavigationController.h; sourceTree = "<group>"; };
 		19DD30DD2FE79C0AD3F52D9F /* StickyHeaderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeaderInfo.m; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		19DD3639270FEEF858CD2455 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		19DD3684D771E0CAEA878FB4 /* YYTextParserObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextParserObject.m; sourceTree = "<group>"; };
 		19DD36A1D71E01AF83E208C4 /* ContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentCell.m; sourceTree = "<group>"; };
+		19DD36EC7AD811CC188A723C /* AnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationView.h; sourceTree = "<group>"; };
 		19DD3726D66A567F46388565 /* UICollectionViewLeftFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftFlowLayout.m; sourceTree = "<group>"; };
 		19DD372B937EC22B6EC9A2DC /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		19DD37655F771667828F37CF /* WMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMButton.m; sourceTree = "<group>"; };
@@ -471,6 +474,8 @@
 				19DD34264A2C4FFE772E01A0 /* WMButton.h */,
 				19DD372B937EC22B6EC9A2DC /* UIView+Toast.h */,
 				19DD3DBE461D96C50FF69B26 /* UIView+Toast.m */,
+				19DD30AD4BF95AA588A6735D /* AnimationView.m */,
+				19DD36EC7AD811CC188A723C /* AnimationView.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -933,6 +938,7 @@
 				19DD357A98EE43402DE71999 /* BaseImageRecognitionViewController.m in Sources */,
 				19DD32D6459F7174AB9BF233 /* AIEntryTabViewController.m in Sources */,
 				19DD3072145AFFBC8DEEC01A /* AppUINavigationController.m in Sources */,
+				19DD3B6FCAE758EBA103D691 /* AnimationView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
