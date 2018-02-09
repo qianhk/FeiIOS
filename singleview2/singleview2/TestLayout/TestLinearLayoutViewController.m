@@ -395,7 +395,7 @@
 //    NSNumber *orientationTarget = [NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft];
 //    [[UIDevice currentDevice] setValue:orientationTarget forKey:@"orientation"];
 
-    [AppGlobalUI setOrientation:UIInterfaceOrientationLandscapeLeft];
+//    [AppGlobalUI setOrientation:UIInterfaceOrientationLandscapeLeft];
 }
 
 

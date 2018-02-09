@@ -21,6 +21,8 @@
 
 @property (nonatomic, strong) RACCommand *command;
 
+@property (nonatomic, strong) UIView *translateView;
+
 @end
 
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
@@ -62,7 +64,7 @@
     NSLog(@"functional calculator result=%d equal=%@", c.result, c.isEqual ? @"YES" : @"NO");
 
     NSLog(@"\nmain thread mainT=%d tip=%p", [NSThread currentThread].isMainThread, [NSThread currentThread]);
-    
+
     // 1.创建信号
     RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id <RACSubscriber> subscriber) {
 
@@ -276,6 +278,8 @@
     long long ts = ti * 1000; //由于ti是double，可以计算出毫秒来，后面并不是000
     long long tsws = ti * 1000 * 1000;
     long long tsns = ti * 1000 * 1000 * 1000;
+
+    [self viewDidLoad2];
 }
 
 - (CGFloat)redWithColor:(UIColor *)color {
@@ -377,7 +381,7 @@
     NSData *data = [modelStr dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *modelDic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     NSLog(@"new model dic: %@", modelDic);
-    
+
     NSString *ab = [@"http%3a%2f%2fdotwe.org%2fraw%2fdist%2f844f3bab6125b81324040e2560230969.bundle.wx%3fwh_weex%3dtrue" stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *de = [@"好人" stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
@@ -506,6 +510,59 @@ static int TOP = 64;
 //        NSString *lable = [x string]; //直接用，不能转 [__NSCFConstantString string]: unrecognized selector sent to instance 0x1000c53b0
         NSLog(@"button3 property changed use RACObserve text %@ class=%@", x, [x class]);
     }];
+}
+
+- (void)viewDidLoad2 {
+
+    CGFloat myViewW = 100;
+    CGFloat myViewH = 100;
+    CGFloat myViewX = (SCREEN_WIDTH - myViewW) / 2;
+    CGFloat myViewY = (SCREEN_HEIGHT - myViewH) / 2;
+    self.translateView = [[UIView alloc] initWithFrame:CGRectMake(myViewX, myViewY, myViewW, myViewH)];
+    [self.view addSubview:self.translateView];
+    self.translateView.backgroundColor = [UIColor greenColor];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+
+//    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
+//    animation.fromValue = [NSValue valueWithCGPoint:CGPointMake(0, SCREEN_HEIGHT / 2 - 75)];
+//    animation.toValue = [NSValue valueWithCGPoint:CGPointMake(SCREEN_WIDTH, SCREEN_HEIGHT / 2 - 75)];
+//    animation.duration = 5.0f;
+//    //anima.fillMode = kCAFillModeForwards;
+//    //anima.removedOnCompletion = NO;
+//    [self.translateView.layer addAnimation:animation forKey:@"positionAnimation"];
+
+    CGFloat myViewW = 100;
+    CGFloat myViewH = 100;
+    CGFloat myViewX = (0 - myViewW) / 2;
+    CGFloat myViewY = (SCREEN_HEIGHT - myViewH) / 2;
+    self.translateView.frame = CGRectMake(myViewX, myViewY, myViewW, myViewH);
+
+    [UIView animateWithDuration:5.f
+                          delay:0
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         CGFloat myViewXEnd = SCREEN_WIDTH;
+                         self.translateView.frame = CGRectMake(myViewXEnd, myViewY, myViewW, myViewH);
+                     } completion:^(BOOL finished){
+            }];
+
+}
+
+- (void)pauseLayer:(CALayer *)layer {
+    CFTimeInterval pausedTime = [layer convertTime:CACurrentMediaTime() fromLayer:nil];
+    layer.speed = 0.0;
+    layer.timeOffset = pausedTime;
+}
+
+- (void)resumeLayer:(CALayer *)layer {
+    CFTimeInterval pausedTime = [layer timeOffset];
+    layer.speed = 1.0;
+    layer.timeOffset = 0.0;
+    layer.beginTime = 0.0;
+    CFTimeInterval timeSincePause = [layer convertTime:CACurrentMediaTime() fromLayer:nil] - pausedTime;
+    layer.beginTime = timeSincePause;
 }
 
 @end
