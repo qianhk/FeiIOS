@@ -2,7 +2,7 @@
 //  MasonryTestViewController.m
 //  singleview2
 //
-//  Created by 钱红凯 on 2017/5/16.
+//  Created by kai on 2017/5/16.
 //  Copyright © 2017年 Njnu. All rights reserved.
 //
 

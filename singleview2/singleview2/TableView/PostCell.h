@@ -2,7 +2,7 @@
 //  PostCell.h
 //  singleview2
 //
-//  Created by 钱红凯 on 2017/8/15.
+//  Created by kai on 2017/8/15.
 //  Copyright © 2017年 Njnu. All rights reserved.
 //
 
