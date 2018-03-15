@@ -49,6 +49,7 @@
             @{@"Name": @"SubscribeViewController", @"Vc": @"SubscribeViewController"},
             @{@"Name": @"StickyCollectionViewController", @"Vc": @"StickyCollectionViewController"},
             @{@"Name": @"PickerViewController", @"Vc": @"PickerViewController", @"Nib": @"PickerViewController"},
+            @{@"Name": @"LabelUIViewController", @"Vc": @"LabelUIViewController", @"Nib":@"LabelUIViewController"},
             @{@"Name": @"UikitTestViewController", @"Vc": @"UikitTestViewController"},
             @{@"Name": @"UserDefaultsViewController", @"Vc": @"UserDefaultsViewController", @"Nib": @"UserDefaultsViewController"},
             @{@"Name": @"CustomCollectionViewController", @"Vc": @"CustomCollectionViewController"},
