@@ -21,6 +21,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setValue:@"value_1" forKey:@"key_1"];
+    [dict setValue:nil forKey:@"key_null"];
+   // [dict setValue:@"key_null_value" forKey:nil]; //'NSInvalidArgumentException', reason: '*** -[__NSDictionaryM setObject:forKey:]: key cannot be nil'
+//    [dict setValue:@"value_selector" forKey:@selector(fontSizeSelector)];
+    [dict setValue:@"value_3" forKey:@"key_3"];
+    NSString *testKey = @"abc";
+    id value = dict[testKey];
+    testKey = nil;
+    value = dict[testKey];
+
 }
 
 - (IBAction)sizeChanged:(UISlider *)sender {
