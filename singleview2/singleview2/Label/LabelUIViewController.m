@@ -40,6 +40,18 @@
     testKey = nil;
     value = dict[testKey];
 
+    long n = 30;
+    NSArray *list = @[@(10),@(20),@(30),@(40)];
+    int which = list.count;
+    for (int idx = 0; idx < list.count; ++idx) {
+        NSNumber *itemValue = list[idx];
+        if (n <= [itemValue longValue]) { //不能用n <= itemValue，30根itemValue的地址比较肯定小的很
+            which = idx + 1;
+            break;
+        }
+    }
+    NSLog(@"which = %d", which);
+
     self.textLabel6.text = @"中文Label好人一生平安\nabc\ndef";
 
     self.textLabel.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:80 andHeight:1 forDirection:NO];
