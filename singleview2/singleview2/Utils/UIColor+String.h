@@ -11,4 +11,6 @@
 + (UIColor *)colorWithColorName:(NSString *)colorName;
 + (UIColor *)colorWithString:(NSString *)string;
 
++ (UIColor *)gradientFromColor:(UIColor *)c1 toColor:(UIColor *)c2 withWidth:(CGFloat)width andHeight:(CGFloat)height forDirection:(BOOL)vertical;
+
 @end

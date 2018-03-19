@@ -70,11 +70,7 @@ static NSDictionary<NSString *, UIColor *> *sColorMap;
 
 + (void)prepareColorName {
     sColorMap = @{
-            @"Orange": [UIColor orangeColor]
-            , @"Red": [UIColor redColor]
-            , @"Green": [UIColor greenColor]
-            , @"Blue": [UIColor blueColor]
-            , @"Cyan": [UIColor cyanColor]
+            @"Orange": [UIColor orangeColor], @"Red": [UIColor redColor], @"Green": [UIColor greenColor], @"Blue": [UIColor blueColor], @"Cyan": [UIColor cyanColor]
     };
 //    @property(class, nonatomic, readonly) UIColor *blackColor;      // 0.0 white
 //    @property(class, nonatomic, readonly) UIColor *darkGrayColor;   // 0.333 white
@@ -99,6 +95,25 @@ static NSDictionary<NSString *, UIColor *> *sColorMap;
     unsigned hexComponent;
     [[NSScanner scannerWithString:fullHex] scanHexInt:&hexComponent];
     return hexComponent / 255.0;
+}
+
++ (UIColor *)gradientFromColor:(UIColor *)c1 toColor:(UIColor *)c2 withWidth:(CGFloat)width andHeight:(CGFloat)height forDirection:(BOOL)vertical {
+    CGSize size = CGSizeMake(width, height);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+
+    NSArray *colors = @[(id) c1.CGColor, (id) c2.CGColor];
+    CGGradientRef gradient = CGGradientCreateWithColors(colorspace, (__bridge CFArrayRef) colors, NULL);
+    CGContextDrawLinearGradient(context, gradient, CGPointMake(0, 0), CGPointMake(vertical ? 0 : size.width, vertical ? size.height : 0), 0);
+
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+
+    CGGradientRelease(gradient);
+    CGColorSpaceRelease(colorspace);
+    UIGraphicsEndImageContext();
+
+    return [UIColor colorWithPatternImage:image];
 }
 
 @end

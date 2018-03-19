@@ -8,12 +8,19 @@
 
 #import "LabelUIViewController.h"
 #import "CustomLabel.h"
+#import "UIColor+String.h"
 
 @interface LabelUIViewController () {
     CGFloat fontSize;
 }
 
 @property (weak, nonatomic) IBOutlet CustomLabel *textLabel;
+@property (weak, nonatomic) IBOutlet CustomLabel *textLabel1;
+@property (weak, nonatomic) IBOutlet CustomLabel *textLabel2;
+@property (weak, nonatomic) IBOutlet CustomLabel *textLabel3;
+@property (weak, nonatomic) IBOutlet CustomLabel *textLabel4;
+@property (weak, nonatomic) IBOutlet CustomLabel *textLabel5;
+@property (weak, nonatomic) IBOutlet CustomLabel *textLabel6;
 
 @end
 
@@ -33,6 +40,15 @@
     testKey = nil;
     value = dict[testKey];
 
+    self.textLabel6.text = @"中文Label好人一生平安\nabc\ndef";
+
+    self.textLabel.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:80 andHeight:1 forDirection:NO];
+    self.textLabel1.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:120 andHeight:1 forDirection:NO];
+    self.textLabel2.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:160 andHeight:1 forDirection:NO];
+    self.textLabel3.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:200 andHeight:1 forDirection:NO];
+    self.textLabel4.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:1 andHeight:20 forDirection:YES];
+    self.textLabel5.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:1 andHeight:37 forDirection:YES];
+    self.textLabel6.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:1 andHeight:20 forDirection:YES];
 }
 
 - (IBAction)sizeChanged:(UISlider *)sender {
