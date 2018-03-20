@@ -105,7 +105,9 @@ static NSDictionary<NSString *, UIColor *> *sColorMap;
 
     NSArray *colors = @[(id) c1.CGColor, (id) c2.CGColor];
     CGGradientRef gradient = CGGradientCreateWithColors(colorspace, (__bridge CFArrayRef) colors, NULL);
-    CGContextDrawLinearGradient(context, gradient, CGPointMake(0, 0), CGPointMake(vertical ? 0 : size.width, vertical ? size.height : 0), 0);
+    CGContextDrawLinearGradient(context, gradient, CGPointMake(40, 5), CGPointMake(vertical ? 5 : size.width - 5, vertical ? size.height - 5 : 5)
+                                , kCGGradientDrawsBeforeStartLocation|kCGGradientDrawsAfterEndLocation);
+//                                , 0);
 
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
 
