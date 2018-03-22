@@ -72,10 +72,14 @@
     CGFloat stepValue = 1;
 
     NSInteger value = floorf((sender.value + stepValue / 2) / stepValue) * stepValue;
-    NSArray *array = @[@"PingFangSC-Semibold", @"PingFangSC-Medium", @"PingFangSC-Regular", @"PingFangSC-Light", @"PingFangSC-Ultralight"];
+    NSArray *array = @[@"PingFangSC-Semibold1", @"PingFangSC-Medium2", @"PingFangSC-Regular3", @"PingFangSC-Light4", @"PingFangSC-Ultralight5"];
 
     sender.value = value;
-    self.textLabel.font = [UIFont fontWithName:(NSString *) array[value] size:fontSize];
+    UIFont *font = [UIFont fontWithName:(NSString *) array[value] size:fontSize];
+    if (font == nil) {
+        font = [UIFont systemFontOfSize:fontSize];
+    }
+    self.textLabel.font = font;
 }
 
 - (IBAction)stokeChanged:(UISlider *)sender {
