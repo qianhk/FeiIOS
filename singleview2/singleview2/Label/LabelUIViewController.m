@@ -57,10 +57,22 @@
     self.textLabel.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:80 andHeight:1 forDirection:NO];
     self.textLabel1.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:120 andHeight:1 forDirection:NO];
     self.textLabel2.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:160 andHeight:1 forDirection:NO];
-    self.textLabel3.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:200 andHeight:1 forDirection:NO];
-    self.textLabel4.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:1 andHeight:20 forDirection:YES];
-    self.textLabel5.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:1 andHeight:37 forDirection:YES];
-    self.textLabel6.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:1 andHeight:20 forDirection:YES];
+//    self.textLabel3.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:200 andHeight:1 forDirection:NO];
+//    self.textLabel4.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:1 andHeight:20 forDirection:YES];
+//    self.textLabel5.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:1 andHeight:37 forDirection:YES];
+//    self.textLabel6.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:1 andHeight:20 forDirection:YES];
+    
+    NSDictionary *dictStroke = @{
+                           NSStrokeColorAttributeName : [UIColor redColor],
+                           NSStrokeWidthAttributeName : @(-5),
+                           };
+    self.textLabel4.attributedText = [[NSAttributedString alloc] initWithString:@"中文Label好人一" attributes:dictStroke];
+    
+    dictStroke = @{
+                           NSStrokeColorAttributeName : [UIColor redColor],
+                           NSStrokeWidthAttributeName : @(5),
+                           };
+    self.textLabel5.attributedText = [[NSAttributedString alloc] initWithString:@"中文Label好人一" attributes:dictStroke];
 }
 
 - (IBAction)sizeChanged:(UISlider *)sender {
