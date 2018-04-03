@@ -73,6 +73,21 @@
                            NSStrokeWidthAttributeName : @(5),
                            };
     self.textLabel5.attributedText = [[NSAttributedString alloc] initWithString:@"中文Label好人一" attributes:dictStroke];
+    
+    NSNumber *nValue1 = @(12.1);
+    NSNumber *nValue2 = @(12.1f);
+    NSNumber *nValue3 = @(12.9f);
+    NSNumber *nValue4 = @(-12.1f);
+    NSInteger intValue1 = nValue1.integerValue;
+    NSInteger intValue2 = nValue2.integerValue;
+    NSInteger intValue3 = nValue3.integerValue;
+    NSInteger intValue4 = nValue4.integerValue;
+    NSUInteger uintValue1 = nValue1.unsignedIntegerValue;
+    NSUInteger uintValue2 = nValue2.unsignedIntegerValue;
+    NSUInteger uintValue3 = nValue3.unsignedIntegerValue;
+    NSUInteger uintValue4 = nValue4.unsignedIntegerValue;
+    NSLog(@"lookKai int %ld %ld %ld %ld", intValue1, intValue2, intValue3, intValue4);
+    NSLog(@"lookKai uint %lu %lu %lu %lu", uintValue1, uintValue2, uintValue3, uintValue4);
 }
 
 - (IBAction)sizeChanged:(UISlider *)sender {
