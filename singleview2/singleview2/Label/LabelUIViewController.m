@@ -9,6 +9,8 @@
 #import "LabelUIViewController.h"
 #import "CustomLabel.h"
 #import "UIColor+String.h"
+#import "NSObject+Utils.h"
+#import "NSInvocation+Improved.h"
 
 @interface LabelUIViewController () {
     CGFloat fontSize;
@@ -73,6 +75,24 @@
                            NSStrokeWidthAttributeName : @(5),
                            };
     self.textLabel5.attributedText = [[NSAttributedString alloc] initWithString:@"中文Label好人一" attributes:dictStroke];
+
+    NSString *testUrl = @"http://1.2.3.4:5678/xxx.html?id=123&text=%61%E5%87%AF%E5%87%AF%E6%B5%8B%E8%AF%95%E4%B8%AD%E6%96%87%62";
+    NSString *testUrl1_1 = [testUrl stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *testUrl1_2 = [testUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *testUrl2 = [testUrl1_1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+    NSMutableString *ms = [[NSMutableString alloc] init];
+    [ms appendFormat:@"first %d ", 1];
+    [ms performSelector:@selector(appendString:) withObjects:@[@"second 2 "]];
+//    NSInvocation *invocation = [NSInvocation invocationWithTarget:ms andSelector:@selector(appendString:) andArguments:@"second 2 ", nil];
+//    [invocation invoke];
+////    [ms performSelector:@selector(appendFormat:) withObjects:@[@"third %@ ", @(3)]];
+//    invocation = [NSInvocation invocationWithTarget:ms andSelector:@selector(appendFormat:) andArguments:@"third %@ ", @(3), nil];
+//    [invocation invoke];
+    
+    [ms appendFormat:@"fourth %d ", 4];
+    NSLog(ms);
+    NSLog(@"lookInvoke %@", ms);
     
     NSNumber *nValue1 = @(12.1);
     NSNumber *nValue2 = @(12.1f);
@@ -88,6 +108,7 @@
     NSUInteger uintValue4 = nValue4.unsignedIntegerValue;
     NSLog(@"lookKai int %ld %ld %ld %ld", intValue1, intValue2, intValue3, intValue4);
     NSLog(@"lookKai uint %lu %lu %lu %lu", uintValue1, uintValue2, uintValue3, uintValue4);
+
 }
 
 - (IBAction)sizeChanged:(UISlider *)sender {

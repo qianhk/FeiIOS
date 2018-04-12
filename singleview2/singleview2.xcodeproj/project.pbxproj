@@ -31,6 +31,7 @@
 		19DD35F32D58CA694658070B /* CalculatorMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD390963D60D7C86113D09 /* CalculatorMaker.m */; };
 		19DD3702EE3F3CBE5AA2D14C /* SubscribeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD32CF66963E64373CEC35 /* SubscribeViewModel.m */; };
 		19DD3721FFA82A7C2243E9BC /* StickyHeaderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD30DD2FE79C0AD3F52D9F /* StickyHeaderInfo.m */; };
+		19DD37405E5AEF4C24170374 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3E1E67BDD3D2E0C13C93 /* NSObject+Utils.m */; };
 		19DD3810B9A0002EC96A4767 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DD3639270FEEF858CD2455 /* CoreLocation.framework */; };
 		19DD3871B01154DA899885D2 /* YYTextParserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3684D771E0CAEA878FB4 /* YYTextParserObject.m */; };
 		19DD38DE90F47F4C1B8581C1 /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3C08706F84A4D5C6EFAA /* Calculator.m */; };
@@ -194,6 +195,7 @@
 		19DD3A11E663419DE358D851 /* ContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentCell.h; sourceTree = "<group>"; };
 		19DD3A34601D91AAEA144E26 /* CFTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFTool.h; sourceTree = "<group>"; };
 		19DD3A99985C7B0E18387E76 /* AppGlobalUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppGlobalUI.m; sourceTree = "<group>"; };
+		19DD3B3AA1D115A1905A0E29 /* NSObject+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Utils.h"; sourceTree = "<group>"; };
 		19DD3BFF87DE82FEE5D78D3A /* BaseImageRecognitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseImageRecognitionViewController.m; sourceTree = "<group>"; };
 		19DD3C08706F84A4D5C6EFAA /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
 		19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Calculator.m"; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 		19DD3DC826679B40A9ECAF71 /* CoordinatorLayoutTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinatorLayoutTestViewController.m; sourceTree = "<group>"; };
 		19DD3DD66AD1900D4B8A6DAF /* NameAndColorCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameAndColorCell2.xib; sourceTree = "<group>"; };
 		19DD3DED89743E7CE567FE6A /* AIEntryTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIEntryTabViewController.m; sourceTree = "<group>"; };
+		19DD3E1E67BDD3D2E0C13C93 /* NSObject+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Utils.m"; sourceTree = "<group>"; };
 		19DD3E2859B96C2CEFCEADC3 /* OperateSuccessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperateSuccessView.h; sourceTree = "<group>"; };
 		19DD3E48D1085ADD340DC4D3 /* TagCellLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagCellLayout.h; sourceTree = "<group>"; };
 		19DD3E5849807BA2501D5051 /* EntryTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryTabViewController.m; sourceTree = "<group>"; };
@@ -465,6 +468,8 @@
 				19DD300ED600DA70E41094A0 /* UIColor+String.h */,
 				19DD3A99985C7B0E18387E76 /* AppGlobalUI.m */,
 				19DD39E887674B49DA4B54E8 /* AppGlobalUI.h */,
+				19DD3E1E67BDD3D2E0C13C93 /* NSObject+Utils.m */,
+				19DD3B3AA1D115A1905A0E29 /* NSObject+Utils.h */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -963,6 +968,7 @@
 				19DD32D6459F7174AB9BF233 /* AIEntryTabViewController.m in Sources */,
 				19DD3072145AFFBC8DEEC01A /* AppUINavigationController.m in Sources */,
 				19DD3B6FCAE758EBA103D691 /* AnimationView.m in Sources */,
+				19DD37405E5AEF4C24170374 /* NSObject+Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
