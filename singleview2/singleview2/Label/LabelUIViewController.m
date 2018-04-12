@@ -6,11 +6,11 @@
 //  Copyright © 2018年 Njnu. All rights reserved.
 //
 
+#import <objc/runtime.h>
 #import "LabelUIViewController.h"
 #import "CustomLabel.h"
 #import "UIColor+String.h"
 #import "NSObject+Utils.h"
-#import "NSInvocation+Improved.h"
 
 @interface LabelUIViewController () {
     CGFloat fontSize;
@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet CustomLabel *textLabel4;
 @property (weak, nonatomic) IBOutlet CustomLabel *textLabel5;
 @property (weak, nonatomic) IBOutlet CustomLabel *textLabel6;
+
+@property (nonatomic, strong) NSMutableString *mutableString;
 
 @end
 
@@ -81,19 +83,8 @@
     NSString *testUrl1_2 = [testUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSString *testUrl2 = [testUrl1_1 stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
-    NSMutableString *ms = [[NSMutableString alloc] init];
-    [ms appendFormat:@"first %d ", 1];
-    [ms performSelector:@selector(appendString:) withObjects:@[@"second 2 "]];
-//    NSInvocation *invocation = [NSInvocation invocationWithTarget:ms andSelector:@selector(appendString:) andArguments:@"second 2 ", nil];
-//    [invocation invoke];
-////    [ms performSelector:@selector(appendFormat:) withObjects:@[@"third %@ ", @(3)]];
-//    invocation = [NSInvocation invocationWithTarget:ms andSelector:@selector(appendFormat:) andArguments:@"third %@ ", @(3), nil];
-//    [invocation invoke];
-    
-    [ms appendFormat:@"fourth %d ", 4];
-    NSLog(ms);
-    NSLog(@"lookInvoke %@", ms);
-    
+    [self testPerfromSelector];
+
     NSNumber *nValue1 = @(12.1);
     NSNumber *nValue2 = @(12.1f);
     NSNumber *nValue3 = @(12.9f);
@@ -109,6 +100,32 @@
     NSLog(@"lookKai int %ld %ld %ld %ld", intValue1, intValue2, intValue3, intValue4);
     NSLog(@"lookKai uint %lu %lu %lu %lu", uintValue1, uintValue2, uintValue3, uintValue4);
 
+}
+
+- (void)testPerfromSelector {
+    NSMutableString *ms = [[NSMutableString alloc] init];
+    self.mutableString = ms;
+    [ms appendFormat:@"first %d ", 1];
+    [ms performSelector:@selector(appendString:) withObjects:@[@"second 2 "]];
+//    NSInvocation *invocation = [NSInvocation invocationWithTarget:ms andSelector:@selector(appendString:) andArguments:@"second 2 ", nil];
+//    [invocation invoke];
+////    [ms performSelector:@selector(appendFormat:) withObjects:@[@"third %@ ", @(3)]];
+//    invocation = [NSInvocation invocationWithTarget:ms andSelector:@selector(appendFormat:) andArguments:@"third %@ ", @(3), nil];
+//    [invocation invoke];
+
+    [self appendFormat:@"third %@ ", @(3), nil];
+
+    [ms appendFormat:@"fourth %d ", 4];
+    NSLog(ms);
+    NSLog(@"lookInvoke %@", ms);
+    self.mutableString = nil;
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector {
+    if (sel_isEqual(aSelector, @selector(appendFormat:))) {
+        return self.mutableString;
+    }
+    return [super forwardingTargetForSelector:aSelector];
 }
 
 - (IBAction)sizeChanged:(UISlider *)sender {

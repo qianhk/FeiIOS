@@ -10,4 +10,6 @@
 
 @interface LabelUIViewController : UIViewController
 
+- (void)appendFormat:(NSString *)format, ...;
+
 @end
