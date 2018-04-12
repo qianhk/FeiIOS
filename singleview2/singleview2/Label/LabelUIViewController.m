@@ -7,6 +7,7 @@
 //
 
 #import <objc/runtime.h>
+#import <objc/message.h>
 #import "LabelUIViewController.h"
 #import "CustomLabel.h"
 #import "UIColor+String.h"
@@ -15,6 +16,8 @@
 @interface LabelUIViewController () {
     CGFloat fontSize;
 }
+
+- (void)appendFormat:(NSString *)format, ...;
 
 @property (weak, nonatomic) IBOutlet CustomLabel *textLabel;
 @property (weak, nonatomic) IBOutlet CustomLabel *textLabel1;
@@ -32,7 +35,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    Class clz = object_getClass(self);
+    Method method = class_getInstanceMethod(clz, @selector(appendFormat:));
+    class_replaceMethod(clz, @selector(appendFormat:), _objc_msgForward, method_getTypeEncoding(method));
+
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:@"value_1" forKey:@"key_1"];
     [dict setValue:nil forKey:@"key_null"];
