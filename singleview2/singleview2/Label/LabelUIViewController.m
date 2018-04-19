@@ -107,6 +107,12 @@
     NSLog(@"lookKai int %ld %ld %ld %ld", intValue1, intValue2, intValue3, intValue4);
     NSLog(@"lookKai uint %lu %lu %lu %lu", uintValue1, uintValue2, uintValue3, uintValue4);
 
+    NSString *tmpStr = @"101010100011";
+    for (int idx = 0; idx < tmpStr.length; ++idx) {
+        unichar charAtIndex = [tmpStr characterAtIndex:idx];
+        NSLog(@"lookKai unichar idx=%d isNoZero=%d", idx, charAtIndex != '0');
+    }
+    
 }
 
 - (void)testPerfromSelector {
