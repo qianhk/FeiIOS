@@ -113,6 +113,19 @@
         NSLog(@"lookKai unichar idx=%d isNoZero=%d", idx, charAtIndex != '0');
     }
     
+    double testDouble = 12.3;
+    [self testTypeNotSame:testDouble];
+    testDouble = 12.6;
+    [self testTypeNotSame:testDouble];
+    
+    NSNumber *testInteger = @(123);
+    NSNumber *testFloat = @(123.4567f);
+    NSLog(@"lookKai numberToString integer %@", testInteger.stringValue);
+    NSLog(@"lookKai numberToString float %@", testFloat.stringValue);
+}
+
+- (void)testTypeNotSame:(NSUInteger)number {
+    NSLog(@"lookKai testTypeNotSame %lu", number);
 }
 
 - (void)testPerfromSelector {
