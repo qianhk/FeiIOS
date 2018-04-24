@@ -43,7 +43,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:@"value_1" forKey:@"key_1"];
     [dict setValue:nil forKey:@"key_null"];
-   // [dict setValue:@"key_null_value" forKey:nil]; //'NSInvalidArgumentException', reason: '*** -[__NSDictionaryM setObject:forKey:]: key cannot be nil'
+    // [dict setValue:@"key_null_value" forKey:nil]; //'NSInvalidArgumentException', reason: '*** -[__NSDictionaryM setObject:forKey:]: key cannot be nil'
 //    [dict setValue:@"value_selector" forKey:@selector(fontSizeSelector)];
     [dict setValue:@"value_3" forKey:@"key_3"];
     NSString *testKey = @"abc";
@@ -52,7 +52,7 @@
     value = dict[testKey];
 
     long n = 30;
-    NSArray *list = @[@(10),@(20),@(30),@(40)];
+    NSArray *list = @[@(10), @(20), @(30), @(40)];
     int which = list.count;
     for (int idx = 0; idx < list.count; ++idx) {
         NSNumber *itemValue = list[idx];
@@ -72,17 +72,17 @@
 //    self.textLabel4.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:1 andHeight:20 forDirection:YES];
 //    self.textLabel5.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:1 andHeight:37 forDirection:YES];
 //    self.textLabel6.textColor = [UIColor gradientFromColor:[UIColor redColor] toColor:[UIColor blueColor] withWidth:1 andHeight:20 forDirection:YES];
-    
+
     NSDictionary *dictStroke = @{
-                           NSStrokeColorAttributeName : [UIColor redColor],
-                           NSStrokeWidthAttributeName : @(-5),
-                           };
+            NSStrokeColorAttributeName: [UIColor redColor],
+            NSStrokeWidthAttributeName: @(-5),
+    };
     self.textLabel4.attributedText = [[NSAttributedString alloc] initWithString:@"中文Label好人一" attributes:dictStroke];
-    
+
     dictStroke = @{
-                           NSStrokeColorAttributeName : [UIColor redColor],
-                           NSStrokeWidthAttributeName : @(5),
-                           };
+            NSStrokeColorAttributeName: [UIColor redColor],
+            NSStrokeWidthAttributeName: @(5),
+    };
     self.textLabel5.attributedText = [[NSAttributedString alloc] initWithString:@"中文Label好人一" attributes:dictStroke];
 
     NSString *testUrl = @"http://1.2.3.4:5678/xxx.html?id=123&text=%61%E5%87%AF%E5%87%AF%E6%B5%8B%E8%AF%95%E4%B8%AD%E6%96%87%62";
@@ -112,16 +112,25 @@
         unichar charAtIndex = [tmpStr characterAtIndex:idx];
         NSLog(@"lookKai unichar idx=%d isNoZero=%d", idx, charAtIndex != '0');
     }
-    
+
     double testDouble = 12.3;
     [self testTypeNotSame:testDouble];
     testDouble = 12.6;
     [self testTypeNotSame:testDouble];
-    
+
     NSNumber *testInteger = @(123);
     NSNumber *testFloat = @(123.4567f);
     NSLog(@"lookKai numberToString integer %@", testInteger.stringValue);
     NSLog(@"lookKai numberToString float %@", testFloat.stringValue);
+
+    CGRect rect1 = CGRectMake(100, 100, 100, 100);
+    CGRect rect2 = CGRectMake(120, 120, 100, 100);
+    CGRect intersectionRect = CGRectIntersection(rect1, rect2);
+    NSLog(@"inter1 %d %d %@", CGRectContainsRect(rect1, rect2), CGRectIntersectsRect(rect1, rect2), NSStringFromCGRect(intersectionRect));
+
+    rect1 = CGRectMake(1000, 1000, 100, 100);
+    intersectionRect = CGRectIntersection(rect1, rect2);
+    NSLog(@"inter2 %d %d %@", CGRectContainsRect(rect1, rect2), CGRectIntersectsRect(rect1, rect2), NSStringFromCGRect(intersectionRect));
 }
 
 - (void)testTypeNotSame:(NSUInteger)number {
