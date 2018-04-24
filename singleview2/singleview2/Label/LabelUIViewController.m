@@ -127,10 +127,16 @@
     CGRect rect2 = CGRectMake(120, 120, 100, 100);
     CGRect intersectionRect = CGRectIntersection(rect1, rect2);
     NSLog(@"inter1 %d %d %@", CGRectContainsRect(rect1, rect2), CGRectIntersectsRect(rect1, rect2), NSStringFromCGRect(intersectionRect));
-
+    NSLog(@"inter1 is empty=%d null=%d infinite=%d", CGRectIsEmpty(intersectionRect), CGRectIsNull(intersectionRect), CGRectIsInfinite(intersectionRect));
+    
     rect1 = CGRectMake(1000, 1000, 100, 100);
     intersectionRect = CGRectIntersection(rect1, rect2);
     NSLog(@"inter2 %d %d %@", CGRectContainsRect(rect1, rect2), CGRectIntersectsRect(rect1, rect2), NSStringFromCGRect(intersectionRect));
+
+    NSLog(@"inter2 is empty=%d null=%d infinite=%d", CGRectIsEmpty(intersectionRect), CGRectIsNull(intersectionRect), CGRectIsInfinite(intersectionRect));
+    
+    intersectionRect = CGRectMake(100, 100, 0, 0);
+    NSLog(@"inter3 is empty=%d null=%d infinite=%d", CGRectIsEmpty(intersectionRect), CGRectIsNull(intersectionRect), CGRectIsInfinite(intersectionRect));
 }
 
 - (void)testTypeNotSame:(NSUInteger)number {
