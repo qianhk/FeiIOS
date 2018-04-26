@@ -137,6 +137,8 @@
     
     intersectionRect = CGRectMake(100, 100, 0, 0);
     NSLog(@"inter3 is empty=%d null=%d infinite=%d", CGRectIsEmpty(intersectionRect), CGRectIsNull(intersectionRect), CGRectIsInfinite(intersectionRect));
+    
+    
 }
 
 - (void)testTypeNotSame:(NSUInteger)number {
