@@ -374,26 +374,26 @@ const static NSTimeInterval SHOW_PICTURE_INFO_TIME = 150.f;
     NSLog(@"dealloc %@", NSStringFromClass([self class]));
 }
 
-- (AVCaptureDevice *)cameraWithPostion:(AVCaptureDevicePosition)position{
-    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
-    for (AVCaptureDevice *device in devices) {
-        if ([device position] == position) {
-            return device;
-        }
-    }
-    return nil;
-}
-
-- (AVCaptureDevice *)cameraWithPostion:(AVCaptureDevicePosition)position{
-    AVCaptureDeviceDiscoverySession *devicesIOS10 = [AVCaptureDeviceDiscoverySession  discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera] mediaType:AVMediaTypeVideo position];
-
-    NSArray *devicesIOS  = devicesIOS10.devices;
-    for (AVCaptureDevice *device in devicesIOS) {
-        if ([device position] == position) {
-            return device;
-        }
-    }
-    return nil;
-}
+//- (AVCaptureDevice *)cameraWithPostion:(AVCaptureDevicePosition)position{
+//    NSArray *devices = [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo];
+//    for (AVCaptureDevice *device in devices) {
+//        if ([device position] == position) {
+//            return device;
+//        }
+//    }
+//    return nil;
+//}
+//
+//- (AVCaptureDevice *)cameraWithPostion:(AVCaptureDevicePosition)position{
+//    AVCaptureDeviceDiscoverySession *devicesIOS10 = [AVCaptureDeviceDiscoverySession  discoverySessionWithDeviceTypes:@[AVCaptureDeviceTypeBuiltInWideAngleCamera] mediaType:AVMediaTypeVideo position];
+//
+//    NSArray *devicesIOS  = devicesIOS10.devices;
+//    for (AVCaptureDevice *device in devicesIOS) {
+//        if ([device position] == position) {
+//            return device;
+//        }
+//    }
+//    return nil;
+//}
 
 @end

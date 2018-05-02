@@ -12,6 +12,7 @@
 #import "CustomLabel.h"
 #import "UIColor+String.h"
 #import "NSObject+Utils.h"
+#import <sys/utsname.h>
 
 @interface LabelUIViewController () {
     CGFloat fontSize;
@@ -138,7 +139,10 @@
     intersectionRect = CGRectMake(100, 100, 0, 0);
     NSLog(@"inter3 is empty=%d null=%d infinite=%d", CGRectIsEmpty(intersectionRect), CGRectIsNull(intersectionRect), CGRectIsInfinite(intersectionRect));
     
-    
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
+    NSLog(@"platform=%@", platform); //at iPhone7 platform=iPhone9,1
 }
 
 - (void)testTypeNotSame:(NSUInteger)number {
