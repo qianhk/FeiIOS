@@ -35,7 +35,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"TextTableViewCell" bundle:nil] forCellReuseIdentifier:@"TextTableViewCell"];
 
     mEntryArray = @[
-            @{@"Name": @"LinearLayoutViewController", @"Vc": @"TestLinearLayoutViewController2"},
+                    @{@"Name": @"KaiLinearRegressionViewController", @"Vc": @"KaiLinearRegressionViewController", @"Nib": @"KaiLinearRegressionViewController"},
             @{@"Name": @"SubscribeViewController", @"Vc": @"SubscribeViewController2"},
             @{@"Name": @"Core ML MobileNet", @"Vc": @"CoreMLMobileNetViewController"}
     ];
