@@ -8,6 +8,7 @@
 
 #import "KaiLinearRegressionViewController.h"
 #import "KaiLlinearOnlyMul.h"
+#import "SpamMessageClassifier.h"
 
 @interface KaiLinearRegressionViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *inputTextField;
@@ -39,17 +40,53 @@
         self.resultLabel.text = exception.description;
         return;
     }
-    MLMultiArray *inputMultiArray = [[MLMultiArray alloc] init];
-    KaiLlinearOnlyMulInput *input = [[KaiLlinearOnlyMulInput alloc] initWithInput__0:inputMultiArray];
     NSError *error = nil;
+    NSArray<NSNumber *> *shapeArray = @[@(1), @(1), @(1)];
+    MLMultiArray *inputMultiArray = [[MLMultiArray alloc] initWithShape:shapeArray dataType:MLMultiArrayDataTypeDouble error:&error];
+    if (error) {
+        self.resultLabel.text = error.description;
+        return;
+    }
+//    [inputMultiArray setObject:@(floatInput) atIndexedSubscript:0];
+    inputMultiArray[0] = @(floatInput);
+//    inputMultiArray[1] = @(2.1f);
+//    inputMultiArray[2] = @(3.2f);
+    KaiLlinearOnlyMulInput *input = [[KaiLlinearOnlyMulInput alloc] initWithInput__0:inputMultiArray];
     KaiLlinearOnlyMulOutput *output = [self.kaiLinear predictionFromFeatures:input error:&error];
     MLMultiArray *calcMutiArray = output.calcY__0;
     if (error) {
         self.resultLabel.text = error.description;
     } else {
-        self.resultLabel.text = calcMutiArray.description;
+        double resultValue = -1;
+        if (calcMutiArray.dataType == MLMultiArrayDataTypeDouble) {
+            double *ptr = (double *) calcMutiArray.dataPointer;
+//            NSInteger offset = i*stride[0].intValue + j*stride[1].intValue + k*stride[2].intValue;
+            NSInteger offset = 0;
+            resultValue = ptr[offset];
+        }
+        NSNumber *resultObj = calcMutiArray[0];
+        id tmpResult = [calcMutiArray objectAtIndexedSubscript:0];
+        self.resultLabel.text = [NSString stringWithFormat:@"result=%@\n\nshape=%@\ntype=%d count=%d\nstrides=%@"
+                                 , resultObj, calcMutiArray.shape.description, calcMutiArray.dataType, calcMutiArray.count, calcMutiArray.strides.description];
     }
-    
+}
+
+- (IBAction)onRunClassifierBtnClicked:(id)sender {
+    SpamMessageClassifier *classifier = [SpamMessageClassifier new];
+    NSError *error = nil;
+    NSArray<NSNumber *> *shapeArray = @[@(1)];
+    MLMultiArray *inputMultiArray = [[MLMultiArray alloc] initWithShape:shapeArray dataType:MLMultiArrayDataTypeDouble error:&error];
+    if (error) {
+        self.resultLabel.text = error.description;
+        return;
+    }
+    inputMultiArray[0] = @(123);
+    SpamMessageClassifierOutput *classifierOutput = [classifier predictionFromMessage:inputMultiArray error:&error];
+    if (error) {
+        self.resultLabel.text = error.description;
+    } else {
+        self.resultLabel.text = [NSString stringWithFormat:@"%@\n%@", classifierOutput.spam_or_not, classifierOutput.classProbability];
+    }
 }
 
 @end

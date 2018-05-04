@@ -109,6 +109,7 @@
 		2AEEE3AE1E5404A3000F43D9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AEEE3AD1E5404A3000F43D9 /* Images.xcassets */; };
 		2AF01FBE1E58935D0088008E /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AF01FBC1E58935D0088008E /* PickerViewController.m */; };
 		2AF01FBF1E58935D0088008E /* PickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AF01FBD1E58935D0088008E /* PickerViewController.xib */; };
+		2AF8E4E0209C009B0061330A /* SpamMessageClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 2AF8E4DF209C009A0061330A /* SpamMessageClassifier.mlmodel */; };
 		D9CE40AD14FB8F1000E6FD79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40AC14FB8F1000E6FD79 /* UIKit.framework */; };
 		D9CE40AF14FB8F1000E6FD79 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40AE14FB8F1000E6FD79 /* Foundation.framework */; };
 		D9CE40B114FB8F1000E6FD79 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9CE40B014FB8F1000E6FD79 /* CoreGraphics.framework */; };
@@ -302,6 +303,7 @@
 		2AF01FBB1E58935D0088008E /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
 		2AF01FBC1E58935D0088008E /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
 		2AF01FBD1E58935D0088008E /* PickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickerViewController.xib; sourceTree = "<group>"; };
+		2AF8E4DF209C009A0061330A /* SpamMessageClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SpamMessageClassifier.mlmodel; sourceTree = "<group>"; };
 		554219FBB4929258DEF2521A /* Pods_singleview2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_singleview2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8657450BE58F266EE4DBB397 /* Pods-singleview2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-singleview2.release.xcconfig"; path = "Pods/Target Support Files/Pods-singleview2/Pods-singleview2.release.xcconfig"; sourceTree = "<group>"; };
 		D9CE40A814FB8F1000E6FD79 /* singleview2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = singleview2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -744,6 +746,7 @@
 		D9CE40B314FB8F1000E6FD79 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2AF8E4DF209C009A0061330A /* SpamMessageClassifier.mlmodel */,
 				2ACDD7F8209B14F600CC5D97 /* KaiLlinearOnlyMul.mlmodel */,
 				2A5572272024BD3000F1083C /* MobileNet.mlmodel */,
 				2ABE854B1F398FF600609D5A /* ArtistAssets.xcassets */,
@@ -980,6 +983,7 @@
 				2A0D9237205916F50012A345 /* CustomLabel.m in Sources */,
 				19DD357A98EE43402DE71999 /* BaseImageRecognitionViewController.m in Sources */,
 				19DD32D6459F7174AB9BF233 /* AIEntryTabViewController.m in Sources */,
+				2AF8E4E0209C009B0061330A /* SpamMessageClassifier.mlmodel in Sources */,
 				19DD3072145AFFBC8DEEC01A /* AppUINavigationController.m in Sources */,
 				19DD3B6FCAE758EBA103D691 /* AnimationView.m in Sources */,
 				19DD37405E5AEF4C24170374 /* NSObject+Utils.m in Sources */,
