@@ -23,12 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.kaiLinear = [KaiLlinearOnlyMul new];
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(textFieldTextDidChangeNotification:)
+                                                 name:UITextFieldTextDidChangeNotification object:nil];
+    self.kaiLinear = [KaiLlinearOnlyMul new];
 }
 
 - (IBAction)onRunButtonClicked:(id)sender {
@@ -87,6 +86,19 @@
     } else {
         self.resultLabel.text = [NSString stringWithFormat:@"%@\n%@", classifierOutput.spam_or_not, classifierOutput.classProbability];
     }
+}
+
+- (void)textFieldTextDidChangeNotification:(id)notifycation {
+    [self onRunButtonClicked:nil];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
