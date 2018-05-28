@@ -48,28 +48,18 @@
     [self updateViewState];
 }
 
-- (void)startupAnimation:(UIView *)sender {
-    UIView *targetView;
-    if (sender.tag == 1) {
-        targetView = _ivImage1;
-    } else {
-        targetView = _ivImage2;
-    }
-    CGRect frame = targetView.frame;
+- (void)startupAnimation1:(UIView *)sender {
+    CGRect frame = _ivImage1.frame;
     frame.origin.x = 0;
-    targetView.frame = frame;
+    _ivImage1.frame = frame;
 
-    [UIView animateWithDuration:8 animations:^{
+    [UIView animateWithDuration:6 animations:^{
         CGFloat containerWidth = self.view.bounds.size.width;
-        CGRect frame2 = targetView.frame;
+        CGRect frame2 = _ivImage1.frame;
         frame2.origin.x = containerWidth - frame2.size.width;
-        targetView.frame = frame2;
-    }                completion:^(BOOL finished) {
-        if (sender.tag == 1) {
+        _ivImage1.frame = frame2;
+    } completion:^(BOOL finished) {
             _v1State = 0;
-        } else {
-            _v2State = 0;
-        }
         [self updateViewState];
     }];
 }
@@ -77,7 +67,7 @@
 - (IBAction)onBtn1Click:(UIView *)sender {
     if (_v1State == 0) {
         _v1State = 1;
-        [self startupAnimation:sender];
+        [self startupAnimation1:sender];
     } else if (_v1State == 1) {
         _v1State = 2;
         [_ivImage1 pauseAnimation];
@@ -88,10 +78,33 @@
     [self updateViewState];
 }
 
+- (void)startupAnimation2:(UIView *)sender {
+//    CGRect frame = _ivImage2.frame;
+//    frame.origin.x = 0;
+//    _ivImage2.frame = frame;
+    
+    static CGFloat _angle = 0;
+    _angle += 120;
+    CGAffineTransform endAngle = CGAffineTransformMakeRotation(_angle * (M_PI / 180.0f));
+    
+    [UIView animateWithDuration:6 animations:^{
+//        CGFloat containerWidth = self.view.bounds.size.width;
+//        CGRect frame2 = _ivImage2.frame;
+//        frame2.origin.x = containerWidth - frame2.size.width;
+//        _ivImage2.frame = frame2;
+        _ivImage2.transform = endAngle;
+//        _ivImage2.window.transform = endAngle;
+//        _ivImage2.window.frame = frame2;
+    } completion:^(BOOL finished) {
+        _v2State = 0;
+        [self updateViewState];
+    }];
+}
+
 - (IBAction)onBtn2Click:(id)sender {
     if (_v2State == 0) {
         _v2State = 1;
-        [self startupAnimation:sender];
+        [self startupAnimation2:sender];
     } else if (_v2State == 1) {
         _v2State = 2;
         [_ivImage2 pauseAnimation];
