@@ -8,6 +8,7 @@
 
 #import "AnimationTestViewController.h"
 #import "UIView+Utils.h"
+#import "AnimationLabel.h"
 
 @interface AnimationTestViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *ivImage1;
@@ -51,6 +52,8 @@
 //    int abc = 0;
 //    NSLog(@"lookKai gu yi error: %d", 100 / 0);
 //    [self performSelector:@selector(abcdefg) withObject:nil];
+
+    self.animationLabel.text = @"测试Test文字Text";
 }
 
 - (void)startupAnimation1:(UIView *)sender {

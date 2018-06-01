@@ -17,38 +17,80 @@
 
 @implementation AnimationLabel
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
     if (self) {
-
         UIFont *font = [UIFont systemFontOfSize:25];
-        self.backLabel = [[UILabel alloc] initWithFrame:self.bounds];
+        self.backLabel = [[UILabel alloc] init];
         self.backLabel.textAlignment = NSTextAlignmentCenter;
         self.backLabel.textColor = [UIColor redColor];
         [self addSubview:self.backLabel];
         self.backLabel.font = font;
-        self.forelLabel = [[UILabel alloc] initWithFrame:self.bounds];
+        
+        self.forelLabel = [[UILabel alloc] init];
         self.forelLabel.textAlignment = NSTextAlignmentCenter;
         self.forelLabel.font = font;
         [self addSubview:self.forelLabel];
-        self.forelLabel.textColor = [UIColor whiteColor];
-
+        self.forelLabel.textColor = [UIColor blueColor];
+        
         self.leftLayer = [CALayer layer];
-        self.leftLayer.frame = CGRectMake(0, 0, self.bounds.size.width * 0.5, frame.size.height);
         self.leftLayer.backgroundColor = [UIColor whiteColor].CGColor;
-
+//
         self.rightLayer = [CALayer layer];
-        self.rightLayer.frame = CGRectMake(frame.size.width * 0.5, 0, self.bounds.size.width * 0.5, frame.size.height);;
         self.rightLayer.backgroundColor = [UIColor whiteColor].CGColor;
-
+        
         [self.maskLayer addSublayer:self.leftLayer];
         [self.maskLayer addSublayer:self.rightLayer];
-
+//
         self.forelLabel.layer.mask = self.maskLayer;
-
     }
+
     return self;
 }
+
+//- (instancetype)initWithFrame:(CGRect)frame {
+//    self = [super initWithFrame:frame];
+//    if (self) {
+//
+//        UIFont *font = [UIFont systemFontOfSize:25];
+//        self.backLabel = [[UILabel alloc] initWithFrame:self.bounds];
+//        self.backLabel.textAlignment = NSTextAlignmentCenter;
+//        self.backLabel.textColor = [UIColor redColor];
+//        [self addSubview:self.backLabel];
+//        self.backLabel.font = font;
+//
+//        self.forelLabel = [[UILabel alloc] initWithFrame:self.bounds];
+//        self.forelLabel.textAlignment = NSTextAlignmentCenter;
+//        self.forelLabel.font = font;
+//        [self addSubview:self.forelLabel];
+//        self.forelLabel.textColor = [UIColor orangeColor];
+//
+//        self.leftLayer = [CALayer layer];
+//        self.leftLayer.frame = CGRectMake(0, 0, self.bounds.size.width * 0.5, frame.size.height);
+//        self.leftLayer.backgroundColor = [UIColor whiteColor].CGColor;
+//
+//        self.rightLayer = [CALayer layer];
+//        self.rightLayer.frame = CGRectMake(frame.size.width * 0.5, 0, self.bounds.size.width * 0.5, frame.size.height);;
+//        self.rightLayer.backgroundColor = [UIColor whiteColor].CGColor;
+//
+//        [self.maskLayer addSublayer:self.leftLayer];
+//        [self.maskLayer addSublayer:self.rightLayer];
+//
+//        self.forelLabel.layer.mask = self.maskLayer;
+//
+//    }
+//    return self;
+//}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGRect rect = self.bounds;
+    self.backLabel.frame = rect;
+    self.forelLabel.frame = rect;
+    self.leftLayer.frame = CGRectMake(0, 0, rect.size.width * 0.5, rect.size.height);
+    self.rightLayer.frame = CGRectMake(rect.size.width * 0.5, 0, rect.size.width * 0.5, rect.size.height);;
+}
+
 
 - (CALayer *)maskLayer {
     if (!_maskLayer) {
