@@ -64,6 +64,7 @@
 		19DD3F4395F3AC160E5A2959 /* ArtistListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD340E1384FB6D10475D3B /* ArtistListViewController.m */; };
 		19DD3F89356E7CDD5E9C1CD0 /* StickyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD361D0FFC45D10D4F1C71 /* StickyHeaderView.m */; };
 		19DD3FC02CBB864A3184F48B /* NSString+EmailAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3FA6E4B0B1FB28D1358C /* NSString+EmailAdditions.m */; };
+		19DD3FC3D2E0292ED9E077B3 /* AnimationLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3275B35A6B977BDFD647 /* AnimationLabel.m */; };
 		19DD3FE2530BF5203203512D /* StickyPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39883B52AA4D56FA111D /* StickyPersonCell.m */; };
 		2A0D9234205915BC0012A345 /* LabelUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0D9232205915BC0012A345 /* LabelUIViewController.m */; };
 		2A0D9235205915BC0012A345 /* LabelUIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0D9233205915BC0012A345 /* LabelUIViewController.xib */; };
@@ -141,7 +142,9 @@
 		19DD31C6D9E8FF91C805F563 /* SubscribeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribeViewModel.h; sourceTree = "<group>"; };
 		19DD31FA4E6F39FD7DF2249D /* KVCModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KVCModel.m; sourceTree = "<group>"; };
 		19DD322307A68FDFF2E13D33 /* KVCModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KVCModel.h; sourceTree = "<group>"; };
+		19DD32580823584A2D573E52 /* AnimationLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationLabel.h; sourceTree = "<group>"; };
 		19DD3272DCE6B95CC6C35809 /* TestLinearLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestLinearLayoutViewController.h; sourceTree = "<group>"; };
+		19DD3275B35A6B977BDFD647 /* AnimationLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationLabel.m; sourceTree = "<group>"; };
 		19DD32A3EBA3A2D22608583C /* SwitchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchViewController.xib; sourceTree = "<group>"; };
 		19DD32CF66963E64373CEC35 /* SubscribeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeViewModel.m; sourceTree = "<group>"; };
 		19DD3302A657F08C52D1C3BE /* NameAndColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameAndColorCell.h; sourceTree = "<group>"; };
@@ -606,6 +609,8 @@
 				2A1D613B20BBE57C00405F11 /* AnimationTestViewController.h */,
 				2A1D613C20BBE57C00405F11 /* AnimationTestViewController.m */,
 				2A1D613D20BBE57C00405F11 /* AnimationTestViewController.xib */,
+				19DD3275B35A6B977BDFD647 /* AnimationLabel.m */,
+				19DD32580823584A2D573E52 /* AnimationLabel.h */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -1011,6 +1016,7 @@
 				19DD3B6FCAE758EBA103D691 /* AnimationView.m in Sources */,
 				19DD37405E5AEF4C24170374 /* NSObject+Utils.m in Sources */,
 				19DD351AF15FCD67BBBCEEEB /* UIView+Utils.m in Sources */,
+				19DD3FC3D2E0292ED9E077B3 /* AnimationLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

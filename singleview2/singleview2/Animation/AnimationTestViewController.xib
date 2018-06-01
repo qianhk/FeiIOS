@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AnimationTestViewController">
             <connections>
+                <outlet property="animationLabel" destination="Bsa-Mb-mus" id="vY2-pK-UwI"/>
                 <outlet property="ivImage1" destination="zA9-IK-8YY" id="zCP-uf-bYz"/>
                 <outlet property="ivImage2" destination="wUh-o6-8Rf" id="7cl-ix-tmk"/>
                 <outlet property="tvResult" destination="GoX-TW-6ai" id="joD-yj-anm"/>
@@ -54,6 +55,11 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bsa-Mb-mus" customClass="AnimationLabel">
+                    <rect key="frame" x="16" y="388" width="343" height="166"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>

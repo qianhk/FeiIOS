@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ivImage1;
 @property (weak, nonatomic) IBOutlet UIImageView *ivImage2;
 @property (weak, nonatomic) IBOutlet UILabel *tvResult;
+@property (weak, nonatomic) IBOutlet AnimationLabel *animationLabel;
 
 @property (nonatomic, assign) NSInteger v1State;
 @property (nonatomic, assign) NSInteger v2State;
@@ -46,6 +47,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self updateViewState];
+    
+//    int abc = 0;
+//    NSLog(@"lookKai gu yi error: %d", 100 / 0);
+//    [self performSelector:@selector(abcdefg) withObject:nil];
 }
 
 - (void)startupAnimation1:(UIView *)sender {
