@@ -113,7 +113,7 @@
     basicAnimation.keyPath = @"transform.translation.x";
     basicAnimation.fromValue = @(0);
     basicAnimation.toValue = @(-self.frame.size.width * 0.5);
-    basicAnimation.duration = 2;
+    basicAnimation.duration = 6;
     basicAnimation.repeatCount = HUGE;
     basicAnimation.removedOnCompletion = NO;
     basicAnimation.fillMode = kCAFillModeForwards;
@@ -123,7 +123,7 @@
     basicAnimation2.keyPath = @"transform.translation.x";
     basicAnimation2.fromValue = @(0);
     basicAnimation2.toValue = @(self.frame.size.width * 0.5);
-    basicAnimation2.duration = 2;
+    basicAnimation2.duration = 6;
     basicAnimation2.repeatCount = HUGE;
     basicAnimation2.removedOnCompletion = NO;
     basicAnimation2.fillMode = kCAFillModeForwards;

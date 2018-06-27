@@ -48,12 +48,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self updateViewState];
-    
+
 //    int abc = 0;
 //    NSLog(@"lookKai gu yi error: %d", 100 / 0);
 //    [self performSelector:@selector(abcdefg) withObject:nil];
 
     self.animationLabel.text = @"测试Test文字Text";
+
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    self.view.layer.mask = maskLayer;
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGRect selfBounds = CGRectMake(0, 0, 800, 800);
+    CGRect cropRect = CGRectMake(40, 90, 100, 50);
+    CGPathAddRect(path, nil, selfBounds);
+    CGPathAddRect(path, nil, cropRect);
+    CGPoint p[6] = {{220, 90}, {170, 130}, {160, 170}, {220, 210}, {270, 170}, {280, 130}};
+    CGPathAddLines(path, nil, p, sizeof(p) / sizeof(p[0]));
+    [maskLayer setPath:path];
+    [maskLayer setFillRule:kCAFillRuleEvenOdd];
+    [maskLayer setFillColor:[[UIColor orangeColor] CGColor]];
 }
 
 - (void)startupAnimation1:(UIView *)sender {
@@ -66,8 +79,8 @@
         CGRect frame2 = _ivImage1.frame;
         frame2.origin.x = containerWidth - frame2.size.width;
         _ivImage1.frame = frame2;
-    } completion:^(BOOL finished) {
-            _v1State = 0;
+    }                completion:^(BOOL finished) {
+        _v1State = 0;
         [self updateViewState];
     }];
 }
@@ -90,11 +103,11 @@
 //    CGRect frame = _ivImage2.frame;
 //    frame.origin.x = 0;
 //    _ivImage2.frame = frame;
-    
+
     static CGFloat _angle = 0;
     _angle += 120;
     CGAffineTransform endAngle = CGAffineTransformMakeRotation(_angle * (M_PI / 180.0f));
-    
+
     [UIView animateWithDuration:6 animations:^{
 //        CGFloat containerWidth = self.view.bounds.size.width;
 //        CGRect frame2 = _ivImage2.frame;
@@ -103,7 +116,7 @@
         _ivImage2.transform = endAngle;
 //        _ivImage2.window.transform = endAngle;
 //        _ivImage2.window.frame = frame2;
-    } completion:^(BOOL finished) {
+    }                completion:^(BOOL finished) {
         _v2State = 0;
         [self updateViewState];
     }];
