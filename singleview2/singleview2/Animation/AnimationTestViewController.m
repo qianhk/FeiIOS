@@ -67,6 +67,19 @@
     [maskLayer setPath:path];
     [maskLayer setFillRule:kCAFillRuleEvenOdd];
     [maskLayer setFillColor:[[UIColor orangeColor] CGColor]];
+    
+    CGRect testRect = CGRectMake(1, 2, 100, 101);
+    NSValue *value = [NSValue valueWithCGRect:testRect];
+    NSDictionary *dic = @{@"rect": value};
+    NSDictionary *dic2 = @{@"rectArray": @[value, value]};
+    NSLog(@"dic=%@\ndic2=%@", dic, dic2);
+    
+    NSArray * arr = dic2[@"rectArray"];
+    for (NSValue *val in arr) {
+        CGRect rect = val.CGRectValue;
+        NSLog(@"val=%@ rect=%@", val, NSStringFromCGRect(rect));
+    }
+    
 }
 
 - (void)startupAnimation1:(UIView *)sender {
