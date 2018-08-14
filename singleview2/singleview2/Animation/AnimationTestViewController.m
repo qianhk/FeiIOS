@@ -80,6 +80,18 @@
         NSLog(@"val=%@ rect=%@", val, NSStringFromCGRect(rect));
     }
     
+    NSDate *date = [NSDate date];
+    NSTimeZone *sys_zone = [NSTimeZone systemTimeZone];
+    NSTimeZone *local_zone = [NSTimeZone localTimeZone];
+    NSTimeZone *default_zone = [NSTimeZone defaultTimeZone];
+    NSArray *names = [NSTimeZone knownTimeZoneNames];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    NSTimeZone *timeZone = [NSTimeZone timeZoneWithName:@"UTC"];
+    dateFormatter.dateFormat = @"MM-dd HH:mm:ss";
+    [dateFormatter setTimeZone:timeZone];
+    
+    NSLog(@"date=%@, sys_zone=%@, local=%@, default=%@ zoneName=%@ utc=%@", date, sys_zone, local_zone, default_zone, sys_zone.name, [dateFormatter stringFromDate:date]);
 }
 
 - (void)startupAnimation1:(UIView *)sender {
