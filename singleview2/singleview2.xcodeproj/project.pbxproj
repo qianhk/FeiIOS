@@ -74,6 +74,8 @@
 		2A1E9D3D2011F765005D5B25 /* Pods_singleview2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1E9D3E2011F765005D5B25 /* Pods_singleview2.framework */; };
 		2A2D50871EB0817700BC161D /* UikitTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A2D50861EB0817700BC161D /* UikitTestViewController.m */; };
 		2A2D50891EB089D600BC161D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A2D50881EB089D600BC161D /* QuartzCore.framework */; };
+		2A4A0F29214A634700952F24 /* StackViewTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4A0F27214A634700952F24 /* StackViewTestViewController.m */; };
+		2A4A0F2A214A634700952F24 /* StackViewTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A4A0F28214A634700952F24 /* StackViewTestViewController.xib */; };
 		2A4D2EC41E7D72B7006FD451 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D2EC61E7D72B7006FD451 /* Localizable.strings */; };
 		2A5572192024B5FD00F1083C /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5572182024B5FD00F1083C /* CoreML.framework */; };
 		2A5572212024BAF100F1083C /* CoreMLMobileNetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5572202024BAF100F1083C /* CoreMLMobileNetViewController.m */; };
@@ -248,6 +250,9 @@
 		2A2D50851EB0817700BC161D /* UikitTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UikitTestViewController.h; sourceTree = "<group>"; };
 		2A2D50861EB0817700BC161D /* UikitTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UikitTestViewController.m; sourceTree = "<group>"; };
 		2A2D50881EB089D600BC161D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		2A4A0F26214A634700952F24 /* StackViewTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackViewTestViewController.h; sourceTree = "<group>"; };
+		2A4A0F27214A634700952F24 /* StackViewTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StackViewTestViewController.m; sourceTree = "<group>"; };
+		2A4A0F28214A634700952F24 /* StackViewTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StackViewTestViewController.xib; sourceTree = "<group>"; };
 		2A4D2EC11E7D6E91006FD451 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		2A4D2EC51E7D72B7006FD451 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A4D2EC71E7D72C8006FD451 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
@@ -615,6 +620,16 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
+		2A4A0F25214A632600952F24 /* StackView */ = {
+			isa = PBXGroup;
+			children = (
+				2A4A0F26214A634700952F24 /* StackViewTestViewController.h */,
+				2A4A0F27214A634700952F24 /* StackViewTestViewController.m */,
+				2A4A0F28214A634700952F24 /* StackViewTestViewController.xib */,
+			);
+			path = StackView;
+			sourceTree = "<group>";
+		};
 		2A55721E2024BAD400F1083C /* CoreML */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,6 +736,7 @@
 		D9CE40B214FB8F1000E6FD79 /* singleview2 */ = {
 			isa = PBXGroup;
 			children = (
+				2A4A0F25214A632600952F24 /* StackView */,
 				2A1D613920BBE55F00405F11 /* Animation */,
 				2A0D92302059158C0012A345 /* Label */,
 				2A55721E2024BAD400F1083C /* CoreML */,
@@ -872,6 +888,7 @@
 				19DD3A76623BD5DC58194F8A /* sortednames.plist in Resources */,
 				2A5572232024BCA600F1083C /* CoreML.xcassets in Resources */,
 				2ABE85511F39996500609D5A /* WorkTableViewCell.xib in Resources */,
+				2A4A0F2A214A634700952F24 /* StackViewTestViewController.xib in Resources */,
 				19DD3F2591202825A572A3A3 /* Podfile in Resources */,
 				19DD344DD2BF135B454A95E6 /* NameAndColorCell.xib in Resources */,
 				19DD3A4126018D3DFA157009 /* NameAndColorCell2.xib in Resources */,
@@ -1016,6 +1033,7 @@
 				19DD3B6FCAE758EBA103D691 /* AnimationView.m in Sources */,
 				19DD37405E5AEF4C24170374 /* NSObject+Utils.m in Sources */,
 				19DD351AF15FCD67BBBCEEEB /* UIView+Utils.m in Sources */,
+				2A4A0F29214A634700952F24 /* StackViewTestViewController.m in Sources */,
 				19DD3FC3D2E0292ED9E077B3 /* AnimationLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1065,7 +1083,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1085,7 +1103,7 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

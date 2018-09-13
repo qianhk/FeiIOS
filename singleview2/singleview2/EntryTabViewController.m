@@ -45,6 +45,7 @@
     }
 
     mEntryArray = @[
+            @{@"Name": @"StackViewViewController", @"Vc": @"StackViewTestViewController"},
             @{@"Name": @"LinearLayoutViewController", @"Vc": @"TestLinearLayoutViewController"},
             @{@"Name": @"AnimationTestViewController", @"Vc": @"AnimationTestViewController", @"Nib": @"AnimationTestViewController"},
             @{@"Name": @"SubscribeViewController", @"Vc": @"SubscribeViewController"},

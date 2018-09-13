@@ -54,7 +54,10 @@
     [self.view addSubview:self.subscribeButton];
     [self.view addSubview:self.statusLabel];
     [self.view addSubview:self.removeButton];
-    [self.view addSubview:self.calcButton];
+    [self.view addSubview:self.removeButton];
+    [self.view addSubview:self.calcButton]; //重复添加没有问题
+    [self.view insertSubview:self.calcButton atIndex:0];
+    [self.view insertSubview:self.calcButton atIndex:0];
 }
 
 - (void)defineLayout {
