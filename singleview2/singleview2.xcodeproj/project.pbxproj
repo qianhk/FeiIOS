@@ -77,6 +77,8 @@
 		2A4A0F29214A634700952F24 /* StackViewTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4A0F27214A634700952F24 /* StackViewTestViewController.m */; };
 		2A4A0F2A214A634700952F24 /* StackViewTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A4A0F28214A634700952F24 /* StackViewTestViewController.xib */; };
 		2A4D2EC41E7D72B7006FD451 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A4D2EC61E7D72B7006FD451 /* Localizable.strings */; };
+		2A541A2321871421009EA801 /* EmitterTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A541A2221871421009EA801 /* EmitterTestViewController.m */; };
+		2A541A262187146D009EA801 /* FireView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A541A252187146D009EA801 /* FireView.m */; };
 		2A5572192024B5FD00F1083C /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5572182024B5FD00F1083C /* CoreML.framework */; };
 		2A5572212024BAF100F1083C /* CoreMLMobileNetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A5572202024BAF100F1083C /* CoreMLMobileNetViewController.m */; };
 		2A5572232024BCA600F1083C /* CoreML.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A5572222024BCA600F1083C /* CoreML.xcassets */; };
@@ -256,6 +258,10 @@
 		2A4D2EC11E7D6E91006FD451 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		2A4D2EC51E7D72B7006FD451 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A4D2EC71E7D72C8006FD451 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2A541A2121871421009EA801 /* EmitterTestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EmitterTestViewController.h; sourceTree = "<group>"; };
+		2A541A2221871421009EA801 /* EmitterTestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EmitterTestViewController.m; sourceTree = "<group>"; };
+		2A541A242187146D009EA801 /* FireView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FireView.h; sourceTree = "<group>"; };
+		2A541A252187146D009EA801 /* FireView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FireView.m; sourceTree = "<group>"; };
 		2A5572182024B5FD00F1083C /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
 		2A55721F2024BAF100F1083C /* CoreMLMobileNetViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreMLMobileNetViewController.h; sourceTree = "<group>"; };
 		2A5572202024BAF100F1083C /* CoreMLMobileNetViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreMLMobileNetViewController.m; sourceTree = "<group>"; };
@@ -630,6 +636,17 @@
 			path = StackView;
 			sourceTree = "<group>";
 		};
+		2A541A2021871400009EA801 /* Emitter */ = {
+			isa = PBXGroup;
+			children = (
+				2A541A2121871421009EA801 /* EmitterTestViewController.h */,
+				2A541A2221871421009EA801 /* EmitterTestViewController.m */,
+				2A541A242187146D009EA801 /* FireView.h */,
+				2A541A252187146D009EA801 /* FireView.m */,
+			);
+			path = Emitter;
+			sourceTree = "<group>";
+		};
 		2A55721E2024BAD400F1083C /* CoreML */ = {
 			isa = PBXGroup;
 			children = (
@@ -736,6 +753,7 @@
 		D9CE40B214FB8F1000E6FD79 /* singleview2 */ = {
 			isa = PBXGroup;
 			children = (
+				2A541A2021871400009EA801 /* Emitter */,
 				2A4A0F25214A632600952F24 /* StackView */,
 				2A1D613920BBE55F00405F11 /* Animation */,
 				2A0D92302059158C0012A345 /* Label */,
@@ -965,6 +983,7 @@
 				19DD3BFDB43DEA83F51F4662 /* TestCollectionViewController.m in Sources */,
 				19DD30087B7CFAAD52AA47E4 /* ContentCell.m in Sources */,
 				2A94AAC91F53C91A00D53616 /* MyLinearLayout.m in Sources */,
+				2A541A2321871421009EA801 /* EmitterTestViewController.m in Sources */,
 				2AE16A911E6BF25A00B48A49 /* UserDefaultsViewController.m in Sources */,
 				2ABE85491F3987C700609D5A /* ArtistTableViewCell.m in Sources */,
 				19DD30B5574E87EE5B6A965B /* HeaderCell.m in Sources */,
@@ -1035,6 +1054,7 @@
 				19DD351AF15FCD67BBBCEEEB /* UIView+Utils.m in Sources */,
 				2A4A0F29214A634700952F24 /* StackViewTestViewController.m in Sources */,
 				19DD3FC3D2E0292ED9E077B3 /* AnimationLabel.m in Sources */,
+				2A541A262187146D009EA801 /* FireView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
