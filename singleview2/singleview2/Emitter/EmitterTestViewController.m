@@ -13,8 +13,11 @@
 @interface EmitterTestViewController ()
 
 @property (nonatomic, strong) CAEmitterLayer *emitterLayer;
+
 @property (nonatomic, strong) UIView *emitterView;
 @property (nonatomic, strong) FireView *fireView;
+
+@property (nonatomic, strong) NSString *imageName;
 
 @end
 
@@ -22,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.imageName = @"cake";
 
     [self initSky];
     [self initEmitterLayer];
@@ -35,6 +39,12 @@
 }
 
 - (void)initView {
+    
+    _fireView = [[FireView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth)];
+    _fireView.center = self.view.center;
+    _fireView.tag = 300;
+    [self.view addSubview:_fireView];
+    
     UIButton *clickButton = [[UIButton alloc] initWithFrame:CGRectMake(10, kTopHeight + 20, 100, 40)];
     clickButton.backgroundColor = [UIColor blueColor];
     [clickButton setTitle:@"暂停" forState:UIControlStateNormal];
@@ -47,16 +57,12 @@
     fireButton.backgroundColor = [UIColor blueColor];
     [fireButton setTitle:@"烟花" forState:UIControlStateNormal];
     [fireButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [fireButton addTarget:self action:@selector(fireAction) forControlEvents:UIControlEventTouchUpInside];
+    [fireButton addTarget:self action:@selector(fireAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:fireButton];
-    
-    clickButton.hidden = YES;
-    fireButton.hidden = YES;
 
-    _fireView = [[FireView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth)];
-    _fireView.center = self.view.center;
-    _fireView.tag = 300;
-    [self.view addSubview:_fireView];
+//    clickButton.hidden = YES;
+//    fireButton.hidden = YES;
+
 }
 
 #pragma mark - 天空的颜色
@@ -89,58 +95,15 @@
     [self.view addSubview:_emitterView];
 
 
-    CAEmitterCell *cell = [[CAEmitterCell alloc] init];
-    //展示的图片
-    cell.contents = (__bridge id _Nullable) ([UIImage imageNamed:@"cake"].CGImage);
-    cell.scale = 0.8;
-    cell.scaleRange = 0.4;
-    
-//    cell.contents = (__bridge id _Nullable) ([UIImage imageNamed:@"white"].CGImage);
-//    cell.scale = 0.5;
-//    cell.scaleRange = 0.1;
-    
-    //每秒粒子产生个数的乘数因子，会和layer的birthRate相乘，然后确定每秒产生的粒子个数
-    cell.birthRate = 6;
-    //每个粒子存活时长
-    cell.lifetime = 4.0;
-    //粒子生命周期范围
-//    cell.lifetimeRange = 0.5;
-    //粒子透明度变化，设置为－0.4，就是每过一秒透明度就减少0.4，这样就有消失的效果,一般设置为负数。
-    cell.alphaSpeed = -0.2;
-    cell.alphaRange = 0.2;
-    
-    //粒子的速度
-    cell.velocity = 260;
-    //粒子的速度范围
-    cell.velocityRange = 20;
-    //周围发射的角度，如果为M_PI*2 就可以从360度任意位置发射
-//    cell.emissionRange = M_PI*2;
-    //粒子内容的颜色
-    //    cell.color = [[UIColor whiteColor] CGColor];
+    CAEmitterCell *cell = [self getCell:self.imageName];
 
-//    cell.redRange = 0.5;
-//    cell.blueRange = 0.5;
-//    cell.greenRange = 0.5;
-    
-    cell.spin = 0;
-    cell.spinRange = M_PI / 8;
-
-    //粒子的初始发射方向
-    cell.emissionLongitude = M_PI;
-    cell.emissionRange = M_PI_4 / 2;
-    //Y方向的加速度
-    cell.yAcceleration = 70.0;
-    //X方向加速度
+//X方向加速度
     //    cell.xAcceleration = 20.0;
 
     _emitterLayer = [CAEmitterLayer layer];
 
-    //发射位置
-//    _emitterLayer.emitterPosition = CGPointMake(kScreenWidth / 2.0, 0);
     //粒子产生系数，默认为1
     _emitterLayer.birthRate = 1;
-    //发射器的尺寸
-//    _emitterLayer.emitterSize = CGSizeMake(kScreenWidth, 0);
     //发射的形状
     _emitterLayer.emitterShape = kCAEmitterLayerLine;
     //发射的模式
@@ -151,6 +114,51 @@
     _emitterLayer.zPosition = -1;
     _emitterLayer.emitterCells = @[cell];
     [self.emitterView.layer addSublayer:_emitterLayer];
+}
+
+- (CAEmitterCell *)getCell:(NSString *)imageName {
+    CAEmitterCell *cell = [[CAEmitterCell alloc] init];
+    //展示的图片
+    cell.contents = (__bridge id _Nullable) ([UIImage imageNamed:self.imageName].CGImage);
+    cell.scale = 0.6;
+    cell.scaleRange = 0.4;
+
+//    cell.contents = (__bridge id _Nullable) ([UIImage imageNamed:@"white"].CGImage);
+//    cell.scale = 0.5;
+//    cell.scaleRange = 0.1;
+
+    //每秒粒子产生个数的乘数因子，会和layer的birthRate相乘，然后确定每秒产生的粒子个数
+    cell.birthRate = 5;
+    //每个粒子存活时长
+    cell.lifetime = 4.0;
+    //粒子生命周期范围
+//    cell.lifetimeRange = 0.5;
+//粒子透明度变化，设置为－0.4，就是每过一秒透明度就减少0.4，这样就有消失的效果,一般设置为负数。
+    cell.alphaSpeed = -0.3;
+    cell.alphaRange = 0.3;
+
+    //粒子的速度
+    cell.velocity = 260;
+    //粒子的速度范围
+    cell.velocityRange = 20;
+    //周围发射的角度，如果为M_PI*2 就可以从360度任意位置发射
+//    cell.emissionRange = M_PI*2;
+//粒子内容的颜色
+//    cell.color = [[UIColor whiteColor] CGColor];
+
+//    cell.redRange = 0.5;
+//    cell.blueRange = 0.5;
+//    cell.greenRange = 0.5;
+
+    cell.spin = 0;
+    cell.spinRange = M_PI / 8;
+
+    //粒子的初始发射方向
+    cell.emissionLongitude = M_PI;
+    cell.emissionRange = M_PI_4 / 4;
+    //Y方向的加速度
+    cell.yAcceleration = 70.0;
+    return cell;
 }
 
 - (void)startAnimation {
@@ -171,12 +179,18 @@
     } else {
         [self stopAnimation];
     }
-
 }
 
 //烟花
-- (void)fireAction {
+- (void)fireAction:(UIButton *)btn {
     [_fireView startAnimation];
+    if ([@"cake" isEqualToString:self.imageName]) {
+        self.imageName = @"heart";
+    } else {
+        self.imageName = @"cake";
+    }
+    CAEmitterCell *cell = [self getCell:self.imageName];
+    _emitterLayer.emitterCells = @[cell];
 }
 
 - (void)doRotateAction:(NSNotification *)notification {
@@ -202,13 +216,13 @@
         bounds.size.height -= kTopHeight;
         gradientLayer.frame = bounds;
         _emitterView.frame = CGRectMake(0, 100, bounds.size.width, kScreenHeight - 100);
-        
+
     } else {
         gradientLayer.frame = bounds;
         _emitterView.frame = bounds;
     }
-    _emitterLayer.emitterPosition = CGPointMake(bounds.size.width / 2.0, -100);
-    _emitterLayer.emitterSize = CGSizeMake(bounds.size.width, 0);
+    _emitterLayer.emitterPosition = CGPointMake(bounds.size.width / 2.0, -150);
+    _emitterLayer.emitterSize = CGSizeMake(bounds.size.width * 0.7, 0);
     _fireView.center = self.view.center;
 }
 
