@@ -34,4 +34,9 @@
     }
 }
 
++ (BOOL)isInPortrait {
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    return UIInterfaceOrientationIsPortrait(orientation);
+}
+
 @end

@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 
 #define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
-#define kNavBarHeight 44.0
+#define kNavBarHeight 44.0f
 #define kTopHeight (kStatusBarHeight + kNavBarHeight)
 #define kTabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height > 20 ? 83 : 49)
 
@@ -22,5 +22,7 @@
 + (BOOL)isCurrentViewControllerVisible:(UIViewController *)viewController;
 
 + (void)setOrientation:(UIInterfaceOrientation)orientation;
+
++ (BOOL)isInPortrait;
 
 @end

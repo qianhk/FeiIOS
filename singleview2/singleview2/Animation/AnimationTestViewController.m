@@ -2,7 +2,7 @@
 //  AnimationTestViewController.m
 //  singleview2
 //
-//  Created by 钱红凯 on 2018/5/28.
+//  Created by qianhk on 2018/5/28.
 //  Copyright © 2018年 Njnu. All rights reserved.
 //
 

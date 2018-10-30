@@ -2,7 +2,7 @@
 //  FireView.m
 //  singleview2
 //
-//  Created by 钱红凯 on 2018/10/29.
+//  Created by qianhk on 2018/10/29.
 //  Copyright © 2018年 Njnu. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor clearColor];
+//        [self setupExplosion];
     }
     return self;
 }
