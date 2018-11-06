@@ -19,6 +19,9 @@
 
 @property (nonatomic, strong) NSString *imageName;
 
+@property(nonatomic, strong) UIImageView *testImageView;
+@property(nonatomic, strong) UIImageView *testImageView2;
+
 @end
 
 @implementation EmitterTestViewController
@@ -36,6 +39,21 @@
                                              selector:@selector(doRotateAction:)
                                                  name:UIDeviceOrientationDidChangeNotification
                                                object:nil];
+    
+    UIImage *tmpImage = [UIImage imageNamed:@"car2"]; //24 @2 3
+    UIImage *cakeImage = [UIImage imageNamed:@"cake"]; //120 @1
+    self.testImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 150, 200, 200)];
+    self.testImageView.contentMode = UIViewContentModeCenter;
+    self.testImageView.backgroundColor = [UIColor lightGrayColor];
+    self.testImageView.image = tmpImage;
+    [self.view addSubview:self.testImageView];
+    
+    UIImage *tmpImage2 = [UIImage imageWithCGImage:cakeImage.CGImage scale:2.0f orientation:UIImageOrientationUp];
+    self.testImageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(10, 400, 200, 200)];
+    self.testImageView2.contentMode = UIViewContentModeCenter;
+    self.testImageView2.backgroundColor = [UIColor lightGrayColor];
+    self.testImageView2.image = tmpImage2;
+    [self.view addSubview:self.testImageView2];
 }
 
 - (void)initView {
