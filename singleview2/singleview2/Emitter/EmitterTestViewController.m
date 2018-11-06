@@ -137,7 +137,9 @@
 - (CAEmitterCell *)getCell:(NSString *)imageName {
     CAEmitterCell *cell = [[CAEmitterCell alloc] init];
     //展示的图片
-    cell.contents = (__bridge id _Nullable) ([UIImage imageNamed:self.imageName].CGImage);
+    UIImage *image = [UIImage imageNamed:self.imageName];
+    cell.contents = (__bridge id _Nullable) (image.CGImage);
+    cell.contentsScale = 2;
     cell.scale = 0.6;
     cell.scaleRange = 0.4;
 
