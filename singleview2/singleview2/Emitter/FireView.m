@@ -14,11 +14,22 @@
 
 @implementation FireView
 
+// 普通自定义view，如果new init 或者initWithFrame均走到initWithFrame里
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor clearColor];
 //        [self setupExplosion];
     }
+    return self;
+}
+
+//如果从xib nib加载则走到initWithCoder里，不会走到init里
+- (instancetype)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+    if (self) {
+        self.backgroundColor = [UIColor clearColor];
+    }
+    
     return self;
 }
 
