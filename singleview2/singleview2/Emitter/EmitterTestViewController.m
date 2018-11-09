@@ -9,6 +9,7 @@
 #import "FireView.h"
 #import "EmitterTestViewController.h"
 #import "AppGlobalUI.h"
+#import "UIColor+String.h"
 
 @interface EmitterTestViewController ()
 
@@ -44,14 +45,14 @@
     UIImage *cakeImage = [UIImage imageNamed:@"cake"]; //120 @1
     self.testImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 150, 200, 200)];
     self.testImageView.contentMode = UIViewContentModeCenter;
-    self.testImageView.backgroundColor = [UIColor lightGrayColor];
+    self.testImageView.backgroundColor = [UIColor colorWithHexString:@"#40000000"];
     self.testImageView.image = tmpImage;
     [self.view addSubview:self.testImageView];
     
     UIImage *tmpImage2 = [UIImage imageWithCGImage:cakeImage.CGImage scale:2.0f orientation:UIImageOrientationUp];
     self.testImageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(10, 400, 200, 200)];
     self.testImageView2.contentMode = UIViewContentModeCenter;
-    self.testImageView2.backgroundColor = [UIColor lightGrayColor];
+    self.testImageView2.backgroundColor = [UIColor colorWithHexString:@"#40000000"];
     self.testImageView2.image = tmpImage2;
     [self.view addSubview:self.testImageView2];
 }

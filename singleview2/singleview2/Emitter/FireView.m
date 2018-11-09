@@ -7,9 +7,16 @@
 //
 
 #import "FireView.h"
+#import "UIColor+String.h"
+
 
 @interface FireView ()
+
 @property (strong, nonatomic) CAEmitterLayer *explosionLayer;
+
+@property (nonatomic, strong) UIView *redView;
+@property (nonatomic, strong) UIView *greenView;
+
 @end
 
 @implementation FireView
@@ -17,8 +24,19 @@
 // 普通自定义view，如果new init 或者initWithFrame均走到initWithFrame里
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor colorWithHexString:@"#20000000"];
 //        [self setupExplosion];
+
+        self.redView = [UIView new];
+        self.redView.backgroundColor = [UIColor colorWithHexString:@"#80FF0000"];
+        [self addSubview:self.redView];
+        self.redView.tag = 1001;
+
+        self.greenView = [UIView new];
+        self.greenView.backgroundColor = [UIColor colorWithHexString:@"#8000FF00"];
+        [self addSubview:self.greenView];
+        self.greenView.tag = 1002;
+
     }
     return self;
 }
@@ -29,7 +47,7 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
     }
-    
+
     return self;
 }
 
@@ -65,7 +83,7 @@
     explosionCell.redRange = 1.;
     explosionCell.blueRange = 1.;
     explosionCell.greenRange = 1.;
-    
+
     explosionCell.redSpeed = 0.2;
     explosionCell.blueSpeed = 0.2;
     explosionCell.greenSpeed = 0.2;
@@ -123,8 +141,36 @@
     [_explosionLayer removeAllAnimations];
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGSize parentSize = self.bounds.size;
+    self.redView.frame = CGRectMake(0, 0, parentSize.width * 0.7, parentSize.height * 0.7);
+    self.greenView.frame = CGRectMake(parentSize.width * 0.3, parentSize.height * 0.3, parentSize.width * 0.7, parentSize.height * 0.7);
+}
+
+
 - (nullable UIView *)hitTest:(CGPoint)point withEvent:(nullable UIEvent *)event {
-    UIView *view = [super hitTest:point withEvent:event];
+//    UIView *view = [super hitTest:point withEvent:event];
+    UIView *view = nil;
+    int count = self.subviews.count;
+    for (int i = count - 1; i >= 0; i--) {
+        UIView *childView = self.subviews[i];
+        CGPoint childP = [self convertPoint:point toView:childView];
+        view = [childView hitTest:childP withEvent:event];
+        if (view) {
+            break;
+        }
+    }
+
+    if (view == nil) {
+        if (self.userInteractionEnabled && !self.hidden && self.alpha > 0.01f) {
+            if ([self pointInside:point withEvent:event]) {
+                view = self;
+            }
+        }
+    }
+
+    NSLog(@"lookTouch view.tag=%ld", view.tag);
     if (view == self) {
         return nil;
     } else {

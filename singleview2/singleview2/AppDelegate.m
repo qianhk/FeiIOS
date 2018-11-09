@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  singleview2
 //
-//  Created by hongkai.qian on 12-2-27.
+//  Created by qhk on 12-2-27.
 //  Copyright (c) 2012年 Njnu. All rights reserved.
 //
 
