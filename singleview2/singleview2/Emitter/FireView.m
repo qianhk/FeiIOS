@@ -151,9 +151,16 @@
 
 - (nullable UIView *)hitTest:(CGPoint)point withEvent:(nullable UIEvent *)event {
 //    UIView *view = [super hitTest:point withEvent:event];
+    if (!self.userInteractionEnabled || self.hidden || self.alpha <= 0.01f) {
+        return nil;
+    }
+    if (![self pointInside:point withEvent:event]) {
+        return nil;
+    }
     UIView *view = nil;
     int count = self.subviews.count;
-    for (int i = count - 1; i >= 0; i--) {
+//    for (int i = count - 1; i >= 0; --i) {
+    for (int i = 0; i < count; ++i) {
         UIView *childView = self.subviews[i];
         CGPoint childP = [self convertPoint:point toView:childView];
         view = [childView hitTest:childP withEvent:event];
@@ -163,14 +170,11 @@
     }
 
     if (view == nil) {
-        if (self.userInteractionEnabled && !self.hidden && self.alpha > 0.01f) {
-            if ([self pointInside:point withEvent:event]) {
-                view = self;
-            }
-        }
+        view = self;
     }
 
     NSLog(@"lookTouch view.tag=%ld", view.tag);
+
     if (view == self) {
         return nil;
     } else {
