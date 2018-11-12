@@ -191,4 +191,9 @@
     [super touchesEnded:touches withEvent:event];
 }
 
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
+    NSLog(@"lookTouch at FireView touchesCancelled view.tag=%ld", self.tag);
+    [super touchesCancelled:touches withEvent:event];
+}
+
 @end
