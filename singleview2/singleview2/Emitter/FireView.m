@@ -10,7 +10,7 @@
 #import "UIColor+String.h"
 #import "TestTouchView.h"
 
-@interface FireView ()
+@interface FireView () <UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) CAEmitterLayer *explosionLayer;
 
@@ -36,6 +36,13 @@
         self.greenView.backgroundColor = [UIColor colorWithHexString:@"#8000FF00"];
         [self addSubview:self.greenView];
         self.greenView.tag = 1002;
+
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(notifyTapGestureRecognizer:)];
+        tapGestureRecognizer.numberOfTapsRequired = 1;
+        tapGestureRecognizer.numberOfTouchesRequired = 1;
+        [self addGestureRecognizer:tapGestureRecognizer];
+        
+        tapGestureRecognizer.delegate = self;
 
     }
     return self;
@@ -172,7 +179,7 @@
         view = self;
     }
 
-    NSLog(@"lookTouch at FireView view.tag=%ld", view.tag);
+    NSLog(@"lookTouch hitTest at FireView view.tag=%ld", view.tag);
 
     if (view == self) {
         return view; // nil;
@@ -194,6 +201,15 @@
 - (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
     NSLog(@"lookTouch at FireView touchesCancelled view.tag=%ld", self.tag);
     [super touchesCancelled:touches withEvent:event];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    NSLog(@"lookTouch at FireView gestureRecognizer shouldReceiveTouch: view.tag=%ld", touch.view.tag);
+    return touch.view.tag == 300;
+}
+
+- (void)notifyTapGestureRecognizer:(UITapGestureRecognizer *)recognizer {
+    NSLog(@"lookTouch at FireView Tap Gesture view.tag=%ld", recognizer.view.tag);
 }
 
 @end

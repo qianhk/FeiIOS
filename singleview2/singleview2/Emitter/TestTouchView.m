@@ -19,10 +19,12 @@
         self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(notifyTapGestureRecognizer:)];
         _tapGestureRecognizer.numberOfTapsRequired = 1;
         _tapGestureRecognizer.numberOfTouchesRequired = 1;
-        [self addGestureRecognizer:_tapGestureRecognizer];
+//        [self addGestureRecognizer:_tapGestureRecognizer];
+//        _tapGestureRecognizer.delaysTouchesBegan = YES;
         
-        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(notifyPanGestureRecognizer:)];
-        [self addGestureRecognizer:panGesture];
+//        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(notifyPanGestureRecognizer:)];
+//        [self addGestureRecognizer:panGesture];
+//        panGesture.delaysTouchesBegan = YES;
     }
 
     return self;
@@ -42,11 +44,11 @@
 }
 
 - (void)notifyTapGestureRecognizer:(UITapGestureRecognizer *)recognizer {
-    NSLog(@"lookTouch Tap Gesture view.tag=%ld", self.tag);
+    NSLog(@"lookTouch at testTouchView Tap Gesture view.tag=%ld", recognizer.view.tag);
 }
 
 - (nullable UIView *)hitTest:(CGPoint)point withEvent:(nullable UIEvent *)event {
-    NSLog(@"lookTouch at testTouchView view.tag=%ld", self.tag);
+    NSLog(@"lookTouch hitTest at testTouchView view.tag=%ld", self.tag);
     return [super hitTest:point withEvent:event];
 }
 
