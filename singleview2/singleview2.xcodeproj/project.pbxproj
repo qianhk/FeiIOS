@@ -30,6 +30,7 @@
 		19DD351AF15FCD67BBBCEEEB /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD312A2BE7880F38ED5775 /* UIView+Utils.m */; };
 		19DD357A98EE43402DE71999 /* BaseImageRecognitionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3BFF87DE82FEE5D78D3A /* BaseImageRecognitionViewController.m */; };
 		19DD35F32D58CA694658070B /* CalculatorMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD390963D60D7C86113D09 /* CalculatorMaker.m */; };
+		19DD366377056F9BD7A71F36 /* TestTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3C934F7869307B161152 /* TestTouchView.m */; };
 		19DD3702EE3F3CBE5AA2D14C /* SubscribeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD32CF66963E64373CEC35 /* SubscribeViewModel.m */; };
 		19DD3721FFA82A7C2243E9BC /* StickyHeaderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD30DD2FE79C0AD3F52D9F /* StickyHeaderInfo.m */; };
 		19DD37405E5AEF4C24170374 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3E1E67BDD3D2E0C13C93 /* NSObject+Utils.m */; };
@@ -171,6 +172,7 @@
 		19DD343497F86F9BCE1EE051 /* KaiLayoutExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaiLayoutExt.h; sourceTree = "<group>"; };
 		19DD34777B2FB5C660BC6A83 /* UICollectionViewLeftFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftFlowLayout.h; sourceTree = "<group>"; };
 		19DD347E2879F0FB243A359B /* NameAndColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameAndColorCell.m; sourceTree = "<group>"; };
+		19DD348C950824F05653EA89 /* TestTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTouchView.h; sourceTree = "<group>"; };
 		19DD34BE1711135CC2034501 /* SwitchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwitchViewController.h; sourceTree = "<group>"; };
 		19DD34D6D63E5F65DC2E8979 /* HeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderCell.m; sourceTree = "<group>"; };
 		19DD3503FE33C4DDAD5581B8 /* CalculatorMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorMaker.h; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 		19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Calculator.m"; sourceTree = "<group>"; };
 		19DD3C4E6FCF9245BC4BCB01 /* SimpleLinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleLinearLayout.h; sourceTree = "<group>"; };
 		19DD3C762C20AFE9B642CE7B /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
+		19DD3C934F7869307B161152 /* TestTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTouchView.m; sourceTree = "<group>"; };
 		19DD3CA74EB99547AE4AE0DD /* PostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewController.h; sourceTree = "<group>"; };
 		19DD3CDDE22E8C20EF6D099A /* CoordinatorLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinatorLayout.m; sourceTree = "<group>"; };
 		19DD3D73E1F0DC9A3D0A74EA /* HeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCell.h; sourceTree = "<group>"; };
@@ -643,6 +646,8 @@
 				2A541A2221871421009EA801 /* EmitterTestViewController.m */,
 				2A541A242187146D009EA801 /* FireView.h */,
 				2A541A252187146D009EA801 /* FireView.m */,
+				19DD3C934F7869307B161152 /* TestTouchView.m */,
+				19DD348C950824F05653EA89 /* TestTouchView.h */,
 			);
 			path = Emitter;
 			sourceTree = "<group>";
@@ -1055,6 +1060,7 @@
 				2A4A0F29214A634700952F24 /* StackViewTestViewController.m in Sources */,
 				19DD3FC3D2E0292ED9E077B3 /* AnimationLabel.m in Sources */,
 				2A541A262187146D009EA801 /* FireView.m in Sources */,
+				19DD366377056F9BD7A71F36 /* TestTouchView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

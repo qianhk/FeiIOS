@@ -8,14 +8,14 @@
 
 #import "FireView.h"
 #import "UIColor+String.h"
-
+#import "TestTouchView.h"
 
 @interface FireView ()
 
 @property (strong, nonatomic) CAEmitterLayer *explosionLayer;
 
-@property (nonatomic, strong) UIView *redView;
-@property (nonatomic, strong) UIView *greenView;
+@property (nonatomic, strong) TestTouchView *redView;
+@property (nonatomic, strong) TestTouchView *greenView;
 
 @end
 
@@ -27,12 +27,12 @@
         self.backgroundColor = [UIColor colorWithHexString:@"#20000000"];
 //        [self setupExplosion];
 
-        self.redView = [UIView new];
+        self.redView = [TestTouchView new];
         self.redView.backgroundColor = [UIColor colorWithHexString:@"#80FF0000"];
         [self addSubview:self.redView];
         self.redView.tag = 1001;
 
-        self.greenView = [UIView new];
+        self.greenView = [TestTouchView new];
         self.greenView.backgroundColor = [UIColor colorWithHexString:@"#8000FF00"];
         [self addSubview:self.greenView];
         self.greenView.tag = 1002;
@@ -148,7 +148,6 @@
     self.greenView.frame = CGRectMake(parentSize.width * 0.3, parentSize.height * 0.3, parentSize.width * 0.7, parentSize.height * 0.7);
 }
 
-
 - (nullable UIView *)hitTest:(CGPoint)point withEvent:(nullable UIEvent *)event {
 //    UIView *view = [super hitTest:point withEvent:event];
     if (!self.userInteractionEnabled || self.hidden || self.alpha <= 0.01f) {
@@ -173,14 +172,23 @@
         view = self;
     }
 
-    NSLog(@"lookTouch view.tag=%ld", view.tag);
+    NSLog(@"lookTouch at FireView view.tag=%ld", view.tag);
 
     if (view == self) {
-        return nil;
+        return view; // nil;
     } else {
         return view;
     }
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
+    NSLog(@"lookTouch at FireView touchesBegan view.tag=%ld", self.tag);
+    [super touchesBegan:touches withEvent:event];
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event {
+    NSLog(@"lookTouch at FireView touchesEnded view.tag=%ld", self.tag);
+    [super touchesEnded:touches withEvent:event];
+}
 
 @end
