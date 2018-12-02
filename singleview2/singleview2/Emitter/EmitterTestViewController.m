@@ -13,12 +13,12 @@
 
 @interface EmitterTestViewController ()
 
-@property (nonatomic, strong) CAEmitterLayer *emitterLayer;
+@property(nonatomic, strong) CAEmitterLayer *emitterLayer;
 
-@property (nonatomic, strong) UIView *emitterView;
-@property (nonatomic, strong) FireView *fireView;
+@property(nonatomic, strong) UIView *emitterView;
+@property(nonatomic, strong) FireView *fireView;
 
-@property (nonatomic, strong) NSString *imageName;
+@property(nonatomic, strong) NSString *imageName;
 
 @property(nonatomic, strong) UIImageView *testImageView;
 @property(nonatomic, strong) UIImageView *testImageView2;
@@ -40,7 +40,7 @@
                                              selector:@selector(doRotateAction:)
                                                  name:UIDeviceOrientationDidChangeNotification
                                                object:nil];
-    
+
     UIImage *tmpImage = [UIImage imageNamed:@"car2"]; //24 @2 3
     UIImage *cakeImage = [UIImage imageNamed:@"cake"]; //120 @1
     self.testImageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 150, 200, 200)];
@@ -48,22 +48,84 @@
     self.testImageView.backgroundColor = [UIColor colorWithHexString:@"#40000000"];
     self.testImageView.image = tmpImage;
     [self.view addSubview:self.testImageView];
-    
+
     UIImage *tmpImage2 = [UIImage imageWithCGImage:cakeImage.CGImage scale:2.0f orientation:UIImageOrientationUp];
     self.testImageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(10, 400, 200, 200)];
     self.testImageView2.contentMode = UIViewContentModeCenter;
     self.testImageView2.backgroundColor = [UIColor colorWithHexString:@"#40000000"];
     self.testImageView2.image = tmpImage2;
     [self.view addSubview:self.testImageView2];
+
+//    id obj = [[NSObject alloc] init];
+//    void *c = (__bridge void *) (obj);
+//    id d = (__bridge id) (c);
+//    NSLog(@"\n obj=%@,\n c=%@,\n d=%@\n", obj, c, d);
+
+    id obj = [[NSObject alloc] init];
+    void *c = (__bridge void *) (obj);//只做类型转换，不修改相关对象的引用计数
+    NSLog(@"obj-c count is %ld", CFGetRetainCount(c));//输出结果： obj-c count is 1
+    id d = (__bridge id) (c);
+    NSLog(@"obj-d retainCount %ld", CFGetRetainCount((__bridge CFTypeRef) (d)));//输出结果：obj-d retainCount 2
+    NSLog(@"\n obj=%@,\n c=%@,\n d=%@\n", obj, c, d);
+    //__bridge
+    CFStringRef CFString = CFStringCreateWithCString(kCFAllocatorDefault, "hello Core Foundation", kCFStringEncodingASCII);
+    NSLog(@"CFString retainCount= %ld", CFGetRetainCount(CFString));//CFString retainCount= 1
+    NSString *string = (__bridge NSString *) CFString;
+    NSLog(@"CFstring==%@,\nstring==%@\n", CFString, string);
+    NSString *qStr = @"qgh";
+    CFStringRef qCFStr = (__bridge CFStringRef) qStr;
+    NSLog(@"qStr==%@,qCFStr==%@\n", qStr, qCFStr);
+    NSArray *array = @[@"a", @"b", @"c", @"d", @"e", @"f", @"g", @"h"];
+    CFArrayRef CFArray = (__bridge CFArrayRef) (array);
+    NSLog(@"CFArray retainCount= %ld", CFGetRetainCount(CFArray));//CFArray retainCount= 1
+    NSLog(@"array==%@", CFArray);
+
+    //__bridge_transfer:类型转换后，将该对象的引用计数交给ARC管理.
+    NSString *transferString = [[NSString alloc] initWithFormat:@"test:::__bridge_transfer"];
+    CFStringRef CFTransferString = (__bridge_retained CFStringRef) (transferString);
+    NSLog(@"CFTransferString count is %ld", CFGetRetainCount(CFTransferString));//CFTransferString count is 2
+    transferString = (__bridge_transfer NSString *) (CFTransferString);
+    NSLog(@"transferString count is %ld", CFGetRetainCount((__bridge CFTypeRef) (transferString)));//transferString count is 1
+
+    //__bridge_retained: 类型被转换时，其对象的所有权也将被变换后变量所持有
+    void *y = 0;
+    id object = [[NSObject alloc] init];
+    y = (__bridge_retained void *) (object);//类型转换后将相关对象的引用计数加1
+    NSLog(@"object-y count is %ld", CFGetRetainCount(y));//object-y count is 2
+    NSLog(@"class=%@", [(__bridge id) (y) class]);
+
+    void *p = 0;
+    {
+        id obj = [[FireView alloc] init];
+        p = (__bridge_retained void *)(obj); // p 持有 obj
+        CFShow(p);
+        printf("retain 100 count = %ld\n", (long)CFGetRetainCount(p));
+    }
+    
+    printf("retain 200 count = %ld\n", (long)CFGetRetainCount(p));
+    FireView * v2 =(__bridge FireView *)p;
+    NSLog(@"class = %@", [v2 class]);
+    printf("retain 300 count = %ld\n", (long)CFGetRetainCount(p));
+    CFRelease(p);
+    NSLog(@"class 400 = %@", [(__bridge id)p class]);
+    [self printClassInfo:(__bridge id)p];
+//    v2 = nil;
+//    [self printClassInfo:(__bridge id)p];
+//    printf("retain 500 count = %ld\n", (long)CFGetRetainCount(p));
+}
+
+- (void)printClassInfo:(id)obj {
+    const char * clazz = object_getClassName(obj);
+    NSLog(@"obj class: %s", clazz);
 }
 
 - (void)initView {
-    
+
     _fireView = [[FireView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth)];
     _fireView.center = self.view.center;
     _fireView.tag = 300;
     [self.view addSubview:_fireView];
-    
+
     UIButton *clickButton = [[UIButton alloc] initWithFrame:CGRectMake(10, kTopHeight + 20, 100, 40)];
     clickButton.backgroundColor = [UIColor blueColor];
     [clickButton setTitle:@"暂停" forState:UIControlStateNormal];
@@ -140,6 +202,7 @@
     //展示的图片
     UIImage *image = [UIImage imageNamed:self.imageName];
     cell.contents = (__bridge id _Nullable) (image.CGImage);
+    image = nil;
     cell.contentsScale = 2;
     cell.scale = 0.6;
     cell.scaleRange = 0.4;
