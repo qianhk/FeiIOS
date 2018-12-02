@@ -23,6 +23,11 @@
 @property(nonatomic, strong) UIImageView *testImageView;
 @property(nonatomic, strong) UIImageView *testImageView2;
 
+@property(nonatomic, strong) UIImageView *pikachuImageView;
+@property(nonatomic, strong) UIView *pikachuView;
+
+@property(nullable, strong) id testId;
+
 @end
 
 @implementation EmitterTestViewController
@@ -112,6 +117,70 @@
 //    v2 = nil;
 //    [self printClassInfo:(__bridge id)p];
 //    printf("retain 500 count = %ld\n", (long)CFGetRetainCount(p));
+
+//    [[UIView appearance] setExclusiveTouch:YES];
+
+    void *p2 = 0;
+    {
+        id obj = [[FireView alloc] init];
+        p2 = (__bridge void *)(obj); // p 持有 obj
+        CFShow(p2);
+        printf("retain 1000 count = %ld\n", (long)CFGetRetainCount(p2));
+        self.testId = (__bridge id)p2;
+        printf("retain 1010 count = %ld\n", (long)CFGetRetainCount(p2));
+    }
+
+    printf("retain 2000 count = %ld\n", (long)CFGetRetainCount(p2));
+    
+    UIImage *pikachu = [UIImage imageNamed:@"pikachu"];
+    NSLog(@"pikachu screen scale=%.1f image size=%@ scale=%.1f", [UIScreen mainScreen].scale, NSStringFromCGSize(pikachu.size), pikachu.scale);
+    self.pikachuImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 200, 270, 290)];
+    self.pikachuImageView.backgroundColor = [UIColor greenColor];
+    self.pikachuImageView.contentMode = UIViewContentModeCenter;
+    self.pikachuImageView.image = pikachu;
+//    [self.view addSubview:self.pikachuImageView];
+    
+    self.pikachuView = [[UIView alloc] initWithFrame:CGRectMake(20, 200, 270, 290)];
+    self.pikachuView.backgroundColor = [UIColor orangeColor];
+    self.pikachuView.contentMode = UIViewContentModeCenter;
+    self.pikachuView.layer.contents = (__bridge id _Nullable)(pikachu.CGImage);
+    self.pikachuView.layer.contentsScale = pikachu.scale;
+    [self.view addSubview:self.pikachuView];
+    NSLog(@"contentsRect = %@", NSStringFromCGRect(_pikachuView.layer.contentsRect));
+    
+    __block int jsCount = 0;
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(timer, ^{
+        CGRect rect;
+        switch (jsCount) {
+            case 0:
+                rect = CGRectMake(0, 0, 0.5, 0.5);
+                break;
+                
+            case 1:
+                rect = CGRectMake(0.5, 0, 0.5, 0.5);
+                break;
+                
+            case 2:
+                rect = CGRectMake(0, 0.5, 0.5, 0.5);
+                break;
+                
+            case 3:
+                rect = CGRectMake(0.5, 0.5, 0.5, 0.5);
+                break;
+                
+            default:
+                rect = CGRectMake(0, 0, 1.0, 1.0);
+                break;
+        }
+        _pikachuView.layer.contentsRect = rect;
+        ++jsCount;
+        if (jsCount == 4) {
+            dispatch_source_cancel(timer);
+        }
+    });
+    dispatch_resume(timer);
 }
 
 - (void)printClassInfo:(id)obj {
@@ -199,6 +268,7 @@
 
 - (CAEmitterCell *)getCell:(NSString *)imageName {
     CAEmitterCell *cell = [[CAEmitterCell alloc] init];
+    
     //展示的图片
     UIImage *image = [UIImage imageNamed:self.imageName];
     cell.contents = (__bridge id _Nullable) (image.CGImage);
