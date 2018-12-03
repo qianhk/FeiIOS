@@ -14,6 +14,20 @@
 #import "NSObject+Utils.h"
 #import <sys/utsname.h>
 
+@interface Spark : NSObject
+
+@property(nonatomic,copy) NSString *name;
+
+@end
+
+@implementation Spark
+
+- (void)speak {
+    NSLog(@"My name self=%p address=%p value is:%@", self, &_name,self.name);
+}
+
+@end
+
 @interface LabelUIViewController () {
     CGFloat fontSize;
 }
@@ -36,6 +50,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    id cls = [Spark class];
+    id otherSelf = self;
+    
+    void *obj = &cls;
+    [(__bridge id)obj speak];
+    
+    
+    NSLog(@"self:%p  obj=%p %@ %p",self, obj, self, &self);
+    NSLog(@"otherSelf:%p  %@ %p", otherSelf, otherSelf, &otherSelf);
 
     Class clz = object_getClass(self);
     Method method = class_getInstanceMethod(clz, @selector(appendFormat:));
