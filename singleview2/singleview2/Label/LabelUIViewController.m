@@ -167,6 +167,12 @@
     uname(&systemInfo);
     NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSUTF8StringEncoding];
     NSLog(@"platform=%@", platform); //at iPhone7 platform=iPhone9,1
+    
+    NSDictionary *dic = @{@"key1": @1, @"key2": @"Haha"};
+    NSString *description = dic.description;
+    NSString *newStr = [[dic.description stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *testStr = nil;
+    NSLog(@"lookDic: %@ %@ %@ xx=%@", newStr, description, dic.descriptionInStringsFileFormat, [testStr stringByReplacingOccurrencesOfString:@"\n" withString:@""]);
 }
 
 - (void)testTypeNotSame:(NSUInteger)number {
