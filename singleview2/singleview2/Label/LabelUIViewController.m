@@ -173,6 +173,9 @@
     NSString *newStr = [[dic.description stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *testStr = nil;
     NSLog(@"lookDic: %@ %@ %@ xx=%@", newStr, description, dic.descriptionInStringsFileFormat, [testStr stringByReplacingOccurrencesOfString:@"\n" withString:@""]);
+    dic = nil;
+    newStr = [[dic.description stringByReplacingOccurrencesOfString:@"\n" withString:@""] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"lookDic2:dic=nil newStr=%@", newStr);
 }
 
 - (void)testTypeNotSame:(NSUInteger)number {
