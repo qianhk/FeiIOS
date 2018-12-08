@@ -27,6 +27,10 @@
     // Do any additional setup after loading the view from its nib.
     _yellowView.layer.anchorPoint = CGPointMake(0, 0);
     
+    self.hourImageView.layer.anchorPoint = CGPointMake(0.5, 0.7);
+    self.minuteImageView.layer.anchorPoint = CGPointMake(0.5, 0.7);
+    self.secondImageView.layer.anchorPoint = CGPointMake(0.5, 0.7);
+    
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timeTick) userInfo:nil repeats:YES];
     [self timeTick];
 }
