@@ -100,6 +100,8 @@
 		2A94AAC81F53C91A00D53616 /* MyLayoutSizeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A94AAC11F53C91A00D53616 /* MyLayoutSizeClass.m */; };
 		2A94AAC91F53C91A00D53616 /* MyLinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A94AAC41F53C91A00D53616 /* MyLinearLayout.m */; };
 		2AA531381FF1F3990093F9B7 /* TestFlowCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA531371FF1F3990093F9B7 /* TestFlowCollectionViewController.m */; };
+		2AB0764121BC09BC003006A3 /* AnchorPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB0763F21BC09BC003006A3 /* AnchorPointViewController.m */; };
+		2AB0764221BC09BC003006A3 /* AnchorPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB0764021BC09BC003006A3 /* AnchorPointViewController.xib */; };
 		2ABE85411F385BF900609D5A /* PostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE85401F385BF900609D5A /* PostTableViewController.m */; };
 		2ABE85431F388B7600609D5A /* artists.json in Resources */ = {isa = PBXBuildFile; fileRef = 2ABE85421F388B7600609D5A /* artists.json */; };
 		2ABE85491F3987C700609D5A /* ArtistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE85471F3987C700609D5A /* ArtistTableViewCell.m */; };
@@ -303,6 +305,9 @@
 		2A94AAC41F53C91A00D53616 /* MyLinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLinearLayout.m; sourceTree = "<group>"; };
 		2AA531361FF1F3990093F9B7 /* TestFlowCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestFlowCollectionViewController.h; sourceTree = "<group>"; };
 		2AA531371FF1F3990093F9B7 /* TestFlowCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestFlowCollectionViewController.m; sourceTree = "<group>"; };
+		2AB0763E21BC09BC003006A3 /* AnchorPointViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnchorPointViewController.h; sourceTree = "<group>"; };
+		2AB0763F21BC09BC003006A3 /* AnchorPointViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnchorPointViewController.m; sourceTree = "<group>"; };
+		2AB0764021BC09BC003006A3 /* AnchorPointViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnchorPointViewController.xib; sourceTree = "<group>"; };
 		2ABE85401F385BF900609D5A /* PostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewController.m; sourceTree = "<group>"; };
 		2ABE85421F388B7600609D5A /* artists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artists.json; sourceTree = "<group>"; };
 		2ABE85461F3987C700609D5A /* ArtistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistTableViewCell.h; sourceTree = "<group>"; };
@@ -709,6 +714,16 @@
 			path = MyLayout;
 			sourceTree = "<group>";
 		};
+		2AB0763C21BC097D003006A3 /* CoreAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				2AB0763E21BC09BC003006A3 /* AnchorPointViewController.h */,
+				2AB0763F21BC09BC003006A3 /* AnchorPointViewController.m */,
+				2AB0764021BC09BC003006A3 /* AnchorPointViewController.xib */,
+			);
+			path = CoreAnimation;
+			sourceTree = "<group>";
+		};
 		733110295F6532FE63A2CEE2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -758,6 +773,7 @@
 		D9CE40B214FB8F1000E6FD79 /* singleview2 */ = {
 			isa = PBXGroup;
 			children = (
+				2AB0763C21BC097D003006A3 /* CoreAnimation */,
 				2A541A2021871400009EA801 /* Emitter */,
 				2A4A0F25214A632600952F24 /* StackView */,
 				2A1D613920BBE55F00405F11 /* Animation */,
@@ -902,6 +918,7 @@
 				2AE16A8D1E6BEA0B00B48A49 /* Settings.bundle in Resources */,
 				2ABE854C1F398FF600609D5A /* ArtistAssets.xcassets in Resources */,
 				D9CE40B714FB8F1000E6FD79 /* InfoPlist.strings in Resources */,
+				2AB0764221BC09BC003006A3 /* AnchorPointViewController.xib in Resources */,
 				2ABE85431F388B7600609D5A /* artists.json in Resources */,
 				2A746B171E5B20670022F2B3 /* statedDictionary.plist in Resources */,
 				2AD3AA141F42CDA400C7940B /* PostCell.xib in Resources */,
@@ -984,6 +1001,7 @@
 				2AF01FBE1E58935D0088008E /* PickerViewController.m in Sources */,
 				2A2D50871EB0817700BC161D /* UikitTestViewController.m in Sources */,
 				2A6A1F8B1F4C53060002AA84 /* UIScrollView+SVInfiniteScrolling.m in Sources */,
+				2AB0764121BC09BC003006A3 /* AnchorPointViewController.m in Sources */,
 				2A56B2981E59778100DD29B4 /* MainTabBarViewController.m in Sources */,
 				19DD3BFDB43DEA83F51F4662 /* TestCollectionViewController.m in Sources */,
 				19DD30087B7CFAAD52AA47E4 /* ContentCell.m in Sources */,
