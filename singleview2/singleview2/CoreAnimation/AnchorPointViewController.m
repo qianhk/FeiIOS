@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *blueView;
 
+@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *digitViews;
 
 @property (weak, nonatomic) IBOutlet UIImageView *hourImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *minuteImageView;
@@ -54,13 +55,27 @@
     _greenView.layer.shadowPath = circlePath;
     CGPathRelease(circlePath);
     
-    CALayer *maskLayer = [CALayer layer];
-    maskLayer.frame = self.yellowView.bounds;
-    UIImage *maskImage = [UIImage imageNamed:@"pet"];
-    maskLayer.contents = (__bridge id)maskImage.CGImage;
-    _yellowView.layer.mask = maskLayer;
+//    CALayer *maskLayer = [CALayer layer];
+//    maskLayer.frame = self.yellowView.bounds;
+//    UIImage *maskImage = [UIImage imageNamed:@"pet"];
+//    maskLayer.contents = (__bridge id)maskImage.CGImage;
+//    _yellowView.layer.mask = maskLayer;
 //    _yellowView.layer.shadowOpacity = 1.f;
 
+    circlePath = CGPathCreateMutable();
+    CGPathAddRect(circlePath, NULL, _yellowView.bounds);
+    CGPathAddEllipseInRect(circlePath, NULL, CGRectInset(_yellowView.bounds, 20, 20));
+
+//    UIBezierPath *path = [UIBezierPath bezierPathWithRect:_yellowView.bounds];
+////    [path appendPath:[UIBezierPath bezierPathWithArcCenter:CGPointMake(SCREEN_WIDTH / 2, 200) radius:100 startAngle:0 endAngle:2*M_PI clockwise:NO]];
+////    [path appendPath:[[UIBezierPath bezierPathWithRoundedRect:CGRectMake(20, 400, SCREEN_WIDTH - 2 * 20, 100) cornerRadius:15] bezierPathByReversingPath]];
+//    [path appendPath:[UIBezierPath bezierPathWithRoundedRect:CGRectInset(_yellowView.bounds, 20, 20) cornerRadius:10]];
+
+    CAShapeLayer *maskLayer = [CAShapeLayer layer];
+    maskLayer.fillRule = kCAFillRuleEvenOdd;
+    maskLayer.path = circlePath;
+    CGPathRelease(circlePath);
+    _yellowView.layer.mask = maskLayer;
     
 //    _yellowView.layer.anchorPoint = CGPointMake(0, 0);
     
@@ -68,6 +83,15 @@
     self.minuteImageView.layer.anchorPoint = CGPointMake(0.5, 0.7);
     self.secondImageView.layer.anchorPoint = CGPointMake(0.5, 0.7);
     
+    
+    UIImage *digits = [UIImage imageNamed:@"numbers"];
+    
+    for (UIView *view in self.digitViews) {
+        view.layer.contents = (__bridge id)digits.CGImage;
+        view.layer.contentsRect = CGRectMake(0, 0, 0.1, 1.0);
+        view.layer.contentsGravity = kCAGravityResizeAspect;
+        view.layer.magnificationFilter = kCAFilterNearest;
+    }
     
 //    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timeTick) userInfo:nil repeats:YES];
 //    [self timeTick];
@@ -96,8 +120,23 @@
     self.secondImageView.transform = CGAffineTransformMakeRotation(secondAngle);
     
 //    NSLog(@"second frame=%@ bounds=%@", NSStringFromCGRect(_secondImageView.frame), NSStringFromCGRect(_secondImageView.bounds));
+    
+
+    [self setDigit:components.hour / 10 forView:self.digitViews[0]];
+    [self setDigit:components.hour % 10 forView:self.digitViews[1]];
+
+    [self setDigit:components.minute / 10 forView:self.digitViews[2]];
+    [self setDigit:components.minute % 10 forView:self.digitViews[3]];
+
+    [self setDigit:components.second / 10 forView:self.digitViews[4]];
+    [self setDigit:components.second % 10 forView:self.digitViews[5]];
 }
 
+- (void)setDigit:(NSInteger)digit forView:(UIView *)view
+{
+    //adjust contentsRect to select correct digit
+    view.layer.contentsRect = CGRectMake(digit * 0.1, 0, 0.1, 1.0);
+}
 
 - (void)dealloc {
     NSLog(@"lookKai dealloc %@", self.class);

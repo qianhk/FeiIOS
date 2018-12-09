@@ -19,6 +19,12 @@
                 <outlet property="secondImageView" destination="43s-vs-RKc" id="hN1-aw-ljR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="yellowView" destination="y9W-aN-X0c" id="4AR-y1-pJ0"/>
+                <outletCollection property="digitViews" destination="59P-Xv-1Ev" id="YXh-Bd-e84"/>
+                <outletCollection property="digitViews" destination="VzR-J3-D8C" id="BRE-hv-msM"/>
+                <outletCollection property="digitViews" destination="7JS-Wg-fpp" id="vwH-hU-AZS"/>
+                <outletCollection property="digitViews" destination="SJ5-vk-R2I" id="D1H-PP-7qw"/>
+                <outletCollection property="digitViews" destination="Mxv-Ko-ql6" id="ZjS-Uh-Bgf"/>
+                <outletCollection property="digitViews" destination="Bdp-me-Ob7" id="KQ5-WJ-2Hl"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -26,9 +32,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iae-nz-ccy">
-                    <rect key="frame" x="20" y="120" width="300" height="140"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iae-nz-ccy">
+                    <rect key="frame" x="37.5" y="80" width="300" height="140"/>
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y9W-aN-X0c">
                             <rect key="frame" x="232" y="-31" width="100" height="136"/>
@@ -37,6 +42,10 @@
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="140" id="OxN-wb-d8x"/>
+                        <constraint firstAttribute="width" constant="300" id="fxn-sd-gZP"/>
+                    </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="20"/>
@@ -44,19 +53,19 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dock" translatesAutoresizingMaskIntoConstraints="NO" id="xKW-02-BZe">
-                    <rect key="frame" x="32" y="272" width="311" height="311"/>
+                    <rect key="frame" x="32" y="260" width="311" height="311"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hour" translatesAutoresizingMaskIntoConstraints="NO" id="YNH-FR-2ep">
-                    <rect key="frame" x="178" y="375" width="19" height="105"/>
+                    <rect key="frame" x="178" y="363" width="19" height="105"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="minute" translatesAutoresizingMaskIntoConstraints="NO" id="Bdi-9P-akc">
-                    <rect key="frame" x="181.5" y="356" width="12" height="143"/>
+                    <rect key="frame" x="181.5" y="344" width="12" height="143"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="second" translatesAutoresizingMaskIntoConstraints="NO" id="43s-vs-RKc">
-                    <rect key="frame" x="183" y="359.5" width="9" height="136"/>
+                    <rect key="frame" x="183" y="347.5" width="9" height="136"/>
                 </imageView>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="blX-th-ORE">
-                    <rect key="frame" x="40" y="100" width="80" height="80"/>
+                    <rect key="frame" x="40" y="87" width="80" height="80"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <userDefinedRuntimeAttributes>
@@ -65,16 +74,54 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wy6-gO-uOI">
+                    <rect key="frame" x="0.0" y="579" width="375" height="74"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="59P-Xv-1Ev">
+                            <rect key="frame" x="16" y="0.0" width="38" height="74"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VzR-J3-D8C">
+                            <rect key="frame" x="72" y="0.0" width="38" height="74"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7JS-Wg-fpp">
+                            <rect key="frame" x="152" y="0.0" width="38" height="74"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SJ5-vk-R2I">
+                            <rect key="frame" x="198" y="0.0" width="38" height="74"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bdp-me-Ob7">
+                            <rect key="frame" x="316" y="0.0" width="38" height="74"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mxv-Ko-ql6">
+                            <rect key="frame" x="268" y="0.0" width="38" height="74"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.45009386540000001" green="0.98132258650000004" blue="0.4743030667" alpha="0.089656464041095896" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="74" id="CRg-mt-QTB"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="iae-nz-ccy" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="60" id="0AV-jm-mRz"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="centerX" secondItem="xKW-02-BZe" secondAttribute="centerX" id="1PU-oG-Nxt"/>
+                <constraint firstItem="Wy6-gO-uOI" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="Beo-Bk-i6f"/>
+                <constraint firstItem="Wy6-gO-uOI" firstAttribute="top" secondItem="xKW-02-BZe" secondAttribute="bottom" constant="8" id="IPv-ge-eky"/>
                 <constraint firstItem="Bdi-9P-akc" firstAttribute="centerX" secondItem="xKW-02-BZe" secondAttribute="centerX" id="MBX-VA-tb3"/>
                 <constraint firstItem="Bdi-9P-akc" firstAttribute="centerY" secondItem="xKW-02-BZe" secondAttribute="centerY" id="OXN-wn-Du1"/>
-                <constraint firstItem="xKW-02-BZe" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="bottom" constant="-395" id="Uwb-j8-sYe"/>
+                <constraint firstItem="xKW-02-BZe" firstAttribute="top" secondItem="iae-nz-ccy" secondAttribute="bottom" constant="40" id="Uwb-j8-sYe"/>
+                <constraint firstItem="iae-nz-ccy" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="apb-cs-Fhp"/>
                 <constraint firstItem="YNH-FR-2ep" firstAttribute="centerY" secondItem="xKW-02-BZe" secondAttribute="centerY" id="fbs-6N-bi6"/>
                 <constraint firstItem="YNH-FR-2ep" firstAttribute="centerX" secondItem="xKW-02-BZe" secondAttribute="centerX" id="iQj-o1-gyg"/>
                 <constraint firstItem="43s-vs-RKc" firstAttribute="centerY" secondItem="xKW-02-BZe" secondAttribute="centerY" id="qat-Og-WPy"/>
+                <constraint firstItem="Wy6-gO-uOI" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="qhP-F6-XPd"/>
                 <constraint firstItem="43s-vs-RKc" firstAttribute="centerX" secondItem="xKW-02-BZe" secondAttribute="centerX" id="tXb-Pr-kow"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
