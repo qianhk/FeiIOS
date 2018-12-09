@@ -84,6 +84,7 @@
     CFArrayRef CFArray = (__bridge CFArrayRef) (array);
     NSLog(@"CFArray retainCount= %ld", CFGetRetainCount(CFArray));//CFArray retainCount= 1
     NSLog(@"array==%@", CFArray);
+    CFRelease(CFString);
 
     //__bridge_transfer:类型转换后，将该对象的引用计数交给ARC管理.
     NSString *transferString = [[NSString alloc] initWithFormat:@"test:::__bridge_transfer"];
@@ -98,6 +99,7 @@
     y = (__bridge_retained void *) (object);//类型转换后将相关对象的引用计数加1
     NSLog(@"object-y count is %ld", CFGetRetainCount(y));//object-y count is 2
     NSLog(@"class=%@", [(__bridge id) (y) class]);
+    CFRelease(y);
 
     void *p = 0;
     {
