@@ -10,7 +10,11 @@
 
 @interface AnchorPointViewController ()
 
+@property (strong, nonatomic) IBOutlet UIView *greenView;
 @property (strong, nonatomic) IBOutlet UIView *yellowView;
+
+@property (strong, nonatomic) IBOutlet UIView *blueView;
+
 
 @property (weak, nonatomic) IBOutlet UIImageView *hourImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *minuteImageView;
@@ -27,11 +31,43 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _yellowView.layer.anchorPoint = CGPointMake(0, 0);
+    
+//    _yellowView.layer.zPosition = 100.f;
+//    _greenView.layer.zPosition = 1.f;
+//    _greenView.layer.delegate = self;
+    NSLog(@"lookKai layer.deletate=%@ shadowRadius=%.2f offset=%@ geometryFlipped=%ld", _greenView.layer.delegate
+          , _blueView.layer.shadowRadius, NSStringFromCGSize(_blueView.layer.shadowOffset), _blueView.layer.geometryFlipped);
+    
+    _yellowView.layer.cornerRadius = 10;
+    _yellowView.layer.borderColor = [UIColor blueColor].CGColor;
+    _yellowView.layer.borderWidth = 5.f;
+    
+    _greenView.layer.shadowOpacity = 1.f;
+    _greenView.layer.shadowRadius = 6.f;
+    _greenView.layer.shadowColor = [UIColor redColor].CGColor;
+    _greenView.layer.shadowOffset = CGSizeMake(0, 0);
+//    _greenView.layer.geometryFlipped = YES;
+//    _greenView.clipsToBounds = YES;
+    
+    CGMutablePathRef circlePath = CGPathCreateMutable();
+    CGPathAddEllipseInRect(circlePath, NULL, CGRectInset(_greenView.bounds, -10, -10));
+    _greenView.layer.shadowPath = circlePath;
+    CGPathRelease(circlePath);
+    
+    CALayer *maskLayer = [CALayer layer];
+    maskLayer.frame = self.yellowView.bounds;
+    UIImage *maskImage = [UIImage imageNamed:@"pet"];
+    maskLayer.contents = (__bridge id)maskImage.CGImage;
+    _yellowView.layer.mask = maskLayer;
+//    _yellowView.layer.shadowOpacity = 1.f;
+
+    
+//    _yellowView.layer.anchorPoint = CGPointMake(0, 0);
     
     self.hourImageView.layer.anchorPoint = CGPointMake(0.5, 0.7);
     self.minuteImageView.layer.anchorPoint = CGPointMake(0.5, 0.7);
     self.secondImageView.layer.anchorPoint = CGPointMake(0.5, 0.7);
+    
     
 //    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timeTick) userInfo:nil repeats:YES];
 //    [self timeTick];
@@ -58,7 +94,10 @@
     self.hourImageView.transform = CGAffineTransformMakeRotation(hourAngle);
     self.minuteImageView.transform = CGAffineTransformMakeRotation(minuteAngle);
     self.secondImageView.transform = CGAffineTransformMakeRotation(secondAngle);
+    
+//    NSLog(@"second frame=%@ bounds=%@", NSStringFromCGRect(_secondImageView.frame), NSStringFromCGRect(_secondImageView.bounds));
 }
+
 
 - (void)dealloc {
     NSLog(@"lookKai dealloc %@", self.class);
