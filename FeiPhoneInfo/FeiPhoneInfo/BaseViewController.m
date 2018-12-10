@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import "AppGlobalUI.h"
 
 @implementation BaseViewController
 
@@ -45,9 +45,16 @@
     [super viewDidLoad];
 
 	CGRect rect = [[UIScreen mainScreen] bounds];
-	CGRect rectView = CGRectMake(0, 20, rect.size.width, rect.size.height - 20 - 48);
+	CGFloat topHeight = kStatusBarHeight;
+	CGRect rectView = CGRectMake(0, topHeight, rect.size.width, rect.size.height - topHeight - kTabBarHeight);
 	self.view.frame = rectView;
 }
+
+//- (void)viewSafeAreaInsetsDidChange {
+//    CGRect rect = self.view.bounds;
+//    UIEdgeInsets safeInsets = kViewSafeAreaInsets(self.view);
+//    NSLog(@"lookSize BaseView viewSafeAreaInsetsDidChange %@ frame=%@ safeAreaInsets=%@", NSStringFromCGRect(rect), NSStringFromCGRect(self.view.frame), NSStringFromUIEdgeInsets(self.view.safeAreaInsets));
+//}
 
 - (void)viewDidUnload
 {

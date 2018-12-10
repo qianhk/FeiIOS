@@ -110,7 +110,7 @@ const NSString *KTTWuliSize = @"物理尺寸";
     [_dic setObject:udid forKey:KTTUDID];
 
     [_arrKey addObject:KTTModel];
-    [_dic setObject:[device platformString] forKey:KTTModel];
+    [_dic setObject:[NSString stringWithFormat:@"%@    %@", [device platform], [device platformString]] forKey:KTTModel];
 
     [_arrKey addObject:KTTName];
     [_dic setObject:[device name] forKey:KTTName];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19DD335A30A0CE7DF3D1E1A8 /* AppGlobalUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3A2B5EAFC0686720E403 /* AppGlobalUI.m */; };
 		2A50AA201E4B3DB500B88151 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A50AA1F1E4B3DB500B88151 /* Images.xcassets */; };
 		2A50AA241E4B40AF00B88151 /* LaunchScreen2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A50AA231E4B40AF00B88151 /* LaunchScreen2.storyboard */; };
 		D9016893144EA0A0002C65EF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D94E0D7C143054DB00552FBE /* Foundation.framework */; };
@@ -83,6 +84,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		19DD378A147F808099BDD273 /* AppGlobalUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppGlobalUI.h; sourceTree = "<group>"; };
+		19DD3A2B5EAFC0686720E403 /* AppGlobalUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppGlobalUI.m; sourceTree = "<group>"; };
 		2A50AA1F1E4B3DB500B88151 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2A50AA231E4B40AF00B88151 /* LaunchScreen2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen2.storyboard; sourceTree = "<group>"; };
 		D9016896144EA4D1002C65EF /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -278,6 +281,8 @@
 				D91B8E2D1432C71800E62AE5 /* BaseViewController.m */,
 				D9F31BDD1431A76200C019BE /* Localizable.strings */,
 				2A50AA1F1E4B3DB500B88151 /* Images.xcassets */,
+				19DD3A2B5EAFC0686720E403 /* AppGlobalUI.m */,
+				19DD378A147F808099BDD273 /* AppGlobalUI.h */,
 			);
 			path = FeiPhoneInfo;
 			sourceTree = "<group>";
@@ -546,6 +551,7 @@
 				DC92E5801452F2BF002F20D4 /* wwanconnect.c in Sources */,
 				DC92E58914531D1F002F20D4 /* Reachability.m in Sources */,
 				DCC45E2214792B850035B763 /* EGORefreshTableHeaderView.m in Sources */,
+				19DD335A30A0CE7DF3D1E1A8 /* AppGlobalUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
