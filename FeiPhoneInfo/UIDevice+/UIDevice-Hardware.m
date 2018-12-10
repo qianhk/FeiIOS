@@ -53,10 +53,10 @@
 {
     size_t size;
     sysctlbyname(typeSpecifier, NULL, &size, NULL, 0);
-    
+
     char *answer = malloc(size);
     sysctlbyname(typeSpecifier, answer, &size, NULL, 0);
-    
+
     NSString *results = [NSString stringWithCString:answer encoding: NSUTF8StringEncoding];
 
     free(answer);
@@ -138,7 +138,27 @@
     if ([platform hasPrefix:@"iPhone3"])            return UIDevice4iPhone;
     if ([platform hasPrefix:@"iPhone4"])            return UIDevice5iPhone;
     if ([platform hasPrefix:@"iPhone4,1"])            return UIDevice4SiPhone;
+    if ([platform hasPrefix:@"iPhone7,2"])            return UIDevice6iPhone;
+    if ([platform hasPrefix:@"iPhone7,1"])            return UIDevice6PiPhone;
+    if ([platform hasPrefix:@"iPhone8,1"])            return UIDevice6SiPhone;
+    if ([platform hasPrefix:@"iPhone8,2"])            return UIDevice6SPiPhone;
+    if ([platform hasPrefix:@"iPhone8,4"])            return UIDeviceSEiPhone;
     if ([platform hasPrefix:@"iPhone9,1"])            return UIDevice7iPhone;
+    if ([platform hasPrefix:@"iPhone9,2"])            return UIDevice7PiPhone;
+
+    if ([platform hasPrefix:@"iPhone10,1"])            return UIDevice8iPhoneG;
+    if ([platform hasPrefix:@"iPhone10,4"])            return UIDevice8iPhoneM;
+
+    if ([platform hasPrefix:@"iPhone10,2"])            return UIDevice8PiPhoneG;
+    if ([platform hasPrefix:@"iPhone10,5"])            return UIDevice8PiPhoneM;
+
+    if ([platform hasPrefix:@"iPhone10,3"])            return UIDeviceXiPhoneG;
+    if ([platform hasPrefix:@"iPhone10,6"])            return UIDeviceXiPhoneM;
+
+    if ([platform hasPrefix:@"iPhone11,2"])            return UIDeviceXSiPhone;
+    if ([platform hasPrefix:@"iPhone11,4"])            return UIDeviceXSMaxiPhone;
+    if ([platform hasPrefix:@"iPhone11,6"])            return UIDeviceXSMaxiPhoneG;
+    if ([platform hasPrefix:@"iPhone11,8"])            return UIDeviceXRiPhone;
 
     // iPod
     if ([platform hasPrefix:@"iPod1"])             return UIDevice1GiPod;
@@ -150,14 +170,14 @@
     if ([platform hasPrefix:@"iPad1"])              return UIDevice1GiPad;
     if ([platform hasPrefix:@"iPad2"])              return UIDevice2GiPad;
     if ([platform hasPrefix:@"iPad3"])              return UIDevice3GiPad;
-    
+
     // Apple TV
     if ([platform hasPrefix:@"AppleTV2"])           return UIDeviceAppleTV2;
 
     if ([platform hasPrefix:@"iPhone"])             return UIDeviceUnknowniPhone;
     if ([platform hasPrefix:@"iPod"])               return UIDeviceUnknowniPod;
     if ([platform hasPrefix:@"iPad"])               return UIDeviceUnknowniPad;
-    
+
      // Simulator thanks Jordan Breeding
     if ([platform hasSuffix:@"86"] || [platform isEqual:@"x86_64"])
     {
@@ -178,29 +198,45 @@
         case UIDevice4iPhone: return IPHONE_4_NAMESTRING;
         case UIDevice5iPhone: return IPHONE_5_NAMESTRING;
         case UIDevice4SiPhone: return IPHONE_4S_NAMESTRING;
+        case UIDevice6iPhone: return @"iPhone 6";
+        case UIDevice6PiPhone: return @"iPhone 6P";
+        case UIDevice6SiPhone: return @"iPhone 6S";
+        case UIDevice6SPiPhone: return @"iPhone 6SP";
+        case UIDeviceSEiPhone: return @"iPhone SE";
         case UIDevice7iPhone: return IPHONE_7_NAMESTRING;
+        case UIDevice7PiPhone: return @"iPhone 7P";
+        case UIDevice8iPhoneG: return @"iPhone 8 国行/日行";
+        case UIDevice8iPhoneM: return @"iPhone 8 美版";
+        case UIDevice8PiPhoneG: return @"iPhone 8P 国行/日行";
+        case UIDevice8PiPhoneM: return @"iPhone 8P 美版";
+        case UIDeviceXiPhoneG: return @"iPhone X 国行/日行";
+        case UIDeviceXiPhoneM: return @"iPhone X 美版";
+        case UIDeviceXRiPhone: return @"iPhone XR";
+        case UIDeviceXSiPhone: return @"iPhone XS";
+        case UIDeviceXSMaxiPhone: return @"iPhone XS Max";
+        case UIDeviceXSMaxiPhoneG: return @"iPhone XS Max 中国版";
         case UIDeviceUnknowniPhone: return IPHONE_UNKNOWN_NAMESTRING;
-        
+
         case UIDevice1GiPod: return IPOD_1G_NAMESTRING;
         case UIDevice2GiPod: return IPOD_2G_NAMESTRING;
         case UIDevice3GiPod: return IPOD_3G_NAMESTRING;
         case UIDevice4GiPod: return IPOD_4G_NAMESTRING;
         case UIDeviceUnknowniPod: return IPOD_UNKNOWN_NAMESTRING;
-            
+
         case UIDevice1GiPad : return IPAD_1G_NAMESTRING;
         case UIDevice2GiPad : return IPAD_2G_NAMESTRING;
         case UIDevice3GiPad : return IPAD_3G_NAMESTRING;
         case UIDeviceUnknowniPad : return IPAD_UNKNOWN_NAMESTRING;
-            
+
         case UIDeviceAppleTV2 : return APPLETV_2G_NAMESTRING;
         case UIDeviceUnknownAppleTV: return APPLETV_UNKNOWN_NAMESTRING;
-            
+
         case UIDeviceiPhoneSimulator: return IPHONE_SIMULATOR_NAMESTRING;
         case UIDeviceiPhoneSimulatoriPhone: return IPHONE_SIMULATOR_IPHONE_NAMESTRING;
         case UIDeviceiPhoneSimulatoriPad: return IPHONE_SIMULATOR_IPAD_NAMESTRING;
-            
+
         case UIDeviceIFPGA: return IFPGA_NAMESTRING;
-            
+
         default: return IOS_FAMILY_UNKNOWN_DEVICE;
     }
 }
@@ -217,37 +253,37 @@
     unsigned char       *ptr;
     struct if_msghdr    *ifm;
     struct sockaddr_dl  *sdl;
-    
+
     mib[0] = CTL_NET;
     mib[1] = AF_ROUTE;
     mib[2] = 0;
     mib[3] = AF_LINK;
     mib[4] = NET_RT_IFLIST;
-    
+
     if ((mib[5] = if_nametoindex("en0")) == 0) {
         printf("Error: if_nametoindex error\n");
         return NULL;
     }
-    
+
     if (sysctl(mib, 6, NULL, &len, NULL, 0) < 0) {
         printf("Error: sysctl, take 1\n");
         return NULL;
     }
-    
+
     if ((buf = malloc(len)) == NULL) {
         printf("Could not allocate memory. error!\n");
         return NULL;
     }
-    
+
     if (sysctl(mib, 6, buf, &len, NULL, 0) < 0) {
         printf("Error: sysctl, take 2");
         return NULL;
     }
-    
+
     ifm = (struct if_msghdr *)buf;
     sdl = (struct sockaddr_dl *)(ifm + 1);
     ptr = (unsigned char *)LLADDR(sdl);
-    NSString *outstring = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X", 
+    NSString *outstring = [NSString stringWithFormat:@"%02X:%02X:%02X:%02X:%02X:%02X",
                            *ptr, *(ptr+1), *(ptr+2), *(ptr+3), *(ptr+4), *(ptr+5)];
     // NSString *outstring = [NSString stringWithFormat:@"%02X%02X%02X%02X%02X%02X", 
     //                       *ptr, *(ptr+1), *(ptr+2), *(ptr+3), *(ptr+4), *(ptr+5)];
