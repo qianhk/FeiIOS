@@ -92,6 +92,20 @@
         view.layer.contentsGravity = kCAGravityResizeAspect;
         view.layer.magnificationFilter = kCAFilterNearest;
     }
+
+    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
+    gradientLayer.frame = self.blueView.bounds;
+    [self.blueView.layer addSublayer:gradientLayer];
+//    self.blueView.backgroundColor = [UIColor whiteColor];
+//    gradientLayer.colors = @[(__bridge id)[UIColor blueColor].CGColor, (__bridge id) [UIColor yellowColor].CGColor, (__bridge id)[UIColor clearColor].CGColor];
+//    gradientLayer.locations = @[@0.0, @0.25, @0.5];
+    self.blueView.backgroundColor = [UIColor clearColor];
+    self.blueView.clipsToBounds = YES;
+    gradientLayer.colors = @[(__bridge id)[UIColor blueColor].CGColor, (__bridge id)[UIColor clearColor].CGColor];
+    gradientLayer.locations = @[@0.0, @0.5];
+    gradientLayer.startPoint = CGPointMake(0, 0);
+    gradientLayer.endPoint = CGPointMake(1, 1);
+
     
 //    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timeTick) userInfo:nil repeats:YES];
 //    [self timeTick];
