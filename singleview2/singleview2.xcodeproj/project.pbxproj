@@ -67,6 +67,8 @@
 		19DD3FC02CBB864A3184F48B /* NSString+EmailAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3FA6E4B0B1FB28D1358C /* NSString+EmailAdditions.m */; };
 		19DD3FC3D2E0292ED9E077B3 /* AnimationLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3275B35A6B977BDFD647 /* AnimationLabel.m */; };
 		19DD3FE2530BF5203203512D /* StickyPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39883B52AA4D56FA111D /* StickyPersonCell.m */; };
+		2A0557BA21C654E40028FF13 /* CAAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0557B821C654E40028FF13 /* CAAnimationViewController.m */; };
+		2A0557BB21C654E40028FF13 /* CAAnimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0557B921C654E40028FF13 /* CAAnimationViewController.xib */; };
 		2A0D9234205915BC0012A345 /* LabelUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0D9232205915BC0012A345 /* LabelUIViewController.m */; };
 		2A0D9235205915BC0012A345 /* LabelUIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2A0D9233205915BC0012A345 /* LabelUIViewController.xib */; };
 		2A0D9237205916F50012A345 /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0D9236205916F50012A345 /* CustomLabel.m */; };
@@ -245,6 +247,9 @@
 		19DD3FA6E4B0B1FB28D1358C /* NSString+EmailAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EmailAdditions.m"; sourceTree = "<group>"; };
 		19DD3FC1BFD5EE51E9487967 /* BaseImageRecognitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseImageRecognitionViewController.h; sourceTree = "<group>"; };
 		1D10952B8412B82D62641B77 /* Pods-singleview2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-singleview2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-singleview2/Pods-singleview2.debug.xcconfig"; sourceTree = "<group>"; };
+		2A0557B721C654E40028FF13 /* CAAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAAnimationViewController.h; sourceTree = "<group>"; };
+		2A0557B821C654E40028FF13 /* CAAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAAnimationViewController.m; sourceTree = "<group>"; };
+		2A0557B921C654E40028FF13 /* CAAnimationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CAAnimationViewController.xib; sourceTree = "<group>"; };
 		2A0D9231205915BC0012A345 /* LabelUIViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LabelUIViewController.h; sourceTree = "<group>"; };
 		2A0D9232205915BC0012A345 /* LabelUIViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LabelUIViewController.m; sourceTree = "<group>"; };
 		2A0D9233205915BC0012A345 /* LabelUIViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelUIViewController.xib; sourceTree = "<group>"; };
@@ -720,6 +725,9 @@
 				2AB0763E21BC09BC003006A3 /* AnchorPointViewController.h */,
 				2AB0763F21BC09BC003006A3 /* AnchorPointViewController.m */,
 				2AB0764021BC09BC003006A3 /* AnchorPointViewController.xib */,
+				2A0557B721C654E40028FF13 /* CAAnimationViewController.h */,
+				2A0557B821C654E40028FF13 /* CAAnimationViewController.m */,
+				2A0557B921C654E40028FF13 /* CAAnimationViewController.xib */,
 			);
 			path = CoreAnimation;
 			sourceTree = "<group>";
@@ -920,6 +928,7 @@
 				D9CE40B714FB8F1000E6FD79 /* InfoPlist.strings in Resources */,
 				2AB0764221BC09BC003006A3 /* AnchorPointViewController.xib in Resources */,
 				2ABE85431F388B7600609D5A /* artists.json in Resources */,
+				2A0557BB21C654E40028FF13 /* CAAnimationViewController.xib in Resources */,
 				2A746B171E5B20670022F2B3 /* statedDictionary.plist in Resources */,
 				2AD3AA141F42CDA400C7940B /* PostCell.xib in Resources */,
 				2AF01FBF1E58935D0088008E /* PickerViewController.xib in Resources */,
@@ -1049,6 +1058,7 @@
 				19DD38F0B0A9A9670A6234BC /* ArtistDetailViewController.m in Sources */,
 				19DD30BFE871A81403ABBF74 /* PostData.m in Sources */,
 				19DD30C15B40E912940BDBA2 /* CodeTextTableViewCell.m in Sources */,
+				2A0557BA21C654E40028FF13 /* CAAnimationViewController.m in Sources */,
 				19DD3EAE1079667CA61DD269 /* OperateSuccessView.m in Sources */,
 				19DD3B51F05B1CE1C5C7B6B9 /* TestLinearLayoutViewController.m in Sources */,
 				19DD3EFEBCB70AB096E77DDE /* CFTool.m in Sources */,

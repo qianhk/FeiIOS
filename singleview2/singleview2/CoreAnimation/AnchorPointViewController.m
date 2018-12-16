@@ -144,27 +144,40 @@
 }
 
 - (void)onTapLayerView:(id)recognizer {
-    [CATransaction setAnimationDuration:2];
-//    [CATransaction setDisableActions:YES];
-    CGFloat red = arc4random() / (CGFloat)INT_MAX;
-    CGFloat green = arc4random() / (CGFloat)INT_MAX;
-    CGFloat blue = arc4random() / (CGFloat)INT_MAX;
-    
     CALayer *layer = self.layerView.layer.sublayers[0];
-    layer.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0].CGColor;
-    
-    red = arc4random() / (CGFloat)INT_MAX;
-    green = arc4random() / (CGFloat)INT_MAX;
-    blue = arc4random() / (CGFloat)INT_MAX;
-    self.layerView.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
-    
-    [CATransaction setCompletionBlock:^{
+    if (false) {
+        [CATransaction setAnimationDuration:2];
+//    [CATransaction setDisableActions:YES];
+        CGFloat red = arc4random() / (CGFloat) INT_MAX;
+        CGFloat green = arc4random() / (CGFloat) INT_MAX;
+        CGFloat blue = arc4random() / (CGFloat) INT_MAX;
+
+        layer.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0].CGColor;
+
+        red = arc4random() / (CGFloat) INT_MAX;
+        green = arc4random() / (CGFloat) INT_MAX;
+        blue = arc4random() / (CGFloat) INT_MAX;
+        self.layerView.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+
+        [CATransaction setCompletionBlock:^{
 //        [CATransaction setAnimationDuration:2];
 //        [CATransaction setDisableActions:YES];
-        CGAffineTransform transform = layer.affineTransform;
-        transform = CGAffineTransformRotate(transform, M_PI / 6);
-        layer.affineTransform = transform;
-    }];
+            CGAffineTransform transform = layer.affineTransform;
+            transform = CGAffineTransformRotate(transform, M_PI / 6);
+            layer.affineTransform = transform;
+        }];
+    } else {
+        CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+        animation.keyPath = @"backgroundColor";
+        animation.duration = 2.0;
+        animation.values = @[
+                (__bridge id)[UIColor blueColor].CGColor,
+                (__bridge id)[UIColor redColor].CGColor,
+                (__bridge id)[UIColor greenColor].CGColor,
+                (__bridge id)[UIColor blueColor].CGColor ];
+        //apply animation to layer
+        [layer addAnimation:animation forKey:nil];
+    }
 }
 
 - (void)timeTick {
