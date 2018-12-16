@@ -15,6 +15,7 @@
                 <outlet property="blueView" destination="blX-th-ORE" id="2dM-qs-U0v"/>
                 <outlet property="greenView" destination="iae-nz-ccy" id="D40-Vp-kNu"/>
                 <outlet property="hourImageView" destination="YNH-FR-2ep" id="wyM-GE-B2d"/>
+                <outlet property="layerView" destination="Cy8-j6-zNl" id="DoB-Tl-oQh"/>
                 <outlet property="minuteImageView" destination="Bdi-9P-akc" id="w4i-18-RZD"/>
                 <outlet property="secondImageView" destination="43s-vs-RKc" id="hN1-aw-ljR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -33,7 +34,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iae-nz-ccy">
-                    <rect key="frame" x="37.5" y="80" width="300" height="140"/>
+                    <rect key="frame" x="37.5" y="80" width="300" height="120"/>
                     <subviews>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y9W-aN-X0c">
                             <rect key="frame" x="232" y="-31" width="100" height="136"/>
@@ -43,7 +44,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.0" green="0.98106676339999999" blue="0.57369142770000003" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="140" id="OxN-wb-d8x"/>
+                        <constraint firstAttribute="height" constant="120" id="OxN-wb-d8x"/>
                         <constraint firstAttribute="width" constant="300" id="fxn-sd-gZP"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -55,6 +56,14 @@
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dock" translatesAutoresizingMaskIntoConstraints="NO" id="xKW-02-BZe">
                     <rect key="frame" x="32" y="260" width="311" height="311"/>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cy8-j6-zNl">
+                    <rect key="frame" x="10" y="205" width="150" height="50"/>
+                    <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="VAe-fk-w32"/>
+                        <constraint firstAttribute="height" constant="50" id="d3q-Mv-iyg"/>
+                    </constraints>
+                </view>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hour" translatesAutoresizingMaskIntoConstraints="NO" id="YNH-FR-2ep">
                     <rect key="frame" x="178" y="363" width="19" height="105"/>
                 </imageView>
@@ -114,9 +123,11 @@
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="centerX" secondItem="xKW-02-BZe" secondAttribute="centerX" id="1PU-oG-Nxt"/>
                 <constraint firstItem="Wy6-gO-uOI" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="Beo-Bk-i6f"/>
                 <constraint firstItem="Wy6-gO-uOI" firstAttribute="top" secondItem="xKW-02-BZe" secondAttribute="bottom" constant="8" id="IPv-ge-eky"/>
+                <constraint firstItem="Cy8-j6-zNl" firstAttribute="top" secondItem="iae-nz-ccy" secondAttribute="bottom" constant="5" id="LxP-kH-QbP"/>
                 <constraint firstItem="Bdi-9P-akc" firstAttribute="centerX" secondItem="xKW-02-BZe" secondAttribute="centerX" id="MBX-VA-tb3"/>
                 <constraint firstItem="Bdi-9P-akc" firstAttribute="centerY" secondItem="xKW-02-BZe" secondAttribute="centerY" id="OXN-wn-Du1"/>
-                <constraint firstItem="xKW-02-BZe" firstAttribute="top" secondItem="iae-nz-ccy" secondAttribute="bottom" constant="40" id="Uwb-j8-sYe"/>
+                <constraint firstItem="xKW-02-BZe" firstAttribute="top" secondItem="iae-nz-ccy" secondAttribute="bottom" constant="60" id="Uwb-j8-sYe"/>
+                <constraint firstItem="Cy8-j6-zNl" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="ZiV-JJ-fh2"/>
                 <constraint firstItem="iae-nz-ccy" firstAttribute="centerX" secondItem="Q5M-cg-NOt" secondAttribute="centerX" id="apb-cs-Fhp"/>
                 <constraint firstItem="YNH-FR-2ep" firstAttribute="centerY" secondItem="xKW-02-BZe" secondAttribute="centerY" id="fbs-6N-bi6"/>
                 <constraint firstItem="YNH-FR-2ep" firstAttribute="centerX" secondItem="xKW-02-BZe" secondAttribute="centerX" id="iQj-o1-gyg"/>

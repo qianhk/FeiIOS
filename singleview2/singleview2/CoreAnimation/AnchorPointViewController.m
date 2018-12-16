@@ -21,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *minuteImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *secondImageView;
 
+@property (strong, nonatomic) IBOutlet UIView *layerView;
+
 //@property (weak, nonatomic) NSTimer *timer;
 
 @property (strong, nonatomic) dispatch_source_t timer;
@@ -107,6 +109,28 @@
     gradientLayer.endPoint = CGPointMake(1, 1);
 
     
+    CALayer *colorLayer = [CALayer layer];
+    colorLayer.frame = CGRectInset(self.layerView.bounds, 30, 10);
+    colorLayer.backgroundColor = [UIColor blueColor].CGColor;
+    [self.layerView.layer addSublayer:colorLayer];
+//    self.layerView.clipsToBounds = YES;
+    self.layerView.userInteractionEnabled = YES;
+    [self.layerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapLayerView:)]];
+    
+    //add a custom action
+    CATransition *transition = [CATransition animation];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromLeft;
+    colorLayer.actions = @{@"backgroundColor": transition};
+    
+    NSLog(@"Outside: %@", [self.layerView actionForLayer:self.layerView.layer forKey:@"backgroundColor"]);
+    //begin animation block
+    [UIView beginAnimations:nil context:nil];
+    //test layer action when inside of animation block
+    NSLog(@"Inside: %@", [self.layerView actionForLayer:self.layerView.layer forKey:@"backgroundColor"]);
+    //end animation block
+    [UIView commitAnimations];
+    
 //    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timeTick) userInfo:nil repeats:YES];
 //    [self timeTick];
     _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
@@ -117,6 +141,30 @@
         [strongSelf timeTick];
     });
     dispatch_resume(_timer);
+}
+
+- (void)onTapLayerView:(id)recognizer {
+    [CATransaction setAnimationDuration:2];
+//    [CATransaction setDisableActions:YES];
+    CGFloat red = arc4random() / (CGFloat)INT_MAX;
+    CGFloat green = arc4random() / (CGFloat)INT_MAX;
+    CGFloat blue = arc4random() / (CGFloat)INT_MAX;
+    
+    CALayer *layer = self.layerView.layer.sublayers[0];
+    layer.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0].CGColor;
+    
+    red = arc4random() / (CGFloat)INT_MAX;
+    green = arc4random() / (CGFloat)INT_MAX;
+    blue = arc4random() / (CGFloat)INT_MAX;
+    self.layerView.backgroundColor = [UIColor colorWithRed:red green:green blue:blue alpha:1.0];
+    
+    [CATransaction setCompletionBlock:^{
+//        [CATransaction setAnimationDuration:2];
+//        [CATransaction setDisableActions:YES];
+        CGAffineTransform transform = layer.affineTransform;
+        transform = CGAffineTransformRotate(transform, M_PI / 6);
+        layer.affineTransform = transform;
+    }];
 }
 
 - (void)timeTick {
