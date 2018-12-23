@@ -175,6 +175,9 @@
                 (__bridge id)[UIColor redColor].CGColor,
                 (__bridge id)[UIColor greenColor].CGColor,
                 (__bridge id)[UIColor blueColor].CGColor ];
+        CAMediaTimingFunction *fn = [CAMediaTimingFunction functionWithName: kCAMediaTimingFunctionEaseIn];
+        animation.timingFunctions = @[fn, fn, fn];
+//        animation.timingFunction = fn;
         //apply animation to layer
         [layer addAnimation:animation forKey:nil];
     }

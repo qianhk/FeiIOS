@@ -104,6 +104,8 @@
 		2AA531381FF1F3990093F9B7 /* TestFlowCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA531371FF1F3990093F9B7 /* TestFlowCollectionViewController.m */; };
 		2AB0764121BC09BC003006A3 /* AnchorPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB0763F21BC09BC003006A3 /* AnchorPointViewController.m */; };
 		2AB0764221BC09BC003006A3 /* AnchorPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB0764021BC09BC003006A3 /* AnchorPointViewController.xib */; };
+		2ABBC5AE21CFBE37001FACF1 /* TestManyLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABBC5AC21CFBE37001FACF1 /* TestManyLayerViewController.m */; };
+		2ABBC5AF21CFBE37001FACF1 /* TestManyLayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ABBC5AD21CFBE37001FACF1 /* TestManyLayerViewController.xib */; };
 		2ABE85411F385BF900609D5A /* PostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE85401F385BF900609D5A /* PostTableViewController.m */; };
 		2ABE85431F388B7600609D5A /* artists.json in Resources */ = {isa = PBXBuildFile; fileRef = 2ABE85421F388B7600609D5A /* artists.json */; };
 		2ABE85491F3987C700609D5A /* ArtistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE85471F3987C700609D5A /* ArtistTableViewCell.m */; };
@@ -313,6 +315,9 @@
 		2AB0763E21BC09BC003006A3 /* AnchorPointViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnchorPointViewController.h; sourceTree = "<group>"; };
 		2AB0763F21BC09BC003006A3 /* AnchorPointViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnchorPointViewController.m; sourceTree = "<group>"; };
 		2AB0764021BC09BC003006A3 /* AnchorPointViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnchorPointViewController.xib; sourceTree = "<group>"; };
+		2ABBC5AB21CFBE37001FACF1 /* TestManyLayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestManyLayerViewController.h; sourceTree = "<group>"; };
+		2ABBC5AC21CFBE37001FACF1 /* TestManyLayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestManyLayerViewController.m; sourceTree = "<group>"; };
+		2ABBC5AD21CFBE37001FACF1 /* TestManyLayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestManyLayerViewController.xib; sourceTree = "<group>"; };
 		2ABE85401F385BF900609D5A /* PostTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTableViewController.m; sourceTree = "<group>"; };
 		2ABE85421F388B7600609D5A /* artists.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = artists.json; sourceTree = "<group>"; };
 		2ABE85461F3987C700609D5A /* ArtistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistTableViewCell.h; sourceTree = "<group>"; };
@@ -728,6 +733,9 @@
 				2A0557B721C654E40028FF13 /* CAAnimationViewController.h */,
 				2A0557B821C654E40028FF13 /* CAAnimationViewController.m */,
 				2A0557B921C654E40028FF13 /* CAAnimationViewController.xib */,
+				2ABBC5AB21CFBE37001FACF1 /* TestManyLayerViewController.h */,
+				2ABBC5AC21CFBE37001FACF1 /* TestManyLayerViewController.m */,
+				2ABBC5AD21CFBE37001FACF1 /* TestManyLayerViewController.xib */,
 			);
 			path = CoreAnimation;
 			sourceTree = "<group>";
@@ -940,6 +948,7 @@
 				2A4A0F2A214A634700952F24 /* StackViewTestViewController.xib in Resources */,
 				19DD3F2591202825A572A3A3 /* Podfile in Resources */,
 				19DD344DD2BF135B454A95E6 /* NameAndColorCell.xib in Resources */,
+				2ABBC5AF21CFBE37001FACF1 /* TestManyLayerViewController.xib in Resources */,
 				19DD3A4126018D3DFA157009 /* NameAndColorCell2.xib in Resources */,
 				2A1D613F20BBE57C00405F11 /* AnimationTestViewController.xib in Resources */,
 				19DD39A16F636F87A123796A /* SwitchViewController.xib in Resources */,
@@ -1034,6 +1043,7 @@
 				19DD3089BCF35385264D1919 /* StickyCollectionViewController.m in Sources */,
 				2A5572212024BAF100F1083C /* CoreMLMobileNetViewController.m in Sources */,
 				19DD3FE2530BF5203203512D /* StickyPersonCell.m in Sources */,
+				2ABBC5AE21CFBE37001FACF1 /* TestManyLayerViewController.m in Sources */,
 				19DD3F34926154CA2DB93FF4 /* Person.m in Sources */,
 				2A5572262024BD1B00F1083C /* UIImage+Utils.m in Sources */,
 				19DD3F89356E7CDD5E9C1CD0 /* StickyHeaderView.m in Sources */,
