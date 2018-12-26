@@ -221,6 +221,8 @@
 //    [self.timer invalidate];
 //    self.timer = nil;
     dispatch_cancel(_timer);
+    
+    __weak typeof(self) weakSef = self; // dealloc里不能使用弱引用，会crash
 }
 
 @end
