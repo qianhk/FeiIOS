@@ -183,6 +183,14 @@
         }
     });
     dispatch_resume(timer);
+    
+    
+    NSLog(@"lookKai len(𡃁妹)=%ld", @"𡃁妹".length);
+    NSLog(@"lookKai len(你好)=%ld", @"你好".length);
+    NSLog(@"lookKai len(👦👩)=%ld", @"👦👩".length);
+    
+    NSRange range = [@"𡃁妹" rangeOfComposedCharacterSequenceAtIndex:0];
+    NSLog(@"lookKai range=%@", NSStringFromRange(range));
 }
 
 - (void)printClassInfo:(id)obj {
