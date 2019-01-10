@@ -10,6 +10,7 @@
 #import "EmitterTestViewController.h"
 #import "AppGlobalUI.h"
 #import "UIColor+String.h"
+#import <objc/objc-sync.h>
 
 @interface EmitterTestViewController ()
 
@@ -193,6 +194,38 @@
     NSLog(@"lookKai range=%@", NSStringFromRange(range));
     
     NSLog(@"lookKai _cmd {%s} after", _cmd);
+    
+    objc_sync_enter(self);
+    objc_sync_enter(self); //可以连续多次
+    
+    NSLog(@"lookKai _cmd2 {%s} after", _cmd);
+    
+    objc_sync_exit(self);
+    objc_sync_exit(self);
+    
+    NSLog(@"lookKai _cmd3 {%s} after", _cmd);
+    
+    NSLock *lock = [NSLock new];
+    [lock lock];
+    NSLog(@"lookKai _cmd4 {%s} after", _cmd);
+//    [lock lock]; //lock不能连续两次
+    NSLog(@"lookKai _cmd5 {%s} after", _cmd);
+//    [lock unlock];
+    [lock unlock];
+    
+    NSLog(@"lookKai _cmd6 {%s} after", _cmd);
+    
+    NSRecursiveLock *lock2 = [NSRecursiveLock new];
+    
+    [lock2 lock];
+    [lock2 lock];
+    
+    NSLog(@"lookKai NSRecursiveLock in");
+    
+    [lock2 unlock];
+    [lock2 unlock];
+    
+    NSLog(@"lookKai viewDidLoad end");
 }
 
 - (void)printClassInfo:(id)obj {
