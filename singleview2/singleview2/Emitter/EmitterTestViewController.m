@@ -191,6 +191,8 @@
     
     NSRange range = [@"𡃁妹" rangeOfComposedCharacterSequenceAtIndex:0];
     NSLog(@"lookKai range=%@", NSStringFromRange(range));
+    
+    NSLog(@"lookKai _cmd {%s} after", _cmd);
 }
 
 - (void)printClassInfo:(id)obj {
