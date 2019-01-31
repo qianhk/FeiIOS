@@ -64,6 +64,8 @@
             @{@"Name": @"ArtistListViewController", @"Vc": @"ArtistListViewController"},
             @{@"Name": @"YYTextTestViewController", @"Vc": @"YYTextTestViewController"},
             @{@"Name": @"PostTableViewController", @"Vc": @"PostTableViewController"},
+            @{@"Name": @"DynamicAnimatorTest", @"Vc": @"DynamicAnimatorTestViewController"},
+            @{@"Name": @"DynamicAnimatorTest2", @"Vc": @"DynamicAnimatorTest2ViewController"},
             @{@"Name": @"CoordinatorLayoutTest", @"Vc": @"CoordinatorLayoutTestViewController"},
             @{@"Name": @"CoordinatorLayoutTestTab", @"Vc": @"CoordinatorLayoutTestTabViewController"}
     ];
@@ -104,6 +106,7 @@
         } else {
             vc = [vc init];
         }
+        vc.title = item[@"Name"];
         [self.navigationController pushViewController:vc animated:YES];
     } else {
         NSString *msgStr = [NSString stringWithFormat:@"名字是: %@", item[@"Vc"]];

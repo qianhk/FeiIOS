@@ -17,10 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+
     //主线程中
     NSConditionLock *lock = [[NSConditionLock alloc] initWithCondition:0];
-    
+
     //线程1
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [lock lockWhenCondition:4]; //都等4，只能随机选一个进入
@@ -29,7 +29,7 @@
         NSLog(@"线程1 end");
         [lock unlockWithCondition:5];
     });
-    
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [lock lockWhenCondition:4];
         NSLog(@"线程1_1");
@@ -37,7 +37,7 @@
         NSLog(@"线程1_1 end");
         [lock unlockWithCondition:6];
     });
-    
+
     //线程2
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [lock lockWhenCondition:0];
@@ -46,7 +46,7 @@
         NSLog(@"线程2解锁成功");
         [lock unlockWithCondition:2];
     });
-    
+
     //线程3
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [lock lockWhenCondition:2];
@@ -55,7 +55,7 @@
         NSLog(@"线程3解锁成功");
         [lock unlockWithCondition:3];
     });
-    
+
     //线程4
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [lock lockWhenCondition:3];
@@ -64,7 +64,7 @@
         NSLog(@"线程4解锁成功");
         [lock unlockWithCondition:4];
     });
-    
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [lock lockWhenCondition:5];
         NSLog(@"线程5");
@@ -72,7 +72,7 @@
         NSLog(@"线程5 end");
         [lock unlockWithCondition:4];
     });
-    
+
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [lock lockWhenCondition:6];
         NSLog(@"线程6");
@@ -80,6 +80,15 @@
         NSLog(@"线程6 end");
         [lock unlockWithCondition:66];
     });
+
+    NSArray *array = @[@{@"key": @{@"1": @"2"}, @"key2": @"value2"},
+            @{@"key": @{@"1": @"3"}, @"key2": @"value2"},
+            @{@"key": @{@"1": @"4"}, @"key2": @"value2"}
+    ];
+    id tmpValue = [array valueForKey:@"key"];
+    tmpValue = [tmpValue valueForKey:@"1"];
+    id tmpValue2 = [array valueForKeyPath:@"key.1"];
+    NSLog(@"valueForKeyPath: key.1 : class=%@ %@", NSStringFromClass([tmpValue2 class]), tmpValue2);
 
     NSLog(@"lookKai viewDidLoad end");
 }

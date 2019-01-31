@@ -20,8 +20,10 @@
 		19DD312CD11FDA635A075BFC /* WMButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD37655F771667828F37CF /* WMButton.m */; };
 		19DD3186436FFA70C8EBC891 /* MyDrawerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD39586B2852DEEE88CD7A /* MyDrawerView.m */; };
 		19DD322764FF51D2BE88B8F3 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3DBE461D96C50FF69B26 /* UIView+Toast.m */; };
+		19DD32C0984D3246161950DA /* DynamicAnimatorTest2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3ADB15419F501AAC8533 /* DynamicAnimatorTest2ViewController.m */; };
 		19DD32D6459F7174AB9BF233 /* AIEntryTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3DED89743E7CE567FE6A /* AIEntryTabViewController.m */; };
 		19DD3362EC5A37A3202D56CF /* YYTextTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33FF453765820CE92883 /* YYTextTestViewController.m */; };
+		19DD33812A3F6117A3EF8B20 /* DynamicAnimatorTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3D3E3F818A48D58B9F5D /* DynamicAnimatorTestViewController.m */; };
 		19DD3392BE334E1457C22B3A /* NSObject+Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */; };
 		19DD344DD2BF135B454A95E6 /* NameAndColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DD33B5C5A15B1AE8D88FD2 /* NameAndColorCell.xib */; };
 		19DD3494F53B2E79C82A9BB2 /* SectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3054B76E9DA3D3BCEE84 /* SectionTableViewController.m */; };
@@ -147,6 +149,7 @@
 		19DD30DD2FE79C0AD3F52D9F /* StickyHeaderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeaderInfo.m; sourceTree = "<group>"; };
 		19DD3103813FF8B83D737440 /* TextTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextTableViewCell.xib; sourceTree = "<group>"; };
 		19DD312A2BE7880F38ED5775 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
+		19DD3138FB1F0333FE2059FE /* DynamicAnimatorTest2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicAnimatorTest2ViewController.h; sourceTree = "<group>"; };
 		19DD313F3356C3C211265CF4 /* ArtistDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistDetailViewController.h; sourceTree = "<group>"; };
 		19DD3185741EBE9B03ED23F3 /* YYTextParserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextParserObject.h; sourceTree = "<group>"; };
 		19DD31BD97360A69477DCFC5 /* AppUINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUINavigationController.m; sourceTree = "<group>"; };
@@ -198,6 +201,7 @@
 		19DD36A1D71E01AF83E208C4 /* ContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentCell.m; sourceTree = "<group>"; };
 		19DD36CF905C0B8ED1DE7A60 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
 		19DD36EC7AD811CC188A723C /* AnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationView.h; sourceTree = "<group>"; };
+		19DD371ABC58D702A92AA7AD /* DynamicAnimatorTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicAnimatorTestViewController.h; sourceTree = "<group>"; };
 		19DD3726D66A567F46388565 /* UICollectionViewLeftFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftFlowLayout.m; sourceTree = "<group>"; };
 		19DD372B937EC22B6EC9A2DC /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		19DD37655F771667828F37CF /* WMButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMButton.m; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 		19DD3A11E663419DE358D851 /* ContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentCell.h; sourceTree = "<group>"; };
 		19DD3A34601D91AAEA144E26 /* CFTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFTool.h; sourceTree = "<group>"; };
 		19DD3A99985C7B0E18387E76 /* AppGlobalUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppGlobalUI.m; sourceTree = "<group>"; };
+		19DD3ADB15419F501AAC8533 /* DynamicAnimatorTest2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicAnimatorTest2ViewController.m; sourceTree = "<group>"; };
 		19DD3B3AA1D115A1905A0E29 /* NSObject+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Utils.h"; sourceTree = "<group>"; };
 		19DD3BFF87DE82FEE5D78D3A /* BaseImageRecognitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseImageRecognitionViewController.m; sourceTree = "<group>"; };
 		19DD3C08706F84A4D5C6EFAA /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
@@ -228,6 +233,7 @@
 		19DD3C934F7869307B161152 /* TestTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTouchView.m; sourceTree = "<group>"; };
 		19DD3CA74EB99547AE4AE0DD /* PostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewController.h; sourceTree = "<group>"; };
 		19DD3CDDE22E8C20EF6D099A /* CoordinatorLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordinatorLayout.m; sourceTree = "<group>"; };
+		19DD3D3E3F818A48D58B9F5D /* DynamicAnimatorTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicAnimatorTestViewController.m; sourceTree = "<group>"; };
 		19DD3D73E1F0DC9A3D0A74EA /* HeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderCell.h; sourceTree = "<group>"; };
 		19DD3D91D1000EB87F5BF250 /* SubscribeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubscribeViewController.m; sourceTree = "<group>"; };
 		19DD3D94D632EB5A38281740 /* NSString+EmailAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EmailAdditions.h"; sourceTree = "<group>"; };
@@ -640,6 +646,10 @@
 				2A1D613D20BBE57C00405F11 /* AnimationTestViewController.xib */,
 				19DD3275B35A6B977BDFD647 /* AnimationLabel.m */,
 				19DD32580823584A2D573E52 /* AnimationLabel.h */,
+				19DD371ABC58D702A92AA7AD /* DynamicAnimatorTestViewController.h */,
+				19DD3D3E3F818A48D58B9F5D /* DynamicAnimatorTestViewController.m */,
+				19DD3ADB15419F501AAC8533 /* DynamicAnimatorTest2ViewController.m */,
+				19DD3138FB1F0333FE2059FE /* DynamicAnimatorTest2ViewController.h */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -1099,6 +1109,8 @@
 				19DD3FC3D2E0292ED9E077B3 /* AnimationLabel.m in Sources */,
 				2A541A262187146D009EA801 /* FireView.m in Sources */,
 				19DD366377056F9BD7A71F36 /* TestTouchView.m in Sources */,
+				19DD33812A3F6117A3EF8B20 /* DynamicAnimatorTestViewController.m in Sources */,
+				19DD32C0984D3246161950DA /* DynamicAnimatorTest2ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
