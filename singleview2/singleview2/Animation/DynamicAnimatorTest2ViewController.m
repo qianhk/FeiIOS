@@ -4,6 +4,7 @@
 //
 
 #import "DynamicAnimatorTest2ViewController.h"
+#import "TestCircleGradientLayer.h"
 
 @interface DynamicAnimatorTest2ViewController () {
     UIDynamicAnimator *_animator;
@@ -18,7 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
+
+    TestCircleGradientLayer *sub1 = [[TestCircleGradientLayer alloc] initGraintCircleWithBounds:CGRectMake(0, 0, 50, 50) position:CGPointMake(200, 100) fromColor:[UIColor whiteColor] toColor:[UIColor blueColor] lineWidth:3.0];
+    [self.view.layer addSublayer:sub1];
+
+    TestCircleGradientLayer *sub2 = [[TestCircleGradientLayer alloc] initGraintCircleWithBounds:CGRectMake(0, 0, 50, 50) position:CGPointMake(200, 200) fromColor:[UIColor whiteColor] toColor:[UIColor redColor] lineWidth:3.0];
+    [self.view.layer addSublayer:sub2];
+
+    TestCircleGradientLayer *sub3 = [[TestCircleGradientLayer alloc] initGraintCircleWithBounds:CGRectMake(0, 0, 50, 50) position:CGPointMake(200, 300) fromColor:[UIColor whiteColor] toColor:[UIColor blackColor] lineWidth:3.0];
+    [self.view.layer addSublayer:sub3];
+
     CGFloat WIDTH = 20;
 
     UIView *roundV = [[UIView alloc] initWithFrame:CGRectMake(WIDTH / 2, 0, 40, 40)];

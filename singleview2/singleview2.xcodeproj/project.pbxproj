@@ -55,6 +55,7 @@
 		19DD3B6FCAE758EBA103D691 /* AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD30AD4BF95AA588A6735D /* AnimationView.m */; };
 		19DD3BF4AE53495E71E69B77 /* SearchResultController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD33FBB3F06821C476843B /* SearchResultController.m */; };
 		19DD3BFDB43DEA83F51F4662 /* TestCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */; };
+		19DD3C02FE425A25E0C1737A /* TestCircleGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD316A6FD9143700109FF4 /* TestCircleGradientLayer.m */; };
 		19DD3CADDC04DB6CF2E2B338 /* SwitchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3F7CB7B197AACE4B0993 /* SwitchViewController.m */; };
 		19DD3CC6218C01AD17AFCD4A /* AppGlobalUI.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3A99985C7B0E18387E76 /* AppGlobalUI.m */; };
 		19DD3D7D15FC2E22FD9FA726 /* EntryTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3E5849807BA2501D5051 /* EntryTabViewController.m */; };
@@ -151,6 +152,7 @@
 		19DD312A2BE7880F38ED5775 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
 		19DD3138FB1F0333FE2059FE /* DynamicAnimatorTest2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicAnimatorTest2ViewController.h; sourceTree = "<group>"; };
 		19DD313F3356C3C211265CF4 /* ArtistDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistDetailViewController.h; sourceTree = "<group>"; };
+		19DD316A6FD9143700109FF4 /* TestCircleGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCircleGradientLayer.m; sourceTree = "<group>"; };
 		19DD3185741EBE9B03ED23F3 /* YYTextParserObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTextParserObject.h; sourceTree = "<group>"; };
 		19DD31BD97360A69477DCFC5 /* AppUINavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppUINavigationController.m; sourceTree = "<group>"; };
 		19DD31C6D9E8FF91C805F563 /* SubscribeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribeViewModel.h; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 		19DD356B5C754C5D13C5828B /* TextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextTableViewCell.m; sourceTree = "<group>"; };
 		19DD3583BA26B05DA6AC5503 /* StickyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyCollectionViewController.h; sourceTree = "<group>"; };
 		19DD3588ADE43AE8E8F05F28 /* TestCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewController.m; sourceTree = "<group>"; };
+		19DD358958D862B5BE54FCCA /* TestCircleGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCircleGradientLayer.h; sourceTree = "<group>"; };
 		19DD35979B384518741ED29F /* TextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextTableViewCell.h; sourceTree = "<group>"; };
 		19DD359C8F368B3FA2BB75B8 /* CFTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFTool.m; sourceTree = "<group>"; };
 		19DD35C43987F227D69D5940 /* KaiLayoutExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaiLayoutExt.m; sourceTree = "<group>"; };
@@ -546,6 +549,8 @@
 				19DD3DBE461D96C50FF69B26 /* UIView+Toast.m */,
 				19DD30AD4BF95AA588A6735D /* AnimationView.m */,
 				19DD36EC7AD811CC188A723C /* AnimationView.h */,
+				19DD316A6FD9143700109FF4 /* TestCircleGradientLayer.m */,
+				19DD358958D862B5BE54FCCA /* TestCircleGradientLayer.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1111,6 +1116,7 @@
 				19DD366377056F9BD7A71F36 /* TestTouchView.m in Sources */,
 				19DD33812A3F6117A3EF8B20 /* DynamicAnimatorTestViewController.m in Sources */,
 				19DD32C0984D3246161950DA /* DynamicAnimatorTest2ViewController.m in Sources */,
+				19DD3C02FE425A25E0C1737A /* TestCircleGradientLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
