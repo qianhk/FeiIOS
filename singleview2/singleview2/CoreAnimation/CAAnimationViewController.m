@@ -7,6 +7,7 @@
 //
 
 #import "CAAnimationViewController.h"
+#import <objc/runtime.h>
 
 @interface CAAnimationViewController ()
 
@@ -23,7 +24,7 @@
     UIBezierPath *bezierPath = [[UIBezierPath alloc] init];
     [bezierPath moveToPoint:CGPointMake(50, 150)];
     [bezierPath addCurveToPoint:CGPointMake(350, 600) controlPoint1:CGPointMake(500, 300) controlPoint2:CGPointMake(-200, 450)];
-    
+
     //draw the path using a CAShapeLayer
     CAShapeLayer *pathLayer = [CAShapeLayer layer];
     pathLayer.path = bezierPath.CGPath;
@@ -31,19 +32,32 @@
     pathLayer.strokeColor = [UIColor redColor].CGColor;
     pathLayer.lineWidth = 3.0f;
     [self.view.layer addSublayer:pathLayer];
-    
+
     //add the ship
     CALayer *shipLayer = [CALayer layer];
     shipLayer.frame = CGRectMake(0, 0, 102, 36);
     shipLayer.position = CGPointMake(100, 550);
-    shipLayer.contents = (__bridge id)[UIImage imageNamed:@"airplane"].CGImage;
+    shipLayer.contents = (__bridge id) [UIImage imageNamed:@"airplane"].CGImage;
     [self.view.layer addSublayer:shipLayer];
     self.shipLayer = shipLayer;
-    
-//    [self movePositon:bezierPath];
+
 //    [self performSelector:@selector(movePositon:) withObject:bezierPath afterDelay:1.0];
-    [self performSelector:@selector(rotation) withObject:nil afterDelay:1.0];
-    
+//    [self performSelector:@selector(rotation) withObject:nil afterDelay:1.0];
+    [self performSelector:@selector(changeToNextImage) withObject:bezierPath afterDelay:1.0];
+
+    Class class = [self class];//类对象
+    Class metaClass = object_getClass(class);//类元对象
+    Class metaOfMetaClass = object_getClass(metaClass);//NSObject类元对象
+    Class rootMataClass = object_getClass(metaOfMetaClass);//NSObject类元对象的类元对象
+
+    NSLog(@"CustomObject类对象是:%p %@", class, NSStringFromClass(class));
+    NSLog(@"CustomObject类元对象是:%p %@", metaClass, NSStringFromClass(metaClass));
+    NSLog(@"metaClass类元对象:%p %@", metaOfMetaClass, NSStringFromClass(metaOfMetaClass));
+    NSLog(@"metaOfMetaClass的类元对象的是:%p %@", rootMataClass, NSStringFromClass(rootMataClass));
+
+    Class objClass = [NSObject class];
+    NSLog(@"NSObject类元对象%p %@", object_getClass(objClass), NSStringFromClass(objClass));
+
 }
 
 - (void)rotation {
@@ -64,6 +78,23 @@
     animation.path = path.CGPath;
     animation.rotationMode = kCAAnimationRotateAuto;
     [_shipLayer addAnimation:animation forKey:nil];
+}
+
+- (void)changeToNextImage {
+    CATransition *transition = [CATransition animation];
+    transition.duration = 2.0;
+
+    transition.type = kCATransitionFade;
+
+//    transition.type = kCATransitionMoveIn;
+//    transition.startProgress = 0.0;
+//    transition.endProgress = 1.0;
+//    transition.subtype = kCATransitionFromRight;
+//    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+
+    [self.shipLayer addAnimation:transition forKey:@"ToNext"];
+    self.shipLayer.contents = (__bridge id) [UIImage imageNamed:@"desk"].CGImage;
+//    self.imageview.image = nextImage;
 }
 
 @end
