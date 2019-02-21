@@ -84,6 +84,18 @@
     b = [a init];
     NSLog(@"NSArray %p %p", a, b); //NSArray 0x283540060 0x283540080
     
+    
+    for (NSString *fontFamilyName in [UIFont familyNames])
+    {
+        NSLog(@"fontFamilyName:'%@'", fontFamilyName);
+        if ([fontFamilyName containsString:@"PingFang"]) {
+            for (NSString *fontName in [UIFont fontNamesForFamilyName:fontFamilyName])
+            {
+                NSLog(@"\tfont:'%@'",fontName);
+            }
+            NSLog(@"-------------");
+        }
+    }
 }
 
 - (void)rotation {

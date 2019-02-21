@@ -31,6 +31,7 @@
     self.nameLabel.text = person.name;
     UIImage *image = [UIImage imageNamed:person.avatarId];
     self.avatarImageView.image = image;
+//    self.avatarImageView.superview.alpha = 0.2f;
 }
 
 - (UIView *)lineView {

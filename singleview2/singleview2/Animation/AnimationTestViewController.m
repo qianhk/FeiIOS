@@ -42,18 +42,40 @@
 }
 
 - (void)updateViewState {
-    _tvResult.text = [NSString stringWithFormat:@"v1=%@  v2=%@", [self stateToString:_v1State], [self stateToString:_v2State]];
+    NSString *resultText = [NSString stringWithFormat:@"Label 123 v1=%@  v2=%@", [self stateToString:_v1State], [self stateToString:_v2State]];
+    
+    NSDictionary *attrDic;
+    
+    attrDic = @{NSKernAttributeName: @(2),
+                NSStrokeColorAttributeName: [UIColor redColor],
+                NSFontAttributeName: _tvResult.font,
+//                NSExpansionAttributeName: @(1.2f),
+                NSStrokeWidthAttributeName: @(8),
+                NSForegroundColorAttributeName: [UIColor greenColor]
+                };
+    
+    NSAttributedString *attributeStr = [[NSAttributedString alloc] initWithString:resultText attributes:attrDic];
+//    _tvResult.text = nil;
+    _tvResult.attributedText = attributeStr;
+    [_tvResult sizeToFit];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self updateViewState];
 
 //    int abc = 0;
 //    NSLog(@"lookKai gu yi error: %d", 100 / 0);
 //    [self performSelector:@selector(abcdefg) withObject:nil];
 
     self.animationLabel.text = @"测试Test文字Text";
+    
+    _ivImage2.alpha = 0.2f;
+    
+    if(([[[UIDevice currentDevice] systemVersion] compare:@"8.2" options:NSNumericSearch] == NSOrderedAscending)) {
+        _tvResult.font = [UIFont systemFontOfSize:18];
+    } else {
+        _tvResult.font = [UIFont systemFontOfSize:18 weight:UIFontWeightHeavy];
+    }
 
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
     self.view.layer.mask = maskLayer;
@@ -67,6 +89,8 @@
     [maskLayer setPath:path];
     [maskLayer setFillRule:kCAFillRuleEvenOdd];
     [maskLayer setFillColor:[[UIColor orangeColor] CGColor]];
+    
+    [self updateViewState];
     
     CGRect testRect = CGRectMake(1, 2, 100, 101);
     NSValue *value = [NSValue valueWithCGRect:testRect];
