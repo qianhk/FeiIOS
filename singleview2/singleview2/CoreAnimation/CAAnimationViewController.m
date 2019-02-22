@@ -96,6 +96,10 @@
             NSLog(@"-------------");
         }
     }
+
+    SEL pSelector = @selector(unknownMethod:haha:);
+    SEL pSelector2 = NSSelectorFromString(@"unknownMethod:haha2:");
+    NSLog(@"pSelector=%@ 2=%@", NSStringFromSelector(pSelector), NSStringFromSelector(pSelector2));
 }
 
 - (void)rotation {
