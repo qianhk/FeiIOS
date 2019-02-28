@@ -5,6 +5,7 @@
 
 #import "CustomCollectionViewController.h"
 #import "MasonryLayout.h"
+#import "TestScanBackgroundLayer.h"
 
 @interface CustomCollectionViewController () <UICollectionViewDelegateFlowLayout, MasonryLayoutDelegate>
 
@@ -28,13 +29,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.dataList = @[@"100*150", @"100*50", @"100*100", @"100*80", @"100*60", @"100*120", @"100*30", @"100*80", @"100*60"];
 
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"CONTENT"];
 
     NSLog(@"lookLayout viewDidLoad");
+    
+    TestScanBackgroundLayer *layer = [[TestScanBackgroundLayer alloc] initWithBounds:CGRectMake(0, 0, 300, 160) BackgroundColor:[UIColor yellowColor] focusRect:CGRectMake(50, 20, 200, 120)];
+    self.collectionView.backgroundColor = [[UIColor alloc] initWithRed:1 green:0.5 blue:0 alpha:0.3];
+    [self.collectionView.layer addSublayer:layer];
+    layer.frame = CGRectMake(20, 400, layer.bounds.size.width, layer.bounds.size.height);
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

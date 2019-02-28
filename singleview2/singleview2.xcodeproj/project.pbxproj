@@ -104,6 +104,7 @@
 		2A94AAC71F53C91A00D53616 /* MyLayoutSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A94AABF1F53C91A00D53616 /* MyLayoutSize.m */; };
 		2A94AAC81F53C91A00D53616 /* MyLayoutSizeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A94AAC11F53C91A00D53616 /* MyLayoutSizeClass.m */; };
 		2A94AAC91F53C91A00D53616 /* MyLinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A94AAC41F53C91A00D53616 /* MyLinearLayout.m */; };
+		2AA0FEBE2226BDB3007CA8E9 /* TestScanBackgroundLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA0FEBD2226BDB3007CA8E9 /* TestScanBackgroundLayer.m */; };
 		2AA531381FF1F3990093F9B7 /* TestFlowCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA531371FF1F3990093F9B7 /* TestFlowCollectionViewController.m */; };
 		2AB0764121BC09BC003006A3 /* AnchorPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB0763F21BC09BC003006A3 /* AnchorPointViewController.m */; };
 		2AB0764221BC09BC003006A3 /* AnchorPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB0764021BC09BC003006A3 /* AnchorPointViewController.xib */; };
@@ -319,6 +320,8 @@
 		2A94AAC21F53C91A00D53616 /* MyLayoutSizeInner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLayoutSizeInner.h; sourceTree = "<group>"; };
 		2A94AAC31F53C91A00D53616 /* MyLinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLinearLayout.h; sourceTree = "<group>"; };
 		2A94AAC41F53C91A00D53616 /* MyLinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLinearLayout.m; sourceTree = "<group>"; };
+		2AA0FEBC2226BDB3007CA8E9 /* TestScanBackgroundLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestScanBackgroundLayer.h; sourceTree = "<group>"; };
+		2AA0FEBD2226BDB3007CA8E9 /* TestScanBackgroundLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestScanBackgroundLayer.m; sourceTree = "<group>"; };
 		2AA531361FF1F3990093F9B7 /* TestFlowCollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestFlowCollectionViewController.h; sourceTree = "<group>"; };
 		2AA531371FF1F3990093F9B7 /* TestFlowCollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestFlowCollectionViewController.m; sourceTree = "<group>"; };
 		2AB0763E21BC09BC003006A3 /* AnchorPointViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnchorPointViewController.h; sourceTree = "<group>"; };
@@ -751,6 +754,8 @@
 				2ABBC5AB21CFBE37001FACF1 /* TestManyLayerViewController.h */,
 				2ABBC5AC21CFBE37001FACF1 /* TestManyLayerViewController.m */,
 				2ABBC5AD21CFBE37001FACF1 /* TestManyLayerViewController.xib */,
+				2AA0FEBC2226BDB3007CA8E9 /* TestScanBackgroundLayer.h */,
+				2AA0FEBD2226BDB3007CA8E9 /* TestScanBackgroundLayer.m */,
 			);
 			path = CoreAnimation;
 			sourceTree = "<group>";
@@ -1092,6 +1097,7 @@
 				19DD39B7F8DFDBB4C03659DA /* CoordinatorLayout.m in Sources */,
 				19DD3B5358B0883672263EDF /* CoordinatorLayoutTestViewController.m in Sources */,
 				2A5572282024BD3000F1083C /* MobileNet.mlmodel in Sources */,
+				2AA0FEBE2226BDB3007CA8E9 /* TestScanBackgroundLayer.m in Sources */,
 				19DD39051F155D36E9F68AD4 /* CoordinatorLayoutTestTabViewController.m in Sources */,
 				19DD30CED0679F1039F8274A /* UICollectionViewLeftFlowLayout.m in Sources */,
 				19DD3362EC5A37A3202D56CF /* YYTextTestViewController.m in Sources */,
