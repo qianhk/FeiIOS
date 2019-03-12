@@ -1,0 +1,8 @@
+/* Localized versions of Info.plist keys */
+
+"NormalTab" = "普通(繁)";
+
+"AITab" = "人工智能";
+
+"CFBundleDisplayName"="狐貍Demo";
+

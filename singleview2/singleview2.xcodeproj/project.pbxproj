@@ -303,6 +303,8 @@
 		2A6A1F891F4C53060002AA84 /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		2A6A1F8A1F4C53060002AA84 /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		2A746B161E5B20670022F2B3 /* statedDictionary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = statedDictionary.plist; sourceTree = "<group>"; };
+		2A8A0DB32237C095000C5D64 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		2A8A0DB42237C095000C5D64 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2A8DB25C1ECB0374006DBB60 /* MasonryTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonryTestViewController.h; sourceTree = "<group>"; };
 		2A8DB25D1ECB0374006DBB60 /* MasonryTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasonryTestViewController.m; sourceTree = "<group>"; };
 		2A94AAB61F53C91A00D53616 /* MyBaseLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBaseLayout.h; sourceTree = "<group>"; };
@@ -931,6 +933,7 @@
 			knownRegions = (
 				en,
 				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = D9CE409D14FB8F1000E6FD79;
 			productRefGroup = D9CE40A914FB8F1000E6FD79 /* Products */;
@@ -1134,6 +1137,7 @@
 			children = (
 				2A4D2EC51E7D72B7006FD451 /* en */,
 				2A4D2EC71E7D72C8006FD451 /* zh-Hans */,
+				2A8A0DB42237C095000C5D64 /* zh-Hant */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1143,6 +1147,7 @@
 			children = (
 				D9CE40B614FB8F1000E6FD79 /* en */,
 				2A4D2EC11E7D6E91006FD451 /* zh-Hans */,
+				2A8A0DB32237C095000C5D64 /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

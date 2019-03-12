@@ -100,6 +100,17 @@
     SEL pSelector = @selector(unknownMethod:haha:);
     SEL pSelector2 = NSSelectorFromString(@"unknownMethod:haha2:");
     NSLog(@"pSelector=%@ 2=%@", NSStringFromSelector(pSelector), NSStringFromSelector(pSelector2));
+    
+    
+    NSString * str1 = @"1234";
+    NSString * str2 = [NSString stringWithFormat:@"%ld",random()];
+    NSLog(@"lookKai Class cluster: %@", object_getClass(str1));
+    NSLog(@"lookKai Class cluster: %@", object_getClass(str2));
+
+    NSUserDefaults *const userDefaults = [NSUserDefaults standardUserDefaults];
+    NSLog(@"lookKai userDefaults: value=%@ ", [userDefaults objectForKey:@"testXcodeArgument"]);
+    [userDefaults setObject:@"modifyid" forKey:@"testXcodeArgument"];
+    NSLog(@"lookKai userDefaults after modified: value=%@ ", [userDefaults objectForKey:@"testXcodeArgument"]);
 }
 
 - (void)rotation {

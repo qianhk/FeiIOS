@@ -224,7 +224,7 @@
     
     [lock2 unlock];
     [lock2 unlock];
-    
+
     NSLog(@"lookKai viewDidLoad end");
 }
 
