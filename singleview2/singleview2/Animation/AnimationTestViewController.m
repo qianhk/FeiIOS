@@ -9,12 +9,15 @@
 #import "AnimationTestViewController.h"
 #import "UIView+Utils.h"
 #import "AnimationLabel.h"
+#import "PostData.h"
 
 @interface AnimationTestViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *ivImage1;
 @property (weak, nonatomic) IBOutlet UIImageView *ivImage2;
 @property (weak, nonatomic) IBOutlet UILabel *tvResult;
 @property (weak, nonatomic) IBOutlet AnimationLabel *animationLabel;
+
+@property (nonatomic, strong) Comment *testObjectComment;
 
 @property (nonatomic, assign) NSInteger v1State;
 @property (nonatomic, assign) NSInteger v2State;
@@ -70,7 +73,7 @@
     self.animationLabel.text = @"测试Test文字Text";
     
     _ivImage2.alpha = 0.2f;
-    
+
     if(([[[UIDevice currentDevice] systemVersion] compare:@"8.2" options:NSNumericSearch] == NSOrderedAscending)) {
         _tvResult.font = [UIFont systemFontOfSize:18];
     } else {
@@ -116,6 +119,26 @@
     [dateFormatter setTimeZone:timeZone];
     
     NSLog(@"date=%@, sys_zone=%@, local=%@, default=%@ zoneName=%@ utc=%@", date, sys_zone, local_zone, default_zone, sys_zone.name, [dateFormatter stringFromDate:date]);
+
+    self.testObjectComment = [Comment new];
+    
+    int* array = malloc(sizeof(int) * 10);
+//    for (int index = 0; index < 20; index ++) {
+//        array[index] = index;
+//    }
+    
+    NSProcessInfo *processInfo = [NSProcessInfo processInfo];
+    NSDictionary<NSString *, NSString *> *environment = [processInfo environment];
+    NSArray<NSString *> *arguments = [processInfo arguments];
+    NSLog(@"lookKai env=%@ arg=%@", environment, arguments);
+    
+    _tvResult.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"testXcodeArgument"];
+    NSString  *testEnvObj = environment[@"kaikaiTestEnvBool"];
+    NSString *testEnv = environment[@"kaikaiTestEnv"];
+    if (testEnv) {
+        self.animationLabel.text = testEnv;
+    }
+    
 }
 
 - (void)startupAnimation1:(UIView *)sender {
@@ -183,6 +206,10 @@
         [_ivImage2 resumeAnimation];
     }
     [self updateViewState];
+}
+
+- (void)dealloc {
+    NSLog(@"lookKai dealloc %@", NSStringFromClass(self.class));
 }
 
 @end
