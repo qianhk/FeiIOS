@@ -138,7 +138,24 @@
     if (testEnv) {
         self.animationLabel.text = testEnv;
     }
-    
+
+    CFTimeInterval begin = CACurrentMediaTime();
+    int n = 1000;
+    NSMutableDictionary *tmpDic = [NSMutableDictionary new];
+    for (int i = 0; i < n; i ++) {
+        for (int j = 0; j < n; j ++) {
+            [tmpDic setObject:@(j) forKey:@(i)];
+        }
+    }
+
+    CFTimeInterval end = CACurrentMediaTime();
+    NSLog(@"lookKai end - begin=%.8f", end - begin); //mbp i7 0.06453155s
+
+    NSTimeInterval data1 = 8.;
+    CGFloat data2 = data1;
+    CGFloat data3 = 0;
+    CGFloat minus = data2 - data3;
+    NSLog(@"lookKai minus = %.2f", minus);
 }
 
 - (void)startupAnimation1:(UIView *)sender {
