@@ -19,6 +19,8 @@
 #import "UIDevice-IOKitExtensions.h"
 #import "UIDevice-Hardware.h"
 
+#include <dlfcn.h>
+
 //#if TARGET_IPHONE_SIMULATOR
 //
 //#elif TARGET_OS_IPHONE
@@ -50,6 +52,7 @@ const NSString *KTTSystemVersion = @"System Version";
 const NSString *KTTDevicePlatform = @"Device Platform";
 const NSString *KTTBatteryState = @"Battery State";
 const NSString *KTTBatteryLevel = @"Battery Level";
+const NSString *KTTBattery = @"Battery";
 const NSString *KTTIMEI = @"IMEI";
 const NSString *KTTSerialNo = @"Serial Number";
 const NSString *KTTBacklightLevel = @"Backlight level";
@@ -135,7 +138,6 @@ const NSString *KTTWuliSize = @"物理尺寸";
     [_arrKey addObject:KTTBatteryLevel];
 //	float batteryLevel = [device batteryLevel];
 //	_lastBatteryLevel = (NSInteger)[self batteryLevel];
-
     NSDictionary *dic = [self batteryLevel];
     int no1 = [[dic objectForKey:@"no1"] intValue];
     int no2 = [[dic objectForKey:@"no2"] intValue];
@@ -145,6 +147,11 @@ const NSString *KTTWuliSize = @"物理尺寸";
     } else {
         [_dic setObject:[NSString stringWithFormat:@"%d%% [min=%d, max=%d]", no1 * 100 / no2, no1, no2] forKey:KTTBatteryLevel];
     }
+
+    NSDictionary *batteryDic = FCPrivateBatteryStatus();
+    NSLog(@"lookBattery: %@", batteryDic);
+    [_arrKey addObject:KTTBattery];
+    [_dic setObject:[NSString stringWithFormat:@"%@/%@ voltage=%@", batteryDic[@"CurrentCapacity"], batteryDic[@"MaxCapacity"], batteryDic[@"Voltage"]] forKey:KTTBattery];
 
 
 //	[_arrKey addObject:KTTUserInterfaceIdiom];
@@ -190,7 +197,6 @@ const NSString *KTTWuliSize = @"物理尺寸";
     } else {
         [_dic setObject:@"No currentMode" forKey:KTTWuliSize];
     }
-
 
     [self.tableView reloadData];
 
@@ -498,5 +504,136 @@ const NSString *KTTWuliSize = @"物理尺寸";
 
     return nil;
 }
+
+
+
+
+NSDictionary *FCPrivateBatteryStatus()
+{
+    static mach_port_t *s_kIOMasterPortDefault;
+    static kern_return_t (*s_IORegistryEntryCreateCFProperties)(mach_port_t entry, CFMutableDictionaryRef *properties, CFAllocatorRef allocator, UInt32 options);
+    static mach_port_t (*s_IOServiceGetMatchingService)(mach_port_t masterPort, CFDictionaryRef matching CF_RELEASES_ARGUMENT);
+    static CFMutableDictionaryRef (*s_IOServiceMatching)(const char *name);
+
+    static CFMutableDictionaryRef g_powerSourceService;
+    static mach_port_t g_platformExpertDevice;
+
+    static BOOL foundSymbols = NO;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        void* handle = dlopen("/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit", RTLD_LAZY);
+        s_IORegistryEntryCreateCFProperties = dlsym(handle, "IORegistryEntryCreateCFProperties");
+        s_kIOMasterPortDefault = dlsym(handle, "kIOMasterPortDefault");
+        s_IOServiceMatching = dlsym(handle, "IOServiceMatching");
+        s_IOServiceGetMatchingService = dlsym(handle, "IOServiceGetMatchingService");
+
+        if (s_IORegistryEntryCreateCFProperties && s_IOServiceMatching && s_IOServiceGetMatchingService) {
+            g_powerSourceService = s_IOServiceMatching("IOPMPowerSource");
+            g_platformExpertDevice = s_IOServiceGetMatchingService(*s_kIOMasterPortDefault, g_powerSourceService);
+            foundSymbols = (g_powerSourceService && g_platformExpertDevice);
+        }
+    });
+
+    if (! foundSymbols) return nil;
+
+    CFMutableDictionaryRef prop = NULL;
+    s_IORegistryEntryCreateCFProperties(g_platformExpertDevice, &prop, 0, 0);
+    return prop ? ((NSDictionary *) CFBridgingRelease(prop)) : nil;
+}
+
+//// 初始化电量管理函数
+//- (BOOL) batteryMgInit{
+//
+//    // 1.   动态获取IOKit句柄，选择RTLD_NOW模式
+//    _handleIOKit =dlopen(NT_IOKIT_DYLIB_PATH, RTLD_NOW);
+//    if (!_handleIOKit) {
+//        return NO;
+//    }
+//    // 2.   通过IOKit句柄，动态获取kIOMasterPortDefault对应的mach port
+//    _kIOMasterPortDefault = (mach_port_t *)dlsym(_handleIOKit, "kIOMasterPortDefault");
+//
+//    // 3.   通过IOKit句柄，动态获取主IOServiceMatching变量
+//    _mIOServiceMathcing = (NT_IO_SERVICE_MATCHING)dlsym(_handleIOKit, "IOServiceMatching");
+//
+//    // 4.   通过IOKit句柄，动态获取IOServiceGetMatchingService对应的mach port
+//    _mIOServiceGetMatchingService = (NT_IO_SERVICE_GET_MATCHING_SERVICE)dlsym(_handleIOKit, "IOServiceGetMatchingService");
+//
+//    // 5.   通过IOKit句柄，动态获取主IORegistryEntryCreateCFProperties函数地址
+//    _mIORegistryEntryCreateCFProperties = (NT_IO_REGISTRY_ENTRY_CREATE_CF_PROPERTIES)dlsym(_handleIOKit, "IORegistryEntryCreateCFProperties");
+//
+//    // 6.   GT_PFN_IOOBJECTRELEASE为int类型
+//    _mIOObjectRelease = (NT_IO_OBJECT_RELEASE)dlsym(_handleIOKit, "IOObjectRelease");
+//
+//
+//    if (_kIOMasterPortDefault &&
+//        _mIOServiceMathcing &&
+//        _mIOServiceGetMatchingService &&
+//        _mIORegistryEntryCreateCFProperties &&
+//        _mIOObjectRelease
+//        ) {
+//        return YES;
+//    }
+//
+//    return YES;
+//}
+//
+//- (void) updateBatteryInfo {
+//    CFMutableDictionaryRef matching, properties = NULL;
+//    mach_port_t entry = 0;
+//    //  获取电量管理对象，_mIOServiceMathcing为动态获取IOKit对应函数（_mIOServiceMathcing）地址指针
+//
+//    //  调用IOKit的IOServiceMathcing函数，获取IOPMPowerSource对应的matching字典
+//    matching = _mIOServiceMathcing("IOPMPowerSource");
+//    if (!matching) {
+//        return;
+//    }
+//
+//    //
+//    //    func IOServiceGetMatchingService(_ masterPort: mach_port_t,
+//    //                                     _ matching: CFDictionary!) -> io_service_t
+//    //    查询匹配matching的IOService注册对象，
+//    entry = _mIOServiceGetMatchingService(*_kIOMasterPortDefault, matching);
+//    if (!entry) {
+//        return;
+//    }
+//
+//
+//    /**
+//     函数原型：
+//     func IORegistryEntryCreateCFProperties(_ entry: io_registry_entry_t,
+//     _ properties: UnsafeMutablePointer<Unmanaged<CFMutableDictionary>?>!,
+//     _ allocator: CFAllocator!,
+//     _ options: IOOptionBits) -> kern_return_t
+//     IORegistryEntryCreateCFProperties：根据注册对象句柄，将对象属性存入字典 ***/
+//    kern_return_t rt = _mIORegistryEntryCreateCFProperties(entry, &properties, NULL, 0);
+//    if (rt) {
+//        return;
+//    }
+//
+//    //  properties提取参数
+//    [self updateBatteryItem: (__bridge NSDictionary *)properties];
+//    CFRelease( properties );
+//    _mIOObjectRelease( entry );
+//
+//    return;
+//
+//}
+//
+//
+//
+//- (void) updateBatteryItem:(NSDictionary *)dic{
+//
+//    self.batteryUnit.preCurrentCapacity = self.batteryUnit.currentCapacity;
+//
+//    NSNumber *currentCapacity = [dic objectForKey: @"CurrentCapacity"];
+//    self.batteryUnit.currentCapacity = [currentCapacity intValue];
+//
+//    NSNumber *maxCapacity = [dic objectForKey: @"MaxCapacity"];
+//    self.batteryUnit.maxCapacity = [maxCapacity intValue];
+//
+//    NSNumber *voltage = [dic objectForKey:@"Voltage"];
+//    self.batteryUnit.voltage = [voltage intValue];
+//}
+
 
 @end
