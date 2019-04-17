@@ -156,6 +156,17 @@
     CGFloat data3 = 0;
     CGFloat minus = data2 - data3;
     NSLog(@"lookKai minus = %.2f", minus);
+    
+    /*Printing description of mutableDic:
+     {
+     "key_1" = 1;
+     "key_2" = 2;
+     }*/
+    NSMutableDictionary *mutableDic = [NSMutableDictionary new];
+    [mutableDic setValue:@1 forKey:@"key_1"];
+    [mutableDic setValue:nil forKey:@"key_nil"];
+    [mutableDic setValue:@"2" forKey:@"key_2"];
+    NSLog(mutableDic);
 }
 
 - (void)startupAnimation1:(UIView *)sender {
