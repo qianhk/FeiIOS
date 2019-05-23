@@ -166,7 +166,14 @@
     [mutableDic setValue:@1 forKey:@"key_1"];
     [mutableDic setValue:nil forKey:@"key_nil"];
     [mutableDic setValue:@"2" forKey:@"key_2"];
-    NSLog(mutableDic);
+//    NSLog(mutableDic);
+    
+    UIScreen *screen = [UIScreen mainScreen];
+    id <UICoordinateSpace> space = screen.coordinateSpace;
+    id <UICoordinateSpace> fixedSpace = screen.fixedCoordinateSpace;
+    UIScreenMode  *perferedMode = screen.preferredMode;
+    NSLog(@"lookKai space=%@ fixSpace=%@ bounds=%@ nativeBounds=%@ scale=%.2f nativeScale=%.2f", NSStringFromCGRect(space.bounds), NSStringFromCGRect(fixedSpace.bounds)
+          , NSStringFromCGRect(screen.bounds), NSStringFromCGRect(screen.nativeBounds), screen.scale, screen.nativeScale);
 }
 
 - (void)startupAnimation1:(UIView *)sender {
