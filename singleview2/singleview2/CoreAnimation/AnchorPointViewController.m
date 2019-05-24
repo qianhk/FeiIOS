@@ -27,6 +27,8 @@
 
 @property (strong, nonatomic) dispatch_source_t timer;
 
+@property (strong, nonatomic) NSMutableData *testData;
+
 @end
 
 @implementation AnchorPointViewController
@@ -141,6 +143,21 @@
         [strongSelf timeTick];
     });
     dispatch_resume(_timer);
+    
+//    for (int i = 0; i < 10000; i++) {
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//            self.testData = [[NSMutableData alloc] init];
+//        });
+//    }
+    
+    NSString *kaiTestStr = @"kaiTestStr";
+    NSLog(@"lookTest 1 %p %@ 0x%x", kaiTestStr, kaiTestStr, &kaiTestStr);
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [NSThread sleepForTimeInterval:5];
+        NSLog(@"lookTest 3 %p %@ 0x%x", kaiTestStr, kaiTestStr, &kaiTestStr); //lookTest kaiTestStr
+    });
+    kaiTestStr = @"222222";
+    NSLog(@"lookTest 2 %p %@ 0x%x", kaiTestStr, kaiTestStr, &kaiTestStr);
 }
 
 - (void)onTapLayerView:(id)recognizer {
