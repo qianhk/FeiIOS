@@ -156,14 +156,14 @@
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         [NSThread sleepForTimeInterval:1];
         mach_port_t machTID = pthread_mach_thread_np(pthread_self());
-        NSLog(@"global queue: current thread: %ld  %@", machTID, [AnchorPointViewController getPrettyCurrentThreadDescription]);
+        NSLog(@"global queue: current thread: %ld tId=%ld  %@", machTID, [AnchorPointViewController getCurrentThreadId], [AnchorPointViewController getPrettyCurrentThreadDescription]);
         NSLog(@"lookTest 3 %p %@ 0x%x", kaiTestStr, kaiTestStr, &kaiTestStr); //lookTest kaiTestStr
     });
     kaiTestStr = @"222222";
     NSLog(@"lookTest 2 %p %@ 0x%x", kaiTestStr, kaiTestStr, &kaiTestStr);
     
     mach_port_t machTID = pthread_mach_thread_np(pthread_self()); //mach_port_t 不等于线程id
-    NSLog(@"current thread: %ld  %@", machTID, [AnchorPointViewController getPrettyCurrentThreadDescription]);
+    NSLog(@"current thread: %ld tId=%ld  %@", machTID, [AnchorPointViewController getCurrentThreadId], [AnchorPointViewController getPrettyCurrentThreadDescription]);
 }
 
 - (void)onTapLayerView:(id)recognizer {
@@ -248,6 +248,38 @@
 //    __weak typeof(self) weakSef = self; // dealloc里不能使用弱引用，会crash
 }
 
++ (NSInteger)getCurrentThreadId {
+    static NSRegularExpression *regex = nil;
+    if (regex == nil) {
+        regex = [NSRegularExpression regularExpressionWithPattern:@"number = (?<tid>\\d+)" options:NSRegularExpressionCaseInsensitive error:nil];
+    }
+    NSString *raw = [[NSThread currentThread] description]; //<NSThread: 0x600003d728c0>{number = 1, name = main}; // one match
+//    NSString *raw = @"<NSThread: 0x6000002d6840>{number = 3, name = (null)} <NSThread: 0x6000002d6840>{number = 666, name = (null)}"; // multi match
+//    NSString *raw = [self description]; // no match
+    NSLog(@"lookRaw %@", raw);
+//    NSString *raw2 = [[NSThread currentThread] debugDescription];
+    NSArray *matches = [regex matchesInString:raw options:0 range:NSMakeRange(0, [raw length])];
+//
+//    [regex enumerateMatchesInString:raw options:0 range:NSMakeRange(0, [raw length]) usingBlock:^(NSTextCheckingResult * _Nullable obj, NSMatchingFlags flags, BOOL * _Nonnull stop) {
+//        NSLog(@"enum1 range=%@ %@", NSStringFromRange(obj.range), [raw substringWithRange:obj.range]);
+//    }];
+//
+//    [matches enumerateObjectsUsingBlock:^(NSTextCheckingResult *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        NSLog(@"enum2 range=%@ %@", NSStringFromRange(obj.range), [raw substringWithRange:obj.range]);
+//    }];
+    
+    NSTextCheckingResult *result = [regex firstMatchInString:raw options:0 range:NSMakeRange(0, [raw length])];
+    NSLog(@"matches count=%ld, result_type=0x%X range=%@ nOfRange=%ld", matches.count, result.resultType, NSStringFromRange(result.range), result.numberOfRanges);
+    NSInteger tId = 0;
+    if (result != nil && result.numberOfRanges > 1) {
+        NSRange r1 = [result rangeAtIndex:1];
+//        NSRange r2 = [result rangeWithName:@"tid"]; //ios 11
+        NSLog(@"lookMatch r0=%@ r1=%@ str=%@", NSStringFromRange([result rangeAtIndex:0]), NSStringFromRange(r1), [raw substringWithRange:r1]);
+        return [[raw substringWithRange:r1] integerValue];
+    }
+    return tId;
+}
+
 + (NSString *)getPrettyCurrentThreadDescription {
     NSString *raw = [NSString stringWithFormat:@"%@", [NSThread currentThread]];
     
@@ -265,7 +297,7 @@
 //            return numberAndName;
 //        }
 //    }
-//    
+//
 //    return raw;
 }
 
