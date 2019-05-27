@@ -7,6 +7,7 @@
 //
 
 #import "AnchorPointViewController.h"
+#include <pthread.h>
 
 @interface AnchorPointViewController ()
 
@@ -153,11 +154,16 @@
     NSString *kaiTestStr = @"kaiTestStr";
     NSLog(@"lookTest 1 %p %@ 0x%x", kaiTestStr, kaiTestStr, &kaiTestStr);
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [NSThread sleepForTimeInterval:5];
+        [NSThread sleepForTimeInterval:1];
+        mach_port_t machTID = pthread_mach_thread_np(pthread_self());
+        NSLog(@"global queue: current thread: %ld  %@", machTID, [AnchorPointViewController getPrettyCurrentThreadDescription]);
         NSLog(@"lookTest 3 %p %@ 0x%x", kaiTestStr, kaiTestStr, &kaiTestStr); //lookTest kaiTestStr
     });
     kaiTestStr = @"222222";
     NSLog(@"lookTest 2 %p %@ 0x%x", kaiTestStr, kaiTestStr, &kaiTestStr);
+    
+    mach_port_t machTID = pthread_mach_thread_np(pthread_self()); //mach_port_t 不等于线程id
+    NSLog(@"current thread: %ld  %@", machTID, [AnchorPointViewController getPrettyCurrentThreadDescription]);
 }
 
 - (void)onTapLayerView:(id)recognizer {
@@ -240,6 +246,27 @@
     dispatch_cancel(_timer);
     
 //    __weak typeof(self) weakSef = self; // dealloc里不能使用弱引用，会crash
+}
+
++ (NSString *)getPrettyCurrentThreadDescription {
+    NSString *raw = [NSString stringWithFormat:@"%@", [NSThread currentThread]];
+    
+    NSArray *splits = [raw componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"{}"]];
+    if (splits.count == 3) {
+        return splits[1];
+    }
+    return raw;
+    
+//    NSArray *firstSplit = [raw componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"{"]];
+//    if ([firstSplit count] > 1) {
+//        NSArray *secondSplit     = [firstSplit[1] componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"}"]];
+//        if ([secondSplit count] > 0) {
+//            NSString *numberAndName = secondSplit[0];
+//            return numberAndName;
+//        }
+//    }
+//    
+//    return raw;
 }
 
 @end
