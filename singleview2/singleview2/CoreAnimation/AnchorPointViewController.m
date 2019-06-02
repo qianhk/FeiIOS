@@ -30,6 +30,8 @@
 
 @property (strong, nonatomic) NSMutableData *testData;
 
+@property (strong, nonatomic) CALayer *testLayer;
+
 @end
 
 @implementation AnchorPointViewController
@@ -113,9 +115,28 @@
 
     
     CALayer *colorLayer = [CALayer layer];
-    colorLayer.frame = CGRectInset(self.layerView.bounds, 30, 10);
-    colorLayer.backgroundColor = [UIColor blueColor].CGColor;
+    colorLayer.frame = CGRectInset(self.layerView.bounds, 30, 10); //(30, 10, 90, 30)
+    colorLayer.backgroundColor = [UIColor greenColor].CGColor;
     [self.layerView.layer addSublayer:colorLayer];
+    NSLog(@"lookKaiLayer 1 bounds=%@ frame=%@ anchor=%@ position=%@"
+          , NSStringFromCGRect(colorLayer.bounds), NSStringFromCGRect(colorLayer.frame)
+          ,NSStringFromCGPoint(colorLayer.anchorPoint), NSStringFromCGPoint(colorLayer.position));
+    
+    //layerview width 150 height 50
+    colorLayer = [CALayer layer];
+    colorLayer.backgroundColor = [UIColor blueColor].CGColor;
+    _testLayer = colorLayer;
+    
+    [self.layerView.layer addSublayer:colorLayer];
+//    self.layerView.layer.mask = colorLayer;
+//    colorLayer.bounds = CGRectInset(self.layerView.bounds, 40, 15); //(40, 15, 70, 20)
+    colorLayer.bounds = CGRectMake(0, 0, self.layerView.bounds.size.width - 5 * 2, self.layerView.bounds.size.height - 15 * 2); //(0, 0, 140, 20)
+    CGPoint center = self.layerView.center;
+    center = [self.layerView convertPoint:center fromView:_layerView.superview];
+    colorLayer.position = center;
+    NSLog(@"lookKaiLayer 2 bounds=%@ frame=%@ anchor=%@ position=%@"
+          , NSStringFromCGRect(colorLayer.bounds), NSStringFromCGRect(colorLayer.frame)
+          ,NSStringFromCGPoint(colorLayer.anchorPoint), NSStringFromCGPoint(colorLayer.position));
 //    self.layerView.clipsToBounds = YES;
     self.layerView.userInteractionEnabled = YES;
     [self.layerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapLayerView:)]];
@@ -203,6 +224,14 @@
 //        animation.timingFunction = fn;
         //apply animation to layer
         [layer addAnimation:animation forKey:nil];
+        
+        CABasicAnimation *baseAnimation = [CABasicAnimation animationWithKeyPath:@"bounds"];
+        baseAnimation.duration = 2.0;
+        baseAnimation.fromValue = [NSValue valueWithCGRect:CGRectMake(0, 0, self.layerView.bounds.size.width - 5 * 2, self.layerView.bounds.size.height - 15 * 2)];
+        baseAnimation.toValue = [NSValue valueWithCGRect:CGRectMake(0, 0, 40, 10)];
+        baseAnimation.fillMode = kCAFillModeForwards;
+        baseAnimation.removedOnCompletion = NO;
+        [_testLayer addAnimation:baseAnimation forKey:nil];
     }
 }
 
