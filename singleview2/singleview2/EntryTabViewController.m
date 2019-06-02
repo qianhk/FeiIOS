@@ -49,6 +49,7 @@
             @{@"Name": @"EmitterTestViewController", @"Vc": @"EmitterTestViewController"},
             @{@"Name": @"AnchorPointViewController", @"Vc": @"AnchorPointViewController", @"Nib": @"AnchorPointViewController"},
             @{@"Name": @"CAAnimationViewController", @"Vc": @"CAAnimationViewController", @"Nib": @"CAAnimationViewController"},
+            @{@"Name": @"TestManyLayerViewController", @"Vc": @"TestManyLayerViewController", @"Nib": @"TestManyLayerViewController"},
             @{@"Name": @"LinearLayoutViewController", @"Vc": @"TestLinearLayoutViewController"},
             @{@"Name": @"AnimationTestViewController", @"Vc": @"AnimationTestViewController", @"Nib": @"AnimationTestViewController"},
             @{@"Name": @"SubscribeViewController", @"Vc": @"SubscribeViewController"},
