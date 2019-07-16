@@ -94,6 +94,21 @@
     [self.resultLabel sizeToFit];
 
     [self testRacSignal];
+    
+    NSMutableDictionary *mutableDic = [NSMutableDictionary dictionary];
+    NSObject *nilObj = nil;
+    mutableDic[@"testHaha"] = @(666);
+    mutableDic[@"NullKey"] = nil;
+    mutableDic[@"NullKey2"] = nilObj;
+    [mutableDic setValue:nilObj forKey:@"NullKey3"];
+    //    [mutableDic setObject:nilObj forKey:@"NullKey4"]; //-[__NSDictionaryM setObject:forKey:]: object cannot be nil (key: testNN)'
+    
+    //    NSDictionary *constDic = @{@"NullKey5": nilObj}; //crash
+    
+    NSInteger abc = -100;
+    NSUInteger uAbc0 = abc; //很大的正数
+    NSUInteger uAbc1 = (NSUInteger)(-100/20); //很大的正数
+    NSUInteger uAbc2 = (NSUInteger)(-100.f/20); //0
 }
 
 - (void)didReceiveMemoryWarning {

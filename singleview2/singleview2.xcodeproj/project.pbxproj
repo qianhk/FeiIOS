@@ -37,6 +37,7 @@
 		19DD3721FFA82A7C2243E9BC /* StickyHeaderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD30DD2FE79C0AD3F52D9F /* StickyHeaderInfo.m */; };
 		19DD37405E5AEF4C24170374 /* NSObject+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3E1E67BDD3D2E0C13C93 /* NSObject+Utils.m */; };
 		19DD3810B9A0002EC96A4767 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19DD3639270FEEF858CD2455 /* CoreLocation.framework */; };
+		19DD385D0495BF66DAC16E88 /* FPSTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3FCE15E7E1669538C3A7 /* FPSTestViewController.m */; };
 		19DD3871B01154DA899885D2 /* YYTextParserObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3684D771E0CAEA878FB4 /* YYTextParserObject.m */; };
 		19DD38DE90F47F4C1B8581C1 /* Calculator.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3C08706F84A4D5C6EFAA /* Calculator.m */; };
 		19DD38E39F2E18EF81057221 /* TextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DD3103813FF8B83D737440 /* TextTableViewCell.xib */; };
@@ -233,6 +234,7 @@
 		19DD3C08706F84A4D5C6EFAA /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
 		19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Calculator.m"; sourceTree = "<group>"; };
 		19DD3C4E6FCF9245BC4BCB01 /* SimpleLinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleLinearLayout.h; sourceTree = "<group>"; };
+		19DD3C5AE2639FCAB4BD9639 /* FPSTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSTestViewController.h; sourceTree = "<group>"; };
 		19DD3C762C20AFE9B642CE7B /* SearchResultController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultController.h; sourceTree = "<group>"; };
 		19DD3C934F7869307B161152 /* TestTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTouchView.m; sourceTree = "<group>"; };
 		19DD3CA74EB99547AE4AE0DD /* PostTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTableViewController.h; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 		19DD3F84B2DDF3F717B81062 /* ArtistDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistDetailViewController.m; sourceTree = "<group>"; };
 		19DD3FA6E4B0B1FB28D1358C /* NSString+EmailAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EmailAdditions.m"; sourceTree = "<group>"; };
 		19DD3FC1BFD5EE51E9487967 /* BaseImageRecognitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseImageRecognitionViewController.h; sourceTree = "<group>"; };
+		19DD3FCE15E7E1669538C3A7 /* FPSTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSTestViewController.m; sourceTree = "<group>"; };
 		1D10952B8412B82D62641B77 /* Pods-singleview2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-singleview2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-singleview2/Pods-singleview2.debug.xcconfig"; sourceTree = "<group>"; };
 		2A0557B721C654E40028FF13 /* CAAnimationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAAnimationViewController.h; sourceTree = "<group>"; };
 		2A0557B821C654E40028FF13 /* CAAnimationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAAnimationViewController.m; sourceTree = "<group>"; };
@@ -571,6 +574,15 @@
 			path = ThirdTab;
 			sourceTree = "<group>";
 		};
+		19DD3AEF012612695558E58E /* FPS */ = {
+			isa = PBXGroup;
+			children = (
+				19DD3C5AE2639FCAB4BD9639 /* FPSTestViewController.h */,
+				19DD3FCE15E7E1669538C3A7 /* FPSTestViewController.m */,
+			);
+			path = FPS;
+			sourceTree = "<group>";
+		};
 		19DD3B3E34B00123A0138E0F /* TableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -858,6 +870,7 @@
 				19DD39CE30D1845F861CA8F7 /* AIEntryTabViewController.h */,
 				19DD31BD97360A69477DCFC5 /* AppUINavigationController.m */,
 				19DD30D9FCDCC0B3219D86B2 /* AppUINavigationController.h */,
+				19DD3AEF012612695558E58E /* FPS */,
 			);
 			path = singleview2;
 			sourceTree = "<group>";
@@ -931,6 +944,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				"zh-Hans",
 				"zh-Hant",
@@ -1126,6 +1140,7 @@
 				19DD33812A3F6117A3EF8B20 /* DynamicAnimatorTestViewController.m in Sources */,
 				19DD32C0984D3246161950DA /* DynamicAnimatorTest2ViewController.m in Sources */,
 				19DD3C02FE425A25E0C1737A /* TestCircleGradientLayer.m in Sources */,
+				19DD385D0495BF66DAC16E88 /* FPSTestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -65,6 +65,7 @@
             @{@"Name": @"ArtistListViewController", @"Vc": @"ArtistListViewController"},
             @{@"Name": @"YYTextTestViewController", @"Vc": @"YYTextTestViewController"},
             @{@"Name": @"PostTableViewController", @"Vc": @"PostTableViewController"},
+            @{@"Name": @"FPSTestViewController", @"Vc": @"FPSTestViewController"},
             @{@"Name": @"DynamicAnimatorTest", @"Vc": @"DynamicAnimatorTestViewController"},
             @{@"Name": @"DynamicAnimatorTest2", @"Vc": @"DynamicAnimatorTest2ViewController"},
             @{@"Name": @"CoordinatorLayoutTest", @"Vc": @"CoordinatorLayoutTestViewController"},
