@@ -109,6 +109,32 @@
     NSUInteger uAbc0 = abc; //很大的正数
     NSUInteger uAbc1 = (NSUInteger)(-100/20); //很大的正数
     NSUInteger uAbc2 = (NSUInteger)(-100.f/20); //0
+    
+    //64位机器上
+    int sizeOfChar = sizeof(char); //1
+    int sizeOfInt = sizeof(int); //4
+    int sizeOfInteger = sizeof(NSInteger); //8
+    int sizeOfFloat = sizeof(float); //4
+    int sizeOfCGFloat = sizeof(CGFloat); //8
+    int sizeOfDouble = sizeof(double); //8
+    int sizeOfLongDouble = sizeof(long double); //16
+    int sizeOfLong = sizeof(long); //8
+    int sizeOfLongLong = sizeof(long long); //8
+    //    int sizeOfByte = sizeof(byte);
+    
+    NSString *normalString = @"kaikaiTestBase64Encoding凯凯测试Base64，太短了不换行加长点儿试试";
+    NSData *normalData = [normalString dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *base641 = [normalData base64Encoding];
+    NSString *base642 = [normalData base64EncodedStringWithOptions:0];
+    NSString *base643 = [normalData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength]; //换行用\r\n
+    NSString *base644 = [normalData base64EncodedStringWithOptions:NSDataBase64Encoding76CharacterLineLength]; //换行用\r\n
+    NSString *base645 = [normalData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithLineFeed]; //单独使用无意义
+    NSString *base646 = [normalData base64EncodedStringWithOptions:NSDataBase64EncodingEndLineWithCarriageReturn];  //单独使用无意义
+    NSString *base647 = [normalData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength|NSDataBase64EncodingEndLineWithLineFeed]; //换行用\n
+    NSString *base648 = [normalData base64EncodedStringWithOptions:NSDataBase64Encoding76CharacterLineLength|NSDataBase64EncodingEndLineWithCarriageReturn]; //换行用\r
+    
+    NSString *revertString= [[NSString alloc] initWithData:[[NSData alloc] initWithBase64EncodedString:base647 options:NSDataBase64DecodingIgnoreUnknownCharacters] encoding:NSUTF8StringEncoding];
+    NSLog(@"lookKai revertString=%@", revertString);
 }
 
 - (void)didReceiveMemoryWarning {
