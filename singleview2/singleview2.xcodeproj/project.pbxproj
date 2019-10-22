@@ -50,6 +50,7 @@
 		19DD39BEE2D30818E5D081B8 /* KVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD31FA4E6F39FD7DF2249D /* KVCModel.m */; };
 		19DD3A4126018D3DFA157009 /* NameAndColorCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19DD3DD66AD1900D4B8A6DAF /* NameAndColorCell2.xib */; };
 		19DD3A76623BD5DC58194F8A /* sortednames.plist in Resources */ = {isa = PBXBuildFile; fileRef = 19DD3396F3E6744ABF10836B /* sortednames.plist */; };
+		19DD3A8B6E7DFC7440AC4A16 /* CoreTextTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD35F41336D5BE7A1F64C0 /* CoreTextTestViewController.m */; };
 		19DD3B12AAB2D3F104CF4B69 /* CustomCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD397DECACEA625586A2AD /* CustomCollectionViewController.m */; };
 		19DD3B51F05B1CE1C5C7B6B9 /* TestLinearLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD393DEF9081909916D85D /* TestLinearLayoutViewController.m */; };
 		19DD3B5358B0883672263EDF /* CoordinatorLayoutTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3DC826679B40A9ECAF71 /* CoordinatorLayoutTestViewController.m */; };
@@ -67,6 +68,7 @@
 		19DD3F2591202825A572A3A3 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 19DD398A48524E2F900C6B8D /* Podfile */; };
 		19DD3F34926154CA2DB93FF4 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3EF00066527A7954D946 /* Person.m */; };
 		19DD3F4395F3AC160E5A2959 /* ArtistListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD340E1384FB6D10475D3B /* ArtistListViewController.m */; };
+		19DD3F4704E9F55F3B913E58 /* TestCoreTextView1.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3BF13F273C9869169E9B /* TestCoreTextView1.m */; };
 		19DD3F89356E7CDD5E9C1CD0 /* StickyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD361D0FFC45D10D4F1C71 /* StickyHeaderView.m */; };
 		19DD3FC02CBB864A3184F48B /* NSString+EmailAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3FA6E4B0B1FB28D1358C /* NSString+EmailAdditions.m */; };
 		19DD3FC3D2E0292ED9E077B3 /* AnimationLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19DD3275B35A6B977BDFD647 /* AnimationLabel.m */; };
@@ -109,6 +111,7 @@
 		2AA531381FF1F3990093F9B7 /* TestFlowCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AA531371FF1F3990093F9B7 /* TestFlowCollectionViewController.m */; };
 		2AB0764121BC09BC003006A3 /* AnchorPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB0763F21BC09BC003006A3 /* AnchorPointViewController.m */; };
 		2AB0764221BC09BC003006A3 /* AnchorPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AB0764021BC09BC003006A3 /* AnchorPointViewController.xib */; };
+		2AB6B71D235DB1720098741B /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AB6B71C235DB1720098741B /* CoreText.framework */; };
 		2ABBC5AE21CFBE37001FACF1 /* TestManyLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABBC5AC21CFBE37001FACF1 /* TestManyLayerViewController.m */; };
 		2ABBC5AF21CFBE37001FACF1 /* TestManyLayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ABBC5AD21CFBE37001FACF1 /* TestManyLayerViewController.xib */; };
 		2ABE85411F385BF900609D5A /* PostTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE85401F385BF900609D5A /* PostTableViewController.m */; };
@@ -180,6 +183,7 @@
 		19DD33FF453765820CE92883 /* YYTextTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTextTestViewController.m; sourceTree = "<group>"; };
 		19DD340DC160DA1623BB479B /* CoordinatorLayoutTestTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordinatorLayoutTestTabViewController.h; sourceTree = "<group>"; };
 		19DD340E1384FB6D10475D3B /* ArtistListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistListViewController.m; sourceTree = "<group>"; };
+		19DD34229A1520D54F44C20A /* CoreTextTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextTestViewController.h; sourceTree = "<group>"; };
 		19DD34252230FA5263F1F675 /* SubscribeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubscribeViewController.h; sourceTree = "<group>"; };
 		19DD34264A2C4FFE772E01A0 /* WMButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMButton.h; sourceTree = "<group>"; };
 		19DD343497F86F9BCE1EE051 /* KaiLayoutExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KaiLayoutExt.h; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 		19DD359C8F368B3FA2BB75B8 /* CFTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFTool.m; sourceTree = "<group>"; };
 		19DD35C43987F227D69D5940 /* KaiLayoutExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KaiLayoutExt.m; sourceTree = "<group>"; };
 		19DD35DFD5C2B5BE44657DDE /* MasonryLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasonryLayout.m; sourceTree = "<group>"; };
+		19DD35F41336D5BE7A1F64C0 /* CoreTextTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreTextTestViewController.m; sourceTree = "<group>"; };
 		19DD3612E615A8DE8118A2C2 /* MasonryLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasonryLayout.h; sourceTree = "<group>"; };
 		19DD361D0FFC45D10D4F1C71 /* StickyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyHeaderView.m; sourceTree = "<group>"; };
 		19DD3639270FEEF858CD2455 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -230,6 +235,8 @@
 		19DD3A99985C7B0E18387E76 /* AppGlobalUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppGlobalUI.m; sourceTree = "<group>"; };
 		19DD3ADB15419F501AAC8533 /* DynamicAnimatorTest2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicAnimatorTest2ViewController.m; sourceTree = "<group>"; };
 		19DD3B3AA1D115A1905A0E29 /* NSObject+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Utils.h"; sourceTree = "<group>"; };
+		19DD3BBC608A01731442CDEB /* TestCoreTextView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCoreTextView1.h; sourceTree = "<group>"; };
+		19DD3BF13F273C9869169E9B /* TestCoreTextView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCoreTextView1.m; sourceTree = "<group>"; };
 		19DD3BFF87DE82FEE5D78D3A /* BaseImageRecognitionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseImageRecognitionViewController.m; sourceTree = "<group>"; };
 		19DD3C08706F84A4D5C6EFAA /* Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Calculator.m; sourceTree = "<group>"; };
 		19DD3C177EC6B271C1983CDD /* NSObject+Calculator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Calculator.m"; sourceTree = "<group>"; };
@@ -332,6 +339,7 @@
 		2AB0763E21BC09BC003006A3 /* AnchorPointViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnchorPointViewController.h; sourceTree = "<group>"; };
 		2AB0763F21BC09BC003006A3 /* AnchorPointViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnchorPointViewController.m; sourceTree = "<group>"; };
 		2AB0764021BC09BC003006A3 /* AnchorPointViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnchorPointViewController.xib; sourceTree = "<group>"; };
+		2AB6B71C235DB1720098741B /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		2ABBC5AB21CFBE37001FACF1 /* TestManyLayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestManyLayerViewController.h; sourceTree = "<group>"; };
 		2ABBC5AC21CFBE37001FACF1 /* TestManyLayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestManyLayerViewController.m; sourceTree = "<group>"; };
 		2ABBC5AD21CFBE37001FACF1 /* TestManyLayerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestManyLayerViewController.xib; sourceTree = "<group>"; };
@@ -380,6 +388,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AB6B71D235DB1720098741B /* CoreText.framework in Frameworks */,
 				2A55722F20257BEA00F1083C /* AVFoundation.framework in Frameworks */,
 				2A55722D2024BF1100F1083C /* CoreMedia.framework in Frameworks */,
 				2A55722C2024BEDC00F1083C /* CoreVideo.framework in Frameworks */,
@@ -774,6 +783,17 @@
 			path = CoreAnimation;
 			sourceTree = "<group>";
 		};
+		2AB6B71B235D9BF90098741B /* CoreText */ = {
+			isa = PBXGroup;
+			children = (
+				19DD34229A1520D54F44C20A /* CoreTextTestViewController.h */,
+				19DD35F41336D5BE7A1F64C0 /* CoreTextTestViewController.m */,
+				19DD3BBC608A01731442CDEB /* TestCoreTextView1.h */,
+				19DD3BF13F273C9869169E9B /* TestCoreTextView1.m */,
+			);
+			path = CoreText;
+			sourceTree = "<group>";
+		};
 		733110295F6532FE63A2CEE2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -805,6 +825,7 @@
 		D9CE40AB14FB8F1000E6FD79 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2AB6B71C235DB1720098741B /* CoreText.framework */,
 				2A55722E20257BEA00F1083C /* AVFoundation.framework */,
 				2A55722B2024BEDC00F1083C /* CoreVideo.framework */,
 				2A5572292024BECC00F1083C /* CoreMedia.framework */,
@@ -823,6 +844,7 @@
 		D9CE40B214FB8F1000E6FD79 /* singleview2 */ = {
 			isa = PBXGroup;
 			children = (
+				2AB6B71B235D9BF90098741B /* CoreText */,
 				2AB0763C21BC097D003006A3 /* CoreAnimation */,
 				2A541A2021871400009EA801 /* Emitter */,
 				2A4A0F25214A632600952F24 /* StackView */,
@@ -944,7 +966,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				"zh-Hans",
 				"zh-Hant",
@@ -1141,6 +1162,8 @@
 				19DD32C0984D3246161950DA /* DynamicAnimatorTest2ViewController.m in Sources */,
 				19DD3C02FE425A25E0C1737A /* TestCircleGradientLayer.m in Sources */,
 				19DD385D0495BF66DAC16E88 /* FPSTestViewController.m in Sources */,
+				19DD3A8B6E7DFC7440AC4A16 /* CoreTextTestViewController.m in Sources */,
+				19DD3F4704E9F55F3B913E58 /* TestCoreTextView1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

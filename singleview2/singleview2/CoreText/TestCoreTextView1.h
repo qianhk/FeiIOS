@@ -1,0 +1,9 @@
+//
+// Created by kai on 2019/10/21.
+// Copyright (c) 2019 Njnu. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface TestCoreTextView1 : UIView
+@end

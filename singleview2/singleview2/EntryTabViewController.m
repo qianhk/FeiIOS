@@ -48,6 +48,7 @@
             @{@"Name": @"StackViewViewController", @"Vc": @"StackViewTestViewController"},
             @{@"Name": @"EmitterTestViewController", @"Vc": @"EmitterTestViewController"},
             @{@"Name": @"AnchorPointViewController", @"Vc": @"AnchorPointViewController", @"Nib": @"AnchorPointViewController"},
+            @{@"Name": @"CoreTextTestViewController", @"Vc": @"CoreTextTestViewController"},
             @{@"Name": @"CAAnimationViewController", @"Vc": @"CAAnimationViewController", @"Nib": @"CAAnimationViewController"},
             @{@"Name": @"TestManyLayerViewController", @"Vc": @"TestManyLayerViewController", @"Nib": @"TestManyLayerViewController"},
             @{@"Name": @"LinearLayoutViewController", @"Vc": @"TestLinearLayoutViewController"},
@@ -72,6 +73,12 @@
             @{@"Name": @"CoordinatorLayoutTestTab", @"Vc": @"CoordinatorLayoutTestTabViewController"}
     ];
 
+    [self performSelector:@selector(autoOpenPage) withObject:nil afterDelay:1];
+}
+
+- (void)autoOpenPage {
+    NSIndexPath *path = [NSIndexPath indexPathForRow:3 inSection:0];
+    [self tableView:self.tableView didSelectRowAtIndexPath:path];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

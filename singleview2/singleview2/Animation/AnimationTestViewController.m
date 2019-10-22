@@ -133,6 +133,8 @@
     NSLog(@"lookKai env=%@ arg=%@", environment, arguments);
     
     _tvResult.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"testXcodeArgument"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"modifyValue" forKey:@"testXcodeArgument"];
+     _tvResult.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"testXcodeArgument"];
     NSString  *testEnvObj = environment[@"kaikaiTestEnvBool"];
     NSString *testEnv = environment[@"kaikaiTestEnv"];
     if (testEnv) {
