@@ -5,5 +5,14 @@
 
 #import <UIKit/UIKit.h>
 
+@interface CTImageData : NSObject
+
+@property (nonatomic, strong) NSString *imgHolder;
+@property (nonatomic, strong) NSURL *imgPath;
+@property (nonatomic) NSInteger idx;
+@property (nonatomic) CGRect imageRect;
+
+@end
+
 @interface TestCoreTextView1 : UIView
 @end

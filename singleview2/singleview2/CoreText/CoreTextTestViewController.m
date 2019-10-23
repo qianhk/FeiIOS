@@ -22,7 +22,7 @@
     NSLog(@"lookKai viewDidLoad viewSize=%@", NSStringFromCGSize(size));
     _testView1 = [TestCoreTextView1 new];
     _testView1.backgroundColor = [[UIColor orangeColor] colorWithAlphaComponent:0.1];
-    _testView1.frame = CGRectMake(0, kTopHeight, size.width, size.height);
+    _testView1.frame = CGRectMake(0, kTopHeight, size.width, size.height - kTopHeight);
     [self.view addSubview:_testView1];
 }
 
