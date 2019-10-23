@@ -23,15 +23,22 @@ void ImgRunDelegateDeallocCallback(void *refCon) {
 
 CGFloat ImgRunDelegateGetAscentCallback(void *refCon) {
     NSString *imageName = (__bridge NSString *) refCon;
-    return [UIImage imageNamed:imageName].size.height;
+    return [UIImage imageNamed:imageName].size.height - 0;
 }
 
 @implementation CTImageData
 @end
 
-@interface TestCoreTextView1 ()
+@implementation CTLinkData
+@end
+
+@interface TestCoreTextView1 () {
+    CTFrameRef _ctFrame;
+}
 
 @property (nonatomic, strong) NSMutableArray *imageDataArray;
+@property (nonatomic, strong) NSMutableArray *linkDataArray;
+
 
 @end
 
@@ -46,7 +53,9 @@ CGFloat ImgRunDelegateGetAscentCallback(void *refCon) {
     return self;
 }
 
-
+//https://www.jianshu.com/p/ca676daf371f iOS-CoreText 的使用
+//https://www.jianshu.com/p/6db3289fb05d CoreText实现图文混排
+//http://www.cocoachina.com/ios/20180329/22838.html 在iOS中如何正确的实现行间距与行高
 - (void)drawRect:(CGRect)rect {
     [super drawRect:rect];
     CGRect bounds = self.bounds;
@@ -70,14 +79,15 @@ CGFloat ImgRunDelegateGetAscentCallback(void *refCon) {
 //    font = CTFontCreateWithName((CFStringRef) @"ArialMT", 16, NULL);
 //    [attString addAttribute:(id) kCTFontAttributeName value:(__bridge id) font range:NSMakeRange(6, 5)];
 
-    [attString appendAttributedString:[[NSAttributedString alloc] initWithString:@"👀 空" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:32]}]];
+    [attString appendAttributedString:[[NSAttributedString alloc] initWithString:@"👀 空心字" attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:32]}]];
 
 //    long number = 2;
 //    CFNumberRef num = CFNumberCreate(kCFAllocatorDefault,kCFNumberSInt8Type,&number);
-    [attString appendAttributedString:[[NSAttributedString alloc] initWithString:@"空" attributes:@{NSStrokeWidthAttributeName: @(1), NSStrokeColorAttributeName: [UIColor orangeColor], NSFontAttributeName: [UIFont systemFontOfSize:32]}]]; //stroke width 为正数时，foregroundcolor无效，不使用
+    [attString appendAttributedString:[[NSAttributedString alloc] initWithString:@"空心字" attributes:@{NSStrokeWidthAttributeName: @(1), NSStrokeColorAttributeName: [UIColor orangeColor], NSFontAttributeName: [UIFont systemFontOfSize:32]}]]; //stroke width 为正数时，foregroundcolor无效，不使用
 
 
     CTRunDelegateCallbacks imageCallBacks;
+    memset(&imageCallBacks,0,sizeof(CTRunDelegateCallbacks));
     imageCallBacks.version = kCTRunDelegateCurrentVersion;
     imageCallBacks.dealloc = ImgRunDelegateDeallocCallback;
     imageCallBacks.getAscent = ImgRunDelegateGetAscentCallback;
@@ -96,13 +106,22 @@ CGFloat ImgRunDelegateGetAscentCallback(void *refCon) {
     NSMutableAttributedString *imgAttributedStr = [[NSMutableAttributedString alloc]
             initWithString:@" " attributes:@{(NSString *) kCTRunDelegateAttributeName: (__bridge id) imgRunDelegate, kImgName: imgName}];
     [attString appendAttributedString:imgAttributedStr];
+    CFRelease(imgRunDelegate);
 
     [attString appendAttributedString:[[NSAttributedString alloc] initWithString:@"空心字" attributes:@{NSStrokeWidthAttributeName: @(-1), NSStrokeColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:32], NSForegroundColorAttributeName: [UIColor greenColor]}]];
 
+//    CTLineRef line = CTLineCreateWithAttributedString((__bridge CFAttributedStringRef) attString);
+//    CGContextSetTextPosition(context, 10.0, bounds.size.height - 100);//文本的起点
+//    CTLineDraw(line, context);
+//    return;
+
     CTFramesetterRef framesetter = CTFramesetterCreateWithAttributedString((__bridge CFAttributedStringRef) attString);
     CTFrameRef frame = CTFramesetterCreateFrame(framesetter, CFRangeMake(0, [attString length]), path, NULL);
+    _ctFrame = frame;
     // 步骤 5
     CTFrameDraw(frame, context);
+
+
 
     //绘制图片
     CFArrayRef lines = CTFrameGetLines(frame);
@@ -190,17 +209,57 @@ CGFloat ImgRunDelegateGetAscentCallback(void *refCon) {
 
 
     // 步骤 6
-    CFRelease(frame);
+//    CFRelease(frame);
     CFRelease(path);
     CFRelease(framesetter);
 }
 
 - (void)setupEvents {
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(userTapGestureDetected:)];
-
     [self addGestureRecognizer:tapRecognizer];
-
     self.userInteractionEnabled = YES;
+}
+
+- (CFIndex)touchPointOffset:(CGPoint)point {
+    //获取所有行
+    CFArrayRef lines = CTFrameGetLines(_ctFrame);
+
+    if (lines == nil) {
+        return -1;
+    }
+    CFIndex count = CFArrayGetCount(lines);
+
+    //获取每行起点
+    CGPoint origins[count];
+    CTFrameGetLineOrigins(_ctFrame, CFRangeMake(0, 0), origins);
+
+
+    //Flip
+    CGAffineTransform transform = CGAffineTransformMakeTranslation(0, self.bounds.size.height);
+    transform = CGAffineTransformScale(transform, 1.f, -1.f);
+
+    CFIndex idx = -1;
+    for (int i = 0; i < count; i++) {
+        CGPoint lineOrigin = origins[i];
+        CTLineRef line = CFArrayGetValueAtIndex(lines, i);
+
+        //获取每一行Rect
+        CGFloat ascent = 0.0f;
+        CGFloat descent = 0.0f;
+        CGFloat leading = 0.0f;
+        CGFloat width = (CGFloat) CTLineGetTypographicBounds(line, &ascent, &descent, &leading);
+        CGRect lineRect = CGRectMake(lineOrigin.x, lineOrigin.y - descent, width, ascent + descent);
+
+        lineRect = CGRectApplyAffineTransform(lineRect, transform);
+
+        if (CGRectContainsPoint(lineRect, point)) {
+            //将point相对于view的坐标转换为相对于该行的坐标
+            CGPoint linePoint = CGPointMake(point.x - lineRect.origin.x, point.y - lineRect.origin.y);
+            //根据当前行的坐标获取相对整个CoreText串的偏移
+            idx = CTLineGetStringIndexForPosition(line, linePoint);
+        }
+    }
+    return idx;
 }
 
 - (void)userTapGestureDetected:(UIGestureRecognizer *)recognizer {
@@ -218,6 +277,15 @@ CGFloat ImgRunDelegateGetAscentCallback(void *refCon) {
     }
 
     //再判断链接
+    CFIndex idx = [self touchPointOffset:point];
+    if (idx != -1) {
+        for (CTLinkData *linkData in _linkDataArray) {
+            if (NSLocationInRange(idx, linkData.range)) {
+                NSLog(@"tap link handle,url:%@", linkData.url);
+                break;
+            }
+        }
+    }
 }
 
 @end

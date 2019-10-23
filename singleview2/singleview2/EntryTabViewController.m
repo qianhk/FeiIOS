@@ -73,7 +73,7 @@
             @{@"Name": @"CoordinatorLayoutTestTab", @"Vc": @"CoordinatorLayoutTestTabViewController"}
     ];
 
-    [self performSelector:@selector(autoOpenPage) withObject:nil afterDelay:1];
+//    [self performSelector:@selector(autoOpenPage) withObject:nil afterDelay:0.3f];
 }
 
 - (void)autoOpenPage {
